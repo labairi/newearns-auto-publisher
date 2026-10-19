@@ -1,0 +1,146 @@
+# New Earns automated publishing configuration.
+# Everything here is checked into the repo. Secrets live ONLY in environment
+# variables / GitHub Actions secrets (see SETUP.md), never in this file.
+
+site:
+  # Override with the WP_BASE_URL environment variable if needed.
+  base_url: https://newearns.com
+  # Verified 2026-10-19 via the public REST API: WordPress + AIOSEO 5.0,
+  # GeneratePress, LiteSpeed Cache, Hostinger, Site Kit, MonsterInsights.
+  seo_plugin: aioseo
+  language: en
+
+publishing:
+  # dry-run is a command-line flag, not a mode: it never contacts WordPress for writes.
+  # review  -> every article is saved as "Pending Review" in WordPress
+  # draft   -> passing articles saved as Draft, failing ones as Pending Review (default)
+  # publish -> passing articles go live; failing ones Pending Review.
+  #            Also requires the environment variable ALLOW_PUBLISH=true
+  #            (set only in the GitHub workflow, only after your approval).
+  #            Without it, publish mode falls back to draft and says so in the run output.
+  mode: draft
+  max_articles_per_run: 1
+  min_hours_between_posts: 36
+
+# Category ids come from https://newearns.com/wp-json/wp/v2/categories
+# Only ids listed here are ever used. The pipeline never creates categories.
+categories:
+  passive-income-ideas: 1
+  make-money-online: 30
+  ai-future-trends: 34
+  # Proposed new categories. Create them in WP Admin (Posts > Categories)
+  # once approved, then paste their ids here. Until then the pillar falls
+  # back to `fallback_category`.
+  documents-productivity: null
+  creator-economy: null
+
+pillars:
+  pdf:
+    weight: 0.4
+    category: documents-productivity
+    fallback_category: make-money-online
+    product: private_pdf_editor
+    seed_topics:
+      - how to compress a PDF for email without losing quality
+      - how to merge PDF files for client invoices
+      - how to password protect a PDF before sending it
+      - how to sign a PDF contract as a freelancer
+      - how to convert PDF to Word and keep formatting
+      - how to make an invoice PDF as a freelancer
+      - how to remove pages from a PDF
+      - how to convert a PDF to PDF/A for archiving
+      - how to extract text from a scanned image
+      - how to add page numbers to a PDF
+  instagram:
+    weight: 0.4
+    category: creator-economy
+    fallback_category: make-money-online
+    product: instagramaps
+    seed_topics:
+      - how brands find Instagram creators to work with
+      - how to pitch a brand collaboration on Instagram
+      - how to read Instagram audience location insights
+      - how much to charge for a sponsored Instagram post
+      - micro influencer marketing for small businesses
+      - how to vet an Instagram influencer before paying
+      - how to build a creator media kit
+      - Instagram Professional dashboard insights explained
+  money:
+    weight: 0.2
+    category: make-money-online
+    fallback_category: make-money-online
+    product: null
+    seed_topics:
+      - document side hustles for freelancers
+      - how small businesses can use AI tools responsibly
+
+# Facts about the products. The writer may ONLY claim what is listed here
+# (all taken from the public product pages on 2026-10-19). Edit when the
+# products change. The quality gate rejects other product claims.
+products:
+  private_pdf_editor:
+    name: Private PDF Editor
+    url: https://private-pdf-editor.com/
+    allowed_claims:
+      - Browser-based PDF toolkit with about 30 tools
+      - Standard PDF editing runs in the browser; some conversions are handled differently and have separate disclosures
+      - Tools include edit, merge, split, remove pages, organize, rotate, page numbers, header and footer, watermark
+      - Tools include compress, repair, inspect, protect, unlock, sign
+      - Converts JPG, Word, PowerPoint, Excel and HTML to PDF, and PDF to JPG, Word, PowerPoint, Excel and PDF/A
+      - Also offers an invoice generator, AI PDF summarizer and image to text
+      - Has paid plans (see its pricing page for current prices)
+  instagramaps:
+    name: Instagramaps
+    url: https://instagramaps.com/
+    allowed_claims:
+      - Lets creators and businesses connect an Instagram account to see where their audience engages by country and city
+      - Compares views, reach and engagement per post
+      - Includes a marketplace where creators and businesses create profiles, get matched and send collaboration requests
+      - Has free Creator and Business plans; paid plans start at 9 USD per month (check the pricing page for current prices)
+    # Never claim it can analyze accounts the user does not own or that it
+    # shows private data. The product requires connecting your own account.
+
+product_linking:
+  max_product_links_per_article: 2
+  utm: "utm_source=newearns&utm_medium=referral&utm_campaign={slug}"
+  disclosure: >-
+    Disclosure: {product} is built by the team behind New Earns. We mention it
+    where it fits the task; the steps in this guide also work with other tools.
+
+quality:
+  min_words: 1200
+  max_words: 3200
+  max_keyword_density: 0.025      # exact focus keyphrase share of words
+  max_duplicate_similarity: 0.35  # 5-gram Jaccard vs any existing post
+  max_title_similarity: 0.80
+  meta_description_length: [120, 160]
+  seo_title_max_length: 60
+  min_sources: 3
+  require_https_links: true
+  banned_phrases:
+    # fabricated first-hand experience / testimonials
+    - "i tested"
+    - "we tested"
+    - "in my experience"
+    - "our team tested"
+    - "i personally"
+    - "one of our customers"
+    - "a client of ours"
+    - "testimonial"
+    # hype that tends to signal unsupported claims
+    - "guaranteed"
+    - "100% safe"
+    - "skyrocket"
+    - "shocking truth"
+
+models:
+  # Claude Opus 5.5 for research/writing/fact-check.
+  writer: claude-opus-5-5
+  effort: high
+  max_web_searches: 8
+  max_web_fetches: 10
+
+tracking:
+  gsc_site_url: sc-domain:newearns.com   # or https://newearns.com/ (URL-prefix property)
+  ga4_property_id: null                  # numeric GA4 property id, optional
+  refresh_after_days: 45

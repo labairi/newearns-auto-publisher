@@ -1,0 +1,56 @@
+name: publisher
+
+# Manual runs only. There is deliberately NO `schedule:` trigger.
+# Scheduled publishing gets added only after the owner approves it.
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "What to run"
+        type: choice
+        default: check-setup
+        options:
+          - check-setup        # read-only: credentials, role, categories
+          - article-dry-run    # generate + quality checks, nothing sent to WordPress
+          - article            # uses publishing.mode from config.yaml (draft by default)
+
+concurrency:
+  group: publisher
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # commit the publication log back to the repo
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      WP_USERNAME: ${{ secrets.WP_USERNAME }}
+      WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+      # Second safety key for live publishing. Stays "false" until approved.
+      ALLOW_PUBLISH: "false"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Run
+        run: |
+          case "${{ inputs.command }}" in
+            check-setup)      python -m publisher.run check-setup ;;
+            article-dry-run)  python -m publisher.run article --dry-run ;;
+            article)          python -m publisher.run article --resume ;;
+          esac
+      - name: Save publication log and checkpoints
+        if: always() && inputs.command != 'check-setup'
+        run: |
+          git config user.name "newearns-publisher"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "publisher: ${{ inputs.command }} run ${{ github.run_id }}"
+          git push
