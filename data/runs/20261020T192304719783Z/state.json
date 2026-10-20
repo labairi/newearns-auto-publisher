@@ -1,0 +1,580 @@
+{
+  "run_id": "20261020T192304719783Z",
+  "stages": {
+    "pillar": "pdf",
+    "topic": "How to Compress a PDF for Email",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 52,
+        "cache_creation_input_tokens": 76903,
+        "cache_read_input_tokens": 1101185,
+        "output_tokens": 18898,
+        "web_search_requests": 17,
+        "web_fetch_requests": 7,
+        "requests": 10,
+        "read_source_calls": 20,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 52,
+            "cache_write_5m_tokens": 76903,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 1101185,
+            "output_tokens": 18898
+          }
+        },
+        "fetched_urls": [
+          "https://helpx.adobe.com/acrobat/desktop/create-documents/optimize-pdfs/pdf-optimizer-settings.html",
+          "https://helpx.adobe.com/acrobat/desktop/create-documents/optimize-pdfs/reduce-file-size.html",
+          "https://helpx.adobe.com/acrobat/web/share-review-and-export/export-and-print/compress-pdfs.html"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 1.153
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 11209,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 15019,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 11209,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 15019
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.356
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 32969,
+        "cache_read_input_tokens": 28970,
+        "output_tokens": 5230,
+        "web_search_requests": 0,
+        "web_fetch_requests": 1,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 6,
+            "cache_write_5m_tokens": 32969,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 28970,
+            "output_tokens": 5230
+          }
+        },
+        "fetched_urls": [
+          "https://help.yahoo.com/kb/SLN5673.html"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.275
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 3471,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 5447,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 3471,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 5447
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.126
+      }
+    ],
+    "brief": "I've planned one article: **how to compress a PDF for email**. Every limit and setting below comes from an official help page (Google, Microsoft, Apple, Adobe, Yahoo). I couldn't read the main text of several Adobe help pages (403 errors or pages cut off in the menu), so I left them out as evidence.\n\n---\n\n# Content brief: how to compress a PDF for email\n\n## 1. Chosen query and focus keyphrase\n- **Chosen query:** compress pdf for email. It's the only candidate, and its intent is clear. No search-volume data was available, so I haven't estimated any.\n- **Focus keyphrase:** `compress a PDF for email`\n- **Working title:** How to Compress a PDF for Email (and What to Do When It's Still Too Big)\n- **Where to use the keyphrase:** title, first paragraph, and once or twice more in the body. Don't put it in every heading.\n\n## 2. Search intent (from what ranks now)\nThe intent is **how-to with a fast fix**. The results are mostly PDF-tool companies: their tool pages (Adobe, Canva, PDF2Go, Compress2Go, 11zon) and blog posts that lead to their own tool (SignHouse, Smallpdf, PDF Candy, Wondershare, SysTools, Popupsmart). Searches for the limits themselves (\"gmail attachment size limit\", \"outlook attachment size limit\") mostly return third-party explainers, not the official help pages. So readers want two things: steps to make the file smaller, and reassurance that it will actually send.\n\n**Gaps in current results:**\n- Most posts send you straight to one company's tool. Few say which limit applies to *your* account or what to do if compression isn't enough.\n- Limits are often stated loosely or out of date. For example, one top result says Gmail and most providers limit you to 20 MB, but Google's help page says 25 MB for personal accounts. **Don't name or criticise that page in the article.** Just get the facts right.\n- Few explain why a file just under the limit can still bounce: encoding can make a message about 33% bigger.\n- Little help on checking quality afterwards, or on keeping client documents private when using upload tools.\n\n## 3. Unique angle (the added value)\n**\"Know your limit, pick your method, check before sending.\"**\n1. A table of official attachment limits by provider, each linked to its source.\n2. A decision table matching the reader's setup (Mac, Acrobat, Word/PowerPoint, browser only) to the right method.\n3. Steps for each method from official docs, with a note that menus can differ by version.\n4. A quality check to run before sending (freelancers emailing proposals, invoices, portfolios).\n5. A \"still too big\" section: cloud link, split, remove pages.\n6. Troubleshooting for the actual error messages people see.\n\n## 4. Outline (H2/H3)\n\n**Intro (2–3 sentences, no filler).** The PDF won't attach or bounces. Say this guide shows how to compress a PDF for email, which limit applies to you, and what to do if it's still too big.\n\n**H2: Check which attachment limit applies to you**\n- Table: Provider | Limit | Notes | Source\n  - Gmail (personal): 25 MB. Over the limit, Gmail swaps the file for a Google Drive link. Work and school limits are set by the admin. ([Gmail Help](https://support.google.com/mail/answer/6584))\n  - Outlook.com: 25 MB. OneDrive files up to 2 GB. ([Microsoft Support](https://support.microsoft.com/en-us/outlook/sending-limits-in-outlook-com))\n  - Outlook desktop app with an internet account (POP3/IMAP/HTTP): 20 MB default. Exchange Server mailbox: 10 MB default, set by the admin. ([Microsoft Learn](https://learn.microsoft.com/en-us/troubleshoot/outlook/message-body/attachment-size-exceeds-the-allowable-limit-error))\n  - Microsoft 365 work mailboxes (Exchange Online): 35 MB default for sending, 36 MB for receiving. Admins can set 1–150 MB. ([Microsoft Learn](https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits))\n  - Yahoo Mail: 25 MB total for all attachments, sending and receiving. ([Yahoo Help](https://help.yahoo.com/kb/SLN5673.html))\n  - Apple Mail with Mail Drop: up to 5 GB, sent as a link that expires after 30 days. ([Apple Support](https://support.apple.com/en-us/108329))\n- **H3: Why a file just under the limit can still fail**\n  - Microsoft says messages sent outside its servers can grow by about 33% from encoding. Outlook on the web therefore caps messages at 25% below the configured limit. Link to the Exchange Online limits page.\n  - The *recipient's* email service may have a lower limit (Apple says so in its Mail Drop notes).\n  - Practical advice: leave headroom below the limit. **Don't give a made-up \"safe\" number.** Explain the reason using the 33% figure.\n\n**H2: Pick the right method for your setup** (decision table)\n| You have | Method | Cost | Control over quality |\n|---|---|---|---|\n| A Mac | Preview → Export → Quartz Filter \"Reduce File Size\" | Built in | Low to medium (options vary by macOS version) |\n| Adobe Acrobat desktop | All tools → Compress a PDF | Acrobat subscription | Advanced Optimization in Pro/Premium/Studio only |\n| Only a browser | Acrobat on the web, or another browser-based compressor | Varies | Compression levels |\n| The original Word/PowerPoint file | Re-export as a smaller PDF | Built in | Medium |\n\nDon't put prices in the table, and don't call any tool \"best\".\n\n**H2: Compress a PDF on a Mac with Preview**\n- Steps: File > Export → Quartz Filter → Reduce File Size → Save. Save it as a new filename so you keep the original.\n- Newer macOS versions also offer: Create Linearized PDF, Optimize images for screen, Save images as JPEG. These may not appear on older versions, so say so.\n- Apple warns the result may be lower quality than the original.\n\n**H2: Compress a PDF in Adobe Acrobat**\n- H3: Acrobat desktop: All tools → Compress a PDF → Single or Multiple files → Save.\n- H3: Acrobat on the web: sign in at acrobat.adobe.com → Convert > Compress a PDF → Select files → choose a compression level → Compress.\n- H3: Advanced Optimization (Pro, Premium or Studio only): the Make Compatible With setting, plus panels for Images, Fonts and Transparency.\n- Note: \"Adobe updates Acrobat's interface often; menu names may differ.\" The source was updated April 23, 2026.\n\n**H2: Make a smaller PDF from the original Word or PowerPoint file**\n- Microsoft says to choose **Minimum size (publishing online)** \"if file size is more important than print quality\". Its page states this for **PowerPoint and Access**.\n- **Caution for the writer:** the Word section of that page, as I read it, doesn't mention \"Minimum size\". It only covers File > Save a Copy / Save As → PDF → More Options > Options. Don't say Microsoft documents the option for Word. You could write: \"In PowerPoint, Microsoft's export steps include a Minimum size option; other Office apps may show a similar choice depending on version.\"\n- Tip: use Page range to export only the pages the recipient needs. This option is documented for Word.\n\n**H2: Use a browser-based compressor** (product mention #1, optional)\n- How these tools usually work: upload or open the file, pick a level, download.\n- Privacy checklist for client files: read the tool's disclosure on where files are processed. Avoid uploading contracts, IDs or financial records unless you know how the tool handles them.\n- Product link here (see section 7).\n\n**H2: Check the compressed file before you send it**\n- Open the copy. Zoom in on small text, charts and scanned signatures. Check that links and form fields still work. Compare file sizes.\n- Keep the original file. Preview offers to replace it unless you choose a new name.\n- No statistics in this section; it's practical advice.\n\n**H2: When compression isn't enough**\n- H3: Send a cloud link instead\n  - Gmail: Insert files using Drive. You can send it as a Drive link or attachment. Gmail checks whether recipients can open it.\n  - Outlook.com: share from OneDrive, files up to 2 GB.\n  - Apple Mail: Mail Drop, up to 5 GB, link lasts 30 days.\n- H3: Split the PDF and send it in more than one email (product mention #2, optional: split / remove pages)\n- H3: Remove pages the recipient doesn't need\n\n**H2: Troubleshooting common problems**\n- \"The file you're attaching is bigger than the server allows.\" This is the Outlook desktop message. Cause: 20 MB default for internet accounts, or the Exchange limit. Microsoft's own fix is a registry change; mention it only as an option for advanced users or admins, and send everyone else to cloud links.\n- Gmail replaced the attachment with a Drive link. This is expected behaviour when you go over 25 MB.\n- Recipient can't open the Drive file. Fix the sharing settings (see the conflicting Google lines in section 5).\n- File barely got smaller, or looks blurry. Try a different compression level, re-export from the source file, or split it. Describe this in general terms, with no percentages.\n- Can't send attachments at all from Gmail. Your Google storage may be full; Google says attachments count toward it.\n\n**H2: FAQ** (short answers, each with its source link)\n- What's the maximum PDF size for Gmail? → 25 MB for personal accounts.\n- Does compressing a PDF lower its quality? → It can (Apple's note).\n- Can I compress a PDF without extra software? → Mac: Preview. Office files: export with a smaller-size option.\n\n## 5. Facts to rely on (with URLs)\n| # | Fact | URL |\n|---|---|---|\n| F1 | Gmail personal accounts: 25 MB limit. Work and school: the admin sets the limits. | https://support.google.com/mail/answer/6584 |\n| F2 | Over the limit, Gmail removes the attachment and adds a Drive link automatically. | same |\n| F3 | Attachments count toward Google storage. If it's full, you can't send or receive attachments. | same |\n| F4 | Gmail Drive steps (Insert files using Drive; send as Drive link or attachment), access check, sharing options | https://support.google.com/mail/answer/2487407?hl=en&co=GENIE.Platform%3DDesktop |\n| F5 | Outlook.com attachment limit 25 MB; OneDrive files 2 GB | https://support.microsoft.com/en-us/outlook/sending-limits-in-outlook-com |\n| F6 | Outlook 2013 and later: 20 MB default for internet accounts. Exchange Server mailbox: 10 MB default. Exact error text. | https://learn.microsoft.com/en-us/troubleshoot/outlook/message-body/attachment-size-exceeds-the-allowable-limit-error |\n| F7 | Exchange Online: 35/36 MB default, admins can set 1–150 MB, about 33% encoding increase, Outlook on the web caps at 25% below the setting | https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits |\n| F8 | Yahoo: 25 MB total for all attachments in one message | https://help.yahoo.com/kb/SLN5673.html |\n| F9 | Mail Drop: up to 5 GB, 30-day download window, recipient's limit may be smaller | https://support.apple.com/en-us/108329 |\n| F10 | Preview steps and quality warning | https://support.apple.com/guide/preview/reduce-the-size-of-a-pdf-prvw1509/mac |\n| F11 | Acrobat desktop and web compress steps; Advanced Optimization only in Pro, Premium or Studio | https://experienceleague.adobe.com/en/docs/document-cloud-learn/acrobat-learning/advanced-tasks/prepare/reduce |\n| F12 | Office: Minimum size (publishing online) for PowerPoint and Access; Word export steps | https://support.microsoft.com/en-us/office/save-or-convert-to-pdf-or-xps-in-office-desktop-apps-d85416c5-7d77-4fd6-a216-6f4bf7c7c110 |\n\n**Two things the writer must handle:**\n- **Google contradicts itself.** The Drive-attachments page says that with \"Anyone with the link\", recipients don't need a Google Account. The same page ends by saying only people with a Google Account can see Drive files attached in Gmail. Safe wording: \"If recipients don't have a Google Account, use 'Anyone with the link' sharing; Google's help page has the details.\" Don't promise more than that.\n- **The Yahoo page loaded only partly** (208 characters). That text does state the 25 MB fact, but the writer should open the page to confirm before publishing.\n\n## 6. Internal links\nNone of the published New Earns posts match this intent (marketing agency, loans, passive income, phone and gaming income, AI business, passion to profit, working from home). **I recommend no internal links.** A forced link to \"10 Smart Ways to Make Money from Home in 2025\" would add nothing. Revisit once there are other PDF or freelancing-admin posts (invoices, proposals, e-signing).\n\n## 7. Product link: yes, but limited\n- **Where:**\n  1. **\"Use a browser-based compressor\"**, linking to https://private-pdf-editor.com/\n  2. Optionally under **\"Split the PDF\"**. That's the most allowed (two).\n- **Allowed wording:** \"Private PDF Editor is a browser-based PDF toolkit with about 30 tools, including compress, split and remove pages. Standard PDF editing runs in the browser; some conversions are handled differently and have separate disclosures. It has paid plans; see its pricing page for current prices.\"\n- **Don't** say that compression in particular runs on your device. The allowed claims only say \"standard PDF editing\" does. Tell readers to check the tool's disclosure. Don't compare it with Adobe or anyone else, and don't call it free or the best.\n\n---\n\n## SOURCE NOTES\n\n**1. Gmail Help – \"Send attachments with your Gmail message – Computer\"**\nURL: https://support.google.com/mail/answer/6584 · No date on page\n- F1: \"For personal Gmail accounts, the limit is 25 MB.\" / \"For work and school accounts, your Google Workspace administrator sets the attachment sending limits and attachment receiving limits.\"\n- F2: \"If your total attachment size is greater than the limit, Gmail automatically removes the attachment and adds it as a Google Drive link in the email.\"\n- F3: \"Attachments count toward your Google storage. Storage is shared across Drive, Photos, and Gmail. If you reach your storage limit, you can't send or receive attachments.\"\n- Also: \"To send large files over the size limit, like videos, use Google Drive.\"\n\n**2. Gmail Help – \"Send Google Drive attachments in Gmail – Computer\"**\nURL: https://support.google.com/mail/answer/2487407?hl=en&co=GENIE.Platform%3DDesktop · No date on page\n- \"If the file exceeds the Gmail size limit, or if you want to collaborate on it with others, attach it from Drive.\"\n- Steps: \"At the top left, click Compose.\" → \"At the bottom of the message, click Insert files using Drive.\" → \"Select the files you want to attach.\" → choose Drive link or Attachment → \"Click Insert.\"\n- Condition: \"Attachment: This only works for files that weren't created using Google Docs, Sheets, Slides, or Forms.\"\n- \"When you attach a Google Drive file to a message, Gmail checks to see if your recipients have access to the file. If they don't, you'll be prompted to change the sharing settings of the file before you send your message.\"\n- \"Recipients don't need to have a Google Account to see or edit the file.\" (under \"Anyone with the link\")\n- If kept private, recipients can't see it if: \"They don't have a Google Account\".\n- Conflicting line: \"Only people with a Google Account can see Google Drive files you attach in Gmail.\"\n- Work accounts: \"your admin may restrict which files you can share, and who you can share them with.\"\n\n**3. Microsoft Support – \"Sending limits in Outlook.com\"**\nURL: https://support.microsoft.com/en-us/outlook/sending-limits-in-outlook-com · Applies to Outlook.com; no date on page\n- F5: \"The attachment size limit for files is 25 MB.\" / \"You can also share a file from OneDrive. This way, your recipients can receive larger files and collaborate on it in real time. The attachment size limit for OneDrive files is 2GB.\"\n\n**4. Microsoft Learn – \"Attachment size exceeds the allowable limit error when you add a large attachment to an email message in Outlook\"** (KB 2813269)\nURL: https://learn.microsoft.com/en-us/troubleshoot/outlook/message-body/attachment-size-exceeds-the-allowable-limit-error · Applies to Outlook LTSC 2021, 2019, 2016, 2013 and Outlook for Microsoft 365; no date on page\n- Error text: \"The file you're attaching is bigger than the server allows. Try putting the file in a shared location and sending a link instead.\"\n- F6: \"Outlook 2013 and later versions have a default attachment size limit of 20 megabytes (20480 KB) for Internet email accounts.\" It applies to the total: \"whether you are adding one large attachment that is greater than 20 megabytes (MB) or several attachments whose sum total size is greater than 20 MB.\"\n- Exchange: \"if the sum total of the attachments is greater than 10 MB (10240 KB)\", which comes from the \"Maximum send size setting that is configured … by the Exchange administrator.\"\n- Condition: the fix is a registry edit (MaximumAttachmentSize) with a back-up warning. The Exchange change needs an Exchange administrator.\n\n**5. Microsoft Learn – \"Exchange Online limits\"** (service description)\nURL: https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits · No date on page\n- F7: \"The default maximum message size for Microsoft mailboxes is 35 MB for sending and 36 MB for receiving. Microsoft administrators can specify a custom limit between 1 MB and 150 MB. However, the size of message you can send or receive also depends on what your email client or solution supports.\"\n- \"Messages that are routed outside of the Microsoft datacenters are subject to an additional 33% translation encoding increase, in which case the maximum message size is 112 MB.\"\n- \"OWA accounts for the possibility that your message may be subject to the 33% encoding increase and restricts the size of message you can send to 25% less than the configured setting. For example, if you customize your settings for a 100 MB maximum message size, you can send messages no larger than 75 MB.\"\n- \"Some email clients may have lower message size limits or may limit the size of an individual file attachment to a value that is less than the Exchange Online message size limit.\"\n- Scope: this is for Microsoft 365 work and school mailboxes, not Outlook.com.\n\n**6. Yahoo Help – \"Message size limits in Yahoo Mail\"** (SLN5673)\nURL: https://help.yahoo.com/kb/SLN5673.html · No date. Page loaded only partly.\n- F8: \"The sum of all attached files in a single message, both for incoming and outgoing email, must not exceed 25MB in total file size.\"\n\n**7. Apple Support – \"Mail Drop limits\"**\nURL: https://support.apple.com/en-us/108329 · Page shows \"March\" (no year)\n- F9: \"With Mail Drop, you can send attachments up to 5 GB in size.\" / \"attachments don't count against your iCloud storage.\" / \"If a message, including its attachments, is larger than your Internet Service Provider (ISP) limit, Mail will ask you to send the attachments using Mail Drop.\"\n- \"After you send an email, the recipients have 30 days to download the Mail Drop attachments.\"\n- \"The recipient's email app might have a smaller message size limit that prevents the attachment from being delivered.\"\n- Requirements: \"Mail Drop works with a Mac using OS X Yosemite or later, an iPhone, iPad, or iPod touch with iOS 9.2, and a Mac or PC with an updated browser.\"\n- Limits: 1 TB Mail Drop storage; \"Each attachment expires after 30 days.\"\n\n**8. Apple Support – \"Reduce the size of a PDF in Preview on Mac\"**\nURL: https://support.apple.com/guide/preview/reduce-the-size-of-a-pdf-prvw1509/mac · No date. Unversioned page, probably the latest macOS. The macOS 15 version page is titled \"Compress a PDF in Preview on Mac\", but I could only read its intro.\n- F10: \"Note: When compressed, the PDF may be of lower quality than the original. The resulting file size and image quality may vary depending on the options you select.\"\n- Steps: \"Open the PDF you want to make smaller.\" → \"Choose File > Export.\" → \"In the Quartz Filter pop-up menu, choose Reduce File Size.\" → \"Click Save.\" To keep the original: \"Click Cancel, enter a new filename in the Export As field, then click Save.\"\n- Options: \"Create Linearized PDF: Optimize the PDF for fast loading and viewing in web browsers.\" / \"Optimize images for screen: Optimize images for screen viewing to reduce file size.\" / \"Save images as JPEG: Convert images to JPEG format, which uses image compression.\"\n- Writer: say the options may differ by macOS version.\n\n**9. Adobe Experience League – \"Compress & Optimize a PDF\"**\nURL: https://experienceleague.adobe.com/en/docs/document-cloud-learn/acrobat-learning/advanced-tasks/prepare/reduce · \"Last update: April 23, 2026\"\n- \"Compressing a PDF makes it easier to share via email or upload to websites with file size limitations.\"\n- Desktop: \"Open a file and select All tools from the toolbar, then choose Compress a PDF.\" → \"Select Single file or Multiple files in the Compress a PDF panel.\" → \"Select Save.\" Adobe's claim, to attribute: \"The file is reduced to the smallest size possible while retaining the document's quality.\"\n- Web: \"Sign in to acrobat.adobe.com in a browser.\" → \"Select Convert > Compress a PDF from the top menu.\" → \"Choose Select files, select your files, and choose Open.\" → \"Select a compression level and choose Compress.\"\n- Condition: \"Optimizing a PDF is only available in Acrobat Pro, Premium, or Studio on the desktop.\" / \"Select Advanced Optimization from the Compress a PDF panel.\" / \"From the Make Compatible With dropdown, choose Retain Existing to keep the current PDF version, or choose an Acrobat version.\"\n- I couldn't read the full text of these Adobe pages, so don't use them: helpx \"Compress PDFs online\" (only the menu loaded; metadata says last modified 2026-04-01), helpx desktop \"Reduce PDF file size\" pages, and adobe.com/acrobat/online/compress-pdf.html (403). Nothing about Adobe's free-tier limits is verified.\n\n**10. Microsoft Support – \"Save or convert to PDF or XPS in Office Desktop apps\"**\nURL: https://support.microsoft.com/en-us/office/save-or-convert-to-pdf-or-xps-in-office-desktop-apps-d85416c5-7d77-4fd6-a216-6f4bf7c7c110 · Applies to Microsoft 365, 2024, 2021, 2019 and 2016 apps; no date on page\n- Access: \"If the document requires high print quality, select Standard (publishing online and printing).\" / \"If file size is more important than print quality, select Minimum size (publishing online).\"\n- PowerPoint: \"If the file size is more important than print quality, select Minimum size (publishing online).\"\n- Word: \"If the file was previously saved, select File > Save a Copy. If the file is unsaved, select File > Save As or Save a Copy.\" → \"In the drop-down list, select PDF.\" → \"Select More Options > Options to customize your PDF.\" / \"To make a PDF file from only some of the pages in your document, choose an option under Page range.\"\n- Limit: the Word section I read doesn't mention \"Minimum size\". Don't attribute that option to Word using this source.\n\n**11. Private PDF Editor – home page** (product, not evidence)\nURL: https://private-pdf-editor.com/ · No date\n- \"Standard PDF editing stays in your browser for privacy.\" / \"Standard PDF operations remain in your browser; conversion exceptions have separate disclosures.\"\n- Use only the allowed-claims list in section 7.",
+    "candidates": [
+      "How to Compress a PDF for Email (primary query: compress pdf for email)"
+    ],
+    "article": {
+      "title": "How to Compress a PDF for Email (and What to Do When It's Still Too Big)",
+      "seo_title": "How to Compress a PDF for Email: Limits and Fixes",
+      "slug": "compress-pdf-for-email",
+      "meta_description": "Learn how to compress a PDF for email on a Mac, in Acrobat or from Office, check Gmail, Outlook and Yahoo limits, and fix files that are still too big.",
+      "focus_keyphrase": "compress a PDF for email",
+      "excerpt": "Find the attachment limit that applies to your account, pick the right compression method for your setup, check quality before sending, and know what to do when the PDF is still too big.",
+      "content_html": "<p>Your PDF won't attach, or the email comes back undelivered. This guide shows how to compress a PDF for email with tools you probably already have, explains which attachment limit applies to your account, and covers what to do when the file is still too big after compressing.</p><h2>Check which attachment limit applies to you</h2><p>Before you shrink anything, find your target. Limits depend on your email provider, the type of account, and sometimes the app you send from. The figures below come from each provider's own help pages.</p><table><thead><tr><th>Provider or account</th><th>Limit</th><th>Notes</th><th>Source</th></tr></thead><tbody><tr><td>Gmail (personal account)</td><td>25 MB total attachment size</td><td>If you go over, Gmail automatically removes the attachment and adds it as a Google Drive link. For work and school accounts, your Google Workspace administrator sets the limits.</td><td><a href=\"https://support.google.com/mail/answer/6584\">Gmail Help</a></td></tr><tr><td>Outlook.com</td><td>25 MB per file attachment</td><td>Files shared from OneDrive can be up to 2 GB.</td><td><a href=\"https://support.microsoft.com/en-us/outlook/sending-limits-in-outlook-com\">Microsoft Support</a></td></tr><tr><td>Outlook desktop app (2013 and later) with an Internet email account</td><td>20 MB default, for the total of all attachments</td><td>Applies to one large file or several smaller files that add up to more than 20 MB.</td><td><a href=\"https://learn.microsoft.com/en-us/troubleshoot/outlook/message-body/attachment-size-exceeds-the-allowable-limit-error\">Microsoft Learn</a></td></tr><tr><td>Outlook desktop app with an Exchange Server mailbox</td><td>10 MB default</td><td>Comes from the maximum send size configured by the Exchange administrator.</td><td><a href=\"https://learn.microsoft.com/en-us/troubleshoot/outlook/message-body/attachment-size-exceeds-the-allowable-limit-error\">Microsoft Learn</a></td></tr><tr><td>Microsoft 365 work or school mailbox (Exchange Online)</td><td>35 MB for sending, 36 MB for receiving (default)</td><td>Administrators can set a custom limit between 1 MB and 150 MB. Your email client may support less.</td><td><a href=\"https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits\">Microsoft Learn</a></td></tr><tr><td>Yahoo Mail</td><td>25 MB total for all attachments in one message</td><td>Applies to both incoming and outgoing email.</td><td><a href=\"https://help.yahoo.com/kb/SLN5673.html\">Yahoo Help</a></td></tr><tr><td>Apple Mail with Mail Drop</td><td>Up to 5 GB</td><td>Sent as a download link; recipients have 30 days to download. Mail Drop attachments don't count against your iCloud storage.</td><td><a href=\"https://support.apple.com/en-us/108329\">Apple Support</a></td></tr></tbody></table><p>If you send from a work or school account, the number that matters is whatever your administrator has configured. If you're not sure, ask your IT contact before you start compressing.</p><h3>Why a file just under the limit can still fail</h3><p>Email attachments are encoded for transport, and that makes the message bigger than the file on your disk. Microsoft's Exchange Online documentation says messages routed outside Microsoft's datacenters are subject to an additional 33% encoding increase, and that Outlook on the web restricts the message size you can send to 25% less than the configured setting to account for it. Microsoft's example: with a 100 MB limit configured, you can send messages no larger than 75 MB (<a href=\"https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits\">Exchange Online limits</a>).</p><p>The recipient's side matters too. Apple notes that the recipient's email app might have a smaller message size limit that prevents the attachment from being delivered (<a href=\"https://support.apple.com/en-us/108329\">Mail Drop limits</a>), and Microsoft says some email clients may have lower message size limits or cap individual attachments below the Exchange Online limit (<a href=\"https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits\">Exchange Online limits</a>).</p><p>The practical takeaway: leave headroom. There's no official \"safe\" size, but a file that sits right at the edge of your limit is the one most likely to bounce. If your compressed PDF is still close to the limit, compress further, trim pages, or send a link instead.</p><h2>Pick the right method for your setup</h2><p>Use this table to jump to the section that fits the tools you have.</p><table><thead><tr><th>You have</th><th>Method</th><th>Cost</th><th>Control over quality</th></tr></thead><tbody><tr><td>A Mac</td><td>Preview: File &gt; Export, Quartz Filter \"Reduce File Size\"</td><td>Built into macOS</td><td>Low to medium (options vary by macOS version)</td></tr><tr><td>Adobe Acrobat on the desktop</td><td>All tools &gt; Compress a PDF</td><td>Acrobat subscription</td><td>Advanced Optimization in Pro, Premium or Studio only</td></tr><tr><td>Only a web browser</td><td>Acrobat on the web, or another browser-based compressor</td><td>Varies by tool</td><td>Usually a choice of compression levels</td></tr><tr><td>The original Word or PowerPoint file</td><td>Re-export as a smaller PDF</td><td>Built into Office</td><td>Medium</td></tr></tbody></table><h2>Compress a PDF on a Mac with Preview</h2><p>Preview comes with macOS, so there's nothing to install. Apple's steps (<a href=\"https://support.apple.com/guide/preview/reduce-the-size-of-a-pdf-prvw1509/mac\">Apple Support: Reduce the size of a PDF in Preview</a>):</p><ol><li>Open the PDF in Preview.</li><li>Choose File &gt; Export.</li><li>In the Quartz Filter pop-up menu, choose Reduce File Size.</li><li>In the Export As field, give the file a new name, such as <em>proposal-email.pdf</em>, so the original stays untouched.</li><li>Click Save.</li></ol><p>If you keep the same name, Preview will offer to replace the original. Apple's guidance for keeping the original is to click Cancel, enter a new filename in the Export As field, then click Save.</p><p>Apple's current guide also lists extra options in the export dialog:</p><ul><li><strong>Create Linearized PDF:</strong> optimizes the PDF for fast loading and viewing in web browsers.</li><li><strong>Optimize images for screen:</strong> optimizes images for screen viewing to reduce file size.</li><li><strong>Save images as JPEG:</strong> converts images to JPEG format, which uses image compression.</li></ul><p>These options may not appear, or may be labelled differently, on older versions of macOS. Apple also warns that a compressed PDF may be of lower quality than the original, and that the resulting size and image quality vary depending on the options you select. Always open the exported copy before sending it (see the checklist further down).</p><h2>Compress a PDF in Adobe Acrobat</h2><p>Adobe's learning guide says compressing a PDF makes it easier to share via email or upload to websites with file size limits (<a href=\"https://experienceleague.adobe.com/en/docs/document-cloud-learn/acrobat-learning/advanced-tasks/prepare/reduce\">Adobe Experience League: Compress &amp; Optimize a PDF</a>). The steps below follow that guide, last updated April 23, 2026. Adobe updates Acrobat's interface often, so menu names in your version may differ.</p><h3>Acrobat desktop app</h3><ol><li>Open the file and select All tools from the toolbar.</li><li>Choose Compress a PDF.</li><li>In the Compress a PDF panel, select Single file or Multiple files.</li><li>Select Save. Consider saving under a new name so you keep the original.</li></ol><p>Adobe describes the result as reduced \"to the smallest size possible while retaining the document's quality.\" It's still worth checking the output yourself, especially for scanned pages and charts.</p><h3>Acrobat on the web</h3><ol><li>Sign in to acrobat.adobe.com in a browser.</li><li>Select Convert &gt; Compress a PDF from the top menu.</li><li>Choose Select files, pick your file, and choose Open.</li><li>Select a compression level and choose Compress.</li></ol><p>Acrobat on the web uploads your file to Adobe's service, so the privacy checklist in the browser-based section below applies here too.</p><h3>Advanced Optimization (Acrobat Pro, Premium or Studio)</h3><p>According to Adobe, optimizing a PDF is only available in Acrobat Pro, Premium or Studio on the desktop. Select Advanced Optimization from the Compress a PDF panel. From the Make Compatible With dropdown, choose Retain Existing to keep the current PDF version, or choose an Acrobat version. The dialog also lets you adjust settings for elements such as images, fonts and transparency, which is useful when the standard compression doesn't shrink the file enough or softens images too much.</p><h2>Make a smaller PDF from the original Word or PowerPoint file</h2><p>If you created the PDF yourself, going back to the source file can be a cleaner route than squeezing the finished PDF, because you control what goes into the export.</p><p><strong>PowerPoint:</strong> Microsoft's export instructions say that if file size is more important than print quality, select <strong>Minimum size (publishing online)</strong>. The same choice is documented for Access (<a href=\"https://support.microsoft.com/en-us/office/save-or-convert-to-pdf-or-xps-in-office-desktop-apps-d85416c5-7d77-4fd6-a216-6f4bf7c7c110\">Microsoft Support: Save or convert to PDF</a>). Other Office apps may show a similar choice depending on your version.</p><p><strong>Word:</strong> Microsoft's steps for saving a document as PDF are:</p><ol><li>If the file was previously saved, select File &gt; Save a Copy. If it's unsaved, select File &gt; Save As or Save a Copy.</li><li>In the drop-down list, select PDF.</li><li>Select More Options &gt; Options to customize your PDF.</li><li>To export only some pages, choose an option under Page range.</li></ol><p>Page range is the quickest win for Word users: if a client only needs the pricing pages of a long proposal, export just those. Before exporting from any Office app, it also helps to delete slides, pages or images the recipient doesn't need.</p><h2>Use a browser-based compressor</h2><p>No Mac, no Acrobat, no source file? Browser-based compressors work through a website. The usual flow is the same across tools: open the tool, add your PDF, choose a compression level if one is offered, then download the smaller copy.</p><p>The trade-off is privacy. Freelancers and small business owners often handle contracts, invoices and client data. Before you put a client file into any online tool:</p><ul><li>Read the tool's disclosure on where files are processed: in your browser, or on the company's servers.</li><li>Check whether and when uploaded files are deleted.</li><li>Avoid uploading contracts, ID documents or financial records unless you know how the tool handles them.</li><li>If you work under an NDA or for a company, check whether your agreement or policy allows third-party tools.</li></ul><p>One option is <a href=\"https://private-pdf-editor.com/?utm_source=newearns&amp;utm_medium=referral&amp;utm_campaign=compress-pdf-for-email\">Private PDF Editor</a>, a browser-based PDF toolkit with about 30 tools, including compress, split and remove pages. Standard PDF editing runs in the browser; some conversions are handled differently and have separate disclosures, so check the disclosure for the specific tool you use. It has paid plans; see its pricing page for current prices.</p><p><em>Disclosure: Private PDF Editor is built by the team behind New Earns. We mention it where it fits the task; the steps in this guide also work with other tools.</em></p><h2>Check the compressed file before you send it</h2><p>A smaller file that looks blurry in front of a client costs more than it saves. Run through this before you hit send:</p><ul><li><strong>Open the compressed copy</strong>, not the original, and scroll through every page.</li><li><strong>Zoom in on small text</strong>, footnotes and figures in tables. Invoices and contracts need to stay legible.</li><li><strong>Check charts, photos and portfolio images</strong> for blockiness or washed-out colour.</li><li><strong>Look at scanned signatures and stamps.</strong> These are often images and can degrade first.</li><li><strong>Click the links</strong> to make sure they still work.</li><li><strong>Test form fields</strong> if the recipient needs to fill something in.</li><li><strong>Compare file sizes</strong> in Finder or File Explorer to confirm the copy is actually smaller and has headroom below your limit.</li><li><strong>Keep the original.</strong> If you need to try a different setting, start again from the full-quality file rather than compressing an already compressed copy.</li></ul><h2>When compression isn't enough</h2><h3>Send a cloud link instead</h3><p>For large portfolios, scanned documents or image-heavy reports, a link is often simpler than fighting the limit.</p><p><strong>Gmail and Google Drive:</strong> Google says that if a file exceeds the Gmail size limit, you can attach it from Drive (<a href=\"https://support.google.com/mail/answer/2487407?hl=en&amp;co=GENIE.Platform%3DDesktop\">Gmail Help: Send Google Drive attachments</a>):</p><ol><li>At the top left, click Compose.</li><li>At the bottom of the message, click Insert files using Drive.</li><li>Select the files you want to attach.</li><li>Choose how to send it: Drive link or Attachment. (Attachment only works for files that weren't created in Google Docs, Sheets, Slides or Forms; an uploaded PDF qualifies.)</li><li>Click Insert.</li></ol><p>Gmail checks whether your recipients have access to the file and prompts you to change the sharing settings if they don't. If recipients don't have a Google Account, use \"Anyone with the link\" sharing; Google's help page has the details. On work accounts, your admin may restrict which files you can share and with whom.</p><p><strong>Outlook.com and OneDrive:</strong> Microsoft suggests sharing a file from OneDrive so recipients can receive larger files; the limit for OneDrive files is 2 GB (<a href=\"https://support.microsoft.com/en-us/outlook/sending-limits-in-outlook-com\">Microsoft Support</a>).</p><p><strong>Apple Mail and Mail Drop:</strong> Mail Drop lets you send attachments up to 5 GB. If a message is larger than your provider's limit, Mail will ask you to send the attachments using Mail Drop. Recipients have 30 days to download them, and Mail Drop works with a Mac running OS X Yosemite or later, iPhone or iPad with iOS 9.2 or later, and a Mac or PC with an updated browser (<a href=\"https://support.apple.com/en-us/108329\">Apple Support: Mail Drop limits</a>). Because the link expires, tell the recipient to download the file promptly.</p><h3>Split the PDF across several emails</h3><p>If the recipient needs real attachments, for example because their company blocks file-sharing links, split the PDF into parts that each fit comfortably under your provider's limit. Name them clearly, such as <em>portfolio-part-1-of-3.pdf</em>, and say in the first email how many messages to expect. Most PDF editors can split a file; the split tool in <a href=\"https://private-pdf-editor.com/?utm_source=newearns&amp;utm_medium=referral&amp;utm_campaign=compress-pdf-for-email\">Private PDF Editor</a> is one browser-based option.</p><h3>Remove pages the recipient doesn't need</h3><p>Often the easiest saving is content, not compression. Cover pages with full-bleed photos, appendices, duplicate scans and blank pages add size without helping the reader. Remove them in your PDF editor, or re-export only the pages you need from the source file using Page range in Word.</p><h2>Troubleshooting common problems</h2><h3>Outlook says \"The file you're attaching is bigger than the server allows\"</h3><p>This is the Outlook desktop message, which continues: \"Try putting the file in a shared location and sending a link instead.\" Microsoft explains the cause is the 20 MB default for Internet email accounts in Outlook 2013 and later, or the maximum send size set by your Exchange administrator, which defaults to 10 MB (<a href=\"https://learn.microsoft.com/en-us/troubleshoot/outlook/message-body/attachment-size-exceeds-the-allowable-limit-error\">Microsoft Learn</a>). Microsoft's documented fix for Internet accounts is a Windows registry change, which comes with a warning to back up the registry first; the Exchange limit can only be changed by an Exchange administrator. Unless you're comfortable editing the registry or you are the admin, compress the file further or share it via OneDrive instead.</p><h3>Gmail replaced my attachment with a Drive link</h3><p>That's expected behaviour. Google says that if your total attachment size is greater than the limit, 25 MB for personal accounts, Gmail automatically removes the attachment and adds it as a Google Drive link (<a href=\"https://support.google.com/mail/answer/6584\">Gmail Help</a>). If you'd rather send a true attachment, compress the PDF until it fits, or split it.</p><h3>The recipient can't open the Drive file</h3><p>This is almost always a sharing setting. Open the file's sharing options in Google Drive and give the recipient access, or switch to \"Anyone with the link\" if they don't have a Google Account. Google's <a href=\"https://support.google.com/mail/answer/2487407?hl=en&amp;co=GENIE.Platform%3DDesktop\">Drive attachments help page</a> covers the options.</p><h3>The file barely got smaller, or it looks blurry</h3><p>Compression mostly works on images, so a text-only PDF may not shrink much, while an image-heavy one can lose sharpness. Try a different compression level, use Advanced Optimization if you have Acrobat Pro, re-export from the original Word or PowerPoint file, or split the document. Always restart from the original file rather than compressing the same copy repeatedly.</p><h3>Gmail won't send any attachments at all</h3><p>Check your Google storage. Google says attachments count toward your storage, which is shared across Drive, Photos and Gmail, and that if you reach your storage limit you can't send or receive attachments (<a href=\"https://support.google.com/mail/answer/6584\">Gmail Help</a>). Free up space or add storage, then try again.</p><h2>FAQ</h2><h3>What's the maximum PDF size I can attach in Gmail?</h3><p>For personal Gmail accounts, the limit is 25 MB of total attachments per message; for work and school accounts, your administrator sets it (<a href=\"https://support.google.com/mail/answer/6584\">Gmail Help</a>).</p><h3>Why did my email bounce when the PDF was under the limit?</h3><p>Encoding adds size in transit, and the recipient's service may have a lower limit. Microsoft documents a 33% encoding increase for messages leaving its datacenters (<a href=\"https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits\">Exchange Online limits</a>), and Apple notes the recipient's email app might have a smaller limit (<a href=\"https://support.apple.com/en-us/108329\">Apple Support</a>). Leave headroom or send a link.</p><h3>Does compressing a PDF lower its quality?</h3><p>It can. Apple warns that a compressed PDF may be of lower quality than the original, depending on the options you choose (<a href=\"https://support.apple.com/guide/preview/reduce-the-size-of-a-pdf-prvw1509/mac\">Apple Support</a>). Check the compressed copy before sending.</p><h3>Can I compress a PDF without extra software?</h3><p>Yes, in two common cases. On a Mac, use Preview's Reduce File Size Quartz filter (<a href=\"https://support.apple.com/guide/preview/reduce-the-size-of-a-pdf-prvw1509/mac\">Apple Support</a>). If you have the original PowerPoint file, export with Minimum size (publishing online) (<a href=\"https://support.microsoft.com/en-us/office/save-or-convert-to-pdf-or-xps-in-office-desktop-apps-d85416c5-7d77-4fd6-a216-6f4bf7c7c110\">Microsoft Support</a>).</p>",
+      "sources": [
+        {
+          "url": "https://support.google.com/mail/answer/6584",
+          "title": "Gmail Help – Send attachments with your Gmail message",
+          "supports": "Gmail personal 25 MB limit; admins set work/school limits; automatic Drive link over the limit; attachments count toward Google storage and full storage blocks attachments"
+        },
+        {
+          "url": "https://support.google.com/mail/answer/2487407?hl=en&co=GENIE.Platform%3DDesktop",
+          "title": "Gmail Help – Send Google Drive attachments in Gmail",
+          "supports": "Insert files using Drive steps, Drive link vs attachment option, access check and sharing settings, admin sharing restrictions"
+        },
+        {
+          "url": "https://support.microsoft.com/en-us/outlook/sending-limits-in-outlook-com",
+          "title": "Microsoft Support – Sending limits in Outlook.com",
+          "supports": "Outlook.com 25 MB attachment limit; OneDrive files up to 2 GB"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/troubleshoot/outlook/message-body/attachment-size-exceeds-the-allowable-limit-error",
+          "title": "Microsoft Learn – Attachment size exceeds the allowable limit error in Outlook",
+          "supports": "Outlook 2013+ 20 MB default for Internet accounts; Exchange Server 10 MB default; exact error text; registry and admin-based fixes"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits",
+          "title": "Microsoft Learn – Exchange Online limits",
+          "supports": "35 MB send / 36 MB receive defaults; 1–150 MB admin range; 33% encoding increase; Outlook on the web 25% reduction and 100 MB/75 MB example; clients may have lower limits"
+        },
+        {
+          "url": "https://help.yahoo.com/kb/SLN5673.html",
+          "title": "Yahoo Help – Message size limits in Yahoo Mail",
+          "supports": "Yahoo Mail 25 MB total for all attachments in a single message, incoming and outgoing"
+        },
+        {
+          "url": "https://support.apple.com/en-us/108329",
+          "title": "Apple Support – Mail Drop limits",
+          "supports": "Mail Drop up to 5 GB, 30-day download window, not counted against iCloud storage, system requirements, recipient's app may have a smaller limit"
+        },
+        {
+          "url": "https://support.apple.com/guide/preview/reduce-the-size-of-a-pdf-prvw1509/mac",
+          "title": "Apple Support – Reduce the size of a PDF in Preview on Mac",
+          "supports": "Preview export steps with Reduce File Size Quartz filter, keeping the original, extra export options, quality warning"
+        },
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/document-cloud-learn/acrobat-learning/advanced-tasks/prepare/reduce",
+          "title": "Adobe Experience League – Compress & Optimize a PDF",
+          "supports": "Acrobat desktop and web compression steps, Adobe's description of the result, Advanced Optimization limited to Pro/Premium/Studio, Make Compatible With setting"
+        },
+        {
+          "url": "https://support.microsoft.com/en-us/office/save-or-convert-to-pdf-or-xps-in-office-desktop-apps-d85416c5-7d77-4fd6-a216-6f4bf7c7c110",
+          "title": "Microsoft Support – Save or convert to PDF or XPS in Office desktop apps",
+          "supports": "Minimum size (publishing online) option for PowerPoint and Access; Word Save a Copy/Save As to PDF steps and Page range option"
+        },
+        {
+          "url": "https://private-pdf-editor.com/",
+          "title": "Private PDF Editor",
+          "supports": "Product mention: browser-based PDF toolkit with compress, split and remove pages tools (allowed claims only)"
+        }
+      ],
+      "product_link_reason": "Readers without a Mac, Acrobat or the source file need a browser-based way to compress, and readers whose file is still too big need a way to split it. Private PDF Editor offers compress and split tools in a browser-based toolkit, so it is linked in the browser-based compressor section and the split section only, with a privacy checklist and disclosure.",
+      "image_headline": "Compress PDFs That Actually Send",
+      "search_intent": "How-to with a fast fix: readers have a PDF that won't attach or bounces and want steps to make it smaller plus confidence it will fit their email provider's limit.",
+      "unique_value": "Combines a sourced table of official attachment limits by provider and account type, explains why files just under the limit can still fail (encoding overhead, recipient limits), matches each reader's setup to a method with official steps, adds a pre-send quality and privacy checklist, and covers cloud links, splitting and real Outlook/Gmail error messages when compression isn't enough.",
+      "image_alt_text": "Title card reading \"Compress PDFs That Actually Send\" on a newearns.com banner",
+      "featured_image": {
+        "alt_text": "Title card reading \"Compress PDFs That Actually Send\" on a newearns.com banner",
+        "license": "generated-in-house"
+      }
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "Gmail personal accounts: 25 MB total; too-large attachments automatically become a Drive link; Workspace admins set work/school limits",
+          "verdict": "supported",
+          "evidence": "support.google.com/mail/answer/6584"
+        },
+        {
+          "claim": "Outlook.com has a 25 MB attachment size limit",
+          "verdict": "supported",
+          "evidence": "support.microsoft.com/…/sending-limits-in-outlook-com: 'The attachment size limit for files is 25 MB.' The reviewer rated the full table row ('25 MB per file attachment') as 'Mostly supported'; the 'per file' part is covered separately."
+        },
+        {
+          "claim": "Outlook.com's 25 MB limit is 'per file attachment'",
+          "verdict": "unsupported",
+          "evidence": "Part of the row the reviewer rated 'Mostly supported'. The page says only 'The attachment size limit for files is 25 MB' and does not specify per file or per message, so 'per file' is the writer's interpretation. Wording issue 1 of 3. Suggested edit: change to '25 MB attachment limit' to match Microsoft's wording."
+        },
+        {
+          "claim": "Outlook.com: files shared from OneDrive up to 2 GB",
+          "verdict": "supported",
+          "evidence": "support.microsoft.com/…/sending-limits-in-outlook-com"
+        },
+        {
+          "claim": "Outlook 2013 and later with an Internet email account: 20 MB default, counted across one file or several",
+          "verdict": "supported",
+          "evidence": "learn.microsoft.com/…/attachment-size-exceeds-the-allowable-limit-error"
+        },
+        {
+          "claim": "Exchange Server mailbox: 10 MB default, from the admin's 'Maximum send size' setting",
+          "verdict": "supported",
+          "evidence": "learn.microsoft.com/…/attachment-size-exceeds-the-allowable-limit-error"
+        },
+        {
+          "claim": "Exchange Online: 35 MB send / 36 MB receive by default; admins can set 1–150 MB; email clients may support less",
+          "verdict": "supported",
+          "evidence": "learn.microsoft.com/…/exchange-online-limits"
+        },
+        {
+          "claim": "Yahoo: 25 MB total per message, for both incoming and outgoing mail",
+          "verdict": "supported",
+          "evidence": "help.yahoo.com/kb/SLN5673.html. The pipeline flagged the page as too short; the reviewer fetched it directly and it states this word for word."
+        },
+        {
+          "claim": "Mail Drop: up to 5 GB; 30 days to download; doesn't count against iCloud storage",
+          "verdict": "supported",
+          "evidence": "support.apple.com/en-us/108329"
+        },
+        {
+          "claim": "Messages leaving Microsoft's datacenters get a 33% encoding increase; Outlook on the web caps sending at 25% below the configured limit (100 MB configured means 75 MB in practice)",
+          "verdict": "supported",
+          "evidence": "Exchange Online limits page"
+        },
+        {
+          "claim": "The recipient's app may have a smaller limit (Apple), and some email clients cap messages or attachments lower (Microsoft)",
+          "verdict": "supported",
+          "evidence": "Apple and Microsoft official pages"
+        },
+        {
+          "claim": "There is no official 'safe' size",
+          "verdict": "unsupported",
+          "evidence": "No verdict label given by the reviewer. This is the writer's opinion, clearly presented as such, and the reviewer considers it acceptable."
+        },
+        {
+          "claim": "Preview: File > Export, then Quartz Filter > Reduce File Size, then Save; to keep the original, Cancel, type a new name in Export As, then Save",
+          "verdict": "supported",
+          "evidence": "Apple Preview guide"
+        },
+        {
+          "claim": "Preview's three checkbox options (Linearized PDF, Optimize images for screen, Save images as JPEG) and the warning that quality may drop",
+          "verdict": "supported",
+          "evidence": "Apple Preview guide"
+        },
+        {
+          "claim": "Article's step 4 (rename before saving) in the Preview steps",
+          "verdict": "supported",
+          "evidence": "No verdict label given by the reviewer. It slightly changes Apple's order, but it still works and does no harm."
+        },
+        {
+          "claim": "These Preview options may not appear on older macOS versions",
+          "verdict": "unsupported",
+          "evidence": "Not stated on the cited page. It is hedged and likely true, since Apple's guide has a version picker."
+        },
+        {
+          "claim": "Acrobat Compress makes PDFs easier to share by email; desktop steps, web steps (including choosing a compression level), and the quote 'smallest size possible while retaining the document's quality'",
+          "verdict": "supported",
+          "evidence": "Adobe Acrobat help page"
+        },
+        {
+          "claim": "Adobe page 'last updated April 23, 2026'",
+          "verdict": "supported",
+          "evidence": "The date matches the page."
+        },
+        {
+          "claim": "Advanced Optimization is limited to Pro, Premium and Studio, with the Retain Existing option and Images/Fonts/Transparency panels",
+          "verdict": "supported",
+          "evidence": "Adobe Acrobat help page"
+        },
+        {
+          "claim": "Acrobat cost listed as 'Acrobat subscription' in the method table",
+          "verdict": "unsupported",
+          "evidence": "Not stated on the cited page. Suggested edit: source it or soften it."
+        },
+        {
+          "claim": "Acrobat on the web uploads your file to Adobe's service",
+          "verdict": "unsupported",
+          "evidence": "Almost certainly true, but the cited page doesn't say it. Suggested edit: source it or soften it."
+        },
+        {
+          "claim": "'Minimum size (publishing online)' is documented for PowerPoint and Access",
+          "verdict": "supported",
+          "evidence": "Microsoft Office documentation"
+        },
+        {
+          "claim": "Other Office apps may show a similar choice",
+          "verdict": "unsupported",
+          "evidence": "No verdict label given by the reviewer. The statement is hedged, and the reviewer considers it acceptable."
+        },
+        {
+          "claim": "Word steps: Save a Copy or Save As, choose PDF, More Options > Options, Page range",
+          "verdict": "supported",
+          "evidence": "Microsoft documentation. The article skips the 'Browse' step, which doesn't matter."
+        },
+        {
+          "claim": "Gmail Drive steps; 'Attachment' only works for files not made in Google Docs, Sheets, Slides or Forms",
+          "verdict": "supported",
+          "evidence": "Google Gmail help page"
+        },
+        {
+          "claim": "An uploaded PDF qualifies to be sent as an attachment",
+          "verdict": "supported",
+          "evidence": "No verdict label given by the reviewer, who calls it a reasonable inference from the Google page."
+        },
+        {
+          "claim": "Gmail checks recipient access and prompts you; admins can restrict sharing",
+          "verdict": "supported",
+          "evidence": "Google Gmail help page"
+        },
+        {
+          "claim": "If recipients don't have a Google Account, use 'Anyone with the link'",
+          "verdict": "supported",
+          "evidence": "The Google page says recipients then don't need a Google Account. The same page also ends with 'Only people with a Google Account can see Google Drive files you attach in Gmail,' so Google contradicts itself. The article follows the more specific statement. Optional edit: add a fallback ('if the recipient still can't open it…', e.g., use a plain shared link)."
+        },
+        {
+          "claim": "Mail offers Mail Drop when a message is over your provider's limit; requires OS X Yosemite or later",
+          "verdict": "supported",
+          "evidence": "support.apple.com Mail Drop page"
+        },
+        {
+          "claim": "Mail Drop works on iOS 9.2 or later",
+          "verdict": "unsupported",
+          "evidence": "No verdict label given by the reviewer; flagged as a minor wording issue. The cited page says 'iOS 9.2', not 'or later'. This is probably what Apple means, but the article states more than the page does. Suggested edit: change to 'iOS 9.2' or cite Apple's Mail Drop system-requirements page."
+        },
+        {
+          "claim": "Outlook error text (both sentences), the 20 MB and 10 MB causes, the registry fix with its back-up-first warning, and that only an Exchange admin can change the Exchange limit",
+          "verdict": "supported",
+          "evidence": "learn.microsoft.com/…/attachment-size-exceeds-the-allowable-limit-error"
+        },
+        {
+          "claim": "Gmail turns an attachment into a Drive link; Gmail attachments count toward shared Google storage, and sending and receiving stop at the limit",
+          "verdict": "supported",
+          "evidence": "Google help pages"
+        },
+        {
+          "claim": "Compression mostly works on images, so a text-only PDF may not shrink much",
+          "verdict": "unsupported",
+          "evidence": "No verdict label given by the reviewer. This is general knowledge, not sourced, and the reviewer considers it reasonable."
+        },
+        {
+          "claim": "FAQ answers",
+          "verdict": "supported",
+          "evidence": "They repeat claims already checked above."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "Overall verdict: pass, with minor edits. Every testable factual claim matches the cited official pages, and none is contradicted. The article meets the search intent. The limits table separates Outlook.com, Outlook desktop with an Internet account, Exchange Server and Exchange Online, which is where generic guides usually go wrong, and every figure checks out. The 'just under the limit' section uses Microsoft's actual encoding-overhead numbers to answer whether the file will fit. Readers are matched to a method based on the tools they already have, each with official steps. Weakness: the fast fix comes after a long limits section. A one-line summary near the top would help readers in a hurry (e.g., 'Mac: Preview > Export > Reduce File Size; otherwise Acrobat's Compress; still too big: send a link').",
+      "adds_original_value": true,
+      "value_notes": "The article adds real value and is not a generic rewrite. It has an accurate, granular limits table, an explanation of encoding overhead using official numbers, method selection based on the tools readers already have, real Outlook and Gmail error messages and behaviour with specific fixes, and practical pre-send quality and privacy checklists. Weakness: the browser-compressor section partly exists to promote the house tool, though this is disclosed and balanced by tool-neutral advice. Suggested edits: (1) change Outlook.com '25 MB per file attachment' to '25 MB attachment limit'; (2) change 'iOS 9.2 or later' to 'iOS 9.2' or cite Apple's Mail Drop system-requirements page; (3) source or soften 'Acrobat subscription' and 'Acrobat on the web uploads your file to Adobe's service'; (4) optional: mention that Google's page says only people with a Google Account can see Drive files attached in Gmail, and that readers should fall back to a plain shared link if a recipient without an account can't open the file.",
+      "product_claims_accurate": true,
+      "product_notes": "Every Private PDF Editor statement matches the allowed claims: browser-based toolkit with about 30 tools (yes); includes compress, split and remove pages (yes, from the two tool-list claims); standard editing runs in the browser while some conversions are handled differently, with separate disclosures (yes, the homepage also says this); has paid plans, see the pricing page (yes); split tool is a browser-based option (yes). The article correctly does not claim that compression specifically runs in the browser, since the allowed claims don't say so either. The ownership disclosure is present and clear. None of the product statements goes beyond the allowed claims.",
+      "fetched_urls": [
+        "https://experienceleague.adobe.com/en/docs/document-cloud-learn/acrobat-learning/advanced-tasks/prepare/reduce",
+        "https://help.yahoo.com/kb/SLN5673.html",
+        "https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits",
+        "https://learn.microsoft.com/en-us/troubleshoot/outlook/message-body/attachment-size-exceeds-the-allowable-limit-error",
+        "https://private-pdf-editor.com/",
+        "https://support.apple.com/en-us/108329",
+        "https://support.apple.com/guide/preview/reduce-the-size-of-a-pdf-prvw1509/mac",
+        "https://support.google.com/mail/answer/2487407?hl=en&co=GENIE.Platform%3DDesktop",
+        "https://support.google.com/mail/answer/6584",
+        "https://support.microsoft.com/en-us/office/save-or-convert-to-pdf-or-xps-in-office-desktop-apps-d85416c5-7d77-4fd6-a216-6f4bf7c7c110",
+        "https://support.microsoft.com/en-us/outlook/sending-limits-in-outlook-com"
+      ]
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2625 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "10 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "How to Compress a PDF for Email (and What to Do When It's Still Too Big)"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.19% (1x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "0/10 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "151 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "49 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "compress-pdf-for-email"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "compress-pdf-for-email"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.00"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.41: How to Use Artificial Intelligence to Start a Business"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": false,
+        "detail": "0 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "2 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "ownership_disclosed",
+        "passed": true,
+        "detail": "disclosure missing"
+      },
+      {
+        "check": "product_link_justified",
+        "passed": true,
+        "detail": "no reason given"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "6 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "10 of 11 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": false,
+        "detail": "According to Adobe, optimizing a PDF is only available in Acrobat Pro, Premium or Studio o"
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "78 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "generated-in-house"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "0 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "unsupported: Outlook.com's 25 MB limit is 'per file attachment' | unsupported: There is no official 'safe' size | unsupported: These Preview options may not appear on older macOS versions | unsupported: Acrobat cost listed as 'Acrobat subscription' in the method table"
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Overall verdict: pass, with minor edits. Every testable factual claim matches the cited official pages, and none is contradicted. The article meets the search intent. The limits table separates Outlook.com, Outlook desktop with an Internet account, Exchange Server and Exchange Online, which is where generic guides usually go wrong, and every figure checks out. The 'just under the limit' section uses Microsoft's actual encoding-overhead numbers to answer whether the file will fit. Readers are matched to a method based on the tools they already have, each with official steps. Weakness: the fast fix comes after a long limits section. A one-line summary near the top would help readers in a hurry (e.g., 'Mac: Preview > Export > Reduce File Size; otherwise Acrobat's Compress; still too big: send a link')."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "The article adds real value and is not a generic rewrite. It has an accurate, granular limits table, an explanation of encoding overhead using official numbers, method selection based on the tools readers already have, real Outlook and Gmail error messages and behaviour with specific fixes, and practical pre-send quality and privacy checklists. Weakness: the browser-compressor section partly exists to promote the house tool, though this is disclosed and balanced by tool-neutral advice. Suggested edits: (1) change Outlook.com '25 MB per file attachment' to '25 MB attachment limit'; (2) change 'iOS 9.2 or later' to 'iOS 9.2' or cite Apple's Mail Drop system-requirements page; (3) source or soften 'Acrobat subscription' and 'Acrobat on the web uploads your file to Adobe's service'; (4) optional: mention that Google's page says only people with a Google Account can see Drive files attached in Gmail, and that readers should fall back to a plain shared link if a recipient without an account can't open the file."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "Every Private PDF Editor statement matches the allowed claims: browser-based toolkit with about 30 tools (yes); includes compress, split and remove pages (yes, from the two tool-list claims); standard editing runs in the browser while some conversions are handled differently, with separate disclosures (yes, the homepage also says this); has paid plans, see the pricing page (yes); split tool is a browser-based option (yes). The article correctly does not claim that compression specifically runs in the browser, since the allowed claims don't say so either. The ownership disclosure is present and clear. None of the product statements goes beyond the allowed claims."
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 1.153,
+        "write": 0.356,
+        "fact_check": 0.275,
+        "fact_check_json": 0.126
+      },
+      "total_usd": 1.91
+    },
+    "wp_media": {
+      "id": 3694
+    },
+    "wp_post": {
+      "id": 3695,
+      "status": "pending",
+      "link": "https://newearns.com/?p=3695"
+    },
+    "final": "held_for_review"
+  },
+  "updated": "2026-10-20T19:32:05+00:00"
+}
