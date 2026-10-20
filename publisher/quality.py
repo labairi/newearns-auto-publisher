@@ -126,7 +126,9 @@ FIXES = {
     "inline_images_have_alt": "Give every inline image alt text.",
     "fact_check_claims": "Contradicted: correct the claim to what the source says. No evidence found: cite an official "
                          "source that states it, narrow it to what a source does say, or remove it. Could not be "
-                         "checked: verify it against a readable source or remove it. Then re-run the fact-check only.",
+                         "checked: verify it against a readable source or remove it. Source page not read: cite a page "
+                         "the pipeline can open that states the claim, or remove the claim. No claims listed: the "
+                         "fact-check did not check anything. Then re-run the fact-check only.",
     "fact_check_intent": "Rework the article so it answers the query more completely than a generic result.",
     "fact_check_original_value": "Add something current results lack (decision table, troubleshooting, a missing "
                                  "case), sourced.",
@@ -140,6 +142,7 @@ VERDICT_LABELS = {
     "contradicted": "contradicted by a source (likely wrong)",
     "unsupported": "no supporting evidence found (not shown to be false)",
     "uncertain": "could not be checked (source unreadable or partial)",
+    "source_not_read": "marked supported, but its source_url is missing or was not read by the pipeline",
 }
 
 
@@ -335,8 +338,15 @@ def run_checks(article: dict, cfg: dict, existing_posts: list[dict], known_slugs
 
     # 11. independent fact-check pass (LLM, run before these checks)
     if fact_check is not None:
-        bad = [c for c in fact_check.get("claims", []) if c.get("verdict") != "supported"]
-        rep.add("fact_check_claims", not bad, _claims_detail(bad))
+        claims = fact_check.get("claims") or []
+        # "supported" counts only with evidence from a page the pipeline itself read; a search
+        # snippet, an unreadable page or a URL nobody fetched is not evidence.
+        read = {normalize_url(u) for u in fact_check.get("fetched_urls", [])}
+        bad = [c if c.get("verdict") != "supported" else dict(c, verdict="source_not_read")
+               for c in claims
+               if c.get("verdict") != "supported" or normalize_url(c.get("source_url") or "") not in read]
+        rep.add("fact_check_claims", bool(claims) and not bad,
+                _claims_detail(bad) if claims else "fact-check listed no claims")
         rep.add("fact_check_intent", fact_check.get("satisfies_search_intent") is True, fact_check.get("intent_notes", ""))
         rep.add("fact_check_original_value", fact_check.get("adds_original_value") is True, fact_check.get("value_notes", ""))
         rep.add("fact_check_product_claims", fact_check.get("product_claims_accurate") is True,

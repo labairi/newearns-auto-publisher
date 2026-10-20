@@ -48,6 +48,48 @@ def test_claim_without_a_verdict_is_never_treated_as_supported():
     assert "fact_check_claims" in names(checks(a))
 
 
+def detail_of(rep, gate):
+    return dict((n, d) for n, ok, d in rep.results)[gate]
+
+
+def test_empty_claim_list_fails():
+    a = make_article()
+    a["fact_check"]["claims"] = []
+    rep = checks(a)
+    assert "fact_check_claims" in names(rep)
+    assert detail_of(rep, "fact_check_claims") == "fact-check listed no claims"
+
+
+def test_supported_claim_whose_source_was_not_fetched_fails():
+    a = with_claims({"claim": "Outlook.com allows 20 MB", "verdict": "supported", "evidence": "search snippet",
+                     "source_url": "https://support.microsoft.com/not-read-by-the-pipeline"})
+    rep = checks(a)
+    assert "fact_check_claims" in names(rep)
+    detail = detail_of(rep, "fact_check_claims")
+    assert "1 marked supported, but its source_url is missing or was not read by the pipeline: Outlook.com" in detail
+    assert any("Source page not read" in line for line in rep.explained)
+
+
+def test_supported_claim_without_source_url_fails():
+    a = with_claims({"claim": "Yahoo allows 25 MB", "verdict": "supported", "evidence": "x"})
+    assert "fact_check_claims" in names(checks(a))
+
+
+def test_supported_claim_with_fetched_source_passes_source_evidence_check():
+    # Same URL as fetched, written differently (utm tag, fragment, trailing slash): normalized match.
+    a = with_claims({"claim": "Outlook lists its limits", "verdict": "supported", "evidence": "x",
+                     "source_url": "https://support.microsoft.com/outlook-limits/?utm_source=x#limits"})
+    rep = checks(a)
+    assert rep.passed, rep.failures
+
+
+def test_unread_source_does_not_turn_an_unsupported_claim_into_another_verdict():
+    a = with_claims({"claim": "Mail Drop needs iOS 9.2", "verdict": "unsupported", "evidence": "",
+                     "source_url": "https://support.apple.com/unread"})
+    detail = detail_of(checks(a), "fact_check_claims")
+    assert detail.startswith("1 no supporting evidence found (not shown to be false)") and "source_url" not in detail
+
+
 def test_fact_check_prompts_define_verdicts_and_ask_for_fixes_and_source_relevance(monkeypatch):
     seen = []
     def fake_call(cfg, messages, **kw):
@@ -65,6 +107,8 @@ def test_fact_check_prompts_define_verdicts_and_ask_for_fixes_and_source_relevan
     assert "use 'uncertain'" in convert and "never upgrade a claim to 'supported'" in convert
     claim = writer.FACTCHECK_SCHEMA["properties"]["claims"]["items"]
     assert "suggested_fix" in claim["required"] and "sources" in writer.FACTCHECK_SCHEMA["required"]
+    assert "source_url" in claim["required"] and "A search-result snippet is not a page you read" in check
+    assert "never invent one" in convert
 
 
 # ------------------------------------------------------------ the fact-check must match the text

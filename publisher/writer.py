@@ -48,10 +48,11 @@ FACTCHECK_SCHEMA = {
     "properties": {
         "claims": {"type": "array", "items": {
             "type": "object", "additionalProperties": False,
-            "required": ["claim", "verdict", "evidence", "suggested_fix"],
+            "required": ["claim", "verdict", "source_url", "evidence", "suggested_fix"],
             "properties": {
                 "claim": {"type": "string"},
                 "verdict": {"type": "string", "enum": ["supported", "unsupported", "contradicted", "uncertain"]},
+                "source_url": {"type": "string"},
                 "evidence": {"type": "string"},
                 "suggested_fix": {"type": "string"}}}},
         "sources": {"type": "array", "items": {
@@ -396,6 +397,9 @@ Allowed product claims: {json.dumps(product["allowed_claims"]) if product else "
    - unsupported: you read the relevant sources and found no text stating it. This
      means evidence was not found, not that the claim is false.
    - uncertain: the page that would settle it could not be read, or was cut off.
+   For each claim give source_url: the exact URL of the page whose text you read and
+   quote (read_source or web_fetch). A search-result snippet is not a page you read:
+   a claim backed only by a snippet is unsupported or uncertain, not supported.
    For every claim that is not supported, give a practical suggested_fix: the
    corrected wording, an official source that states it, or "remove" if the
    article does not need it.
@@ -413,7 +417,8 @@ Allowed product claims: {json.dumps(product["allowed_claims"]) if product else "
     text, u2 = _call(cfg, [{"role": "user", "content": "Convert this fact-check into the JSON schema. "
                             "Do not change any verdicts. If the notes give a claim no verdict, use "
                             "'uncertain' and say so in its evidence; never upgrade a claim to 'supported'. "
-                            "List every cited source under sources; relevant is true only if the notes say "
+                            "source_url is the URL of the page the notes quote for that claim, copied exactly; leave it "
+                            "empty if the notes give none, and never invent one. List every cited source under sources; relevant is true only if the notes say "
                             "it supports what it is cited for.\n\n" + notes}],
                      system="Faithful conversion only.", stage="fact_check_json", schema=FACTCHECK_SCHEMA,
                      max_tokens=16000)

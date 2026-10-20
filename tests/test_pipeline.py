@@ -70,7 +70,8 @@ def make_article(**over):
         "unique_value": "decision table for print vs screen",
         "featured_image": {"alt_text": "Title card reading Compress a PDF for Email", "license": "generated-in-house"},
         "internal_links_note": "",
-        "fact_check": {"claims": [{"claim": "Gmail 25 MB", "verdict": "supported", "evidence": "x"}],
+        "fact_check": {"claims": [{"claim": "Gmail 25 MB", "verdict": "supported", "evidence": "x",
+                                   "source_url": "https://support.google.com/mail/answer/6584"}],
                        "sources": [{"url": u, "relevant": True, "notes": ""} for u in SOURCE_URLS],
                        "fetched_urls": list(SOURCE_URLS),
                        "satisfies_search_intent": True, "intent_notes": "", "adds_original_value": True,
@@ -472,9 +473,10 @@ def test_revised_vetting_article_passes_offline_gates_but_needs_a_pipeline_fact_
     art["image_alt_text"] = images.alt_text(art["image_headline"])
     art["featured_image"] = {"alt_text": art["image_alt_text"], "license": "generated-in-house"}
     rep = quality.run_checks(art, CFG, EXISTING, set(), link_checker=ok_links, fact_check=art["fact_check"])
-    # Its fact-check was written by hand: it can't be tied to this exact text and has no
-    # per-source relevance review, so only a refreshed pipeline fact-check can clear it.
-    assert {f.split(":")[0] for f in rep.failures} == {"fact_check_current", "sources_verified"}, rep.failures
+    # Its fact-check was written by hand: it can't be tied to this exact text, has no per-source
+    # relevance review and no per-claim source_url, so only a refreshed pipeline fact-check clears it.
+    assert {f.split(":")[0] for f in rep.failures} == {"fact_check_claims", "fact_check_current",
+                                                       "sources_verified"}, rep.failures
 
 
 def test_link_check_tries_second_user_agent(monkeypatch):

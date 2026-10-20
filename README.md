@@ -49,7 +49,8 @@ versioned, and stores the publication log in the repo.
    and grades every claim, the search intent, original value and product claims.
    Each claim is *supported*, *contradicted* (a source says otherwise), *unsupported*
    (no evidence found, which is not the same as false) or *uncertain* (the source
-   could not be read), with a suggested fix. Each cited source is marked relevant or not.
+   could not be read), with a suggested fix. A *supported* claim counts only if its
+   `source_url` is a page the pipeline itself read. Each cited source is marked relevant or not.
 6. **Quality gates.** 36 checks in `publisher/quality.py`: length, structure,
    keyword density and stuffed headings, metadata lengths, slug format, near-duplicate
    body text against every existing post, a near-identical title or a keyphrase that
