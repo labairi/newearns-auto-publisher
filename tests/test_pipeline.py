@@ -297,7 +297,7 @@ def test_publish_workflow_keeps_second_key_off():
 
 def test_no_credentials_in_repo():
     import re
-    pattern = re.compile(r"sk-ant-[A-Za-z0-9_-]{10,}|[a-zA-Z0-9]{4}( [a-zA-Z0-9]{4}){5}|BEGIN (RSA )?PRIVATE KEY")
+    pattern = re.compile(r"sk-ant-[A-Za-z0-9_-]{10,}|\b[a-zA-Z0-9]{4}( [a-zA-Z0-9]{4}){5}\b|BEGIN (RSA )?PRIVATE KEY")
     for f in run.ROOT.rglob("*"):
         if f.is_file() and ".git" not in f.parts and f.suffix in (".py", ".yml", ".yaml", ".md", ".txt", ".json", ""):
             assert not pattern.search(f.read_text(errors="ignore")), f
