@@ -245,3 +245,15 @@ def estimate_cost(usages: list[dict]) -> float:
 
 def api_key_present() -> bool:
     return bool(os.environ.get("ANTHROPIC_API_KEY"))
+
+
+def api_key_problem() -> str | None:
+    """Catches common paste mistakes without ever printing the key."""
+    key = os.environ.get("ANTHROPIC_API_KEY", "")
+    if not key:
+        return "missing"
+    if key != key.strip() or any(c.isspace() for c in key):
+        return "contains spaces or line breaks (paste only the key itself, e.g. sk-ant-...)"
+    if not key.startswith("sk-ant-"):
+        return "does not look like an API key (it should start with sk-ant-)"
+    return None

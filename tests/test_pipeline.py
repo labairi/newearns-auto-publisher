@@ -301,3 +301,16 @@ def test_no_credentials_in_repo():
     for f in run.ROOT.rglob("*"):
         if f.is_file() and ".git" not in f.parts and f.suffix in (".py", ".yml", ".yaml", ".md", ".txt", ".json", ""):
             assert not pattern.search(f.read_text(errors="ignore")), f
+
+
+@pytest.mark.parametrize("value,ok", [
+    ("sk-ant-api03-abc", True),
+    ("", False),
+    ("curl https://api.anthropic.com/v1/messages \\\n  --header x-api-key: sk-ant-x", False),
+    ("sk-ant-abc\n", False),
+    ("abc123", False),
+])
+def test_api_key_validation(monkeypatch, value, ok):
+    from publisher import writer
+    monkeypatch.setenv("ANTHROPIC_API_KEY", value)
+    assert (writer.api_key_problem() is None) is ok

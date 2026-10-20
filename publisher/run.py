@@ -105,8 +105,9 @@ def cmd_check_setup(cfg: dict) -> int:
     wp = WordPress.from_env(cfg["site"]["base_url"])
     say(f"Site: {cfg['site']['base_url']}")
     say(f"Publishing mode: config={cfg['publishing']['mode']} effective={effective_mode(cfg, False)}")
-    say(f"ANTHROPIC_API_KEY: {'set' if writer.api_key_present() else 'MISSING'}")
-    ok &= writer.api_key_present()
+    problem = writer.api_key_problem()
+    say(f"ANTHROPIC_API_KEY: {'OK' if not problem else 'PROBLEM - ' + problem}")
+    ok &= problem is None
     try:
         me = wp.whoami()
         caps = me.get("capabilities", {})
@@ -152,8 +153,9 @@ def cmd_article(cfg: dict, args) -> int:
         pillar = article.get("pillar", "pdf")
         fact = article.get("fact_check")
     else:
-        if not writer.api_key_present():
-            say("ANTHROPIC_API_KEY is not set; cannot generate an article.")
+        problem = writer.api_key_problem()
+        if problem:
+            say(f"ANTHROPIC_API_KEY {problem}; cannot generate an article.")
             return 2
         pillar = cp.get("pillar") or choose_pillar(cfg)
         cp.put("pillar", pillar)
