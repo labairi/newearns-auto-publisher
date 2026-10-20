@@ -314,3 +314,60 @@ def test_api_key_validation(monkeypatch, value, ok):
     from publisher import writer
     monkeypatch.setenv("ANTHROPIC_API_KEY", value)
     assert (writer.api_key_problem() is None) is ok
+
+
+# ------------------------------------------------------------ fixes from dry run 20261020T133931870297Z
+class _Resp:
+    def __init__(self, code):
+        self.status_code = code
+
+
+def test_link_check_retries_get_when_head_404s(monkeypatch):
+    monkeypatch.setattr(quality.requests, "head", lambda *a, **k: _Resp(404))
+    monkeypatch.setattr(quality.requests, "get", lambda *a, **k: _Resp(200))
+    assert quality.check_link("https://www.ftc.gov/x") == (True, "200")
+
+
+def test_link_check_still_fails_when_get_404s(monkeypatch):
+    monkeypatch.setattr(quality.requests, "head", lambda *a, **k: _Resp(404))
+    monkeypatch.setattr(quality.requests, "get", lambda *a, **k: _Resp(404))
+    assert quality.check_link("https://example.com/gone") == (False, "404")
+
+
+def test_alt_text_describes_card_and_fits_gate():
+    from publisher import images
+    alt = images.alt_text("Vet Influencers Before You Pay")
+    assert "Vet Influencers Before You Pay" in alt and 10 <= len(alt) <= 125
+    assert len(images.alt_text("x" * 200)) <= 125
+
+
+def test_dry_run_uses_generated_alt_text(env):
+    wp, tmp, _ = env
+    art = make_article(image_alt_text="A very long invented description " * 10)
+    run.main(["article", "--article-file", write(tmp, art), "--dry-run"])
+    from publisher import ledger as lg
+    state = json.loads(next((lg.RUNS).glob("*/state.json")).read_text())
+    assert not [c for c in state["stages"]["checks"] if c["check"] == "featured_image_alt" and not c["passed"]]
+
+
+def test_writer_prompt_requires_distinct_sources_and_lists_banned_words(monkeypatch):
+    from publisher import writer
+    seen = {}
+    def fake_call(cfg, messages, **kw):
+        seen["prompt"] = messages[0]["content"]
+        return json.dumps({k: "x" for k in writer.ARTICLE_SCHEMA["required"]} | {"sources": [], "content_html": "<p>x</p>"}), {}
+    monkeypatch.setattr(writer, "_call", fake_call)
+    writer.write_article(CFG, "instagram", "brief", [])
+    p = seen["prompt"]
+    assert f"at least {CFG['quality']['min_sources']} different websites" in p
+    assert '"testimonial"' in p and "image_alt_text" not in p
+
+
+def test_revised_vetting_article_passes_offline_gates():
+    path = run.ROOT / "data/revisions/vet-instagram-influencer-before-paying.json"
+    art = json.loads(path.read_text())
+    from publisher import images
+    art["image_alt_text"] = images.alt_text(art["image_headline"])
+    art["featured_image"] = {"alt_text": art["image_alt_text"], "license": "generated-in-house"}
+    rep = quality.run_checks(art, CFG, EXISTING, set(), link_checker=ok_links, fact_check=art["fact_check"])
+    assert rep.passed, rep.failures

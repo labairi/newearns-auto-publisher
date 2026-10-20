@@ -13,6 +13,11 @@ on:
           - check-setup        # read-only: credentials, role, categories
           - article-dry-run    # generate + quality checks, nothing sent to WordPress
           - article            # uses publishing.mode from config.yaml (draft by default)
+          - recheck            # re-run quality gates on a saved article file; no Claude calls, no WordPress writes
+      article_file:
+        description: "For recheck: path to a saved article JSON in this repo"
+        type: string
+        default: ""
 
 concurrency:
   group: publisher
@@ -40,11 +45,14 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - name: Run
+        env:
+          ARTICLE_FILE: ${{ inputs.article_file }}
         run: |
           case "${{ inputs.command }}" in
             check-setup)      python -m publisher.run check-setup ;;
             article-dry-run)  python -m publisher.run article --dry-run ;;
             article)          python -m publisher.run article --resume ;;
+            recheck)          python -m publisher.run article --dry-run --article-file "$ARTICLE_FILE" ;;
           esac
       - name: Save publication log and checkpoints
         if: always() && inputs.command != 'check-setup'

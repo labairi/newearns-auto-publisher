@@ -16,7 +16,7 @@ ARTICLE_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
     "required": ["title", "seo_title", "slug", "meta_description", "focus_keyphrase", "excerpt",
-                 "content_html", "sources", "product_link_reason", "image_alt_text", "image_headline",
+                 "content_html", "sources", "product_link_reason", "image_headline",
                  "search_intent", "unique_value"],
     "properties": {
         "title": {"type": "string"},
@@ -30,7 +30,6 @@ ARTICLE_SCHEMA = {
             "type": "object", "additionalProperties": False, "required": ["url", "title", "supports"],
             "properties": {"url": {"type": "string"}, "title": {"type": "string"}, "supports": {"type": "string"}}}},
         "product_link_reason": {"type": "string"},
-        "image_alt_text": {"type": "string"},
         "image_headline": {"type": "string"},
         "search_intent": {"type": "string"},
         "unique_value": {"type": "string"},
@@ -133,6 +132,7 @@ def research_brief(cfg: dict, pillar: str, candidates: list[str], existing_title
                    demand_notes: str) -> tuple[str, dict]:
     p = cfg["pillars"][pillar]
     product = cfg["products"].get(p["product"]) if p["product"] else None
+    min_sources = cfg["quality"]["min_sources"]
     prompt = f"""You are planning ONE article for New Earns.
 
 Pillar: {pillar}
@@ -153,8 +153,9 @@ Do this:
 2. Pick the topic whose intent New Earns can satisfy better than current results,
    and explain the specific added value (clearer steps, a missing scenario,
    a decision table, troubleshooting...).
-3. Fetch and read 3-6 authoritative sources (official docs first) and note the
-   exact facts you will rely on, each with its URL.
+3. Fetch and read 3-6 authoritative sources (official docs first) from at least
+   {min_sources} different websites, and note the exact facts you will rely on,
+   each with its URL and the source's own wording for legal or policy points.
 4. Produce a brief with: chosen query, focus keyphrase, search intent,
    unique angle, H2/H3 outline, facts with URLs, internal-link ideas from the
    already-published list (only if genuinely related), and whether the product
@@ -168,6 +169,8 @@ def write_article(cfg: dict, pillar: str, brief: str, internal_posts: list[dict]
     p = cfg["pillars"][pillar]
     product = cfg["products"].get(p["product"]) if p["product"] else None
     disclosure = cfg["product_linking"]["disclosure"].format(product=product["name"]) if product else ""
+    min_sources = cfg["quality"]["min_sources"]
+    banned = ", ".join(f'"{b}"' for b in cfg["quality"]["banned_phrases"])
     prompt = f"""Write the article from this research brief.
 
 BRIEF
@@ -193,7 +196,12 @@ Output rules:
 - seo_title <= 60 characters; meta_description 120-160 characters; slug lowercase-hyphenated,
   2-10 words, no dates.
 - sources: every external source you linked, with what it supports.
-- image_headline: 3-7 words for the featured image card. image_alt_text: describes that image.
+- image_headline: 3-7 words for the featured image card.
+- Sources: link sources from at least {min_sources} different websites (the brief's sources).
+- State every sourced claim no more strongly than the source does. For legal or policy
+  points, quote or closely paraphrase the source; do not generalise it to other situations.
+- Do not use these words anywhere in the article, including in quoted titles or link text:
+  {banned}
 """
     text, usage = _call(cfg, [{"role": "user", "content": prompt}], system=EDITORIAL_RULES,
                         schema=ARTICLE_SCHEMA, max_tokens=40000)

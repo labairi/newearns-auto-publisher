@@ -100,10 +100,13 @@ class Report:
 
 
 def check_link(url: str, timeout: int = 20) -> tuple[bool, str]:
-    headers = {"User-Agent": "Mozilla/5.0 (compatible; newearns-linkcheck/1.0)"}
+    # Browser-like UA: some sites (e.g. ftc.gov) answer bot-style HEAD requests with 404.
+    headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                             "Chrome/124.0 Safari/537.36 newearns-linkcheck/1.0",
+               "Accept": "text/html,application/xhtml+xml,*/*;q=0.8"}
     try:
         r = requests.head(url, allow_redirects=True, timeout=timeout, headers=headers)
-        if r.status_code in (403, 405, 400) or r.status_code >= 500:  # many sites reject HEAD
+        if r.status_code >= 400:  # HEAD is unreliable; only a failed GET counts as broken
             r = requests.get(url, allow_redirects=True, timeout=timeout, headers=headers, stream=True)
         return r.status_code < 400, str(r.status_code)
     except requests.RequestException as e:
