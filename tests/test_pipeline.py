@@ -250,8 +250,11 @@ def test_pillar_rotation():
 
 
 # ------------------------------------------------------------ safety switches
-def test_shipped_config_defaults_to_draft():
-    assert CFG["publishing"]["mode"] == "draft"
+def test_shipped_config_publishes_only_with_second_key_and_daily_spacing():
+    # mode is "publish", but it only takes effect when the workflow sets ALLOW_PUBLISH=true
+    # (see test_publish_mode_without_allow_publish_saves_draft and the workflow test below).
+    assert CFG["publishing"]["mode"] == "publish"
+    assert CFG["publishing"]["min_hours_between_posts"] >= 20
 
 
 def test_publish_mode_without_allow_publish_saves_draft(env, monkeypatch):
@@ -290,9 +293,97 @@ def test_no_scheduled_workflows():
         assert "schedule" not in (triggers or {}), wf.name
 
 
-def test_publish_workflow_keeps_second_key_off():
+def test_publish_workflow_second_key_needs_article_on_main_and_ticked_box():
     y = __import__("yaml").safe_load((run.ROOT / ".github/workflows/publish.yml").read_text())
-    assert y["jobs"]["run"]["env"]["ALLOW_PUBLISH"] == "false"
+    inputs = y[True]["workflow_dispatch"]["inputs"]
+    assert inputs["allow_publish"] == {"description": inputs["allow_publish"]["description"],
+                                       "type": "boolean", "default": False}
+    assert y["jobs"]["run"]["env"]["ALLOW_PUBLISH"] == (
+        "${{ (inputs.command == 'article' && inputs.allow_publish && github.ref == 'refs/heads/main')"
+        " && 'true' || 'false' }}")
+    assert "ALLOW_PUBLISH" not in str(y["jobs"]["run"]["steps"])  # nothing else can turn it on
+
+
+def test_publish_workflow_passes_calendar_topic_only_to_article_runs():
+    y = __import__("yaml").safe_load((run.ROOT / ".github/workflows/publish.yml").read_text())
+    inputs = y[True]["workflow_dispatch"]["inputs"]
+    assert inputs["pillar"]["options"] == ["none", *CFG["pillars"]]
+    script = next(s for s in y["jobs"]["run"]["steps"] if s.get("name") == "Run")["run"]
+    lines = {l.strip().split(")")[0]: l for l in script.splitlines() if ")" in l and "python" in l}
+    assert '"${plan[@]}"' in lines["article"] and '"${plan[@]}"' in lines["article-dry-run"]
+    assert "plan" not in lines["recheck"] and "plan" not in lines["check-setup"]
+
+
+# ------------------------------------------------------------ calendar topics
+def test_calendar_entries_are_valid_and_unique():
+    cal = CFG["calendar"]
+    assert cal and all(e["pillar"] in CFG["pillars"] and e["topic"] and e["query"] for e in cal)
+    assert len({e["topic"].lower() for e in cal}) == len(cal)
+
+
+@pytest.mark.parametrize("extra", [
+    ["--pillar", "pdf"],                                            # topic missing
+    ["--topic", "How to Compress a PDF for Email"],                 # pillar missing
+    ["--pillar", "crypto", "--topic", "How to Compress a PDF for Email"],
+    ["--pillar", "instagram", "--topic", "How to Compress a PDF for Email"],  # wrong pillar
+    ["--pillar", "pdf", "--topic", "Best PDF tools 2026"],          # not in the calendar
+])
+def test_invalid_calendar_topic_refused_before_any_work(env, monkeypatch, extra):
+    wp, tmp, _ = env
+    monkeypatch.setattr(run.writer, "research_brief", lambda *a, **k: pytest.fail("generated"))
+    assert run.main(["article", "--dry-run", *extra]) == 7
+    assert run.main(["article", *extra]) == 7
+    assert wp.posts == {} and wp.calls == []
+
+
+def test_live_publishing_of_generated_article_needs_calendar_topic(env, monkeypatch):
+    wp, tmp, _ = env
+    monkeypatch.setattr(run.writer, "research_brief", lambda *a, **k: pytest.fail("generated"))
+    assert run.main(["article"]) == 7
+    assert wp.posts == {} and wp.calls == []
+
+
+def test_calendar_topic_cannot_be_combined_with_article_file(env):
+    wp, tmp, _ = env
+    f = write(tmp, make_article())
+    assert run.main(["article", "--article-file", f, "--pillar", "pdf",
+                     "--topic", "How to Compress a PDF for Email"]) == 7
+    assert wp.posts == {}
+
+
+def _fake_generation(monkeypatch, seen):
+    monkeypatch.setattr(run.writer, "api_key_problem", lambda: None)
+    def brief(cfg, pillar, cands, titles, notes, reader=None):
+        seen.update(pillar=pillar, candidates=cands)
+        return "brief", {"stage": "research"}
+    monkeypatch.setattr(run.writer, "research_brief", brief)
+    monkeypatch.setattr(run.writer, "write_article", lambda *a, **k: (make_article(), {"stage": "write"}))
+    monkeypatch.setattr(run.writer, "fact_check",
+                        lambda cfg, art, pillar, reader=None: (make_article()["fact_check"], [{"stage": "fact_check"}]))
+
+
+def test_calendar_topic_drives_generation_and_publishes_after_gates(env, monkeypatch):
+    wp, tmp, _ = env
+    seen = {}
+    _fake_generation(monkeypatch, seen)
+    assert run.main(["article", "--pillar", "pdf", "--topic", "how to compress a pdf for email"]) == 0
+    assert seen == {"pillar": "pdf",
+                    "candidates": ["How to Compress a PDF for Email (primary query: compress pdf for email)"]}
+    assert [p["status"] for p in wp.posts.values()] == ["publish"]
+    # The daily spacing rule still blocks a second live article the same day.
+    assert run.main(["article", "--pillar", "pdf", "--topic", "How to Split a PDF into Separate Files"]) == 0
+    assert len(wp.posts) == 1
+
+
+def test_calendar_topic_article_that_fails_gates_is_not_published(env, monkeypatch):
+    wp, tmp, _ = env
+    _fake_generation(monkeypatch, {})
+    bad = make_article()
+    bad["content_html"] += "<p>About 73% of freelancers email PDFs daily.</p>"
+    monkeypatch.setattr(run.writer, "write_article", lambda *a, **k: (bad, {"stage": "write"}))
+    assert run.main(["article", "--pillar", "pdf", "--topic", "How to Compress a PDF for Email"]) == 0
+    assert [p["status"] for p in wp.posts.values()] == ["pending"]
+    assert ("status", "publish") not in wp.calls
 
 
 def test_no_credentials_in_repo():

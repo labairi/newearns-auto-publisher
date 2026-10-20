@@ -4,6 +4,8 @@
   python -m publisher.run article --dry-run       research + write + check, save locally, no WordPress writes
   python -m publisher.run article                 full run using publishing.mode from config.yaml
   python -m publisher.run article --resume        continue the last crashed run from its checkpoint
+  python -m publisher.run article --pillar pdf --topic "How to Compress a PDF for Email"
+                                                  write one approved calendar topic (required to go live)
   python -m publisher.run article --article-file x.json --dry-run   run the gates on a given article
   python -m publisher.run report                  Search Console / GA4 improvement report
 """
@@ -80,6 +82,20 @@ def choose_pillar(cfg: dict) -> str:
     return order[0]
 
 
+def calendar_entry(cfg: dict, pillar: str | None, topic: str | None) -> dict | None:
+    """The approved calendar entry named by --pillar/--topic, or None if neither was given."""
+    if not pillar and not topic:
+        return None
+    if not (pillar and topic):
+        raise ValueError("--pillar and --topic must be given together")
+    if pillar not in cfg["pillars"]:
+        raise ValueError(f"unknown pillar {pillar!r}; configured pillars: {', '.join(cfg['pillars'])}")
+    for e in cfg.get("calendar") or []:
+        if e["pillar"] == pillar and e["topic"].strip().lower() == topic.strip().lower():
+            return e
+    raise ValueError(f"topic {topic!r} is not in the approved calendar for pillar {pillar!r}")
+
+
 def candidate_topics(cfg: dict, pillar: str, posts: list[dict]) -> list[str]:
     done = [p["title"] for p in posts] + [e.get("topic", "") for e in ledger.read_log()]
     return [t for t in cfg["pillars"][pillar]["seed_topics"]
@@ -129,6 +145,17 @@ def cmd_check_setup(cfg: dict) -> int:
 
 def cmd_article(cfg: dict, args) -> int:
     mode = effective_mode(cfg, args.dry_run)
+    try:
+        planned = calendar_entry(cfg, args.pillar, args.topic)
+    except ValueError as e:
+        say(f"Refused: {e}.")
+        return 7
+    if planned and args.article_file:
+        say("Refused: --pillar/--topic choose a topic to generate; they can't be combined with --article-file.")
+        return 7
+    if mode == "publish" and not planned and not args.article_file:
+        say("Refused: live publishing needs --pillar and --topic from the approved calendar in config.yaml.")
+        return 7
     wp = WordPress.from_env(cfg["site"]["base_url"])
 
     if mode == "publish":
@@ -141,6 +168,10 @@ def cmd_article(cfg: dict, args) -> int:
 
     run_id = (ledger.unfinished_run() if args.resume else None) or datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
     cp = ledger.Checkpoint(run_id)
+    if planned and cp.get("pillar") and (cp.get("pillar"), cp.get("topic")) != (planned["pillar"], planned["topic"]):
+        say(f"Refused: unfinished run {run_id} is for {cp.get('pillar')}/{cp.get('topic')!r}, not the topic given. "
+            "Run without --pillar/--topic to finish it first.")
+        return 7
     say(f"Run {run_id} (mode: {mode})")
 
     posts = existing_posts(wp)
@@ -157,13 +188,18 @@ def cmd_article(cfg: dict, args) -> int:
         if problem:
             say(f"ANTHROPIC_API_KEY {problem}; cannot generate an article.")
             return 2
-        pillar = cp.get("pillar") or choose_pillar(cfg)
+        pillar = cp.get("pillar") or (planned["pillar"] if planned else choose_pillar(cfg))
         cp.put("pillar", pillar)
+        if planned:
+            cp.put("topic", planned["topic"])
         # Pages are cached under the run, so research and fact-check share one download per URL.
         def reader():
             return sources.SourceReader(cp.dir / "sources", excerpt_chars=cfg["models"]["excerpt_chars"])
         if not cp.get("brief"):
-            cands = candidate_topics(cfg, pillar, posts)
+            if planned:
+                cands = [f"{planned['topic']} (primary query: {planned['query']})"]
+            else:
+                cands = candidate_topics(cfg, pillar, posts)
             if not cands:
                 say(f"No uncovered seed topics left for pillar '{pillar}'. Add topics to config.yaml.")
                 return 3
@@ -285,6 +321,8 @@ def main(argv=None) -> int:
     ap.add_argument("--resume", action="store_true")
     ap.add_argument("--force", action="store_true", help="ignore min_hours_between_posts")
     ap.add_argument("--article-file")
+    ap.add_argument("--pillar", help="pillar of an approved calendar topic (with --topic)")
+    ap.add_argument("--topic", help="exact title of an approved calendar topic in config.yaml")
     args = ap.parse_args(argv)
     cfg = load_cfg()
     if args.command == "check-setup":

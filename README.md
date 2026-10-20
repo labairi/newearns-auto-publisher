@@ -77,8 +77,8 @@ never edits pages, theme, plugins, settings, users, categories or existing posts
 |---|---|
 | `--dry-run` | Generates and checks the article, saves it under `data/runs/`, sends nothing to WordPress |
 | `publishing.mode: review` | Every article is saved as Pending Review |
-| `publishing.mode: draft` (shipped default) | Passing articles become Drafts, failing ones Pending Review |
-| `publishing.mode: publish` | Passing articles go live, **only if** the workflow also sets `ALLOW_PUBLISH=true` (currently `false`). Otherwise it falls back to draft. |
+| `publishing.mode: draft` | Passing articles become Drafts, failing ones Pending Review |
+| `publishing.mode: publish` (shipped) | Passing articles go live, **only if** `ALLOW_PUBLISH=true`. The workflow sets that only for an `article` run on `main` with the **allow_publish** box ticked; otherwise it falls back to draft. A generated article also needs `--pillar`/`--topic` from the approved `calendar` in config.yaml. At most one live post per 20 hours. |
 | `WP_BASE_URL` env var | Overrides `site.base_url` from config.yaml |
 
 Credentials are read only from environment variables / GitHub Actions secrets:
@@ -93,6 +93,7 @@ python -m publisher.run check-setup        # verify keys and WordPress permissio
 python -m publisher.run article --dry-run  # full generation + checks, nothing sent to WordPress
 python -m publisher.run article            # uses publishing.mode (draft | publish)
 python -m publisher.run article --resume   # finish a crashed run
+python -m publisher.run article --pillar pdf --topic "How to Compress a PDF for Email"   # one approved calendar topic
 python -m publisher.run report             # Search Console / GA4 improvement flags
 pytest -q                                  # 22 tests incl. end-to-end against a fake WordPress
 ```

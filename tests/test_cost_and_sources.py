@@ -417,5 +417,5 @@ def ok(url):
 def test_thresholds_and_safety_settings_unchanged():
     q = CFG["quality"]
     assert q["min_sources"] == 3 and q["max_duplicate_similarity"] == 0.35 and q["max_title_similarity"] == 0.80
-    assert CFG["publishing"]["mode"] == "draft"
+    assert CFG["publishing"]["mode"] == "publish" and CFG["publishing"]["min_hours_between_posts"] >= 20
     assert all(v is None or isinstance(v, str) for v in (CFG["models"].get("stages") or {}).values())
