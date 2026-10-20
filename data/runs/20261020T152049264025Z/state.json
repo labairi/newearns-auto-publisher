@@ -1,0 +1,494 @@
+{
+  "run_id": "20261020T152049264025Z",
+  "stages": {
+    "pillar": "instagram",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 60,
+        "cache_creation_input_tokens": 53596,
+        "cache_read_input_tokens": 862449,
+        "output_tokens": 21905,
+        "web_search_requests": 5,
+        "web_fetch_requests": 10,
+        "requests": 6,
+        "read_source_calls": 12,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 60,
+            "cache_write_5m_tokens": 53596,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 862449,
+            "output_tokens": 21905
+          }
+        },
+        "fetched_urls": [
+          "https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights",
+          "https://help.instagram.com/697961817256175",
+          "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers",
+          "https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking",
+          "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.929
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 9795,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 20764,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 9795,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 20764
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.464
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 30,
+        "cache_creation_input_tokens": 29689,
+        "cache_read_input_tokens": 310570,
+        "output_tokens": 10316,
+        "web_search_requests": 5,
+        "web_fetch_requests": 5,
+        "requests": 2,
+        "read_source_calls": 4,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 30,
+            "cache_write_5m_tokens": 29689,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 310570,
+            "output_tokens": 10316
+          }
+        },
+        "fetched_urls": [
+          "https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights",
+          "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers",
+          "https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking",
+          "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.467
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 2987,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 3765,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 2987,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 3765
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.09
+      }
+    ],
+    "brief": "I've picked **\"how to vet an Instagram influencer before paying\"** and the brief is below. Search demand is unknown: you gave no volume data and I have none. Some research limits shape what the writer can say, so read these first:\n\n- **Instagram Help Center and Meta Business Help pages wouldn't load** (they need JavaScript or were blocked). That includes the \"About this account\" page and Meta's branded content (paid partnership) policy. The article must not describe their contents.\n- **One FTC section is missing.** My copy of the FTC's Endorsement Guides FAQ cut off before its section on what advertisers are responsible for. The eCFR (the official online Code of Federal Regulations) text of the Guides was blocked by a captcha. Don't attribute any \"monitoring program\" duty to the FTC.\n- **My web search quota ran out** after the first round of ranking checks, so the SERP review covers five candidate topics.\n\n---\n\n# Brief: How to vet an Instagram influencer before you pay\n\n## 1. Chosen query and keyphrase\n- **Query:** how to vet an Instagram influencer before paying\n- **Focus keyphrase:** how to vet an Instagram influencer\n- **Suggested title:** How to Vet an Instagram Influencer Before You Pay: A 6-Step Checklist\n- **Use the keyphrase in:** the title, the intro, and once or twice more. Keep headings descriptive.\n\n## 2. Search intent and why this topic\n- **Intent:** a how-to checklist for someone about to spend money, mostly small businesses and brands. Current results are \"checklist + red flags\" posts: Social Cat, ContentGrip (\"12-point checklist\"), Hypefy, HypeIn, SupGrowth, Serum.\n- **What the results get wrong:** most are vendor blogs. They push their own audit scores and use engagement-rate cut-offs with no source (for example \"3% and above\"). They tell readers to \"ask for Insights screenshots\" but don't explain how to read them.\n- **Why not the other candidates:** the pitching and pricing results are crowded with calculators that New Earns can't back with sourced data. Audience-location insights fits as a sub-section here instead.\n\n## 3. What we add (unique angle)\n1. **How to read the creator's own Insights, based on Meta's documentation:**\n   - follower vs. engaged-audience demographics\n   - the top-45 cap on location rows\n   - the 100-follower and 100-engagement minimums\n   - available timeframes and the up-to-48-hour data delay\n   - \"views\" replacing \"impressions,\" so older media kits may not match\n2. **A request template:** exactly which screenshots to ask for, with the date range visible.\n3. **The legal side for the paying business:** FTC enforcement focus, where disclosures go, why a platform label alone isn't enough, and the FTC's 2024 ban on buying or selling fake followers.\n4. **A red-flag table:** what you see → what it might mean → what to do.\n5. **The local-business case:** checking city-level audience when you only sell in one area.\n6. **No invented benchmarks.** The article says why it gives no universal \"good engagement rate\" and has readers compare a creator's posts against each other instead.\n\n## 4. Outline (H2/H3)\n**Intro (2–3 sentences).** Vetting means confirming fit, a real audience in your market, consistent performance and proper disclosure before you pay.\n\n**H2: What to confirm before any money changes hands**\n- Four questions: fit, where the audience is, steady performance, disclosure habits.\n\n**H2: Step 1 – Check fit on the public profile**\n- Content, recent activity, and past sponsored posts, including how they were disclosed (links to Step 5).\n\n**H2: Step 2 – Ask for Insights screenshots (and say exactly which ones)**\n- **Request list:**\n  - follower demographics by country and city\n  - engaged-audience demographics by country and city\n  - reach, views and accounts engaged for recent posts\n  - the timeframe visible in every screenshot\n- **H3: How to read audience location data**\n  - Top-45 cap; only people Meta has demographic data for are counted, so totals can come to less than the follower count.\n  - The 100-follower minimum (follower demographics) and 100-engagement minimum (engaged-audience demographics).\n  - Timeframe options; data can be up to 48 hours behind.\n  - **Local-business case:** check the cities you actually serve. Engaged-audience location is usually more useful than follower location for a campaign.\n- **H3: Views, reach and impressions in older media kits**\n  - Meta's definitions (sourced below).\n  - Impressions were deprecated in Meta's API (April 21, 2025, all versions). Older media kits may use impressions, so compare like with like.\n  - Note that the app's labels may differ from the API's.\n\n**H2: Step 3 – Compare post-level performance, not just totals**\n- Look at a run of recent posts and the typical post, not the best one.\n- Compare reach against followers across posts.\n- No numeric benchmarks.\n\n**H2: Step 4 – Look for signs of bought followers or engagement**\n- Generic comments and sudden jumps are things to ask about, not proof.\n- **Country mismatch:** Instagram itself has named \"majority of followers in a different country to their location\" as one signal it looks at (2020 post). Present this as a reason to ask questions, not a verdict.\n- **FTC 2024 rule:** selling or buying fake followers or views is banned, with the conditions attached.\n\n**H2: Step 5 – Check how they've disclosed past sponsorships**\n- FTC guidance: put the disclosure with the endorsement, keep it out of hashtag clusters, superimpose it on Stories, use clear wording, and include it in the video itself for video posts.\n- Instagram's paid partnership label exists, but the FTC says not to rely on platform tools alone.\n\n**H2: Step 6 – Write disclosure and reporting into the agreement**\n- Deliverables, disclosure wording and placement, a post-campaign Insights report with a stated timeframe, payment milestones.\n- Include a \"not legal advice\" line.\n- Non-US readers: the FTC says US law can apply to posts from abroad; check your local regulator too.\n\n**H2: Red flags at a glance (decision table)**\n- Columns: What you see | What it may mean | What to do.\n- **Example rows:**\n  - won't share Insights\n  - only best-post screenshots\n  - follower countries don't match your market\n  - engaged-audience demographics missing (could be under the 100-engagement threshold)\n  - media kit quotes impressions only\n  - past sponsored posts have no disclosure, or only \"sp,\" \"collab\" or a bare \"thanks\"\n\n**H2: Where to find creators who are easier to vet**\n- Instagram's creator marketplace (status as of Feb 2024).\n- Optional single Instagramaps mention (see §7).\n\n**Optional FAQ**\n- \"What engagement rate is good?\" Explain why there's no universal number and how to compare a creator's posts against each other instead.\n\n## 5. Facts to use (each with URL)\n**Meta Instagram Insights API docs:** https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights\n1. `follower_demographics` covers age, city, country and gender of followers. It is \"Not returned if the IG User has less than 100 followers.\"\n2. `engaged_audience_demographics` covers the same breakdowns for the engaged audience. It is \"Not returned if the IG User has less than 100 engagements during the timeframe.\"\n3. Timeframes: last 14, 30 or 90 days, previous month, this month (last 30 days) and this week (last 7 days).\n4. Limitations:\n   - \"Demographic metrics only return the top 45 performers.\"\n   - Only viewers with demographic data are counted.\n   - Summed values may be less than the follower count.\n   - \"Data used to calculate metrics may be delayed up to 48 hours.\"\n5. Definitions:\n   - **reach** = unique accounts that saw content at least once, including in ads; estimated\n   - **views** = times content was played or displayed\n   - **accounts_engaged** = accounts that interacted, e.g. likes, saves, comments, shares, replies\n6. Impressions: deprecated for v22.0, and for all versions on April 21, 2025. Replaced by the new `views` metric.\n\n**FTC – final rule on fake reviews (press release):** https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials\n7. The rule bans selling or buying fake followers or views, but only where the buyer knew or should have known they were fake and used them to overstate influence for a commercial purpose.\n8. Effective 60 days after publication in the Federal Register. The exact date wasn't confirmed, so don't state one.\n\n**FTC – Endorsement Guides FAQ:** https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking\n9. The FTC's enforcement focus is usually on advertisers, agencies and PR firms, though individual endorsers can be targeted in some cases.\n10. A built-in platform disclosure tool is \"Not necessarily\" enough. Responsibility \"rests with the influencer and the brand – not the platform.\"\n11. Fake likes: \"both the purchaser and the seller\" could face enforcement action.\n\n**FTC – Disclosures 101 for Social Media Influencers:** https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers\n12. What counts as a material connection, including free products.\n13. Placement: the disclosure goes with the endorsement. It shouldn't be only in the profile, at the end, or behind \"more,\" and shouldn't be mixed into hashtags.\n14. Stories: superimpose the disclosure. Video: put it in the video itself.\n15. Wording:\n   - acceptable: \"ad,\" \"sponsored,\" \"Thanks to Acme brand for the free product\"\n   - avoid: \"sp,\" \"spon,\" \"collab,\" or a bare \"thanks\"/\"ambassador\"\n   - don't rely on the platform tool alone\n16. Posts from abroad: US law applies if it's reasonably foreseeable the post will affect US consumers.\n\n**Meta newsroom – creator marketplace (Feb 21, 2024):** https://about.fb.com/news/2024/02/creator-marketplace-for-brands-and-creators-to-collaborate-on-instagram/\n17. Brands join in Meta Business Suite and can filter by creator and audience attributes. Creators join from their professional dashboard.\n18. The marketplace was expanding beyond the US to Canada, Australia, New Zealand, UK, Japan, India and Brazil.\n19. The paid partnership label exists (\"branded content with the paid partnership label\").\n\n**About Instagram – authenticity measures (Aug 13, 2020):** https://about.instagram.com/blog/announcements/introducing-new-authenticity-measures-on-instagram\n20. One signal Instagram listed: \"the majority of someone's followers are in a different country to their location.\" It applies only to a small number of accounts.\n\n## 6. Internal links\nNone of the published posts genuinely matches this intent, so I recommend no internal links. \"How to Start Your Digital Marketing Agency in 2025\" is only loosely related; link it only if the writer adds a sentence about agencies running influencer campaigns.\n\n## 7. Product link\n- **Justified:** once, in \"Where to find creators who are easier to vet.\" Link https://instagramaps.com/ (pricing is on the homepage).\n- **Allowed wording:**\n  - It includes a marketplace where creators and businesses create profiles, get matched and send collaboration requests.\n  - Creators and businesses can connect their Instagram account to see where their audience engages by country and city.\n  - It compares views, reach and engagement per post.\n  - It has free Creator and Business plans; paid plans start at 9 USD per month (check the pricing page for current prices).\n- **Don't:**\n  - imply a business can see another creator's location data\n  - quote business-tier prices, which aren't on the allowed list\n  - add a second link in Step 2\n\n---\n\n## SOURCE NOTES\n\n**1. Meta for Developers – \"Instagram Account Insights\" (Instagram User Insights API reference)**\n- **URL:** https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights\n- **Date:** none stated (retrieved Oct 20, 2026).\n- **Scope:** this is API documentation. In-app labels may differ, so tell readers their screen may look different.\n- **Exact text:**\n  - Limitations: \"`follower_count` and `online_followers` metrics are not available on Instagram business or creator accounts with fewer than 100 followers.\" / \"Demographic metrics only return the top 45 performers.\" / \"Only viewers for whom we have demographic data are used in demographic metric calculations.\" / \"Summing demographic metric values may result in a value less than the follower count\" / \"Data used to calculate metrics may be delayed up to 48 hours.\"\n  - follower_demographics: \"The demographic characteristics of followers, including countries, cities and gender distribution.\" … \"Not returned if the IG User has less than 100 followers.\" Breakdowns: age, city, country, gender. Timeframes: last_14_days, last_30_days, last_90_days, prev_month, this_month, this_week.\n  - engaged_audience_demographics: \"The demographic characteristics of the engaged audience, including countries, cities and gender distribution. `this_month` returns the data in the last 30 days and `this_week` returns data in the last 7 days.\" … \"Not returned if the IG User has less than 100 engagements during the timeframe.\"\n  - reach: \"The number of unique accounts that have seen your content, at least once, including in ads. … Reach is different from impressions, which may include multiple views of your content by the same accounts.\" \"This metric is estimated.\"\n  - views: \"The number of times your content was played or displayed. Content includes reels, posts, stories.\" Labelled \"in development.\"\n  - accounts_engaged: \"The number of accounts that have interacted with your content, including in ads. … Interactions can include actions such as likes, saves, comments, shares or replies.\" \"This metric is estimated.\"\n  - Deprecation: \"The following metrics have been deprecated for v22.0 and will be deprecated for all versions on April 21, 2025: `impressions`. Introducing the new `views` metric…\"\n\n**2. FTC – \"Federal Trade Commission Announces Final Rule Banning Fake Reviews and Testimonials\"**\n- **URL:** https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials\n- **Date:** published Aug 14, 2024; modified Aug 20, 2024.\n- **Exact text:**\n  - \"Misuse of Fake Social Media Indicators: The final rule prohibits anyone from selling or buying fake indicators of social media influence, such as followers or views generated by a bot or hijacked account. This prohibition is limited to situations in which the buyer knew or should have known that the indicators were fake and misrepresent the buyer's influence or importance for a commercial purpose.\"\n  - \"The rule will become effective 60 days after the date it's published in the Federal Register.\"\n- **Writer note:** this covers whoever buys or sells the fake indicators, such as a creator buying followers. Don't say it makes a brand liable just for hiring that creator.\n\n**3. FTC – \"FTC's Endorsement Guides: What People Are Asking\"**\n- **URL:** https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking\n- **Date:** first published Sept 7, 2017; modified July 15, 2025.\n- **Limit:** read only partially; the advertiser-responsibilities section wasn't captured.\n- **Exact text:**\n  - \"If law enforcement becomes necessary, our focus usually will be on advertisers or their ad agencies and public relations firms. However, action against an individual endorser might be appropriate in certain circumstances – for example, if the endorser hasn't made required disclosures despite warnings.\"\n  - On built-in tools: \"Not necessarily. … just because a platform offers this feature is no guarantee that it's an effective way for influencers to disclose their material connection to a brand.\" / \"the ultimate responsibility for clearly and conspicuously disclosing a material connection rests with the influencer and the brand – not the platform. To be on the safe side, it's always best to add your own disclosure even if a platform offers its own disclosure tool.\"\n  - \"If 'likes' are from non-existent people or people who have no experience using the product or service, they are clearly deceptive, and both the purchaser and the seller of the fake 'likes' could face enforcement action.\"\n  - \"The Guides themselves don't have the force of law. However, practices inconsistent with the Guides may result in law enforcement actions alleging Section 5 violations.\"\n  - \"Gifted,\" by itself without a brand reference, is likely to be ambiguous; \"Gifted by XYZ\" should be sufficient when all you've received is a free product.\n\n**4. FTC – \"Disclosures 101 for Social Media Influencers\"**\n- **URL:** https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers\n- **Date:** published Oct 24, 2019; modified Dec 3, 2024; brochure dated November 2019.\n- **Exact text:**\n  - \"A 'material connection' to the brand includes a personal, family, or employment relationship or a financial relationship – such as the brand paying you or giving you free or discounted products or services.\"\n  - \"The disclosure should be placed with the endorsement message itself.\" / \"Disclosures are likely to be missed if they appear only on an ABOUT ME or profile page, at the end of posts or videos, or anywhere that requires a person to click MORE.\" / \"Don't mix your disclosure into a group of hashtags or links.\"\n  - \"If your endorsement is in a picture on a platform like Snapchat and Instagram Stories, superimpose the disclosure over the picture and make sure viewers have enough time to notice and read it.\" / \"If making an endorsement in a video, the disclosure should be in the video and not just in the description…\"\n  - \"Simple explanations like 'Thanks to Acme brand for the free product' are often enough if placed in a way that is hard to miss. So are terms like 'advertisement,' 'ad,' and 'sponsored.'\" / \"Don't use vague or confusing terms like 'sp,' 'spon,' or 'collab,' or stand-alone terms like 'thanks' or 'ambassador'…\" / \"Don't assume that a platform's disclosure tool is good enough, but consider using it in addition to your own, good disclosure.\"\n  - \"If posting from abroad, U.S. law applies if it's reasonably foreseeable that the post will affect U.S. consumers. Foreign laws might also apply.\"\n  - \"You can't talk about your experience with a product you haven't tried.\"\n\n**5. Meta Newsroom – \"Making it Easier for Brands and Creators to Collaborate on Instagram\"**\n- **URL:** https://about.fb.com/news/2024/02/creator-marketplace-for-brands-and-creators-to-collaborate-on-instagram/\n- **Date:** Feb 21, 2024. Availability may have changed since; say \"as of February 2024.\"\n- **Exact text:**\n  - \"In 2022, we began testing the creator marketplace in the US…\"\n  - \"Over the next few weeks, we plan to invite creators and brands based in Canada, Australia, New Zealand, United Kingdom, Japan, India and Brazil to join Instagram's creator marketplace.\"\n  - \"Brands join Instagram's creator marketplace in Meta Business Suite. Creators join from their professional dashboard in the Instagram app.\"\n  - \"Brands can also search for creators, filtering for creator and audience attributes.\"\n  - \"Advertisers can boost organic Instagram content as partnership ads, including branded content with the paid partnership label…\"\n  - The machine-learning recommendations were a test, \"Eligible brands … over the coming months.\"\n\n**6. About Instagram – \"Introducing New Authenticity Measures on Instagram\"**\n- **URL:** https://about.instagram.com/blog/announcements/introducing-new-authenticity-measures-on-instagram\n- **Date:** posted Aug 13, 2020 (older; present as background).\n- **Exact text:**\n  - \"We want to be clear that this change will apply only to a small number of our community. Most people will not be affected. This includes accounts potentially engaged in coordinated inauthentic behavior, or when we see the majority of someone's followers are in a different country to their location, or if we find signs of automation, such as bot accounts for example.\"\n\n**7. Instagramaps homepage (product check only, not evidence for claims)**\n- **URL:** https://instagramaps.com/\n- **Date:** none stated.\n- **What it says:** \"See where people engage with your Instagram content across countries and cities.\" / \"Compare views, reach, and engagement…\" / Creator Free $0; Business Free includes \"send limited collaboration requests\"; Creator Pro \"$9 /month.\"\n- **Writer note:** use only the allowed-claims wording in §7.\n\n**Couldn't read (don't use as evidence):** Instagram Help Center \"About this account\" (help.instagram.com/697961817256175), Meta Business Help \"About branded content\" (facebook.com/business/help/788160621327601), Meta's branded content policies page, and eCFR 16 CFR Part 255.",
+    "candidates": [
+      "how brands find Instagram creators to work with",
+      "how to pitch a brand collaboration on Instagram",
+      "how to read Instagram audience location insights",
+      "how much to charge for a sponsored Instagram post",
+      "micro influencer marketing for small businesses",
+      "how to vet an Instagram influencer before paying",
+      "how to build a creator media kit",
+      "Instagram Professional dashboard insights explained"
+    ],
+    "article": {
+      "title": "How to Vet an Instagram Influencer Before You Pay: A 6-Step Checklist",
+      "seo_title": "How to Vet an Instagram Influencer Before You Pay",
+      "slug": "how-to-vet-instagram-influencer",
+      "meta_description": "Check fit, audience location, post performance and FTC disclosures before paying an Instagram creator. A 6-step checklist with a red-flag table.",
+      "focus_keyphrase": "how to vet an Instagram influencer",
+      "excerpt": "A practical checklist for small businesses: which Insights screenshots to request, how to read audience location data, how to spot warning signs, and what the FTC says about disclosure.",
+      "content_html": "<p>Paying an Instagram creator is a small media buy, and the rule for any ad spend applies: check what you're buying first. This guide explains how to vet an Instagram influencer in six steps, from reading their public profile to writing disclosure and reporting terms into the agreement. Before money changes hands, you want to confirm four things: fit, a real audience in your market, steady performance and proper disclosure.</p><h2>What to confirm before any money changes hands</h2><p>Each step below answers one of these questions:</p><ul><li><strong>Fit:</strong> Do the creator's content, tone and audience match what you sell?</li><li><strong>Audience location:</strong> Are the people who follow and engage with them in the countries or cities where you can actually sell?</li><li><strong>Steady performance:</strong> Do their typical posts reach and engage people, or is the media kit built on one viral hit?</li><li><strong>Disclosure habits:</strong> Have they labelled past sponsorships clearly enough that your campaign won't create a compliance problem?</li></ul><p>Steps 1 and 5 use only what's public. Steps 2 and 3 need the creator's cooperation, because account Insights are visible to the account owner, not to you.</p><h2>Step 1: Check fit on the public profile</h2><p>Start with what anyone can see. Spend real time on the profile before you send a message.</p><ul><li><strong>Recent activity.</strong> Are they posting regularly now, or did activity drop off months ago? A creator who posted heavily last year and rarely since may not deliver the reach their media kit describes.</li><li><strong>Content match.</strong> Would your product look natural in their feed? A fitness creator who often posts recipes may suit a meal-prep brand; a travel creator probably isn't the right fit for a local plumber.</li><li><strong>Comment quality.</strong> Read the comments on several posts. Questions about products, replies from the creator and conversations between followers suggest an audience that pays attention. Note anything that looks generic or repetitive for Step 4.</li><li><strong>Past sponsored posts.</strong> Find posts that look like brand work. Note which brands, how recently, and especially how the sponsorship was disclosed. You'll compare those disclosures with FTC guidance in Step 5.</li><li><strong>Competitors.</strong> If they promoted a direct competitor recently, decide whether that matters and whether you need an exclusivity clause.</li></ul><h2>Step 2: Ask for Insights screenshots (and say exactly which ones)</h2><p>A media kit is a summary the creator chose to show. Insights screenshots let you see the numbers behind it. Vague requests (“can you send your stats?”) tend to produce cropped, flattering screenshots, so be specific. Ask for:</p><ul><li>Follower demographics by <strong>country</strong> and by <strong>city</strong></li><li>Engaged-audience demographics by <strong>country</strong> and by <strong>city</strong></li><li>Reach, views and accounts engaged for each recent post, not just the best one</li><li>The <strong>timeframe visible</strong> in every screenshot, with the same timeframe used across all of them</li></ul><p>Here is a message you can adapt:</p><p><em>“Thanks for your interest in working with us. Before we confirm, could you send screenshots from your Instagram Insights showing: (1) follower location by country and city, (2) engaged audience location by country and city, and (3) reach, views and accounts engaged for each of your recent feed posts and reels from the same period. Please use the same timeframe for every audience screenshot (last 30 days or last 90 days works well) and keep the date range visible. We ask every creator for the same set so we can compare fairly.”</em></p><p>Those windows match timeframes Meta lists for demographic data (<a href=\"https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>). Also ask whether any of the posts were boosted as ads. Meta's definitions of reach and accounts engaged both include activity from ads, so a paid boost can make a post look stronger than its organic performance.</p><h3>How to read audience location data</h3><p>Meta's developer documentation for Instagram Insights explains how the demographic numbers are calculated. It's written for the API, so the screens in the Instagram app may use different labels or layouts, but the underlying rules help you interpret what you're sent:</p><ul><li><strong>Follower vs. engaged audience.</strong> Follower demographics describe the people who follow the account. Engaged-audience demographics describe the people who interacted with the content during the selected timeframe. Both include country, city, age and gender breakdowns (<a href=\"https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>).</li><li><strong>Only the top 45 rows.</strong> Meta states that “demographic metrics only return the top 45 performers,” so a long tail of smaller cities or countries won't appear (<a href=\"https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>).</li><li><strong>Totals can be lower than the follower count.</strong> Only viewers Meta has demographic data for are counted, and Meta notes that summing the values may result in a value less than the follower count (<a href=\"https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>). On its own, that isn't a sign of manipulation.</li><li><strong>Minimums.</strong> Follower demographics aren't returned if the account has fewer than 100 followers, and engaged-audience demographics aren't returned if the account has fewer than 100 engagements during the timeframe (<a href=\"https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>). A small creator with no engaged-audience data may simply be under that threshold; ask for a longer timeframe.</li><li><strong>Timeframes.</strong> The documentation lists the last 14, 30 or 90 days, the previous month, this month and this week (<a href=\"https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>). Check that every screenshot uses the same one.</li><li><strong>Delay.</strong> “Data used to calculate metrics may be delayed up to 48 hours,” so very recent posts may look incomplete (<a href=\"https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>).</li></ul><p><strong>The local-business case.</strong> If you only sell in one city or region (a café, salon, gym or home-services company), country data tells you little. Ask for the city breakdown and look for the specific cities you serve. Then give more weight to the engaged-audience view than the follower view. Followers can include people who followed long ago from elsewhere, while the engaged audience shows who interacted with content during the timeframe you chose, which is closer to who will see your campaign. If your city doesn't appear in the list at all, the creator's audience is probably too spread out for a local offer, however large it is.</p><h3>Views, reach and impressions in older media kits</h3><p>Meta's API documentation defines the current metrics this way (<a href=\"https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>):</p><ul><li><strong>Reach:</strong> the number of unique accounts that have seen the content at least once, including in ads. Meta says this metric is estimated.</li><li><strong>Views:</strong> the number of times content was played or displayed, covering reels, posts and stories. One account can generate several views. Meta labels this metric as in development.</li><li><strong>Accounts engaged:</strong> the number of accounts that interacted with the content, including in ads, through actions such as likes, saves, comments, shares or replies. Also estimated.</li></ul><p>Older media kits often quote <strong>impressions</strong>. In Meta's API, impressions were deprecated for v22.0 and for all versions on April 21, 2025, with the new views metric introduced in their place (<a href=\"https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>). Don't compare one creator's old impressions figure with another creator's current views figure. Ask everyone for current reach and views instead. Because in-app labels may not match the API names exactly, ask the creator to point out which number is which if their screen looks different.</p><h2>Step 3: Compare post-level performance, not just totals</h2><p>Account-level totals hide a lot. One viral reel can lift a whole month's reach. Work at the post level instead:</p><ol><li>Put the reach, views and accounts engaged for each recent post into a spreadsheet, one row per post.</li><li>Sort by reach and look at the middle of the list. That typical post is a better estimate of what your sponsored post will do than the best one.</li><li>Divide each post's reach by the follower count. You're not looking for a particular percentage; you're looking at how much it varies. If most posts sit in a similar range and one is far above it, plan around the range.</li><li>Divide accounts engaged by reach for each post. This shows what share of the people who saw a post did something with it, and lets you compare posts like for like.</li><li>Check format. If reels perform very differently from carousels or Stories, plan and price the deliverable in the format you're actually buying.</li><li>Flag boosted posts and assess them separately, because reach and accounts engaged include ads.</li></ol><p>This guide deliberately gives no target engagement rate. The cut-offs in many vendor checklists come without a source, and the result depends on how engagement is counted, the niche, the format and the account size. Comparing a creator with their own recent posts, and comparing several creators using the same metric and timeframe, is more reliable than chasing a universal number.</p><h2>Step 4: Look for signs of bought followers or engagement</h2><p>You can't prove from the outside that an account bought followers, and you shouldn't accuse anyone on a hunch. What you can do is notice patterns worth asking about:</p><ul><li><strong>Generic comments.</strong> Many short, interchangeable comments (“Nice!”, strings of emoji) that never refer to what the post is about.</li><li><strong>Sudden jumps.</strong> If a creator's follower count rose sharply over a short period, ask what caused it. A viral post or press coverage is a perfectly good answer.</li><li><strong>Engagement that doesn't fit the reach.</strong> Lots of likes on posts that, in the Insights screenshots, reached relatively few accounts.</li><li><strong>Country mismatch.</strong> When Instagram announced new authenticity measures in 2020, one situation it described was “when we see the majority of someone's followers are in a different country to their location,” and it said the change would apply only to a small number of accounts (<a href=\"https://about.instagram.com/blog/announcements/introducing-new-authenticity-measures-on-instagram\">About Instagram</a>). Treat a mismatch as a reason to ask questions, not a verdict. A creator may have moved, or may post in a language with a large audience abroad.</li></ul><p>There is also a legal dimension. In August 2024 the FTC announced a final rule that “prohibits anyone from selling or buying fake indicators of social media influence, such as followers or views generated by a bot or hijacked account.” The FTC says this is limited to situations where the buyer “knew or should have known that the indicators were fake and misrepresent the buyer's influence or importance for a commercial purpose” (<a href=\"https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials\">FTC press release</a>). Separately, the FTC's Endorsement Guides FAQ says that for fake likes, “both the purchaser and the seller” could face enforcement action (<a href=\"https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking\">FTC Endorsement Guides FAQ</a>). The rule addresses whoever buys or sells those indicators. If you have questions about your own position when working with a particular creator, ask a lawyer.</p><h2>Step 5: Check how they've disclosed past sponsorships</h2><p>A creator's past disclosures show how they'll likely handle yours, and this matters to you directly. The FTC's FAQ says that if law enforcement becomes necessary, its focus “usually will be on advertisers or their ad agencies and public relations firms,” though action against an individual endorser might be appropriate in certain circumstances (<a href=\"https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking\">FTC Endorsement Guides FAQ</a>).</p><p>Compare their past sponsored posts with the FTC's guidance in <a href=\"https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers\">Disclosures 101 for Social Media Influencers</a>:</p><ul><li><strong>Material connection.</strong> A material connection includes a financial relationship, such as the brand paying the creator or giving free or discounted products or services. Gifted products count.</li><li><strong>Placement.</strong> The disclosure should be placed with the endorsement itself. The FTC says disclosures are likely to be missed if they appear only on a profile page, at the end of posts or videos, or anywhere that requires clicking “more.”</li><li><strong>Hashtags.</strong> “Don't mix your disclosure into a group of hashtags or links.” An #ad buried in a long hashtag block at the end of a caption is a problem.</li><li><strong>Stories.</strong> For an endorsement in a picture on Instagram Stories, superimpose the disclosure over the picture and give viewers enough time to notice and read it.</li><li><strong>Video.</strong> For a video endorsement, the disclosure should be in the video, not just in the description.</li><li><strong>Wording.</strong> “Thanks to Acme brand for the free product” is often enough if placed where it's hard to miss, as are “advertisement,” “ad” and “sponsored.” Avoid vague terms like “sp,” “spon” or “collab,” and stand-alone terms like “thanks” or “ambassador.”</li></ul><p>On gifted posts, the FTC's FAQ says “gifted” by itself, without a brand reference, is likely to be ambiguous, while “Gifted by XYZ” should be sufficient when all the creator received is a free product (<a href=\"https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking\">FTC Endorsement Guides FAQ</a>).</p><p>Instagram offers a paid partnership label for branded content (<a href=\"https://about.fb.com/news/2024/02/creator-marketplace-for-brands-and-creators-to-collaborate-on-instagram/\">Meta Newsroom</a>). Use it, but don't treat it as the whole disclosure. Asked whether a platform's built-in disclosure tool is enough, the FTC answers “Not necessarily,” and says the ultimate responsibility for clear disclosure “rests with the influencer and the brand – not the platform” (<a href=\"https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking\">FTC Endorsement Guides FAQ</a>). Disclosures 101 likewise suggests using a platform's tool in addition to your own good disclosure, not instead of it.</p><h2>Step 6: Write disclosure and reporting into the agreement</h2><p>Once a creator passes the checks above, put expectations in writing. A short agreement or detailed confirmation email should cover:</p><ul><li><strong>Deliverables:</strong> format (reel, feed post, Stories), number of pieces, posting window, and whether you may reuse the content.</li><li><strong>Disclosure wording and placement:</strong> for example “Ad” or “Sponsored” at the start of the caption, superimposed text on Stories, a disclosure inside the video itself, and the paid partnership label in addition.</li><li><strong>Review step:</strong> you see the post, including its disclosure, before it goes live.</li><li><strong>Post-campaign report:</strong> Insights screenshots for each deliverable showing reach, views and accounts engaged, with the date range visible and a stated timeframe. Meta says data may be delayed up to 48 hours, so don't schedule the report for the day of posting (<a href=\"https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>).</li><li><strong>Payment milestones:</strong> for example, part on signing and the rest once the post is live with the agreed disclosure and the report has been delivered.</li><li><strong>Exclusivity, if needed:</strong> how long the creator won't promote direct competitors.</li></ul><p>If you run influencer campaigns for clients, this checklist works as an agency process too; the FTC's FAQ names ad agencies alongside advertisers when describing where its enforcement focus usually falls (<a href=\"https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking\">FTC Endorsement Guides FAQ</a>). Our guide on <a href=\"https://newearns.com/how-to-start-your-digital-marketing-agency-in-2025/\">how to start a digital marketing agency</a> covers setting up that kind of service.</p><p><strong>Outside the US?</strong> The FTC says that if posting from abroad, US law applies if it's reasonably foreseeable that the post will affect US consumers, and foreign laws might also apply (<a href=\"https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers\">FTC Disclosures 101</a>). Check your own country's advertising regulator as well.</p><p><em>This section is general information, not legal advice. For contract terms, speak to a lawyer familiar with advertising law where you operate.</em></p><h2>Red flags at a glance</h2><table><thead><tr><th>What you see</th><th>What it may mean</th><th>What to do</th></tr></thead><tbody><tr><td>Won't share Insights at all</td><td>They may be protective of their data, or the numbers may not support their rate</td><td>Explain why you ask every creator; if they still decline, offer a smaller test or move on</td></tr><tr><td>Sends only best-post screenshots</td><td>Typical posts may perform well below the highlight</td><td>Ask for every post from one stated period</td></tr><tr><td>Screenshots with no visible date range</td><td>You can't tell if the data is recent or comparable</td><td>Ask them to retake screenshots with the timeframe showing</td></tr><tr><td>Top follower countries or cities don't include your market</td><td>The audience may not be able to buy from you; a country mismatch is also a signal Instagram has said it looks at (<a href=\"https://about.instagram.com/blog/announcements/introducing-new-authenticity-measures-on-instagram\">About Instagram</a>)</td><td>Ask about it, check engaged-audience location, and pass if your market isn't there</td></tr><tr><td>Engaged-audience demographics missing</td><td>The account may have had fewer than 100 engagements in the timeframe (<a href=\"https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>)</td><td>Ask for a longer timeframe; treat it as a sign of a small active audience</td></tr><tr><td>Media kit quotes impressions only</td><td>The kit may predate the switch from impressions to views (<a href=\"https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>)</td><td>Ask for current reach and views</td></tr><tr><td>Strong reach mainly on boosted posts</td><td>Reach and accounts engaged include ads</td><td>Ask which posts were boosted and judge organic posts separately</td></tr><tr><td>Past sponsored posts have no disclosure, or only “sp,” “collab” or a bare “thanks”</td><td>Disclosure habits that fall short of FTC guidance (<a href=\"https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers\">FTC Disclosures 101</a>)</td><td>Require specific wording and pre-approval in the agreement, or choose another creator</td></tr></tbody></table><h2>Where to find creators who are easier to vet</h2><p>Instagram's creator marketplace is one route. As of February 2024, Meta said brands join through Meta Business Suite and can search for creators, filtering by creator and audience attributes, while creators join from their professional dashboard in the Instagram app. Meta began testing the marketplace in the US in 2022 and said it planned to invite creators and brands in Canada, Australia, New Zealand, the United Kingdom, Japan, India and Brazil (<a href=\"https://about.fb.com/news/2024/02/creator-marketplace-for-brands-and-creators-to-collaborate-on-instagram/\">Meta Newsroom</a>). Availability may have changed since then, so check Meta Business Suite for your country.</p><p>Another option is <a href=\"https://instagramaps.com/?utm_source=newearns&utm_medium=referral&utm_campaign=how-to-vet-instagram-influencer\">Instagramaps</a>, which includes a marketplace where creators and businesses create profiles, get matched and send collaboration requests. Creators and businesses can connect their own Instagram account to see where their audience engages by country and city, and compare views, reach and engagement per post. As a business, you would still ask a creator for the Step 2 screenshots; this guide doesn't assume any tool shows you another account's Insights. It has free Creator and Business plans; paid plans start at 9 USD per month (check the pricing page for current prices).</p><p><em>Disclosure: Instagramaps is built by the team behind New Earns. We mention it where it fits the task; the steps in this guide also work with other tools.</em></p><h2>FAQ</h2><h3>What engagement rate is good for an Instagram influencer?</h3><p>There's no universal number worth relying on. Published cut-offs rarely cite a source, and results vary with niche, format, account size and how engagement is calculated. Instead, divide accounts engaged by reach for each of the creator's recent posts, look at the typical result rather than the best, and compare creators only when you've used the same metric and timeframe for all of them.</p><h3>Is Instagram's paid partnership label enough disclosure?</h3><p>The FTC says a platform's built-in tool is “Not necessarily” enough and that responsibility rests with the influencer and the brand, not the platform (<a href=\"https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking\">FTC Endorsement Guides FAQ</a>). Use the label plus a clear disclosure such as “Ad” placed with the endorsement.</p><h3>Why don't the location percentages add up to the follower count?</h3><p>Meta only counts viewers it has demographic data for, returns the top 45 rows, and notes that summed values may be less than the follower count (<a href=\"https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>). Use the data to see where the audience is concentrated, not as a full headcount.</p><h3>If a creator bought followers, does the FTC rule apply to my business?</h3><p>The FTC describes the 2024 rule as banning the selling or buying of fake indicators of social media influence where the buyer knew or should have known they were fake and used them to misrepresent their influence for a commercial purpose (<a href=\"https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials\">FTC press release</a>). It's framed around buyers and sellers of those indicators. For questions about your specific situation, get legal advice, and use Step 4 to avoid paying for an inflated audience in the first place.</p>",
+      "sources": [
+        {
+          "url": "https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights",
+          "title": "Meta for Developers – Instagram Account Insights (API reference)",
+          "supports": "Follower vs engaged-audience demographics, top-45 cap, demographic totals below follower count, 100-follower and 100-engagement minimums, timeframes, up-to-48-hour delay, definitions of reach, views and accounts engaged (including ads), impressions deprecation on April 21, 2025"
+        },
+        {
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials",
+          "title": "FTC press release: final rule banning fake reviews (August 2024)",
+          "supports": "Ban on selling or buying fake indicators of social media influence and the knew-or-should-have-known, commercial-purpose limitation"
+        },
+        {
+          "url": "https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking",
+          "title": "FTC's Endorsement Guides: What People Are Asking",
+          "supports": "Enforcement focus on advertisers, ad agencies and PR firms; platform disclosure tools not necessarily enough; responsibility rests with influencer and brand; purchaser and seller of fake likes could face action; 'Gifted by XYZ' guidance"
+        },
+        {
+          "url": "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers",
+          "title": "FTC – Disclosures 101 for Social Media Influencers",
+          "supports": "Material connection definition, disclosure placement, hashtags, Stories and video guidance, acceptable and vague wording, using platform tools in addition to own disclosure, US law for posts from abroad"
+        },
+        {
+          "url": "https://about.fb.com/news/2024/02/creator-marketplace-for-brands-and-creators-to-collaborate-on-instagram/",
+          "title": "Meta Newsroom – Making it Easier for Brands and Creators to Collaborate on Instagram (Feb 21, 2024)",
+          "supports": "Creator marketplace access via Meta Business Suite and professional dashboard, filtering by creator and audience attributes, 2022 US test and planned expansion countries, existence of the paid partnership label"
+        },
+        {
+          "url": "https://about.instagram.com/blog/announcements/introducing-new-authenticity-measures-on-instagram",
+          "title": "About Instagram – Introducing New Authenticity Measures on Instagram (Aug 13, 2020)",
+          "supports": "Instagram listing majority of followers in a different country to the account's location as one situation its measures addressed, applying to a small number of accounts"
+        },
+        {
+          "url": "https://instagramaps.com/",
+          "title": "Instagramaps",
+          "supports": "Product mention: marketplace for creator-business matching, audience engagement by country and city for connected accounts, per-post comparison of views, reach and engagement, free plans and paid plans from 9 USD per month"
+        }
+      ],
+      "product_link_reason": "In the section on finding creators, Instagramaps directly addresses the reader's task: its marketplace lets businesses and creators create profiles, get matched and send collaboration requests, and creators can use it to see where their own audience engages by country and city. Linked once, with a note that businesses still need the creator's own screenshots.",
+      "image_headline": "Vet Influencers Before You Pay",
+      "search_intent": "Transactional how-to: small business owners and brands about to pay an Instagram creator want a practical checklist to confirm audience fit, authenticity, performance and disclosure compliance before spending money.",
+      "unique_value": "Explains how to read the creator's own Insights using Meta's documentation (top-45 cap, 100-follower and 100-engagement minimums, timeframes, 48-hour delay, impressions replaced by views), gives a copyable screenshot request, covers the paying business's FTC disclosure obligations and the 2024 fake-indicator rule without overstating them, adds a local-business city check and a red-flag decision table, and deliberately avoids unsourced engagement-rate benchmarks.",
+      "image_alt_text": "Title card reading \"Vet Influencers Before You Pay\" on a newearns.com banner",
+      "featured_image": {
+        "alt_text": "Title card reading \"Vet Influencers Before You Pay\" on a newearns.com banner",
+        "license": "generated-in-house"
+      }
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "Testing began in the US in 2022",
+          "verdict": "supported",
+          "evidence": "Meta Newsroom, Feb 21, 2024 (about.fb.com/news/2024/02/creator-marketplace…), read in full."
+        },
+        {
+          "claim": "Meta plans to invite Canada, Australia, NZ, UK, Japan, India and Brazil",
+          "verdict": "supported",
+          "evidence": "Meta Newsroom, Feb 21, 2024, read in full. Meta said \"eight new markets\"; the eighth is Chinese export brands, so listing seven countries is fine."
+        },
+        {
+          "claim": "Brands join through Meta Business Suite and can search with creator and audience filters; creators join from their professional dashboard",
+          "verdict": "supported",
+          "evidence": "Meta Newsroom, Feb 21, 2024, read in full."
+        },
+        {
+          "claim": "Instagram offers a paid partnership label for branded content",
+          "verdict": "supported",
+          "evidence": "Meta Newsroom, Feb 21, 2024, read in full. The post mentions \"branded content with the paid partnership label\"."
+        },
+        {
+          "claim": "Quote: \"majority of someone's followers are in a different country to their location\"",
+          "verdict": "supported",
+          "evidence": "About Instagram, Aug 13, 2020, read in full. The quote matches word for word."
+        },
+        {
+          "claim": "The country-location signal applies only to a small number of accounts",
+          "verdict": "supported",
+          "evidence": "About Instagram, Aug 13, 2020, read in full: \"a small number of our community\"."
+        },
+        {
+          "claim": "Red-flag table: \"Top follower countries or cities don't include your market… a country mismatch is also a signal Instagram has said it looks at\"",
+          "verdict": "unsupported",
+          "evidence": "Original verdict: Misapplied. Instagram's signal is followers being in a different country from the account holder's location. Whether your market appears is a different thing, so the citation makes a business-fit issue look like an authenticity signal. Fix: drop the clause or rewrite it to describe the creator's own location."
+        },
+        {
+          "claim": "Meta Insights API demographics are capped at the top 45, including the quoted \"top 45 performers\" line",
+          "verdict": "uncertain",
+          "evidence": "The Meta Insights API docs were not read: read_source failed because of the wrong format, and web_fetch output was lost when the script crashed, with the tool-call limit preventing retries. The reviewer's memory, which is not evidence, is that most of these match how the docs read."
+        },
+        {
+          "claim": "Demographic data requires minimums of 100 followers and 100 engagements, and totals come in under the follower count",
+          "verdict": "uncertain",
+          "evidence": "The Meta Insights API docs were not read. The reviewer's memory, which is not evidence, is that this matches how the docs read."
+        },
+        {
+          "claim": "The documentation lists the last 14, 30 or 90 days…; those windows match timeframes Meta lists",
+          "verdict": "uncertain",
+          "evidence": "The Meta docs were not read. Specific risk: as the reviewer remembers it, Meta deprecated the last_14_days, last_30_days, last_90_days and prev_month demographic timeframes from v20, leaving this_week and this_month. If so, these statements are out of date or contradicted, and they need checking against the live page. The screenshot request itself still works, because in-app Insights offer 30-day and 90-day views."
+        },
+        {
+          "claim": "48-hour delay quote",
+          "verdict": "uncertain",
+          "evidence": "The Meta Insights API docs were not read."
+        },
+        {
+          "claim": "Definitions of reach, views and accounts engaged (ads included, \"estimated\", \"in development\")",
+          "verdict": "uncertain",
+          "evidence": "The Meta Insights API docs were not read. The reviewer's memory, which is not evidence, is that these match how the docs read."
+        },
+        {
+          "claim": "Impressions are deprecated for v22.0 and for all versions on April 21, 2025",
+          "verdict": "uncertain",
+          "evidence": "The Meta Insights API docs were not read."
+        },
+        {
+          "claim": "The FTC final rule was announced August 14, 2024 and bans buying and selling fake reviews",
+          "verdict": "supported",
+          "evidence": "FTC press release, Aug 2024. Only a search snippet was read, and it confirms the date and the fake-review ban."
+        },
+        {
+          "claim": "FTC quote about \"fake indicators of social media influence… bot or hijacked account\" and the \"knew or should have known\" limit",
+          "verdict": "uncertain",
+          "evidence": "The search snippet stopped before this section. One law-firm summary (hklaw.com) does mention \"fake social media indicators\" being covered. The FAQ answer's paraphrase (\"used them to misrepresent\") is a little looser than the rule's wording, but not materially."
+        },
+        {
+          "claim": "Both the purchaser and the seller of fake likes could face action",
+          "verdict": "uncertain",
+          "evidence": "The FTC Endorsement Guides FAQ was not read (HTTP 404 via read_source). The reviewer judges this probably right: National Law Review and an older copy of the FAQ on business.cch.com both quote the sentence, but the current FTC page could not be confirmed."
+        },
+        {
+          "claim": "Enforcement focus \"usually will be on advertisers or their ad agencies…\"",
+          "verdict": "uncertain",
+          "evidence": "The FTC Endorsement Guides FAQ was not read."
+        },
+        {
+          "claim": "\"gifted\" vs \"Gifted by XYZ\" disclosure guidance and the \"Not necessarily\" answer",
+          "verdict": "uncertain",
+          "evidence": "The FTC Endorsement Guides FAQ was not read."
+        },
+        {
+          "claim": "Responsibility \"rests with the influencer and the brand – not the platform\"",
+          "verdict": "uncertain",
+          "evidence": "The FTC Endorsement Guides FAQ was not read."
+        },
+        {
+          "claim": "FTC Disclosures 101 guidance: material connection; placement (profile page, end of post, behind \"more\"); the hashtag quote; Stories superimposition; disclosure inside videos; wording (\"Thanks to Acme…\", avoid \"sp/spon/collab/thanks/ambassador\"); using the platform tool on top of your own disclosure; US law applying when posting from abroad",
+          "verdict": "uncertain",
+          "evidence": "FTC Disclosures 101 was not read (HTTP 404 via read_source; web_fetch output lost). These match the reviewer's memory of the guide, but the page was not read."
+        },
+        {
+          "claim": "Insights are visible to the account owner, not to you",
+          "verdict": "supported",
+          "evidence": "Accurate general knowledge, not checked against a cited source."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "It passes; this isn't a generic rewrite. It's built for someone about to pay a creator: a copyable request for specific screenshots, rules for reading the creator's own Insights data, a separate check for local businesses, comparing posts against each other instead of using totals, a red-flag table with \"what to do\" actions, payment milestones tied to disclosure and a delivered report, and a clear refusal to offer unsourced engagement-rate benchmarks. The FTC sections are suitably hedged: buyer/seller framing, \"ask a lawyer\", and enforcement framed as \"usually\". The method steps (median post, reach ÷ followers, engaged ÷ reach) are advice, not factual claims.",
+      "adds_original_value": true,
+      "value_notes": "All of the value claimed for the piece is actually delivered. Weaknesses: the table conflation (country mismatch); possibly outdated API timeframes; a lot of reliance on API documentation to explain screens in the app (which the article acknowledges); and \"Engaged-audience demographics missing → treat it as a sign of a small active audience\" is more absolute than the article's own earlier caveat. Overall, about 30 claims (all Meta API facts and all FTC quotes) are unverified because only three of the seven cited sources could be read. Nothing read contradicts the article. Before publishing: (1) rewrite the \"country mismatch\" clause in the red-flag table; (2) re-check the Meta API timeframe list (v20+ deprecations) and every Meta quote against the live docs; (3) check all FTC quotes against the three live FTC pages, none of which were verified in this pass.",
+      "product_claims_accurate": true,
+      "product_notes": "The Instagramaps homepage was read in full. Connecting your own Instagram to see engagement by country and city matches the allowed claim and is supported (\"across countries and cities\"). Comparing views, reach and engagement per post matches and is supported (\"the signal behind each post\"). Marketplace profiles, matching and collaboration requests match the allowed wording; one small detail is that on the free plans creators receive requests and businesses send limited requests. Free Creator and Business plans with paid plans from 9 USD per month matches and is supported (Creator Pro at $9/month). There are no product claims beyond the allowed list, and the ownership disclosure is present.",
+      "fetched_urls": [
+        "https://about.fb.com/news/2024/02/creator-marketplace-for-brands-and-creators-to-collaborate-on-instagram/",
+        "https://about.instagram.com/blog/announcements/introducing-new-authenticity-measures-on-instagram",
+        "https://developers.facebook.com/docs/instagram-platform/api-reference/instagram-user/insights",
+        "https://instagramaps.com/",
+        "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers",
+        "https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking",
+        "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials"
+      ]
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "3133 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "10 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "How to Vet an Instagram Influencer Before You Pay: A 6-Step Checklist"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.19% (1x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "0/10 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "144 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "49 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "how-to-vet-instagram-influencer"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "how-to-vet-instagram-influencer"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.00"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.50: How to Use Artificial Intelligence to Start a Business"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": "3 confirmed by fact-check fetch"
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "1 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "1 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "ownership_disclosed",
+        "passed": true,
+        "detail": "disclosure missing"
+      },
+      {
+        "check": "product_link_justified",
+        "passed": true,
+        "detail": "no reason given"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "4 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "6 of 7 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "76 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "generated-in-house"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "0 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "unsupported: Red-flag table: \"Top follower countries or cities don't include your market… a c | uncertain: Meta Insights API demographics are capped at the top 45, including the quoted \"t | uncertain: Demographic data requires minimums of 100 followers and 100 engagements, and tot | uncertain: The documentation lists the last 14, 30 or 90 days…; those windows match timefra"
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "It passes; this isn't a generic rewrite. It's built for someone about to pay a creator: a copyable request for specific screenshots, rules for reading the creator's own Insights data, a separate check for local businesses, comparing posts against each other instead of using totals, a red-flag table with \"what to do\" actions, payment milestones tied to disclosure and a delivered report, and a clear refusal to offer unsourced engagement-rate benchmarks. The FTC sections are suitably hedged: buyer/seller framing, \"ask a lawyer\", and enforcement framed as \"usually\". The method steps (median post, reach ÷ followers, engaged ÷ reach) are advice, not factual claims."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "All of the value claimed for the piece is actually delivered. Weaknesses: the table conflation (country mismatch); possibly outdated API timeframes; a lot of reliance on API documentation to explain screens in the app (which the article acknowledges); and \"Engaged-audience demographics missing → treat it as a sign of a small active audience\" is more absolute than the article's own earlier caveat. Overall, about 30 claims (all Meta API facts and all FTC quotes) are unverified because only three of the seven cited sources could be read. Nothing read contradicts the article. Before publishing: (1) rewrite the \"country mismatch\" clause in the red-flag table; (2) re-check the Meta API timeframe list (v20+ deprecations) and every Meta quote against the live docs; (3) check all FTC quotes against the three live FTC pages, none of which were verified in this pass."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "The Instagramaps homepage was read in full. Connecting your own Instagram to see engagement by country and city matches the allowed claim and is supported (\"across countries and cities\"). Comparing views, reach and engagement per post matches and is supported (\"the signal behind each post\"). Marketplace profiles, matching and collaboration requests match the allowed wording; one small detail is that on the free plans creators receive requests and businesses send limited requests. Free Creator and Business plans with paid plans from 9 USD per month matches and is supported (Creator Pro at $9/month). There are no product claims beyond the allowed list, and the ownership disclosure is present."
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 0.929,
+        "write": 0.464,
+        "fact_check": 0.467,
+        "fact_check_json": 0.09
+      },
+      "total_usd": 1.95
+    },
+    "final": "dry-run"
+  },
+  "updated": "2026-10-20T15:32:14+00:00"
+}
