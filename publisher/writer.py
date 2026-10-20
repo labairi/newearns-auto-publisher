@@ -224,12 +224,21 @@ def _run_tool(block, reader: sources.SourceReader | None) -> dict:
 
 
 def _fetched_urls(content) -> list[str]:
-    """URLs that web_fetch actually retrieved (errors excluded), from Anthropic's network."""
+    """URLs that web_fetch actually retrieved (errors excluded), from Anthropic's network.
+
+    A result whose URL is on a different site from the URL requested is dropped. The result
+    carries no redirect metadata, so a redirect it does not report cannot be detected here."""
+    requested = {getattr(b, "id", None): (getattr(b, "input", None) or {}).get("url", "")
+                 for b in content if getattr(b, "type", "") == "server_tool_use"
+                 and getattr(b, "name", "") == "web_fetch" and isinstance(getattr(b, "input", None), dict)}
     out = []
     for b in content:
         if getattr(b, "type", "") == "web_fetch_tool_result":
             res = getattr(b, "content", None)
             if getattr(res, "type", "") == "web_fetch_result" and getattr(res, "url", None):
+                asked = requested.get(getattr(b, "tool_use_id", None))
+                if asked and not sources.same_site(asked, res.url):
+                    continue
                 out.append(res.url)
     return out
 

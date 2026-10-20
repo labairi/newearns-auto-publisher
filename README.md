@@ -50,7 +50,10 @@ versioned, and stores the publication log in the repo.
    Each claim is *supported*, *contradicted* (a source says otherwise), *unsupported*
    (no evidence found, which is not the same as false) or *uncertain* (the source
    could not be read), with a suggested fix. A *supported* claim counts only if its
-   `source_url` is a page the pipeline itself read. Each cited source is marked relevant or not.
+   `source_url` is a page the pipeline itself read. A page that redirects to a different site
+   (`www.` aside) is not counted as read, and the fact-checker is told where the text came from.
+   Limitation: server-side `web_fetch` reports no redirect details, so only a result on a
+   different site from the URL requested can be caught there. Each cited source is marked relevant or not.
 6. **Quality gates.** 36 checks in `publisher/quality.py`: length, structure,
    keyword density and stuffed headings, metadata lengths, slug format, near-duplicate
    body text against every existing post, a near-identical title or a keyphrase that
