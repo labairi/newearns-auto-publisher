@@ -259,11 +259,93 @@ def test_fact_check_gets_evidence_pack_and_verified_urls(monkeypatch):
 
 
 # ---------------------------------------------------------------- cost reporting
-def test_stage_cost_prices_cache_tokens():
-    u = {"model": "claude-opus-5-5", "input_tokens": 1_000_000, "cache_creation_input_tokens": 1_000_000,
-         "cache_read_input_tokens": 1_000_000, "output_tokens": 1_000_000, "web_search_requests": 100}
+M = 1_000_000
+
+
+def record(*responses, requested="claude-opus-5-5"):
+    """Run fake API usage objects through the same accounting _call uses."""
+    u = {"stage": "s", "model": requested, **{k: 0 for k in writer.USAGE_KEYS}}
+    for usage_obj, served in responses:
+        writer._add_usage(u, usage_obj, requested, served)
+    return u
+
+
+def test_list_prices_match_published_table():
+    # platform.claude.com/docs/en/about-claude/pricing, checked 2026-10-20
+    assert writer.PRICES["claude-opus-5-5"] == (4.0, 5.0, 8.0, 0.20, 20.0)
+    assert writer.PRICES["claude-sonnet-5-5"] == (2.0, 2.50, 4.0, 0.10, 10.0)  # cache read is 0.05x base
+    assert writer.SEARCH_USD == 0.01
+
+
+def test_each_usage_field_priced_once():
+    # input_tokens excludes cached tokens, so each field is a separate slice of the prompt
+    u = record((usage(1 * M, 1 * M, 1 * M, 1 * M, s=100), "claude-opus-5-5"))
     assert writer.stage_cost(u) == round(4 + 5 + 0.20 + 20 + 1.0, 3)
-    assert writer.stage_cost({**u, "model": "claude-sonnet-5-5"}) == round(2 + 2.5 + 0.20 + 10 + 1.0, 3)
+    assert (u["input_tokens"], u["cache_creation_input_tokens"], u["cache_read_input_tokens"], u["output_tokens"]) \
+        == (M, M, M, M)
+    assert writer.stage_cost(record((usage(M, M, M, M, s=100), "claude-sonnet-5-5"),
+                                    requested="claude-sonnet-5-5")) == round(2 + 2.5 + 0.10 + 10 + 1.0, 3)
+
+
+def test_one_hour_cache_writes_cost_double():
+    u_obj = usage(0, 1 * M, 0, 0)
+    u_obj.cache_creation = NS(ephemeral_5m_input_tokens=400_000, ephemeral_1h_input_tokens=600_000)
+    u = record((u_obj, "claude-opus-5-5"))
+    assert u["by_model"]["claude-opus-5-5"]["cache_write_5m_tokens"] == 400_000
+    assert u["by_model"]["claude-opus-5-5"]["cache_write_1h_tokens"] == 600_000
+    assert writer.stage_cost(u) == round(0.4 * 5 + 0.6 * 8, 3)
+
+
+def test_missing_or_null_usage_fields_count_as_zero():
+    bare = NS(input_tokens=1000, output_tokens=500)  # no cache fields, no server_tool_use
+    nulls = NS(input_tokens=1000, output_tokens=500, cache_creation_input_tokens=None,
+               cache_read_input_tokens=None, cache_creation=None, server_tool_use=None, iterations=None)
+    for obj in (bare, nulls):
+        u = record((obj, "claude-opus-5-5"))
+        assert u["cache_creation_input_tokens"] == u["cache_read_input_tokens"] == u["web_search_requests"] == 0
+        assert writer.stage_cost(u) == round((1000 * 4 + 500 * 20) / M, 3)
+    assert writer.stage_cost({}) == 0 and writer.estimate_cost([]) == 0
+
+
+def test_fallback_attempts_summed_from_iterations_not_double_counted():
+    # Opus 5.5 declined mid-stream, Opus 5 served the turn. Top-level usage repeats the
+    # served attempt only; iterations hold both. Count iterations, never both.
+    top = usage(5000, 0, 0, 2000, s=1)
+    top.iterations = [NS(type="message", model="claude-opus-5-5", input_tokens=4000, cache_creation_input_tokens=0,
+                         cache_read_input_tokens=0, output_tokens=300),
+                      NS(type="fallback_message", model="claude-opus-5", input_tokens=5000,
+                         cache_creation_input_tokens=0, cache_read_input_tokens=0, output_tokens=2000)]
+    u = record((top, "claude-opus-5"))
+    assert u["by_model"] == {
+        "claude-opus-5-5": {"input_tokens": 4000, "cache_write_5m_tokens": 0, "cache_write_1h_tokens": 0,
+                            "cache_read_input_tokens": 0, "output_tokens": 300},
+        "claude-opus-5": {"input_tokens": 5000, "cache_write_5m_tokens": 0, "cache_write_1h_tokens": 0,
+                          "cache_read_input_tokens": 0, "output_tokens": 2000}}
+    assert u["input_tokens"] == 9000 and u["output_tokens"] == 2300
+    expected = (4000 * 4 + 300 * 20 + 5000 * 5 + 2000 * 25) / M + 0.01
+    assert writer.stage_cost(u) == round(expected, 3)
+
+
+def test_iteration_without_model_uses_requested_or_served_model():
+    top = usage(0, 0, 0, 0)
+    top.iterations = [NS(type="message", model=None, input_tokens=100, output_tokens=0),
+                      NS(type="compaction", input_tokens=200, output_tokens=10)]
+    u = record((top, "claude-opus-5"))
+    assert u["by_model"]["claude-opus-5-5"]["input_tokens"] == 100
+    assert u["by_model"]["claude-opus-5"]["input_tokens"] == 200
+
+
+def test_requests_accumulate_without_overlap():
+    # pause_turn / tool rounds are separate requests, each billed for its own usage
+    u = record((usage(100, 2000, 0, 50, s=1), "claude-opus-5-5"), (usage(10, 300, 2000, 60, s=1), "claude-opus-5-5"))
+    assert u["requests"] == 2 and u["cache_read_input_tokens"] == 2000 and u["web_search_requests"] == 2
+    assert writer.stage_cost(u) == round((110 * 4 + 2300 * 5 + 2000 * 0.20 + 110 * 20) / M + 0.02, 3)
+
+
+def test_unknown_model_priced_high_and_flagged():
+    u = record((usage(M, 0, 0, 0), "claude-new-model"), requested="claude-new-model")
+    assert writer.stage_cost(u) == 10.0
+    assert writer.unpriced_models([u]) == ["claude-new-model"] and "no list price" in writer.cost_table([u])[-1]
 
 
 def test_saved_run_cost_reproduces_reported_estimate():
@@ -271,11 +353,20 @@ def test_saved_run_cost_reproduces_reported_estimate():
     assert abs(writer.estimate_cost(state["stages"]["usages"]) - 4.362) < 0.002
 
 
+def test_saved_record_without_model_buckets_still_priced():
+    old = {"input_tokens": 1000, "cache_creation_input_tokens": 2000, "cache_read_input_tokens": 3000,
+           "output_tokens": 400, "web_search_requests": 1}
+    assert writer.stage_cost(old) == round((1000 * 4 + 2000 * 5 + 3000 * 0.20 + 400 * 20) / M + 0.01, 3)
+
+
 def test_total_is_sum_of_stages_and_table_lists_each():
     us = [{"stage": "research", "model": "claude-opus-5-5", "input_tokens": 20000, "cache_read_input_tokens": 300000,
            "cache_creation_input_tokens": 60000, "output_tokens": 12000, "web_search_requests": 8},
           {"stage": "write", "model": "claude-opus-5-5", "input_tokens": 6000, "output_tokens": 12000}]
     assert writer.estimate_cost(us) == round(sum(writer.stage_cost(u) for u in us), 3)
+    many = [{"stage": f"s{i}", "input_tokens": 1234 * i, "output_tokens": 77 * i, "web_search_requests": i % 3}
+            for i in range(1, 12)]
+    assert writer.estimate_cost(many) == round(sum(writer.stage_cost(u) for u in many), 3)
     rows = writer.cost_table(us)
     assert rows[1].startswith("research |") and rows[2].startswith("write |") and rows[-1].startswith("total")
 

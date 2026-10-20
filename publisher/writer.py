@@ -93,13 +93,22 @@ def _client() -> anthropic.Anthropic:
     return anthropic.Anthropic(max_retries=4, timeout=900)
 
 
-# USD per million tokens: (input, output, cache read). Five-minute cache writes cost 1.25x input.
+# List prices, USD per million tokens, from platform.claude.com/docs/en/about-claude/pricing
+# (checked 2026-10-20): (base input, 5-minute cache write, 1-hour cache write, cache read, output).
+# Includes the models the server-side fallback ("default") can hand a request to.
 PRICES = {
-    "claude-opus-5-5": (4.0, 20.0, 0.20),
-    "claude-sonnet-5-5": (2.0, 10.0, 0.20),
+    "claude-opus-5-5": (4.0, 5.0, 8.0, 0.20, 20.0),
+    "claude-opus-5": (5.0, 6.25, 10.0, 0.50, 25.0),
+    "claude-opus-4-8": (5.0, 6.25, 10.0, 0.50, 25.0),
+    "claude-sonnet-5-5": (2.0, 2.50, 4.0, 0.10, 10.0),
+    "claude-sonnet-5": (2.0, 2.50, 4.0, 0.20, 10.0),
+    "claude-fable-5-1": (10.0, 12.50, 20.0, 0.25, 50.0),
 }
-CACHE_WRITE_MULT = 1.25
-SEARCH_USD = 10 / 1000
+# A model missing from the table is priced at the highest rates above, so the estimate errs high.
+UNKNOWN_PRICE = tuple(max(p[i] for p in PRICES.values()) for i in range(5))
+SEARCH_USD = 10 / 1000  # web search: $10 per 1,000 searches; web fetch has no per-call fee
+TOKEN_KEYS = ("input_tokens", "cache_write_5m_tokens", "cache_write_1h_tokens", "cache_read_input_tokens",
+              "output_tokens")
 USAGE_KEYS = ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens", "output_tokens",
               "web_search_requests", "web_fetch_requests", "requests", "read_source_calls")
 
@@ -129,8 +138,9 @@ def _call(cfg: dict, messages: list, *, system: str, stage: str, tools: list | N
     for _ in range(max_rounds):
         with client.beta.messages.stream(messages=messages, **kwargs) as stream:
             msg = stream.get_final_message()
-        _add_usage(usage, msg.usage)
-        served_by.add(getattr(msg, "model", model) or model)
+        served = getattr(msg, "model", None) or model
+        _add_usage(usage, msg.usage, model, served)
+        served_by.add(served)
         fetched.extend(_fetched_urls(msg.content))
         if msg.stop_reason == "refusal":
             raise Refused(str(getattr(msg, "stop_details", "")))
@@ -154,13 +164,42 @@ def _call(cfg: dict, messages: list, *, system: str, stage: str, tools: list | N
     raise RuntimeError(f"{stage}: too many tool rounds")
 
 
-def _add_usage(usage: dict, u) -> None:
+def _add_usage(usage: dict, u, requested: str, served: str) -> None:
+    """Add one API response's usage, bucketed by the model that ran each attempt.
+
+    With server-side fallback, top-level usage covers only the attempt that produced
+    the message; usage.iterations is the per-attempt record. So: iterations when
+    present, otherwise top-level, never both. input_tokens excludes cache reads and
+    writes (total input = input + cache writes + cache reads), so nothing overlaps."""
     usage["requests"] += 1
-    for k in ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens", "output_tokens"):
-        usage[k] += getattr(u, k, 0) or 0
+    attempts = list(getattr(u, "iterations", None) or [])
+    if attempts:
+        for it in attempts:
+            model = getattr(it, "model", None) or (requested if getattr(it, "type", "") == "message" else served)
+            _add_tokens(usage, model, it)
+    else:
+        _add_tokens(usage, served, u)
     stu = getattr(u, "server_tool_use", None)
     usage["web_search_requests"] += getattr(stu, "web_search_requests", 0) or 0
     usage["web_fetch_requests"] += getattr(stu, "web_fetch_requests", 0) or 0
+
+
+def _add_tokens(usage: dict, model: str, src) -> None:
+    writes = getattr(src, "cache_creation_input_tokens", 0) or 0
+    split = getattr(src, "cache_creation", None)
+    w1h = min(writes, getattr(split, "ephemeral_1h_input_tokens", 0) or 0) if split else 0
+    t = {"input_tokens": getattr(src, "input_tokens", 0) or 0,
+         "cache_write_5m_tokens": writes - w1h,  # without a breakdown, writes are 5-minute (our TTL)
+         "cache_write_1h_tokens": w1h,
+         "cache_read_input_tokens": getattr(src, "cache_read_input_tokens", 0) or 0,
+         "output_tokens": getattr(src, "output_tokens", 0) or 0}
+    bucket = usage.setdefault("by_model", {}).setdefault(model, {k: 0 for k in TOKEN_KEYS})
+    for k, v in t.items():
+        bucket[k] += v
+    usage["input_tokens"] += t["input_tokens"]
+    usage["cache_creation_input_tokens"] += writes
+    usage["cache_read_input_tokens"] += t["cache_read_input_tokens"]
+    usage["output_tokens"] += t["output_tokens"]
 
 
 def _run_tool(block, reader: sources.SourceReader | None) -> dict:
@@ -354,20 +393,36 @@ Allowed product claims: {json.dumps(product["allowed_claims"]) if product else "
     return fc, [u1, u2]
 
 
+def _tokens_usd(model: str, t: dict) -> float:
+    p_in, p_w5, p_w1, p_read, p_out = PRICES.get(model, UNKNOWN_PRICE)
+    return (t.get("input_tokens", 0) * p_in + t.get("cache_write_5m_tokens", 0) * p_w5
+            + t.get("cache_write_1h_tokens", 0) * p_w1 + t.get("cache_read_input_tokens", 0) * p_read
+            + t.get("output_tokens", 0) * p_out) / 1e6
+
+
+def _buckets(u: dict) -> dict:
+    """Per-model token buckets; usage saved before buckets existed is one bucket of 5-minute writes."""
+    if "by_model" in u:
+        return u["by_model"]
+    return {u.get("model") or "claude-opus-5-5": {
+        "input_tokens": u.get("input_tokens", 0), "cache_write_5m_tokens": u.get("cache_creation_input_tokens", 0),
+        "cache_write_1h_tokens": 0, "cache_read_input_tokens": u.get("cache_read_input_tokens", 0),
+        "output_tokens": u.get("output_tokens", 0)}}
+
+
 def stage_cost(u: dict) -> float:
-    """Best-available estimate for one stage from its recorded usage."""
-    p_in, p_out, p_read = PRICES.get(u.get("model") or "", PRICES["claude-opus-5-5"])
-    usd = (u.get("input_tokens", 0) * p_in
-           + u.get("cache_creation_input_tokens", 0) * p_in * CACHE_WRITE_MULT
-           + u.get("cache_read_input_tokens", 0) * p_read
-           + u.get("output_tokens", 0) * p_out) / 1e6
+    """Best-available estimate for one stage at list prices, rounded to 0.1 cent."""
+    usd = sum(_tokens_usd(m, t) for m, t in _buckets(u).items())
     return round(usd + u.get("web_search_requests", 0) * SEARCH_USD, 3)
 
 
 def estimate_cost(usages: list[dict]) -> float:
-    # List prices, USD (2026-10). Opus 5.5: $4/MTok in, $5 cache write, $0.20 cache read, $20 out;
-    # web search $10 per 1k. Web fetch has no per-call fee, only the tokens it adds.
+    """Total = sum of the rounded stage costs, so it always matches the table."""
     return round(sum(stage_cost(u) for u in usages), 3)
+
+
+def unpriced_models(usages: list[dict]) -> list[str]:
+    return sorted({m for u in usages for m in _buckets(u) if m not in PRICES})
 
 
 def cost_table(usages: list[dict]) -> list[str]:
@@ -377,6 +432,9 @@ def cost_table(usages: list[dict]) -> list[str]:
                     f"{u.get('cache_creation_input_tokens', 0):,} | {u.get('cache_read_input_tokens', 0):,} | "
                     f"{u.get('output_tokens', 0):,} | {u.get('web_search_requests', 0)} | {stage_cost(u):.3f}")
     rows.append(f"total | | | | | | | {estimate_cost(usages):.3f}")
+    if unpriced_models(usages):
+        rows.append(f"note: no list price on file for {', '.join(unpriced_models(usages))}; "
+                    "estimated at the highest known rates")
     return rows
 
 
