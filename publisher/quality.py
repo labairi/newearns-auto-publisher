@@ -1,10 +1,12 @@
 """Deterministic quality gates. An article publishes only if every check passes.
 
 Each check returns (name, passed, detail). `hard` failures block publishing;
-there are no soft passes: anything failing goes to the review queue.
+there are no soft passes: anything failing goes to the review queue. Every
+failure in the report comes with a practical correction (FIXES below).
 """
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass, field
 from difflib import SequenceMatcher
@@ -12,6 +14,8 @@ from html.parser import HTMLParser
 from urllib.parse import urlparse
 
 import requests
+
+from .sources import normalize_url
 
 WORD = re.compile(r"[a-z0-9]+(?:'[a-z]+)?")
 STAT_HINT = re.compile(r"\d+(?:\.\d+)?\s?%|\b(according to|study|survey|research (shows|found)|report(s|ed)? that|statistic)", re.I)
@@ -80,6 +84,88 @@ def title_similarity(a: str, b: str) -> float:
 
 
 # ---------------------------------------------------------------- checks
+# What to do about each failure. Shown next to the failure in the run output and saved
+# with the checks, so a held article can be corrected by hand and revalidated.
+FIXES = {
+    "word_count": "Expand thin sections with specific, sourced steps, or cut repetition, to land inside the word range.",
+    "structure_h2": "Split the body into at least 4 H2 sections, each answering one part of the query.",
+    "no_h1_in_body": "Change body <h1> tags to <h2>; the theme already prints the title as the H1.",
+    "headings_unique": "Rename duplicate H2s so each one describes its own section.",
+    "keyphrase_in_title": "Use every word of the focus keyphrase in the title, or pick a keyphrase that matches the title.",
+    "keyphrase_early": "Use the exact focus keyphrase once in the first 150 words.",
+    "keyword_density": "Replace some repeats of the keyphrase with natural wording.",
+    "headings_not_stuffed": "Rewrite headings to describe their section instead of repeating the keyphrase.",
+    "meta_description_length": "Rewrite the meta description to fit the configured length (120-160 characters).",
+    "seo_title_length": "Shorten the SEO title to the configured maximum (60 characters).",
+    "slug_format": "Use 2-10 lowercase words joined by hyphens, no dates, at most 75 characters.",
+    "slug_unused": "Choose another slug; an existing post is never overwritten. Expected when re-checking an update "
+                   "to an existing post.",
+    "not_near_duplicate": "Rewrite in new wording, or improve the existing post instead of publishing a near copy.",
+    "distinct_search_intent": "Choose a different angle, or improve the existing post that already covers this intent.",
+    "keyphrase_not_targeted_before": "Choose another focus keyphrase, or improve the post that already targets it.",
+    "no_fabricated_experience_or_hype": "Remove the flagged wording; describe steps editorially, without hype or "
+                                        "first-hand claims.",
+    "https_only": "Replace http:// links with their https:// version, or remove them.",
+    "no_broken_links": "Replace each broken link with a working official page that states the same fact, or remove "
+                       "the claim it supported.",
+    "internal_links_valid": "Link only to published New Earns posts; remove any made-up, draft or planned URL.",
+    "internal_links_present": "Link a genuinely related published New Earns post. If none is relevant, add no link and "
+                              "say why in internal_links_note; never invent one.",
+    "product_links_limited": "Remove product links beyond the configured maximum.",
+    "product_links_tracked": "Add the configured UTM query string to each product link.",
+    "ownership_disclosed": "Add the ownership disclosure sentence right after the first product mention.",
+    "product_link_justified": "Say in product_link_reason which reader step the product solves, or remove the link.",
+    "enough_independent_sources": "Cite official or primary sources from more different websites.",
+    "sources_cited_in_body": "Link each listed source in the paragraph that relies on it, or drop it from the list.",
+    "statistics_have_sources": "Link the source inside the same paragraph or list item as the number or "
+                               "'according to' statement, or remove the statement.",
+    "sources_verified": "Replace each unreadable or irrelevant source with a page that states the fact, or remove the "
+                        "claims that relied on it; then re-run the fact-check only.",
+    "featured_image_alt": "Write alt text of 10-125 characters describing the image.",
+    "image_rights": "Use only an in-house, Pexels-licensed or own image.",
+    "inline_images_have_alt": "Give every inline image alt text.",
+    "fact_check_claims": "Contradicted: correct the claim to what the source says. No evidence found: cite an official "
+                         "source that states it, narrow it to what a source does say, or remove it. Could not be "
+                         "checked: verify it against a readable source or remove it. Then re-run the fact-check only.",
+    "fact_check_intent": "Rework the article so it answers the query more completely than a generic result.",
+    "fact_check_original_value": "Add something current results lack (decision table, troubleshooting, a missing "
+                                 "case), sourced.",
+    "fact_check_product_claims": "Rewrite product statements to match allowed_claims in config.yaml, or remove them.",
+    "fact_check_current": "The fact-check is not tied to this exact text. Re-run the fact-check only (recheck with "
+                          "refresh_fact_check); no new article is generated.",
+    "fact_check_ran": "Run the fact-check stage before this article can be published.",
+}
+
+VERDICT_LABELS = {
+    "contradicted": "contradicted by a source (likely wrong)",
+    "unsupported": "no supporting evidence found (not shown to be false)",
+    "uncertain": "could not be checked (source unreadable or partial)",
+}
+
+
+def content_fingerprint(html: str) -> str:
+    """Identifies the exact article text a fact-check looked at."""
+    return hashlib.sha256(html.encode("utf-8")).hexdigest()
+
+
+def _claims_detail(bad: list[dict]) -> str:
+    parts = []
+    for verdict in [*VERDICT_LABELS, *sorted({c.get("verdict", "") for c in bad} - set(VERDICT_LABELS))]:
+        group = [c for c in bad if c.get("verdict", "") == verdict]
+        if group:
+            items = [c["claim"][:90] + (f" (fix: {c['suggested_fix'][:120]})" if c.get("suggested_fix") else "")
+                     for c in group[:4]]
+            parts.append(f"{len(group)} {VERDICT_LABELS.get(verdict, verdict or 'no verdict')}: " + " | ".join(items))
+    return " || ".join(parts)
+
+
+def _page_key(url: str) -> str:
+    """newearns.com and www.newearns.com, with or without query, fragment or trailing slash, are one page."""
+    u = urlparse(url)
+    host = u.netloc.lower()
+    return (host[4:] if host.startswith("www.") else host) + (u.path.rstrip("/") or "/")
+
+
 @dataclass
 class Report:
     results: list[tuple[str, bool, str]] = field(default_factory=list)
@@ -95,8 +181,14 @@ class Report:
     def failures(self) -> list[str]:
         return [f"{n}: {d}" for n, ok, d in self.results if not ok]
 
+    @property
+    def explained(self) -> list[str]:
+        """Each failure with its practical correction."""
+        return [f"{n}: {d}\n    Fix: {FIXES.get(n, 'see the detail above')}" for n, ok, d in self.results if not ok]
+
     def as_dict(self):
-        return [{"check": n, "passed": ok, "detail": d} for n, ok, d in self.results]
+        return [{"check": n, "passed": ok, "detail": d, **({} if ok else {"fix": FIXES.get(n, "")})}
+                for n, ok, d in self.results]
 
 
 UAS = ["Mozilla/5.0 (compatible; newearns-linkcheck/1.0)",
@@ -193,12 +285,23 @@ def run_checks(article: dict, cfg: dict, existing_posts: list[dict], known_slugs
     rep.add("no_broken_links", not broken,
             "; ".join(broken) or (f"{len(via_fetch)} confirmed by fact-check fetch" if via_fetch else ""))
 
-    # internal links must point at real, published New Earns posts
-    live = {p["link"].rstrip("/") for p in existing_posts if p.get("link")}
-    internal = [h for h in hrefs if urlparse(h).netloc == site]
-    bad_internal = [h for h in internal if h.split("#")[0].split("?")[0].rstrip("/") not in live]
+    # internal links must point at real, published New Earns posts (they are also link-checked
+    # above). Product sites are not internal links. When no published post is relevant, the
+    # article says so in internal_links_note instead of forcing or inventing a link.
+    live = {_page_key(p["link"]) for p in existing_posts if p.get("link")}
+    bare = site[4:] if site.startswith("www.") else site
+    internal = [h for h in hrefs if urlparse(h).netloc.lower() in (bare, "www." + bare)]
+    bad_internal = [h for h in internal if _page_key(h) not in live]
     rep.add("internal_links_valid", not bad_internal, "; ".join(bad_internal))
-    rep.add("internal_links_present", len(internal) >= (1 if live else 0), f"{len(internal)} internal links")
+    note = (article.get("internal_links_note") or "").strip()
+    if internal:
+        rep.add("internal_links_present", True, f"{len(internal)} internal links")
+    elif not live:
+        rep.add("internal_links_present", True, "0 internal links; no published posts to link to")
+    else:
+        rep.add("internal_links_present", bool(note),
+                f"0 internal links; no relevant published post: {note}" if note
+                else "0 internal links and no internal_links_note saying why none is relevant")
 
     # 8. product links: few, tracked, disclosed, only real products
     products = cfg["products"]
@@ -232,12 +335,35 @@ def run_checks(article: dict, cfg: dict, existing_posts: list[dict], known_slugs
 
     # 11. independent fact-check pass (LLM, run before these checks)
     if fact_check is not None:
-        bad = [c for c in fact_check.get("claims", []) if c["verdict"] != "supported"]
-        rep.add("fact_check_claims", not bad, " | ".join(f"{c['verdict']}: {c['claim'][:80]}" for c in bad[:4]))
+        bad = [c for c in fact_check.get("claims", []) if c.get("verdict") != "supported"]
+        rep.add("fact_check_claims", not bad, _claims_detail(bad))
         rep.add("fact_check_intent", fact_check.get("satisfies_search_intent") is True, fact_check.get("intent_notes", ""))
         rep.add("fact_check_original_value", fact_check.get("adds_original_value") is True, fact_check.get("value_notes", ""))
         rep.add("fact_check_product_claims", fact_check.get("product_claims_accurate") is True,
                 fact_check.get("product_notes", ""))
+        # The verdicts above only count for the exact text that was checked.
+        fp = fact_check.get("content_sha256")
+        rep.add("fact_check_current", fp == content_fingerprint(article["content_html"]),
+                "" if fp == content_fingerprint(article["content_html"]) else
+                "article text changed after the fact-check" if fp else
+                "fact-check has no content fingerprint, so it may not match this text")
+        # Every cited source must have been read by the pipeline and judged relevant to what it
+        # is cited for. A source that could not be read verifies nothing.
+        fetched = {normalize_url(u) for u in fact_check.get("fetched_urls", [])}
+        reviewed = {normalize_url(s.get("url", "")): s for s in fact_check.get("sources") or []}
+        problems = []
+        for s in article.get("sources", []):
+            if urlparse(s["url"]).netloc in (site, *prod_hosts):
+                continue
+            key, r = normalize_url(s["url"]), reviewed.get(normalize_url(s["url"]))
+            if key not in fetched:
+                problems.append(f"{s['url']} could not be read, so nothing it is cited for is verified")
+            elif r is None:
+                problems.append(f"{s['url']} was not reviewed by the fact-check")
+            elif r.get("relevant") is not True:
+                problems.append(f"{s['url']} does not support what it is cited for ({r.get('notes', '')[:100]})")
+        rep.add("sources_verified", not problems, "; ".join(problems[:4]) + (f" (+{len(problems) - 4} more)"
+                                                                               if len(problems) > 4 else ""))
     else:
         rep.add("fact_check_ran", False, "fact-check stage did not run")
     return rep

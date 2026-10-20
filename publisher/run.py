@@ -7,6 +7,10 @@
   python -m publisher.run article --pillar pdf --topic "How to Compress a PDF for Email"
                                                   write one approved calendar topic (required to go live)
   python -m publisher.run article --article-file x.json --dry-run   run the gates on a given article
+                                                  (x.json may also be a run's data/runs/<id>/state.json)
+  python -m publisher.run article --article-file x.json --dry-run --refresh-fact-check
+                                                  re-run only the fact-check on an edited article
+                                                  (one Claude call pair, no new article), then the gates
   python -m publisher.run report                  Search Console / GA4 improvement report
 """
 from __future__ import annotations
@@ -96,6 +100,18 @@ def calendar_entry(cfg: dict, pillar: str | None, topic: str | None) -> dict | N
     raise ValueError(f"topic {topic!r} is not in the approved calendar for pillar {pillar!r}")
 
 
+def load_article_file(path: Path) -> tuple[dict, dict | None, str]:
+    """An article JSON (with its fact_check), or a run's state.json, so a held article can be
+    corrected and revalidated without generating it again."""
+    data = json.loads(path.read_text())
+    if "stages" in data:
+        st = data["stages"]
+        if not st.get("article"):
+            raise ValueError(f"{path} has no generated article")
+        return dict(st["article"]), st.get("fact_check"), st.get("pillar") or "pdf"
+    return data, data.get("fact_check"), data.get("pillar", "pdf")
+
+
 def candidate_topics(cfg: dict, pillar: str, posts: list[dict]) -> list[str]:
     done = [p["title"] for p in posts] + [e.get("topic", "") for e in ledger.read_log()]
     return [t for t in cfg["pillars"][pillar]["seed_topics"]
@@ -153,6 +169,12 @@ def cmd_article(cfg: dict, args) -> int:
     if planned and args.article_file:
         say("Refused: --pillar/--topic choose a topic to generate; they can't be combined with --article-file.")
         return 7
+    if args.refresh_fact_check and not (args.article_file and args.dry_run):
+        say("Refused: --refresh-fact-check revalidates a saved article; it needs --article-file and --dry-run.")
+        return 7
+    if args.refresh_fact_check and writer.api_key_problem():
+        say(f"ANTHROPIC_API_KEY {writer.api_key_problem()}; cannot re-run the fact-check.")
+        return 2
     if mode == "publish" and not planned and not args.article_file:
         say("Refused: live publishing needs --pillar and --topic from the approved calendar in config.yaml.")
         return 7
@@ -180,9 +202,25 @@ def cmd_article(cfg: dict, args) -> int:
     usages = cp.get("usages") or []
 
     if args.article_file:
-        article = json.loads(Path(args.article_file).read_text())
-        pillar = article.get("pillar", "pdf")
-        fact = article.get("fact_check")
+        try:
+            article, fact, pillar = load_article_file(Path(args.article_file))
+        except (OSError, ValueError) as e:
+            say(f"Refused: cannot read {args.article_file}: {e}.")
+            cp.put("final", "refused")
+            return 7
+        if args.refresh_fact_check:
+            # Validation only: the fact-check stage on the text as edited. Saved under its own
+            # stage name so --resume can never mistake it for a generated article.
+            try:
+                fact, us = writer.fact_check(cfg, article, pillar, reader=sources.SourceReader(
+                    cp.dir / "sources", excerpt_chars=cfg["models"]["excerpt_chars"]))
+            except Exception:
+                cp.put("final", "fact-check-failed")
+                raise
+            usages.extend(us); cp.put("usages", usages); cp.put("refreshed_fact_check", fact)
+            cp.save_file("article.json", json.dumps(dict(article, fact_check=fact), indent=2, ensure_ascii=False))
+            say(f"Fact-check re-run on the edited text; article with the new fact-check saved to "
+                f"data/runs/{run_id}/article.json")
     else:
         problem = writer.api_key_problem()
         if problem:
@@ -224,7 +262,7 @@ def cmd_article(cfg: dict, args) -> int:
     report = quality.run_checks(article, cfg, posts, known_slugs, fact_check=fact)
     cp.put("checks", report.as_dict())
     say(f"Quality gates: {'PASSED' if report.passed else 'FAILED'} ({sum(ok for _, ok, _ in report.results)}/{len(report.results)})")
-    for f in report.failures:
+    for f in report.explained:
         say(f"  - {f}")
 
     entry = {"run_id": run_id, "date": ledger.now_iso(), "pillar": pillar,
@@ -321,6 +359,8 @@ def main(argv=None) -> int:
     ap.add_argument("--resume", action="store_true")
     ap.add_argument("--force", action="store_true", help="ignore min_hours_between_posts")
     ap.add_argument("--article-file")
+    ap.add_argument("--refresh-fact-check", action="store_true",
+                    help="with --article-file --dry-run: re-run only the fact-check on the (edited) article")
     ap.add_argument("--pillar", help="pillar of an approved calendar topic (with --topic)")
     ap.add_argument("--topic", help="exact title of an approved calendar topic in config.yaml")
     args = ap.parse_args(argv)

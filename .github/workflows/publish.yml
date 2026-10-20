@@ -13,11 +13,15 @@ on:
           - check-setup        # read-only: credentials, role, categories
           - article-dry-run    # generate + quality checks, nothing sent to WordPress
           - article            # uses publishing.mode from config.yaml (draft by default)
-          - recheck            # re-run quality gates on a saved article file; no Claude calls, no WordPress writes
+          - recheck            # re-run quality gates on a saved article file; no WordPress writes
       article_file:
-        description: "For recheck: path to a saved article JSON in this repo"
+        description: "For recheck: path to a saved article JSON, or a run's data/runs/<id>/state.json"
         type: string
         default: ""
+      refresh_fact_check:
+        description: "For recheck: re-run only the fact-check on the edited text (Claude API cost; no new article)"
+        type: boolean
+        default: false
       pillar:
         description: "For article / article-dry-run: pillar of the calendar topic"
         type: choice
@@ -65,17 +69,20 @@ jobs:
       - name: Run
         env:
           ARTICLE_FILE: ${{ inputs.article_file }}
+          REFRESH: ${{ inputs.refresh_fact_check }}
           PILLAR: ${{ inputs.pillar }}
           TOPIC: ${{ inputs.topic }}
         run: |
           plan=()
+          refresh=()
+          [ "$REFRESH" = true ] && refresh=(--refresh-fact-check)
           [ "$PILLAR" = none ] && PILLAR=""
           if [ -n "$PILLAR$TOPIC" ]; then plan=(--pillar "$PILLAR" --topic "$TOPIC"); fi
           case "${{ inputs.command }}" in
             check-setup)      python -m publisher.run check-setup ;;
             article-dry-run)  python -m publisher.run article --dry-run "${plan[@]}" ;;
             article)          python -m publisher.run article --resume "${plan[@]}" ;;
-            recheck)          python -m publisher.run article --dry-run --article-file "$ARTICLE_FILE" ;;
+            recheck)          python -m publisher.run article --dry-run --article-file "$ARTICLE_FILE" "${refresh[@]}" ;;
           esac
       - name: Save publication log and checkpoints
         if: always() && inputs.command != 'check-setup'

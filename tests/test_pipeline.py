@@ -69,12 +69,21 @@ def make_article(**over):
         "search_intent": "how-to",
         "unique_value": "decision table for print vs screen",
         "featured_image": {"alt_text": "Title card reading Compress a PDF for Email", "license": "generated-in-house"},
+        "internal_links_note": "",
         "fact_check": {"claims": [{"claim": "Gmail 25 MB", "verdict": "supported", "evidence": "x"}],
+                       "sources": [{"url": u, "relevant": True, "notes": ""} for u in SOURCE_URLS],
+                       "fetched_urls": list(SOURCE_URLS),
                        "satisfies_search_intent": True, "intent_notes": "", "adds_original_value": True,
                        "value_notes": "", "product_claims_accurate": True, "product_notes": ""},
     }
     a.update(over)
+    if "fact_check" not in over:  # the fact-check looked at exactly this text
+        a["fact_check"]["content_sha256"] = quality.content_fingerprint(a["content_html"])
     return a
+
+
+SOURCE_URLS = ("https://support.google.com/mail/answer/6584", "https://support.microsoft.com/outlook-limits",
+               "https://helpx.adobe.com/acrobat/optimize")
 
 
 def ok_links(url):
@@ -110,7 +119,9 @@ def test_unsourced_statistic_fails():
 
 
 def test_broken_link_fails():
-    rep = checks(make_article(), links=lambda u: (False, "404") if "adobe" in u else (True, "200"))
+    a = make_article()
+    a["fact_check"]["fetched_urls"] = [u for u in SOURCE_URLS if "adobe" not in u]  # nobody could read it
+    rep = checks(a, links=lambda u: (False, "404") if "adobe" in u else (True, "200"))
     assert any("no_broken_links" in f for f in rep.failures)
 
 
@@ -454,14 +465,16 @@ def test_writer_prompt_requires_distinct_sources_and_lists_banned_words(monkeypa
     assert '"testimonial"' in p and "image_alt_text" not in p
 
 
-def test_revised_vetting_article_passes_offline_gates():
+def test_revised_vetting_article_passes_offline_gates_but_needs_a_pipeline_fact_check():
     path = run.ROOT / "data/revisions/vet-instagram-influencer-before-paying.json"
     art = json.loads(path.read_text())
     from publisher import images
     art["image_alt_text"] = images.alt_text(art["image_headline"])
     art["featured_image"] = {"alt_text": art["image_alt_text"], "license": "generated-in-house"}
     rep = quality.run_checks(art, CFG, EXISTING, set(), link_checker=ok_links, fact_check=art["fact_check"])
-    assert rep.passed, rep.failures
+    # Its fact-check was written by hand: it can't be tied to this exact text and has no
+    # per-source relevance review, so only a refreshed pipeline fact-check can clear it.
+    assert {f.split(":")[0] for f in rep.failures} == {"fact_check_current", "sources_verified"}, rep.failures
 
 
 def test_link_check_tries_second_user_agent(monkeypatch):
@@ -476,10 +489,11 @@ def test_link_blocked_for_runner_but_fetched_by_fact_check_passes():
     art = make_article()
     blocked = "https://support.google.com/mail/answer/6584"
     links = lambda u: (False, "404") if u == blocked else (True, "200")
-    fc = dict(art["fact_check"], fetched_urls=[blocked])
-    rep = quality.run_checks(art, CFG, EXISTING, set(), link_checker=links, fact_check=fc)
-    assert rep.passed, rep.failures
+    assert blocked in art["fact_check"]["fetched_urls"]
     rep = quality.run_checks(art, CFG, EXISTING, set(), link_checker=links, fact_check=art["fact_check"])
+    assert rep.passed, rep.failures
+    fc = dict(art["fact_check"], fetched_urls=[u for u in SOURCE_URLS if u != blocked])
+    rep = quality.run_checks(art, CFG, EXISTING, set(), link_checker=links, fact_check=fc)
     assert any("no_broken_links" in f for f in rep.failures)
 
 

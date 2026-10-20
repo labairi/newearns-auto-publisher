@@ -255,6 +255,7 @@ def test_fact_check_gets_evidence_pack_and_verified_urls(monkeypatch):
     assert "EVIDENCE EXTRACTED" in prompt and LEGAL in prompt and "do not trust it blindly" in prompt
     assert '"status": "unavailable"' in prompt          # the blocked source is flagged, not hidden
     assert fc["fetched_urls"] == ["https://agency.example/rule", "https://blocked.example/a"]
+    assert fc["content_sha256"] == quality.content_fingerprint(art["content_html"])
     assert [u["stage"] for u in usages] == ["fact_check", "fact_check_json"]
 
 
@@ -401,13 +402,16 @@ GATES = {"word_count", "structure_h2", "no_h1_in_body", "headings_unique", "keyp
          "product_link_justified", "enough_independent_sources", "sources_cited_in_body", "statistics_have_sources",
          "featured_image_alt", "image_rights", "inline_images_have_alt", "fact_check_claims", "fact_check_intent",
          "fact_check_original_value", "fact_check_product_claims"}
+# Added later: the fact-check must match the exact text, and every cited source must be read and relevant.
+NEW_GATES = {"fact_check_current", "sources_verified"}
 
 
-def test_all_34_quality_gates_still_run():
+def test_all_34_original_quality_gates_still_run_plus_new_ones():
     from tests.test_pipeline import make_article, EXISTING
     art = make_article()
     rep = quality.run_checks(art, CFG, EXISTING, set(), link_checker=ok, fact_check=art["fact_check"])
-    assert {n for n, _, _ in rep.results} == GATES and len(rep.results) == 34
+    assert {n for n, _, _ in rep.results} == GATES | NEW_GATES and len(rep.results) == 36
+    assert all(n in quality.FIXES for n, _, _ in rep.results) and "fact_check_ran" in quality.FIXES
 
 
 def ok(url):
