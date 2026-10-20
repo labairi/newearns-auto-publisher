@@ -57,12 +57,13 @@ Confirms the login works, the role is not Administrator, and the categories exis
 1. Actions > publisher > Run workflow > `check-setup` (read-only).
 2. `article-dry-run`: review the generated article, quality report and featured
    image in `data/runs/<id>/`. Nothing is sent to WordPress.
-3. `article` with the default `mode: draft`: the article lands in WordPress as a
+3. `article` with **allow_publish** unticked: the article lands in WordPress as a
    Draft (or Pending Review if a check failed). Open the preview and check the
    layout, category, AIOSEO title/description and image.
-4. Only with your explicit approval: set `mode: publish` and `ALLOW_PUBLISH: "true"`,
-   run `article` once, confirm the live URL is verified and logged, then run it
-   again to confirm it refuses a duplicate.
+4. Only with your explicit approval: run `article` on `main` with a calendar
+   `pillar`/`topic` and the **allow_publish** box ticked. Confirm the live URL is
+   verified and logged, then run it again to confirm it refuses a second post
+   within 20 hours.
 
 ## 8. Me, only after your explicit OK: add the schedule
 Add `schedule: - cron: "0 8 * * 1,3,5"` to `.github/workflows/publish.yml`.
@@ -70,5 +71,5 @@ Held articles show in WP Admin > Posts > Pending.
 
 ## Pausing or rolling back
 - Pause: GitHub > Actions > publisher > "Disable workflow".
-- Stop anything going live: set `ALLOW_PUBLISH: "false"` or `mode: draft`.
+- Stop anything going live: leave **allow_publish** unticked, or set `mode: draft`.
 - Remove a bad article: trash it in WP Admin (the log keeps the record).

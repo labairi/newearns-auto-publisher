@@ -13,14 +13,16 @@ site:
 publishing:
   # dry-run is a command-line flag, not a mode: it never contacts WordPress for writes.
   # review  -> every article is saved as "Pending Review" in WordPress
-  # draft   -> passing articles saved as Draft, failing ones as Pending Review (default)
+  # draft   -> passing articles saved as Draft, failing ones as Pending Review
   # publish -> passing articles go live; failing ones Pending Review.
-  #            Also requires the environment variable ALLOW_PUBLISH=true
-  #            (set only in the GitHub workflow, only after your approval).
-  #            Without it, publish mode falls back to draft and says so in the run output.
-  mode: draft
+  #            Also requires the environment variable ALLOW_PUBLISH=true, which the
+  #            workflow sets only for an `article` run on main with the
+  #            `allow_publish` box ticked. Without it, publish mode falls back to
+  #            draft and says so in the run output. A generated article also needs
+  #            a --pillar/--topic from `calendar` below to go live.
+  mode: publish
   max_articles_per_run: 1
-  min_hours_between_posts: 36
+  min_hours_between_posts: 20     # one manual run a day; refuses a second the same day
 
 # Category ids come from https://newearns.com/wp-json/wp/v2/categories
 # Only ids listed here are ever used. The pipeline never creates categories.
@@ -73,6 +75,28 @@ pillars:
     seed_topics:
       - document side hustles for freelancers
       - how small businesses can use AI tools responsibly
+
+# Approved 30-day editorial calendar (new articles only, from the 2026-10-20 plan).
+# A run given --pillar/--topic must match one of these entries exactly; live
+# publishing of a generated article requires one. Updates to existing posts and
+# the already-written influencer-vetting draft are not here.
+calendar:
+  - {week: 1, pillar: pdf, topic: "How to Compress a PDF for Email", query: "compress pdf for email"}
+  - {week: 1, pillar: instagram, topic: "How to See Where Your Instagram Followers Are From", query: "instagram follower location"}
+  - {week: 1, pillar: pdf, topic: "How to Password-Protect a PDF, and What It Doesn't Protect", query: "how to password protect a pdf"}
+  - {week: 2, pillar: instagram, topic: "Views vs Reach vs Impressions on Instagram: What Changed", query: "instagram views vs reach"}
+  - {week: 2, pillar: pdf, topic: "How to Split a PDF into Separate Files", query: "how to split a pdf"}
+  - {week: 2, pillar: pdf, topic: "What to Put on a Freelance Invoice", query: "what to include on an invoice"}
+  - {week: 2, pillar: instagram, topic: "How to Switch to a Professional Instagram Account", query: "switch to professional account instagram"}
+  - {week: 3, pillar: money, topic: "How to Spot a Make-Money-Online Scam", query: "make money online scams"}
+  - {week: 3, pillar: pdf, topic: "Electronic vs Digital Signatures: What Signing a PDF Proves", query: "electronic signature vs digital signature"}
+  - {week: 3, pillar: instagram, topic: "How to Calculate Instagram Engagement Rate", query: "instagram engagement rate formula"}
+  - {week: 3, pillar: pdf, topic: "How to Extract Text from an Image or Screenshot", query: "extract text from image"}
+  - {week: 3, pillar: instagram, topic: "How Small Businesses Can Find Local Instagram Creators", query: "find local influencers"}
+  - {week: 4, pillar: money, topic: "Freelancing on Upwork and Fiverr: Fees and First Steps", query: "upwork vs fiverr fees"}
+  - {week: 4, pillar: pdf, topic: "How to Convert a PDF to PDF/A, and Check It Really Is", query: "convert pdf to pdf/a"}
+  - {week: 4, pillar: instagram, topic: "How to Build a Creator Media Kit", query: "creator media kit"}
+  - {week: 4, pillar: pdf, topic: "How to Add Page Numbers to a PDF", query: "add page numbers to pdf"}
 
 # Facts about the products. The writer may ONLY claim what is listed here
 # (all taken from the public product pages on 2026-10-19). Edit when the

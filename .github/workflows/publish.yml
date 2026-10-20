@@ -18,6 +18,23 @@ on:
         description: "For recheck: path to a saved article JSON in this repo"
         type: string
         default: ""
+      pillar:
+        description: "For article / article-dry-run: pillar of the calendar topic"
+        type: choice
+        default: none
+        options:
+          - none
+          - pdf
+          - instagram
+          - money
+      topic:
+        description: "For article / article-dry-run: exact topic title from the calendar in config.yaml"
+        type: string
+        default: ""
+      allow_publish:
+        description: "Publish live if every quality gate passes (article command on main only)"
+        type: boolean
+        default: false
 
 concurrency:
   group: publisher
@@ -35,8 +52,9 @@ jobs:
       WP_USERNAME: ${{ secrets.WP_USERNAME }}
       WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
       GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-      # Second safety key for live publishing. Stays "false" until approved.
-      ALLOW_PUBLISH: "false"
+      # Second safety key for live publishing: "true" only for an `article` run
+      # on main with the allow_publish box ticked. Every other run stays "false".
+      ALLOW_PUBLISH: ${{ (inputs.command == 'article' && inputs.allow_publish && github.ref == 'refs/heads/main') && 'true' || 'false' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -47,11 +65,16 @@ jobs:
       - name: Run
         env:
           ARTICLE_FILE: ${{ inputs.article_file }}
+          PILLAR: ${{ inputs.pillar }}
+          TOPIC: ${{ inputs.topic }}
         run: |
+          plan=()
+          [ "$PILLAR" = none ] && PILLAR=""
+          if [ -n "$PILLAR$TOPIC" ]; then plan=(--pillar "$PILLAR" --topic "$TOPIC"); fi
           case "${{ inputs.command }}" in
             check-setup)      python -m publisher.run check-setup ;;
-            article-dry-run)  python -m publisher.run article --dry-run ;;
-            article)          python -m publisher.run article --resume ;;
+            article-dry-run)  python -m publisher.run article --dry-run "${plan[@]}" ;;
+            article)          python -m publisher.run article --resume "${plan[@]}" ;;
             recheck)          python -m publisher.run article --dry-run --article-file "$ARTICLE_FILE" ;;
           esac
       - name: Save publication log and checkpoints
