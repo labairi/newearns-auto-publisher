@@ -176,6 +176,7 @@ def cmd_article(cfg: dict, args) -> int:
             usages.append(u); cp.put("usages", usages); cp.put("fact_check", fc)
         fact = cp.get("fact_check")
 
+    article["image_alt_text"] = images.alt_text(article["image_headline"])
     img_bytes = images.title_card(article["image_headline"], pillar)
     article["featured_image"] = {"alt_text": article["image_alt_text"], "license": "generated-in-house"}
     cp.save_file("featured.webp", img_bytes)

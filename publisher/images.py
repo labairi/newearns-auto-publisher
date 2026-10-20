@@ -44,3 +44,9 @@ def title_card(headline: str, pillar: str, width: int = 1200, height: int = 630)
     buf = io.BytesIO()
     img.save(buf, "WEBP", quality=85)
     return buf.getvalue()
+
+
+def alt_text(headline: str) -> str:
+    """Describes the card we actually draw, so it can never drift from the image."""
+    alt = f'Title card reading "{headline}" on a newearns.com banner'
+    return alt if len(alt) <= 125 else alt[:122].rstrip() + "..."

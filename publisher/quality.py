@@ -99,15 +99,25 @@ class Report:
         return [{"check": n, "passed": ok, "detail": d} for n, ok, d in self.results]
 
 
+UAS = ["Mozilla/5.0 (compatible; newearns-linkcheck/1.0)",
+       "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"]
+
+
 def check_link(url: str, timeout: int = 20) -> tuple[bool, str]:
-    headers = {"User-Agent": "Mozilla/5.0 (compatible; newearns-linkcheck/1.0)"}
-    try:
-        r = requests.head(url, allow_redirects=True, timeout=timeout, headers=headers)
-        if r.status_code in (403, 405, 400) or r.status_code >= 500:  # many sites reject HEAD
-            r = requests.get(url, allow_redirects=True, timeout=timeout, headers=headers, stream=True)
-        return r.status_code < 400, str(r.status_code)
-    except requests.RequestException as e:
-        return False, type(e).__name__
+    """HEAD then GET, with two user agents; sites differ in which ones they reject."""
+    code = "error"
+    for ua in UAS:
+        headers = {"User-Agent": ua, "Accept": "text/html,application/xhtml+xml,*/*;q=0.8"}
+        try:
+            r = requests.head(url, allow_redirects=True, timeout=timeout, headers=headers)
+            if r.status_code >= 400:  # HEAD is unreliable; only a failed GET counts
+                r = requests.get(url, allow_redirects=True, timeout=timeout, headers=headers, stream=True)
+            if r.status_code < 400:
+                return True, str(r.status_code)
+            code = str(r.status_code)
+        except requests.RequestException as e:
+            code = type(e).__name__
+    return False, code
 
 
 def run_checks(article: dict, cfg: dict, existing_posts: list[dict], known_slugs: set[str],
@@ -170,12 +180,18 @@ def run_checks(article: dict, cfg: dict, existing_posts: list[dict], known_slugs
     hrefs = [l["href"] for l in doc.links]
     rep.add("https_only", all(h.startswith("https://") or h.startswith("#") for h in hrefs) or not q["require_https_links"],
             ", ".join(h for h in hrefs if not h.startswith(("https://", "#"))))
-    broken = []
+    # Some sites (ftc.gov) refuse requests from GitHub's datacenter IPs. A link that
+    # failed here still counts as working if the fact-check's web_fetch retrieved it.
+    fetched_ok = {u.rstrip("/") for u in (fact_check or {}).get("fetched_urls", [])}
+    broken, via_fetch = [], []
     for h in sorted({h for h in hrefs if h.startswith("http")}):
         ok, code = link_checker(h)
-        if not ok:
+        if not ok and h.rstrip("/") in fetched_ok:
+            via_fetch.append(h)
+        elif not ok:
             broken.append(f"{h} ({code})")
-    rep.add("no_broken_links", not broken, "; ".join(broken))
+    rep.add("no_broken_links", not broken,
+            "; ".join(broken) or (f"{len(via_fetch)} confirmed by fact-check fetch" if via_fetch else ""))
 
     # internal links must point at real, published New Earns posts
     live = {p["link"].rstrip("/") for p in existing_posts if p.get("link")}
