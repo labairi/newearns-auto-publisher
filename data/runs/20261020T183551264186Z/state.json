@@ -1,0 +1,169 @@
+{
+  "run_id": "20261020T183551264186Z",
+  "stages": {
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2063 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "9 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "6 Ways to Turn Your Passion Into Profit (and Where to Start)"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.24% (1x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "0/9 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "137 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "51 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": false,
+        "detail": "turn-passion-to-profit-killer-ideas-for-small-business-you-can-start-today"
+      },
+      {
+        "check": "slug_unused",
+        "passed": false,
+        "detail": "turn-passion-to-profit-killer-ideas-for-small-business-you-can-start-today"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.00"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.67: 5 Powerful Ways to Turn Passion Into Profit Today"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": "2 confirmed by fact-check fetch"
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "4 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "0 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "7 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "12 of 12 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "80 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "generated-in-house"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "0 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Covers concrete methods, costs and first steps for monetizing a passion; title number matches the six H2 method sections."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "Value is in synthesis: official fee pages and SBA/IRS/FTC guidance pulled together per method with practical pricing steps. No original data or first-hand testing."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "No product claims."
+      }
+    ],
+    "final": "dry-run"
+  },
+  "updated": "2026-10-20T18:36:03+00:00"
+}
