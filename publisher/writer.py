@@ -19,7 +19,7 @@ ARTICLE_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
     "required": ["title", "seo_title", "slug", "meta_description", "focus_keyphrase", "excerpt",
-                 "content_html", "sources", "product_link_reason", "image_headline",
+                 "content_html", "sources", "product_link_reason", "internal_links_note", "image_headline",
                  "search_intent", "unique_value"],
     "properties": {
         "title": {"type": "string"},
@@ -33,6 +33,7 @@ ARTICLE_SCHEMA = {
             "type": "object", "additionalProperties": False, "required": ["url", "title", "supports"],
             "properties": {"url": {"type": "string"}, "title": {"type": "string"}, "supports": {"type": "string"}}}},
         "product_link_reason": {"type": "string"},
+        "internal_links_note": {"type": "string"},
         "image_headline": {"type": "string"},
         "search_intent": {"type": "string"},
         "unique_value": {"type": "string"},
@@ -42,15 +43,21 @@ ARTICLE_SCHEMA = {
 FACTCHECK_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
-    "required": ["claims", "satisfies_search_intent", "intent_notes", "adds_original_value", "value_notes",
+    "required": ["claims", "sources", "satisfies_search_intent", "intent_notes", "adds_original_value", "value_notes",
                  "product_claims_accurate", "product_notes"],
     "properties": {
         "claims": {"type": "array", "items": {
-            "type": "object", "additionalProperties": False, "required": ["claim", "verdict", "evidence"],
+            "type": "object", "additionalProperties": False,
+            "required": ["claim", "verdict", "source_url", "evidence", "suggested_fix"],
             "properties": {
                 "claim": {"type": "string"},
                 "verdict": {"type": "string", "enum": ["supported", "unsupported", "contradicted", "uncertain"]},
-                "evidence": {"type": "string"}}}},
+                "source_url": {"type": "string"},
+                "evidence": {"type": "string"},
+                "suggested_fix": {"type": "string"}}}},
+        "sources": {"type": "array", "items": {
+            "type": "object", "additionalProperties": False, "required": ["url", "relevant", "notes"],
+            "properties": {"url": {"type": "string"}, "relevant": {"type": "boolean"}, "notes": {"type": "string"}}}},
         "satisfies_search_intent": {"type": "boolean"},
         "intent_notes": {"type": "string"},
         "adds_original_value": {"type": "boolean"},
@@ -66,7 +73,12 @@ side businesses, creator income, online tools. Readers are freelancers, small
 business owners, creators and people starting online work.
 
 Non-negotiable editorial rules:
-- Never invent statistics, studies, quotes, case studies, customers or testimonials.
+- Never invent statistics, studies, quotes, case studies, customers or testimonials,
+  and never invent URLs, product features, limits or prices.
+- State as fact only what a source you read says. Facts that change (features,
+  prices, plans, file-size limits, dates, steps in a named tool) need a source,
+  preferably the vendor's own documentation. If you cannot source a statement,
+  leave it out, or narrow it to what a source does say.
 - Never claim first-hand testing or personal experience. Write as an editorial
   guide: "here is how to do it", not "I tried it".
 - Every number, statistic or research claim links to the source it came from,
@@ -212,12 +224,21 @@ def _run_tool(block, reader: sources.SourceReader | None) -> dict:
 
 
 def _fetched_urls(content) -> list[str]:
-    """URLs that web_fetch actually retrieved (errors excluded), from Anthropic's network."""
+    """URLs that web_fetch actually retrieved (errors excluded), from Anthropic's network.
+
+    A result whose URL is on a different site from the URL requested is dropped. The result
+    carries no redirect metadata, so a redirect it does not report cannot be detected here."""
+    requested = {getattr(b, "id", None): (getattr(b, "input", None) or {}).get("url", "")
+                 for b in content if getattr(b, "type", "") == "server_tool_use"
+                 and getattr(b, "name", "") == "web_fetch" and isinstance(getattr(b, "input", None), dict)}
     out = []
     for b in content:
         if getattr(b, "type", "") == "web_fetch_tool_result":
             res = getattr(b, "content", None)
             if getattr(res, "type", "") == "web_fetch_result" and getattr(res, "url", None):
+                asked = requested.get(getattr(b, "tool_use_id", None))
+                if asked and not sources.same_site(asked, res.url):
+                    continue
                 out.append(res.url)
     return out
 
@@ -295,8 +316,11 @@ def write_article(cfg: dict, pillar: str, brief: str, internal_posts: list[dict]
 BRIEF
 {brief}
 
-Internal New Earns posts you may link to (exact URLs only, only if relevant):
+Published New Earns posts you may link to (exact URLs only, only if relevant):
 {json.dumps([{"title": x["title"], "url": x["link"]} for x in internal_posts], indent=1)}
+Link one or more of these where it genuinely helps the reader. Never link any other New Earns URL
+(no guessed, planned or unpublished posts). If none is relevant, add no internal link and say why in
+internal_links_note; otherwise leave internal_links_note empty. Our product sites are not internal links.
 
 Product details (allowed claims only): {json.dumps(product) if product else "none"}
 If you link the product: append this query string to its URL:
@@ -319,6 +343,8 @@ Output rules:
 - Sources: link sources from at least {min_sources} different websites (the brief's sources).
 - State every sourced claim no more strongly than the source does. For legal or policy
   points, quote or closely paraphrase the source; do not generalise it to other situations.
+- Every factual sentence must be supported by a source in the brief. Do not present a
+  claim the brief does not support as established fact.
 - Do not use these words anywhere in the article, including in quoted titles or link text:
   {banned}
 """
@@ -368,28 +394,47 @@ ARTICLE HTML
 
 Allowed product claims: {json.dumps(product["allowed_claims"]) if product else "no product"}
 
-1. List every checkable factual claim (numbers, feature descriptions, steps in
-   named tools, legal/policy statements).
+1. List every checkable factual claim (numbers, statistics, dates, prices and plan
+   requirements, file-size and other limits, feature descriptions, steps in named
+   tools, legal/policy statements). A hedged statement ("may", "usually") is still a
+   claim if it states a fact.
 2. {how} Where needed, search for official documentation to verify a claim.
-   Mark each claim supported / unsupported / contradicted / uncertain with the
-   evidence URL. If a page was cut off or you could not read the relevant part,
-   mark the claim uncertain rather than inferring.
-3. Judge whether the article satisfies the search intent "{article["search_intent"]}"
+   Give each claim exactly one verdict, with the evidence URL and a short quote:
+   - supported: text you read states it (no stronger than the source does).
+   - contradicted: text you read says something different. Only this verdict means
+     the claim is false.
+   - unsupported: you read the relevant sources and found no text stating it. This
+     means evidence was not found, not that the claim is false.
+   - uncertain: the page that would settle it could not be read, or was cut off.
+   For each claim give source_url: the exact URL of the page whose text you read and
+   quote (read_source or web_fetch). A search-result snippet is not a page you read:
+   a claim backed only by a snippet is unsupported or uncertain, not supported.
+   For every claim that is not supported, give a practical suggested_fix: the
+   corrected wording, an official source that states it, or "remove" if the
+   article does not need it.
+3. For each cited source URL, say whether you could read it and whether it is
+   relevant to, and actually supports, what the article cites it for.
+4. Judge whether the article satisfies the search intent "{article["search_intent"]}"
    better than a generic answer and whether it adds original value
    (claimed: "{article["unique_value"]}"). Be strict: generic rewrites fail.
-4. Check that every product statement matches the allowed claims exactly in substance.
+5. Check that every product statement matches the allowed claims exactly in substance.
 
 {READING_RULES if reader is not None else ""}"""
     notes, u1 = _call(cfg, [{"role": "user", "content": step1}], system="Be rigorous and skeptical.",
                       stage="fact_check", tools=_tools(cfg, cfg["models"]["factcheck_web_searches"], reader),
                       reader=reader, max_tokens=24000)
     text, u2 = _call(cfg, [{"role": "user", "content": "Convert this fact-check into the JSON schema. "
-                            "Do not change any verdicts.\n\n" + notes}],
+                            "Do not change any verdicts. If the notes give a claim no verdict, use "
+                            "'uncertain' and say so in its evidence; never upgrade a claim to 'supported'. "
+                            "source_url is the URL of the page the notes quote for that claim, copied exactly; leave it "
+                            "empty if the notes give none, and never invent one. List every cited source under sources; relevant is true only if the notes say "
+                            "it supports what it is cited for.\n\n" + notes}],
                      system="Faithful conversion only.", stage="fact_check_json", schema=FACTCHECK_SCHEMA,
                      max_tokens=16000)
     fc = json.loads(text)
     verified = reader.verified_urls() if reader is not None else []
     fc["fetched_urls"] = sorted(set(u1.get("fetched_urls", [])) | set(verified))
+    fc["content_sha256"] = quality.content_fingerprint(article["content_html"])
     return fc, [u1, u2]
 
 

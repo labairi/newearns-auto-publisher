@@ -255,6 +255,7 @@ def test_fact_check_gets_evidence_pack_and_verified_urls(monkeypatch):
     assert "EVIDENCE EXTRACTED" in prompt and LEGAL in prompt and "do not trust it blindly" in prompt
     assert '"status": "unavailable"' in prompt          # the blocked source is flagged, not hidden
     assert fc["fetched_urls"] == ["https://agency.example/rule", "https://blocked.example/a"]
+    assert fc["content_sha256"] == quality.content_fingerprint(art["content_html"])
     assert [u["stage"] for u in usages] == ["fact_check", "fact_check_json"]
 
 
@@ -401,13 +402,16 @@ GATES = {"word_count", "structure_h2", "no_h1_in_body", "headings_unique", "keyp
          "product_link_justified", "enough_independent_sources", "sources_cited_in_body", "statistics_have_sources",
          "featured_image_alt", "image_rights", "inline_images_have_alt", "fact_check_claims", "fact_check_intent",
          "fact_check_original_value", "fact_check_product_claims"}
+# Added later: the fact-check must match the exact text, and every cited source must be read and relevant.
+NEW_GATES = {"fact_check_current", "sources_verified"}
 
 
-def test_all_34_quality_gates_still_run():
+def test_all_34_original_quality_gates_still_run_plus_new_ones():
     from tests.test_pipeline import make_article, EXISTING
     art = make_article()
     rep = quality.run_checks(art, CFG, EXISTING, set(), link_checker=ok, fact_check=art["fact_check"])
-    assert {n for n, _, _ in rep.results} == GATES and len(rep.results) == 34
+    assert {n for n, _, _ in rep.results} == GATES | NEW_GATES and len(rep.results) == 36
+    assert all(n in quality.FIXES for n, _, _ in rep.results) and "fact_check_ran" in quality.FIXES
 
 
 def ok(url):
@@ -419,3 +423,67 @@ def test_thresholds_and_safety_settings_unchanged():
     assert q["min_sources"] == 3 and q["max_duplicate_similarity"] == 0.35 and q["max_title_similarity"] == 0.80
     assert CFG["publishing"]["mode"] == "publish" and CFG["publishing"]["min_hours_between_posts"] >= 20
     assert all(v is None or isinstance(v, str) for v in (CFG["models"].get("stages") or {}).values())
+
+
+# ---------------------------------------------------------------- redirects
+GOOGLE = "https://support.google.com/mail/answer/6584"
+
+
+def redirected(final):
+    return sources.SourceReader(None, fetcher_for({GOOGLE: (200, "text/html", final, PAGE)}))
+
+
+def test_redirect_to_another_site_is_not_evidence_from_the_original():
+    r = redirected("https://evil.example/landing")
+    res = r.read(GOOGLE, "fake reviews")
+    assert r.verified_urls() == []                       # neither URL counts as read
+    assert res["final_url"] == "https://evil.example/landing" and res["requested_url"] == GOOGLE
+    assert "redirected to a different site" in res["redirect_note"] and "does not count as evidence" in res["redirect_note"]
+
+
+@pytest.mark.parametrize("final", ["https://support.google.com.evil.com/mail/answer/6584",   # look-alike host
+                                   "https://mail.support.google.com/answer/6584",            # other subdomain
+                                   "https://evil.com/support.google.com/mail/answer/6584"])
+def test_look_alike_and_sibling_hosts_are_different_sites(final):
+    r = redirected(final)
+    r.read(GOOGLE, "x")
+    assert r.verified_urls() == [] and not sources.same_site(GOOGLE, final)
+
+
+@pytest.mark.parametrize("final", ["https://www.support.google.com/mail/answer/6584",   # www added
+                                   "http://support.google.com/mail/answer/6584?hl=en",  # scheme and query
+                                   "https://support.google.com/mail/answer/12345"])      # moved on the same site
+def test_same_site_redirect_counts_under_requested_and_final_url(final):
+    r = redirected(final)
+    res = r.read(GOOGLE, "x")
+    assert r.verified_urls() == sorted({GOOGLE, final})
+    assert res["final_url"] == final and "Cite that URL" in res["redirect_note"]
+
+
+def test_www_removed_by_redirect_is_the_same_site():
+    r = sources.SourceReader(None, fetcher_for({"https://www.irs.gov/x": (200, "text/html", "https://irs.gov/x", PAGE)}))
+    r.read("https://www.irs.gov/x", "x")
+    assert r.verified_urls() == ["https://irs.gov/x", "https://www.irs.gov/x"]
+
+
+def test_fact_check_evidence_shows_the_final_url_after_a_redirect():
+    art = {"sources": [{"url": GOOGLE, "title": "Gmail", "supports": "civil penalties"}],
+           "content_html": f'<p>Penalties apply to <a href="{GOOGLE}">knowing violations</a>.</p>'}
+    pack = writer.evidence_pack(art, redirected("https://evil.example/landing"))
+    assert pack[0]["final_url"] == "https://evil.example/landing" and "different site" in pack[0]["redirect_note"]
+
+
+def test_ordinary_page_without_redirect_is_unchanged():
+    r = sources.SourceReader(None, fetcher_for({GOOGLE: PAGE}))
+    res = r.read(GOOGLE, "civil penalties")
+    assert r.verified_urls() == [GOOGLE] and res["status"] == "ok" and LEGAL in res["excerpt"]
+    assert not {"final_url", "requested_url", "redirect_note"} & set(res)
+
+
+def test_web_fetch_result_on_another_site_than_requested_is_dropped():
+    asked = lambda i, u: NS(type="server_tool_use", name="web_fetch", id=i, input={"url": u})
+    got = lambda i, u: NS(type="web_fetch_tool_result", tool_use_id=i, content=NS(type="web_fetch_result", url=u))
+    content = [asked("a", GOOGLE), got("a", "https://evil.example/landing"),
+               asked("b", "https://www.ftc.gov/x"), got("b", "https://ftc.gov/x"),
+               asked("c", "https://agency.example/rule"), got("c", "https://agency.example/rule")]
+    assert writer._fetched_urls(content) == ["https://ftc.gov/x", "https://agency.example/rule"]

@@ -47,13 +47,29 @@ versioned, and stores the publication log in the repo.
    `config.yaml`. A product link always carries a UTM tag and an ownership disclosure.
 5. **Independent fact-check.** A separate request opens the cited sources again
    and grades every claim, the search intent, original value and product claims.
-6. **Quality gates.** 34 checks in `publisher/quality.py`: length, structure,
+   Each claim is *supported*, *contradicted* (a source says otherwise), *unsupported*
+   (no evidence found, which is not the same as false) or *uncertain* (the source
+   could not be read), with a suggested fix. A *supported* claim counts only if its
+   `source_url` is a page the pipeline itself read. A page that redirects to a different site
+   (`www.` aside) is not counted as read, and the fact-checker is told where the text came from.
+   Limitation: server-side `web_fetch` reports no redirect details, so only a result on a
+   different site from the URL requested can be caught there. Each cited source is marked relevant or not.
+6. **Quality gates.** 36 checks in `publisher/quality.py`: length, structure,
    keyword density and stuffed headings, metadata lengths, slug format, near-duplicate
    body text against every existing post, a near-identical title or a keyphrase that
    is already targeted, fabricated-experience and hype phrases, broken links,
-   internal links that must exist, https only, product link limits, UTM and
-   disclosure, at least 3 independent sources, statistics without a linked source,
-   image alt text and licence, and the fact-check verdicts.
+   internal links that must point at published New Earns posts (or, when no published
+   post is relevant, an `internal_links_note` saying so; product sites never count as
+   internal), https only, product link limits, UTM and disclosure, at least 3
+   independent sources, statistics without a linked source, image alt text and
+   licence, the fact-check verdicts, a fact-check that matches the exact text, and
+   every cited source read and relevant. Each failure is reported with a fix.
+
+   **Correcting a held article without regenerating it:** edit the article JSON (or
+   copy `article` out of `data/runs/<id>/state.json`) and run `recheck` on it. Tick
+   `refresh_fact_check` to re-run only the fact-check on the edited text (about
+   $0.40 at list prices on the 2026-10-20 run); the result is saved as
+   `data/runs/<new id>/article.json`, which later rechecks reuse at no cost.
 7. **Publish or hold.** If everything passes, the post is created as a draft,
    then switched to published. Anything failing is saved as **Pending Review**
    in WordPress. That is the review queue, and the reasons are in the log.

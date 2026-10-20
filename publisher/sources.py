@@ -54,6 +54,15 @@ def normalize_url(url: str) -> str:
     return urlunsplit((s.scheme.lower(), s.netloc.lower(), path, query, ""))
 
 
+def same_site(a: str, b: str) -> bool:
+    """Same host name, treating www.example.com and example.com as one. Nothing looser:
+    sub.example.com, example.com.evil.com and user@host tricks are different sites."""
+    def host(u: str) -> str:
+        h = (urlsplit(u).hostname or "").lower()
+        return h[4:] if h.startswith("www.") else h
+    return bool(host(a)) and host(a) == host(b)
+
+
 # ---------------------------------------------------------------- extraction
 class _Extractor(HTMLParser):
     def __init__(self):
@@ -335,6 +344,14 @@ class SourceReader:
         pg = self.page(url)
         out = {"url": url, "status": pg.status, "title": pg.title, "published": pg.published,
                "modified": pg.modified}
+        if pg.final_url and normalize_url(pg.final_url) != normalize_url(url):
+            # Say where the text really came from; a redirect to another site is not this source.
+            out.update(requested_url=url, final_url=pg.final_url)
+            out["redirect_note"] = (
+                f"{url} redirected to {pg.final_url}; the text below came from {pg.final_url}. Cite that URL."
+                if same_site(url, pg.final_url) else
+                f"{url} redirected to a different site, {pg.final_url}. The text below came from that site, not "
+                f"from {url}, and does not count as evidence from {url}.")
         if pg.status == "unavailable":
             out["note"] = (f"Could not read this page from here ({pg.reason}). Use web_fetch for this URL if you "
                            "still need it. Do not treat it as evidence until you have read it.")
@@ -352,8 +369,14 @@ class SourceReader:
         return out
 
     def verified_urls(self) -> list[str]:
-        """URLs actually retrieved with readable text this run (counts for the link gate)."""
-        return sorted(p.url for p in self.pages.values() if p.status == "ok")
+        """URLs actually retrieved with readable text this run (counts for the link and evidence
+        gates). A page that redirected to another site counts under neither URL; a same-site
+        redirect (http/https, www or not, a moved path) counts under the requested and final URL."""
+        out = set()
+        for p in self.pages.values():
+            if p.status == "ok" and same_site(p.url, p.final_url or p.url):
+                out.update({p.url, p.final_url or p.url})
+        return sorted(out)
 
 
 READ_SOURCE_TOOL = {
