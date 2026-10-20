@@ -371,3 +371,31 @@ def test_revised_vetting_article_passes_offline_gates():
     art["featured_image"] = {"alt_text": art["image_alt_text"], "license": "generated-in-house"}
     rep = quality.run_checks(art, CFG, EXISTING, set(), link_checker=ok_links, fact_check=art["fact_check"])
     assert rep.passed, rep.failures
+
+
+def test_link_check_tries_second_user_agent(monkeypatch):
+    def head(url, headers, **k):
+        return _Resp(400 if "compatible" in headers["User-Agent"] else 200)
+    monkeypatch.setattr(quality.requests, "head", head)
+    monkeypatch.setattr(quality.requests, "get", lambda url, headers, **k: head(url, headers))
+    assert quality.check_link("https://help.instagram.com/1")[0]
+
+
+def test_link_blocked_for_runner_but_fetched_by_fact_check_passes():
+    art = make_article()
+    blocked = "https://support.google.com/mail/answer/6584"
+    links = lambda u: (False, "404") if u == blocked else (True, "200")
+    fc = dict(art["fact_check"], fetched_urls=[blocked])
+    rep = quality.run_checks(art, CFG, EXISTING, set(), link_checker=links, fact_check=fc)
+    assert rep.passed, rep.failures
+    rep = quality.run_checks(art, CFG, EXISTING, set(), link_checker=links, fact_check=art["fact_check"])
+    assert any("no_broken_links" in f for f in rep.failures)
+
+
+def test_fetched_urls_only_counts_successful_fetches():
+    from types import SimpleNamespace as NS
+    from publisher import writer
+    content = [NS(type="web_fetch_tool_result", content=NS(type="web_fetch_result", url="https://ok.example/a")),
+               NS(type="web_fetch_tool_result", content=NS(type="web_fetch_tool_error", error_code="url_not_accessible")),
+               NS(type="text", text="x")]
+    assert writer._fetched_urls(content) == ["https://ok.example/a"]
