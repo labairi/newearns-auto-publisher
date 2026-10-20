@@ -5,3 +5,5 @@ __pycache__/
 *.pem
 *service-account*.json
 data/.run.lock
+# copies of third-party pages cached during a run (re-fetched for free on resume)
+data/runs/*/sources/
