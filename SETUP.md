@@ -65,11 +65,14 @@ Confirms the login works, the role is not Administrator, and the categories exis
    verified and logged, then run it again to confirm it refuses a second post
    within 20 hours.
 
-## 8. Me, only after your explicit OK: add the schedule
-Add `schedule: - cron: "0 8 * * 1,3,5"` to `.github/workflows/publish.yml`.
-Held articles show in WP Admin > Posts > Pending.
+## 8. The daily scheduled run
+The workflow runs once a day and saves one calendar topic as a **Draft** (or Pending
+Review if a check failed); it never publishes live. See "Daily scheduled run" in the
+README for the skip rules, cost and how to pause it.
+Drafts show in WP Admin > Posts > Drafts, held articles in Posts > Pending.
 
 ## Pausing or rolling back
-- Pause: GitHub > Actions > publisher > "Disable workflow".
+- Pause: GitHub > Actions > publisher > "Disable workflow". After an automatic pause
+  (2 unsuccessful attempts in a row), run the workflow with **resume-schedule**.
 - Stop anything going live: leave **allow_publish** unticked, or set `mode: draft`.
 - Remove a bad article: trash it in WP Admin (the log keeps the record).

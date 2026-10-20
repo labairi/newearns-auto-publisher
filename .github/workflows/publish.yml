@@ -1,8 +1,14 @@
 name: publisher
 
-# Manual runs only. There is deliberately NO `schedule:` trigger.
-# Scheduled publishing gets added only after the owner approves it.
+# Manual runs, plus one scheduled run a day. The scheduled run picks the next
+# approved calendar topic and saves it as a WordPress DRAFT: it never publishes
+# live (ALLOW_PUBLISH below stays "false" for it, and config.yaml has
+# publishing.scheduled_live: false). It skips, with no Claude call, if any
+# attempt happened in the last 20 hours or the last 2 attempts failed.
+# To stop it: Actions > publisher > "..." > Disable workflow.
 on:
+  schedule:
+    - cron: "17 9 * * *"   # 09:17 UTC daily; GitHub may start it late
   workflow_dispatch:
     inputs:
       command:
@@ -14,6 +20,7 @@ on:
           - article-dry-run    # generate + quality checks, nothing sent to WordPress
           - article            # uses publishing.mode from config.yaml (draft by default)
           - recheck            # re-run quality gates on a saved article file; no WordPress writes
+          - resume-schedule    # let scheduled runs continue after 2 unsuccessful attempts paused them
       article_file:
         description: "For recheck: path to a saved article JSON, or a run's data/runs/<id>/state.json"
         type: string
@@ -73,6 +80,10 @@ jobs:
           PILLAR: ${{ inputs.pillar }}
           TOPIC: ${{ inputs.topic }}
         run: |
+          if [ "${{ github.event_name }}" = schedule ]; then
+            python -m publisher.run article --scheduled
+            exit
+          fi
           plan=()
           refresh=()
           [ "$REFRESH" = true ] && refresh=(--refresh-fact-check)
@@ -83,6 +94,7 @@ jobs:
             article-dry-run)  python -m publisher.run article --dry-run "${plan[@]}" ;;
             article)          python -m publisher.run article --resume "${plan[@]}" ;;
             recheck)          python -m publisher.run article --dry-run --article-file "$ARTICLE_FILE" "${refresh[@]}" ;;
+            resume-schedule)  python -m publisher.run resume-schedule ;;
           esac
       - name: Save publication log and checkpoints
         if: always() && inputs.command != 'check-setup'
@@ -90,5 +102,5 @@ jobs:
           git config user.name "newearns-publisher"
           git config user.email "actions@users.noreply.github.com"
           git add data/
-          git diff --cached --quiet || git commit -m "publisher: ${{ inputs.command }} run ${{ github.run_id }}"
+          git diff --cached --quiet || git commit -m "publisher: ${{ inputs.command || 'scheduled' }} run ${{ github.run_id }}"
           git push
