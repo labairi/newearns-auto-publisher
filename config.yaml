@@ -23,6 +23,11 @@ publishing:
   mode: publish
   max_articles_per_run: 1
   min_hours_between_posts: 20     # one manual run a day; refuses a second the same day
+  # The daily scheduled run (publisher/schedule.py) never publishes live while this
+  # is false: a passing article is saved as a WordPress Draft, a failing one as
+  # Pending Review. Turning live scheduled publishing on needs this AND the
+  # workflow's ALLOW_PUBLISH to change, in a PR the owner approves.
+  scheduled_live: false
 
 # Category ids come from https://newearns.com/wp-json/wp/v2/categories
 # Only ids listed here are ever used. The pipeline never creates categories.

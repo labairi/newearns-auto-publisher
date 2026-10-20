@@ -20,7 +20,7 @@ https://newearns.com, then logs it and tracks it in Search Console.
 | Piece | Choice | Cost |
 |---|---|---|
 | Publishing | WordPress REST API + Application Password (built into WordPress) | $0 |
-| Scheduler and runner | GitHub Actions in a private repo. Manual runs only for now; a Mon/Wed/Fri schedule is added only after you approve it | $0 (about 15 to 30 of the free 2,000 minutes per month) |
+| Scheduler and runner | GitHub Actions in a private repo. Manual runs, plus one scheduled run a day that saves drafts only (see "Daily scheduled run") | $0 (about 30 to 60 of the free 2,000 minutes per month) |
 | Research, writing, fact-check | Claude API, Claude Opus 5.5 with web search and web fetch | about $1 to $2 per article; about $15 to $30 per month at 3 per week. Every run logs its own cost estimate. |
 | Search performance | Google Search Console API (service account, read-only) | $0 |
 | Engagement | GA4 Data API (same service account, read-only) | $0 |
@@ -82,7 +82,7 @@ versioned, and stores the publication log in the repo.
     impressions, a low click-through rate on page 1, or a position of 8 to 25.
 
 **Safety:** a run lock and GitHub concurrency group stop runs overlapping. Slug
-checks against WordPress and the log block duplicates. A minimum gap of 36 hours
+checks against WordPress and the log block duplicates. A minimum gap of 20 hours
 separates publishes. Every stage is checkpointed, so `--resume` finishes a crashed
 run without paying to regenerate it. The code only touches posts and media: it
 never edits pages, theme, plugins, settings, users, categories or existing posts.
@@ -102,6 +102,62 @@ Credentials are read only from environment variables / GitHub Actions secrets:
 
 GitHub: Actions > **publisher** > Run workflow > choose `check-setup`, `article-dry-run` or `article`.
 
+## Daily scheduled run
+
+The workflow also runs once a day at 09:17 UTC (GitHub can start it later). Schedules
+only run from `main`, so nothing happens until this change is merged.
+
+**What it does.** `python -m publisher.run article --scheduled`:
+
+1. **Skip checks first, with no Claude call and no WordPress write:**
+   - **20-hour gap.** It skips if any non-dry-run attempt (manual or scheduled; published,
+     draft, held, duplicate, failed verification, or a scheduled run that errored or never
+     finished) happened in the last `min_hours_between_posts` (20) hours.
+   - **Pause.** It skips if the last 2 attempts were both unsuccessful (held, duplicate,
+     failed verification, error or crash). A draft or published post counts as a success.
+2. **One topic.** If an earlier run of an approved calendar topic stopped before finishing,
+   it resumes that run and reuses its saved research, article and fact-check. Otherwise it
+   takes the first `calendar` entry in config.yaml that no run has attempted yet. Dry runs
+   don't use up a topic. **A held topic is not retried automatically**, because retrying
+   would pay for a new article; correct it and use `recheck` instead. When every topic has
+   been attempted, it logs "no eligible calendar topic" and stops.
+3. **The usual pipeline, unchanged:** research, write, fact-check, all 36 gates, duplicate
+   and slug checks, then WordPress.
+4. **Draft or review only.** A passing article is saved as a WordPress **Draft**, and a
+   failing one as **Pending Review**. It never publishes live. Two locks keep it that way:
+   `publishing.scheduled_live: false` in config.yaml, and the workflow's `ALLOW_PUBLISH`,
+   which is `true` only for a manual `article` run with **allow_publish** ticked.
+   Live scheduled publishing needs both changed, in a PR you approve, after a successful
+   manual end-to-end publishing test.
+
+Every attempt is recorded in `data/schedule_log.jsonl` (start and outcome) and, once it
+reaches WordPress, in `data/publication_log.jsonl` with its `calendar_topic`.
+
+Manual runs keep their own rules: a manual `article` run's 20-hour check still counts
+only *published* posts, so a held attempt doesn't block your manual live test.
+
+**Setup.** Nothing beyond the secrets already set (`ANTHROPIC_API_KEY`, `WP_USERNAME`,
+`WP_APP_PASSWORD`). After merging, check Actions > publisher the next day: the run summary
+says which topic it chose, or why it skipped.
+
+**Cost** (list-price estimates from the 2026-10-20 run):
+
+| Case | Claude cost |
+|---|---|
+| A skipped day (gap, pause, no topic) | $0 |
+| One new article | about $1.91, the same whether it is saved as a draft or held |
+| A resumed run | only the stages it hadn't finished |
+| Most per day | one attempt, about $1.91 |
+| Before a pause | at most 2 unsuccessful attempts in a row, about $3.82 |
+| Whole calendar | 15 topics left, about $29 in total, then $0 per day |
+
+**Pausing.**
+- **Stop it completely:** GitHub > Actions > publisher > "..." > **Disable workflow**.
+  Enable it again the same way. No code change is needed.
+- **After an automatic pause:** fix the cause (the run summary and log list each failure
+  with a fix), then run the workflow manually with the command **resume-schedule**. That
+  costs nothing and lets the next scheduled run go ahead. The 20-hour gap still applies.
+
 ## Commands
 
 ```
@@ -110,8 +166,10 @@ python -m publisher.run article --dry-run  # full generation + checks, nothing s
 python -m publisher.run article            # uses publishing.mode (draft | publish)
 python -m publisher.run article --resume   # finish a crashed run
 python -m publisher.run article --pillar pdf --topic "How to Compress a PDF for Email"   # one approved calendar topic
+python -m publisher.run article --scheduled   # the daily scheduled run (draft only; see above)
+python -m publisher.run resume-schedule       # let scheduled runs continue after a pause
 python -m publisher.run report             # Search Console / GA4 improvement flags
-pytest -q                                  # 22 tests incl. end-to-end against a fake WordPress
+pytest -q                                  # offline tests, incl. end-to-end against a fake WordPress
 ```
 
 See SETUP.md for the go-live steps.

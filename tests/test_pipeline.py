@@ -298,11 +298,15 @@ def test_base_url_env_override(monkeypatch):
     assert run.load_cfg()["site"]["base_url"] == "https://staging.example.com"
 
 
-def test_no_scheduled_workflows():
+def test_only_one_daily_schedule_and_only_in_publish_workflow():
+    # Replaces the old "no schedules" test: one daily cron, nowhere else (see tests/test_schedule.py).
     for wf in (run.ROOT / ".github" / "workflows").glob("*.yml"):
         y = __import__("yaml").safe_load(wf.read_text())
-        triggers = y.get("on", y.get(True))  # PyYAML parses bare `on` as True
-        assert "schedule" not in (triggers or {}), wf.name
+        triggers = y.get("on", y.get(True)) or {}  # PyYAML parses bare `on` as True
+        if wf.name == "publish.yml":
+            assert triggers["schedule"] == [{"cron": "17 9 * * *"}] and "workflow_dispatch" in triggers
+        else:
+            assert "schedule" not in triggers, wf.name
 
 
 def test_publish_workflow_second_key_needs_article_on_main_and_ticked_box():

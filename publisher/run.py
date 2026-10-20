@@ -11,6 +11,9 @@
   python -m publisher.run article --article-file x.json --dry-run --refresh-fact-check
                                                   re-run only the fact-check on an edited article
                                                   (one Claude call pair, no new article), then the gates
+  python -m publisher.run article --scheduled     the daily scheduled run: one approved calendar topic,
+                                                  saved as a WordPress draft (see publisher/schedule.py)
+  python -m publisher.run resume-schedule         let scheduled runs continue after they paused
   python -m publisher.run report                  Search Console / GA4 improvement report
 """
 from __future__ import annotations
@@ -25,7 +28,7 @@ from pathlib import Path
 
 import yaml
 
-from . import images, ledger, performance, quality, sources, writer
+from . import images, ledger, performance, quality, schedule, sources, writer
 from .wordpress import WordPress, WordPressError, public_url_ok
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -159,8 +162,41 @@ def cmd_check_setup(cfg: dict) -> int:
     return 0 if ok else 1
 
 
+def cmd_scheduled(cfg: dict, args) -> int:
+    """One approved calendar topic per day. Every skip happens before any Claude call."""
+    if args.article_file or args.pillar or args.topic or args.dry_run or args.refresh_fact_check or args.force:
+        say("Refused: --scheduled picks its own calendar topic; it takes no other article options.")
+        return 7
+    why = schedule.skip_reason(cfg)
+    if why:
+        say(why)
+        return 0
+    pick = schedule.pick_topic(cfg)
+    if not pick:
+        say("Skipped: no eligible calendar topic (every approved topic has been attempted). "
+            "Add topics to `calendar` in config.yaml.")
+        return 0
+    entry, run_id = pick
+    args.pillar, args.topic = entry["pillar"], entry["topic"]
+    args.run_id = run_id or datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    say(f"Scheduled topic: {entry['pillar']} / {entry['topic']}"
+        + (f" (resuming unfinished run {run_id})" if run_id else ""))
+    attempt = schedule.start(args.run_id, entry)
+    status = "error"
+    try:
+        rc = cmd_article(cfg, args)
+        st = ledger.RUNS / args.run_id / "state.json"
+        status = (json.loads(st.read_text())["stages"].get("final") if st.exists() else None) or f"exit {rc}"
+        return rc
+    finally:
+        schedule.finish(attempt, status)
+
+
 def cmd_article(cfg: dict, args) -> int:
     mode = effective_mode(cfg, args.dry_run)
+    if getattr(args, "scheduled", False) and mode == "publish" and not cfg["publishing"].get("scheduled_live"):
+        say("Scheduled runs save drafts only until publishing.scheduled_live is approved: saving as draft.")
+        mode = "draft"
     try:
         planned = calendar_entry(cfg, args.pillar, args.topic)
     except ValueError as e:
@@ -188,7 +224,7 @@ def cmd_article(cfg: dict, args) -> int:
                 say(f"Skipped: last article went out {age_h:.0f}h ago (minimum {cfg['publishing']['min_hours_between_posts']}h).")
                 return 0
 
-    run_id = (ledger.unfinished_run() if args.resume else None) or datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    run_id = getattr(args, "run_id", None) or (ledger.unfinished_run() if args.resume else None) or datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
     cp = ledger.Checkpoint(run_id)
     if planned and cp.get("pillar") and (cp.get("pillar"), cp.get("topic")) != (planned["pillar"], planned["topic"]):
         say(f"Refused: unfinished run {run_id} is for {cp.get('pillar')}/{cp.get('topic')!r}, not the topic given. "
@@ -266,7 +302,8 @@ def cmd_article(cfg: dict, args) -> int:
         say(f"  - {f}")
 
     entry = {"run_id": run_id, "date": ledger.now_iso(), "pillar": pillar,
-             "topic": article.get("focus_keyphrase"), "title": article["title"], "slug": article["slug"],
+             "topic": article.get("focus_keyphrase"), **({"calendar_topic": planned["topic"]} if planned else {}),
+             "title": article["title"], "slug": article["slug"],
              "focus_keyphrase": article["focus_keyphrase"], "product_links": product_links(cfg, article["content_html"]),
              "sources": [s["url"] for s in article.get("sources", [])], "failures": report.failures,
              "est_cost_usd": writer.estimate_cost(usages),
@@ -354,7 +391,7 @@ def cmd_report(cfg: dict) -> int:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("command", choices=["check-setup", "article", "report"])
+    ap.add_argument("command", choices=["check-setup", "article", "report", "resume-schedule"])
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--resume", action="store_true")
     ap.add_argument("--force", action="store_true", help="ignore min_hours_between_posts")
@@ -363,14 +400,20 @@ def main(argv=None) -> int:
                     help="with --article-file --dry-run: re-run only the fact-check on the (edited) article")
     ap.add_argument("--pillar", help="pillar of an approved calendar topic (with --topic)")
     ap.add_argument("--topic", help="exact title of an approved calendar topic in config.yaml")
+    ap.add_argument("--scheduled", action="store_true",
+                    help="the daily scheduled run: next calendar topic, 20h gap after any attempt, pause rule")
     args = ap.parse_args(argv)
     cfg = load_cfg()
     if args.command == "check-setup":
         return cmd_check_setup(cfg)
     if args.command == "report":
         return cmd_report(cfg)
+    if args.command == "resume-schedule":
+        schedule.resume()
+        say("Scheduled runs may continue; the 20-hour gap still applies.")
+        return 0
     with ledger.RunLock():
-        return cmd_article(cfg, args)
+        return cmd_scheduled(cfg, args) if args.scheduled else cmd_article(cfg, args)
 
 
 if __name__ == "__main__":
