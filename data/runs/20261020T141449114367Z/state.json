@@ -1,0 +1,179 @@
+{
+  "run_id": "20261020T141449114367Z",
+  "stages": {
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2717 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "9 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "How to Vet an Instagram Influencer Before You Pay (Step-by-Step Checklist)"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.15% (1x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "0/9 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "154 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "49 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "vet-instagram-influencer-before-paying"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "vet-instagram-influencer-before-paying"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.00"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.47: How to Use Artificial Intelligence to Start a Business"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": "3 confirmed by fact-check fetch"
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "1 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "1 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "ownership_disclosed",
+        "passed": true,
+        "detail": "disclosure missing"
+      },
+      {
+        "check": "product_link_justified",
+        "passed": true,
+        "detail": "no reason given"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "3 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "5 of 5 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "76 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "generated-in-house"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "0 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Passes, but with gaps. Better than a generic answer: structured around a decision, legal parts accurately sourced, and the buyer's own FTC obligations are rarely explained this well. It falls short of what it promises on checking whether a creator is genuine. The \"About this account\" section avoids the most useful facts: Instagram's page lists four fields (date joined, number of username changes, \"Account based in\" (country, based on the account's activity), and active ads). These are the best free ways to tell if a creator is genuine, and \"Account based in\" is a direct location check. The article tells readers to look these up rather than naming them, so its \"contradicts the pitch\" test has nothing concrete to compare against. Fix: name the \"About this account\" fields and turn them into concrete checks."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "Adds some original value. Claimed differentiators present: the median-versus-best-post method, an escalation ladder for creators who won't share data, correct use of the 2024 rule, the FAQ and Disclosures 101, and the green/yellow/red table and pilot brief. Weaknesses: the median method has no numbers (the worked example uses no figures and \"a small fraction of the top post\" is never defined; add one numeric example and a simple ratio, median engagement ÷ followers). The fake-follower checks are standard and leave out common free checks such as sampling the follower list for empty or no-photo accounts. The link to a \"start a digital marketing agency\" guide is self-promotion and off-topic for this reader; remove it. Uncheckable opinions/advice (screen recording harder to fake than a screenshot; \"many benchmarks give no source\"; the median heuristic) are reasonable and presented as advice."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "Instagramaps claims are within the allowed list. \"A tool the creator has connected\" matches \"connect an Instagram account\". \"Shows where an account's audience engages by country and city\" matches. \"Compares views, reach and engagement per post\" matches. No marketplace or pricing claims, which is fine. The ownership disclosure is present. The article says this data shows fit, not authenticity, which is the right limit. The FAQ's \"no paid tool needed\" line doesn't conflict with the free plans. Compliant."
+      }
+    ],
+    "final": "dry-run"
+  },
+  "updated": "2026-10-20T14:14:56+00:00"
+}
