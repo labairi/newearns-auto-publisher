@@ -137,8 +137,17 @@ models:
   # Claude Opus 5.5 for research/writing/fact-check.
   writer: claude-opus-5-5
   effort: high
-  max_web_searches: 8
-  max_web_fetches: 10
+  max_web_searches: 8          # research stage
+  factcheck_web_searches: 5    # fact-check stage (the last run used 5)
+  # Sources are read with the local read_source tool (main text only, relevant
+  # passages up to excerpt_chars per call, each URL downloaded once per run).
+  # Server-side web_fetch is only the fallback for pages the runner cannot read.
+  excerpt_chars: 6000
+  max_web_fetches: 5           # per stage, fallback only
+  max_fetch_tokens: 16000      # cap per web_fetch result
+  # Optional per-stage model overrides (research, write, fact_check, fact_check_json).
+  # Empty = every stage uses `writer`.
+  stages: {}
 
 tracking:
   gsc_site_url: sc-domain:newearns.com   # or https://newearns.com/ (URL-prefix property)

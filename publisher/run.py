@@ -19,7 +19,7 @@ from pathlib import Path
 
 import yaml
 
-from . import images, ledger, performance, quality, writer
+from . import images, ledger, performance, quality, sources, writer
 from .wordpress import WordPress, WordPressError, public_url_ok
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -159,21 +159,24 @@ def cmd_article(cfg: dict, args) -> int:
             return 2
         pillar = cp.get("pillar") or choose_pillar(cfg)
         cp.put("pillar", pillar)
+        # Pages are cached under the run, so research and fact-check share one download per URL.
+        def reader():
+            return sources.SourceReader(cp.dir / "sources", excerpt_chars=cfg["models"]["excerpt_chars"])
         if not cp.get("brief"):
             cands = candidate_topics(cfg, pillar, posts)
             if not cands:
                 say(f"No uncovered seed topics left for pillar '{pillar}'. Add topics to config.yaml.")
                 return 3
             brief, u = writer.research_brief(cfg, pillar, cands, [p["title"] for p in posts],
-                                             performance.demand_notes(cfg))
+                                             performance.demand_notes(cfg), reader=reader())
             usages.append(u); cp.put("usages", usages); cp.put("brief", brief); cp.put("candidates", cands)
         if not cp.get("article"):
             art, u = writer.write_article(cfg, pillar, cp.get("brief"), posts)
             usages.append(u); cp.put("usages", usages); cp.put("article", art)
         article = cp.get("article")
         if not cp.get("fact_check"):
-            fc, u = writer.fact_check(cfg, article, pillar)
-            usages.append(u); cp.put("usages", usages); cp.put("fact_check", fc)
+            fc, us = writer.fact_check(cfg, article, pillar, reader=reader())
+            usages.extend(us); cp.put("usages", usages); cp.put("fact_check", fc)
         fact = cp.get("fact_check")
 
     article["image_alt_text"] = images.alt_text(article["image_headline"])
@@ -192,7 +195,11 @@ def cmd_article(cfg: dict, args) -> int:
              "topic": article.get("focus_keyphrase"), "title": article["title"], "slug": article["slug"],
              "focus_keyphrase": article["focus_keyphrase"], "product_links": product_links(cfg, article["content_html"]),
              "sources": [s["url"] for s in article.get("sources", [])], "failures": report.failures,
-             "est_cost_usd": writer.estimate_cost(usages)}
+             "est_cost_usd": writer.estimate_cost(usages),
+             "est_cost_by_stage": {u.get("stage", f"stage {n}"): writer.stage_cost(u) for n, u in enumerate(usages, 1)}}
+    if usages:
+        cp.put("cost", {"by_stage": entry["est_cost_by_stage"], "total_usd": entry["est_cost_usd"]})
+        say("Estimated Claude API cost (list prices):\n" + "\n".join(writer.cost_table(usages)))
 
     if mode == "dry-run":
         cp.put("final", "dry-run")

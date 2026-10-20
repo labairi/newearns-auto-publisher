@@ -1,7 +1,8 @@
 """Claude stages: research brief -> article -> independent fact-check.
 
 Each stage is a separate request so the fact-checker does not grade its own
-draft from memory: it re-opens the cited sources with web_fetch.
+draft from memory: it re-reads the cited sources (local read_source excerpts,
+with server-side web_fetch as the fallback for pages the runner cannot open).
 """
 from __future__ import annotations
 
@@ -9,6 +10,8 @@ import json
 import os
 
 import anthropic
+
+from . import quality, sources
 
 BETAS = ["server-side-fallback-2026-07-01"]
 
@@ -90,39 +93,122 @@ def _client() -> anthropic.Anthropic:
     return anthropic.Anthropic(max_retries=4, timeout=900)
 
 
-def _call(cfg: dict, messages: list, *, system: str, tools: list | None = None,
-          schema: dict | None = None, max_tokens: int = 32000):
-    """One streamed request; resumes server-tool pause_turn; raises on refusal."""
+# List prices, USD per million tokens, from platform.claude.com/docs/en/about-claude/pricing
+# (checked 2026-10-20): (base input, 5-minute cache write, 1-hour cache write, cache read, output).
+# Includes the models the server-side fallback ("default") can hand a request to.
+PRICES = {
+    "claude-opus-5-5": (4.0, 5.0, 8.0, 0.20, 20.0),
+    "claude-opus-5": (5.0, 6.25, 10.0, 0.50, 25.0),
+    "claude-opus-4-8": (5.0, 6.25, 10.0, 0.50, 25.0),
+    "claude-sonnet-5-5": (2.0, 2.50, 4.0, 0.10, 10.0),
+    "claude-sonnet-5": (2.0, 2.50, 4.0, 0.20, 10.0),
+    "claude-fable-5-1": (10.0, 12.50, 20.0, 0.25, 50.0),
+}
+# A model missing from the table is priced at the highest rates above, so the estimate errs high.
+UNKNOWN_PRICE = tuple(max(p[i] for p in PRICES.values()) for i in range(5))
+SEARCH_USD = 10 / 1000  # web search: $10 per 1,000 searches; web fetch has no per-call fee
+TOKEN_KEYS = ("input_tokens", "cache_write_5m_tokens", "cache_write_1h_tokens", "cache_read_input_tokens",
+              "output_tokens")
+USAGE_KEYS = ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens", "output_tokens",
+              "web_search_requests", "web_fetch_requests", "requests", "read_source_calls")
+
+
+def stage_model(cfg: dict, stage: str) -> str:
+    """Per-stage model override (models.stages.<stage>), else the writer model."""
+    return (cfg["models"].get("stages") or {}).get(stage) or cfg["models"]["writer"]
+
+
+def _call(cfg: dict, messages: list, *, system: str, stage: str, tools: list | None = None,
+          schema: dict | None = None, max_tokens: int = 32000, reader: sources.SourceReader | None = None,
+          max_rounds: int = 40):
+    """One streamed exchange. Runs the read_source tool locally, resumes server-tool
+    pause_turn, raises on refusal. Prompt caching is on, so each round re-reads the
+    growing conversation at the cache-read price instead of the full input price."""
     client = _client()
-    kwargs = dict(model=cfg["models"]["writer"], max_tokens=max_tokens, system=system,
-                  betas=BETAS, fallbacks="default",
-                  output_config={"effort": cfg["models"]["effort"]})
+    model = stage_model(cfg, stage)
+    kwargs = dict(model=model, max_tokens=max_tokens, system=system, betas=BETAS, fallbacks="default",
+                  output_config={"effort": cfg["models"]["effort"]}, cache_control={"type": "ephemeral"})
     if tools:
         kwargs["tools"] = tools
     if schema:
         kwargs["output_config"]["format"] = {"type": "json_schema", "schema": schema}
-    usage = {"input_tokens": 0, "output_tokens": 0, "web_search_requests": 0}
+    usage = {"stage": stage, "model": model, **{k: 0 for k in USAGE_KEYS}}
+    served_by: set[str] = set()
     fetched: list[str] = []
-    for _ in range(6):
+    for _ in range(max_rounds):
         with client.beta.messages.stream(messages=messages, **kwargs) as stream:
             msg = stream.get_final_message()
-        usage["input_tokens"] += msg.usage.input_tokens
-        usage["output_tokens"] += msg.usage.output_tokens
-        stu = getattr(msg.usage, "server_tool_use", None)
-        usage["web_search_requests"] += getattr(stu, "web_search_requests", 0) or 0
+        served = getattr(msg, "model", None) or model
+        _add_usage(usage, msg.usage, model, served)
+        served_by.add(served)
         fetched.extend(_fetched_urls(msg.content))
         if msg.stop_reason == "refusal":
             raise Refused(str(getattr(msg, "stop_details", "")))
         if msg.stop_reason == "pause_turn":
             messages = messages + [{"role": "assistant", "content": msg.content}]
             continue
+        if msg.stop_reason == "tool_use":
+            results = [_run_tool(b, reader) for b in msg.content if getattr(b, "type", "") == "tool_use"]
+            usage["read_source_calls"] += len(results)
+            messages = messages + [{"role": "assistant", "content": msg.content},
+                                   {"role": "user", "content": results}]
+            continue
         if msg.stop_reason == "max_tokens":
             raise RuntimeError("response hit max_tokens; raise the limit")
         text = "".join(b.text for b in msg.content if b.type == "text")
         if fetched:
             usage["fetched_urls"] = sorted(set(fetched))
+        usage["served_by"] = sorted(served_by)
+        usage["cost_usd"] = stage_cost(usage)
         return text, usage
-    raise RuntimeError("too many pause_turn continuations")
+    raise RuntimeError(f"{stage}: too many tool rounds")
+
+
+def _add_usage(usage: dict, u, requested: str, served: str) -> None:
+    """Add one API response's usage, bucketed by the model that ran each attempt.
+
+    With server-side fallback, top-level usage covers only the attempt that produced
+    the message; usage.iterations is the per-attempt record. So: iterations when
+    present, otherwise top-level, never both. input_tokens excludes cache reads and
+    writes (total input = input + cache writes + cache reads), so nothing overlaps."""
+    usage["requests"] += 1
+    attempts = list(getattr(u, "iterations", None) or [])
+    if attempts:
+        for it in attempts:
+            model = getattr(it, "model", None) or (requested if getattr(it, "type", "") == "message" else served)
+            _add_tokens(usage, model, it)
+    else:
+        _add_tokens(usage, served, u)
+    stu = getattr(u, "server_tool_use", None)
+    usage["web_search_requests"] += getattr(stu, "web_search_requests", 0) or 0
+    usage["web_fetch_requests"] += getattr(stu, "web_fetch_requests", 0) or 0
+
+
+def _add_tokens(usage: dict, model: str, src) -> None:
+    writes = getattr(src, "cache_creation_input_tokens", 0) or 0
+    split = getattr(src, "cache_creation", None)
+    w1h = min(writes, getattr(split, "ephemeral_1h_input_tokens", 0) or 0) if split else 0
+    t = {"input_tokens": getattr(src, "input_tokens", 0) or 0,
+         "cache_write_5m_tokens": writes - w1h,  # without a breakdown, writes are 5-minute (our TTL)
+         "cache_write_1h_tokens": w1h,
+         "cache_read_input_tokens": getattr(src, "cache_read_input_tokens", 0) or 0,
+         "output_tokens": getattr(src, "output_tokens", 0) or 0}
+    bucket = usage.setdefault("by_model", {}).setdefault(model, {k: 0 for k in TOKEN_KEYS})
+    for k, v in t.items():
+        bucket[k] += v
+    usage["input_tokens"] += t["input_tokens"]
+    usage["cache_creation_input_tokens"] += writes
+    usage["cache_read_input_tokens"] += t["cache_read_input_tokens"]
+    usage["output_tokens"] += t["output_tokens"]
+
+
+def _run_tool(block, reader: sources.SourceReader | None) -> dict:
+    inp = block.input if isinstance(block.input, dict) else {}
+    if block.name == "read_source" and reader is not None and isinstance(inp.get("url"), str):
+        res = reader.read(inp["url"], str(inp.get("focus", "")))
+        return {"type": "tool_result", "tool_use_id": block.id, "content": json.dumps(res, ensure_ascii=False)}
+    return {"type": "tool_result", "tool_use_id": block.id, "is_error": True,
+            "content": f"tool {block.name!r} is not available or got invalid input"}
 
 
 def _fetched_urls(content) -> list[str]:
@@ -136,15 +222,27 @@ def _fetched_urls(content) -> list[str]:
     return out
 
 
-def _web_tools(cfg: dict) -> list:
-    return [
-        {"type": "web_search_20260209", "name": "web_search", "max_uses": cfg["models"]["max_web_searches"]},
-        {"type": "web_fetch_20260209", "name": "web_fetch", "max_uses": cfg["models"]["max_web_fetches"]},
-    ]
+def _tools(cfg: dict, searches: int, reader: sources.SourceReader | None) -> list:
+    """read_source first; server-side web_fetch stays as a capped fallback for pages
+    the runner cannot read (some sites block GitHub's IP ranges)."""
+    m = cfg["models"]
+    tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": searches},
+             {"type": "web_fetch_20260209", "name": "web_fetch", "max_uses": m["max_web_fetches"],
+              "max_content_tokens": m["max_fetch_tokens"]}]
+    return ([sources.READ_SOURCE_TOOL] if reader is not None else []) + tools
+
+
+READING_RULES = """How to read sources:
+- Read pages with read_source. It returns the passages relevant to your focus, with headings,
+  neighbouring text and dates. If an excerpt is partial and a fact could depend on text outside
+  it (an exception, a date, a scope limit), call read_source again with a narrower focus.
+- Use web_fetch only for a URL that read_source reports as unavailable or too_short.
+- Never treat a page you could not read as evidence.
+"""
 
 
 def research_brief(cfg: dict, pillar: str, candidates: list[str], existing_titles: list[str],
-                   demand_notes: str) -> tuple[str, dict]:
+                   demand_notes: str, reader: sources.SourceReader | None = None) -> tuple[str, dict]:
     p = cfg["pillars"][pillar]
     product = cfg["products"].get(p["product"]) if p["product"] else None
     min_sources = cfg["quality"]["min_sources"]
@@ -168,16 +266,22 @@ Do this:
 2. Pick the topic whose intent New Earns can satisfy better than current results,
    and explain the specific added value (clearer steps, a missing scenario,
    a decision table, troubleshooting...).
-3. Fetch and read 3-6 authoritative sources (official docs first) from at least
+3. Read 3-6 authoritative sources (official docs first) from at least
    {min_sources} different websites, and note the exact facts you will rely on,
    each with its URL and the source's own wording for legal or policy points.
 4. Produce a brief with: chosen query, focus keyphrase, search intent,
    unique angle, H2/H3 outline, facts with URLs, internal-link ideas from the
    already-published list (only if genuinely related), and whether the product
    link is justified and at which step.
-"""
-    return _call(cfg, [{"role": "user", "content": prompt}], system=EDITORIAL_RULES,
-                 tools=_web_tools(cfg), max_tokens=24000)
+5. End the brief with SOURCE NOTES: for each source, its URL, title, the date the
+   page states (if any), and the exact sentences that support each fact, including
+   any exception or condition attached to them. The writer works only from this
+   brief, so it must be complete but should not copy whole pages.
+
+{READING_RULES}"""
+    return _call(cfg, [{"role": "user", "content": prompt}], system=EDITORIAL_RULES, stage="research",
+                 tools=_tools(cfg, cfg["models"]["max_web_searches"], reader), reader=reader,
+                 max_tokens=24000)
 
 
 def write_article(cfg: dict, pillar: str, brief: str, internal_posts: list[dict]) -> tuple[dict, dict]:
@@ -218,21 +322,46 @@ Output rules:
 - Do not use these words anywhere in the article, including in quoted titles or link text:
   {banned}
 """
-    text, usage = _call(cfg, [{"role": "user", "content": prompt}], system=EDITORIAL_RULES,
+    text, usage = _call(cfg, [{"role": "user", "content": prompt}], system=EDITORIAL_RULES, stage="write",
                         schema=ARTICLE_SCHEMA, max_tokens=40000)
     art = json.loads(text)
     art["content_html"] = art["content_html"].replace("<slug>", art["slug"])
     return art, usage
 
 
-def fact_check(cfg: dict, article: dict, pillar: str) -> tuple[dict, dict]:
+def evidence_pack(article: dict, reader: sources.SourceReader) -> list[dict]:
+    """For each cited source: the passages relevant to the article text that links to it.
+    Built by our own fetcher from the live page, not by the writer."""
+    doc = quality.parse(article["content_html"])
+    pack = []
+    for s in article.get("sources", []):
+        key = sources.normalize_url(s["url"])
+        citing = [b for b, links in doc.blocks if any(sources.normalize_url(l) == key for l in links)]
+        focus = " ".join([s.get("supports", "")] + citing)[:2000]
+        pack.append(reader.read(s["url"], focus))
+    return pack
+
+
+def fact_check(cfg: dict, article: dict, pillar: str,
+               reader: sources.SourceReader | None = None) -> tuple[dict, list[dict]]:
     p = cfg["pillars"][pillar]
     product = cfg["products"].get(p["product"]) if p["product"] else None
     source_urls = "\n".join(s["url"] for s in article["sources"])
+    if reader is not None:
+        evidence = ("EVIDENCE EXTRACTED FROM THE CITED PAGES (fetched by the pipeline from the live pages, "
+                    "not by the writer; check it, do not trust it blindly)\n"
+                    + json.dumps(evidence_pack(article, reader), ensure_ascii=False, indent=1))
+        how = ("Use the evidence above first. Call read_source again with a narrower focus when an excerpt "
+               "is partial and the claim could depend on missing text, and web_fetch for any source marked "
+               "unavailable or too_short. A claim is supported only if text you actually read states it.")
+    else:
+        evidence, how = "", "Fetch the cited sources."
     step1 = f"""You are an independent fact-checker. You did not write this article.
 
-Source URLs (fetch them):
+Source URLs:
 {source_urls}
+
+{evidence}
 
 ARTICLE HTML
 {article["content_html"]}
@@ -241,31 +370,72 @@ Allowed product claims: {json.dumps(product["allowed_claims"]) if product else "
 
 1. List every checkable factual claim (numbers, feature descriptions, steps in
    named tools, legal/policy statements).
-2. Fetch the cited sources and, where needed, search for official documentation
-   to verify each claim. Mark each claim supported / unsupported / contradicted /
-   uncertain with the evidence URL.
+2. {how} Where needed, search for official documentation to verify a claim.
+   Mark each claim supported / unsupported / contradicted / uncertain with the
+   evidence URL. If a page was cut off or you could not read the relevant part,
+   mark the claim uncertain rather than inferring.
 3. Judge whether the article satisfies the search intent "{article["search_intent"]}"
    better than a generic answer and whether it adds original value
    (claimed: "{article["unique_value"]}"). Be strict: generic rewrites fail.
 4. Check that every product statement matches the allowed claims exactly in substance.
-"""
+
+{READING_RULES if reader is not None else ""}"""
     notes, u1 = _call(cfg, [{"role": "user", "content": step1}], system="Be rigorous and skeptical.",
-                      tools=_web_tools(cfg), max_tokens=24000)
+                      stage="fact_check", tools=_tools(cfg, cfg["models"]["factcheck_web_searches"], reader),
+                      reader=reader, max_tokens=24000)
     text, u2 = _call(cfg, [{"role": "user", "content": "Convert this fact-check into the JSON schema. "
                             "Do not change any verdicts.\n\n" + notes}],
-                     system="Faithful conversion only.", schema=FACTCHECK_SCHEMA, max_tokens=16000)
-    usage = {k: u1.get(k, 0) + u2.get(k, 0) for k in ("input_tokens", "output_tokens", "web_search_requests")}
+                     system="Faithful conversion only.", stage="fact_check_json", schema=FACTCHECK_SCHEMA,
+                     max_tokens=16000)
     fc = json.loads(text)
-    fc["fetched_urls"] = u1.get("fetched_urls", [])
-    return fc, usage
+    verified = reader.verified_urls() if reader is not None else []
+    fc["fetched_urls"] = sorted(set(u1.get("fetched_urls", [])) | set(verified))
+    return fc, [u1, u2]
+
+
+def _tokens_usd(model: str, t: dict) -> float:
+    p_in, p_w5, p_w1, p_read, p_out = PRICES.get(model, UNKNOWN_PRICE)
+    return (t.get("input_tokens", 0) * p_in + t.get("cache_write_5m_tokens", 0) * p_w5
+            + t.get("cache_write_1h_tokens", 0) * p_w1 + t.get("cache_read_input_tokens", 0) * p_read
+            + t.get("output_tokens", 0) * p_out) / 1e6
+
+
+def _buckets(u: dict) -> dict:
+    """Per-model token buckets; usage saved before buckets existed is one bucket of 5-minute writes."""
+    if "by_model" in u:
+        return u["by_model"]
+    return {u.get("model") or "claude-opus-5-5": {
+        "input_tokens": u.get("input_tokens", 0), "cache_write_5m_tokens": u.get("cache_creation_input_tokens", 0),
+        "cache_write_1h_tokens": 0, "cache_read_input_tokens": u.get("cache_read_input_tokens", 0),
+        "output_tokens": u.get("output_tokens", 0)}}
+
+
+def stage_cost(u: dict) -> float:
+    """Best-available estimate for one stage at list prices, rounded to 0.1 cent."""
+    usd = sum(_tokens_usd(m, t) for m, t in _buckets(u).items())
+    return round(usd + u.get("web_search_requests", 0) * SEARCH_USD, 3)
 
 
 def estimate_cost(usages: list[dict]) -> float:
-    # Claude Opus 5.5 list prices, USD (2026-10): $4/MTok in, $20/MTok out, $10 per 1k searches.
-    i = sum(u.get("input_tokens", 0) for u in usages)
-    o = sum(u.get("output_tokens", 0) for u in usages)
-    s = sum(u.get("web_search_requests", 0) for u in usages)
-    return round(i / 1e6 * 4 + o / 1e6 * 20 + s / 1000 * 10, 3)
+    """Total = sum of the rounded stage costs, so it always matches the table."""
+    return round(sum(stage_cost(u) for u in usages), 3)
+
+
+def unpriced_models(usages: list[dict]) -> list[str]:
+    return sorted({m for u in usages for m in _buckets(u) if m not in PRICES})
+
+
+def cost_table(usages: list[dict]) -> list[str]:
+    rows = ["stage | requests | input | cache write | cache read | output | searches | est. USD"]
+    for n, u in enumerate(usages, 1):
+        rows.append(f"{u.get('stage', f'stage {n}')} | {u.get('requests', '-')} | {u.get('input_tokens', 0):,} | "
+                    f"{u.get('cache_creation_input_tokens', 0):,} | {u.get('cache_read_input_tokens', 0):,} | "
+                    f"{u.get('output_tokens', 0):,} | {u.get('web_search_requests', 0)} | {stage_cost(u):.3f}")
+    rows.append(f"total | | | | | | | {estimate_cost(usages):.3f}")
+    if unpriced_models(usages):
+        rows.append(f"note: no list price on file for {', '.join(unpriced_models(usages))}; "
+                    "estimated at the highest known rates")
+    return rows
 
 
 def api_key_present() -> bool:
