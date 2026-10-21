@@ -25,8 +25,9 @@ on:
           - article            # uses publishing.mode from config.yaml (draft by default)
           - recheck            # re-run quality gates on a saved article file; no WordPress writes
           - resume-schedule    # let scheduled runs continue after 2 unsuccessful attempts paused them
+          - image-test-draft   # images for a saved article (article_file) -> one WordPress draft; no Claude cost
       article_file:
-        description: "For recheck: path to a saved article JSON, or a run's data/runs/<id>/state.json"
+        description: "For recheck / image-test-draft: path to a saved article JSON, or a run's data/runs/<id>/state.json"
         type: string
         default: ""
       refresh_fact_check:
@@ -67,6 +68,7 @@ jobs:
       WP_USERNAME: ${{ secrets.WP_USERNAME }}
       WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
       GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}   # optional, free; Openverse is used without it
       # Second safety key for live publishing: "true" only on main, for a scheduled
       # run or for an `article` run with the allow_publish box ticked. Every other run
       # stays "false".
@@ -104,6 +106,7 @@ jobs:
             article)          python -m publisher.run article --resume "${plan[@]}" ;;
             recheck)          python -m publisher.run article --dry-run --article-file "$ARTICLE_FILE" "${refresh[@]}" ;;
             resume-schedule)  python -m publisher.run resume-schedule ;;
+            image-test-draft) python -m publisher.run image-test --article-file "$ARTICLE_FILE" ;;
           esac
       - name: Save publication log and checkpoints
         if: always() && inputs.command != 'check-setup'

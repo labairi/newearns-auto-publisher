@@ -25,7 +25,7 @@ https://newearns.com, then logs it and tracks it in Search Console.
 | Search performance | Google Search Console API (service account, read-only) | $0 |
 | Engagement | GA4 Data API (same service account, read-only) | $0 |
 | Keyword data | Search Console queries + web research on what ranks. Optional later: DataForSEO pay-as-you-go ($50 minimum top-up, about $0.06 per 1,000-keyword volume lookup) | $0 now |
-| Images | Branded title card drawn by the pipeline (no licence risk) | $0 |
+| Images | Licensed, topic-relevant photo for the featured image (Openverse, then Wikimedia Commons; no keys), else a topic illustration; own-product screenshots and charts of table figures. No paid image API, no AI image generation | $0 |
 
 n8n was considered: n8n Cloud Starter is about €20/month, and self-hosting needs a
 VPS you maintain. GitHub Actions does the same job for $0, keeps every change
@@ -70,15 +70,59 @@ versioned, and stores the publication log in the repo.
    `refresh_fact_check` to re-run only the fact-check on the edited text (about
    $0.40 at list prices on the 2026-10-20 run); the result is saved as
    `data/runs/<new id>/article.json`, which later rechecks reuse at no cost.
-7. **Publish or hold.** If everything passes, the post is created as a draft,
+7. **Images** (`publisher/images.py`, settings under `images:` in `config.yaml`). $0.
+   - How many: a guideline by length, counting the featured image: 600-900 words 1-2,
+     900-1,500 words 2-3, 1,500-2,500 words 3-4, over 2,500 words 4-5. It is a ceiling,
+     not a quota: no image is added just to reach it.
+   - Featured image: a real photograph. It searches Openverse (StockSnap, nappy, Flickr and
+     Wikimedia photos), then Wikimedia Commons directly. Neither needs a key. The article's own
+     query comes first, then the pillar's scene searches, and photos are ranked by words from
+     the article (worth 3) and the pillar's scene words (worth 1). Logos, screenshots,
+     drawings, portrait shots, small files and camera file names are skipped.
+   - Relevance: each article gets a topic from `images.topics` (compress, password, merge,
+     split, convert, sign, edit, follower location...). A photo is used only if its own title
+     names the device the task is done on (laptop, phone...), it mentions the topic's subject
+     words (e.g. PDF, compression, attachment), and it is not a wrong scene: signing, contracts,
+     meetings, handshakes, books or paperwork are rejected unless the topic is about them.
+     Broad words such as "document", "business" or "office" never count. Rejected photos and
+     the reason are listed in the run summary.
+   - Licence: only CC0, public domain, CC BY or CC BY-SA, read from the source's API. Before
+     anything is downloaded, the licence link (and for BY / BY-SA the creator) must be present.
+     Commons files with personality-rights or trademark restrictions are never used. The post
+     ends with a credit line. Image search engines such as Google Images are never used.
+   - Failures: a search that times out or returns 429/5xx is retried once, and then the next
+     query is tried. Two failed searches in a row move on to the next source. Failed searches
+     are not cached.
+   - No fitting photo: an in-house illustration of the topic (a large PDF shrinking into a
+     smaller one on a laptop, a PDF with a padlock, a phone with map pins...), reported as a
+     FALLBACK. It is plainly a drawing, with no app interface, brand or figures. The branded
+     title card is used only if the illustration cannot be drawn.
+   - Inline images, at most 2, only where they add something; none just to reach a count:
+     a real screenshot of our own product's page (Private PDF Editor / Instagramaps), captured
+     live with the runner's Chrome at run time, captioned with the date and placed after the
+     paragraph that links it. Third-party apps are never captured or imitated. Also a bar chart
+     of a table that compares quantities (3-8 rows in one unit), placed after the table. A value
+     far above the rest is drawn with a visible break and a note.
+   - Files: 1200 px wide WebP (quality 80, no metadata), named `<slug>-featured.webp` /
+     `<slug>-chart-<section>.webp` / `<slug>-<product>-screenshot.webp`, with alt text. Successful searches are cached in
+     `data/image_cache/` for 30 days. A photo is used for one article only. Uploads are
+     checkpointed, and a file already in the Media Library under the same name is reused.
+   - After the post is created, the run reads it back and checks the featured image, every
+     inline image and every file. If anything is missing, the post is held as Pending Review.
+   - Pexels (free key, better stock) is supported but off. It would need a `PEXELS_API_KEY`
+     secret, and that needs the owner's approval first.
+   - **image-test-draft** command: images for a saved article (`article_file`), saved as one
+     new WordPress draft with an `image-test-<time>-` slug. No Claude call, and not logged as an
+     attempt, so the schedule and calendar are unaffected.
+8. **Publish or hold.** If everything passes, the post is created as a draft,
    then switched to published. Anything failing is saved as **Pending Review**
    in WordPress. That is the review queue, and the reasons are in the log.
-8. **Verify.** Loads the public URL like a visitor would, and checks for HTTP 200,
+9. **Verify.** Loads the public URL like a visitor would, and checks for HTTP 200,
    the title on the page, and no noindex. If verification fails, the post is moved
    back to Pending.
-9. **Log.** `data/publication_log.jsonl` records the date, URL, post id, pillar,
+10. **Log.** `data/publication_log.jsonl` records the date, URL, post id, pillar,
    keyphrase, product links, sources, failures and estimated cost.
-10. **Weekly report.** `report` flags articles 45+ days old that have no
+11. **Weekly report.** `report` flags articles 45+ days old that have no
     impressions, a low click-through rate on page 1, or a position of 8 to 25.
 
 **Safety:** a run lock and GitHub concurrency group stop runs overlapping. Slug
@@ -174,6 +218,7 @@ python -m publisher.run article --resume   # finish a crashed run
 python -m publisher.run article --pillar pdf --topic "How to Compress a PDF for Email"   # one approved calendar topic
 python -m publisher.run article --scheduled   # the daily scheduled run (see above)
 python -m publisher.run resume-schedule       # let scheduled runs continue after a pause
+python -m publisher.run image-test --article-file data/runs/<id>/article.json   # images -> one test draft
 python -m publisher.run report             # Search Console / GA4 improvement flags
 pytest -q                                  # offline tests, incl. end-to-end against a fake WordPress
 ```

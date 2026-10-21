@@ -54,8 +54,8 @@ class RunLock:
 
 
 class Checkpoint:
-    def __init__(self, run_id: str):
-        self.dir = RUNS / run_id
+    def __init__(self, run_id: str, root: Path | None = None):
+        self.dir = (root or RUNS) / run_id
         self.dir.mkdir(parents=True, exist_ok=True)
         self.path = self.dir / "state.json"
         self.state = json.loads(self.path.read_text()) if self.path.exists() else {"run_id": run_id, "stages": {}}
