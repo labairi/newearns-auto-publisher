@@ -12,7 +12,7 @@
                                                   re-run only the fact-check on an edited article
                                                   (one Claude call pair, no new article), then the gates
   python -m publisher.run article --scheduled     the daily scheduled run: one approved calendar topic,
-                                                  saved as a WordPress draft (see publisher/schedule.py)
+                                                  live only if every gate passes (see publisher/schedule.py)
   python -m publisher.run resume-schedule         let scheduled runs continue after they paused
   python -m publisher.run report                  Search Console / GA4 improvement report
 """

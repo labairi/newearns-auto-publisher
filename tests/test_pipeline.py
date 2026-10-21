@@ -304,7 +304,8 @@ def test_only_one_daily_schedule_and_only_in_publish_workflow():
         y = __import__("yaml").safe_load(wf.read_text())
         triggers = y.get("on", y.get(True)) or {}  # PyYAML parses bare `on` as True
         if wf.name == "publish.yml":
-            assert triggers["schedule"] == [{"cron": "17 9 * * *"}] and "workflow_dispatch" in triggers
+            assert triggers["schedule"] == [{"cron": "0 11 * * *"}, {"cron": "30 11 * * *"}]
+            assert "workflow_dispatch" in triggers
         else:
             assert "schedule" not in triggers, wf.name
 
@@ -315,8 +316,8 @@ def test_publish_workflow_second_key_needs_article_on_main_and_ticked_box():
     assert inputs["allow_publish"] == {"description": inputs["allow_publish"]["description"],
                                        "type": "boolean", "default": False}
     assert y["jobs"]["run"]["env"]["ALLOW_PUBLISH"] == (
-        "${{ (inputs.command == 'article' && inputs.allow_publish && github.ref == 'refs/heads/main')"
-        " && 'true' || 'false' }}")
+        "${{ (github.event_name == 'schedule' || (inputs.command == 'article' && inputs.allow_publish))"
+        " && github.ref == 'refs/heads/main' && 'true' || 'false' }}")
     assert "ALLOW_PUBLISH" not in str(y["jobs"]["run"]["steps"])  # nothing else can turn it on
 
 

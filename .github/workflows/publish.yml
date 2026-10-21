@@ -1,14 +1,18 @@
 name: publisher
 
-# Manual runs, plus one scheduled run a day. The scheduled run picks the next
-# approved calendar topic and saves it as a WordPress DRAFT: it never publishes
-# live (ALLOW_PUBLISH below stays "false" for it, and config.yaml has
-# publishing.scheduled_live: false). It skips, with no Claude call, if any
-# attempt happened in the last 20 hours or the last 2 attempts failed.
+# Manual runs, plus one scheduled run a day at 11:00 Morocco time (approved by the
+# owner on 2026-10-21). The scheduled run picks the next approved calendar topic and
+# publishes it live only if every quality gate passes; otherwise it is saved as
+# Pending Review. It skips, with no Claude call, if any attempt happened in the last
+# 20 hours or the last 2 attempts failed.
 # To stop it: Actions > publisher > "..." > Disable workflow.
 on:
   schedule:
-    - cron: "17 9 * * *"   # 09:17 UTC daily; GitHub may start it late
+    # GitHub cron is always UTC. Morocco has been on UTC+0 all year, with no daylight
+    # saving and no Ramadan change, since 2026-09-20, so 11:00 Morocco = 11:00 UTC.
+    # If Morocco changes its clocks again, both lines must change.
+    - cron: "0 11 * * *"    # 11:00 Morocco time
+    - cron: "30 11 * * *"   # backup if GitHub drops the 11:00 run; skips (free) after a run
   workflow_dispatch:
     inputs:
       command:
@@ -63,11 +67,16 @@ jobs:
       WP_USERNAME: ${{ secrets.WP_USERNAME }}
       WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
       GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-      # Second safety key for live publishing: "true" only for an `article` run
-      # on main with the allow_publish box ticked. Every other run stays "false".
-      ALLOW_PUBLISH: ${{ (inputs.command == 'article' && inputs.allow_publish && github.ref == 'refs/heads/main') && 'true' || 'false' }}
+      # Second safety key for live publishing: "true" only on main, for a scheduled
+      # run or for an `article` run with the allow_publish box ticked. Every other run
+      # stays "false".
+      ALLOW_PUBLISH: ${{ (github.event_name == 'schedule' || (inputs.command == 'article' && inputs.allow_publish)) && github.ref == 'refs/heads/main' && 'true' || 'false' }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The branch as it is when the job starts, not when the run was queued, so a run
+          # that waited in the concurrency group sees the log the previous run pushed.
+          ref: ${{ github.ref_name }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
