@@ -280,17 +280,31 @@ def test_client_error_is_not_retried(data):
     assert len(calls) == 1
 
 
-def test_every_source_down_falls_back_to_title_card(data):
+def test_every_source_down_falls_back_to_the_topic_illustration(data):
     get = fake_get([], openverse=requests.ConnectionError, commons=requests.Timeout)
     plan = images.build(CFG, make_article(), "pdf", data, search=stock(data, get), get=get)
-    assert plan["featured"]["provider"] == "in-house" and plan["featured"]["fallback"]
+    f = plan["featured"]
+    assert f["provider"] == "in-house" and f["fallback"] and f["kind"] == "illustration" and f["motif"] == "compress"
+    assert f["alt_text"].startswith("Illustration of a laptop screen where a large PDF file shrinks")
+    assert any("FALLBACK in-house illustration (compress)" in r for r in images.report(plan))
+    img = Image.open(data / "featured.webp")
+    assert img.size == (1200, 630) and f["bytes"] < 40_000
+
+
+def test_title_card_only_if_the_illustration_cannot_be_drawn(data, monkeypatch):
+    def broken(*a, **k):
+        raise OSError("no fonts")
+    monkeypatch.setattr(images, "topic_illustration", broken)
+    get = fake_get([], openverse=requests.ConnectionError, commons=requests.Timeout)
+    plan = images.build(CFG, make_article(), "pdf", data, search=stock(data, get), get=get)
+    assert plan["featured"]["kind"] == "title-card"
     assert any("FALLBACK title card" in r for r in images.report(plan))
 
 
-def test_no_relevant_photo_falls_back_to_title_card(data):
+def test_no_relevant_photo_falls_back_to_the_illustration(data):
     get = fake_get([], openverse={"results": [ov("z", "Sunset over the mountains")]}, commons={"query": {}})
     plan = images.build(CFG, make_article(), "pdf", data, search=stock(data, get), get=get)
-    assert plan["featured"]["provider"] == "in-house"
+    assert plan["featured"]["provider"] == "in-house" and plan["featured"]["kind"] == "illustration"
 
 
 def test_search_results_cached_and_a_used_photo_not_reused(data):
@@ -400,9 +414,122 @@ def test_off_topic_historical_or_single_object_photos_rejected(desc, text, year)
 def test_scene_with_people_and_the_article_subject_wins():
     kw = CFG["images"]["photo_keywords"]["pdf"]
     base = {"text": "", "tags": [], "width": 4000, "height": 3000, "image_url": "https://x", "year": 2021}
-    good = images.score(dict(base, description="Woman working at home with laptop and documents"),
+    good = images.score(dict(base, description="Woman compressing a PDF file on her laptop"),
                         images.terms("compress a PDF for email"), kw)
     beach = images.score(dict(base, description="Golden Gardens laptop user",
                               text="Man sitting on a beach, using a laptop computer"),
                          images.terms("compress a PDF for email"), kw)
-    assert good > beach >= images.MIN_SCORE
+    assert good > beach
+
+
+# ---------------------------------------------------------------- topic relevance
+COMPRESS = images.topic_for(CFG, "pdf", "How to Compress a PDF for Email")
+PDF_DEVICES = CFG["images"]["photo_must_show"]["pdf"]
+
+
+def photo(desc, text=""):
+    return {"description": desc, "text": text, "tags": [], "width": 4000, "height": 3000, "image_url": "https://x",
+            "year": 2020}
+
+
+@pytest.mark.parametrize("desc,text", [
+    ("Two men signing a book", "Ministers sign an agreement at a table"),          # what the owner saw
+    ("Reagan and Gorbachev signing", "signing the INF treaty documents"),
+    ("Business meeting with laptop", "Colleagues in a meeting around a laptop"),
+    ("Handshake over a laptop", "Two businessmen shaking hands"),
+    ("Woman working at home with laptop and documents on a table", ""),           # paperwork, draft 3717
+    ("Laptop next to a stack of books", ""),
+    ("Contract and laptop on a desk", "Signing a contract"),
+])
+def test_wrong_scenes_are_rejected_for_a_compress_pdf_article(desc, text):
+    ok, why = images.relevance(photo(desc, text), COMPRESS, images.terms("compress a PDF for email"), PDF_DEVICES)
+    assert not ok and why.startswith("wrong scene")
+
+
+def test_generic_laptop_photo_is_not_enough_for_a_specific_topic():
+    ok, why = images.relevance(photo("Woman using a laptop at home"), COMPRESS, images.terms("compress pdf"),
+                               PDF_DEVICES)
+    assert not ok and why.startswith("nothing about")
+
+
+@pytest.mark.parametrize("desc", ["PDF document open on a laptop screen", "Laptop showing a file compression tool",
+                                  "Woman attaching a PDF to an email on her laptop"])
+def test_photo_showing_the_task_on_a_device_is_accepted(desc):
+    ok, why = images.relevance(photo(desc), COMPRESS, images.terms("compress a PDF for email"), PDF_DEVICES)
+    assert ok, why
+
+
+def test_photo_must_show_the_device_in_its_title():
+    ok, why = images.relevance(photo("Zip archive", "pdf compression concept"), COMPRESS, set(), PDF_DEVICES)
+    assert not ok and why.startswith("no laptop")
+
+
+def test_signing_is_fine_when_the_article_is_about_signing():
+    sign = images.topic_for(CFG, "pdf", "How to Sign a PDF on Your Phone")
+    assert sign["motif"] == "sign"
+    ok, _ = images.relevance(photo("Person signing a document on a tablet with a stylus"), sign,
+                             images.terms("sign a pdf"), PDF_DEVICES)
+    assert ok
+    ok, why = images.relevance(photo("Two men shaking hands on a laptop deal"), sign, set(), PDF_DEVICES)
+    assert not ok
+
+
+@pytest.mark.parametrize("pillar,title,motif", [
+    ("pdf", "How to Compress a PDF for Email", "compress"),
+    ("pdf", "How to Password-Protect a PDF", "lock"),
+    ("pdf", "How to Unlock a PDF", "lock"),
+    ("pdf", "How to Merge PDF Files", "merge"),
+    ("pdf", "Convert a PDF to Word", "convert"),
+    ("pdf", "Best Free PDF Readers", "pdf"),
+    ("instagram", "Where Your Instagram Followers Live", "location"),
+    ("instagram", "Best Time to Post on Instagram", "phone"),
+    ("money", "Freelance Writing Jobs for Beginners", "earnings"),
+    ("money", "Edit Videos for Money", "earnings"),  # topic rules for one pillar don't leak into another
+])
+def test_each_article_gets_its_own_topic(pillar, title, motif):
+    assert images.topic_for(CFG, pillar, title)["motif"] == motif
+
+
+def test_money_article_without_a_rule_needs_its_own_words_not_broad_ones():
+    topic = images.topic_for(CFG, "money", "Freelance Writing Jobs for Beginners")
+    t = images.terms("Freelance Writing Jobs for Beginners")
+    devices = CFG["images"]["photo_must_show"]["money"]
+    assert images.relevance(photo("Freelance writer typing on a laptop"), topic, t, devices)[0]
+    assert not images.relevance(photo("Business people working on a laptop"), topic, t, devices)[0]
+
+
+def test_rejected_photos_are_reported_and_a_relevant_one_is_used(data):
+    results = {"results": [ov("r1", "Two men signing an agreement next to a laptop"),
+                           ov("r2", "Woman compressing a PDF file on her laptop")]}
+    get = fake_get([], openverse=results, commons={"query": {}})
+    plan = images.build(CFG, make_article(), "pdf", data, search=stock(data, get), get=get)
+    assert plan["featured"]["id"] == "r2" and plan["featured"]["relevance"] == "shows pdf"
+    assert {"description": "Two men signing an agreement next to a laptop", "reason": "wrong scene (signing)"} \
+        in plan["photo_rejections"]
+    assert any("rejected photo" in r for r in images.report(plan))
+
+
+@pytest.mark.parametrize("motif", images.MOTIFS)
+def test_every_illustration_renders_small_and_featured_sized(motif):
+    data = images.topic_illustration(motif, "pdf")
+    assert Image.open(io.BytesIO(data)).size == (1200, 630) and len(data) < 40_000
+
+
+def test_image_test_downloads_the_featured_image_wordpress_serves(env, monkeypatch):
+    wp, tmp, _ = env
+    f = write(tmp, json.loads(SAVED.read_text()))
+    assert run.main(["image-test", "--article-file", f]) == 0
+    (state,) = (tmp / "image_tests").glob("*/state.json")
+    served = json.loads(state.read_text())["stages"]["wp_featured_served"]
+    assert served["same_as_chosen"] and (state.parent / "wp-featured-served.webp").exists()
+
+
+def test_served_featured_detects_a_different_file():
+    class WP:
+        def get_media(self, mid):
+            return {"id": mid, "source_url": "https://newearns.com/x.webp", "media_details": {"width": 1, "height": 1}}
+
+        def fetch_file(self, url):
+            return b"other"
+    served, _ = images.served_featured(WP(), {"featured_media": 7}, b"chosen")
+    assert not served["same_as_chosen"]

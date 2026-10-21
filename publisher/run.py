@@ -467,7 +467,18 @@ def cmd_image_test(cfg: dict, args) -> int:
                           seo_title=article["seo_title"], meta_description=article["meta_description"],
                           focus_keyphrase=article["focus_keyphrase"])
     cp.put("wp_post", {"id": post["id"], "status": post["status"], "link": post["link"]})
-    problems = images.check_in_post(wp.get_post(post["id"]), media, inline)
+    saved = wp.get_post(post["id"])
+    problems = images.check_in_post(saved, media, inline)
+    try:  # the file WordPress serves as the featured image, kept beside the run for review
+        served, data = images.served_featured(wp, saved, (cp.dir / plan["featured"]["file"]).read_bytes())
+        (cp.dir / "wp-featured-served.webp").write_bytes(data)
+        cp.put("wp_featured_served", served)
+        say(f"WordPress featured image: media {served['media_id']}, {served['width']}x{served['height']}, "
+            f"{served['bytes'] // 1024} KB, identical to the chosen file: {served['same_as_chosen']}")
+        if not served["same_as_chosen"]:
+            problems.append("the featured image WordPress serves differs from the chosen file")
+    except Exception as e:
+        problems.append(f"could not download the featured image from WordPress ({str(e)[:120]})")
     cp.put("image_check", problems or "ok")
     cp.put("final", "image-test-draft")
     say(f"Draft post {post['id']} (status {post['status']}); media ids: featured {media['id']}, "
@@ -478,7 +489,8 @@ def cmd_image_test(cfg: dict, args) -> int:
     say("All images uploaded to the Media Library and present in the draft. Preview it in WP Admin > Posts > Drafts, "
         "then move it to the trash.")
     if plan["featured"].get("fallback"):
-        say("Note: the featured image is the fallback title card; no suitable licensed photo was found.")
+        say(f"Note: no licensed photo matched the topic; the featured image is the in-house "
+            f"{plan['featured'].get('kind', 'title card')}.")
     return 0
 
 

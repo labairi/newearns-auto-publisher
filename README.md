@@ -25,7 +25,7 @@ https://newearns.com, then logs it and tracks it in Search Console.
 | Search performance | Google Search Console API (service account, read-only) | $0 |
 | Engagement | GA4 Data API (same service account, read-only) | $0 |
 | Keyword data | Search Console queries + web research on what ranks. Optional later: DataForSEO pay-as-you-go ($50 minimum top-up, about $0.06 per 1,000-keyword volume lookup) | $0 now |
-| Images | Licensed photo for the featured image (Openverse, then Wikimedia Commons; no keys), title card only as a last resort; own-product screenshots and charts of table figures. No paid image API, no AI image generation | $0 |
+| Images | Licensed, topic-relevant photo for the featured image (Openverse, then Wikimedia Commons; no keys), else a topic illustration; own-product screenshots and charts of table figures. No paid image API, no AI image generation | $0 |
 
 n8n was considered: n8n Cloud Starter is about €20/month, and self-hosting needs a
 VPS you maintain. GitHub Actions does the same job for $0, keeps every change
@@ -79,6 +79,13 @@ versioned, and stores the publication log in the repo.
      query comes first, then the pillar's scene searches, and photos are ranked by words from
      the article (worth 3) and the pillar's scene words (worth 1). Logos, screenshots,
      drawings, portrait shots, small files and camera file names are skipped.
+   - Relevance: each article gets a topic from `images.topics` (compress, password, merge,
+     split, convert, sign, edit, follower location...). A photo is used only if its own title
+     names the device the task is done on (laptop, phone...), it mentions the topic's subject
+     words (e.g. PDF, compression, attachment), and it is not a wrong scene: signing, contracts,
+     meetings, handshakes, books or paperwork are rejected unless the topic is about them.
+     Broad words such as "document", "business" or "office" never count. Rejected photos and
+     the reason are listed in the run summary.
    - Licence: only CC0, public domain, CC BY or CC BY-SA, read from the source's API. Before
      anything is downloaded, the licence link (and for BY / BY-SA the creator) must be present.
      Commons files with personality-rights or trademark restrictions are never used. The post
@@ -86,7 +93,10 @@ versioned, and stores the publication log in the repo.
    - Failures: a search that times out or returns 429/5xx is retried once, and then the next
      query is tried. Two failed searches in a row move on to the next source. Failed searches
      are not cached.
-   - Last resort: the branded title card, reported as a FALLBACK in the run summary.
+   - No fitting photo: an in-house illustration of the topic (a large PDF shrinking into a
+     smaller one on a laptop, a PDF with a padlock, a phone with map pins...), reported as a
+     FALLBACK. It is plainly a drawing, with no app interface, brand or figures. The branded
+     title card is used only if the illustration cannot be drawn.
    - Inline images, at most 2, only where they add something; none just to reach a count:
      a real screenshot of our own product's page (Private PDF Editor / Instagramaps), captured
      live with the runner's Chrome at run time, captioned with the date and placed after the

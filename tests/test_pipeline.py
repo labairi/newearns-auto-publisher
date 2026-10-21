@@ -179,7 +179,16 @@ class FakeWP:
 
     def upload_media(self, *a, **k):
         self.media.append(a[0])
+        self.files = getattr(self, "files", {})
+        self.files[900 + len(self.media)] = a[1]
         return {"id": 900 + len(self.media), "source_url": f"{SITE}/wp-content/uploads/{a[0]}"}
+
+    def get_media(self, mid):
+        return {"id": mid, "source_url": f"{SITE}/wp-content/uploads/{self.media[mid - 901]}", "alt_text": "",
+                "mime_type": "image/webp", "media_details": {"width": 1200, "height": 630}}
+
+    def fetch_file(self, url):
+        return self.files[901 + self.media.index(url.rsplit("/", 1)[-1])]
 
     def create_post(self, **k):
         self.calls.append(("create", k["status"]))

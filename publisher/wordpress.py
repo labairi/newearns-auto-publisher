@@ -132,6 +132,16 @@ class WordPress:
         return self._req("GET", f"/wp/v2/posts/{post_id}", auth=True, params={
             "context": "edit", "_fields": "id,status,slug,link,featured_media,content"}).json()
 
+    def get_media(self, media_id: int) -> dict:
+        return self._req("GET", f"/wp/v2/media/{media_id}", auth=True, params={
+            "context": "edit", "_fields": "id,source_url,alt_text,mime_type,media_details"}).json()
+
+    def fetch_file(self, url: str) -> bytes:
+        """An uploaded file as the site serves it to visitors."""
+        r = requests.get(url, timeout=30, headers={"User-Agent": "newearns-autopublisher/1.0"})
+        r.raise_for_status()
+        return r.content
+
     def set_status(self, post_id: int, status: str) -> dict:
         return self._req("POST", f"/wp/v2/posts/{post_id}", auth=True, json={"status": status}).json()
 

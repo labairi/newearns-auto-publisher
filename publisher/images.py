@@ -4,8 +4,11 @@ Featured image: a real, clearly licensed photograph found through free sources w
 APIs return each image's licence (Openverse and Wikimedia Commons, neither needs a
 key; Pexels only if a PEXELS_API_KEY is ever added). The licence, its link and, for
 CC BY / BY-SA, the creator are checked before anything is downloaded; the post
-credits the photo. Image search engines are never used. The branded title card is a
-last resort, reported as a fallback.
+credits the photo. Image search engines are never used. A photo must match the article's
+topic (relevance()): the device the task is done on, the topic's subject words, and no
+wrong scene such as signing, meetings, books or paperwork. Without one, the featured image
+is an in-house illustration of the topic, reported as a fallback; the branded title card
+only if that cannot be drawn.
 
 Inline images: only where they add something. A real screenshot of our own product's
 page, captured live at run time and dated, where the article links it (never a
@@ -22,6 +25,7 @@ import hashlib
 import html as htmllib
 import io
 import json
+import math
 import os
 import re
 import textwrap
@@ -29,7 +33,7 @@ import time
 from pathlib import Path
 
 import requests
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 from . import ledger
 
@@ -76,6 +80,199 @@ def title_card(headline: str, pillar: str, width: int = 1200, height: int = 630)
         y += 88
     d.text((48, height - 66), "newearns.com", font=_font(36), fill=fg)
     return _webp(img)
+
+
+# ---------------------------------------------------------------- topic illustrations
+# Used for the featured image when no photo passes the relevance check. Each motif shows the
+# article's task (a file getting smaller, a locked file, two files becoming one...) on a plain
+# laptop or phone. It is clearly a drawing: no app interface, brand or made-up figures.
+MOTIFS = ("compress", "lock", "merge", "split", "convert", "edit", "sign", "pdf", "location", "phone", "earnings")
+MOTIF_ALT = {
+    "compress": "Illustration of a laptop screen where a large PDF file shrinks into a smaller one",
+    "lock": "Illustration of a laptop screen showing a PDF file protected by a padlock",
+    "merge": "Illustration of a laptop screen where two PDF files combine into one",
+    "split": "Illustration of a laptop screen where one PDF file splits into two",
+    "convert": "Illustration of a laptop screen where a PDF file turns into an editable document",
+    "edit": "Illustration of a laptop screen showing a PDF page being edited with a pencil",
+    "sign": "Illustration of a laptop screen showing a PDF page with a handwritten signature",
+    "pdf": "Illustration of a laptop screen showing a PDF file",
+    "location": "Illustration of a smartphone showing a map with location pins",
+    "phone": "Illustration of a smartphone showing a grid of photos",
+    "earnings": "Illustration of a laptop screen showing a rising bar chart and a coin",
+}
+
+
+def _tint(rgb, t):
+    """rgb mixed with white: t=0 is rgb, t=1 is white."""
+    return tuple(round(c + (255 - c) * t) for c in rgb)
+
+
+def _doc(d, x, y, w, k, accent, label="PDF", lines=4):
+    """A file icon with a folded corner, top-left at (x, y), width w (height 1.3 w)."""
+    h, f = w * 1.3, w * 0.28
+    d.polygon([(x * k, y * k), ((x + w - f) * k, y * k), ((x + w) * k, (y + f) * k), ((x + w) * k, (y + h) * k),
+               (x * k, (y + h) * k)], fill=(255, 255, 255), outline=(206, 211, 219), width=max(2, int(w / 40)) * k)
+    d.polygon([((x + w - f) * k, y * k), ((x + w - f) * k, (y + f) * k), ((x + w) * k, (y + f) * k)],
+              fill=(226, 230, 236))
+    tag_h = w * 0.26
+    d.rounded_rectangle([(x - w * 0.12) * k, (y + h * 0.18) * k, (x + w * 0.62) * k, (y + h * 0.18 + tag_h) * k],
+                        radius=int(w * 0.05) * k, fill=accent)
+    if label:
+        fnt = _font(int(w * 0.17) * k)
+        tw = d.textlength(label, font=fnt)
+        d.text(((x + w * 0.25) * k - tw / 2, (y + h * 0.18 + tag_h * 0.18) * k), label, font=fnt, fill=(255, 255, 255))
+    ly = y + h * 0.18 + tag_h + w * 0.14
+    for i in range(lines):
+        if ly + w * 0.05 > y + h - w * 0.1:
+            break
+        d.rounded_rectangle([(x + w * 0.14) * k, ly * k, (x + w * (0.86 if i % 3 != 2 else 0.6)) * k,
+                             (ly + w * 0.05) * k], radius=int(w * 0.025) * k, fill=(214, 219, 226))
+        ly += w * 0.12
+    return h
+
+
+def _arrow(d, x1, x2, y, k, color, width=10):
+    d.line([x1 * k, y * k, (x2 - 18) * k, y * k], fill=color, width=width * k)
+    d.polygon([((x2 - 30) * k, (y - 20) * k), (x2 * k, y * k), ((x2 - 30) * k, (y + 20) * k)], fill=color)
+
+
+def _padlock(d, cx, cy, s, k, color):
+    d.arc([(cx - s * 0.32) * k, (cy - s * 0.85) * k, (cx + s * 0.32) * k, (cy - s * 0.05) * k], 180, 360,
+          fill=color, width=int(s * 0.12) * k)
+    d.line([(cx - s * 0.32 + s * 0.06) * k, (cy - s * 0.45) * k, (cx - s * 0.32 + s * 0.06) * k, cy * k],
+           fill=color, width=int(s * 0.12) * k)
+    d.line([(cx + s * 0.32 - s * 0.06) * k, (cy - s * 0.45) * k, (cx + s * 0.32 - s * 0.06) * k, cy * k],
+           fill=color, width=int(s * 0.12) * k)
+    d.rounded_rectangle([(cx - s * 0.5) * k, (cy - s * 0.1) * k, (cx + s * 0.5) * k, (cy + s * 0.65) * k],
+                        radius=int(s * 0.12) * k, fill=color)
+    d.ellipse([(cx - s * 0.08) * k, (cy + s * 0.12) * k, (cx + s * 0.08) * k, (cy + s * 0.28) * k], fill=(255, 255, 255))
+    d.rectangle([(cx - s * 0.03) * k, (cy + s * 0.22) * k, (cx + s * 0.03) * k, (cy + s * 0.42) * k], fill=(255, 255, 255))
+
+
+def _pin(d, cx, cy, s, k, color):
+    d.ellipse([(cx - s / 2) * k, (cy - s) * k, (cx + s / 2) * k, cy * k], fill=color)
+    d.polygon([((cx - s * 0.42) * k, (cy - s * 0.32) * k), ((cx + s * 0.42) * k, (cy - s * 0.32) * k),
+               (cx * k, (cy + s * 0.55) * k)], fill=color)
+    d.ellipse([(cx - s * 0.18) * k, (cy - s * 0.68) * k, (cx + s * 0.18) * k, (cy - s * 0.32) * k], fill=(255, 255, 255))
+
+
+def _laptop(img, d, k, screen_box):
+    """A plain laptop whose screen is screen_box (x0, y0, x1, y1); returns nothing, draws in place."""
+    x0, y0, x1, y1 = screen_box
+    bez = 18
+    shadow = Image.new("L", img.size, 0)
+    ImageDraw.Draw(shadow).rounded_rectangle([(x0 - 130) * k, (y1 + 30) * k, (x1 + 130) * k, (y1 + 70) * k],
+                                             radius=30 * k, fill=70)
+    img.paste((0, 0, 0), mask=shadow.filter(ImageFilter.GaussianBlur(18 * k)))
+    d.rounded_rectangle([(x0 - bez) * k, (y0 - bez) * k, (x1 + bez) * k, (y1 + bez) * k], radius=22 * k,
+                        fill=(38, 41, 48))
+    d.rectangle([x0 * k, y0 * k, x1 * k, y1 * k], fill=(250, 251, 253))
+    d.ellipse([((x0 + x1) / 2 - 4) * k, (y0 - 12) * k, ((x0 + x1) / 2 + 4) * k, (y0 - 4) * k], fill=(70, 74, 82))
+    d.polygon([((x0 - 120) * k, (y1 + bez) * k), ((x1 + 120) * k, (y1 + bez) * k), ((x1 + 150) * k, (y1 + bez + 34) * k),
+               ((x0 - 150) * k, (y1 + bez + 34) * k)], fill=(196, 201, 209))
+    d.rounded_rectangle([((x0 + x1) / 2 - 70) * k, (y1 + bez) * k, ((x0 + x1) / 2 + 70) * k, (y1 + bez + 10) * k],
+                        radius=5 * k, fill=(170, 176, 186))
+
+
+def _phone(img, d, k, box):
+    x0, y0, x1, y1 = box
+    shadow = Image.new("L", img.size, 0)
+    ImageDraw.Draw(shadow).rounded_rectangle([(x0 + 24) * k, (y0 + 34) * k, (x1 + 24) * k, (y1 + 34) * k],
+                                             radius=60 * k, fill=80)
+    img.paste((0, 0, 0), mask=shadow.filter(ImageFilter.GaussianBlur(20 * k)))
+    d.rounded_rectangle([x0 * k, y0 * k, x1 * k, y1 * k], radius=52 * k, fill=(38, 41, 48))
+    d.rounded_rectangle([(x0 + 14) * k, (y0 + 14) * k, (x1 - 14) * k, (y1 - 14) * k], radius=40 * k,
+                        fill=(250, 251, 253))
+    d.rounded_rectangle([((x0 + x1) / 2 - 40) * k, (y0 + 26) * k, ((x0 + x1) / 2 + 40) * k, (y0 + 44) * k],
+                        radius=9 * k, fill=(38, 41, 48))
+    return x0 + 14, y0 + 56, x1 - 14, y1 - 14
+
+
+def topic_illustration(motif: str, pillar: str, width: int = 1200, height: int = 630) -> bytes:
+    """Featured illustration for one task, drawn at 2x and scaled down."""
+    k = 2
+    accent = PALETTES.get(pillar, PALETTES["money"])[0]
+    img = Image.new("RGB", (width * k, height * k), _tint(accent, 0.93))
+    d = ImageDraw.Draw(img)
+    for i in range(height * k):  # soft vertical gradient
+        d.line([0, i, width * k, i], fill=_tint(accent, 0.95 - 0.1 * i / (height * k)))
+    d.ellipse([-160 * k, 380 * k, 420 * k, 900 * k], fill=_tint(accent, 0.82))
+    d.ellipse([930 * k, -180 * k, 1380 * k, 260 * k], fill=_tint(accent, 0.86))
+    green, grey = (22, 140, 92), (150, 156, 166)
+    if motif in ("location", "phone"):
+        sx0, sy0, sx1, sy1 = _phone(img, d, k, (470, 40, 730, 600))
+        if motif == "location":
+            d.rectangle([sx0 * k, sy0 * k, sx1 * k, sy1 * k], fill=(232, 240, 233))
+            for (ax, ay, bx, by, w) in [(sx0, 220, sx1, 160, 14), (sx0, 400, sx1, 470, 10), (560, sy0, 620, sy1, 12),
+                                        (sx0, 300, 640, 330, 8)]:
+                d.line([ax * k, ay * k, bx * k, by * k], fill=(255, 255, 255), width=w * k)
+            d.ellipse([640 * k, 360 * k, 700 * k, 420 * k], fill=(198, 226, 205))
+            for cx, cy, s in [(545, 250, 64), (655, 330, 46), (580, 470, 40)]:
+                _pin(d, cx, cy, s, k, accent)
+        else:
+            cw = (sx1 - sx0 - 24) / 3
+            for r in range(5):
+                for c in range(3):
+                    x, y = sx0 + 6 + c * (cw + 6), sy0 + 6 + r * (cw + 6)
+                    if y + cw < sy1:
+                        d.rectangle([x * k, y * k, (x + cw) * k, (y + cw) * k],
+                                    fill=_tint(accent, 0.35 + 0.12 * ((r + c) % 4)))
+        return _webp(img.resize((width, height), Image.LANCZOS))
+
+    sx0, sy0, sx1, sy1 = 300, 70, 900, 450
+    _laptop(img, d, k, (sx0, sy0, sx1, sy1))
+    cy = (sy0 + sy1) / 2
+    if motif == "compress":
+        _doc(d, 360, 105, 200, k, accent, lines=6)
+        _arrow(d, 600, 700, cy, k, green)
+        _doc(d, 738, 210, 110, k, accent, lines=3)
+        # file-size bars, no figures: long under the big file, short under the small one
+        d.rounded_rectangle([360 * k, 405 * k, 560 * k, 419 * k], radius=7 * k, fill=_tint(accent, 0.15))
+        d.rounded_rectangle([738 * k, 405 * k, 778 * k, 419 * k], radius=7 * k, fill=green)
+        d.rounded_rectangle([778 * k, 405 * k, 848 * k, 419 * k], radius=7 * k, fill=(226, 230, 236))
+        for dy in (-1, 1):  # squeeze marks above and below the small file
+            d.line([780 * k, (cy + dy * 100) * k, 806 * k, (cy + dy * 76) * k], fill=green, width=6 * k)
+            d.line([832 * k, (cy + dy * 100) * k, 806 * k, (cy + dy * 76) * k], fill=green, width=6 * k)
+    elif motif == "lock":
+        _doc(d, 470, 110, 200, k, accent, lines=6)
+        d.ellipse([620 * k, 255 * k, 770 * k, 405 * k], fill=(255, 255, 255), outline=(206, 211, 219), width=3 * k)
+        _padlock(d, 695, 335, 90, k, (38, 41, 48))
+    elif motif == "merge":
+        _doc(d, 350, 105, 120, k, accent, lines=4)
+        _doc(d, 350, 285, 120, k, _tint(accent, 0.3), lines=3)
+        _arrow(d, 510, 640, cy, k, green)
+        _doc(d, 680, 145, 170, k, accent, lines=6)
+    elif motif == "split":
+        _doc(d, 350, 145, 170, k, accent, lines=6)
+        _arrow(d, 560, 690, cy, k, green)
+        _doc(d, 730, 105, 120, k, accent, lines=4)
+        _doc(d, 730, 285, 120, k, _tint(accent, 0.3), lines=3)
+    elif motif == "convert":
+        _doc(d, 360, 135, 170, k, accent, lines=6)
+        _arrow(d, 570, 690, cy, k, green)
+        _doc(d, 720, 135, 170, k, (43, 87, 154), label="DOC", lines=6)
+    elif motif == "edit":
+        _doc(d, 470, 105, 220, k, accent, lines=7)
+        d.line([700 * k, 230 * k, 610 * k, 390 * k], fill=(240, 180, 40), width=26 * k)
+        d.polygon([(598 * k, 380 * k), (622 * k, 396 * k), (598 * k, 418 * k)], fill=(38, 41, 48))
+    elif motif == "sign":
+        _doc(d, 480, 100, 220, k, accent, lines=5)
+        pts = [(520 + t * 1.6 + 14 * math.sin(t / 9), 382 - 22 * math.sin(t / 7) * math.cos(t / 23))
+               for t in range(0, 101)]
+        d.line([(x * k, y * k) for x, y in pts], fill=(30, 60, 140), width=4 * k, joint="curve")
+        d.line([510 * k, 412 * k, 690 * k, 412 * k], fill=grey, width=3 * k)
+    elif motif == "earnings":
+        base = sy1 - 50
+        for i, h in enumerate((70, 110, 95, 160, 215)):
+            x = 380 + i * 82
+            d.rounded_rectangle([x * k, (base - h) * k, (x + 56) * k, base * k], radius=8 * k,
+                                fill=_tint(accent, 0.5 - 0.1 * i))
+        d.line([360 * k, base * k, 800 * k, base * k], fill=grey, width=3 * k)
+        d.ellipse([770 * k, 110 * k, 870 * k, 210 * k], fill=(240, 180, 40))
+        d.ellipse([786 * k, 126 * k, 854 * k, 194 * k], outline=(255, 255, 255), width=5 * k)
+    else:
+        _doc(d, 495, 100, 210, k, accent, lines=7)
+    return _webp(img.resize((width, height), Image.LANCZOS))
 
 
 def _cap(text: str, n: int = 125) -> str:
@@ -269,7 +466,8 @@ NOT_A_PHOTO = re.compile(r"\b(logo|icon|screenshot|screen ?shot|diagram|chart|gr
                          r"clip ?art|drawing|infographic|poster|cartoon|meme|svg)\b", re.I)
 STOPWORDS = set("""a an and are as at be by can do does for from get how in into is it its not of on or so that the
 their them then these this to too up use using what when where which who why will with without you your yours
-guide step steps explained vs""".split())
+guide step steps explained vs new all any way own may one two off out see now our has had was why but per via
+yes top""".split())
 
 
 def _commons_license(meta: dict) -> tuple[str, str] | None:
@@ -415,13 +613,68 @@ def licence_clear(c: dict) -> bool:
 
 def terms(*texts: str) -> set[str]:
     words = re.findall(r"[a-z]+", " ".join(t or "" for t in texts).lower())
-    out = {w for w in words if len(w) >= 4 and w not in STOPWORDS}
-    return out | {w[:-1] for w in out if w.endswith("s")}
+    out = {w for w in words if len(w) >= 3 and w not in STOPWORDS}
+    return out | {w[:-1] for w in out if w.endswith("s") and not w.endswith("ss")}
 
 
 MIN_SCORE = 5
 OFF_TOPIC = re.compile(r"\b(ceremony|president|minister|treaty|summit|parliament|military|army|burn(ed|t)|battery|"
                        r"heat pipe|hard drive|museum|historic(al)?|vintage|antique|protest|funeral)\b", re.I)
+# Scenes that look "office-like" but are about something else: rejected unless the article's
+# topic is that thing (a topic rule's `allow` list, e.g. signing for an e-signature article).
+WRONG_SCENE = re.compile(r"\b(sign(s|ed|ing)?|signatures?|contracts?|agreements?|deals?|meetings?|conferences?|"
+                         r"handshakes?|shaking hands|interviews?|books?|bookshelf|library|libraries|paperwork|"
+                         r"newspapers?|letters?|envelopes?|notary|lawyers?|court|classroom|lecture|negotiations?|"
+                         r"delegation|signatories)\b", re.I)
+# Paper on a desk is a wrong scene too, unless the photo is of a document on a screen.
+PAPER = re.compile(r"\b(papers?|documents?|files? folders?|binders?|printouts?)\b", re.I)
+ON_SCREEN = re.compile(r"\b(pdf|on (the |a )?(screen|monitor|display|laptop|tablet)|digital)\b", re.I)
+# Article words too broad to show that a photo is about this article.
+BROAD = set("""business businesses document documents paper papers file files office work working online free best
+easy quick fast ways tips simple make money people person computer laptop phone smartphone""".split())
+
+
+def topic_for(cfg: dict, pillar: str, *texts: str) -> dict:
+    """The first `images.topics` rule whose pattern matches the article's title, keyphrase or
+    query; otherwise the pillar's default (motif only, no subject words)."""
+    ic = cfg.get("images") or {}
+    text = " ".join(t or "" for t in texts).lower()
+    for rule in ic.get("topics") or []:
+        if rule.get("pillars") and pillar not in rule["pillars"]:
+            continue
+        if re.search(rule["match"], text, re.I):
+            return rule
+    return {"motif": (ic.get("pillar_motif") or {}).get(pillar, "pdf")}
+
+
+def _has(word: str, text: str) -> bool:
+    return re.search(rf"\b{re.escape(word.lower())}\b", text) is not None
+
+
+def relevance(c: dict, topic: dict, article_terms: set[str], must_show: list[str]) -> tuple[bool, str]:
+    """Does the photo show this article's subject? (ok, why). It must not be a wrong scene
+    (signing, meetings, books, paperwork...); its own title must name a device the task is done
+    on (laptop, phone...), and it must mention the topic's subject words, or, with no topic rule,
+    a specific word of the article rather than a broad one like "document" or "business"."""
+    desc = c.get("description", "").lower()
+    text = " ".join([desc, c.get("text", ""), *c.get("tags", [])]).lower()
+    allow = {w.lower() for w in topic.get("allow") or []}
+    wrong = [m.group(0).lower() for m in WRONG_SCENE.finditer(text) if m.group(0).lower() not in allow]
+    paper = PAPER.search(text)
+    if not wrong and paper and paper.group(0).lower() not in allow and not ON_SCREEN.search(text):
+        wrong = [paper.group(0).lower()]
+    paper = PAPER.search(text)
+    if not wrong and paper and paper.group(0).lower() not in allow and not ON_SCREEN.search(text):
+        wrong = [paper.group(0).lower()]
+    if wrong:
+        return False, f"wrong scene ({wrong[0]})"
+    if must_show and not any(_has(w, desc) for w in must_show):
+        return False, "no " + "/".join(must_show[:3]) + " in its title"
+    subject = topic.get("subject") or sorted(article_terms - BROAD)
+    hit = next((w for w in subject if _has(w, text)), None)
+    if not hit:
+        return False, "nothing about " + ", ".join(subject[:4])
+    return True, f"shows {hit}"
 
 
 def score(c: dict, article_terms: set[str], keywords: list[str]) -> int:
@@ -437,12 +690,9 @@ def score(c: dict, article_terms: set[str], keywords: list[str]) -> int:
             or len(re.findall(r"[a-zA-Z]{2,}", desc)) < 2 or re.search(r"\b(img|dsc|dscn|p)[_ -]?\d{3,}", desc, re.I)
             or NOT_A_PHOTO.search(text) or OFF_TOPIC.search(text) or 0 < c.get("year", 0) < 2008):
         return 0
-
-    def has(word, where):
-        return re.search(rf"\b{re.escape(word.lower())}\b", where) is not None
     in_title = terms(desc)
-    total = sum(3 * (2 if t in in_title else 1) for t in article_terms & terms(text))
-    total += sum(2 if has(k, desc.lower()) else 1 for k in keywords if has(k, text))
+    total = sum(3 * (2 if t in in_title else 1) for t in (article_terms - BROAD) & terms(text))
+    total += sum(2 if _has(k, desc.lower()) else 1 for k in keywords if _has(k, text))
     return total if total >= MIN_SCORE else 0
 
 
@@ -488,11 +738,16 @@ def _alt_from(c: dict) -> str:
 
 
 def featured_photo(cfg: dict, pillar: str, queries: list[str], article_terms: set[str], search: StockSearch,
-                   say=print, get=requests.get) -> tuple[dict, bytes] | None:
-    """Best-scoring photo with a clear licence, provider by provider. A search that fails twice
-    is skipped; two failed searches in a row mark that provider as down for this run."""
+                   say=print, get=requests.get, topic: dict | None = None,
+                   rejected: list | None = None) -> tuple[dict, bytes] | None:
+    """Best-scoring photo with a clear licence that passes the relevance check, provider by
+    provider. A search that fails twice is skipped; two failed searches in a row mark that
+    provider as down for this run. Rejected candidates are listed in `rejected` with the reason."""
     ic = cfg.get("images") or {}
     keywords = (ic.get("photo_keywords") or {}).get(pillar, [])
+    must_show = (ic.get("photo_must_show") or {}).get(pillar, [])
+    topic = topic or {}
+    rejected = rejected if rejected is not None else []
     used = used_photos()
     for provider in search.providers():
         failures, ranked = 0, []
@@ -510,9 +765,14 @@ def featured_photo(cfg: dict, pillar: str, queries: list[str], article_terms: se
             for c in results:
                 if f"{provider}:{c['id']}" in used or not licence_clear(c):
                     continue  # licence unclear: never downloaded
+                ok, why = relevance(c, topic, article_terms, must_show)
+                if not ok:
+                    if len(rejected) < 12:
+                        rejected.append({"description": c.get("description", "")[:90], "reason": why})
+                    continue
                 s = score(c, article_terms, keywords)
                 if s:
-                    ranked.append((-s, n, c, q))
+                    ranked.append((-s, n, dict(c, relevance=why), q))
         seen = set()
         for _, _, c, q in sorted(ranked, key=lambda t: t[:2])[:4]:
             if c["id"] in seen:
@@ -583,34 +843,50 @@ def build(cfg: dict, article: dict, pillar: str, out_dir: Path, *, query: str | 
     plan = {"words": words, "target": [lo, hi], "stock_api_calls": 0, "photo_searches": [], "notes": []}
 
     featured = None
+    topic = topic_for(cfg, pillar, article.get("title", ""), article.get("focus_keyphrase", ""), query or "")
+    plan["topic"] = {"motif": topic["motif"], "match": topic.get("match", f"pillar {pillar}")}
+    rejected: list = []
     if ic.get("stock_photos", True):
         search = search or StockSearch(ledger.DATA / "image_cache", pexels_key=os.environ.get("PEXELS_API_KEY"),
                                        cache_days=ic.get("cache_days", 30),
                                        licenses=ic.get("stock_licenses", ("cc0", "pdm", "by", "by-sa")),
                                        sources=ic.get("openverse_sources", ("stocksnap", "nappy", "flickr", "wikimedia")))
-        queries = list(dict.fromkeys(q for q in [query, article.get("focus_keyphrase"),
-                                                 *(ic.get("photo_queries") or {}).get(pillar, [])] if q))
+        scenes = topic.get("queries") if topic.get("match") else (ic.get("photo_queries") or {}).get(pillar, [])
+        queries = list(dict.fromkeys(q for q in [query, article.get("focus_keyphrase"), *(scenes or [])] if q))
         article_terms = terms(query or "", article.get("focus_keyphrase", ""), article.get("title", ""))
         before, logged = search.requests, len(search.log)
         try:
-            featured = featured_photo(cfg, pillar, queries, article_terms, search, say=say, get=get)
+            featured = featured_photo(cfg, pillar, queries, article_terms, search, say=say, get=get, topic=topic,
+                                      rejected=rejected)
         except Exception as e:  # never let an image problem stop the article
             say(f"Images: stock photo search failed ({str(e)[:120]}).")
         plan["stock_api_calls"] = search.requests - before
         plan["photo_searches"] = search.log[logged:]
+        plan["photo_rejections"] = rejected
     if featured:
         c, data = featured
         plan["featured"] = {k: c[k] for k in ("provider", "id", "description", "page_url", "creator", "creator_url",
-                                              "license", "license_version", "license_url", "source", "query")}
+                                              "license", "license_version", "license_url", "source", "query",
+                                              "relevance")}
         plan["featured"].update(alt_text=_alt_from(c), caption="", filename=f"{slug}-featured.webp")
     else:
-        headline = article.get("image_headline") or article["title"]
-        data = title_card(headline, pillar)
-        plan["featured"] = {"provider": "in-house", "license": "generated-in-house", "alt_text": alt_text(headline),
-                            "caption": "", "filename": f"{slug}-featured.webp", "fallback": True}
-        plan["notes"].append("FALLBACK: no suitable, clearly licensed photo was found, so the featured image is "
-                             "the branded title card. Replace it in WP Admin if you prefer a photo.")
-        say("Images: no suitable licensed photo found; using the title card as a last resort.")
+        motif = topic["motif"] if topic["motif"] in MOTIF_ALT else "pdf"
+        try:
+            data = topic_illustration(motif, pillar)
+            plan["featured"] = {"provider": "in-house", "kind": "illustration", "motif": motif,
+                                "license": "generated-in-house", "alt_text": MOTIF_ALT[motif], "caption": "",
+                                "filename": f"{slug}-featured.webp", "fallback": True}
+            plan["notes"].append(f"FALLBACK: no free, clearly licensed photo matched this article's topic, so the "
+                                 f"featured image is an in-house illustration ({motif}). Replace it in WP Admin if "
+                                 f"you find a better photo.")
+            say(f"Images: no photo matched the topic; using the {motif} illustration.")
+        except Exception as e:  # the title card is the very last resort
+            headline = article.get("image_headline") or article["title"]
+            data = title_card(headline, pillar)
+            plan["featured"] = {"provider": "in-house", "kind": "title-card", "license": "generated-in-house",
+                                "alt_text": alt_text(headline), "caption": "", "filename": f"{slug}-featured.webp",
+                                "fallback": True}
+            plan["notes"].append(f"FALLBACK: illustration failed ({str(e)[:80]}); using the title card.")
     (out_dir / "featured.webp").write_bytes(data)
     plan["featured"]["file"] = "featured.webp"
     plan["featured"]["bytes"] = len(data)
@@ -708,13 +984,26 @@ def check_in_post(post: dict, featured: dict, uploaded: list[dict], get=requests
     return problems
 
 
+def served_featured(wp, post: dict, local: bytes) -> tuple[dict, bytes]:
+    """The featured image WordPress actually serves for the post, compared with the file we
+    chose: (details, bytes)."""
+    m = wp.get_media(post["featured_media"])
+    data = wp.fetch_file(m["source_url"])
+    details = m.get("media_details") or {}
+    return {"media_id": m["id"], "url": m["source_url"], "alt_text": m.get("alt_text", ""),
+            "mime": m.get("mime_type", ""), "width": details.get("width"), "height": details.get("height"),
+            "bytes": len(data), "same_as_chosen": hashlib.sha256(data).digest() == hashlib.sha256(local).digest()}, data
+
+
 def report(plan: dict) -> list[str]:
     f = plan["featured"]
     if f["provider"] == "in-house":
-        src = "FALLBACK title card (no suitable licensed photo)"
+        src = (f"FALLBACK in-house illustration ({f.get('motif')}): no licensed photo matched the topic"
+               if f.get("kind") == "illustration" else "FALLBACK title card (no suitable licensed photo)")
     else:
         name = LICENSE_NAMES[f["license"]] + (f" {f['license_version']}" if f.get("license_version") else "")
-        src = f"{f['provider']} photo by {f.get('creator') or 'unknown'}, {name}, {f.get('page_url')} (query {f.get('query')!r})"
+        src = (f"{f['provider']} photo by {f.get('creator') or 'unknown'}, {name}, {f.get('page_url')} "
+               f"(query {f.get('query')!r}; {f.get('relevance', '')})")
     rows = [f"{plan['words']} words; guideline {plan['target'][0]}-{plan['target'][1]} images; "
             f"using {1 + len(plan['inline'])}. Image cost: $0 (free stock API calls this run: {plan['stock_api_calls']}).",
             f"- featured: {src}; alt: {f['alt_text']!r}; {f['bytes'] // 1024} KB"]
@@ -723,4 +1012,5 @@ def report(plan: dict) -> list[str]:
                  else f"after the paragraph linking {i['url_shot']}")
         rows.append(f"- {i['kind']} ({i['license']}) {where}; {i['width']}x{i['height']}; {i['bytes'] // 1024} KB")
     rows += [f"- search: {s['provider']} {s['query']!r} -> {s['result']}" for s in plan.get("photo_searches", [])]
+    rows += [f"- rejected photo: {r['description']!r} ({r['reason']})" for r in plan.get("photo_rejections", [])]
     return rows + [f"- note: {n}" for n in plan["notes"]]
