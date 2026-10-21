@@ -1,4 +1,4 @@
-"""The daily scheduled run: topic choice, the 20-hour gap, the pause rule, resume, draft-only.
+"""The daily scheduled run: topic choice, the 20-hour gap, the pause rule, resume, live vs draft.
 
 All offline: WordPress is a fake, Claude calls are fakes that count themselves.
 """
@@ -62,11 +62,16 @@ def workflow():
     return yaml.safe_load((run.ROOT / ".github/workflows/publish.yml").read_text())
 
 
-def test_scheduled_workflow_run_is_the_scheduled_command_and_never_gets_the_second_key():
+def test_scheduled_workflow_run_is_the_scheduled_command_and_gets_the_second_key_only_on_main():
     y = workflow()
     expr = y["jobs"]["run"]["env"]["ALLOW_PUBLISH"]
-    # Only a manual `article` run with the box ticked can make it "true"; a schedule has no inputs.
-    assert "inputs.command == 'article' && inputs.allow_publish" in expr and "schedule" not in expr
+    # "true" only on main: for a schedule, or a manual `article` run with the box ticked.
+    assert expr.startswith("${{ (github.event_name == 'schedule' || (inputs.command == 'article' && "
+                           "inputs.allow_publish)) && github.ref == 'refs/heads/main' && 'true'")
+    # A run that waited in the concurrency group checks out the branch tip, so it sees the last run's log.
+    checkout = next(s for s in y["jobs"]["run"]["steps"] if s.get("uses", "").startswith("actions/checkout"))
+    assert checkout["with"]["ref"] == "${{ github.ref_name }}"
+    assert y["concurrency"] == {"group": "publisher", "cancel-in-progress": False}
     script = next(s for s in y["jobs"]["run"]["steps"] if s.get("name") == "Run")["run"]
     head = script.split("plan=()")[0]
     assert 'if [ "${{ github.event_name }}" = schedule ]' in head
@@ -78,14 +83,21 @@ def test_scheduled_workflow_run_is_the_scheduled_command_and_never_gets_the_seco
     assert save["if"] == "always() && inputs.command != 'check-setup'"
 
 
-def test_shipped_config_keeps_scheduled_runs_draft_only():
-    assert CFG["publishing"]["scheduled_live"] is False
+def test_shipped_config_allows_live_scheduled_runs_with_daily_spacing():
+    assert CFG["publishing"]["scheduled_live"] is True and CFG["publishing"]["mode"] == "publish"
     assert CFG["publishing"]["min_hours_between_posts"] == 20
 
 
+def test_schedule_is_11_00_morocco_time():
+    # Morocco is on UTC+0 all year since 2026-09-20 (no DST, no Ramadan change), so 11:00 local = 11:00 UTC.
+    crons = [c["cron"] for c in workflow()[True]["schedule"]]
+    assert crons == ["0 11 * * *", "30 11 * * *"]
+
+
 # ------------------------------------------------------------ draft-only and one article
-def test_scheduled_run_saves_one_draft_even_with_publish_mode_and_second_key(env, calls):
+def test_scheduled_live_off_saves_one_draft_even_with_publish_mode_and_second_key(env, calls):
     wp, tmp, cfg = env  # mode publish, ALLOW_PUBLISH=true
+    cfg["publishing"]["scheduled_live"] = False  # the off switch
     assert run.main(["article", "--scheduled"]) == 0
     assert [p["status"] for p in wp.posts.values()] == ["draft"]
     assert ("status", "publish") not in wp.calls
@@ -111,18 +123,32 @@ def test_scheduled_run_that_fails_a_gate_goes_to_pending_review(env, calls, monk
 
 def test_live_scheduled_publishing_needs_both_config_and_second_key(env, calls, monkeypatch):
     wp, tmp, cfg = env
-    cfg["publishing"]["scheduled_live"] = True
-    monkeypatch.delenv("ALLOW_PUBLISH")
+    assert cfg["publishing"]["scheduled_live"] is True
+    monkeypatch.delenv("ALLOW_PUBLISH")  # e.g. a scheduled run that is not on main
     assert run.main(["article", "--scheduled"]) == 0
     assert [p["status"] for p in wp.posts.values()] == ["draft"]
 
 
-def test_scheduled_live_with_second_key_publishes_after_gates(env, calls):
-    # Not shipped: shows what approving scheduled_live later would do.
-    wp, tmp, cfg = env
-    cfg["publishing"]["scheduled_live"] = True
+def test_shipped_scheduled_run_publishes_one_article_live_after_all_gates(env, calls):
+    wp, tmp, cfg = env  # shipped config, ALLOW_PUBLISH=true as on main
     assert run.main(["article", "--scheduled"]) == 0
     assert [p["status"] for p in wp.posts.values()] == ["publish"]
+    assert [c[0] for c in calls] == ["research", "write", "fact_check"]  # exactly one article
+    entry = ledger.read_log()[-1]
+    assert entry["status"] == "published" and entry["calendar_topic"] == FIRST["topic"]
+    state = json.loads((ledger.RUNS / entry["run_id"] / "state.json").read_text())["stages"]
+    assert len(state["checks"]) == 36 and all(c["passed"] for c in state["checks"])
+    # The next day's run is blocked by the 20-hour gap, so there is never a second post the same day.
+    assert run.main(["article", "--scheduled"]) == 0
+    assert len(wp.posts) == 1 and len(calls) == 3
+
+
+def test_live_scheduled_run_that_fails_url_verification_goes_back_to_pending(env, calls, monkeypatch):
+    wp, tmp, _ = env
+    monkeypatch.setattr(run, "public_url_ok", lambda url, t: (False, "HTTP 404"))
+    assert run.main(["article", "--scheduled"]) == 5
+    assert [p["status"] for p in wp.posts.values()] == ["pending"]
+    assert sched_log()[-1]["status"] == "failed_verification"
 
 
 @pytest.mark.parametrize("extra", [["--pillar", "pdf", "--topic", FIRST["topic"]], ["--article-file", "x.json"],

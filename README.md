@@ -20,7 +20,7 @@ https://newearns.com, then logs it and tracks it in Search Console.
 | Piece | Choice | Cost |
 |---|---|---|
 | Publishing | WordPress REST API + Application Password (built into WordPress) | $0 |
-| Scheduler and runner | GitHub Actions in a private repo. Manual runs, plus one scheduled run a day that saves drafts only (see "Daily scheduled run") | $0 (about 30 to 60 of the free 2,000 minutes per month) |
+| Scheduler and runner | GitHub Actions in a private repo. Manual runs, plus one scheduled run a day at 11:00 Morocco time (see "Daily scheduled run") | $0 (about 30 to 60 of the free 2,000 minutes per month) |
 | Research, writing, fact-check | Claude API, Claude Opus 5.5 with web search and web fetch | about $1 to $2 per article; about $15 to $30 per month at 3 per week. Every run logs its own cost estimate. |
 | Search performance | Google Search Console API (service account, read-only) | $0 |
 | Engagement | GA4 Data API (same service account, read-only) | $0 |
@@ -104,8 +104,13 @@ GitHub: Actions > **publisher** > Run workflow > choose `check-setup`, `article-
 
 ## Daily scheduled run
 
-The workflow also runs once a day at 09:17 UTC (GitHub can start it later). Schedules
-only run from `main`, so nothing happens until this change is merged.
+The workflow also runs once a day at **11:00 Morocco time**: cron `0 11 * * *`, with a
+backup at `30 11 * * *` in case GitHub drops the first one. GitHub cron is always UTC.
+Morocco has been on UTC+0 all year since 2026-09-20, with no daylight saving and no
+Ramadan change, so 11:00 Morocco is 11:00 UTC. If Morocco changes its clocks again, both
+cron lines must change. GitHub can start a scheduled run late, or occasionally skip one.
+The backup costs nothing when the first run already happened, because of the 20-hour gap.
+Schedules only run from `main`.
 
 **What it does.** `python -m publisher.run article --scheduled`:
 
@@ -123,12 +128,13 @@ only run from `main`, so nothing happens until this change is merged.
    been attempted, it logs "no eligible calendar topic" and stops.
 3. **The usual pipeline, unchanged:** research, write, fact-check, all 36 gates, duplicate
    and slug checks, then WordPress.
-4. **Draft or review only.** A passing article is saved as a WordPress **Draft**, and a
-   failing one as **Pending Review**. It never publishes live. Two locks keep it that way:
-   `publishing.scheduled_live: false` in config.yaml, and the workflow's `ALLOW_PUBLISH`,
-   which is `true` only for a manual `article` run with **allow_publish** ticked.
-   Live scheduled publishing needs both changed, in a PR you approve, after a successful
-   manual end-to-end publishing test.
+4. **Live only if every gate passes.** A passing article is published, then its public
+   URL is checked. If that check fails, the post goes back to **Pending Review**. A failing
+   article is saved as **Pending Review** and never goes live. Two keys are both needed:
+   `publishing.scheduled_live: true` in config.yaml, and the workflow's `ALLOW_PUBLISH`,
+   which is `true` only on `main`, for scheduled runs or for a manual `article` run with
+   **allow_publish** ticked. Set `scheduled_live: false` to make scheduled runs save
+   Drafts instead. Approved by the owner on 2026-10-21.
 
 Every attempt is recorded in `data/schedule_log.jsonl` (start and outcome) and, once it
 reaches WordPress, in `data/publication_log.jsonl` with its `calendar_topic`.
@@ -149,7 +155,7 @@ says which topic it chose, or why it skipped.
 | A resumed run | only the stages it hadn't finished |
 | Most per day | one attempt, about $1.91 |
 | Before a pause | at most 2 unsuccessful attempts in a row, about $3.82 |
-| Whole calendar | 15 topics left, about $29 in total, then $0 per day |
+| Whole calendar | 14 topics left after 2026-10-21, about $27 in total; after that it skips at $0 until you add topics |
 
 **Pausing.**
 - **Stop it completely:** GitHub > Actions > publisher > "..." > **Disable workflow**.
@@ -166,7 +172,7 @@ python -m publisher.run article --dry-run  # full generation + checks, nothing s
 python -m publisher.run article            # uses publishing.mode (draft | publish)
 python -m publisher.run article --resume   # finish a crashed run
 python -m publisher.run article --pillar pdf --topic "How to Compress a PDF for Email"   # one approved calendar topic
-python -m publisher.run article --scheduled   # the daily scheduled run (draft only; see above)
+python -m publisher.run article --scheduled   # the daily scheduled run (see above)
 python -m publisher.run resume-schedule       # let scheduled runs continue after a pause
 python -m publisher.run report             # Search Console / GA4 improvement flags
 pytest -q                                  # offline tests, incl. end-to-end against a fake WordPress

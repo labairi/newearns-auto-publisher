@@ -66,10 +66,10 @@ Confirms the login works, the role is not Administrator, and the categories exis
    within 20 hours.
 
 ## 8. The daily scheduled run
-The workflow runs once a day and saves one calendar topic as a **Draft** (or Pending
-Review if a check failed); it never publishes live. See "Daily scheduled run" in the
-README for the skip rules, cost and how to pause it.
-Drafts show in WP Admin > Posts > Drafts, held articles in Posts > Pending.
+The workflow runs once a day at 11:00 Morocco time (11:00 UTC). It publishes one
+calendar topic live if every gate passes, or saves it as Pending Review if a check
+failed. See "Daily scheduled run" in the README for the skip rules, cost and how to
+pause it. Held articles show in WP Admin > Posts > Pending.
 
 ## Pausing or rolling back
 - Pause: GitHub > Actions > publisher > "Disable workflow". After an automatic pause
