@@ -176,15 +176,19 @@ class FakeWP:
 
     def upload_media(self, *a, **k):
         self.media.append(a[0])
-        return {"id": 900 + len(self.media)}
+        return {"id": 900 + len(self.media), "source_url": f"{SITE}/wp-content/uploads/{a[0]}"}
 
     def create_post(self, **k):
         self.calls.append(("create", k["status"]))
         pid = self.next_id = self.next_id + 1
         self.posts[pid] = {"id": pid, "slug": k["slug"], "status": k["status"], "title": k["title"],
                            "content": k["content_html"], "link": f"{SITE}/{k['slug']}/", "cat": k["category_id"],
-                           "aioseo": (k["seo_title"], k["meta_description"])}
+                           "aioseo": (k["seo_title"], k["meta_description"]), "featured_media": k["featured_media"]}
         return dict(self.posts[pid])
+
+    def get_post(self, pid):
+        p = self.posts[pid]
+        return {"id": pid, "featured_media": p["featured_media"], "content": {"raw": p["content"]}}
 
     def set_status(self, pid, status):
         self.calls.append(("status", status))

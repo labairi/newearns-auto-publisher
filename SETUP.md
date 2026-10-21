@@ -50,6 +50,9 @@ and "Google Analytics Data API" > create a service account > create a JSON key.
   the numeric property id in `config.yaml` (`tracking.ga4_property_id`).
 Paste the JSON into the `GOOGLE_SERVICE_ACCOUNT_JSON` secret.
 
+Optional, free: `PEXELS_API_KEY` (a free key from pexels.com/api) for better featured
+photos. Without it the pipeline uses Openverse, which needs no key.
+
 ## 6. Me: push the code, run tests, then `check-setup`
 Confirms the login works, the role is not Administrator, and the categories exist.
 

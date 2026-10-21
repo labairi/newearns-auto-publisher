@@ -178,6 +178,28 @@ models:
   # Empty = every stage uses `writer`.
   stages: {}
 
+# Article images, all at no extra cost (see publisher/images.py).
+# Featured image: a free stock photo whose licence comes from the provider's API, else the
+# branded title card. Pexels is used only if the free PEXELS_API_KEY secret is set;
+# Openverse needs no key. Inline images: diagrams drawn from the article's own step
+# lists and bulleted lists. No paid image service and no AI image generation.
+images:
+  stock_photos: true
+  stock_licenses: [cc0, pdm, by]   # Openverse licences accepted; CC BY gets a credit line
+  openverse_sources: [stocksnap, flickr]   # modern photo collections, not museum archives
+  cache_days: 30                   # search results cached in data/image_cache/
+  max_queries: 3                   # per provider per article
+  max_inline: 4
+  photo_queries:
+    pdf: ["pdf document on laptop", "documents and laptop on desk", "paperwork and computer"]
+    instagram: ["instagram on smartphone", "smartphone social media app", "person using smartphone"]
+    money: ["freelancer working on laptop", "home office laptop", "laptop work desk"]
+  # A photo is used only if its own description or tags contain one of these words.
+  photo_keywords:
+    pdf: [pdf, document, documents, paper, papers, paperwork, laptop, computer, printer, file, files, office]
+    instagram: [instagram, smartphone, phone, mobile, social media, app, selfie]
+    money: [laptop, freelance, freelancer, computer, office, desk, work, working]
+
 tracking:
   gsc_site_url: sc-domain:newearns.com   # or https://newearns.com/ (URL-prefix property)
   ga4_property_id: null                  # numeric GA4 property id, optional

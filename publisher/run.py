@@ -14,6 +14,9 @@
   python -m publisher.run article --scheduled     the daily scheduled run: one approved calendar topic,
                                                   live only if every gate passes (see publisher/schedule.py)
   python -m publisher.run resume-schedule         let scheduled runs continue after they paused
+  python -m publisher.run image-test --article-file x.json
+                                                  try the image step on a saved article: one WordPress
+                                                  draft with an image-test- slug; no Claude call, no log
   python -m publisher.run report                  Search Console / GA4 improvement report
 """
 from __future__ import annotations
@@ -132,6 +135,41 @@ def category_for(cfg: dict, pillar: str, live_categories: dict[int, str]) -> int
 def product_links(cfg: dict, html: str) -> list[str]:
     hosts = {p["url"].split("/")[2] for p in cfg["products"].values()}
     return [l["href"] for l in quality.parse(html).links if l["href"].split("/")[2:3] and l["href"].split("/")[2] in hosts]
+
+
+def prepare_images(cfg: dict, article: dict, pillar: str, cp: ledger.Checkpoint, query: str | None) -> dict:
+    """Pick or draw the article's images once per run; a resumed run reuses them (no new searches)."""
+    plan = cp.get("images")
+    if not plan or not all((cp.dir / i["file"]).exists() for i in [plan["featured"], *plan["inline"]]):
+        plan = images.build(cfg, article, pillar, cp.dir, query=query, say=say)
+        cp.put("images", plan)
+    article["image_alt_text"] = plan["featured"]["alt_text"]
+    article["featured_image"] = {"alt_text": plan["featured"]["alt_text"], "license": plan["featured"]["license"],
+                                 **{k: plan["featured"].get(k, "") for k in ("creator", "license_url")}}
+    article["inline_images"] = [{"alt_text": i["alt_text"], "license": i["license"]} for i in plan["inline"]]
+    say("Images:\n" + "\n".join(images.report(plan)))
+    return plan
+
+
+def upload_images(wp: WordPress, cp: ledger.Checkpoint, plan: dict, featured_bytes: bytes,
+                  slug: str, mark_used: bool = True) -> tuple[dict, list[dict]]:
+    """Upload to the Media Library once; ids are checkpointed so a resumed run never re-uploads.
+    A stock photo used for an article is not picked again for another one."""
+    f = plan["featured"]
+    media = cp.get("wp_media")
+    if not media or "url" not in media:
+        m = wp.upload_media(f["filename"], featured_bytes, "image/webp", f["alt_text"], f.get("caption", ""))
+        media = {"id": m["id"], "url": m.get("source_url", "")}
+        cp.put("wp_media", media)
+        if mark_used:
+            images.mark_used(plan, slug)
+    inline = cp.get("wp_media_inline") or []
+    for img in plan["inline"][len(inline):]:
+        m = wp.upload_media(img["filename"], (cp.dir / img["file"]).read_bytes(), "image/webp",
+                            img["alt_text"], img.get("caption", ""))
+        inline.append({"id": m["id"], "url": m.get("source_url", "")})
+        cp.put("wp_media_inline", inline)
+    return media, inline
 
 
 # ---------------------------------------------------------------- commands
@@ -292,10 +330,8 @@ def cmd_article(cfg: dict, args) -> int:
             usages.extend(us); cp.put("usages", usages); cp.put("fact_check", fc)
         fact = cp.get("fact_check")
 
-    article["image_alt_text"] = images.alt_text(article["image_headline"])
-    img_bytes = images.title_card(article["image_headline"], pillar)
-    article["featured_image"] = {"alt_text": article["image_alt_text"], "license": "generated-in-house"}
-    cp.save_file("featured.webp", img_bytes)
+    plan = prepare_images(cfg, article, pillar, cp, planned["query"] if planned else None)
+    img_bytes = (cp.dir / plan["featured"]["file"]).read_bytes()
     cp.save_file("article.html", article["content_html"])
 
     report = quality.run_checks(article, cfg, posts, known_slugs, fact_check=fact)
@@ -339,11 +375,12 @@ def cmd_article(cfg: dict, args) -> int:
         cp.put("final", "already-published")
         return 0
     if not post:
-        media = cp.get("wp_media") or wp.upload_media(f"{article['slug']}.webp", img_bytes, "image/webp",
-                                                     article["image_alt_text"])
-        cp.put("wp_media", {"id": media["id"]})
+        media, inline = upload_images(wp, cp, plan, img_bytes, article["slug"])
+        # Images go in after the gates and the fact-check, which judged the text itself;
+        # each diagram only restates a list already in that text.
+        content_html = images.insert(article["content_html"], plan, inline)
         # Create as draft first, then flip to publish only after the post exists intact.
-        post = wp.create_post(title=article["title"], slug=article["slug"], content_html=article["content_html"],
+        post = wp.create_post(title=article["title"], slug=article["slug"], content_html=content_html,
                               excerpt=article["excerpt"], status="draft", category_id=category,
                               featured_media=media["id"], seo_title=article["seo_title"],
                               meta_description=article["meta_description"],
@@ -356,6 +393,13 @@ def cmd_article(cfg: dict, args) -> int:
         if post["slug"] != article["slug"]:
             say(f"WordPress changed the slug to {post['slug']} (collision); holding for review.")
             target = "pending"
+        problems = images.check_in_post(wp.get_post(post["id"]), media, inline)
+        cp.put("image_check", problems or "ok")
+        if problems:
+            say("Images did not land correctly; holding for review:\n" + "\n".join(f"  - {p}" for p in problems))
+            target = "pending"
+        else:
+            say(f"Images uploaded and in the post: featured + {len(inline)} inline.")
     post = wp.set_status(post["id"], target)
     cp.put("wp_post", {"id": post["id"], "status": post["status"], "link": post["link"]})
 
@@ -392,9 +436,50 @@ def cmd_report(cfg: dict) -> int:
     return 0
 
 
+def cmd_image_test(cfg: dict, args) -> int:
+    """Try the image step on a saved article: one WordPress draft with a test slug, nothing published.
+
+    No Claude call. Not an attempt: the publication log, the schedule log and the
+    calendar are untouched, so the daily schedule is unaffected."""
+    if not args.article_file:
+        say("Refused: image-test needs --article-file (a saved article JSON or a run's state.json).")
+        return 7
+    article, _, pillar = load_article_file(Path(args.article_file))
+    article = dict(article, slug=f"image-test-{article['slug']}", title=f"[Image test] {article['title']}")
+    wp = WordPress.from_env(cfg["site"]["base_url"])
+    clash = wp.find_by_slug(article["slug"])
+    if clash:
+        say(f"Refused: a test draft already exists (post {clash['id']}, {clash['status']}); trash it in WP Admin first.")
+        return 6
+    run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    cp = ledger.Checkpoint(run_id, root=ledger.DATA / "image_tests")
+    say(f"Image test {run_id} on {args.article_file} (draft only)")
+    plan = prepare_images(cfg, article, pillar, cp, None)
+    media, inline = upload_images(wp, cp, plan, (cp.dir / plan["featured"]["file"]).read_bytes(), article["slug"],
+                                  mark_used=False)
+    post = wp.create_post(title=article["title"], slug=article["slug"],
+                          content_html=images.insert(article["content_html"], plan, inline),
+                          excerpt=article.get("excerpt", ""), status="draft",
+                          category_id=category_for(cfg, pillar, wp.categories()), featured_media=media["id"],
+                          seo_title=article["seo_title"], meta_description=article["meta_description"],
+                          focus_keyphrase=article["focus_keyphrase"])
+    cp.put("wp_post", {"id": post["id"], "status": post["status"], "link": post["link"]})
+    problems = images.check_in_post(wp.get_post(post["id"]), media, inline)
+    cp.put("image_check", problems or "ok")
+    cp.put("final", "image-test-draft")
+    say(f"Draft post {post['id']} (status {post['status']}); media ids: featured {media['id']}, "
+        f"inline {[m['id'] for m in inline]}")
+    if problems:
+        say("Image problems:\n" + "\n".join(f"  - {p}" for p in problems))
+        return 5
+    say("All images uploaded to the Media Library and present in the draft. Preview it in WP Admin > Posts > Drafts, "
+        "then move it to the trash.")
+    return 0
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("command", choices=["check-setup", "article", "report", "resume-schedule"])
+    ap.add_argument("command", choices=["check-setup", "article", "report", "resume-schedule", "image-test"])
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--resume", action="store_true")
     ap.add_argument("--force", action="store_true", help="ignore min_hours_between_posts")
@@ -415,6 +500,9 @@ def main(argv=None) -> int:
         schedule.resume()
         say("Scheduled runs may continue; the 20-hour gap still applies.")
         return 0
+    if args.command == "image-test":
+        with ledger.RunLock():
+            return cmd_image_test(cfg, args)
     with ledger.RunLock():
         return cmd_scheduled(cfg, args) if args.scheduled else cmd_article(cfg, args)
 

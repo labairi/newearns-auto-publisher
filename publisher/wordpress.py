@@ -117,6 +117,11 @@ class WordPress:
             body["featured_media"] = featured_media
         return self._req("POST", "/wp/v2/posts", auth=True, json=body).json()
 
+    def get_post(self, post_id: int) -> dict:
+        """The stored post as the editor sees it (raw content), for checking images landed."""
+        return self._req("GET", f"/wp/v2/posts/{post_id}", auth=True, params={
+            "context": "edit", "_fields": "id,status,slug,link,featured_media,content"}).json()
+
     def set_status(self, post_id: int, status: str) -> dict:
         return self._req("POST", f"/wp/v2/posts/{post_id}", auth=True, json={"status": status}).json()
 
