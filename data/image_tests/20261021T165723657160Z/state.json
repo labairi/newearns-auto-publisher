@@ -1,0 +1,100 @@
+{
+  "run_id": "20261021T165723657160Z",
+  "stages": {
+    "images": {
+      "words": 2161,
+      "target": [
+        3,
+        4
+      ],
+      "stock_api_calls": 8,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "instagram follower location",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "openverse",
+          "query": "instagram smartphone",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "commons",
+          "query": "instagram follower location",
+          "result": "20"
+        },
+        {
+          "provider": "commons",
+          "query": "instagram smartphone",
+          "result": "16"
+        },
+        {
+          "provider": "commons",
+          "query": "smartphone social media",
+          "result": "19"
+        },
+        {
+          "provider": "commons",
+          "query": "woman smartphone",
+          "result": "17"
+        }
+      ],
+      "notes": [
+        "2 image(s), below the 3-4 guideline: no other step-by-step section would gain from a diagram, and decorative images are not added"
+      ],
+      "featured": {
+        "provider": "commons",
+        "id": "51181215",
+        "description": "Instagram app on smartphone (grass background)",
+        "page_url": "https://commons.wikimedia.org/wiki/File:Instagram_app_on_smartphone_(grass_background).jpg",
+        "creator": "Santeri Viinamäki (both photo and screenshot)",
+        "creator_url": "https://commons.wikimedia.org/wiki/User:Zunter",
+        "license": "cc-by-sa",
+        "license_version": "4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "wikimedia",
+        "query": "instagram smartphone",
+        "alt_text": "Instagram app on smartphone",
+        "caption": "",
+        "filename": "image-test-20261021t1657-instagram-follower-location-featured.webp",
+        "file": "featured.webp",
+        "bytes": 69494
+      },
+      "inline": [
+        {
+          "provider": "in-house",
+          "license": "generated-in-house",
+          "kind": "steps",
+          "list_index": 1,
+          "heading": "How to see your followers' top locations in the Instagram app",
+          "file": "inline-1.webp",
+          "filename": "image-test-20261021t1657-instagram-follower-location-steps-how-to-see-your-followers-top-locations.webp",
+          "width": 1200,
+          "height": 956,
+          "bytes": 71906,
+          "alt_text": "Diagram of the 6 steps in \"How to see your followers' top locations in the Instagram app\": Tap Profile or your profile...",
+          "caption": "At a glance: How to see your followers' top locations in the Instagram app"
+        }
+      ]
+    },
+    "wp_media": {
+      "id": 3707,
+      "url": "https://newearns.com/wp-content/uploads/2026/10/image-test-20261021t1657-instagram-follower-location-featured.webp"
+    },
+    "wp_media_inline": [
+      {
+        "id": 3708,
+        "url": "https://newearns.com/wp-content/uploads/2026/10/image-test-20261021t1657-instagram-follower-location-steps-how-to-see-your-followers-top-locations.webp"
+      }
+    ],
+    "wp_post": {
+      "id": 3709,
+      "status": "draft",
+      "link": "https://newearns.com/?p=3709"
+    },
+    "image_check": "ok",
+    "final": "image-test-draft"
+  },
+  "updated": "2026-10-21T17:00:01+00:00"
+}
