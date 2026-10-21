@@ -10,6 +10,10 @@
 > WordPress REST API, and this repo's `config.yaml` / `publisher/writer.py`).
 > Search Console and Analytics are not connected: this brief contains no traffic,
 > ranking or search-volume figures, and none should be added without a real source.
+>
+> **Strategy:** the owner's ranking-first SEO strategy (2026-10-21) is in
+> `seo-strategy-brief.md`. It governs topic choice, research, article structure,
+> on-page checks and per-run reports. Where the two files differ, the strategy wins.
 
 ---
 
@@ -17,9 +21,11 @@
 
 - **Business name:** New Earns (the site styles itself "Newearns.com")
 - **Domain:** https://newearns.com
-- **Industry / niche:** Make-money-online and online-tools blog. The newer content
-  (since 2026-10-20) focuses on practical how-tos for freelancers and creators:
-  PDF/document tasks and Instagram creator analytics.
+- **Industry / niche:** English-language online how-to publication for freelancers,
+  creators, small-business owners and people learning to work online. Shifting from
+  generic make-money-online content to task-focused guides in two pillars:
+  **A. PDF and document productivity** and **B. Instagram creator analytics**.
+  Broader online-income topics are supporting content only.
 - **What they actually sell (one sentence):** A free, ad-supported how-to blog for
   people earning money online, which also points readers to the owner's two tools,
   Private PDF Editor and Instagramaps, where they solve the step the reader is on. ⚠️ verify
@@ -69,9 +75,14 @@
 
 ### Goals
 
-- **Primary goal:** Rank and get cited for practical how-to queries in the PDF and
-  Instagram-creator pillars, earn AdSense approval, and send relevant readers to
-  the two products. ⚠️ verify the order of priority
+- **Primary goal (owner's priority order, 2026-10-21):**
+  1. Improve the site's ability to rank for relevant queries.
+  2. Build topical authority around the two pillars.
+  3. Earn qualified organic impressions, clicks and sustainable traffic.
+  4. Help readers complete their tasks.
+  5. Support AdSense approval and monetization without compromising quality.
+  6. Refer relevant readers to Private PDF Editor and Instagramaps.
+  Never promise rankings, traffic, indexing or AdSense approval.
 - **What a customer is worth, roughly:** ⚠️ NEEDS INPUT
 - **What this business will NOT do:**
   - Invent statistics, testimonials, case studies, prices, limits or features.
@@ -94,13 +105,16 @@
 
 ### Author identity (for author bios and E-E-A-T)
 
-- **Who is credited as author:** Inconsistent today. ⚠️ NEEDS INPUT
+- **Who is credited as author:** **"New Earns" editorial byline** (owner's
+  strategy, 2026-10-21). Do not invent an author bio and do not carry over the
+  "David" persona's testing claims. Today's site is still inconsistent:
   - Older posts (Jul–Sep 2025) and the About page credit **"David"**, described as a
     "digital explorer" and "side hustle strategist" who has "tested dozens of
     methods". Author archive: https://newearns.com/author/lahcenlabairigmail-com/
   - New posts (3695, 3699) are credited to **"New Earns"** (the publisher's WP user)
     and are written as an editorial guide with no personal testing claims.
-- **Their credentials, in one line:** ⚠️ NEEDS INPUT
+- **Their credentials, in one line:** None claimed. Trust comes from sourced,
+  current instructions and transparent product disclosure.
 - **Author page URL:** see above; no dedicated author bio page found.
 
 ### The call to action
@@ -135,6 +149,9 @@ Practical, careful, plain.
 - **Who is reading:** Freelancers, small-business owners, creators and people
   starting online work, usually mid-task (a file won't attach, they want to know
   where their followers are). Beginners in the older posts.
+- **Search intent:** Task-focused how-to queries. Every target keyword needs a
+  recorded rationale (intent, competing pages, how New Earns will be more useful);
+  without a keyword tool or live SERP it is labelled a hypothesis.
 - **Reading level:** Plain English, roughly general-audience / grade 8–9. ⚠️ verify
 - **What they are afraid of:** Scams and wasted time (the About page's founding
   story is about avoiding scams); a file or account step failing at the worst
@@ -163,11 +180,14 @@ Practical, careful, plain.
 - **Sentence length:** Mostly medium, with short imperative lines for emphasis
   ("Keep the original.").
 - **Anything structural to always do or never do:**
+  - Article order: reader problem and concise answer → main procedure → alternatives
+    and limitations → troubleshooting → FAQ where useful → internal links and
+    contextual product mention → sources. Adapt when intent calls for another format.
   - Open with the reader's problem in one line, then what the guide covers.
   - Descriptive H2s that say what the section does (not keyword-stuffed headings).
   - Numbered steps for procedures; a Troubleshooting section and an FAQ at the end.
   - Focus keyphrase appears naturally (title, intro, once or twice more).
-  - 1,200–3,200 words; at least 3 sources; HTTPS links only; no AI-chat utm
+  - 1,200–3,200 words as a guideline, not a target; at least 3 relevant verified sources where the topic allows; HTTPS links only; no AI-chat utm
     parameters (e.g. `utm_source=chatgpt.com`) on any link.
 
 ### Words from the business's own mouth
@@ -181,6 +201,8 @@ Practical, careful, plain.
 ---
 
 ## Site findings from the crawl (not fixed; WordPress was not touched)
+
+These are listed as issues to verify in section 13 of `seo-strategy-brief.md`.
 
 1. **Broken/odd links in the hand-published PDF post** (https://newearns.com/compress-pdf-for-email/):
    the H2 "Use a browser-based compressor" links to the unrelated "SEO Marketing
