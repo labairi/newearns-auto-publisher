@@ -355,4 +355,51 @@ def test_shortened_fact_check_urls_fail_closed_at_the_gates():
     assert {"fact_check_claims", "sources_verified"} <= names
     writer.keep_cited_urls(a["fact_check"], [s["url"] for s in a["sources"]])
     assert a["fact_check"]["claims"][0]["source_url"] == ""  # still not supported: nothing was guessed back
-    assert {"fact_check_claims", "sources_verified"} <= {f.split(":")[0] for f in checks(a).failures}
+    assert a["fact_check"]["sources"][0]["url"] != "support.google.com"  # the shortened source was dropped
+    fails = dict(f.split(": ", 1) for f in checks(a).failures)
+    assert "1 marked supported, but its source_url is missing" in fails["fact_check_claims"]
+    assert f"{SOURCE_URLS[0]} was not reviewed by the fact-check" in fails["sources_verified"]
+
+
+def test_factcheck_schema_paths_match_the_base_schema_and_stay_strict():
+    cited = sorted(SOURCE_URLS)
+    base, schema = writer.FACTCHECK_SCHEMA, writer.factcheck_schema(cited)
+    for path in (("claims", "source_url"), ("sources", "url")):
+        assert base["properties"][path[0]]["items"]["properties"][path[1]] == {"type": "string"}
+    def objects(node):
+        if isinstance(node, dict):
+            if node.get("type") == "object":
+                yield node
+            for v in node.values():
+                yield from objects(v)
+    # Same shape as the base schema apart from the two URL enums, and every object stays strict.
+    for o in objects(schema):
+        assert o["additionalProperties"] is False and set(o["required"]) == set(o["properties"])
+    stripped = copy.deepcopy(schema)
+    stripped["properties"]["claims"]["items"]["properties"]["source_url"].pop("enum")
+    stripped["properties"]["sources"]["items"]["properties"]["url"].pop("enum")
+    assert stripped == base
+    # No cited URLs: still a valid, non-empty enum, and nothing it allows survives the backstop.
+    none = writer.factcheck_schema([])
+    assert none["properties"]["sources"]["items"]["properties"]["url"]["enum"] == [""]
+    assert none["properties"]["claims"]["items"]["properties"]["source_url"]["enum"] == [""]
+    assert writer.keep_cited_urls({"claims": [], "sources": [{"url": "", "relevant": True, "notes": ""}]}, [])["sources"] == []
+
+
+@pytest.mark.parametrize("verdict", ["unsupported", "contradicted", "uncertain"])
+def test_empty_claim_url_is_kept_but_only_ever_allowed_on_a_claim_that_already_fails(verdict):
+    a = make_article()
+    cited = [s["url"] for s in a["sources"]]
+    claims = a["fact_check"]["claims"]
+    assert checks(a).passed
+    # An empty URL is allowed by the schema and kept by the backstop: it is the honest answer for no source.
+    claims[0].update(verdict=verdict, source_url="")
+    assert writer.keep_cited_urls(a["fact_check"], cited)["claims"][0]["source_url"] == ""
+    fails = dict(f.split(": ", 1) for f in checks(a).failures)
+    assert set(fails) == {"fact_check_claims"}  # the claim fails on its own verdict, not as a missing source
+    assert fails["fact_check_claims"].startswith(f"1 {quality.VERDICT_LABELS[verdict]}")
+    # A supported claim with an empty URL never passes: it is reported as unread.
+    claims[0].update(verdict="supported", source_url="")
+    fails = dict(f.split(": ", 1) for f in checks(a).failures)
+    assert set(fails) == {"fact_check_claims"}
+    assert fails["fact_check_claims"].startswith(f"1 {quality.VERDICT_LABELS['source_not_read']}")

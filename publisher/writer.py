@@ -446,7 +446,8 @@ def factcheck_schema(cited: list[str]) -> dict:
     conversion step cannot shorten or invent one. A claim's source_url may also be empty."""
     schema = copy.deepcopy(FACTCHECK_SCHEMA)
     schema["properties"]["claims"]["items"]["properties"]["source_url"] = {"type": "string", "enum": cited + [""]}
-    schema["properties"]["sources"]["items"]["properties"]["url"] = {"type": "string", "enum": cited}
+    # An empty enum is not a valid schema; with no cited URLs only "" is allowed, and keep_cited_urls drops it.
+    schema["properties"]["sources"]["items"]["properties"]["url"] = {"type": "string", "enum": cited or [""]}
     return schema
 
 
