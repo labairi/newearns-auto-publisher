@@ -364,7 +364,7 @@ class StockSearch:
             "gsrsearch": f"{query} filetype:bitmap", "prop": "imageinfo",
             "iiprop": "url|size|mime|extmetadata", "iiurlwidth": 1600, "iiextmetadatalanguage": "en",
             "iiextmetadatafilter": "License|LicenseShortName|LicenseUrl|Artist|Restrictions|ImageDescription|"
-                                   "ObjectName|NonFree|Categories"})
+                                   "ObjectName|NonFree|Categories|DateTimeOriginal"})
         out = []
         for page in ((r.json().get("query") or {}).get("pages") or {}).values():
             info = (page.get("imageinfo") or [{}])[0]
@@ -385,7 +385,9 @@ class StockSearch:
                         "creator_url": ("https://" + link.group(1)) if link and not link.group(1).startswith("https")
                         else (link.group(1) if link else ""),
                         "license": lic[0], "license_version": lic[1], "license_url": meta.get("LicenseUrl", ""),
-                        "source": "wikimedia", "width": info.get("width") or 0, "height": info.get("height") or 0})
+                        "source": "wikimedia", "width": info.get("width") or 0, "height": info.get("height") or 0,
+                        "year": int(y.group(0)) if (y := re.search(r"\b(19|20)\d\d\b",
+                                                                   _clean(str(meta.get("DateTimeOriginal", ""))))) else 0})
         return out
 
     def _pexels(self, query: str) -> list[dict]:
@@ -417,21 +419,31 @@ def terms(*texts: str) -> set[str]:
     return out | {w[:-1] for w in out if w.endswith("s")}
 
 
+MIN_SCORE = 5
+OFF_TOPIC = re.compile(r"\b(ceremony|president|minister|treaty|summit|parliament|military|army|burn(ed|t)|battery|"
+                       r"heat pipe|hard drive|museum|historic(al)?|vintage|antique|protest|funeral)\b", re.I)
+
+
 def score(c: dict, article_terms: set[str], keywords: list[str]) -> int:
-    """0 = not usable. Otherwise higher is better: words of this article count three times as
-    much as the pillar's scene words, so the photo fits the article, not just the topic."""
+    """0 = not usable. A word counts double in the photo's own title and once in its description
+    or tags; words of this article count three times as much as the pillar's scene words. It
+    takes about two scene words in the title (a person and a laptop, say) to pass, so a photo of
+    a single object, an old document or a political ceremony does not."""
     desc = c.get("description", "")
-    text = " ".join([desc, c.get("text", ""), *c.get("tags", [])]).lower()
+    rest = " ".join([c.get("text", ""), *c.get("tags", [])]).lower()
+    text = f"{desc.lower()} {rest}"
     if (c.get("width", 0) < FEATURED_SIZE[0] or c.get("height", 0) < FEATURED_SIZE[1]
             or c["width"] < c["height"] or not str(c.get("image_url", "")).startswith("https://")
             or len(re.findall(r"[a-zA-Z]{2,}", desc)) < 2 or re.search(r"\b(img|dsc|dscn|p)[_ -]?\d{3,}", desc, re.I)
-            or NOT_A_PHOTO.search(text)):
+            or NOT_A_PHOTO.search(text) or OFF_TOPIC.search(text) or 0 < c.get("year", 0) < 2008):
         return 0
-    found = terms(text)
-    hits = len(article_terms & found)
-    kw = sum(1 for k in keywords if re.search(rf"\b{re.escape(k.lower())}\b", text))
-    total = 3 * hits + kw
-    return total if total >= 2 else 0
+
+    def has(word, where):
+        return re.search(rf"\b{re.escape(word.lower())}\b", where) is not None
+    in_title = terms(desc)
+    total = sum(3 * (2 if t in in_title else 1) for t in article_terms & terms(text))
+    total += sum(2 if has(k, desc.lower()) else 1 for k in keywords if has(k, text))
+    return total if total >= MIN_SCORE else 0
 
 
 def _used_path() -> Path:

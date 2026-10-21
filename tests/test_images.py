@@ -382,3 +382,27 @@ def test_image_test_makes_a_draft_and_leaves_logs_and_schedule_alone(env, monkey
     assert post["content"].count("wp-image-") == len(wp.media) - 1 == 1  # the Instagramaps screenshot
     assert ledger.read_log() == [] and not (tmp / "schedule_log.jsonl").exists() and not (tmp / "runs").exists()
     assert not (tmp / "image_cache" / "used.json").exists()
+
+
+@pytest.mark.parametrize("desc,text,year", [
+    ("Reagan and Gorbachev signing", "President Reagan and General Secretary Gorbachev signing the treaty documents", 1987),
+    ("Laptop Heat Pipe", "Laptop heat pipe", 0),                     # one object, no scene
+    ("Document signing ceremony", "Ministers sign documents at a ceremony", 2012),
+    ("Woman working at home with laptop and documents", "", 1999),    # too old to look current
+])
+def test_off_topic_historical_or_single_object_photos_rejected(desc, text, year):
+    kw = CFG["images"]["photo_keywords"]["pdf"]
+    c = {"description": desc, "text": text, "tags": [], "width": 4000, "height": 3000, "image_url": "https://x",
+         "year": year}
+    assert images.score(c, images.terms("compress a PDF for email"), kw) == 0
+
+
+def test_scene_with_people_and_the_article_subject_wins():
+    kw = CFG["images"]["photo_keywords"]["pdf"]
+    base = {"text": "", "tags": [], "width": 4000, "height": 3000, "image_url": "https://x", "year": 2021}
+    good = images.score(dict(base, description="Woman working at home with laptop and documents"),
+                        images.terms("compress a PDF for email"), kw)
+    beach = images.score(dict(base, description="Golden Gardens laptop user",
+                              text="Man sitting on a beach, using a laptop computer"),
+                         images.terms("compress a PDF for email"), kw)
+    assert good > beach >= images.MIN_SCORE

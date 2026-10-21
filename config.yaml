@@ -197,15 +197,18 @@ images:
   product_screenshots: true        # own products from `products` only, never third-party sites
   # Scene searches tried after the article's own query.
   photo_queries:
-    pdf: ["laptop documents", "office paperwork", "signing document"]
-    instagram: ["instagram smartphone", "smartphone social media", "woman smartphone"]
-    money: ["freelancer laptop", "home office laptop", "working laptop"]
-  # Scene words for the pillar. A photo needs words from the article (worth 3) or these
-  # (worth 1) in its own title, description or tags, scoring at least 2.
+    pdf: ["woman working laptop documents", "person working laptop office", "laptop documents desk"]
+    instagram: ["instagram smartphone", "woman using smartphone", "content creator smartphone"]
+    money: ["freelancer working laptop", "person working laptop home", "laptop home office"]
+  # Scene words: people and objects that belong in the pillar's photos. Words in the photo's
+  # own title count double; words from the article count three times as much (see score()).
   photo_keywords:
-    pdf: [pdf, document, documents, paper, paperwork, laptop, computer, printer, office, desk, signing, contract]
-    instagram: [instagram, smartphone, phone, mobile, social media, selfie, creator, influencer]
-    money: [laptop, freelance, freelancer, computer, office, desk, working, entrepreneur]
+    pdf: [laptop, computer, document, documents, paperwork, papers, pdf, printer, desk, office, woman, man, person,
+          people, working, using, student, freelancer, typing, reading]
+    instagram: [instagram, smartphone, phone, mobile, social media, selfie, creator, influencer, woman, man, person,
+                people, using, holding, taking]
+    money: [laptop, freelance, freelancer, computer, office, desk, working, entrepreneur, woman, man, person, people,
+            home office, using]
 
 tracking:
   gsc_site_url: sc-domain:newearns.com   # or https://newearns.com/ (URL-prefix property)
