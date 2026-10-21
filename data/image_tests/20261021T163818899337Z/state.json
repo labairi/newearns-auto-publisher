@@ -1,0 +1,77 @@
+{
+  "run_id": "20261021T163818899337Z",
+  "stages": {
+    "images": {
+      "words": 2161,
+      "target": [
+        3,
+        4
+      ],
+      "stock_api_calls": 1,
+      "notes": [
+        "no relevant free stock photo found; used the branded title card"
+      ],
+      "featured": {
+        "provider": "in-house",
+        "license": "generated-in-house",
+        "alt_text": "Title card reading \"Where Your Instagram Followers Live\" on a newearns.com banner",
+        "caption": "",
+        "filename": "image-test-instagram-follower-location-featured.webp",
+        "file": "featured.webp",
+        "bytes": 15788
+      },
+      "inline": [
+        {
+          "provider": "in-house",
+          "license": "generated-in-house",
+          "kind": "steps",
+          "list_index": 1,
+          "heading": "How to see your followers' top locations in the Instagram app",
+          "file": "inline-1.webp",
+          "filename": "image-test-instagram-follower-location-steps-how-to-see-your-followers-top-locations.webp",
+          "width": 1200,
+          "height": 956,
+          "bytes": 71906,
+          "alt_text": "Diagram of the 6 steps in \"How to see your followers' top locations in the Instagram app\": Tap Profile or your profile...",
+          "caption": "At a glance: How to see your followers' top locations in the Instagram app"
+        },
+        {
+          "provider": "in-house",
+          "license": "generated-in-house",
+          "kind": "key-points",
+          "list_index": 3,
+          "heading": "Why the location numbers may not add up",
+          "file": "inline-2.webp",
+          "filename": "image-test-instagram-follower-location-key-points-why-the-location-numbers-may-not-add-up.webp",
+          "width": 1200,
+          "height": 630,
+          "bytes": 43144,
+          "alt_text": "Diagram of 4 key points in \"Why the location numbers may not add up\": Demographic metrics only return the top 45...",
+          "caption": "At a glance: Why the location numbers may not add up"
+        }
+      ]
+    },
+    "wp_media": {
+      "id": 3703,
+      "url": "https://newearns.com/wp-content/uploads/2026/10/image-test-instagram-follower-location-featured.webp"
+    },
+    "wp_media_inline": [
+      {
+        "id": 3704,
+        "url": "https://newearns.com/wp-content/uploads/2026/10/image-test-instagram-follower-location-steps-how-to-see-your-followers-top-locations.webp"
+      },
+      {
+        "id": 3705,
+        "url": "https://newearns.com/wp-content/uploads/2026/10/image-test-instagram-follower-location-key-points-why-the-location-numbers-may-not-add-up.webp"
+      }
+    ],
+    "wp_post": {
+      "id": 3706,
+      "status": "draft",
+      "link": "https://newearns.com/?p=3706"
+    },
+    "image_check": "ok",
+    "final": "image-test-draft"
+  },
+  "updated": "2026-10-21T16:38:55+00:00"
+}
