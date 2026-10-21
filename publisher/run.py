@@ -379,7 +379,7 @@ def cmd_article(cfg: dict, args) -> int:
     if not post:
         media, inline = upload_images(wp, cp, plan, img_bytes, article["slug"])
         # Images go in after the gates and the fact-check, which judged the text itself;
-        # each diagram only restates a list already in that text.
+        # charts only restate a table already in that text, and screenshots carry no claims.
         content_html = images.insert(article["content_html"], plan, inline)
         # Create as draft first, then flip to publish only after the post exists intact.
         post = wp.create_post(title=article["title"], slug=article["slug"], content_html=content_html,

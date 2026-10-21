@@ -3,3 +3,4 @@ requests>=2.32
 pyyaml>=6
 pillow>=11
 google-auth>=2.30
+playwright>=1.48   # product screenshots with the runner's Chrome

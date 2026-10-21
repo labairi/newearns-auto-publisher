@@ -25,7 +25,7 @@ https://newearns.com, then logs it and tracks it in Search Console.
 | Search performance | Google Search Console API (service account, read-only) | $0 |
 | Engagement | GA4 Data API (same service account, read-only) | $0 |
 | Keyword data | Search Console queries + web research on what ranks. Optional later: DataForSEO pay-as-you-go ($50 minimum top-up, about $0.06 per 1,000-keyword volume lookup) | $0 now |
-| Images | Licensed photo for the featured image (Openverse, then Wikimedia Commons; no keys), title card only as a last resort; step diagrams drawn in-house. No paid image API, no AI image generation | $0 |
+| Images | Licensed photo for the featured image (Openverse, then Wikimedia Commons; no keys), title card only as a last resort; own-product screenshots and charts of table figures. No paid image API, no AI image generation | $0 |
 
 n8n was considered: n8n Cloud Starter is about €20/month, and self-hosting needs a
 VPS you maintain. GitHub Actions does the same job for $0, keeps every change
@@ -87,14 +87,18 @@ versioned, and stores the publication log in the repo.
      query is tried. Two failed searches in a row move on to the next source. Failed searches
      are not cached.
    - Last resort: the branded title card, reported as a FALLBACK in the run summary.
-   - Inline images: a diagram of a numbered step list, placed just before it. Never for
-     bulleted lists, never in neighbouring sections or the FAQ, at most 2 per article.
+   - Inline images, at most 2, only where they add something; none just to reach a count:
+     a real screenshot of our own product's page (Private PDF Editor / Instagramaps), captured
+     live with the runner's Chrome at run time, captioned with the date and placed after the
+     paragraph that links it. Third-party apps are never captured or imitated. Also a bar chart
+     of a table that compares quantities (3-8 rows in one unit), placed after the table. A value
+     far above the rest is drawn with a visible break and a note.
    - Files: 1200 px wide WebP (quality 80, no metadata), named `<slug>-featured.webp` /
-     `<slug>-steps-<section>.webp`, with alt text. Successful searches are cached in
+     `<slug>-chart-<section>.webp` / `<slug>-<product>-screenshot.webp`, with alt text. Successful searches are cached in
      `data/image_cache/` for 30 days. A photo is used for one article only. Uploads are
      checkpointed, and a file already in the Media Library under the same name is reused.
    - After the post is created, the run reads it back and checks the featured image, every
-     diagram and every file. If anything is missing, the post is held as Pending Review.
+     inline image and every file. If anything is missing, the post is held as Pending Review.
    - Pexels (free key, better stock) is supported but off. It would need a `PEXELS_API_KEY`
      secret, and that needs the owner's approval first.
    - **image-test-draft** command: images for a saved article (`article_file`), saved as one

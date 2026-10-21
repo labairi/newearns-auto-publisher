@@ -7,9 +7,11 @@ CC BY / BY-SA, the creator are checked before anything is downloaded; the post
 credits the photo. Image search engines are never used. The branded title card is a
 last resort, reported as a fallback.
 
-Inline images: diagrams of the article's own numbered step lists, only where a reader
-follows steps; they add no new claims. No AI image generation is used: the workflow
-runs on GitHub Actions, which has no image model.
+Inline images: only where they add something. A real screenshot of our own product's
+page, captured live at run time and dated, where the article links it (never a
+third-party app screen, never an imitation of one). A bar chart of a table's figures,
+drawn here, where a table compares quantities. No AI image generation is used: the
+workflow runs on GitHub Actions, which has no image model.
 
 Counts follow target_count(); it is a ceiling, not a quota. Successful searches are
 cached in data/image_cache/, and a photo used once is not used for another article.
@@ -101,105 +103,156 @@ def target_count(words: int) -> tuple[int, int]:
     return 4, 5
 
 
-# ---------------------------------------------------------------- diagrams
-def list_card(heading: str, items: list[str], pillar: str, numbered: bool, width: int = 1200) -> tuple[bytes, int]:
-    """A clean summary card of one list: heading band, then numbered steps or check marks."""
-    bg, fg = PALETTES.get(pillar, PALETTES["money"])
-    head_font, item_font, foot_font = _font(44), _font(32, bold=False), _font(26)
-    head_lines = textwrap.wrap(heading, width=40)[:2]
-    item_lines = [textwrap.wrap(t, width=56)[:3] for t in items]
-    head_h = 60 + 56 * len(head_lines)
-    body_h = sum(30 + 42 * len(ls) for ls in item_lines) + 30
-    height = head_h + body_h + 70
-    img = Image.new("RGB", (width, height), (255, 255, 255))
-    d = ImageDraw.Draw(img)
-    d.rectangle([0, 0, width, head_h], fill=bg)
-    y = 30
-    for line in head_lines:
-        d.text((60, y), line, font=head_font, fill=fg)
-        y += 56
-    y = head_h + 30
-    for n, lines in enumerate(item_lines, 1):
-        cx, cy = 90, y + 20
-        d.ellipse([cx - 24, cy - 24, cx + 24, cy + 24], fill=bg)
-        mark = str(n) if numbered else "\u2022"
-        mw = d.textlength(mark, font=_font(28))
-        d.text((cx - mw / 2, cy - 17), mark, font=_font(28), fill=fg)
-        for line in lines:
-            d.text((140, y + 2), line, font=item_font, fill=(33, 33, 33))
-            y += 42
-        y += 30
-    d.line([60, height - 60, width - 60, height - 60], fill=(225, 225, 225), width=2)
-    d.text((60, height - 46), "newearns.com", font=foot_font, fill=bg)
-    return _webp(img), height
-
-
-TAG = re.compile(r"<(/?)(h2|ol|ul|li)\b[^>]*>", re.I)
-
-
+# ---------------------------------------------------------------- inline visuals
 def _clean(fragment: str) -> str:
     text = re.sub(r"\s+", " ", htmllib.unescape(re.sub(r"<[^>]+>", " ", fragment))).strip()
     return re.sub(r"\s+([,.;:!?)])", r"\1", text)
 
 
-def _lead(item_html: str) -> str:
-    """The short label of a list item: its bold lead-in, else its first sentence."""
-    m = re.match(r"\s*<(strong|b)>(.*?)</\1>", item_html, re.S | re.I)
-    text = _clean(m.group(2)) if m else re.split(r"(?<=[.!?:])\s", _clean(item_html))[0]
-    text = text.rstrip(".:;, ")
-    return text if len(text) <= 110 else text[:107].rsplit(" ", 1)[0].rstrip(",;:") + "..."
+SIZE_UNITS = {"kb": 1 / 1024, "mb": 1, "gb": 1024, "tb": 1024 * 1024}
+VALUE = re.compile(r"(?<![\w.])(\d+(?:\.\d+)?)\s*(KB|MB|GB|TB|%|percent\b|minutes?\b|hours?\b|days?\b|seconds?\b)",
+                   re.I)
 
 
-def top_level_lists(content_html: str) -> list[dict]:
-    """Top-level <ol>/<ul> blocks with their offset, the H2 they sit under and their item labels."""
-    out, depth, h2, h2_start, cur, li_start, li_depth = [], 0, "", None, None, None, 0
-    for m in TAG.finditer(content_html):
-        close, tag = m.group(1) == "/", m.group(2).lower()
-        if tag == "h2":
-            if close and h2_start is not None:
-                h2 = _clean(content_html[h2_start:m.start()])
-                h2_start = None
-            elif not close:
-                h2_start = m.end()
-        elif tag in ("ol", "ul"):
-            if not close:
-                if depth == 0:
-                    cur = {"tag": tag, "start": m.start(), "heading": h2, "items": []}
-                elif depth == 1 and li_start is not None and cur is not None:
-                    # A nested list ends the parent item's label.
-                    cur["items"].append(_lead(content_html[li_start:m.start()]))
-                    li_start = None
-                depth += 1
-            else:
-                depth = max(0, depth - 1)
-                if depth == 0 and cur is not None:
-                    out.append(cur)
-                    cur = None
-        elif tag == "li" and depth == 1 and cur is not None:
-            if not close:
-                li_start = m.end()
-            elif li_start is not None:
-                cur["items"].append(_lead(content_html[li_start:m.start()]))
-                li_start = None
-    for i, lst in enumerate(out):
-        lst["index"] = i
-        lst["items"] = [t for t in lst["items"] if t]
+def _value(cell: str) -> tuple[float, str, str] | None:
+    """(number, unit family, text as written) for the first quantity in a cell."""
+    m = VALUE.search(cell)
+    if not m:
+        return None
+    n, unit = float(m.group(1)), m.group(2).lower()
+    if unit in SIZE_UNITS:
+        return n * SIZE_UNITS[unit], "MB", f"{m.group(1)} {m.group(2).upper()}"
+    unit = {"percent": "%"}.get(unit, unit.rstrip("s"))
+    return n, unit, m.group(0)
+
+
+def tables(content_html: str) -> list[dict]:
+    """Every <table>: where it ends, the H2 above it, its header and its rows as plain text."""
+    out = []
+    for i, m in enumerate(re.finditer(r"<table\b.*?</table>", content_html, re.S | re.I)):
+        h2s = re.findall(r"<h2[^>]*>(.*?)</h2>", content_html[:m.start()], re.S | re.I)
+        rows = [[_clean(c) for c in re.findall(r"<t[hd][^>]*>(.*?)</t[hd]>", r, re.S | re.I)]
+                for r in re.findall(r"<tr[^>]*>(.*?)</tr>", m.group(0), re.S | re.I)]
+        head = rows[0] if rows and re.search(r"<th\b", m.group(0), re.I) else []
+        out.append({"index": i, "end": m.end(), "heading": _clean(h2s[-1]) if h2s else "",
+                    "header": head, "rows": rows[1:] if head else rows})
     return out
 
 
-def pick_lists(lists: list[dict], want_max: int) -> list[dict]:
-    """Numbered step lists only: a diagram of real steps helps a reader follow along; a diagram
-    of a bulleted list would just repeat it. One per section, never two in neighbouring
-    sections, never the FAQ. Fewer than want_max is fine: there is no quota."""
-    headings = list(dict.fromkeys(l["heading"] for l in lists))
-    chosen: list[dict] = []
-    for lst in lists:
-        h = lst["heading"].lower()
-        if (len(chosen) < want_max and lst["tag"] == "ol" and 3 <= len(lst["items"]) <= 8 and lst["heading"]
-                and not h.startswith("faq") and "frequently asked" not in h
-                and all(abs(headings.index(c["heading"]) - headings.index(lst["heading"])) > 1 for c in chosen)):
-            chosen.append(lst)
-    return chosen
+def chart_data(table: dict) -> dict | None:
+    """A column worth charting: 3-8 rows, almost every row has a quantity, all in one unit
+    family. The bars show only what the table already states."""
+    rows, head = table["rows"], table["header"]
+    if not head or not 3 <= len(rows) <= 8:
+        return None
+    for col in range(1, len(head)):
+        vals = [(_clean(r[0]), _value(r[col])) for r in rows if len(r) > col]
+        found = [(label, v) for label, v in vals if v]
+        if len(found) >= 3 and len(found) >= 0.75 * len(rows) and len({v[1] for _, v in found}) == 1:
+            return {"title": table["heading"] or head[col], "label_header": head[0], "value_header": head[col],
+                    "unit": found[0][1][1], "bars": [{"label": label, "value": v[0], "text": v[2]} for label, v in found]}
+    return None
+
+
+def bar_chart(data: dict, pillar: str, width: int = 1200) -> tuple[bytes, int]:
+    """A horizontal bar chart drawn at 2x and scaled down, so text and bars are smooth."""
+    k = 2
+    accent = PALETTES.get(pillar, PALETTES["money"])[0]
+    track, ink, muted = (238, 240, 243), (28, 30, 34), (102, 108, 118)
+    title_f, sub_f, label_f, value_f, foot_f = (_font(38 * k), _font(24 * k, bold=False), _font(23 * k, bold=False),
+                                                _font(23 * k), _font(19 * k, bold=False))
+    title = textwrap.wrap(data["title"], width=48)[:2]
+    labels = []
+    for b in data["bars"]:
+        lines = textwrap.wrap(b["label"], width=32)
+        labels.append(lines if len(lines) <= 3 else lines[:2] + [textwrap.shorten(" ".join(lines[2:]), 29, placeholder="...")])
+    row_h = [max(64, 30 * len(ls) + 22) for ls in labels]
+    top = 48 + 48 * len(title) + 52
+    height = top + sum(row_h) + 120
+    img = Image.new("RGB", (width * k, height * k), (255, 255, 255))
+    d = ImageDraw.Draw(img)
+    y = 48
+    for line in title:
+        d.text((56 * k, y * k), line, font=title_f, fill=ink)
+        y += 48
+    d.text((56 * k, (y + 8) * k), f"{data['value_header']} by {data['label_header'].lower()}", font=sub_f, fill=muted)
+    left, right = 470, width - 150
+    values = sorted(b["value"] for b in data["bars"])
+    # One value far above the rest would flatten every other bar: cut that bar short, with a
+    # visible break, and say so under the chart.
+    broken = len(values) > 2 and values[-1] > 3 * values[-2] > 0
+    top_value = (values[-2] * 1.25 if broken else values[-1]) or 1
+    y = top
+    for bar, lines, h in zip(data["bars"], labels, row_h):
+        ty = y + (h - 30 * len(lines)) / 2
+        for line in lines:
+            d.text((56 * k, ty * k), line, font=label_f, fill=ink)
+            ty += 30
+        by = y + (h - 30) / 2
+        d.rounded_rectangle([left * k, by * k, right * k, (by + 30) * k], radius=8 * k, fill=track)
+        end = left + max(12, (right - left) * min(bar["value"], top_value) / top_value)
+        d.rounded_rectangle([left * k, by * k, end * k, (by + 30) * k], radius=8 * k, fill=accent)
+        if bar["value"] > top_value:
+            for dx in (-34, -22):
+                d.polygon([((end + dx) * k, (by + 34) * k), ((end + dx + 6) * k, (by + 34) * k),
+                           ((end + dx + 16) * k, (by - 4) * k), ((end + dx + 10) * k, (by - 4) * k)],
+                          fill=(255, 255, 255))
+        d.text(((end + 12) * k, (by + 2) * k), bar["text"], font=value_f, fill=ink)
+        y += h
+    d.line([56 * k, (height - 88) * k, (width - 56) * k, (height - 88) * k], fill=track, width=2 * k)
+    note = "Figures from the table in this article; each row links to its source."
+    if broken:
+        note = "Longest bar shortened to fit (see its value). " + note.replace("; each row", ". Each row")
+    d.text((56 * k, (height - 72) * k), note, font=foot_f, fill=muted)
+    d.text((56 * k, (height - 42) * k), "newearns.com", font=_font(19 * k), fill=accent)
+    return _webp(img.resize((width, height), Image.LANCZOS)), height
+
+
+def product_mentions(cfg: dict, content_html: str) -> list[dict]:
+    """First link to each of our own products, with the page it points to (query string dropped)."""
+    out, seen = [], set()
+    for key, prod in (cfg.get("products") or {}).items():
+        host = prod["url"].split("/")[2]
+        m = re.search(rf'href="(https://{re.escape(host)}[^"?#]*)[^"]*"', content_html)
+        if m and host not in seen:
+            seen.add(host)
+            out.append({"product": key, "name": prod["name"], "url": m.group(1), "at": m.start()})
+    return sorted(out, key=lambda x: x["at"])
+
+
+def screenshot(url: str, width: int = 1280, height: int = 800) -> tuple[bytes, str]:
+    """The live page as a visitor sees it now (top of the page), and its title. Uses the
+    runner's Chrome through Playwright; raises if the page doesn't load."""
+    from playwright.sync_api import sync_playwright
+    with sync_playwright() as p:
+        browser, why = None, ""
+        tries = [{"executable_path": os.environ["CHROME_PATH"]}] if os.environ.get("CHROME_PATH") else []
+        for kw in tries + [{"channel": "chrome"}, {}]:
+            try:
+                browser = p.chromium.launch(**kw)
+                break
+            except Exception as e:  # no Chrome installed: try Playwright's own Chromium
+                why = str(e)[:200]
+        if browser is None:
+            raise RuntimeError(f"no browser: {why}")
+        try:
+            page = browser.new_page(viewport={"width": width, "height": height}, locale="en-US")
+            resp = page.goto(url, wait_until="networkidle", timeout=45000)
+            if not resp or resp.status >= 400:
+                raise RuntimeError(f"{url} returned {resp.status if resp else 'nothing'}")
+            page.wait_for_timeout(1500)
+            return page.screenshot(full_page=False), page.title()
+        finally:
+            browser.close()
+
+
+def framed(png: bytes, width: int = 1200) -> tuple[bytes, int]:
+    """Scale a screenshot to article width with a hairline border, so it reads as a screen."""
+    img = Image.open(io.BytesIO(png)).convert("RGB")
+    img = img.resize((width - 2, round(img.height * (width - 2) / img.width)), Image.LANCZOS)
+    out = Image.new("RGB", (width, img.height + 2), (214, 218, 224))
+    out.paste(img, (1, 1))
+    return _webp(out), out.height
 
 
 # ---------------------------------------------------------------- stock photos
@@ -460,6 +513,52 @@ def featured_photo(cfg: dict, pillar: str, queries: list[str], article_terms: se
     return None
 
 
+def inline_visuals(cfg: dict, article: dict, pillar: str, out_dir: Path, limit: int, say=print,
+                   shoot=None) -> list[dict]:
+    """Visuals that add something the text alone doesn't: a real, dated screenshot of our own
+    product page where the article links it, then a chart of a table's figures. Nothing is
+    made to fill a count, no third-party app screen is ever captured or imitated."""
+    ic, html, slug, out = cfg.get("images") or {}, article["content_html"], article["slug"], []
+    today = time.strftime("%Y-%m-%d", time.gmtime())
+    if ic.get("product_screenshots", True):
+        for m in product_mentions(cfg, html)[:1]:
+            if len(out) >= limit:
+                break
+            try:
+                png, title = (shoot or screenshot)(m["url"])
+                data, height = framed(png)
+            except Exception as e:
+                say(f"Images: no screenshot of {m['url']} ({str(e)[:160]}).")
+                continue
+            n = len(out) + 1
+            (out_dir / f"inline-{n}.webp").write_bytes(data)
+            where = m["url"].split("//", 1)[1].rstrip("/")
+            page = f' page "{title.strip()}"' if title.strip() else ""
+            out.append({"provider": "in-house", "license": "own-screenshot", "kind": "screenshot",
+                        "anchor": {"href": m["url"]}, "file": f"inline-{n}.webp", "url_shot": m["url"],
+                        "filename": f"{slug}-{slugify(m['name'], 30)}-screenshot.webp", "width": 1200,
+                        "height": height, "bytes": len(data), "captured": today,
+                        "alt_text": _cap(f"Screenshot of the {m['name']}{page} at {where}"),
+                        "caption": f"{m['name']} ({where}), screenshot taken {today}."})
+    for t in tables(html):
+        if len(out) >= limit:
+            break
+        data = chart_data(t)
+        if not data:
+            continue
+        img, height = bar_chart(data, pillar)
+        n = len(out) + 1
+        (out_dir / f"inline-{n}.webp").write_bytes(img)
+        out.append({"provider": "in-house", "license": "generated-in-house", "kind": "chart",
+                    "anchor": {"table_index": t["index"]}, "file": f"inline-{n}.webp",
+                    "filename": f"{slug}-chart-{slugify(data['title'], 40)}.webp", "width": 1200, "height": height,
+                    "bytes": len(img), "heading": data["title"],
+                    "alt_text": _cap(f"Bar chart of {data['value_header'].lower()} by {data['label_header'].lower()}: "
+                                     + "; ".join(f"{b['label']} {b['text']}" for b in data["bars"])),
+                    "caption": f"The figures from the table above, side by side."})
+    return out
+
+
 # ---------------------------------------------------------------- plan
 def build(cfg: dict, article: dict, pillar: str, out_dir: Path, *, query: str | None = None,
           search: StockSearch | None = None, say=print, get=requests.get) -> dict:
@@ -504,23 +603,10 @@ def build(cfg: dict, article: dict, pillar: str, out_dir: Path, *, query: str | 
     plan["featured"]["file"] = "featured.webp"
     plan["featured"]["bytes"] = len(data)
 
-    inline = []
-    for n, lst in enumerate(pick_lists(top_level_lists(article["content_html"]),
-                                       min(hi - 1, ic.get("max_inline", 2))), 1):
-        heading = lst["heading"]
-        data, height = list_card(heading, lst["items"], pillar, numbered=True)
-        (out_dir / f"inline-{n}.webp").write_bytes(data)
-        inline.append({"provider": "in-house", "license": "generated-in-house", "kind": "steps",
-                       "list_index": lst["index"], "heading": heading, "file": f"inline-{n}.webp",
-                       "filename": f"{slug}-steps-{slugify(heading, 40)}.webp", "width": 1200, "height": height,
-                       "bytes": len(data),
-                       "alt_text": _cap(f'Diagram of the {len(lst["items"])} steps in "{heading}": '
-                                        + "; ".join(lst["items"])),
-                       "caption": f"At a glance: {heading}"})
-    plan["inline"] = inline
-    if 1 + len(inline) < lo:
-        plan["notes"].append(f"{1 + len(inline)} image(s), below the {lo}-{hi} guideline: no other step-by-step "
-                             "section would gain from a diagram, and decorative images are not added")
+    plan["inline"] = inline_visuals(cfg, article, pillar, out_dir, min(hi - 1, ic.get("max_inline", 2)), say=say)
+    if 1 + len(plan["inline"]) < lo:
+        plan["notes"].append(f"{1 + len(plan['inline'])} image(s), below the {lo}-{hi} guideline: nothing else in "
+                             "the article would gain from a visual, and decorative images are not added")
     return plan
 
 
@@ -553,18 +639,43 @@ def credit_line(plan: dict) -> str:
             f"{by} {lic}; cropped and converted to WebP.{same}</small></p>")
 
 
+def _anchor_at(content_html: str, anchor: dict) -> int | None:
+    """Where a visual goes: just after its table, or after the paragraph that links the product
+    (and after the ownership disclosure that follows it)."""
+    if "table_index" in anchor:
+        t = [t for t in tables(content_html) if t["index"] == anchor["table_index"]]
+        return t[0]["end"] if t else None
+    m = re.search(rf'href="{re.escape(anchor["href"])}', content_html)
+    if not m:
+        return None
+    ends = [i for i in (content_html.find("</p>", m.end()), content_html.find("</li>", m.end())) if i != -1]
+    if not ends:
+        return None
+    at = min(ends)
+    if content_html.startswith("</li>", at):  # inside a list: after the whole list
+        close = re.search(r"</(ul|ol)>", content_html[at:])
+        at = at + close.end() if close else at + 5
+    else:
+        at += 4
+    nxt = re.match(r"\s*<p><em>Disclosure:.*?</p>", content_html[at:], re.S)
+    return at + nxt.end() if nxt else at
+
+
 def insert(content_html: str, plan: dict, uploaded: list[dict]) -> str:
-    """Each diagram goes just before the list it summarises; the credit line goes last."""
-    starts = {l["index"]: l["start"] for l in top_level_lists(content_html)}
+    """Each inline visual goes at its anchor; the photo credit goes last."""
+    placed = []
+    for img, media in zip(plan.get("inline", []), uploaded):
+        at = _anchor_at(content_html, img["anchor"])
+        if at is not None:
+            placed.append((at, figure(media["url"], media["id"], img)))
     out = content_html
-    for img, media in sorted(zip(plan.get("inline", []), uploaded), key=lambda p: -starts[p[0]["list_index"]]):
-        at = starts[img["list_index"]]
-        out = out[:at] + figure(media["url"], media["id"], img) + out[at:]
+    for at, fig in sorted(placed, key=lambda p: -p[0]):
+        out = out[:at] + fig + out[at:]
     return out + credit_line(plan)
 
 
 def check_in_post(post: dict, featured: dict, uploaded: list[dict], get=requests.get) -> list[str]:
-    """Problems with the images in the saved post: featured image set, every diagram in the
+    """Problems with the images in the saved post: featured image set, every inline image in the
     stored content, and every file served as an image."""
     problems = []
     if post.get("featured_media") != featured["id"]:
@@ -595,6 +706,9 @@ def report(plan: dict) -> list[str]:
     rows = [f"{plan['words']} words; guideline {plan['target'][0]}-{plan['target'][1]} images; "
             f"using {1 + len(plan['inline'])}. Image cost: $0 (free stock API calls this run: {plan['stock_api_calls']}).",
             f"- featured: {src}; alt: {f['alt_text']!r}; {f['bytes'] // 1024} KB"]
-    rows += [f"- steps diagram before the list under {i['heading']!r}; {i['bytes'] // 1024} KB" for i in plan["inline"]]
+    for i in plan["inline"]:
+        where = (f"after the table under {i['heading']!r}" if i["kind"] == "chart"
+                 else f"after the paragraph linking {i['url_shot']}")
+        rows.append(f"- {i['kind']} ({i['license']}) {where}; {i['width']}x{i['height']}; {i['bytes'] // 1024} KB")
     rows += [f"- search: {s['provider']} {s['query']!r} -> {s['result']}" for s in plan.get("photo_searches", [])]
     return rows + [f"- note: {n}" for n in plan["notes"]]

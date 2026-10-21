@@ -11,14 +11,24 @@ from tests.test_pipeline import CFG, EXISTING, env, make_article, ok_links, writ
 
 SAVED = Path(__file__).resolve().parent.parent / "data/runs/20261021T113230521140Z/article.json"
 
-STEPS = ("<h2>Intro</h2><p>Hello.</p>"
-         "<h2>How to do it in the app</h2><p>Open the app.</p>"
-         "<ol><li><strong>Open your profile.</strong> Tap the icon.</li><li>Tap Insights. Then wait.</li>"
-         "<li>Choose Total followers<ul><li>nested</li></ul></li></ol>"
-         "<h2>Adjacent section</h2><ol><li>a one</li><li>b two</li><li>c three</li></ol>"
-         "<h2>Things to check</h2><ul><li>One thing</li><li>Two things</li><li>Three things</li></ul>"
-         "<h2>Later steps</h2><ol><li>x one</li><li>y two</li><li>z three</li></ol>"
-         "<h2>FAQ</h2><ol><li>q</li><li>r</li><li>s</li></ol>")
+LIMITS = ("<h2>Check which attachment limit applies to you</h2><p>Limits differ.</p>"
+          "<table><thead><tr><th>Provider</th><th>Limit</th><th>Source</th></tr></thead><tbody>"
+          "<tr><td>Gmail</td><td>25 MB total</td><td><a href='https://a'>Gmail Help</a></td></tr>"
+          "<tr><td>Outlook desktop</td><td>20 MB default</td><td>x</td></tr>"
+          "<tr><td>Exchange Server</td><td>10 MB default</td><td>x</td></tr>"
+          "<tr><td>Apple Mail Drop</td><td>5 GB</td><td>x</td></tr></tbody></table>"
+          "<h2>Pick a method</h2><table><thead><tr><th>You have</th><th>Method</th></tr></thead><tbody>"
+          "<tr><td>A Mac</td><td>Preview</td></tr><tr><td>Acrobat</td><td>Compress</td></tr>"
+          "<tr><td>Word</td><td>Export</td></tr></tbody></table>"
+          "<p>Try the <a href=\"https://private-pdf-editor.com/compress?utm_source=newearns\">Private PDF Editor "
+          "compressor</a>.</p><p><em>Disclosure: Private PDF Editor is built by the team behind New Earns.</em></p>"
+          "<h2>FAQ</h2><p>Done.</p>")
+
+
+def png(w=1280, h=800):
+    buf = io.BytesIO()
+    Image.new("RGB", (w, h), (240, 240, 250)).save(buf, "PNG")
+    return buf.getvalue()
 
 
 def jpeg(w=1600, h=1000):
@@ -123,31 +133,71 @@ def test_image_targets_follow_word_count_guideline(words, expected):
     assert images.target_count(words) == expected
 
 
-def test_lists_are_found_with_their_section_and_short_labels():
-    lists = images.top_level_lists(STEPS)
-    assert [l["tag"] for l in lists] == ["ol", "ol", "ul", "ol", "ol"]  # nested list not counted
-    assert lists[0]["heading"] == "How to do it in the app"
-    assert lists[0]["items"] == ["Open your profile", "Tap Insights", "Choose Total followers"]
+def test_chart_only_from_a_table_of_quantities_in_one_unit():
+    tabs = images.tables(LIMITS)
+    data = images.chart_data(tabs[0])
+    assert data["title"] == "Check which attachment limit applies to you" and data["unit"] == "MB"
+    assert [(b["label"], b["value"], b["text"]) for b in data["bars"]] == [
+        ("Gmail", 25, "25 MB"), ("Outlook desktop", 20, "20 MB"), ("Exchange Server", 10, "10 MB"),
+        ("Apple Mail Drop", 5120, "5 GB")]
+    assert images.chart_data(tabs[1]) is None  # no quantities: no chart
+    mixed = dict(tabs[0], rows=[["a", "5 MB"], ["b", "10%"], ["c", "3 days"]])
+    assert images.chart_data(mixed) is None
+    assert images.chart_data(dict(tabs[0], rows=tabs[0]["rows"][:2])) is None  # too few rows
 
 
-def test_diagrams_only_for_step_lists_never_bullets_neighbours_or_faq():
-    lists = images.top_level_lists(STEPS)
-    assert [l["heading"] for l in images.pick_lists(lists, 3)] == ["How to do it in the app", "Later steps"]
-    assert [l["heading"] for l in images.pick_lists(lists, 1)] == ["How to do it in the app"]
-    assert images.pick_lists(lists, 0) == []
+def test_chart_renders_as_a_compact_webp_with_outlier_break():
+    data = images.chart_data(images.tables(LIMITS)[0])
+    img, height = images.bar_chart(data, "pdf")
+    pic = Image.open(io.BytesIO(img))
+    assert pic.format == "WEBP" and pic.size == (1200, height) and len(img) < 80_000
 
 
-def test_saved_article_gets_only_useful_diagrams_and_reports_fallback(data):
+def test_screenshot_only_of_our_own_product_page_placed_after_its_paragraph(data):
+    shots = []
+
+    def shoot(url):
+        shots.append(url)
+        return png(), "Compress PDF - Private PDF Editor"
+    art = dict(make_article(), content_html=LIMITS + '<p><a href="https://adobe.com/acrobat">Acrobat</a></p>')
+    inline = images.inline_visuals(CFG, art, "pdf", data, 2, shoot=shoot)
+    assert shots == ["https://private-pdf-editor.com/compress"]  # UTM dropped, Adobe never captured
+    shot, chart = inline
+    assert shot["kind"] == "screenshot" and shot["license"] == "own-screenshot"
+    assert shot["alt_text"] == ('Screenshot of the Private PDF Editor page "Compress PDF - Private PDF Editor" '
+                                "at private-pdf-editor.com/compress")
+    assert "screenshot taken" in shot["caption"] and shot["filename"].endswith("-private-pdf-editor-screenshot.webp")
+    assert chart["kind"] == "chart" and chart["alt_text"].startswith("Bar chart of limit by provider: Gmail 25 MB")
+    up = [{"id": 21, "url": "https://newearns.com/u/s.webp"}, {"id": 22, "url": "https://newearns.com/u/c.webp"}]
+    out = images.insert(LIMITS, {"featured": {"provider": "in-house"}, "inline": inline}, up)
+    assert out.index("wp-image-22") > out.index("</table>") and out.index("wp-image-22") < out.index("<h2>Pick")
+    assert out.index("wp-image-21") > out.index("Disclosure:") and out.index("wp-image-21") < out.index("<h2>FAQ")
+
+
+def test_no_inline_visual_when_nothing_would_add_value(data):
+    art = dict(make_article(), content_html="<h2>Steps</h2><ol><li>Open</li><li>Save</li><li>Send</li></ol>")
+    assert images.inline_visuals(CFG, art, "pdf", data, 2) == []
+
+
+def test_failed_screenshot_is_skipped_not_faked(data):
+    def broken(url):
+        raise RuntimeError("timeout")
+    said = []
+    inline = images.inline_visuals(CFG, dict(make_article(), content_html=LIMITS), "pdf", data, 2, say=said.append,
+                                   shoot=broken)
+    assert [i["kind"] for i in inline] == ["chart"] and "no screenshot" in said[0]
+
+
+def test_saved_article_reports_fallback_and_stays_under_the_ceiling(data):
     art = json.loads(SAVED.read_text())
     plan = images.build(CFG, art, "instagram", data, search=stock(data, fake_get([], openverse={"results": []},
                                                                                 commons={"query": {}})))
     assert plan["featured"]["fallback"] and any(n.startswith("FALLBACK") for n in plan["notes"])
-    assert [i["kind"] for i in plan["inline"]] == ["steps"]  # the second step list is in the next section
-    assert any("below the 3-4 guideline" in n for n in plan["notes"])
-    for i in [plan["featured"], *plan["inline"]]:
-        assert 10 <= len(i["alt_text"]) <= 125 and i["filename"].startswith(art["slug"])
-        img = Image.open(data / i["file"])
-        assert img.format == "WEBP" and img.width == 1200 and (data / i["file"]).stat().st_size < 150_000
+    assert plan["inline"] == []  # no table of quantities, and no browser in tests
+    f = plan["featured"]
+    assert 10 <= len(f["alt_text"]) <= 125 and f["filename"].startswith(art["slug"])
+    img = Image.open(data / f["file"])
+    assert img.format == "WEBP" and img.width == 1200
 
 
 # ---------------------------------------------------------------- licences and relevance
@@ -265,23 +315,15 @@ def test_pexels_only_with_a_key(data):
 
 
 # ---------------------------------------------------------------- insertion, upload, checks
-def test_diagrams_inserted_before_their_lists_and_checked_in_post():
-    art = json.loads(SAVED.read_text())
-    lists = images.top_level_lists(art["content_html"])
-    plan = {"featured": {"provider": "in-house"},
-            "inline": [{"list_index": l["index"], "alt_text": "Diagram of steps", "caption": "At a glance",
-                        "width": 1200, "height": 500} for l in lists[1:3]]}
-    up = [{"id": 11, "url": "https://newearns.com/wp-content/uploads/a.webp"},
-          {"id": 12, "url": "https://newearns.com/wp-content/uploads/b.webp"}]
-    out = images.insert(art["content_html"], plan, up)
-    for m, lst in zip(up, lists[1:3]):
-        at = out.index(f"wp-image-{m['id']}")
-        assert out.index("<" + lst["tag"], at) - at < 400
+def test_images_checked_in_the_saved_post():
+    up = [{"id": 11, "url": "https://newearns.com/wp-content/uploads/a.webp"}]
+    inline = [{"anchor": {"table_index": 0}, "alt_text": "Bar chart", "caption": "c", "width": 1200, "height": 500}]
+    out = images.insert(LIMITS, {"featured": {"provider": "in-house"}, "inline": inline}, up)
     post = {"featured_media": 10, "content": {"raw": out}}
     feat = {"id": 10, "url": "https://newearns.com/wp-content/uploads/f.webp"}
     ok = lambda *a, **k: Resp(ctype="image/webp")
     assert images.check_in_post(post, feat, up, get=ok) == []
-    assert images.check_in_post({"featured_media": 0, "content": {"raw": art["content_html"]}}, feat, up, get=ok)
+    assert images.check_in_post({"featured_media": 0, "content": {"raw": LIMITS}}, feat, up, get=ok)
     assert images.check_in_post(post, feat, up, get=lambda *a, **k: Resp(status=404, ctype="text/html"))
 
 
@@ -301,8 +343,9 @@ def test_published_post_carries_images_and_gates_still_judge_the_text(env):
     wp, tmp, _ = env
     art = make_article()
     art["content_html"] = art["content_html"].replace(
-        "<h2>Section 3: step three</h2>", "<h2>Section 3: step three</h2><ol><li>Open it</li><li>Shrink it</li>"
-        "<li>Send it</li></ol>")
+        "<h2>Section 3: step three</h2>", "<h2>Section 3: step three</h2><table><tr><th>Provider</th><th>Limit</th></tr>"
+        "<tr><td>Gmail</td><td>25 MB</td></tr><tr><td>Outlook</td><td>20 MB</td></tr>"
+        "<tr><td>Exchange</td><td>10 MB</td></tr></table>")
     art["fact_check"]["content_sha256"] = quality.content_fingerprint(art["content_html"])
     assert run.main(["article", "--article-file", write(tmp, art)]) == 0
     post = next(iter(wp.posts.values()))
@@ -329,12 +372,13 @@ def test_image_problem_holds_post_for_review(env, monkeypatch):
     assert [p["status"] for p in wp.posts.values()] == ["pending"]
 
 
-def test_image_test_makes_a_draft_and_leaves_logs_and_schedule_alone(env):
+def test_image_test_makes_a_draft_and_leaves_logs_and_schedule_alone(env, monkeypatch):
     wp, tmp, _ = env
+    monkeypatch.setattr(images, "screenshot", lambda url: (png(), "Instagramaps"))
     f = write(tmp, json.loads(SAVED.read_text()))
     assert run.main(["image-test", "--article-file", f]) == 0
     (post,) = wp.posts.values()
     assert post["status"] == "draft" and post["slug"].startswith("image-test-") and ("status", "publish") not in wp.calls
-    assert post["content"].count("wp-image-") == len(wp.media) - 1 >= 1
+    assert post["content"].count("wp-image-") == len(wp.media) - 1 == 1  # the Instagramaps screenshot
     assert ledger.read_log() == [] and not (tmp / "schedule_log.jsonl").exists() and not (tmp / "runs").exists()
     assert not (tmp / "image_cache" / "used.json").exists()
