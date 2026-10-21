@@ -162,7 +162,7 @@ class FakeWP:
         return [{"id": p["id"], "slug": p["slug"], "link": p["link"], "title": {"rendered": p["title"]},
                  "content": {"rendered": p["text"]}, "aioseo_meta_data": {}} for p in EXISTING] + \
                [{"id": p["id"], "slug": p["slug"], "link": p["link"], "title": {"rendered": p["title"]},
-                 "content": {"rendered": p["content"]}, "aioseo_meta_data": {}}
+                 "content": {"rendered": p["content"]}, "aioseo_meta_data": {}, "date_gmt": p.get("date_gmt")}
                 for p in self.posts.values() if p["status"] == "publish"]
 
     def categories(self):
