@@ -167,6 +167,9 @@ def cmd_scheduled(cfg: dict, args) -> int:
     if args.article_file or args.pillar or args.topic or args.dry_run or args.refresh_fact_check or args.force:
         say("Refused: --scheduled picks its own calendar topic; it takes no other article options.")
         return 7
+    # A public read, before any skip check: held posts that went live since are logged as published.
+    for e in schedule.reconcile(WordPress.from_env(cfg["site"]["base_url"]).all_posts()):
+        say(f"Logged post {e['post_id']} as published: it is live at {e['url']} ({e['note']}).")
     why = schedule.skip_reason(cfg)
     if why:
         say(why)

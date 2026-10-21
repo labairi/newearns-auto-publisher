@@ -275,3 +275,88 @@ def test_skips_happen_before_any_claude_call_even_with_no_api_key(env, monkeypat
     log("draft", 2)
     assert run.main(["article", "--scheduled"]) == 0
     assert sched_log() == []
+
+
+# ------------------------------------------------------------ posts that went live outside the pipeline
+def held_post(wp, pid, run_id, entry, hours, published_by_hand_hours=None):
+    """A held run of `entry` (log + checkpoint + WordPress post), optionally published by hand later."""
+    checkpoint(run_id, pillar=entry["pillar"], topic=entry["topic"], final="held_for_review")
+    log("held_for_review", hours, run_id=run_id, post_id=pid, pillar=entry["pillar"], slug=f"slug-{pid}")
+    wp.posts[pid] = {"id": pid, "slug": f"slug-{pid}", "status": "pending", "title": entry["topic"],
+                     "content": "<p>x</p>", "link": f"https://newearns.com/slug-{pid}/"}
+    if published_by_hand_hours is not None:
+        wp.posts[pid].update(status="publish", date_gmt=ago(published_by_hand_hours)[:19])
+
+
+def test_post_published_by_hand_is_logged_once_and_its_topic_is_skipped(env, calls):
+    wp, tmp, _ = env
+    held_post(wp, 3695, "r1", FIRST, hours=40, published_by_hand_hours=39)
+    assert run.main(["article", "--scheduled"]) == 0
+    live = [e for e in ledger.read_log() if e.get("post_id") == 3695 and e["status"] == "published"]
+    assert len(live) == 1 and live[0]["source"] == "wordpress" and live[0]["calendar_topic"] == FIRST["topic"]
+    assert live[0]["date"].startswith(ago(39)[:16])  # when it actually went live, for the 20-hour gap
+    assert calls[0][1] == SECOND["pillar"] and calls[0][2][0].startswith(SECOND["topic"])
+    assert sum(1 for c in wp.calls if c[0] == "create") == 1  # one new post, not a copy of 3695
+    # Running again never logs it twice, and never regenerates or republishes the first topic.
+    assert run.main(["article", "--scheduled"]) == 0  # skipped by the 20-hour gap
+    assert len([e for e in ledger.read_log() if e.get("post_id") == 3695 and e["status"] == "published"]) == 1
+    assert [c[0] for c in calls] == ["research", "write", "fact_check"]
+
+
+def test_post_published_by_hand_counts_as_a_success_for_the_pause(env, calls):
+    wp, tmp, _ = env
+    held_post(wp, 3695, "r1", FIRST, hours=40, published_by_hand_hours=39)
+    held_post(wp, 3699, "r2", SECOND, hours=25)
+    assert schedule.skip_reason(CFG).startswith("Paused")  # what the log alone says
+    schedule.reconcile(wp.all_posts())
+    assert schedule.skip_reason(CFG) is None  # held, live by hand, held: not 2 failures in a row
+
+
+def test_post_published_by_hand_recently_still_counts_for_the_20_hour_gap(env, calls):
+    wp, tmp, _ = env
+    held_post(wp, 3695, "r1", FIRST, hours=40, published_by_hand_hours=3)
+    assert run.main(["article", "--scheduled"]) == 0
+    assert calls == [] and not any(c[0] == "create" for c in wp.calls)
+
+
+def test_still_pending_post_is_not_logged_as_published(env, calls):
+    wp, tmp, _ = env
+    held_post(wp, 3699, "r2", FIRST, hours=40)
+    assert schedule.reconcile(wp.all_posts()) == []
+    assert schedule.pick_topic(CFG) == (SECOND, None)  # held topics are still not retried
+
+
+def test_wordpress_unreachable_stops_before_any_claude_call(env, calls, monkeypatch):
+    wp, tmp, _ = env
+    def down(**kw):
+        raise run.WordPressError("GET /wp/v2/posts -> 503")
+    monkeypatch.setattr(wp, "all_posts", down)
+    with pytest.raises(run.WordPressError):
+        run.main(["article", "--scheduled"])
+    assert calls == [] and sched_log() == []
+
+
+def test_repeated_invocations_take_successive_topics_and_never_republish(env, calls, monkeypatch):
+    wp, tmp, _ = env
+    n = iter(range(1, 10))
+    def article(*a, **k):
+        calls.append(("write",))
+        i = next(n)
+        return make_article(slug=f"compress-pdf-for-email-{i}"), {"stage": "write"}
+    monkeypatch.setattr(run.writer, "write_article", article)
+    for day in range(3):
+        before = sum(1 for c in wp.calls if c[0] == "create")
+        assert run.main(["article", "--scheduled"]) in (0, 6)
+        assert sum(1 for c in wp.calls if c[0] == "create") - before <= 1  # at most one article per invocation
+        # Move the clock on a day: shift every logged date back 24 hours.
+        lines = [json.loads(l) for l in ledger.LOG.read_text().splitlines()]
+        for e in lines:
+            e["date"] = (datetime.fromisoformat(e["date"]) - timedelta(hours=24)).isoformat()
+        ledger.LOG.write_text("".join(json.dumps(e) + "\n" for e in lines))
+        sched = [json.loads(l) for l in schedule._log_path().read_text().splitlines()]
+        for e in sched:
+            e["date"] = (datetime.fromisoformat(e["date"]) - timedelta(hours=24)).isoformat()
+        schedule._log_path().write_text("".join(json.dumps(e) + "\n" for e in sched))
+    researched = [c[2][0].split(" (primary")[0] for c in calls if c[0] == "research"]
+    assert researched == [e["topic"] for e in CFG["calendar"][:3]]  # each topic once, in calendar order
+    assert len(wp.posts) == 3

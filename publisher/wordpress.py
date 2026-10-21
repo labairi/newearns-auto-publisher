@@ -60,7 +60,7 @@ class WordPress:
     # -- reads (public) ----------------------------------------------------
     def all_posts(self, status: str = "publish", auth: bool = False) -> list[dict]:
         posts, page = [], 1
-        fields = "id,date,slug,status,title,link,categories,content,aioseo_meta_data"
+        fields = "id,date,date_gmt,slug,status,title,link,categories,content,aioseo_meta_data"
         while True:
             r = self._req("GET", "/wp/v2/posts", auth=auth, params={
                 "per_page": 100, "page": page, "status": status, "_fields": fields})

@@ -62,6 +62,35 @@ def attempts() -> list[dict]:
     return sorted(out, key=lambda a: _when(a["date"]))
 
 
+def reconcile(live_posts: list[dict]) -> list[dict]:
+    """Record held or draft posts that have since gone live in WordPress (e.g. published by
+    hand in WP Admin), so the log matches the site. Appends one `published` entry per post,
+    once; returns the new entries.
+
+    Without this, a post the owner published would still read as held: the pause would
+    count it as a failure and the 20-hour gap wouldn't see when it actually went live.
+    """
+    live = {p["id"]: p for p in live_posts}
+    log = ledger.read_log()
+    done = {e.get("post_id") for e in log if e.get("status") == "published"}
+    topics = {run_id: s.get("topic") for run_id, s in _runs()}
+    added = []
+    for e in log:
+        pid = e.get("post_id")
+        if pid in live and pid not in done and e.get("status") in ("held_for_review", "draft", "failed_verification"):
+            p = live[pid]
+            went_live = p.get("date_gmt")
+            entry = {"run_id": e.get("run_id"), "date": f"{went_live}+00:00" if went_live else ledger.now_iso(),
+                     "status": "published", "source": "wordpress", "post_id": pid, "url": p.get("link"),
+                     "slug": p.get("slug"), "pillar": e.get("pillar"), "topic": e.get("topic"),
+                     "calendar_topic": e.get("calendar_topic") or topics.get(e.get("run_id")),
+                     "note": f"was {e['status']}; found live in WordPress on {ledger.now_iso()}"}
+            ledger.append_log(entry)
+            done.add(pid)
+            added.append(entry)
+    return added
+
+
 def skip_reason(cfg: dict, now: datetime | None = None) -> str | None:
     """Why today's scheduled run must not start, or None if it may."""
     now = now or datetime.now(timezone.utc)
