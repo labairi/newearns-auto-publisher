@@ -239,7 +239,7 @@ class StockSearch:
         return results
 
     def _openverse(self, query: str) -> list[dict]:
-        r = self.get("https://api.openverse.org/v1/images/", timeout=20, headers={"User-Agent": USER_AGENT},
+        r = self.get("https://api.openverse.org/v1/images/", timeout=45, headers={"User-Agent": USER_AGENT},
                      params={"q": query, "license": ",".join(self.licenses), "license_type": "commercial",
                              "source": ",".join(self.sources), "mature": "false", "page_size": 20,
                              "extension": "jpg,png"})
@@ -327,9 +327,9 @@ def featured_photo(cfg: dict, pillar: str, queries: list[str], search: StockSear
         for q in queries[: ic.get("max_queries", 3)]:
             try:
                 cands = search.search(provider, q)
-            except Exception as e:  # rate limit, outage: fall through to the title card
+            except Exception as e:  # slow, rate-limited or down: try the next query, then the title card
                 say(f"Images: {provider} search for {q!r} failed ({str(e)[:120]}).")
-                break
+                continue
             for c in cands:
                 if f"{provider}:{c['id']}" in used or not relevant(c, keywords):
                     continue
