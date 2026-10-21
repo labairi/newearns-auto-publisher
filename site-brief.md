@@ -57,9 +57,13 @@
 - **Primary location(s):** Online, no physical service area. Owner is based in
   Morocco (UTC+0); the site shows no address. ⚠️ verify
 - **Towns / suburbs / regions that matter:** Not applicable (global, English-language).
-- **Country for search data:** ⚠️ NEEDS INPUT — the site does not target one
-  country. Working assumption until confirmed: **United States**. Note that sources
-  cited in articles are US/global (FTC, Adobe, Meta Help Center).
+- **Country for search data:** **Worldwide** (owner, 2026-10-21). Use worldwide /
+  all-locations search volume wherever the tool supports it (e.g. DataForSEO Google
+  Ads search volume with no location). Tools that need one country (live SERP
+  checks, DataForSEO Labs competitor and ranked-keyword data) use **United States**
+  as the reference market, and the report must say so. Avoid country-specific
+  advice (taxes, payment rules, laws) unless the article says which country it
+  applies to; cite global vendor docs (Adobe, Apple, Microsoft, Meta Help Center).
 - **Language for search data:** English (`en`; `config.yaml > site.language: en`).
 
 > These last two are load-bearing. Wrong values return wrong search volumes in
