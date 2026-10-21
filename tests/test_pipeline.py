@@ -260,7 +260,9 @@ def test_verification_failure_unpublishes(env, monkeypatch):
     assert ledger.read_log()[-1]["status"] == "failed_verification"
 
 
-def test_pillar_rotation():
+def test_pillar_rotation(monkeypatch):
+    # With no history, a 40% pillar comes first; the real publication log must not decide this.
+    monkeypatch.setattr(ledger, "read_log", lambda: [])
     cfg = copy.deepcopy(CFG)
     assert run.choose_pillar(cfg) in ("pdf", "instagram")
 
