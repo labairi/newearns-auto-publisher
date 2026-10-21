@@ -1,0 +1,388 @@
+{
+  "title": "Instagram Follower Location: How to See Which Countries and Cities Your Followers Are From",
+  "seo_title": "Instagram Follower Location: See Where Followers Are From",
+  "slug": "instagram-follower-location",
+  "meta_description": "See where your Instagram followers are from: current app and desktop steps, the 100-follower rule, why numbers don't add up, and what stays private.",
+  "focus_keyphrase": "instagram follower location",
+  "excerpt": "Instagram shows the top countries and cities across your followers, never one person's location. Here are the current app and desktop steps, the thresholds you need to meet, why totals don't add up, and how to use the data.",
+  "content_html": "<p>Instagram can show you the top countries and cities your followers come from, but only as totals across your whole audience. It never tells you where one particular follower is. This guide covers the current steps for checking your Instagram follower location data in the app and on a computer, what your account needs before locations appear, and why the numbers don't always add up.</p><h2>What Instagram shows about follower location (and what it doesn't)</h2><h3>Total locations, not individual followers</h3><p>Instagram Insights summarise your audience as a group. Meta's developer documentation describes follower demographics as \"the demographic characteristics of followers, including countries, cities and gender distribution\" (<a href=\"https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>). That is a breakdown such as \"a share of followers in one city\", not a list of who lives where.</p><p>Insights are also private to you. According to <a href=\"https://instapect.com/blog/how-to-see-instagram-insights\">Instapect's 2026 guide</a>, they are visible only to the account owner and people the owner gives access to.</p><h3>Followers vs viewers vs engaged accounts</h3><p>\"Location\" can mean three different groups, and Instagram reports them separately. Knowing which one you're looking at stops a lot of confusion.</p><table><thead><tr><th>Group</th><th>Who it covers</th><th>Where it appears</th><th>Threshold</th></tr></thead><tbody><tr><td>Followers</td><td>Accounts that follow you</td><td>The followers insight in your dashboard (some guides call it \"Total followers\"), under top locations</td><td>At least 100 followers, according to guides quoting Instagram's help pages (<a href=\"https://www.zolyp.com/blog/instagram-insights-guide\">Zolyp</a>)</td></tr><tr><td>Viewers (reached accounts)</td><td>Accounts that saw your content, including people who don't follow you</td><td>Audience demographics in Insights</td><td>A preset timeframe and over 100 viewers reached or engaged (<a href=\"https://www.meta.com/help/subscriptions/882345181477896/\">Meta Help Center</a>)</td></tr><tr><td>Engaged accounts</td><td>Accounts that interacted with your content</td><td>Listed as a separate metric in Meta's developer documentation</td><td>100 or more engagements in the timeframe for the API metric (<a href=\"https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>)</td></tr></tbody></table><p>These lists can look quite different. Viewers include accounts that don't follow you, and once a post has reached more than 100 accounts, Insights show demographics such as top countries and cities for the accounts it reached (<a href=\"https://sproutsocial.com/insights/instagram-insights/\">Sprout Social</a>). So your viewer locations may lean towards places that barely show up in your follower locations. If you want to know where your existing community lives, look at followers. If you want to know where your content is landing right now, look at viewers.</p><h2>What you need before locations appear</h2><ul><li><strong>A public account.</strong> Meta's current help page says: \"You need a public account on Instagram to view insights\" (<a href=\"https://www.meta.com/help/subscriptions/882345181477896/\">Meta Help Center</a>). Personal accounts use <em>Your dashboard</em>; professional accounts use <em>Professional dashboard</em>.</li><li><strong>At least 100 followers for follower trends.</strong> Instagram's help pages say you need at least 100 followers to see follower trends such as growth, top locations, age range and most active times, according to <a href=\"https://www.lilachbullock.com/how-to-see-instagram-insights/\">Lilach Bullock</a> and <a href=\"https://www.zolyp.com/blog/instagram-insights-guide\">Zolyp</a>. Meta's developer documentation applies the same rule to its API: follower demographics are \"not returned if the IG User has less than 100 followers\" (<a href=\"https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>).</li><li><strong>A preset timeframe and more than 100 viewers for audience demographics.</strong> Meta's wording: \"To view audience demographics, use a preset timeframe and reach or engage over 100 viewers\" (<a href=\"https://www.meta.com/help/subscriptions/882345181477896/\">Meta Help Center</a>).</li><li><strong>The past 90 days only, by default.</strong> Looking back beyond 90 days and exporting insights are only available to eligible public accounts with a Meta One Advanced, Expert or Max subscription, and not to teens (<a href=\"https://www.meta.com/help/subscriptions/882345181477896/\">Meta Help Center</a>).</li></ul><p>Some guides say you need a Business or Creator account. Sprout Social's guide, for example, says business accounts with more than 100 followers can view trends including top locations and suggests switching to a professional account (<a href=\"https://sproutsocial.com/insights/instagram-insights/\">Sprout Social</a>). Lilach Bullock notes that an older Instagram help article still says insights are for businesses, while newer articles include public personal accounts (<a href=\"https://www.lilachbullock.com/how-to-see-instagram-insights/\">Lilach Bullock</a>). This guide follows Meta's newer help page, which covers any public account.</p><h2>How to see your followers' top locations in the Instagram app</h2><p>Steps 1 to 4 and 6 follow <a href=\"https://www.meta.com/help/subscriptions/882345181477896/\">Meta's help page on account insights</a>; step 5 comes from <a href=\"https://www.zolyp.com/blog/instagram-insights-guide\">Zolyp's guide</a>. Menu labels change between app versions, so your screen may look slightly different.</p><ol><li>Tap <strong>Profile</strong> or your profile picture in the bottom right to go to your profile.</li><li>If you have a professional account, tap <strong>Professional dashboard</strong>. If you have a personal account, tap <strong>Your dashboard</strong>.</li><li>If you don't see a dashboard on your profile, tap <strong>More</strong> to open <strong>Settings and activity</strong>. Then tap <strong>Insights</strong> below <em>For professionals</em> (professional accounts) or <strong>Your dashboard</strong> below <em>Your insights and tools</em> (personal accounts).</li><li>On the overview you'll see insights for <strong>Views</strong>, <strong>Interactions</strong>, <strong>New followers</strong> and <strong>Content you shared</strong>.</li><li>Tap the followers insight (Meta's overview calls it New followers) and scroll to the top locations section. <a href=\"https://www.zolyp.com/blog/instagram-insights-guide\">Zolyp</a> calls this section Total followers and says top locations appear there once you have at least 100 followers.</li><li>To change the period, tap the dropdown menu, choose a preset timeframe or set a custom start and end date, then tap <strong>Update</strong>. Use a preset if you want demographics to load.</li></ol><p>For a quick example: if you run a small baking business and see that most followers sit in your home city, with a second cluster in another country, that tells you both where local promotions will land and whether some posts should be scheduled for a second time zone.</p><h2>How to check follower locations on a computer</h2><h3>The instagram.com dashboard</h3><p>Two 2026 guides that cite Instagram's help pages describe the desktop route like this (<a href=\"https://www.zolyp.com/blog/instagram-insights-guide\">Zolyp</a>, <a href=\"https://www.lilachbullock.com/how-to-see-instagram-insights/\">Lilach Bullock</a>). The layout may differ on your account.</p><ol><li>Go to instagram.com and log in.</li><li>Open <strong>Dashboard</strong>.</li><li>Choose <strong>Insights</strong> below <em>For professionals</em>, or <strong>Your dashboard</strong> below <em>Your insights and tools</em> for a personal account.</li><li>Pick <strong>Account</strong> or <strong>Content</strong>.</li><li>Set the date range. According to <a href=\"https://www.zolyp.com/blog/instagram-insights-guide\">Zolyp</a>, the options are 7, 14, 30 or 90 days, or a custom range.</li></ol><h3>Meta Business Suite</h3><p>If your Instagram is a professional account connected to your business tools, Meta Business Suite offers another view. According to <a href=\"https://instapect.com/blog/how-to-see-instagram-insights\">Instapect</a>, <strong>Insights → Audience</strong> includes age, gender, top interests, locations, follower growth and active times, and you need permission for that Instagram profile. <a href=\"https://zapier.com/blog/instagram-analytics/\">Zapier's guide</a> also points to the Insights option in Business Suite's left menu, though it was written for an older version of the interface.</p><h2>Why the location numbers may not add up</h2><p>If the location figures cover fewer people than your follower count, nothing is broken. Meta's developer documentation for business and creator accounts lists several limits on demographic data (<a href=\"https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>):</p><ul><li>Demographic metrics only return the top 45 performers, so smaller cities and countries drop off the list.</li><li>Only viewers Meta has demographic data for are counted.</li><li>Because of that, summing the values can give a number lower than your follower count.</li><li>The data used for metrics may be delayed by up to 48 hours.</li></ul><p>These are documented as API rules rather than rules for the in-app screen, but they explain why location totals are partial. In practice: expect a list of your biggest locations, not a complete map, and don't treat yesterday's new followers as missing if they haven't appeared yet. If demographics are blank, switch from a custom range to a preset, as Meta's help page requires (<a href=\"https://www.meta.com/help/subscriptions/882345181477896/\">Meta Help Center</a>).</p><h2>Troubleshooting: locations not showing</h2><table><thead><tr><th>Symptom</th><th>Likely cause</th><th>What to do</th></tr></thead><tbody><tr><td>No insights at all</td><td>Your account is private; insights need a public account (<a href=\"https://www.meta.com/help/subscriptions/882345181477896/\">Meta</a>)</td><td>Switch to public. Guides say past data returns if you go public again within 90 days of switching to private (<a href=\"https://www.zolyp.com/blog/instagram-insights-guide\">Zolyp</a>)</td></tr><tr><td>Insights show, but no follower breakdown</td><td>Fewer than 100 followers, according to guides quoting Instagram's help (<a href=\"https://instapect.com/blog/how-to-see-instagram-insights\">Instapect</a>)</td><td>Check viewer demographics instead, which depend on reach rather than follower count</td></tr><tr><td>Demographics blank for a chosen period</td><td>A custom timeframe, or fewer than 100 viewers reached or engaged (<a href=\"https://www.meta.com/help/subscriptions/882345181477896/\">Meta</a>)</td><td>Choose a preset timeframe and a longer period</td></tr><tr><td>Older data missing after going public</td><td>If you recently switched to public, past insights may not appear right away (<a href=\"https://www.meta.com/help/subscriptions/882345181477896/\">Meta</a>)</td><td>Give it time and check again</td></tr><tr><td>Professional dashboard has disappeared</td><td>You switched back to a personal account</td><td>Look for <strong>Your dashboard</strong> instead; Meta's help covers public personal accounts too (<a href=\"https://www.meta.com/help/subscriptions/882345181477896/\">Meta</a>)</td></tr><tr><td>Can't go back further than 90 days</td><td>Longer history needs an eligible Meta One plan (<a href=\"https://www.meta.com/help/subscriptions/882345181477896/\">Meta</a>)</td><td>Note your top locations regularly, for example in a monthly spreadsheet</td></tr><tr><td>Menus don't match these steps</td><td>Labels change between app versions</td><td>Update the app, then follow the route through Settings and activity</td></tr></tbody></table><h2>Can you see where one specific follower is?</h2><p>Not through Insights. They only show totals, and they only cover your own account, so you can't open insights for someone else's profile either. If you manage a client's account, ask them to give you access through their business tools; Instapect notes that insights are visible to the owner and people the owner gives access to (<a href=\"https://instapect.com/blog/how-to-see-instagram-insights\">Instapect</a>).</p><p>The other source of confusion is the Instagram Map. According to <a href=\"https://about.fb.com/news/2025/08/new-instagram-features-help-you-connect/\">Meta's announcement on 6 August 2025</a>:</p><ul><li>Location sharing is off unless you opt in, and you can turn it off at any time.</li><li>You choose who sees your last active location: friends (followers you follow back), Close Friends, only selected friends, or no one.</li><li>You can choose not to share in specific places or with specific people.</li><li>The map sits at the top of your DM inbox. It rolled out in the US first, with \"more global availability soon\", so availability may vary where you are.</li><li>If parental supervision is set up, parents can control a teen's location sharing and are notified when the teen starts sharing.</li></ul><p>So the map is opt-in sharing between friends, not a tool for businesses or creators to locate followers.</p><h2>Going further: mapping engagement by country and city</h2><p>Native Insights are free and, for most freelancers and small businesses, enough. Follower locations are totals for your whole account, and for posts that reach more than 100 accounts, Insights also show top countries and cities of the accounts reached (<a href=\"https://sproutsocial.com/insights/instagram-insights/\">Sprout Social</a>). If you want a separate dashboard for this, <a href=\"https://instagramaps.com/?utm_source=newearns&utm_medium=referral&utm_campaign=instagram-follower-location\">Instagramaps</a> lets creators and businesses connect an Instagram account to see where their audience engages by country and city. It also compares views, reach and engagement per post; that comparison is about performance, not the location of each post.</p><p><em>Disclosure: Instagramaps is built by the team behind New Earns. We mention it where it fits the task; the steps in this guide also work with other tools.</em></p><p>It also includes a marketplace where creators and businesses create profiles, get matched and send collaboration requests. There are free Creator and Business plans, and paid plans start at 9 USD per month; check its pricing page for current prices. Other analytics tools offer follower demographics too, so compare a few against what you actually need.</p><h2>How to use follower location data</h2><p>The data is only useful if it changes what you do. A few practical ideas:</p><ul><li><strong>Schedule for the right time zone.</strong> If your top locations sit in one region, post when that region is awake. Cross-check with most active times, which guides say also appears once you have at least 100 followers (<a href=\"https://www.lilachbullock.com/how-to-see-instagram-insights/\">Lilach Bullock</a>).</li><li><strong>Match offers to where people are.</strong> A local service business can promote in-person deals if followers are nearby; a digital product seller with a spread-out audience might focus on shipping-free or online offers instead.</li><li><strong>Check language and references.</strong> If a large share of followers is in another country, consider captions, currencies or examples that make sense there too.</li><li><strong>Compare followers with viewers.</strong> If viewers come from places your followers don't, some content is attracting a new audience. Note which posts did that.</li><li><strong>Add it to client reports.</strong> If you manage social accounts for clients, a monthly snapshot of top cities and countries is easy to explain and helps set goals. If that's your business model, our guide on <a href=\"https://newearns.com/how-to-start-your-digital-marketing-agency-in-2025/\">how to start a digital marketing agency</a> covers the wider setup.</li></ul><p>Because default history only covers the past 90 days (<a href=\"https://www.meta.com/help/subscriptions/882345181477896/\">Meta Help Center</a>), keep your own record if you want to track trends over a year.</p><h2>FAQ</h2><h3>Do I need a business account to see follower locations?</h3><p>According to Meta's current help page, you need a public account; both personal and professional accounts can view insights (<a href=\"https://www.meta.com/help/subscriptions/882345181477896/\">Meta Help Center</a>). Some older guides still say a business or professional account is required.</p><h3>Why does Instagram only show a few cities?</h3><p>Meta's developer documentation says demographic metrics return only the top 45 performers and count only viewers Meta has demographic data for (<a href=\"https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights\">Meta for Developers</a>). Smaller locations won't appear, and the totals can be lower than your follower count.</p><h3>Can my followers see my location?</h3><p>Not through Insights, which only the owner and people they give access to can see (<a href=\"https://instapect.com/blog/how-to-see-instagram-insights\">Instapect</a>). On the Instagram Map, location sharing is off unless you opt in and choose who to share with (<a href=\"https://about.fb.com/news/2025/08/new-instagram-features-help-you-connect/\">Meta</a>).</p><h3>How far back can I check my Instagram follower location data?</h3><p>The past 90 days by default. Looking back further and exporting insights require an eligible Meta One Advanced, Expert or Max plan (<a href=\"https://www.meta.com/help/subscriptions/882345181477896/\">Meta Help Center</a>).</p>",
+  "sources": [
+    {
+      "url": "https://www.meta.com/help/subscriptions/882345181477896/",
+      "title": "Meta Help Center: View account and content insights on Instagram with Meta One",
+      "supports": "Public account requirement; recently-public delay; audience demographics need preset timeframe and over 100 viewers; app steps and overview labels; changing time period; 90-day limit and Meta One plans for longer history/export; not available to teens"
+    },
+    {
+      "url": "https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights",
+      "title": "Meta for Developers: Instagram Account Insights (API reference)",
+      "supports": "follower_demographics definition and under-100-followers rule; engaged_audience_demographics 100-engagement rule; top 45 limit, demographic data coverage, sums below follower count, up to 48-hour delay"
+    },
+    {
+      "url": "https://about.fb.com/news/2025/08/new-instagram-features-help-you-connect/",
+      "title": "About Meta: New Instagram Features to Help You Connect",
+      "supports": "Instagram Map is opt-in, audience choices, location in DM inbox, US rollout on 6 August 2025 with more availability soon, parental supervision controls"
+    },
+    {
+      "url": "https://www.zolyp.com/blog/instagram-insights-guide",
+      "title": "Zolyp: Instagram Insights: Where to Find Them and What They Mean",
+      "supports": "Total followers shows top locations at 100+ followers (citing Instagram Help); desktop steps and 7/14/30/90-day presets; past data returns if public again within 90 days"
+    },
+    {
+      "url": "https://www.lilachbullock.com/how-to-see-instagram-insights/",
+      "title": "Lilach Bullock: How to See Instagram Insights (App, Posts and Computer)",
+      "supports": "Instagram says 100 followers needed for follower trends incl. top locations and most active times; older help article says business-only; desktop steps"
+    },
+    {
+      "url": "https://instapect.com/blog/how-to-see-instagram-insights",
+      "title": "Instapect: How to See Instagram Insights in 2026",
+      "supports": "Follower locations need 100+ followers; Meta Business Suite Insights → Audience includes locations for connected professional accounts; insights visible only to owner and people given access"
+    },
+    {
+      "url": "https://sproutsocial.com/insights/instagram-insights/",
+      "title": "Sprout Social: Instagram Insights demystified",
+      "supports": "Example of guides saying business accounts with 100+ followers see top locations and suggesting a switch to professional"
+    },
+    {
+      "url": "https://zapier.com/blog/instagram-analytics/",
+      "title": "Zapier: How to check Instagram analytics",
+      "supports": "Insights option in Meta Business Suite's left menu (older interface)"
+    },
+    {
+      "url": "https://instagramaps.com/",
+      "title": "Instagramaps",
+      "supports": "Product mention: country and city engagement view, per-post comparison, marketplace, free plans and paid plans from 9 USD/month"
+    }
+  ],
+  "product_link_reason": "Readers who want a dedicated dashboard of where their audience engages by country and city, beyond the totals in native Insights, can use Instagramaps, per its allowed claims. Linked once, in the optional 'Going further' section, after stating that native Insights are free and enough for most readers.",
+  "internal_links_note": "",
+  "image_headline": "Where Your Instagram Followers Live",
+  "search_intent": "How-to: users want current steps to see the countries and cities their Instagram followers are from, plus secondary intent around privacy (whether they can see a specific follower's location or whether others can see theirs via the Instagram Map).",
+  "unique_value": "Uses Meta's current help (any public account, personal or professional, can view insights) instead of outdated business-only advice; separates the 100-follower and 100-viewer thresholds; explains followers vs viewers vs engaged accounts; uses Meta's documented limits (top 45, partial demographic data, 48-hour delay) to explain why totals don't add up; includes a troubleshooting table, a clear Instagram Map privacy section, and practical uses for freelancers and small businesses.",
+  "image_alt_text": "Title card reading \"Where Your Instagram Followers Live\" on a newearns.com banner",
+  "featured_image": {
+    "alt_text": "Title card reading \"Where Your Instagram Followers Live\" on a newearns.com banner",
+    "license": "generated-in-house"
+  },
+  "fact_check": {
+    "claims": [
+      {
+        "claim": "Insights show only totals for countries and cities and \"never\" a particular follower's location",
+        "verdict": "unsupported",
+        "source_url": "developers.facebook.com…/insights",
+        "evidence": "Unsupported as an absolute. The page says: \"The demographic characteristics of followers, including countries, cities and gender distribution.\" It describes totals but never explicitly rules out individual locations.",
+        "suggested_fix": "\"Insights report aggregated demographics (top countries/cities), not a per-follower location list.\""
+      },
+      {
+        "claim": "Developer doc quote: \"the demographic characteristics of followers, including countries, cities and gender distribution\"",
+        "verdict": "supported",
+        "source_url": "developers.facebook.com…/insights",
+        "evidence": "Same page, the follower_demographics row.",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Insights are visible only to the owner and people the owner gives access to",
+        "verdict": "supported",
+        "source_url": "instapect.com",
+        "evidence": "\"visible only to the account owner and people the owner gives access to\"",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Followers row: top locations need at least 100 followers",
+        "verdict": "supported",
+        "source_url": "zolyp.com",
+        "evidence": "\"Growth, top locations, age range and most active times, once you have at least 100 followers\"",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Viewers row: needs a preset timeframe and over 100 viewers reached or engaged",
+        "verdict": "supported",
+        "source_url": "meta.com/help/…882345181477896",
+        "evidence": "Meta help: \"use a preset timeframe and reach or engage over 100 viewers\"",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Engaged accounts are a separate API metric that needs 100 or more engagements",
+        "verdict": "supported",
+        "source_url": "developers.facebook.com…/insights",
+        "evidence": "Dev doc: engaged_audience_demographics, \"Not returned if the IG User has less than 100 engagements during the timeframe\"",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Viewers include accounts that don't follow you",
+        "verdict": "unsupported",
+        "source_url": "",
+        "evidence": "No page read says this about the viewers metric. Sprout, Lilach and Instapect apply the follower/non-follower split to accounts engaged and Business Suite content. A search for an official Instagram help page found only third-party pages, and none was used as evidence. Low risk.",
+        "suggested_fix": "Cite Instagram Help \"About Instagram insights\", or soften it (for example, \"reach can include non-followers\")."
+      },
+      {
+        "claim": "Demographics for reached accounts appear once a post reaches more than 100 accounts",
+        "verdict": "supported",
+        "source_url": "sproutsocial.com",
+        "evidence": "\"Once a post has reached more than 100 accounts, you can access demographic data on accounts reached\" (top countries, cities…)",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "You need a public account; personal accounts use Your dashboard, professional accounts use Professional dashboard",
+        "verdict": "supported",
+        "source_url": "meta.com/help/…882345181477896",
+        "evidence": "Meta help: the quote and steps match word for word.",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Instagram's help pages require 100 followers for follower trends (per Lilach and Zolyp)",
+        "verdict": "supported",
+        "source_url": "lilachbullock.com",
+        "evidence": "\"For follower trends such as growth, top locations, age range and most active times… at least 100 followers\"",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "API: follower demographics are \"not returned if the IG User has less than 100 followers\"",
+        "verdict": "supported",
+        "source_url": "developers.facebook.com…/insights",
+        "evidence": "Dev doc, follower_demographics row.",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Default history is 90 days; going further back and exporting need Meta One Advanced, Expert or Max; not available to teens",
+        "verdict": "supported",
+        "source_url": "meta.com/help/…882345181477896",
+        "evidence": "\"The Meta One Advanced, Meta One Expert, and Meta One Max plans include this capability\", plus \"not available to teens\"",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Sprout says business accounts with more than 100 followers can see top locations, and suggests switching to professional",
+        "verdict": "supported",
+        "source_url": "sproutsocial.com",
+        "evidence": "\"Business accounts with more than 100 followers can view overall trends…\"; its FAQ says to switch to a Professional account.",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Lilach notes an older help article says insights are business-only",
+        "verdict": "supported",
+        "source_url": "lilachbullock.com",
+        "evidence": "\"One old help article still says insights are only for businesses and high-engagement accounts\"",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "In-app steps 1–4 and 6 (Profile → dashboard → Settings and activity route → Views/Interactions/New followers/Content you shared → dropdown → Update)",
+        "verdict": "supported",
+        "source_url": "meta.com/help/…882345181477896",
+        "evidence": "Meta help, step for step.",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Step 5: top locations sit in the followers insight (\"Total followers\") once you have 100 followers",
+        "verdict": "supported",
+        "source_url": "zolyp.com",
+        "evidence": "Supported by third parties only. Zolyp and Instapect: \"Total followers… top locations… Needs at least 100 followers\". Meta's page doesn't mention locations at all.",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "\"Use a preset if you want demographics to load\"",
+        "verdict": "supported",
+        "source_url": "meta.com/help/…882345181477896",
+        "evidence": "Meta help.",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Desktop steps: Dashboard → Insights / Your dashboard → Account or Content → date range",
+        "verdict": "supported",
+        "source_url": "zolyp.com",
+        "evidence": "Supported by zolyp.com and lilachbullock.com.",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Desktop presets are 7, 14, 30 or 90 days or custom",
+        "verdict": "supported",
+        "source_url": "zolyp.com",
+        "evidence": "\"pick 7, 14, 30 or 90 days or a custom range\"",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "\"Two 2026 guides\"",
+        "verdict": "supported",
+        "source_url": "zolyp.com",
+        "evidence": "Zolyp published 2026-10-14; Lilach (lilachbullock.com) published 2026-10-19.",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Business Suite Insights → Audience shows age, gender, top interests, locations, follower growth and active times; you need permission",
+        "verdict": "supported",
+        "source_url": "instapect.com",
+        "evidence": "Business Suite table: \"You need permission to view insights for that Instagram profile\"",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Zapier points to Insights in Business Suite's left menu and covers an older interface",
+        "verdict": "supported",
+        "source_url": "zapier.com",
+        "evidence": "\"clicking the Insights option in the left-hand menu\"; last modified Aug 2024.",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Developer doc covers business and creator accounts",
+        "verdict": "supported",
+        "source_url": "developers.facebook.com…/insights",
+        "evidence": "\"Instagram business or creator account\"",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Top 45 performers only; only viewers with demographic data are counted; sums can be lower than follower count; up to 48h delay",
+        "verdict": "supported",
+        "source_url": "developers.facebook.com…/insights",
+        "evidence": "Dev doc Limitations: \"Demographic metrics only return the top 45 performers\"; \"may be delayed up to 48 hours\"",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Troubleshooting: private account means no insights",
+        "verdict": "supported",
+        "source_url": "meta.com/help/…882345181477896",
+        "evidence": "Meta help.",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Past data returns if you go public again within 90 days",
+        "verdict": "supported",
+        "source_url": "zolyp.com",
+        "evidence": "\"you get past data back if you go public again within 90 days\"",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "No follower breakdown means fewer than 100 followers (cited to Instapect)",
+        "verdict": "supported",
+        "source_url": "instapect.com",
+        "evidence": "\"'Total followers' shows no breakdown – Fewer than 100 followers\"",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Recently went public means past insights may not show right away",
+        "verdict": "supported",
+        "source_url": "meta.com/help/…882345181477896",
+        "evidence": "Meta help.",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Professional dashboard gone because you switched back to personal; use Your dashboard",
+        "verdict": "supported",
+        "source_url": "instapect.com",
+        "evidence": "The cause is in Instapect (\"You switched from professional back to personal… use Your dashboard if the account is public\"); the fix is in Meta's help.",
+        "suggested_fix": "Add the Instapect citation for the cause."
+      },
+      {
+        "claim": "More than 90 days needs Meta One",
+        "verdict": "supported",
+        "source_url": "meta.com/help/…882345181477896",
+        "evidence": "Meta help.",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Map announcement dated 6 August 2025",
+        "verdict": "supported",
+        "source_url": "about.fb.com",
+        "evidence": "about.fb.com, published 2025-08-06.",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Map: off unless you opt in, can turn off anytime; audience choices (friends who are followers you follow back, Close Friends, selected friends, no one); can exclude places and people; sits at top of DM inbox; US first, \"more global availability soon\"; parental controls and notification",
+        "verdict": "supported",
+        "source_url": "about.fb.com",
+        "evidence": "\"Location sharing is off unless you opt in\"; \"rolling out to the US today, with more global availability soon\"",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Native Insights are free",
+        "verdict": "supported",
+        "source_url": "sproutsocial.com",
+        "evidence": "Sprout: \"This free feature\"; Instapect: \"Instagram Insights is free inside the app\"",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "Most active times also need 100 followers",
+        "verdict": "supported",
+        "source_url": "lilachbullock.com",
+        "evidence": "Same sentence as claim #10.",
+        "suggested_fix": ""
+      },
+      {
+        "claim": "FAQ: \"Some older guides\" say a business account is required",
+        "verdict": "supported",
+        "source_url": "zapier.com",
+        "evidence": "Supported but loosely worded. Zapier (2024) and Sprout say it. Sprout was updated July 2026, so \"older\" is a stretch.",
+        "suggested_fix": "\"Some guides\"."
+      },
+      {
+        "claim": "FAQ: \"Why only a few cities?\" explained by the top-45 limit",
+        "verdict": "supported",
+        "source_url": "developers.facebook.com…/insights",
+        "evidence": "Supported by the dev doc but loosely worded. The body admits these are API rules, but the FAQ drops that caveat.",
+        "suggested_fix": "\"Meta's API documentation says…, and the app likely behaves similarly.\""
+      }
+    ],
+    "sources": [
+      {
+        "url": "meta.com/help/…882345181477896",
+        "relevant": true,
+        "notes": "Readable (modified 2026-09-15). Supports every use. Strongest source, but never mentions locations."
+      },
+      {
+        "url": "developers.facebook.com …/insights",
+        "relevant": true,
+        "notes": "Marked unavailable in the evidence pack; read in full only via web_fetch. Supports the quote, the 100-follower rule, the 100-engagement rule and all four limits."
+      },
+      {
+        "url": "about.fb.com",
+        "relevant": true,
+        "notes": "Aug 2025 Map announcement. Readable. Supports every Map bullet."
+      },
+      {
+        "url": "zolyp.com",
+        "relevant": true,
+        "notes": "Readable (partial excerpt). Supports what it is cited for."
+      },
+      {
+        "url": "lilachbullock.com",
+        "relevant": true,
+        "notes": "Readable (partial excerpt). Supports what it is cited for."
+      },
+      {
+        "url": "instapect.com",
+        "relevant": true,
+        "notes": "Readable (re-read with a narrower focus). Supports what it is cited for, including the troubleshooting row."
+      },
+      {
+        "url": "sproutsocial.com",
+        "relevant": true,
+        "notes": "Readable. Cited fairly as the business-only view and for the over-100-accounts-reached demographics."
+      },
+      {
+        "url": "zapier.com",
+        "relevant": true,
+        "notes": "Readable (modified Aug 2024). Supports what it is cited for; the article correctly flags it as dated."
+      },
+      {
+        "url": "instagramaps.com",
+        "relevant": true,
+        "notes": "Readable. Supports the product claims."
+      }
+    ],
+    "satisfies_search_intent": true,
+    "intent_notes": "Passes and does better than a generic answer. Current steps are grounded in Meta's Sep 2026 help page, and the business-only advice is treated as outdated. The 100-follower threshold is kept separate from the 100-viewer/preset threshold. The troubleshooting table is accurate, and the Map privacy section is clear and covers both secondary questions. Weaknesses: the key step (step 5, where top locations appear) relies only on third parties (Zolyp, Instapect), and citing Instagram Help's \"About Instagram insights\" would strengthen it. Engaged accounts have no in-app location; the table only says where to find them in the API, which is thin for a how-to.",
+    "adds_original_value": true,
+    "value_notes": "Uses the documented API limits (top 45, partial data, 48h delay) with an honest \"these are API rules\" caveat. It separates the different 100 thresholds and includes an accurate troubleshooting table. Every claimed differentiator is actually in the article. Weakness: the baking-business example is generic filler.",
+    "product_claims_accurate": false,
+    "product_notes": "The notes give no single overall verdict, so this is set to false because one product sentence is unsupported by the site. The allowed claims match and are all confirmed on instagramaps.com: connecting an account to see engagement by country and city; comparing views, reach and engagement per post; the marketplace with profiles, matching and collaboration requests; free Creator and Business plans; paid plans from 9 USD with a \"check the pricing page\" note. The unsupported sentence is an extra caveat, \"that comparison is about performance, not the location of each post\". It isn't in the allowed claims and it narrows the product rather than overstating it. However, the homepage hero says \"see which content works by location\", so the recommendation is to cut it rather than make a claim the site doesn't support. Disclosure: \"Instagramaps is built by the team behind New Earns\" can't be checked from any source. It is appropriate as a disclosure but should come before the product description, not after. Unclear wording: \"the steps in this guide also work with other tools\" doesn't make sense, since the steps are native Instagram steps. Suggested wording: \"the native steps above don't require it.\"",
+    "fetched_urls": [
+      "https://about.fb.com/news/2025/08/new-instagram-features-help-you-connect/",
+      "https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights",
+      "https://instagramaps.com/",
+      "https://instapect.com/blog/how-to-see-instagram-insights",
+      "https://sproutsocial.com/insights/instagram-insights/",
+      "https://www.lilachbullock.com/how-to-see-instagram-insights/",
+      "https://www.meta.com/help/subscriptions/882345181477896/",
+      "https://www.zolyp.com/blog/instagram-insights-guide",
+      "https://zapier.com/blog/instagram-analytics/"
+    ],
+    "content_sha256": "25c72ee40403460da8ba64038ca62c26221c1ec95ff93eb1f5f0a5d8af74c38d"
+  },
+  "pillar": "instagram"
+}
