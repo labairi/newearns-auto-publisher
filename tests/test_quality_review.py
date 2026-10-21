@@ -308,3 +308,51 @@ def test_recheck_passes_refresh_flag_only_to_recheck_and_keeps_second_key():
     assert '"${refresh[@]}"' in lines["recheck"] and "--dry-run" in lines["recheck"]
     assert all("refresh" not in lines[c] for c in ("article", "article-dry-run", "check-setup"))
     assert "refresh" not in y["jobs"]["run"]["env"]["ALLOW_PUBLISH"]
+
+
+# ------------------------------------------------------------ the fact-check keeps full cited URLs
+def test_fact_check_urls_stay_full_exact_cited_urls(monkeypatch):
+    # Run 20261021T113230521140Z: the conversion step wrote "zolyp.com" and "meta.com/help/…882345181477896",
+    # which no gate could match. URLs must now be exact cited URLs, or empty for a claim.
+    art = make_article()
+    cited = sorted(s["url"] for s in art["sources"])
+    gmail, outlook = SOURCE_URLS[0], SOURCE_URLS[1]
+    seen = {}
+    def fake_call(cfg, messages, **kw):
+        if kw["stage"] == "fact_check":
+            return "notes", {"stage": "fact_check"}
+        seen.update(schema=kw["schema"], prompt=messages[0]["content"])
+        return json.dumps({"claims": [
+            {"claim": "a", "verdict": "supported", "source_url": gmail, "evidence": "", "suggested_fix": ""},
+            {"claim": "b", "verdict": "supported", "source_url": "support.google.com/mail/…6584", "evidence": "",
+             "suggested_fix": ""},
+            {"claim": "c", "verdict": "unsupported", "source_url": "", "evidence": "", "suggested_fix": "remove"},
+            {"claim": "d", "verdict": "supported", "source_url": "https://invented.example/page", "evidence": "",
+             "suggested_fix": ""}],
+            "sources": [{"url": outlook, "relevant": True, "notes": ""},
+                        {"url": "helpx.adobe.com", "relevant": True, "notes": ""}],
+            "satisfies_search_intent": True, "intent_notes": "", "adds_original_value": True, "value_notes": "",
+            "product_claims_accurate": True, "product_notes": ""}), {"stage": "fact_check_json"}
+    monkeypatch.setattr(writer, "_call", fake_call)
+    fc, _ = writer.fact_check(CFG, art, "pdf")
+    # The schema itself only allows the exact cited URLs (and "" for a claim).
+    props = seen["schema"]["properties"]
+    assert props["claims"]["items"]["properties"]["source_url"]["enum"] == cited + [""]
+    assert props["sources"]["items"]["properties"]["url"]["enum"] == cited
+    assert writer.FACTCHECK_SCHEMA["properties"]["claims"]["items"]["properties"]["source_url"] == {"type": "string"}
+    assert all(u in seen["prompt"] for u in cited) and "never shortened" in seen["prompt"]
+    # Whatever comes back, every URL kept is an exact cited URL; anything else is emptied or dropped, never "fixed".
+    assert [c["source_url"] for c in fc["claims"]] == [gmail, "", "", ""]
+    assert [s["url"] for s in fc["sources"]] == [outlook]
+    assert all(c["source_url"] in cited + [""] for c in fc["claims"]) and all(s["url"] in cited for s in fc["sources"])
+
+
+def test_shortened_fact_check_urls_fail_closed_at_the_gates():
+    a = make_article()
+    a["fact_check"]["claims"][0]["source_url"] = "support.google.com/mail/…6584"
+    a["fact_check"]["sources"][0]["url"] = "support.google.com"
+    names = {f.split(":")[0] for f in checks(a).failures}
+    assert {"fact_check_claims", "sources_verified"} <= names
+    writer.keep_cited_urls(a["fact_check"], [s["url"] for s in a["sources"]])
+    assert a["fact_check"]["claims"][0]["source_url"] == ""  # still not supported: nothing was guessed back
+    assert {"fact_check_claims", "sources_verified"} <= {f.split(":")[0] for f in checks(a).failures}
