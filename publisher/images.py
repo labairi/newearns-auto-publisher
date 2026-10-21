@@ -1,18 +1,18 @@
 """Article images at no extra cost.
 
-Featured image: a free, properly licensed stock photo when a relevant one exists
-(Pexels with a free PEXELS_API_KEY, else Openverse, which needs no key), otherwise
-the branded title card drawn here. Licences are taken from the provider's API
-response, never assumed; image search engines are never used.
+Featured image: a real, clearly licensed photograph found through free sources whose
+APIs return each image's licence (Openverse and Wikimedia Commons, neither needs a
+key; Pexels only if a PEXELS_API_KEY is ever added). The licence, its link and, for
+CC BY / BY-SA, the creator are checked before anything is downloaded; the post
+credits the photo. Image search engines are never used. The branded title card is a
+last resort, reported as a fallback.
 
-Inline images: original diagrams drawn here from the article's own step lists and
-bulleted lists, so they add no new claims and need no image service. No AI image
-generation is used: the workflow runs on GitHub Actions, which has no image model.
+Inline images: diagrams of the article's own numbered step lists, only where a reader
+follows steps; they add no new claims. No AI image generation is used: the workflow
+runs on GitHub Actions, which has no image model.
 
-Counts follow the word-count guideline in target_count(); it is a ceiling, not a
-quota: an image is only added where there is a list worth summarising.
-Search results are cached in data/image_cache/, and a photo used once is not
-reused for another article.
+Counts follow target_count(); it is a ceiling, not a quota. Successful searches are
+cached in data/image_cache/, and a photo used once is not used for another article.
 """
 from __future__ import annotations
 
@@ -187,41 +187,65 @@ def top_level_lists(content_html: str) -> list[dict]:
     return out
 
 
-def pick_lists(lists: list[dict], want_max: int, want_min: int) -> list[dict]:
-    """Numbered steps first, then bulleted key points only to reach the minimum. One per section,
-    never two in neighbouring sections, never the FAQ."""
-    def usable(lst, lo, hi):
-        h = lst["heading"].lower()
-        return (lst["heading"] and not h.startswith("faq") and "frequently asked" not in h
-                and lo <= len(lst["items"]) <= hi)
+def pick_lists(lists: list[dict], want_max: int) -> list[dict]:
+    """Numbered step lists only: a diagram of real steps helps a reader follow along; a diagram
+    of a bulleted list would just repeat it. One per section, never two in neighbouring
+    sections, never the FAQ. Fewer than want_max is fine: there is no quota."""
     headings = list(dict.fromkeys(l["heading"] for l in lists))
     chosen: list[dict] = []
-
-    def ok(lst):
-        pos = headings.index(lst["heading"])
-        return all(abs(headings.index(c["heading"]) - pos) > 1 for c in chosen)
-
     for lst in lists:
-        if len(chosen) < want_max and lst["tag"] == "ol" and usable(lst, 3, 8) and ok(lst):
+        h = lst["heading"].lower()
+        if (len(chosen) < want_max and lst["tag"] == "ol" and 3 <= len(lst["items"]) <= 8 and lst["heading"]
+                and not h.startswith("faq") and "frequently asked" not in h
+                and all(abs(headings.index(c["heading"]) - headings.index(lst["heading"])) > 1 for c in chosen)):
             chosen.append(lst)
-    for lst in lists:
-        if len(chosen) < want_min and lst["tag"] == "ul" and usable(lst, 3, 7) and ok(lst):
-            chosen.append(lst)
-    return sorted(chosen, key=lambda l: l["index"])
+    return chosen
 
 
 # ---------------------------------------------------------------- stock photos
+class SearchUnavailable(RuntimeError):
+    pass
+
+
+# Provider licence codes -> ours. Anything not listed (NC, ND, GFDL, fair use, unknown) is never used.
+OPENVERSE_LICENSES = {"cc0": "cc0", "pdm": "public-domain", "by": "cc-by", "by-sa": "cc-by-sa"}
+LICENSE_NAMES = {"cc0": "CC0", "public-domain": "Public domain", "cc-by": "CC BY", "cc-by-sa": "CC BY-SA",
+                 "pexels-license": "Pexels License"}
+NEEDS_CREDIT = ("cc-by", "cc-by-sa")
+NOT_A_PHOTO = re.compile(r"\b(logo|icon|screenshot|screen ?shot|diagram|chart|graph|map of|illustration|vector|"
+                         r"clip ?art|drawing|infographic|poster|cartoon|meme|svg)\b", re.I)
+STOPWORDS = set("""a an and are as at be by can do does for from get how in into is it its not of on or so that the
+their them then these this to too up use using what when where which who why will with without you your yours
+guide step steps explained vs""".split())
+
+
+def _commons_license(meta: dict) -> tuple[str, str] | None:
+    """(our licence code, version) from Commons extmetadata, or None when it is not one we accept."""
+    code = (meta.get("License") or "").lower().strip()
+    short = (meta.get("LicenseShortName") or "").lower()
+    if code == "cc0" or short.startswith("cc0"):
+        return "cc0", "1.0"
+    if code == "pd" or code.startswith("pd-") or short.startswith("public domain"):
+        return "public-domain", ""
+    m = re.fullmatch(r"cc-(by|by-sa)-(\d\.\d)(?:-[a-z]+)?", code)
+    return ({"by": "cc-by", "by-sa": "cc-by-sa"}[m.group(1)], m.group(2)) if m else None
+
+
 class StockSearch:
-    """Free stock photo search with licence data from the provider. Results cached on disk."""
+    """Free stock photo search: licence data comes from the provider. Successful searches are
+    cached on disk; a failed one is retried once, never cached, and reported."""
 
     def __init__(self, cache_dir: Path, *, pexels_key: str | None = None, cache_days: int = 30,
-                 licenses=("cc0", "pdm", "by"), sources=("stocksnap", "flickr"), get=requests.get):
+                 licenses=("cc0", "pdm", "by", "by-sa"), sources=("stocksnap", "nappy", "flickr", "wikimedia"),
+                 get=requests.get, sleep=time.sleep, attempts: int = 2, timeout=(10, 30)):
         self.cache_dir, self.pexels_key, self.ttl = Path(cache_dir), pexels_key, cache_days * 86400
-        self.licenses, self.sources, self.get = list(licenses), list(sources), get
+        self.licenses, self.sources, self.get, self.sleep = list(licenses), list(sources), get, sleep
+        self.attempts, self.timeout = attempts, timeout
         self.requests = 0  # live API calls made (cache hits excluded)
+        self.log: list[dict] = []  # one line per search, for the run report
 
     def providers(self) -> list[str]:
-        return (["pexels"] if self.pexels_key else []) + ["openverse"]
+        return (["pexels"] if self.pexels_key else []) + ["openverse", "commons"]
 
     def search(self, provider: str, query: str) -> list[dict]:
         key = hashlib.sha1(f"{provider}|{query.lower().strip()}|{','.join(self.licenses)}|{','.join(self.sources)}"
@@ -230,41 +254,92 @@ class StockSearch:
         if path.exists():
             cached = json.loads(path.read_text())
             if time.time() - cached.get("fetched_at", 0) < self.ttl:
+                self.log.append({"provider": provider, "query": query, "result": f"{len(cached['results'])} (cached)"})
                 return cached["results"]
-        self.requests += 1
-        results = self._pexels(query) if provider == "pexels" else self._openverse(query)
+        try:
+            results = {"pexels": self._pexels, "openverse": self._openverse, "commons": self._commons}[provider](query)
+        except SearchUnavailable as e:
+            self.log.append({"provider": provider, "query": query, "result": f"failed: {e}"})
+            raise
+        self.log.append({"provider": provider, "query": query, "result": str(len(results))})
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps({"provider": provider, "query": query, "fetched_at": int(time.time()),
                                     "results": results}, indent=1, ensure_ascii=False))
         return results
 
+    def _fetch(self, url: str, **kw):
+        """GET with one retry on a timeout, a dropped connection, 429 or 5xx."""
+        why, headers = "", {"User-Agent": USER_AGENT, **kw.pop("headers", {})}
+        for attempt in range(1, self.attempts + 1):
+            self.requests += 1
+            try:
+                r = self.get(url, timeout=self.timeout, headers=headers, **kw)
+            except requests.RequestException as e:
+                why = type(e).__name__
+            else:
+                if r.status_code == 200:
+                    return r
+                why = f"HTTP {r.status_code}"
+                if r.status_code != 429 and r.status_code < 500:
+                    break
+            if attempt < self.attempts:
+                self.sleep(2 * attempt)
+        raise SearchUnavailable(why)
+
     def _openverse(self, query: str) -> list[dict]:
-        r = self.get("https://api.openverse.org/v1/images/", timeout=45, headers={"User-Agent": USER_AGENT},
-                     params={"q": query, "license": ",".join(self.licenses), "license_type": "commercial",
-                             "source": ",".join(self.sources), "mature": "false", "page_size": 20,
-                             "extension": "jpg,png"})
-        r.raise_for_status()
+        r = self._fetch("https://api.openverse.org/v1/images/", params={
+            "q": query, "license": ",".join(self.licenses), "category": "photograph",
+            "source": ",".join(self.sources), "mature": "false", "page_size": 20})
         out = []
         for x in r.json().get("results", []):
-            lic = (x.get("license") or "").lower()
-            if lic not in self.licenses:
+            lic = OPENVERSE_LICENSES.get((x.get("license") or "").lower())
+            if not lic or (x.get("license") or "").lower() not in self.licenses:
                 continue  # never trust a licence we did not ask for
-            out.append({"provider": "openverse", "id": x.get("id"), "description": x.get("title") or "",
-                        "tags": [t.get("name", "") for t in x.get("tags") or []],
+            out.append({"provider": "openverse", "id": str(x.get("id")), "description": x.get("title") or "",
+                        "text": "", "tags": [t.get("name", "") for t in x.get("tags") or []],
                         "image_url": x.get("url"), "page_url": x.get("foreign_landing_url"),
                         "creator": x.get("creator") or "", "creator_url": x.get("creator_url") or "",
-                        "license": {"by": "cc-by"}.get(lic, lic), "license_version": x.get("license_version") or "",
+                        "license": lic, "license_version": x.get("license_version") or "",
                         "license_url": x.get("license_url") or "", "source": x.get("source") or "",
                         "width": x.get("width") or 0, "height": x.get("height") or 0})
         return out
 
+    def _commons(self, query: str) -> list[dict]:
+        """Wikimedia Commons, read directly: no key, and each file's licence is in its metadata."""
+        r = self._fetch("https://commons.wikimedia.org/w/api.php", params={
+            "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6, "gsrlimit": 20,
+            "gsrsearch": f"{query} filetype:bitmap", "prop": "imageinfo",
+            "iiprop": "url|size|mime|extmetadata", "iiurlwidth": 1600, "iiextmetadatalanguage": "en",
+            "iiextmetadatafilter": "License|LicenseShortName|LicenseUrl|Artist|Restrictions|ImageDescription|"
+                                   "ObjectName|NonFree|Categories"})
+        out = []
+        for page in ((r.json().get("query") or {}).get("pages") or {}).values():
+            info = (page.get("imageinfo") or [{}])[0]
+            meta = {k: (v or {}).get("value", "") for k, v in (info.get("extmetadata") or {}).items()}
+            lic = _commons_license(meta)
+            if (not lic or info.get("mime") != "image/jpeg" or meta.get("Restrictions")
+                    or str(meta.get("NonFree", "")).lower() == "true"):
+                continue  # unclear or restricted (personality rights, trademarks): not downloaded
+            artist = str(meta.get("Artist", ""))
+            link = re.search(r'href="(https://[^"]+)"', artist) or re.search(r'href="//([^"]+)"', artist)
+            title = re.sub(r"\.(jpe?g)$", "", page.get("title", "").removeprefix("File:"), flags=re.I)
+            out.append({"provider": "commons", "id": str(page.get("pageid")),
+                        "description": _clean(str(meta.get("ObjectName") or "")) or title.replace("_", " "),
+                        "text": _clean(str(meta.get("ImageDescription", "")))[:500] + " " + title.replace("_", " "),
+                        "tags": [t for t in str(meta.get("Categories", "")).split("|") if t][:15],
+                        "image_url": info.get("thumburl") or info.get("url"), "page_url": info.get("descriptionurl"),
+                        "creator": _clean(artist)[:120],
+                        "creator_url": ("https://" + link.group(1)) if link and not link.group(1).startswith("https")
+                        else (link.group(1) if link else ""),
+                        "license": lic[0], "license_version": lic[1], "license_url": meta.get("LicenseUrl", ""),
+                        "source": "wikimedia", "width": info.get("width") or 0, "height": info.get("height") or 0})
+        return out
+
     def _pexels(self, query: str) -> list[dict]:
-        r = self.get("https://api.pexels.com/v1/search", timeout=20,
-                     headers={"Authorization": self.pexels_key, "User-Agent": USER_AGENT},
-                     params={"query": query, "orientation": "landscape", "per_page": 20})
-        r.raise_for_status()
-        return [{"provider": "pexels", "id": x.get("id"), "description": x.get("alt") or "", "tags": [],
-                 "image_url": (x.get("src") or {}).get("large2x") or (x.get("src") or {}).get("original"),
+        r = self._fetch("https://api.pexels.com/v1/search", headers={"Authorization": self.pexels_key},
+                        params={"query": query, "orientation": "landscape", "per_page": 20})
+        return [{"provider": "pexels", "id": str(x.get("id")), "description": x.get("alt") or "", "text": "",
+                 "tags": [], "image_url": (x.get("src") or {}).get("large2x") or (x.get("src") or {}).get("original"),
                  "page_url": x.get("url"), "creator": x.get("photographer") or "",
                  "creator_url": x.get("photographer_url") or "", "license": "pexels-license",
                  "license_version": "", "license_url": "https://www.pexels.com/license/", "source": "pexels",
@@ -272,15 +347,38 @@ class StockSearch:
                 for x in r.json().get("photos", [])]
 
 
-def relevant(c: dict, keywords: list[str]) -> bool:
-    """Landscape, big enough, https, a real description, and on-topic by its own description or tags."""
+def licence_clear(c: dict) -> bool:
+    """Checked before anything is downloaded: a licence we accept, where to read it, and for
+    CC BY / BY-SA the creator we must credit."""
+    lic = c.get("license")
+    if lic not in LICENSE_NAMES or not str(c.get("page_url") or "").startswith("https://"):
+        return False
+    if lic in NEEDS_CREDIT:
+        return bool(c.get("creator") and str(c.get("license_url") or "").startswith("https://"))
+    return lic == "public-domain" or str(c.get("license_url") or "").startswith("https://")
+
+
+def terms(*texts: str) -> set[str]:
+    words = re.findall(r"[a-z]+", " ".join(t or "" for t in texts).lower())
+    out = {w for w in words if len(w) >= 4 and w not in STOPWORDS}
+    return out | {w[:-1] for w in out if w.endswith("s")}
+
+
+def score(c: dict, article_terms: set[str], keywords: list[str]) -> int:
+    """0 = not usable. Otherwise higher is better: words of this article count three times as
+    much as the pillar's scene words, so the photo fits the article, not just the topic."""
     desc = c.get("description", "")
-    text = " ".join([desc, *c.get("tags", [])]).lower()
-    return (c.get("width", 0) >= FEATURED_SIZE[0] and c.get("height", 0) >= FEATURED_SIZE[1]
-            and c["width"] >= c["height"] and str(c.get("image_url", "")).startswith("https://")
-            and len(re.findall(r"[a-zA-Z]{2,}", desc)) >= 3 and not re.search(r"\b(img|dsc|photo)[_ -]?\d", desc, re.I)
-            and any(re.search(rf"\b{re.escape(k.lower())}\b", text) for k in keywords)
-            and (c["license"] != "cc-by" or bool(c.get("creator") and c.get("license_url"))))
+    text = " ".join([desc, c.get("text", ""), *c.get("tags", [])]).lower()
+    if (c.get("width", 0) < FEATURED_SIZE[0] or c.get("height", 0) < FEATURED_SIZE[1]
+            or c["width"] < c["height"] or not str(c.get("image_url", "")).startswith("https://")
+            or len(re.findall(r"[a-zA-Z]{2,}", desc)) < 2 or re.search(r"\b(img|dsc|dscn|p)[_ -]?\d{3,}", desc, re.I)
+            or NOT_A_PHOTO.search(text)):
+        return 0
+    found = terms(text)
+    hits = len(article_terms & found)
+    kw = sum(1 for k in keywords if re.search(rf"\b{re.escape(k.lower())}\b", text))
+    total = 3 * hits + kw
+    return total if total >= 2 else 0
 
 
 def _used_path() -> Path:
@@ -294,7 +392,7 @@ def used_photos() -> dict:
 
 def mark_used(plan: dict, slug: str) -> None:
     f = plan.get("featured") or {}
-    if f.get("provider") in ("pexels", "openverse"):
+    if f.get("provider") in ("pexels", "openverse", "commons"):
         used = used_photos()
         used[f"{f['provider']}:{f['id']}"] = slug
         _used_path().parent.mkdir(parents=True, exist_ok=True)
@@ -311,34 +409,54 @@ def cover(data: bytes, size=FEATURED_SIZE) -> bytes:
 
 
 def download(url: str, get=requests.get, limit: int = 15_000_000) -> bytes:
-    r = get(url, timeout=30, headers={"User-Agent": USER_AGENT})
+    r = get(url, timeout=(10, 60), headers={"User-Agent": USER_AGENT})
     r.raise_for_status()
     if not r.headers.get("Content-Type", "image/").startswith("image/") or len(r.content) > limit:
         raise ValueError(f"not an image or too large: {url}")
     return r.content
 
 
-def featured_photo(cfg: dict, pillar: str, queries: list[str], search: StockSearch, say=print,
-                   get=requests.get) -> tuple[dict, bytes] | None:
+def _alt_from(c: dict) -> str:
+    text = re.sub(r"\([^)]*\)|\[[^]]*\]", "", c["description"]).replace("_", " ")
+    text = re.sub(r"\s+", " ", re.sub(r"[-_ ]\d+$", "", text)).strip(" .-,")
+    return _cap(text[:1].upper() + text[1:])
+
+
+def featured_photo(cfg: dict, pillar: str, queries: list[str], article_terms: set[str], search: StockSearch,
+                   say=print, get=requests.get) -> tuple[dict, bytes] | None:
+    """Best-scoring photo with a clear licence, provider by provider. A search that fails twice
+    is skipped; two failed searches in a row mark that provider as down for this run."""
     ic = cfg.get("images") or {}
     keywords = (ic.get("photo_keywords") or {}).get(pillar, [])
     used = used_photos()
     for provider in search.providers():
-        for q in queries[: ic.get("max_queries", 3)]:
+        failures, ranked = 0, []
+        for n, q in enumerate(queries[: ic.get("max_queries", 3)]):
             try:
-                cands = search.search(provider, q)
-            except Exception as e:  # slow, rate-limited or down: try the next query, then the title card
-                say(f"Images: {provider} search for {q!r} failed ({str(e)[:120]}).")
+                results = search.search(provider, q)
+            except SearchUnavailable as e:
+                say(f"Images: {provider} search for {q!r} failed ({e}).")
+                failures += 1
+                if failures >= 2:
+                    say(f"Images: {provider} looks unavailable; trying the next source.")
+                    break
                 continue
-            for c in cands:
-                if f"{provider}:{c['id']}" in used or not relevant(c, keywords):
-                    continue
-                try:
-                    data = cover(download(c["image_url"], get=get))
-                except Exception as e:
-                    say(f"Images: could not use {c['page_url']} ({str(e)[:120]}).")
-                    continue
-                return dict(c, query=q), data
+            failures = 0
+            for c in results:
+                if f"{provider}:{c['id']}" in used or not licence_clear(c):
+                    continue  # licence unclear: never downloaded
+                s = score(c, article_terms, keywords)
+                if s:
+                    ranked.append((-s, n, c, q))
+        seen = set()
+        for _, _, c, q in sorted(ranked, key=lambda t: t[:2])[:4]:
+            if c["id"] in seen:
+                continue
+            seen.add(c["id"])
+            try:
+                return dict(c, query=q), cover(download(c["image_url"], get=get))
+            except Exception as e:
+                say(f"Images: could not download {c['page_url']} ({str(e)[:120]}).")
     return None
 
 
@@ -351,58 +469,58 @@ def build(cfg: dict, article: dict, pillar: str, out_dir: Path, *, query: str | 
     words = len(_clean(article["content_html"]).split())
     lo, hi = target_count(words)
     slug = article["slug"]
-    plan = {"words": words, "target": [lo, hi], "stock_api_calls": 0, "notes": []}
+    plan = {"words": words, "target": [lo, hi], "stock_api_calls": 0, "photo_searches": [], "notes": []}
 
     featured = None
     if ic.get("stock_photos", True):
         search = search or StockSearch(ledger.DATA / "image_cache", pexels_key=os.environ.get("PEXELS_API_KEY"),
                                        cache_days=ic.get("cache_days", 30),
-                                       licenses=ic.get("stock_licenses", ("cc0", "pdm", "by")),
-                                       sources=ic.get("openverse_sources", ("stocksnap", "flickr")))
+                                       licenses=ic.get("stock_licenses", ("cc0", "pdm", "by", "by-sa")),
+                                       sources=ic.get("openverse_sources", ("stocksnap", "nappy", "flickr", "wikimedia")))
         queries = list(dict.fromkeys(q for q in [query, article.get("focus_keyphrase"),
                                                  *(ic.get("photo_queries") or {}).get(pillar, [])] if q))
-        before = search.requests
+        article_terms = terms(query or "", article.get("focus_keyphrase", ""), article.get("title", ""))
+        before, logged = search.requests, len(search.log)
         try:
-            featured = featured_photo(cfg, pillar, queries, search, say=say, get=get)
-        except Exception as e:
-            say(f"Images: stock photo search failed ({str(e)[:120]}); using the title card.")
+            featured = featured_photo(cfg, pillar, queries, article_terms, search, say=say, get=get)
+        except Exception as e:  # never let an image problem stop the article
+            say(f"Images: stock photo search failed ({str(e)[:120]}).")
         plan["stock_api_calls"] = search.requests - before
+        plan["photo_searches"] = search.log[logged:]
     if featured:
         c, data = featured
         plan["featured"] = {k: c[k] for k in ("provider", "id", "description", "page_url", "creator", "creator_url",
                                               "license", "license_version", "license_url", "source", "query")}
-        plan["featured"].update(alt_text=_cap(c["description"].strip().rstrip(".").capitalize()),
-                                caption="", filename=f"{slug}-featured.webp")
+        plan["featured"].update(alt_text=_alt_from(c), caption="", filename=f"{slug}-featured.webp")
     else:
         headline = article.get("image_headline") or article["title"]
         data = title_card(headline, pillar)
         plan["featured"] = {"provider": "in-house", "license": "generated-in-house", "alt_text": alt_text(headline),
-                            "caption": "", "filename": f"{slug}-featured.webp"}
-        plan["notes"].append("no relevant free stock photo found; used the branded title card")
+                            "caption": "", "filename": f"{slug}-featured.webp", "fallback": True}
+        plan["notes"].append("FALLBACK: no suitable, clearly licensed photo was found, so the featured image is "
+                             "the branded title card. Replace it in WP Admin if you prefer a photo.")
+        say("Images: no suitable licensed photo found; using the title card as a last resort.")
     (out_dir / "featured.webp").write_bytes(data)
     plan["featured"]["file"] = "featured.webp"
     plan["featured"]["bytes"] = len(data)
 
     inline = []
-    max_inline = min(hi - 1, ic.get("max_inline", 4))
-    for n, lst in enumerate(pick_lists(top_level_lists(article["content_html"]), max_inline, lo - 1), 1):
-        numbered = lst["tag"] == "ol"
+    for n, lst in enumerate(pick_lists(top_level_lists(article["content_html"]),
+                                       min(hi - 1, ic.get("max_inline", 2))), 1):
         heading = lst["heading"]
-        data, height = list_card(heading, lst["items"], pillar, numbered)
-        kind = "steps" if numbered else "key-points"
-        name = f"{slug}-{kind}-{slugify(heading, 40)}.webp"
+        data, height = list_card(heading, lst["items"], pillar, numbered=True)
         (out_dir / f"inline-{n}.webp").write_bytes(data)
-        what = f"the {len(lst['items'])} steps" if numbered else f"{len(lst['items'])} key points"
-        inline.append({"provider": "in-house", "license": "generated-in-house", "kind": kind,
+        inline.append({"provider": "in-house", "license": "generated-in-house", "kind": "steps",
                        "list_index": lst["index"], "heading": heading, "file": f"inline-{n}.webp",
-                       "filename": name, "width": 1200, "height": height, "bytes": len(data),
-                       "alt_text": _cap(f'Diagram of {what} in "{heading}": '
+                       "filename": f"{slug}-steps-{slugify(heading, 40)}.webp", "width": 1200, "height": height,
+                       "bytes": len(data),
+                       "alt_text": _cap(f'Diagram of the {len(lst["items"])} steps in "{heading}": '
                                         + "; ".join(lst["items"])),
                        "caption": f"At a glance: {heading}"})
     plan["inline"] = inline
     if 1 + len(inline) < lo:
-        plan["notes"].append(f"{1 + len(inline)} image(s), below the {lo}-{hi} guideline: no further list was "
-                             "suitable, and decorative images are not added")
+        plan["notes"].append(f"{1 + len(inline)} image(s), below the {lo}-{hi} guideline: no other step-by-step "
+                             "section would gain from a diagram, and decorative images are not added")
     return plan
 
 
@@ -416,8 +534,9 @@ def figure(src: str, media_id: int, img: dict) -> str:
 
 
 def credit_line(plan: dict) -> str:
+    """Attribution for the featured photo, as its licence asks (and as a courtesy where it doesn't)."""
     f = plan.get("featured") or {}
-    if f.get("provider") not in ("pexels", "openverse"):
+    if f.get("provider") not in ("pexels", "openverse", "commons"):
         return ""
     e = htmllib.escape
     by = f' by <a href="{e(f["creator_url"])}">{e(f["creator"])}</a>' if f.get("creator_url", "").startswith("https://") \
@@ -425,11 +544,13 @@ def credit_line(plan: dict) -> str:
     if f["provider"] == "pexels":
         lic = 'on <a href="https://www.pexels.com/">Pexels</a>'
     else:
-        name = {"cc-by": "CC BY", "cc0": "CC0", "pdm": "Public Domain Mark"}[f["license"]]
-        name += f" {f['license_version']}" if f.get("license_version") and f["license"] != "pdm" else ""
-        lic = f'(<a href="{e(f["license_url"])}">{e(name)}</a>), via Openverse'
-    return (f'<p class="image-credits"><small>Featured image: <a href="{e(f["page_url"])}">photo</a>{by} {lic}; '
-            "cropped and converted to WebP.</small></p>")
+        name = LICENSE_NAMES[f["license"]] + (f" {f['license_version']}" if f.get("license_version")
+                                               and f["license"] != "public-domain" else "")
+        lic = (f'(<a href="{e(f["license_url"])}">{e(name)}</a>)' if f.get("license_url") else f"({e(name)})")
+        lic += ", via Wikimedia Commons" if f["provider"] == "commons" else ", via Openverse"
+    same = " This version is available under the same licence." if f["license"] == "cc-by-sa" else ""
+    return (f'<p class="image-credits"><small>Featured image: <a href="{e(f["page_url"])}">{e(f["description"][:80])}</a>'
+            f"{by} {lic}; cropped and converted to WebP.{same}</small></p>")
 
 
 def insert(content_html: str, plan: dict, uploaded: list[dict]) -> str:
@@ -466,10 +587,14 @@ def check_in_post(post: dict, featured: dict, uploaded: list[dict], get=requests
 
 def report(plan: dict) -> list[str]:
     f = plan["featured"]
-    src = {"in-house": "branded title card drawn by the pipeline"}.get(
-        f["provider"], f"{f['provider']} photo {f.get('page_url')} ({f['license']})")
+    if f["provider"] == "in-house":
+        src = "FALLBACK title card (no suitable licensed photo)"
+    else:
+        name = LICENSE_NAMES[f["license"]] + (f" {f['license_version']}" if f.get("license_version") else "")
+        src = f"{f['provider']} photo by {f.get('creator') or 'unknown'}, {name}, {f.get('page_url')} (query {f.get('query')!r})"
     rows = [f"{plan['words']} words; guideline {plan['target'][0]}-{plan['target'][1]} images; "
-            f"using {1 + len(plan['inline'])}. Image cost: $0 (stock API calls this run: {plan['stock_api_calls']}).",
+            f"using {1 + len(plan['inline'])}. Image cost: $0 (free stock API calls this run: {plan['stock_api_calls']}).",
             f"- featured: {src}; alt: {f['alt_text']!r}; {f['bytes'] // 1024} KB"]
-    rows += [f"- {i['kind']} diagram before the list under {i['heading']!r}; {i['bytes'] // 1024} KB" for i in plan["inline"]]
+    rows += [f"- steps diagram before the list under {i['heading']!r}; {i['bytes'] // 1024} KB" for i in plan["inline"]]
+    rows += [f"- search: {s['provider']} {s['query']!r} -> {s['result']}" for s in plan.get("photo_searches", [])]
     return rows + [f"- note: {n}" for n in plan["notes"]]

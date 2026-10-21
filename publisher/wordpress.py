@@ -98,6 +98,16 @@ class WordPress:
                   json={"alt_text": alt_text, "caption": caption})
         return media
 
+    def find_media(self, filename: str) -> dict | None:
+        """A file this account already uploaded under exactly this name, so it is not uploaded twice."""
+        stem = filename.rsplit(".", 1)[0]
+        r = self._req("GET", "/wp/v2/media", auth=True, params={
+            "search": stem, "per_page": 20, "context": "edit", "_fields": "id,source_url"})
+        for m in r.json():
+            if m.get("source_url", "").rsplit("/", 1)[-1] == filename:
+                return m
+        return None
+
     def create_post(self, *, title: str, slug: str, content_html: str, excerpt: str,
                     status: str, category_id: int, featured_media: int | None,
                     seo_title: str, meta_description: str, focus_keyphrase: str) -> dict:

@@ -153,20 +153,22 @@ def prepare_images(cfg: dict, article: dict, pillar: str, cp: ledger.Checkpoint,
 
 def upload_images(wp: WordPress, cp: ledger.Checkpoint, plan: dict, featured_bytes: bytes,
                   slug: str, mark_used: bool = True) -> tuple[dict, list[dict]]:
-    """Upload to the Media Library once; ids are checkpointed so a resumed run never re-uploads.
+    """Upload to the Media Library once: ids are checkpointed so a resumed run never re-uploads, and a
+    file already in the library under the same name is reused.
     A stock photo used for an article is not picked again for another one."""
     f = plan["featured"]
     media = cp.get("wp_media")
     if not media or "url" not in media:
-        m = wp.upload_media(f["filename"], featured_bytes, "image/webp", f["alt_text"], f.get("caption", ""))
+        m = wp.find_media(f["filename"]) or wp.upload_media(f["filename"], featured_bytes, "image/webp",
+                                                              f["alt_text"], f.get("caption", ""))
         media = {"id": m["id"], "url": m.get("source_url", "")}
         cp.put("wp_media", media)
         if mark_used:
             images.mark_used(plan, slug)
     inline = cp.get("wp_media_inline") or []
     for img in plan["inline"][len(inline):]:
-        m = wp.upload_media(img["filename"], (cp.dir / img["file"]).read_bytes(), "image/webp",
-                            img["alt_text"], img.get("caption", ""))
+        m = wp.find_media(img["filename"]) or wp.upload_media(
+            img["filename"], (cp.dir / img["file"]).read_bytes(), "image/webp", img["alt_text"], img.get("caption", ""))
         inline.append({"id": m["id"], "url": m.get("source_url", "")})
         cp.put("wp_media_inline", inline)
     return media, inline
@@ -445,13 +447,14 @@ def cmd_image_test(cfg: dict, args) -> int:
         say("Refused: image-test needs --article-file (a saved article JSON or a run's state.json).")
         return 7
     article, _, pillar = load_article_file(Path(args.article_file))
-    article = dict(article, slug=f"image-test-{article['slug']}", title=f"[Image test] {article['title']}")
+    run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    stamp = run_id[:13].lower()  # each test gets its own draft and file names
+    article = dict(article, slug=f"image-test-{stamp}-{article['slug']}", title=f"[Image test] {article['title']}")
     wp = WordPress.from_env(cfg["site"]["base_url"])
     clash = wp.find_by_slug(article["slug"])
     if clash:
-        say(f"Refused: a test draft already exists (post {clash['id']}, {clash['status']}); trash it in WP Admin first.")
+        say(f"Refused: post {clash['id']} ({clash['status']}) already uses {article['slug']}.")
         return 6
-    run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
     cp = ledger.Checkpoint(run_id, root=ledger.DATA / "image_tests")
     say(f"Image test {run_id} on {args.article_file} (draft only)")
     plan = prepare_images(cfg, article, pillar, cp, None)
@@ -474,6 +477,8 @@ def cmd_image_test(cfg: dict, args) -> int:
         return 5
     say("All images uploaded to the Media Library and present in the draft. Preview it in WP Admin > Posts > Drafts, "
         "then move it to the trash.")
+    if plan["featured"].get("fallback"):
+        say("Note: the featured image is the fallback title card; no suitable licensed photo was found.")
     return 0
 
 

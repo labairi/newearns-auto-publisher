@@ -179,26 +179,31 @@ models:
   stages: {}
 
 # Article images, all at no extra cost (see publisher/images.py).
-# Featured image: a free stock photo whose licence comes from the provider's API, else the
-# branded title card. Pexels is used only if the free PEXELS_API_KEY secret is set;
-# Openverse needs no key. Inline images: diagrams drawn from the article's own step
-# lists and bulleted lists. No paid image service and no AI image generation.
+# Featured image: a real photograph from free sources whose APIs return each image's
+# licence: Openverse, then Wikimedia Commons (neither needs a key). Licence, licence link
+# and (for CC BY / BY-SA) creator are checked before download, and the post credits the
+# photo. The branded title card is only a last resort and is reported as a fallback.
+# Pexels would be used only if a PEXELS_API_KEY secret were added (not set; needs approval).
+# Inline images: diagrams of the article's numbered step lists only. No paid image
+# service and no AI image generation.
 images:
   stock_photos: true
-  stock_licenses: [cc0, pdm, by]   # Openverse licences accepted; CC BY gets a credit line
-  openverse_sources: [stocksnap, flickr]   # modern photo collections, not museum archives
-  cache_days: 30                   # search results cached in data/image_cache/
-  max_queries: 3                   # per provider per article
-  max_inline: 4
+  stock_licenses: [cc0, pdm, by, by-sa]   # Openverse codes; CC BY / BY-SA get a credit line
+  openverse_sources: [stocksnap, nappy, flickr, wikimedia]   # photo collections
+  cache_days: 30                   # successful searches cached in data/image_cache/
+  max_queries: 4                   # per source per article: the article's query first
+  max_inline: 2                    # step diagrams per article at most
+  # Scene searches tried after the article's own query.
   photo_queries:
-    pdf: ["pdf document on laptop", "documents and laptop on desk", "paperwork and computer"]
-    instagram: ["instagram on smartphone", "smartphone social media app", "person using smartphone"]
-    money: ["freelancer working on laptop", "home office laptop", "laptop work desk"]
-  # A photo is used only if its own description or tags contain one of these words.
+    pdf: ["laptop documents", "office paperwork", "signing document"]
+    instagram: ["instagram smartphone", "smartphone social media", "woman smartphone"]
+    money: ["freelancer laptop", "home office laptop", "working laptop"]
+  # Scene words for the pillar. A photo needs words from the article (worth 3) or these
+  # (worth 1) in its own title, description or tags, scoring at least 2.
   photo_keywords:
-    pdf: [pdf, document, documents, paper, papers, paperwork, laptop, computer, printer, file, files, office]
-    instagram: [instagram, smartphone, phone, mobile, social media, app, selfie]
-    money: [laptop, freelance, freelancer, computer, office, desk, work, working]
+    pdf: [pdf, document, documents, paper, paperwork, laptop, computer, printer, office, desk, signing, contract]
+    instagram: [instagram, smartphone, phone, mobile, social media, selfie, creator, influencer]
+    money: [laptop, freelance, freelancer, computer, office, desk, working, entrepreneur]
 
 tracking:
   gsc_site_url: sc-domain:newearns.com   # or https://newearns.com/ (URL-prefix property)

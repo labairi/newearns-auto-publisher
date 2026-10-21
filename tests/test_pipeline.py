@@ -174,6 +174,9 @@ class FakeWP:
                 return {"id": p["id"], "slug": slug, "status": p["status"], "link": p["link"]}
         return None
 
+    def find_media(self, filename):
+        return None
+
     def upload_media(self, *a, **k):
         self.media.append(a[0])
         return {"id": 900 + len(self.media), "source_url": f"{SITE}/wp-content/uploads/{a[0]}"}

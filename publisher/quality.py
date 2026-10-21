@@ -17,7 +17,8 @@ import requests
 
 from .sources import normalize_url
 
-IMAGE_LICENSES = ("generated-in-house", "pexels-license", "own-screenshot", "cc0", "pdm", "cc-by")
+IMAGE_LICENSES = ("generated-in-house", "pexels-license", "own-screenshot", "cc0", "public-domain", "cc-by",
+                  "cc-by-sa")
 WORD = re.compile(r"[a-z0-9]+(?:'[a-z]+)?")
 STAT_HINT = re.compile(r"\d+(?:\.\d+)?\s?%|\b(according to|study|survey|research (shows|found)|report(s|ed)? that|statistic)", re.I)
 
@@ -123,7 +124,7 @@ FIXES = {
     "sources_verified": "Replace each unreadable or irrelevant source with a page that states the fact, or remove the "
                         "claims that relied on it; then re-run the fact-check only.",
     "featured_image_alt": "Write alt text of 10-125 characters describing the image.",
-    "image_rights": "Use only an in-house, Pexels-licensed, CC0/public-domain or credited CC BY image, or your own.",
+    "image_rights": "Use only an in-house, Pexels-licensed, CC0/public-domain or credited CC BY / BY-SA image, or your own.",
     "inline_images_have_alt": "Give every inline image alt text.",
     "fact_check_claims": "Contradicted: correct the claim to what the source says. No evidence found: cite an official "
                          "source that states it, narrow it to what a source does say, or remove it. Could not be "
@@ -333,11 +334,11 @@ def run_checks(article: dict, cfg: dict, existing_posts: list[dict], known_slugs
     img = article.get("featured_image") or {}
     alt = img.get("alt_text", "")
     rep.add("featured_image_alt", 10 <= len(alt) <= 125, f"{len(alt)} chars")
-    # Every image: a licence recorded from its source; CC BY also needs the creator and licence link we credit.
+    # Every image: a licence recorded from its source; CC BY / BY-SA also need the creator and licence link we credit.
     planned = article.get("inline_images") or []
     bad = [i.get("license", "none") for i in [img, *planned]
            if i.get("license") not in IMAGE_LICENSES
-           or (i.get("license") == "cc-by" and not (i.get("creator") and i.get("license_url")))]
+           or (i.get("license") in ("cc-by", "cc-by-sa") and not (i.get("creator") and i.get("license_url")))]
     rep.add("image_rights", not bad, ", ".join(bad) or img.get("license", "none"))
     rep.add("inline_images_have_alt", all(i.get("alt") for i in doc.images)
             and all(10 <= len(i.get("alt_text", "")) <= 125 for i in planned),

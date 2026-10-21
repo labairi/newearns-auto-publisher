@@ -25,7 +25,7 @@ https://newearns.com, then logs it and tracks it in Search Console.
 | Search performance | Google Search Console API (service account, read-only) | $0 |
 | Engagement | GA4 Data API (same service account, read-only) | $0 |
 | Keyword data | Search Console queries + web research on what ranks. Optional later: DataForSEO pay-as-you-go ($50 minimum top-up, about $0.06 per 1,000-keyword volume lookup) | $0 now |
-| Images | Free stock photo for the featured image (Openverse, no key; Pexels if the free `PEXELS_API_KEY` is set), else the branded title card; inline diagrams drawn from the article's own lists. No paid image API, no AI image generation | $0 |
+| Images | Licensed photo for the featured image (Openverse, then Wikimedia Commons; no keys), title card only as a last resort; step diagrams drawn in-house. No paid image API, no AI image generation | $0 |
 
 n8n was considered: n8n Cloud Starter is about €20/month, and self-hosting needs a
 VPS you maintain. GitHub Actions does the same job for $0, keeps every change
@@ -70,30 +70,36 @@ versioned, and stores the publication log in the repo.
    `refresh_fact_check` to re-run only the fact-check on the edited text (about
    $0.40 at list prices on the 2026-10-20 run); the result is saved as
    `data/runs/<new id>/article.json`, which later rechecks reuse at no cost.
-7. **Images** (`publisher/images.py`, settings under `images:` in `config.yaml`).
+7. **Images** (`publisher/images.py`, settings under `images:` in `config.yaml`). $0.
    - How many: a guideline by length, counting the featured image: 600-900 words 1-2,
      900-1,500 words 2-3, 1,500-2,500 words 3-4, over 2,500 words 4-5. It is a ceiling,
-     not a quota: an image is only added where it shows something in the article.
-   - Featured image: a free stock photo whose licence comes from the provider's API
-     (Openverse: CC0, public domain or CC BY from StockSnap and Flickr; Pexels licence
-     when a key is set). A photo is used only if its own description or tags match the
-     pillar, it is landscape and at least 1200x630, and it has not been used before.
-     CC BY photos get a credit line at the end of the post. No match, or the API is
-     down: the branded title card. Image search engines such as Google Images are never used.
-   - Inline images: a summary diagram of a numbered step list (and, only to reach the
-     guideline's minimum, of a bulleted list), placed just before that list. One per
-     section, never in neighbouring sections or the FAQ. The diagram restates text
-     that has already passed the gates and the fact-check, so it adds no new claims.
-   - Files: 1200 px wide WebP (quality 80, no metadata), named
-     `<slug>-featured.webp` / `<slug>-steps-<section>.webp`, with alt text and a caption.
-   - Searches are cached in `data/image_cache/` for 30 days and a resumed run reuses its
-     images and Media Library uploads. After the post is created the run reads it back
-     and checks the featured image, every diagram in the content and every file loading
-     as an image; if anything is missing the post is held as Pending Review instead.
-   - Try it without generating an article: the **image-test-draft** command takes a
-     saved article (`article_file`) and makes one WordPress draft with an `image-test-`
-     slug. No Claude call, and it is not logged as an attempt, so the schedule and the
-     calendar are unaffected.
+     not a quota: no image is added just to reach it.
+   - Featured image: a real photograph. It searches Openverse (StockSnap, nappy, Flickr and
+     Wikimedia photos), then Wikimedia Commons directly. Neither needs a key. The article's own
+     query comes first, then the pillar's scene searches, and photos are ranked by words from
+     the article (worth 3) and the pillar's scene words (worth 1). Logos, screenshots,
+     drawings, portrait shots, small files and camera file names are skipped.
+   - Licence: only CC0, public domain, CC BY or CC BY-SA, read from the source's API. Before
+     anything is downloaded, the licence link (and for BY / BY-SA the creator) must be present.
+     Commons files with personality-rights or trademark restrictions are never used. The post
+     ends with a credit line. Image search engines such as Google Images are never used.
+   - Failures: a search that times out or returns 429/5xx is retried once, and then the next
+     query is tried. Two failed searches in a row move on to the next source. Failed searches
+     are not cached.
+   - Last resort: the branded title card, reported as a FALLBACK in the run summary.
+   - Inline images: a diagram of a numbered step list, placed just before it. Never for
+     bulleted lists, never in neighbouring sections or the FAQ, at most 2 per article.
+   - Files: 1200 px wide WebP (quality 80, no metadata), named `<slug>-featured.webp` /
+     `<slug>-steps-<section>.webp`, with alt text. Successful searches are cached in
+     `data/image_cache/` for 30 days. A photo is used for one article only. Uploads are
+     checkpointed, and a file already in the Media Library under the same name is reused.
+   - After the post is created, the run reads it back and checks the featured image, every
+     diagram and every file. If anything is missing, the post is held as Pending Review.
+   - Pexels (free key, better stock) is supported but off. It would need a `PEXELS_API_KEY`
+     secret, and that needs the owner's approval first.
+   - **image-test-draft** command: images for a saved article (`article_file`), saved as one
+     new WordPress draft with an `image-test-<time>-` slug. No Claude call, and not logged as an
+     attempt, so the schedule and calendar are unaffected.
 8. **Publish or hold.** If everything passes, the post is created as a draft,
    then switched to published. Anything failing is saved as **Pending Review**
    in WordPress. That is the review queue, and the reasons are in the log.
