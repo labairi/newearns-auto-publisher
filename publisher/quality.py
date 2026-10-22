@@ -218,8 +218,14 @@ def check_link(url: str, timeout: int = 20) -> tuple[bool, str]:
 
 
 def run_checks(article: dict, cfg: dict, existing_posts: list[dict], known_slugs: set[str],
-               link_checker=check_link, fact_check: dict | None = None) -> Report:
+               link_checker=check_link, fact_check: dict | None = None, *,
+               own_post: dict | None = None) -> Report:
+    """own_post ({"id", "slug"}): only for re-checking a correction to that post, with the id and
+    slug confirmed live by the caller. The post's own slug is then not a clash, and it is not
+    compared with itself; every other post and slug still is."""
     q, rep = cfg["quality"], Report()
+    if own_post:
+        existing_posts = [p for p in existing_posts if p.get("id") != own_post["id"]]
     site = urlparse(cfg["site"]["base_url"]).netloc
     doc = parse(article["content_html"])
     text = doc.text
@@ -254,7 +260,9 @@ def run_checks(article: dict, cfg: dict, existing_posts: list[dict], known_slugs
     rep.add("slug_format", bool(re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+){1,9}", slug)) and len(slug) <= 75, slug)
 
     # 5. duplication / cannibalisation
-    rep.add("slug_unused", slug not in known_slugs, slug)
+    own = bool(own_post) and own_post["slug"] == slug
+    rep.add("slug_unused", own or slug not in known_slugs,
+            f"{slug} (post {own_post['id']}'s own slug: a correction, not a new post)" if own else slug)
     sh = shingles(text)
     worst_body = max((jaccard(sh, shingles(p.get("text", ""))) for p in existing_posts), default=0.0)
     rep.add("not_near_duplicate", worst_body <= q["max_duplicate_similarity"], f"max 5-gram overlap {worst_body:.2f}")

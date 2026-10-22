@@ -80,6 +80,21 @@ def existing_posts(wp: WordPress) -> list[dict]:
     return out
 
 
+def confirmed_own_post(wp: WordPress, article: dict) -> dict | None:
+    """A correction file names the post it corrects: "updates_post": {"id": 3699, "slug": "..."}.
+    It counts only if the article keeps that slug and WordPress has exactly that post under it."""
+    want = article.get("updates_post")
+    if not want:
+        return None
+    live = wp.find_by_slug(article["slug"])
+    if want.get("slug") != article["slug"] or not live or live["id"] != want.get("id"):
+        say(f"updates_post {want} does not match WordPress (slug {article['slug']} belongs to "
+            f"{('post ' + str(live['id'])) if live else 'no post'}); slug_unused is checked as for a new post.")
+        return None
+    say(f"Correction to post {live['id']} ({live['status']}): its own slug and text are not counted as a clash.")
+    return {"id": live["id"], "slug": live["slug"]}
+
+
 def choose_pillar(cfg: dict) -> str:
     """Weighted rotation: pick the pillar most under its target share in the last 12 runs."""
     recent = [e.get("pillar") for e in ledger.read_log()[-12:] if e.get("status") == "published"]
@@ -297,6 +312,7 @@ def cmd_article(cfg: dict, args) -> int:
     known_slugs = {p["slug"] for p in posts} | ledger.logged_slugs()
     usages = cp.get("usages") or []
 
+    own_post = None
     if args.article_file:
         try:
             article, fact, pillar = load_article_file(Path(args.article_file))
@@ -304,6 +320,12 @@ def cmd_article(cfg: dict, args) -> int:
             say(f"Refused: cannot read {args.article_file}: {e}.")
             cp.put("final", "refused")
             return 7
+        if article.get("updates_post") and mode != "dry-run":
+            say("Refused: this file is a correction to an existing post (updates_post). It can only be re-checked "
+                "with --dry-run; there is no command that updates a post, so apply it in WP Admin.")
+            cp.put("final", "refused")
+            return 7
+        own_post = confirmed_own_post(wp, article)
         if args.refresh_fact_check:
             # Validation only: the fact-check stage on the text as edited. Saved under its own
             # stage name so --resume can never mistake it for a generated article.
@@ -353,7 +375,8 @@ def cmd_article(cfg: dict, args) -> int:
     img_bytes = (cp.dir / plan["featured"]["file"]).read_bytes()
     cp.save_file("article.html", article["content_html"])
 
-    report = quality.run_checks(article, cfg, posts, known_slugs, fact_check=fact)
+    report = quality.run_checks(article, cfg, posts, known_slugs, fact_check=fact,
+                                own_post=own_post)
     cp.put("checks", report.as_dict())
     say(f"Quality gates: {'PASSED' if report.passed else 'FAILED'} ({sum(ok for _, ok, _ in report.results)}/{len(report.results)})")
     for f in report.explained:
