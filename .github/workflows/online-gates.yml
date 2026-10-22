@@ -1,0 +1,23 @@
+name: online-gates (temporary)
+on:
+  push:
+    branches: [claude/project-thread-lhf4i6]
+    paths: [".github/online-gates/**", ".github/workflows/online-gates.yml"]
+permissions:
+  contents: read
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: |
+          git config user.name ci && git config user.email ci@example.invalid
+          git merge --no-edit origin/fix/factcheck-full-urls
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python .github/online-gates/check.py
