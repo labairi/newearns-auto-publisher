@@ -1,0 +1,598 @@
+{
+  "instagram-follower-location desktop": {
+    "checks": {
+      "figure_below_title": true,
+      "figure_above_intro": true,
+      "intro_is_first_paragraph": true,
+      "figure_first_in_body": true,
+      "shown_once": true,
+      "theme_prints_none_before": true,
+      "fits_column": true,
+      "no_new_overflow": true,
+      "aspect_kept": true,
+      "alt_text": true,
+      "not_lazy": true,
+      "header_unchanged": true,
+      "title_unchanged": true,
+      "content_width_unchanged": true,
+      "sidebar_unchanged_except_shift": true
+    },
+    "all_pass": true,
+    "before": {
+      "title": {
+        "top": 230,
+        "bottom": 470,
+        "left": 370,
+        "width": 700,
+        "height": 240
+      },
+      "entry_meta": {
+        "top": 8505,
+        "bottom": 8548,
+        "left": 370,
+        "width": 700,
+        "height": 43
+      },
+      "content": {
+        "top": 504,
+        "bottom": 8476,
+        "left": 370,
+        "width": 700,
+        "height": 7972
+      },
+      "first_p": {
+        "top": 504,
+        "bottom": 665,
+        "left": 370,
+        "width": 700,
+        "height": 161
+      },
+      "first_p_text": "Instagram can show you the top countries and cities your followers come from, bu",
+      "first_content_child": "P.",
+      "figure": null,
+      "img": null,
+      "featured_imgs_visible": 0,
+      "wp_post_image": 0,
+      "header": {
+        "top": 0,
+        "bottom": 140,
+        "left": 0,
+        "width": 1440,
+        "height": 140
+      },
+      "sidebar": null,
+      "horizontal_overflow": false,
+      "page_width": [
+        1440,
+        1440
+      ],
+      "widest": []
+    },
+    "after": {
+      "title": {
+        "top": 230,
+        "bottom": 470,
+        "left": 370,
+        "width": 700,
+        "height": 240
+      },
+      "entry_meta": {
+        "top": 8872,
+        "bottom": 8915,
+        "left": 370,
+        "width": 700,
+        "height": 43
+      },
+      "content": {
+        "top": 504,
+        "bottom": 8843,
+        "left": 370,
+        "width": 700,
+        "height": 8339
+      },
+      "first_p": {
+        "top": 872,
+        "bottom": 1033,
+        "left": 370,
+        "width": 700,
+        "height": 161
+      },
+      "first_p_text": "Instagram can show you the top countries and cities your followers come from, bu",
+      "first_content_child": "FIGURE.wp-block-image size-large newearns-featured-image",
+      "figure": {
+        "top": 504,
+        "bottom": 872,
+        "left": 370,
+        "width": 700,
+        "height": 368
+      },
+      "img": {
+        "top": 504,
+        "bottom": 872,
+        "left": 370,
+        "width": 700,
+        "height": 368,
+        "natural": [
+          1200,
+          630
+        ],
+        "complete": true,
+        "alt": "Title card reading \"Where Your Instagram Followers Live\" on a newearns.com banner",
+        "loading": "auto",
+        "fetchpriority": "high"
+      },
+      "featured_imgs_visible": 1,
+      "wp_post_image": 0,
+      "header": {
+        "top": 0,
+        "bottom": 140,
+        "left": 0,
+        "width": 1440,
+        "height": 140
+      },
+      "sidebar": null,
+      "horizontal_overflow": false,
+      "page_width": [
+        1440,
+        1440
+      ],
+      "widest": []
+    },
+    "featured_on_page_before": 0,
+    "featured_on_page_after": 1,
+    "media": {
+      "id": 3698,
+      "url": "https://newearns.com/wp-content/uploads/2026/10/instagram-follower-location.webp"
+    },
+    "figure_html": "<figure class=\"wp-block-image size-large newearns-featured-image\"><img src=\"https://newearns.com/wp-content/uploads/2026/10/instagram-follower-location.webp\" alt=\"Title card reading &quot;Where Your Instagram Followers Live&quot; on a newearns.com banner\" width=\"1200\" height=\"630\" class=\"wp-image-3698\" fetchpriority=\"high\" decoding=\"async\"/></figure>"
+  },
+  "instagram-follower-location mobile": {
+    "checks": {
+      "figure_below_title": true,
+      "figure_above_intro": true,
+      "intro_is_first_paragraph": true,
+      "figure_first_in_body": true,
+      "shown_once": true,
+      "theme_prints_none_before": true,
+      "fits_column": true,
+      "no_new_overflow": true,
+      "aspect_kept": true,
+      "alt_text": true,
+      "not_lazy": true,
+      "header_unchanged": true,
+      "title_unchanged": true,
+      "content_width_unchanged": true,
+      "sidebar_unchanged_except_shift": true
+    },
+    "all_pass": true,
+    "before": {
+      "title": {
+        "top": 120,
+        "bottom": 720,
+        "left": 30,
+        "width": 330,
+        "height": 600
+      },
+      "entry_meta": {
+        "top": 15153,
+        "bottom": 15245,
+        "left": 30,
+        "width": 330,
+        "height": 92
+      },
+      "content": {
+        "top": 754,
+        "bottom": 15119,
+        "left": 30,
+        "width": 330,
+        "height": 14365
+      },
+      "first_p": {
+        "top": 754,
+        "bottom": 1077,
+        "left": 30,
+        "width": 330,
+        "height": 323
+      },
+      "first_p_text": "Instagram can show you the top countries and cities your followers come from, bu",
+      "first_content_child": "P.",
+      "figure": null,
+      "img": null,
+      "featured_imgs_visible": 0,
+      "wp_post_image": 0,
+      "header": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "width": 0,
+        "height": 0
+      },
+      "sidebar": null,
+      "horizontal_overflow": false,
+      "page_width": [
+        390,
+        390
+      ],
+      "widest": []
+    },
+    "after": {
+      "title": {
+        "top": 120,
+        "bottom": 720,
+        "left": 30,
+        "width": 330,
+        "height": 600
+      },
+      "entry_meta": {
+        "top": 15326,
+        "bottom": 15418,
+        "left": 30,
+        "width": 330,
+        "height": 92
+      },
+      "content": {
+        "top": 754,
+        "bottom": 15292,
+        "left": 30,
+        "width": 330,
+        "height": 14538
+      },
+      "first_p": {
+        "top": 927,
+        "bottom": 1250,
+        "left": 30,
+        "width": 330,
+        "height": 323
+      },
+      "first_p_text": "Instagram can show you the top countries and cities your followers come from, bu",
+      "first_content_child": "FIGURE.wp-block-image size-large newearns-featured-image",
+      "figure": {
+        "top": 754,
+        "bottom": 927,
+        "left": 30,
+        "width": 330,
+        "height": 173
+      },
+      "img": {
+        "top": 754,
+        "bottom": 927,
+        "left": 30,
+        "width": 330,
+        "height": 173,
+        "natural": [
+          1200,
+          630
+        ],
+        "complete": true,
+        "alt": "Title card reading \"Where Your Instagram Followers Live\" on a newearns.com banner",
+        "loading": "auto",
+        "fetchpriority": "high"
+      },
+      "featured_imgs_visible": 1,
+      "wp_post_image": 0,
+      "header": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "width": 0,
+        "height": 0
+      },
+      "sidebar": null,
+      "horizontal_overflow": false,
+      "page_width": [
+        390,
+        390
+      ],
+      "widest": []
+    },
+    "featured_on_page_before": 0,
+    "featured_on_page_after": 1,
+    "media": {
+      "id": 3698,
+      "url": "https://newearns.com/wp-content/uploads/2026/10/instagram-follower-location.webp"
+    },
+    "figure_html": "<figure class=\"wp-block-image size-large newearns-featured-image\"><img src=\"https://newearns.com/wp-content/uploads/2026/10/instagram-follower-location.webp\" alt=\"Title card reading &quot;Where Your Instagram Followers Live&quot; on a newearns.com banner\" width=\"1200\" height=\"630\" class=\"wp-image-3698\" fetchpriority=\"high\" decoding=\"async\"/></figure>"
+  },
+  "compress-pdf-for-email desktop": {
+    "checks": {
+      "figure_below_title": true,
+      "figure_above_intro": true,
+      "intro_is_first_paragraph": true,
+      "figure_first_in_body": true,
+      "shown_once": true,
+      "theme_prints_none_before": true,
+      "fits_column": true,
+      "no_new_overflow": true,
+      "aspect_kept": true,
+      "alt_text": true,
+      "not_lazy": true,
+      "header_unchanged": true,
+      "title_unchanged": true,
+      "content_width_unchanged": true,
+      "sidebar_unchanged_except_shift": true
+    },
+    "all_pass": true,
+    "before": {
+      "title": {
+        "top": 230,
+        "bottom": 410,
+        "left": 370,
+        "width": 700,
+        "height": 180
+      },
+      "entry_meta": {
+        "top": 10905,
+        "bottom": 10970,
+        "left": 370,
+        "width": 700,
+        "height": 65
+      },
+      "content": {
+        "top": 444,
+        "bottom": 10876,
+        "left": 370,
+        "width": 700,
+        "height": 10432
+      },
+      "first_p": {
+        "top": 444,
+        "bottom": 573,
+        "left": 370,
+        "width": 700,
+        "height": 129
+      },
+      "first_p_text": "Your PDF won\u2019t attach, or the email comes back undelivered. This guide shows how",
+      "first_content_child": "P.",
+      "figure": null,
+      "img": null,
+      "featured_imgs_visible": 0,
+      "wp_post_image": 0,
+      "header": {
+        "top": 0,
+        "bottom": 140,
+        "left": 0,
+        "width": 1440,
+        "height": 140
+      },
+      "sidebar": null,
+      "horizontal_overflow": false,
+      "page_width": [
+        1440,
+        1440
+      ],
+      "widest": []
+    },
+    "after": {
+      "title": {
+        "top": 230,
+        "bottom": 410,
+        "left": 370,
+        "width": 700,
+        "height": 180
+      },
+      "entry_meta": {
+        "top": 11272,
+        "bottom": 11337,
+        "left": 370,
+        "width": 700,
+        "height": 65
+      },
+      "content": {
+        "top": 444,
+        "bottom": 11243,
+        "left": 370,
+        "width": 700,
+        "height": 10799
+      },
+      "first_p": {
+        "top": 812,
+        "bottom": 941,
+        "left": 370,
+        "width": 700,
+        "height": 129
+      },
+      "first_p_text": "Your PDF won\u2019t attach, or the email comes back undelivered. This guide shows how",
+      "first_content_child": "FIGURE.wp-block-image size-large newearns-featured-image",
+      "figure": {
+        "top": 444,
+        "bottom": 812,
+        "left": 370,
+        "width": 700,
+        "height": 368
+      },
+      "img": {
+        "top": 444,
+        "bottom": 812,
+        "left": 370,
+        "width": 700,
+        "height": 368,
+        "natural": [
+          1200,
+          630
+        ],
+        "complete": true,
+        "alt": "Title card reading \"Compress PDFs That Actually Send\" on a newearns.com banner",
+        "loading": "auto",
+        "fetchpriority": "high"
+      },
+      "featured_imgs_visible": 1,
+      "wp_post_image": 0,
+      "header": {
+        "top": 0,
+        "bottom": 140,
+        "left": 0,
+        "width": 1440,
+        "height": 140
+      },
+      "sidebar": null,
+      "horizontal_overflow": false,
+      "page_width": [
+        1440,
+        1440
+      ],
+      "widest": []
+    },
+    "featured_on_page_before": 0,
+    "featured_on_page_after": 1,
+    "media": {
+      "id": 3694,
+      "url": "https://newearns.com/wp-content/uploads/2026/10/compress-pdf-for-email.webp"
+    },
+    "figure_html": "<figure class=\"wp-block-image size-large newearns-featured-image\"><img src=\"https://newearns.com/wp-content/uploads/2026/10/compress-pdf-for-email.webp\" alt=\"Title card reading &quot;Compress PDFs That Actually Send&quot; on a newearns.com banner\" width=\"1200\" height=\"630\" class=\"wp-image-3694\" fetchpriority=\"high\" decoding=\"async\"/></figure>"
+  },
+  "compress-pdf-for-email mobile": {
+    "checks": {
+      "figure_below_title": true,
+      "figure_above_intro": true,
+      "intro_is_first_paragraph": true,
+      "figure_first_in_body": true,
+      "shown_once": true,
+      "theme_prints_none_before": true,
+      "fits_column": true,
+      "no_new_overflow": true,
+      "aspect_kept": true,
+      "alt_text": true,
+      "not_lazy": true,
+      "header_unchanged": true,
+      "title_unchanged": true,
+      "content_width_unchanged": true,
+      "sidebar_unchanged_except_shift": true
+    },
+    "all_pass": true,
+    "before": {
+      "title": {
+        "top": 120,
+        "bottom": 480,
+        "left": 30,
+        "width": 330,
+        "height": 360
+      },
+      "entry_meta": {
+        "top": 19104,
+        "bottom": 19288,
+        "left": 30,
+        "width": 330,
+        "height": 184
+      },
+      "content": {
+        "top": 514,
+        "bottom": 19070,
+        "left": 30,
+        "width": 330,
+        "height": 18556
+      },
+      "first_p": {
+        "top": 514,
+        "bottom": 740,
+        "left": 30,
+        "width": 330,
+        "height": 226
+      },
+      "first_p_text": "Your PDF won\u2019t attach, or the email comes back undelivered. This guide shows how",
+      "first_content_child": "P.",
+      "figure": null,
+      "img": null,
+      "featured_imgs_visible": 0,
+      "wp_post_image": 0,
+      "header": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "width": 0,
+        "height": 0
+      },
+      "sidebar": null,
+      "horizontal_overflow": true,
+      "page_width": [
+        465,
+        390
+      ],
+      "widest": [
+        "TABLE. right=465",
+        "THEAD. right=465",
+        "TR. right=465"
+      ]
+    },
+    "after": {
+      "title": {
+        "top": 120,
+        "bottom": 480,
+        "left": 30,
+        "width": 330,
+        "height": 360
+      },
+      "entry_meta": {
+        "top": 19278,
+        "bottom": 19461,
+        "left": 30,
+        "width": 330,
+        "height": 184
+      },
+      "content": {
+        "top": 514,
+        "bottom": 19244,
+        "left": 30,
+        "width": 330,
+        "height": 18730
+      },
+      "first_p": {
+        "top": 687,
+        "bottom": 913,
+        "left": 30,
+        "width": 330,
+        "height": 226
+      },
+      "first_p_text": "Your PDF won\u2019t attach, or the email comes back undelivered. This guide shows how",
+      "first_content_child": "FIGURE.wp-block-image size-large newearns-featured-image",
+      "figure": {
+        "top": 514,
+        "bottom": 687,
+        "left": 30,
+        "width": 330,
+        "height": 173
+      },
+      "img": {
+        "top": 514,
+        "bottom": 687,
+        "left": 30,
+        "width": 330,
+        "height": 173,
+        "natural": [
+          1200,
+          630
+        ],
+        "complete": true,
+        "alt": "Title card reading \"Compress PDFs That Actually Send\" on a newearns.com banner",
+        "loading": "auto",
+        "fetchpriority": "high"
+      },
+      "featured_imgs_visible": 1,
+      "wp_post_image": 0,
+      "header": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "width": 0,
+        "height": 0
+      },
+      "sidebar": null,
+      "horizontal_overflow": true,
+      "page_width": [
+        465,
+        390
+      ],
+      "widest": [
+        "TABLE. right=465",
+        "THEAD. right=465",
+        "TR. right=465"
+      ]
+    },
+    "featured_on_page_before": 0,
+    "featured_on_page_after": 1,
+    "media": {
+      "id": 3694,
+      "url": "https://newearns.com/wp-content/uploads/2026/10/compress-pdf-for-email.webp"
+    },
+    "figure_html": "<figure class=\"wp-block-image size-large newearns-featured-image\"><img src=\"https://newearns.com/wp-content/uploads/2026/10/compress-pdf-for-email.webp\" alt=\"Title card reading &quot;Compress PDFs That Actually Send&quot; on a newearns.com banner\" width=\"1200\" height=\"630\" class=\"wp-image-3694\" fetchpriority=\"high\" decoding=\"async\"/></figure>"
+  }
+}
