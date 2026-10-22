@@ -6,6 +6,7 @@ with server-side web_fetch as the fallback for pages the runner cannot open).
 """
 from __future__ import annotations
 
+import copy
 import json
 import os
 
@@ -372,6 +373,7 @@ def fact_check(cfg: dict, article: dict, pillar: str,
                reader: sources.SourceReader | None = None) -> tuple[dict, list[dict]]:
     p = cfg["pillars"][pillar]
     product = cfg["products"].get(p["product"]) if p["product"] else None
+    cited = sorted({s["url"] for s in article["sources"]})
     source_urls = "\n".join(s["url"] for s in article["sources"])
     if reader is not None:
         evidence = ("EVIDENCE EXTRACTED FROM THE CITED PAGES (fetched by the pipeline from the live pages, "
@@ -428,14 +430,37 @@ Allowed product claims: {json.dumps(product["allowed_claims"]) if product else "
                             "'uncertain' and say so in its evidence; never upgrade a claim to 'supported'. "
                             "source_url is the URL of the page the notes quote for that claim, copied exactly; leave it "
                             "empty if the notes give none, and never invent one. List every cited source under sources; relevant is true only if the notes say "
-                            "it supports what it is cited for.\n\n" + notes}],
-                     system="Faithful conversion only.", stage="fact_check_json", schema=FACTCHECK_SCHEMA,
+                            "it supports what it is cited for. Every URL must be one of these cited URLs, copied in "
+                            "full, never shortened:\n" + "\n".join(cited) + "\n\n" + notes}],
+                     system="Faithful conversion only.", stage="fact_check_json", schema=factcheck_schema(cited),
                      max_tokens=16000)
-    fc = json.loads(text)
+    fc = keep_cited_urls(json.loads(text), cited)
     verified = reader.verified_urls() if reader is not None else []
     fc["fetched_urls"] = sorted(set(u1.get("fetched_urls", [])) | set(verified))
     fc["content_sha256"] = quality.content_fingerprint(article["content_html"])
     return fc, [u1, u2]
+
+
+def factcheck_schema(cited: list[str]) -> dict:
+    """FACTCHECK_SCHEMA with every URL limited to the article's cited URLs, copied exactly, so the
+    conversion step cannot shorten or invent one. A claim's source_url may also be empty."""
+    schema = copy.deepcopy(FACTCHECK_SCHEMA)
+    schema["properties"]["claims"]["items"]["properties"]["source_url"] = {"type": "string", "enum": cited + [""]}
+    # An empty enum is not a valid schema; with no cited URLs only "" is allowed, and keep_cited_urls drops it.
+    schema["properties"]["sources"]["items"]["properties"]["url"] = {"type": "string", "enum": cited or [""]}
+    return schema
+
+
+def keep_cited_urls(fc: dict, cited: list[str]) -> dict:
+    """Backstop for the schema: a claim URL that is not an exact cited URL becomes empty (so the
+    claim cannot count as supported), and a source review for any other URL is dropped (so that
+    source reads as not reviewed). Nothing is rewritten into a URL that was not given."""
+    ok = set(cited)
+    for c in fc.get("claims", []):
+        if c.get("source_url") not in ok:
+            c["source_url"] = ""
+    fc["sources"] = [s for s in fc.get("sources", []) if s.get("url") in ok]
+    return fc
 
 
 def _tokens_usd(model: str, t: dict) -> float:
