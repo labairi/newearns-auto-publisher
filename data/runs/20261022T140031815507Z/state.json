@@ -1,0 +1,729 @@
+{
+  "run_id": "20261022T140031815507Z",
+  "stages": {
+    "usages": [
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 24,
+        "cache_creation_input_tokens": 47207,
+        "cache_read_input_tokens": 402436,
+        "output_tokens": 9413,
+        "web_search_requests": 2,
+        "web_fetch_requests": 3,
+        "requests": 3,
+        "read_source_calls": 3,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 24,
+            "cache_write_5m_tokens": 47207,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 402436,
+            "output_tokens": 9413
+          }
+        },
+        "fetched_urls": [
+          "https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.525
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 5145,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 6891,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 5145,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 6891
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.164
+      }
+    ],
+    "refreshed_fact_check": {
+      "claims": [
+        {
+          "claim": "Insights need a public account",
+          "verdict": "supported",
+          "source_url": "https://www.meta.com/help/subscriptions/882345181477896/",
+          "evidence": "\"You need a public account on Instagram to view insights.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Personal accounts use Your dashboard, professional accounts use Professional dashboard",
+          "verdict": "supported",
+          "source_url": "https://www.meta.com/help/subscriptions/882345181477896/",
+          "evidence": "\"If you have a personal account, tap Your dashboard.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Audience demographics need a preset timeframe and more than 100 viewers",
+          "verdict": "supported",
+          "source_url": "https://www.meta.com/help/subscriptions/882345181477896/",
+          "evidence": "\"use a preset timeframe and reach or engage over 100 viewers\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "More than 90 days of history and export need Meta One Advanced, Expert or Max; not available to teens",
+          "verdict": "supported",
+          "source_url": "https://www.meta.com/help/subscriptions/882345181477896/",
+          "evidence": "\"The Meta One Advanced, Meta One Expert, and Meta One Max plans include this capability.\" / \"This feature is not available to teens.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "App steps 1–4 and 6 (Profile → dashboard → Settings and activity fallback → Views, Interactions, New followers, Content you shared → dropdown → Update)",
+          "verdict": "supported",
+          "source_url": "https://www.meta.com/help/subscriptions/882345181477896/",
+          "evidence": "Matches the help page wording step for step.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "If you recently went public, past insights may not appear right away",
+          "verdict": "supported",
+          "source_url": "https://www.meta.com/help/subscriptions/882345181477896/",
+          "evidence": "\"you may not see past insights right away\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Default history is the past 90 days",
+          "verdict": "supported",
+          "source_url": "https://www.meta.com/help/subscriptions/882345181477896/",
+          "evidence": "Implied by \"Looking back beyond 90 days… only available… with a Meta One subscription\".",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Quote: \"the demographic characteristics of followers, including countries, cities and gender distribution\"",
+          "verdict": "supported",
+          "source_url": "https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights",
+          "evidence": "Verbatim match (page read with web_fetch, since read_source couldn't open it).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Follower demographics \"not returned if the IG User has less than 100 followers\"",
+          "verdict": "supported",
+          "source_url": "https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights",
+          "evidence": "Verbatim in the follower_demographics row.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Engaged-audience demographics need 100 or more engagements in the timeframe",
+          "verdict": "supported",
+          "source_url": "https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights",
+          "evidence": "\"Not returned if the IG User has less than 100 engagements during the timeframe.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Engaged accounts are a separate metric",
+          "verdict": "supported",
+          "source_url": "https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights",
+          "evidence": "Separate engaged_audience_demographics row.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Only the top 45 are returned",
+          "verdict": "supported",
+          "source_url": "https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights",
+          "evidence": "\"Demographic metrics only return the top 45 performers.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Only viewers Meta has demographic data for are counted",
+          "verdict": "supported",
+          "source_url": "https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights",
+          "evidence": "\"Only viewers for whom we have demographic data are used…\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Summed values can be lower than your follower count",
+          "verdict": "supported",
+          "source_url": "https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights",
+          "evidence": "\"may result in a value less than the follower count\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Data can be up to 48 hours late",
+          "verdict": "supported",
+          "source_url": "https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights",
+          "evidence": "\"Data used to calculate metrics may be delayed up to 48 hours.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Don't treat yesterday's new followers as missing\" (applying the API delay to the app)",
+          "verdict": "unsupported",
+          "source_url": "",
+          "evidence": "No source quote is given for this claim. Checked against the Meta for Developers docs, which only describe the API. The article does flag this (\"Meta documents these limits for its API\").",
+          "suggested_fix": "Say \"the API data can lag up to 48 hours; the app may lag similarly\", or remove."
+        },
+        {
+          "claim": "Follower top locations need at least 100 followers",
+          "verdict": "supported",
+          "source_url": "https://www.zolyp.com/blog/instagram-insights-guide",
+          "evidence": "Zolyp: \"Growth, top locations, age range and most active times, once you have at least 100 followers\"; Lilach Bullock says the same.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Most active times also need 100 followers",
+          "verdict": "supported",
+          "source_url": "https://www.lilachbullock.com/how-to-see-instagram-insights/",
+          "evidence": "\"most active times, Instagram says you need at least 100 followers\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Step 5: See all insights → Total followers",
+          "verdict": "supported",
+          "source_url": "https://instapect.com/blog/how-to-see-instagram-insights",
+          "evidence": "\"Open See all insights, tap Total followers…\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Troubleshooting: no follower breakdown because of fewer than 100 followers",
+          "verdict": "supported",
+          "source_url": "https://instapect.com/blog/how-to-see-instagram-insights",
+          "evidence": "Instapect's troubleshooting table: \"'Total followers' shows no breakdown — Fewer than 100 followers\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Past data returns if you go public again within 90 days",
+          "verdict": "supported",
+          "source_url": "https://www.zolyp.com/blog/instagram-insights-guide",
+          "evidence": "\"you get past data back if you go public again within 90 days\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Insights are visible only to the owner and people the owner gives access to",
+          "verdict": "supported",
+          "source_url": "https://instapect.com/blog/how-to-see-instagram-insights",
+          "evidence": "\"visible only to the account owner and people the owner gives access to\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Business Suite → Insights → Audience shows age, gender, interests, locations, follower growth and active times; you need permission",
+          "verdict": "supported",
+          "source_url": "https://instapect.com/blog/how-to-see-instagram-insights",
+          "evidence": "Instapect's Audience row, plus \"You need permission to view insights for that Instagram profile\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Desktop: Dashboard → Insights or Your dashboard → Account/Content → 7, 14, 30 or 90 days or custom",
+          "verdict": "supported",
+          "source_url": "https://www.zolyp.com/blog/instagram-insights-guide",
+          "evidence": "Zolyp gives this route exactly.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Posts reaching more than 100 accounts show top countries and cities of reached accounts",
+          "verdict": "supported",
+          "source_url": "https://sproutsocial.com/insights/instagram-insights/",
+          "evidence": "\"Once a post has reached more than 100 accounts… top countries, cities…\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Sprout says business accounts with more than 100 followers see top locations, and suggests switching to professional",
+          "verdict": "supported",
+          "source_url": "https://sproutsocial.com/insights/instagram-insights/",
+          "evidence": "Sprout's Total followers section and FAQ.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Lilach Bullock: an older help article says business-only; newer ones include personal accounts",
+          "verdict": "supported",
+          "source_url": "https://www.lilachbullock.com/how-to-see-instagram-insights/",
+          "evidence": "\"One old help article still says insights are only for businesses…\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Zapier points to the Insights option in Business Suite's left menu; it is an older guide",
+          "verdict": "supported",
+          "source_url": "https://zapier.com/blog/instagram-analytics/",
+          "evidence": "\"clicking the Insights option in the left-hand menu\"; page last modified Aug 2024.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Troubleshooting: Professional dashboard disappears after switching back to personal",
+          "verdict": "unsupported",
+          "source_url": "https://instapect.com/blog/how-to-see-instagram-insights",
+          "evidence": "Unsupported as cited: the Meta Help Center page doesn't say this. Instapect does: \"You switched from professional back to personal… use Your dashboard if the account is public.\"",
+          "suggested_fix": "Add the Instapect citation."
+        },
+        {
+          "claim": "Instagram Map is opt-in only and can be turned off anytime",
+          "verdict": "supported",
+          "source_url": "https://about.fb.com/news/2025/08/new-instagram-features-help-you-connect/",
+          "evidence": "Supported by the Meta announcement (6 Aug 2025).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Map audience choices: friends, Close Friends, selected friends, or no one",
+          "verdict": "supported",
+          "source_url": "https://about.fb.com/news/2025/08/new-instagram-features-help-you-connect/",
+          "evidence": "Supported by the Meta announcement (6 Aug 2025).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Map users can exclude specific places or people",
+          "verdict": "supported",
+          "source_url": "https://about.fb.com/news/2025/08/new-instagram-features-help-you-connect/",
+          "evidence": "Supported by the Meta announcement (6 Aug 2025).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Map sits at the top of the DM inbox; US first, \"more global availability soon\"",
+          "verdict": "supported",
+          "source_url": "https://about.fb.com/news/2025/08/new-instagram-features-help-you-connect/",
+          "evidence": "Supported by the Meta announcement (6 Aug 2025).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Parents can control a teen's Map sharing and get notified",
+          "verdict": "supported",
+          "source_url": "https://about.fb.com/news/2025/08/new-instagram-features-help-you-connect/",
+          "evidence": "Supported by the Meta announcement (6 Aug 2025).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Instagramaps shows audience by country and city",
+          "verdict": "supported",
+          "source_url": "https://instagramaps.com/",
+          "evidence": "\"See where people engage with your Instagram content across countries and cities\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Instagramaps offers per-post comparison",
+          "verdict": "supported",
+          "source_url": "https://instagramaps.com/",
+          "evidence": "\"Compare views, reach, and engagement\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Instagramaps has a marketplace with profiles, matching and collaboration requests",
+          "verdict": "supported",
+          "source_url": "https://instagramaps.com/",
+          "evidence": "Matches the allowed claims and the live page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Instagramaps pricing: $0 Creator Free and Business Free plans; Creator Pro at $9/month",
+          "verdict": "supported",
+          "source_url": "https://instagramaps.com/",
+          "evidence": "Matches the allowed claims and the live page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Disclosure: Instagramaps is built by the team behind New Earns",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "The notes give no verdict for this claim. It isn't among the allowed claims and the reviewer can't verify it, but as a disclosure the reviewer would keep it.",
+          "suggested_fix": ""
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.meta.com/help/subscriptions/882345181477896/",
+          "relevant": true,
+          "notes": "Readable. Supports what it's cited for, but never mentions follower locations or Total followers. Does not support the 'switched back to personal' troubleshooting row."
+        },
+        {
+          "url": "https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights",
+          "relevant": true,
+          "notes": "Readable only via web_fetch (read_source couldn't open it). Everything checks out; describes the API only."
+        },
+        {
+          "url": "https://about.fb.com/news/2025/08/new-instagram-features-help-you-connect/",
+          "relevant": true,
+          "notes": "Readable. Supports the Map claims. Also states location-tagged content can show up on the map, which the article omits."
+        },
+        {
+          "url": "https://www.zolyp.com/blog/instagram-insights-guide",
+          "relevant": true,
+          "notes": "Readable (partial). Supports what it's cited for."
+        },
+        {
+          "url": "https://www.lilachbullock.com/how-to-see-instagram-insights/",
+          "relevant": true,
+          "notes": "Readable (partial). Supports what it's cited for."
+        },
+        {
+          "url": "https://instapect.com/blog/how-to-see-instagram-insights",
+          "relevant": true,
+          "notes": "Readable (partial). Supports what it's cited for; should also be cited for the 'switched back to personal' troubleshooting row."
+        },
+        {
+          "url": "https://sproutsocial.com/insights/instagram-insights/",
+          "relevant": true,
+          "notes": "Readable (partial). Supports what it's cited for; correctly presented as the outdated 'business account' view."
+        },
+        {
+          "url": "https://zapier.com/blog/instagram-analytics/",
+          "relevant": true,
+          "notes": "Readable. Supports what it's cited for, but dated (2022, updated 2024)."
+        },
+        {
+          "url": "https://instagramaps.com/",
+          "relevant": true,
+          "notes": "Readable. Supports the four product claims."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "Passes and does the job better than a generic answer. No claims are contradicted; two are unsupported but low-risk. Weakness: the main step for finding follower locations (Total followers → top locations, 100+ followers) is backed only by third-party guides (Zolyp, Instapect, Lilach Bullock), not by the linked Meta page. A Meta Business Help 'About Instagram Insights' page (facebook.com/business/help/788388387972460) may confirm it, but it couldn't be opened, so it wasn't treated as evidence. If an editor can confirm it, citing it would replace the second-hand wording. Map privacy gap: the article omits that location-tagged posts, reels and stories can appear on the Map for 24 hours even without location sharing. The specific-follower answer is also incomplete: it doesn't say you can see a follower's last active location on the Map if they choose to share it with you. Suggested addition: \"Even without location sharing, posts, reels and stories you tag with a location can appear on the Map for people who follow you for 24 hours (Meta, 6 Aug 2025). And if a friend chooses to share their last active location with you, you'll see it there.\" Fixes in priority order: (1) add the Map point about location-tagged content; (2) cite Instapect for the 'switched back to personal' row; (3) soften or remove the 'yesterday's new followers' line; (4) optionally check and cite the Meta Business Help 'About Instagram Insights' page for the 100-follower top-locations rule.",
+      "adds_original_value": true,
+      "value_notes": "Strengths: it follows Meta's current rule (any public account) and explains why some guides still say business-only. It separates the 100-follower and 100-viewer thresholds, and the followers / viewers / engaged accounts groups, which most guides blur. The API limits (top 45, partial demographic data, 48-hour delay) explain why totals don't add up and are labelled as API-specific. The troubleshooting table matches the sources, and the Map section is accurate. Weaknesses: repetition (the Sprout 'more than 100 accounts reached' point appears twice and the Instapect 'owner-only' point three times), and the baking-business example is hypothetical, with no screenshots or real data.",
+      "product_claims_accurate": true,
+      "product_notes": "All four Instagramaps claims (audience by country and city, per-post comparison, marketplace, pricing of $0 Creator Free and Business Free plans with Creator Pro at $9/month) match the allowed claims and the live page. The disclosure ('built by the team behind New Earns') isn't among the allowed claims and can't be verified, but as a disclosure the reviewer would keep it. The article makes no extra product claims.",
+      "fetched_urls": [
+        "https://about.fb.com/news/2025/08/new-instagram-features-help-you-connect/",
+        "https://developers.facebook.com/documentation/instagram-platform/api-reference/instagram-user/insights",
+        "https://instagramaps.com/",
+        "https://instapect.com/blog/how-to-see-instagram-insights",
+        "https://sproutsocial.com/insights/instagram-insights/",
+        "https://www.lilachbullock.com/how-to-see-instagram-insights/",
+        "https://www.meta.com/help/subscriptions/882345181477896/",
+        "https://www.zolyp.com/blog/instagram-insights-guide",
+        "https://zapier.com/blog/instagram-analytics/"
+      ],
+      "content_sha256": "6475173d08a0dcb6a0d08a48a19ca2e140fbdc8195fc1dcc1b0f463755460250"
+    },
+    "images": {
+      "words": 2117,
+      "target": [
+        3,
+        4
+      ],
+      "stock_api_calls": 8,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "instagram follower location",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "openverse",
+          "query": "instagram app on smartphone",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "commons",
+          "query": "instagram follower location",
+          "result": "20"
+        },
+        {
+          "provider": "commons",
+          "query": "instagram app on smartphone",
+          "result": "7"
+        },
+        {
+          "provider": "commons",
+          "query": "smartphone map app",
+          "result": "20"
+        },
+        {
+          "provider": "commons",
+          "query": "instagram analytics",
+          "result": "4"
+        }
+      ],
+      "notes": [
+        "2 image(s), below the 3-4 guideline: nothing else in the article would gain from a visual, and decorative images are not added"
+      ],
+      "topic": {
+        "motif": "location",
+        "match": "\\b(follower|location|audience|insights|analytics)"
+      },
+      "photo_rejections": [
+        {
+          "description": "Portrait of a boy label QS:Len,\"Portrait of a boy\" label QS:Lpl,\"Portret chłopca\" label QS",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "Followers",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "Frozen saif-ul malook",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "Malika parbat saif ul malook",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "Streaming (52989547122)",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "The other follower (53487923581)",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "Beutiful day for some LGPT Piggy Tracker ＃thumbjam Pokket Mixer jams on the balcony ^^ ＃pi",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "Selfie in action",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "GPS-Referenzpunkt Köln mit Smartphone-9700",
+          "reason": "nothing about instagram, insights, analytics, map"
+        },
+        {
+          "description": "Google Maps Einsatz verwaschen",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "Google Maps app icon on smartphone screen (perspective render) (49897226107)",
+          "reason": "nothing about instagram, insights, analytics, map"
+        },
+        {
+          "description": "Mobikes in Acton, can be unlocked by smartphone app - geograph.org.uk - 5546099",
+          "reason": "nothing about instagram, insights, analytics, map"
+        }
+      ],
+      "featured": {
+        "provider": "commons",
+        "id": "112288344",
+        "description": "Instagram app on smartphone (grass background) (cropped)",
+        "page_url": "https://commons.wikimedia.org/wiki/File:Instagram_app_on_smartphone_(grass_background)_(cropped).jpg",
+        "creator": "Santeri Viinamäki (both photo and screenshot)",
+        "creator_url": "https://commons.wikimedia.org/wiki/User:Zunter",
+        "license": "cc-by-sa",
+        "license_version": "4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "wikimedia",
+        "query": "instagram app on smartphone",
+        "relevance": "shows instagram",
+        "alt_text": "Instagram app on smartphone",
+        "caption": "",
+        "filename": "instagram-follower-location-featured.webp",
+        "file": "featured.webp",
+        "bytes": 72358
+      },
+      "inline": [
+        {
+          "provider": "in-house",
+          "license": "own-screenshot",
+          "kind": "screenshot",
+          "anchor": {
+            "href": "https://instagramaps.com/"
+          },
+          "file": "inline-1.webp",
+          "url_shot": "https://instagramaps.com/",
+          "filename": "instagram-follower-location-instagramaps-screenshot.webp",
+          "width": 1200,
+          "height": 751,
+          "bytes": 21704,
+          "captured": "2026-10-22",
+          "alt_text": "Screenshot of the Instagramaps page \"Instagram Maps — Instagram Audience & Content Insights\" at instagramaps.com",
+          "caption": "Instagramaps (instagramaps.com), screenshot taken 2026-10-22."
+        }
+      ]
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2090 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "10 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "Instagram Follower Location: How to See Which Countries and Cities Your Followers Are From"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.29% (2x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "0/10 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "148 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "57 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "instagram-follower-location"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "instagram-follower-location (post 3699's own slug: a correction, not a new post)"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.01"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.45: How to earn money from your phone in 2025"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "1 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "1 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "ownership_disclosed",
+        "passed": true,
+        "detail": "disclosure missing"
+      },
+      {
+        "check": "product_link_justified",
+        "passed": true,
+        "detail": "no reason given"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "8 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "8 of 9 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "27 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "cc-by-sa"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "1 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "2 no supporting evidence found (not shown to be false): \"Don't treat yesterday's new followers as missing\" (applying the API delay to the app) (fix: Say \"the API data can lag up to 48 hours; the app may lag similarly\", or remove.) | Troubleshooting: Professional dashboard disappears after switching back to personal (fix: Add the Instapect citation.) || 1 could not be checked (source unreadable or partial): Disclosure: Instagramaps is built by the team behind New Earns",
+        "fix": "Contradicted: correct the claim to what the source says. No evidence found: cite an official source that states it, narrow it to what a source does say, or remove it. Could not be checked: verify it against a readable source or remove it. Source page not read: cite a page the pipeline can open that states the claim, or remove the claim. No claims listed: the fact-check did not check anything. Then re-run the fact-check only."
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Passes and does the job better than a generic answer. No claims are contradicted; two are unsupported but low-risk. Weakness: the main step for finding follower locations (Total followers → top locations, 100+ followers) is backed only by third-party guides (Zolyp, Instapect, Lilach Bullock), not by the linked Meta page. A Meta Business Help 'About Instagram Insights' page (facebook.com/business/help/788388387972460) may confirm it, but it couldn't be opened, so it wasn't treated as evidence. If an editor can confirm it, citing it would replace the second-hand wording. Map privacy gap: the article omits that location-tagged posts, reels and stories can appear on the Map for 24 hours even without location sharing. The specific-follower answer is also incomplete: it doesn't say you can see a follower's last active location on the Map if they choose to share it with you. Suggested addition: \"Even without location sharing, posts, reels and stories you tag with a location can appear on the Map for people who follow you for 24 hours (Meta, 6 Aug 2025). And if a friend chooses to share their last active location with you, you'll see it there.\" Fixes in priority order: (1) add the Map point about location-tagged content; (2) cite Instapect for the 'switched back to personal' row; (3) soften or remove the 'yesterday's new followers' line; (4) optionally check and cite the Meta Business Help 'About Instagram Insights' page for the 100-follower top-locations rule."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "Strengths: it follows Meta's current rule (any public account) and explains why some guides still say business-only. It separates the 100-follower and 100-viewer thresholds, and the followers / viewers / engaged accounts groups, which most guides blur. The API limits (top 45, partial demographic data, 48-hour delay) explain why totals don't add up and are labelled as API-specific. The troubleshooting table matches the sources, and the Map section is accurate. Weaknesses: repetition (the Sprout 'more than 100 accounts reached' point appears twice and the Instapect 'owner-only' point three times), and the baking-business example is hypothetical, with no screenshots or real data."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "All four Instagramaps claims (audience by country and city, per-post comparison, marketplace, pricing of $0 Creator Free and Business Free plans with Creator Pro at $9/month) match the allowed claims and the live page. The disclosure ('built by the team behind New Earns') isn't among the allowed claims and can't be verified, but as a disclosure the reviewer would keep it. The article makes no extra product claims."
+      },
+      {
+        "check": "fact_check_current",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "sources_verified",
+        "passed": true,
+        "detail": ""
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "fact_check": 0.525,
+        "fact_check_json": 0.164
+      },
+      "total_usd": 0.689
+    },
+    "final": "dry-run"
+  },
+  "updated": "2026-10-22T14:05:49+00:00"
+}
