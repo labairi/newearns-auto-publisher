@@ -529,3 +529,51 @@ def test_fetched_urls_only_counts_successful_fetches():
                NS(type="web_fetch_tool_result", content=NS(type="web_fetch_tool_error", error_code="url_not_accessible")),
                NS(type="text", text="x")]
     assert writer._fetched_urls(content) == ["https://ok.example/a"]
+
+
+# ------------------------------------------------------------ re-checking a correction to a live post
+def _live_copy(art, pid=3699):
+    """The article as it is already live under its own slug (what a correction is checked against)."""
+    return {"id": pid, "slug": art["slug"], "link": f"{SITE}/{art['slug']}/", "title": art["title"],
+            "text": quality.parse(art["content_html"]).text, "focus_keyphrase": art["focus_keyphrase"]}
+
+
+def test_own_slug_passes_only_for_the_named_post_and_new_posts_still_clash():
+    art = make_article()
+    posts = EXISTING + [_live_copy(art)]
+    slugs = {p["slug"] for p in posts}
+    gates = lambda **kw: dict((n, ok) for n, ok, _ in quality.run_checks(
+        art, CFG, posts, slugs, link_checker=ok_links, fact_check=art["fact_check"], **kw).results)
+    # A new post with that slug, or one copying that post, still fails every duplication gate.
+    plain = gates()
+    assert not any(plain[g] for g in ("slug_unused", "not_near_duplicate", "distinct_search_intent",
+                                      "keyphrase_not_targeted_before"))
+    # The confirmed correction to post 3699: its own slug and its own live text are not clashes.
+    own = gates(own_post={"id": 3699, "slug": art["slug"]})
+    assert all(own.values())
+    # Another post's slug is still a clash, even for a correction.
+    other = gates(own_post={"id": 3699, "slug": "some-other-slug"})
+    assert not other["slug_unused"]
+    # A different post holding the slug is never skipped: only the named id is left out.
+    wrong_id = gates(own_post={"id": 1234, "slug": art["slug"]})
+    assert wrong_id["slug_unused"] and not wrong_id["not_near_duplicate"]
+
+
+def test_correction_file_is_dry_run_only_and_needs_the_live_post_to_match(env, monkeypatch):
+    wp, tmp, _ = env
+    art = make_article()
+    wp.posts[3699] = {"id": 3699, "slug": art["slug"], "status": "publish", "title": art["title"],
+                      "content": art["content_html"], "link": f"{SITE}/{art['slug']}/"}
+    f = write(tmp, dict(art, updates_post={"id": 3699, "slug": art["slug"]}))
+    # Never a live run: there is no update command, and nothing is written.
+    assert run.main(["article", "--article-file", f]) == 7
+    assert wp.calls == [] and ledger.read_log() == []
+    # Dry run with the live post matching: the duplication gates pass for its own slug and text.
+    assert run.main(["article", "--article-file", f, "--dry-run"]) == 0
+    gates = lambda: {c["check"]: c["passed"] for c in json.loads(
+        sorted((tmp / "runs").glob("*/state.json"))[-1].read_text())["stages"]["checks"]}
+    assert gates()["slug_unused"] and gates()["not_near_duplicate"]
+    # The slug now belongs to another post id: checked as a new post, so it fails.
+    wp.posts[4000] = dict(wp.posts.pop(3699), id=4000)
+    assert run.main(["article", "--article-file", f, "--dry-run"]) == 4
+    assert not gates()["slug_unused"] and wp.calls == []
