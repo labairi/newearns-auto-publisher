@@ -178,6 +178,68 @@ models:
   # Empty = every stage uses `writer`.
   stages: {}
 
+# Article images, all at no extra cost (see publisher/images.py).
+# Featured image: a real photograph from free sources whose APIs return each image's
+# licence: Openverse, then Wikimedia Commons (neither needs a key). Licence, licence link
+# and (for CC BY / BY-SA) creator are checked before download, and the post credits the
+# photo. The branded title card is only a last resort and is reported as a fallback.
+# Pexels would be used only if a PEXELS_API_KEY secret were added (not set; needs approval).
+# Inline images, only where they add something: a dated screenshot of our own product page
+# where the article links it (captured live with the runner's Chrome), and a bar chart of a
+# table that compares quantities. No paid image service and no AI image generation.
+images:
+  stock_photos: true
+  stock_licenses: [cc0, pdm, by, by-sa]   # Openverse codes; CC BY / BY-SA get a credit line
+  openverse_sources: [stocksnap, nappy, flickr, wikimedia]   # photo collections
+  cache_days: 30                   # successful searches cached in data/image_cache/
+  max_queries: 4                   # per source per article: the article's query first
+  max_inline: 2                    # inline visuals per article at most
+  product_screenshots: true        # own products from `products` only, never third-party sites
+  # Scene searches tried after the article's own query, when no topic rule below matches.
+  photo_queries:
+    pdf: ["pdf on laptop screen", "person using laptop computer"]
+    instagram: ["instagram smartphone", "woman using smartphone", "content creator smartphone"]
+    money: ["freelancer working laptop", "person working laptop home", "laptop home office"]
+  # Scene words: people and objects that belong in the pillar's photos. Words in the photo's
+  # own title count double; words from the article count three times as much (see score()).
+  photo_keywords:
+    pdf: [laptop, computer, screen, monitor, tablet, pdf, file, woman, man, person, people, working, using, student,
+          freelancer, typing]
+    instagram: [instagram, smartphone, phone, mobile, social media, selfie, creator, influencer, woman, man, person,
+                people, using, holding, taking]
+    money: [laptop, freelance, freelancer, computer, office, desk, working, entrepreneur, woman, man, person, people,
+            home office, using]
+  # The photo's own title must name one of these: the device the article's task is done on.
+  photo_must_show:
+    pdf: [laptop, computer, screen, monitor, tablet, pdf]
+    instagram: [smartphone, phone, mobile, instagram, iphone]
+    money: [laptop, computer, screen, monitor, smartphone, phone]
+  # Relevance per topic (first match on the title, keyphrase or query wins). A photo must mention
+  # one `subject` word; `allow` lifts the wrong-scene rule for words the topic is really about.
+  # With no photo, the featured image is the `motif` illustration.
+  topics:
+    - {match: "\\b(compress|shrink|reduce .*size|smaller|file size)", motif: compress, pillars: [pdf],
+       subject: [pdf, compress, compressed, compression, file size, zip, attachment, upload],
+       queries: ["pdf file on laptop screen", "file compression computer", "email attachment laptop"]}
+    - {match: "\\b(password|protect|encrypt|lock|unlock)", motif: lock, pillars: [pdf],
+       subject: [password, padlock, lock, locked, encryption, cybersecurity, security, privacy],
+       queries: ["laptop password security", "padlock on laptop keyboard", "cybersecurity laptop"]}
+    - {match: "\\b(merge|combine|join)", motif: merge, pillars: [pdf], subject: [pdf, merge, merging, files on screen],
+       queries: ["pdf file on laptop screen"]}
+    - {match: "\\b(split|extract|separate)", motif: split, pillars: [pdf], subject: [pdf, split, files on screen],
+       queries: ["pdf file on laptop screen"]}
+    - {match: "\\b(convert|to word|to jpg|to excel|to png|ocr)\\b", motif: convert, pillars: [pdf], subject: [pdf, convert, conversion, scan, ocr],
+       queries: ["pdf file on laptop screen", "scanning document smartphone"]}
+    - {match: "\\b(e-?sign|sign|signature)", motif: sign, pillars: [pdf], subject: [signature, signing, sign, stylus, e-signature],
+       allow: [sign, signs, signed, signing, signature, signatures, document, documents, contract, contracts],
+       queries: ["signing on tablet with stylus", "digital signature tablet"]}
+    - {match: "\\b(edit|annotate|highlight|redact|fill)", motif: edit, pillars: [pdf], subject: [pdf, editing, stylus, annotate],
+       queries: ["pdf file on laptop screen", "tablet stylus editing"]}
+    - {match: "\\b(follower|location|audience|insights|analytics)", motif: location, pillars: [instagram],
+       subject: [instagram, insights, analytics, map, location],
+       queries: ["instagram app on smartphone", "smartphone map app", "instagram analytics"]}
+  pillar_motif: {pdf: pdf, instagram: phone, money: earnings}
+
 tracking:
   gsc_site_url: sc-domain:newearns.com   # or https://newearns.com/ (URL-prefix property)
   ga4_property_id: null                  # numeric GA4 property id, optional

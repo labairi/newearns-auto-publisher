@@ -174,17 +174,33 @@ class FakeWP:
                 return {"id": p["id"], "slug": slug, "status": p["status"], "link": p["link"]}
         return None
 
+    def find_media(self, filename):
+        return None
+
     def upload_media(self, *a, **k):
         self.media.append(a[0])
-        return {"id": 900 + len(self.media)}
+        self.files = getattr(self, "files", {})
+        self.files[900 + len(self.media)] = a[1]
+        return {"id": 900 + len(self.media), "source_url": f"{SITE}/wp-content/uploads/{a[0]}"}
+
+    def get_media(self, mid):
+        return {"id": mid, "source_url": f"{SITE}/wp-content/uploads/{self.media[mid - 901]}", "alt_text": "",
+                "mime_type": "image/webp", "media_details": {"width": 1200, "height": 630}}
+
+    def fetch_file(self, url):
+        return self.files[901 + self.media.index(url.rsplit("/", 1)[-1])]
 
     def create_post(self, **k):
         self.calls.append(("create", k["status"]))
         pid = self.next_id = self.next_id + 1
         self.posts[pid] = {"id": pid, "slug": k["slug"], "status": k["status"], "title": k["title"],
                            "content": k["content_html"], "link": f"{SITE}/{k['slug']}/", "cat": k["category_id"],
-                           "aioseo": (k["seo_title"], k["meta_description"])}
+                           "aioseo": (k["seo_title"], k["meta_description"]), "featured_media": k["featured_media"]}
         return dict(self.posts[pid])
+
+    def get_post(self, pid):
+        p = self.posts[pid]
+        return {"id": pid, "featured_media": p["featured_media"], "content": {"raw": p["content"]}}
 
     def set_status(self, pid, status):
         self.calls.append(("status", status))
@@ -256,7 +272,9 @@ def test_verification_failure_unpublishes(env, monkeypatch):
     assert ledger.read_log()[-1]["status"] == "failed_verification"
 
 
-def test_pillar_rotation():
+def test_pillar_rotation(monkeypatch):
+    # With no history, a 40% pillar comes first; the real publication log must not decide this.
+    monkeypatch.setattr(ledger, "read_log", lambda: [])
     cfg = copy.deepcopy(CFG)
     assert run.choose_pillar(cfg) in ("pdf", "instagram")
 
