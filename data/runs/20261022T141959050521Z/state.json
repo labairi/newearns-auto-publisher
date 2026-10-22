@@ -1,0 +1,848 @@
+{
+  "run_id": "20261022T141959050521Z",
+  "stages": {
+    "pillar": "pdf",
+    "topic": "How to Password-Protect a PDF, and What It Doesn't Protect",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 54,
+        "cache_creation_input_tokens": 78514,
+        "cache_read_input_tokens": 1175197,
+        "output_tokens": 17377,
+        "web_search_requests": 14,
+        "web_fetch_requests": 14,
+        "requests": 8,
+        "read_source_calls": 16,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 54,
+            "cache_write_5m_tokens": 78514,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 1175197,
+            "output_tokens": 17377
+          }
+        },
+        "fetched_urls": [
+          "https://helpx.adobe.com/acrobat/desktop/protect-documents/protect-with-passwords/add-passwords-to-pdfs.html",
+          "https://helpx.adobe.com/acrobat/desktop/protect-documents/protect-with-passwords/password-security-overview.html",
+          "https://helpx.adobe.com/acrobat/desktop/protect-documents/protect-with-passwords/restrict-printing-editing-and-copying-pdfs.html",
+          "https://helpx.adobe.com/acrobat/desktop/protect-documents/protect-with-passwords/security-options.html",
+          "https://helpx.adobe.com/acrobat/using/securing-pdfs-passwords.html",
+          "https://qpdf.readthedocs.io/en/stable/encryption.html",
+          "https://www.adobe.com/acrobat/hub/how-to-secure-pdf-documents.html",
+          "https://www.adobe.com/acrobat/online/password-protect-pdf.html",
+          "https://www.adobe.com/in/acrobat/online/password-protect-pdf.html",
+          "https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/three-random-words"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 1.115
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 8908,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 12870,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 8908,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 12870
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.302
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 26,
+        "cache_creation_input_tokens": 44709,
+        "cache_read_input_tokens": 335188,
+        "output_tokens": 11119,
+        "web_search_requests": 1,
+        "web_fetch_requests": 5,
+        "requests": 7,
+        "read_source_calls": 11,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 26,
+            "cache_write_5m_tokens": 44709,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 335188,
+            "output_tokens": 11119
+          }
+        },
+        "fetched_urls": [
+          "https://qpdf.readthedocs.io/en/stable/encryption.html",
+          "https://www.adobe.com/acrobat/hub/how-to-secure-pdf-documents.html",
+          "https://www.adobe.com/acrobat/online/password-protect-pdf.html",
+          "https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/three-random-words"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.523
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 5485,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 7683,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 5485,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 7683
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.181
+      }
+    ],
+    "brief": "I've planned the article, and the brief is below. The main things I found:\n\n- **Steps that differ from what ranks now.** Adobe's own how-to page lists Word steps under \"secure a PDF file using Word\", but those steps encrypt the Word file, not a PDF. The brief uses Microsoft's steps instead. The current Acrobat menus also differ from the \"Tools > Protect\" path on Adobe's older page.\n- **The \"what it doesn't protect\" section is solid.** It rests on the qpdf encryption documentation, the UK ICO and the NCSC.\n- **Some facts are deliberately left out.** I couldn't source which Acrobat plan is needed to add a password, Preview's encryption strength, or whether Private PDF Editor's protect tool runs in the browser.\n\n---\n\n# Content brief: How to password-protect a PDF\n\n## 1. Query, keyphrase, intent\n\n- **Chosen query:** how to password protect a pdf\n- **Focus keyphrase:** password protect a PDF. Use it in the title, the intro and once or twice more, naturally.\n- **Suggested title:** How to Password-Protect a PDF (and What the Password Doesn't Protect)\n- **Search intent:** How-to, with several methods by device. The results for this query and related ones (Mac Preview, \"without Acrobat\", Windows/Word) are mostly vendor pages: Adobe's online tool and hub article, Smallpdf, Foxit, pdf.net and DocSend. Apple's Preview guide ranks for the Mac version. Most pages are a 3–4 step upload-and-type-a-password tutorial for one tool.\n- **No search-volume data was provided, so no volumes are quoted.**\n\n## 2. Unique angle (what we can do better)\n\n1. **One tool-neutral guide** covering Acrobat desktop, Mac Preview, Word (Windows) and online tools, with a decision table at the top.\n2. **The two passwords explained clearly.** An open password locks the whole file. A permissions (owner) password only restricts printing, editing and copying. Competitors blur these together.\n3. **An honest \"what it doesn't protect\" section, which vendor pages skip:**\n   - Permission restrictions are enforced by the reader software, not by the encryption.\n   - Old 40-bit and RC4 encryption is weak.\n   - Sending the password in the same email undoes the protection.\n   - A forgotten password can't be recovered.\n   - Hidden data stays in the file unless you remove it.\n4. **A correction.** Adobe's hub article lists Word steps (File > Info > Protect Document > Encrypt with Password) under \"How to secure a PDF file using Word\", but those steps protect the Word document. We give Microsoft's documented PDF export option instead.\n5. **A short troubleshooting/FAQ block:** signed files, the web version only setting an open password, changing or removing a password.\n\n## 3. H2/H3 outline\n\n**Intro (2–3 sentences).** You can password-protect a PDF in a few minutes with Acrobat, Preview on a Mac, Word, or an online tool. Pick the type of password first, because the two types protect very different things.\n\n**H2: Which method should you use?** Decision table with columns Method | Open password | Restrict print/edit/copy | Where the file is processed | Notes.\n- **Acrobat desktop:** yes / yes / your computer.\n- **Acrobat on the web:** open password only, per Adobe Experience League.\n- **Adobe's free online tool:** open password / processed on Adobe's servers, and deleted unless you sign in.\n- **Mac Preview:** yes / yes / your Mac.\n- **Word \"Save as PDF\":** open password. That is the only password option Microsoft documents.\n- **Private PDF Editor (Protect tool):** browser-based toolkit. Don't fill the \"processed\" cell beyond the allowed claims.\n- Leave out cost and plan cells unless sourced.\n\n**H2: Open password vs permissions password**\n- Open (user) password: needed to view the file.\n- Permissions (owner) password: controls printing, copying text, editing and annotations. Apple calls it the \"Owner Password\".\n- In Acrobat, Restrict Editing lets anyone open the file, but edits need the password (Adobe hub).\n\n**H2: How to password-protect a PDF in Adobe Acrobat (desktop)**\n- **H3: Set a password to open the file.** All tools > Protect a PDF > Protect with password > Viewing > enter and re-type > Apply.\n- **H3: Restrict printing, editing and copying.** Encrypt with Password > Yes > \"Restrict editing and printing of the document\" > set Printing Allowed / Changes Allowed > password > choose compatibility and encryption > OK > re-enter > Save.\n- **H3: Check it worked.** Ctrl+D (Windows) or Cmd+D (Mac) > Security tab.\n- Add a note that menu labels may differ by Acrobat version.\n- Don't state which plan is needed. That wasn't sourced.\n\n**H2: How to password-protect a PDF on a Mac with Preview.** Follow Apple's steps, including saving under a new name to keep the original without a password.\n\n**H2: How to add a password when saving a Word document as PDF (Windows).** Follow Microsoft's steps.\n\n**H2: Using an online tool.** Adobe's online steps, plus a privacy note on where the file goes. Optional product link here.\n\n**H2: What a PDF password doesn't protect**\n- **H3: Print/edit/copy restrictions depend on the reader app** (qpdf)\n- **H3: Older encryption settings are weak; choose 256-bit AES** (qpdf)\n- **H3: The password is only as safe as the way you send it** (ICO)\n- **H3: A lost password can't be recovered, so keep an unprotected original somewhere safe** (Adobe Experience League)\n- **H3: Hidden information stays in the file unless you remove it.** The Adobe hub mentions the Remove Hidden Information option.\n- **H3: Saving as PDF alone doesn't stop editing** (Microsoft)\n\n**H2: Choosing a password you can actually share.** NCSC's three random words, or a password manager. Adobe's strong-password FAQ.\n\n**H2: Troubleshooting and FAQ**\n- \"Acrobat won't let me add a password.\" It may be a signed or certified document.\n- \"I can only set an open password online.\" That's expected on Acrobat web.\n- \"How do I change or remove the password?\" Acrobat: Remove security. Preview: File > Edit Permissions to change the owner password.\n- \"Should I compress before or after?\" Give this as workflow advice only: compress first, then add the password, and link the compress article. Don't claim tools fail on encrypted files.\n\n## 4. Facts the writer may use (each with its URL)\n\n**Adobe Experience League (Acrobat desktop and web steps)**, https://experienceleague.adobe.com/en/slides/protect-pdfs\n- F1. Open a file, choose All tools > Protect a PDF.\n- F2. You can't add passwords to a signed or certified document.\n- F3. Open password: Protect with password > Viewing > enter and re-type > Apply. A confirmation message appears.\n- F4. The password isn't stored anywhere and can't be retrieved if lost or forgotten. Adobe suggests a memorable password or a password manager.\n- F5. Restricting printing, editing and copying: Encrypt with Password > Yes > \"Restrict editing and printing of the document\". Printing Allowed can be High Resolution. Changes Allowed can be None. Acrobat shows password strength. Choose a compatibility and encryption option > OK > re-enter > Save.\n- F6. Remove security is in the left-hand pane. To check security, press Ctrl+D or Cmd+D and open the Security tab.\n- F7. Acrobat on the web: sign in at acrobat.adobe.com > Edit > Protect a PDF. Only a view password can be set on the web.\n\n**Apple (Preview)**, https://support.apple.com/guide/preview/password-protect-a-pdf-prvw587dd90f/mac\n- F8. File > Export. Optionally enter a new name to make a protected copy and leave the original unprotected.\n- F9. Click Permissions. \"Require Password To Open Document\" sets the open password. Checkboxes allow printing or changes without the owner password; leave one unchecked to require it. Enter and verify an Owner Password, which can be the same as or different from the open password. Apply > Save. Changes take effect the next time the PDF is opened.\n- F10. File > Edit Permissions changes the protection options or the owner password.\n\n**Microsoft (Word)**, https://support.microsoft.com/en-us/office/collab-files/save-or-convert-to-pdf-or-xps-in-office-desktop-apps\n- F11. If the file was saved before, File > Save a Copy. If not, File > Save As or Save a Copy. Then Browse > choose PDF > More Options > Options > \"Encrypt the document with a password\". After OK, the Encrypt PDF Document box opens to type and re-enter a password.\n- F12. Many programs, Word included, can open and edit PDFs. Sharing as a PDF alone doesn't guarantee the recipient can't edit it.\n- F13. The page applies to Word for Microsoft 365, 2024, 2021, 2019 and 2016, among other apps.\n\n**Adobe Acrobat online tool**, https://www.adobe.com/acrobat/online/password-protect-pdf.html\n- F14. Steps: Select a file (or drag and drop) > enter and re-type a password > Set password > download, or sign in to share.\n- F15. The file is handled on Adobe servers and deleted unless you sign in to save it.\n- F16. The tool rates the password as weak, medium or strong.\n- F17. Adobe's FAQ: the owner can remove the password with an Acrobat Pro subscription or 7-day free trial. It names 128-bit and 256-bit AES as common encryption types.\n\n**Adobe hub article**, https://www.adobe.com/acrobat/hub/how-to-secure-pdf-documents.html\n- F18. Restrict Editing: anyone can open and view the file, but edits need the password. Encrypt protects the whole document with a password or certificate. Remove Hidden Information erases potentially identifying invisible data.\n- Do not use its Word steps. They apply to Word documents.\n\n**qpdf documentation**, https://qpdf.readthedocs.io/en/stable/encryption.html\n- F19. Either password unlocks the same encryption key, so restrictions are enforced only by the software. Software can be modified to ignore them, and the PDF specification is clear about this.\n- F20. 40-bit encryption can be easily brute-forced, whatever the password. 128-bit with RC4 is insecure. Use AES, and if you use AES, use 256-bit.\n- F21. With 256-bit encryption, leaving the owner password blank effectively makes the restrictions useless.\n\n**UK ICO**, https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/encryption/encryption-scenarios/\n- F22. Choose long, complex passwords. Send the password by a separate channel, for example by phone after delivery is confirmed. Never put it in the same email as the attachment.\n- F23. Example: an ICO £120,000 fine to Surrey County Council after misdirected emails, including an unencrypted, unprotected file. This was under the previous regime. Use it only with that context.\n\n**NCSC**, https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/three-random-words\n- F24. Combine three random words, or use a password manager. Writing the password down is OK if you keep it somewhere safe.\n\n## 5. Internal links\n\n- **\"How to Compress a PDF for Email (and What to Do When It's Still Too Big)\"** is related. Link it from the \"sending it by email\" and troubleshooting parts.\n- None of the other published articles fit.\n\n## 6. Product link\n\n- **Justified once**, at the online-tool step, and optionally again in the FAQ answer on removing a password from your own file (the Unlock tool). That's two links at most.\n- **Allowed wording:** a browser-based PDF toolkit with about 30 tools, including Protect and Unlock. Standard PDF editing runs in the browser; some conversions are handled differently and have separate disclosures.\n- **Do not say** the Protect tool runs locally, what encryption it uses, or what it costs. Prices: \"see its pricing page\".\n- Don't present it as better than Adobe.\n\n## 7. Writer guardrails\n\n- Don't claim first-hand testing.\n- Don't state Acrobat plan requirements (beyond F17), Preview's encryption strength, or file-size limits.\n- Don't use Adobe's marketing figures, such as \"Over 1M files uploaded\".\n- Each fact links to its URL in the same paragraph.\n\n---\n\n## SOURCE NOTES\n\nI've kept verbatim quotes short. Menu and UI labels are exact. Everything else is a close paraphrase; re-open the URL if you want to quote at length.\n\n1. **Adobe Experience League, \"How to protect PDFs in Acrobat on the desktop\"**, https://experienceleague.adobe.com/en/slides/protect-pdfs. No date stated.\n   - Quote: \"Your password is not stored anywhere and cannot be retrieved if lost or forgotten.\" (F4)\n   - Paraphrased: the steps and labels in F1–F3 and F5–F7, including the note that passwords can't be added to signed or certified documents, and that the web version allows only a view password.\n\n2. **Apple Support, \"Password-protect a PDF in Preview on Mac\"**, https://support.apple.com/guide/preview/password-protect-a-pdf-prvw587dd90f/mac. No date stated.\n   - Quote: \"Changes take effect the next time the PDF is opened.\"\n   - Paraphrased: F8–F10.\n   - Condition: the new-name step applies only if you want to keep the original without a password.\n\n3. **Microsoft Support, \"Save or convert to PDF or XPS in Office Desktop apps\"**, https://support.microsoft.com/en-us/office/collab-files/save-or-convert-to-pdf-or-xps-in-office-desktop-apps (redirected from the d85416c5 URL). No date stated.\n   - Quote: \"Simply sharing something as a PDF is not sufficient to guarantee the recipient can't edit the file.\"\n   - Paraphrased: the Word steps in F11 and the scope in F13.\n   - Condition: Save a Copy if the file was saved before; Save As or Save a Copy if it's unsaved.\n\n4. **Adobe, \"Password protect a PDF\"**, https://www.adobe.com/acrobat/online/password-protect-pdf.html. No date stated.\n   - Quote: \"Your file will be securely handled by Adobe servers and deleted unless you sign in to save it.\"\n   - Paraphrased: F14, F16, F17.\n\n5. **Adobe Acrobat hub, \"How to secure a PDF with a password\"**, https://www.adobe.com/acrobat/hub/how-to-secure-pdf-documents.html. No date stated.\n   - Quote: \"Anyone can open and view the file, but they need to know the password to make any further edits to the PDF.\" (about Restrict Editing)\n   - Paraphrased: Encrypt and Remove Hidden Information (F18).\n   - Caveat: its \"Tools > Protect\" path is older than the Experience League steps, and its Word section protects Word documents, not PDFs.\n\n6. **qpdf 12.4.2 documentation, \"PDF Encryption\"**, https://qpdf.readthedocs.io/en/stable/encryption.html. The page says the chapter was last reviewed in 2022.\n   - Quote: \"the security of the restrictions placed on PDF files is solely enforced by the software.\" (F19)\n   - Paraphrased: F20 (40-bit can be easily brute-forced whatever the password; 128-bit RC4 is insecure; AES is the only secure option, and 256-bit is the one to choose) and F21 (a blank owner password makes restrictions useless).\n   - Condition: the claims about the strength of encryption are qualified \"as of the last review of this chapter in 2022\".\n\n7. **ICO, \"Encryption scenarios\"**, https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/encryption/encryption-scenarios/. Published Tuesday, 2 September 2025.\n   - Quote: \"Do not include the password within the same email as the encrypted file attachment.\"\n   - Paraphrased: use a separate channel, such as phone after delivery is confirmed; choose long and complex passwords; the recipient needs compatible software (F22).\n   - Condition: the Surrey fine (F23) was \"under the previous data protection regime\".\n\n8. **NCSC, \"Three random words\"**, https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/three-random-words. Published 21 December 2021.\n   - Quote: three random words create passwords that are \"'long enough' and 'strong enough' for most purposes\".\n   - Paraphrased: a password manager can create and remember strong passwords; writing a password down is OK if kept somewhere safe.",
+    "candidates": [
+      "How to Password-Protect a PDF, and What It Doesn't Protect (primary query: how to password protect a pdf)"
+    ],
+    "article": {
+      "title": "How to Password-Protect a PDF (and What the Password Doesn't Protect)",
+      "seo_title": "How to Password-Protect a PDF (Acrobat, Mac, Word)",
+      "slug": "password-protect-pdf",
+      "meta_description": "Password protect a PDF in Acrobat, Mac Preview, Word or an online tool, learn the two password types, and see what a PDF password doesn't protect.",
+      "focus_keyphrase": "password protect a PDF",
+      "excerpt": "Step-by-step ways to password-protect a PDF in Acrobat, Preview on Mac, Word and online tools. Covers open vs permissions passwords, safe sharing, and the limits vendor pages skip.",
+      "content_html": "<p>You can password protect a PDF in a few minutes with Adobe Acrobat, Preview on a Mac, Microsoft Word or an online tool. Before you start, decide which kind of password you need. One stops people opening the file at all. The other only limits printing, editing and copying, and the two protect very different things. This guide gives the steps for each method, then covers the limits that most tool pages leave out.</p><h2>Which method should you use?</h2><p>Use this table to pick a method. The steps and sources for each row are in the sections below.</p><table><thead><tr><th>Method</th><th>Open password</th><th>Restrict print/edit/copy</th><th>Where the file is processed</th><th>Notes</th></tr></thead><tbody><tr><td>Adobe Acrobat (desktop)</td><td>Yes</td><td>Yes</td><td>Acrobat app on your computer</td><td>Most options; menu labels vary by version</td></tr><tr><td>Acrobat on the web</td><td>Yes (view password)</td><td>No, view password only</td><td>Acrobat online, signed in</td><td>Sign in at acrobat.adobe.com</td></tr><tr><td>Adobe's free online tool</td><td>Yes</td><td>Not offered in the tool's steps</td><td>Adobe servers; deleted unless you sign in to save</td><td>Rates password strength</td></tr><tr><td>Preview (Mac)</td><td>Yes</td><td>Yes (Owner Password)</td><td>Preview app on your Mac</td><td>Can save a protected copy and keep the original</td></tr><tr><td>Word \"Save as PDF\" (Windows)</td><td>Yes</td><td>Not documented by Microsoft</td><td>Word app on your computer</td><td>Only an open password is documented</td></tr><tr><td>Private PDF Editor (Protect tool)</td><td>Check the tool's options</td><td>Check the tool's options</td><td>Browser-based toolkit; check its disclosures for this tool</td><td>Also has an Unlock tool</td></tr></tbody></table><p>If you only need to stop the wrong person reading a file, any method that sets an open password will do. If you also want to limit printing or editing, use Acrobat desktop or Preview, and read the section on what restrictions can and can't do before relying on them.</p><h2>Open password vs permissions password</h2><ul><li><strong>Open password</strong> (also called a user password): anyone who wants to view the file has to type it. In Acrobat this is the <em>Viewing</em> option under Protect with password, according to <a href=\"https://experienceleague.adobe.com/en/slides/protect-pdfs\">Adobe Experience League</a>.</li><li><strong>Permissions password</strong> (also called an owner password): controls whether people can print, make changes or copy content. Preview calls it the \"Owner Password\" and lets you choose which actions are allowed without it, per <a href=\"https://support.apple.com/guide/preview/password-protect-a-pdf-prvw587dd90f/mac\">Apple's Preview guide</a>. Adobe describes Acrobat's Restrict Editing like this: \"Anyone can open and view the file, but they need to know the password to make any further edits to the PDF\" (<a href=\"https://www.adobe.com/acrobat/hub/how-to-secure-pdf-documents.html\">Adobe Acrobat hub</a>).</li></ul><p>You can set both on one file. In Preview, the owner password can be the same as or different from the open password (<a href=\"https://support.apple.com/guide/preview/password-protect-a-pdf-prvw587dd90f/mac\">Apple</a>). Using two different passwords lets you share the open password with a client without also giving them the password that changes the restrictions.</p><h2>How to password-protect a PDF in Adobe Acrobat (desktop)</h2><p>These steps follow <a href=\"https://experienceleague.adobe.com/en/slides/protect-pdfs\">Adobe Experience League's current Acrobat desktop guide</a>. Menu labels may differ in older Acrobat versions. Some older Adobe pages describe a Tools &gt; Protect path instead.</p><h3>Set a password to open the file</h3><ol><li>Open the PDF in Acrobat and choose <strong>All tools &gt; Protect a PDF</strong>.</li><li>Select <strong>Protect with password</strong>.</li><li>Choose <strong>Viewing</strong>.</li><li>Enter the password, re-type it, and select <strong>Apply</strong>. A confirmation message appears.</li></ol><p>You can't add passwords to a document that has been signed or certified (<a href=\"https://experienceleague.adobe.com/en/slides/protect-pdfs\">Adobe Experience League</a>). If you need both, add the password before the file is signed.</p><h3>Restrict printing, editing and copying</h3><ol><li>In the Protect a PDF tools, choose <strong>Encrypt with Password</strong>, then select <strong>Yes</strong> to confirm.</li><li>Select <strong>Restrict editing and printing of the document</strong>.</li><li>Set <strong>Printing Allowed</strong> (for example, High Resolution) and <strong>Changes Allowed</strong> (for example, None).</li><li>Enter a permissions password. Acrobat shows how strong it is.</li><li>Choose a compatibility and encryption option, then select <strong>OK</strong>.</li><li>Re-enter the password when asked, then <strong>Save</strong> the file.</li></ol><p>Source: <a href=\"https://experienceleague.adobe.com/en/slides/protect-pdfs\">Adobe Experience League</a>. On the encryption choice: the <a href=\"https://qpdf.readthedocs.io/en/stable/encryption.html\">qpdf documentation</a> recommends AES, and 256-bit AES in particular, so avoid options that would fall back to older 40-bit or RC4 encryption if your version lists them.</p><h3>Check it worked</h3><p>Press <strong>Ctrl+D</strong> (Windows) or <strong>Cmd+D</strong> (Mac) and open the <strong>Security</strong> tab to see what protection the file has (<a href=\"https://experienceleague.adobe.com/en/slides/protect-pdfs\">Adobe Experience League</a>). It's also worth closing the file and reopening it to confirm the password prompt appears before you send it to anyone.</p><h2>How to password-protect a PDF on a Mac with Preview</h2><p>Apple documents these steps in its <a href=\"https://support.apple.com/guide/preview/password-protect-a-pdf-prvw587dd90f/mac\">Preview user guide</a>:</p><ol><li>Open the PDF in Preview and choose <strong>File &gt; Export</strong>.</li><li>If you want to keep the original without a password, type a new name. Preview saves a protected copy and leaves the original as it was.</li><li>Click <strong>Permissions</strong>.</li><li>To require a password to view the file, select <strong>Require Password To Open Document</strong> and enter the password.</li><li>Use the checkboxes to choose which actions, such as printing or making changes, are allowed without the owner password. Leave an action unchecked to require the owner password for it.</li><li>Enter and verify an <strong>Owner Password</strong>. It can be the same as the open password or different.</li><li>Click <strong>Apply</strong>, then <strong>Save</strong>.</li></ol><p>Apple notes: \"Changes take effect the next time the PDF is opened.\" To change the options or the owner password later, choose <strong>File &gt; Edit Permissions</strong> (<a href=\"https://support.apple.com/guide/preview/password-protect-a-pdf-prvw587dd90f/mac\">Apple</a>).</p><h2>How to add a password when saving a Word document as PDF (Windows)</h2><p>Microsoft's instructions apply to Word for Microsoft 365, Word 2024, 2021, 2019 and 2016, among other Office apps (<a href=\"https://support.microsoft.com/en-us/office/collab-files/save-or-convert-to-pdf-or-xps-in-office-desktop-apps\">Microsoft Support</a>):</p><ol><li>If the document has been saved before, choose <strong>File &gt; Save a Copy</strong>. If it hasn't, choose <strong>File &gt; Save As</strong> or <strong>Save a Copy</strong>.</li><li>Select <strong>Browse</strong> and choose <strong>PDF</strong> as the file type.</li><li>Select <strong>More Options</strong>, then <strong>Options</strong>.</li><li>Tick <strong>Encrypt the document with a password</strong> and select <strong>OK</strong>.</li><li>In the <strong>Encrypt PDF Document</strong> box, type the password, re-enter it, and save.</li></ol><p>This sets an open password; it is the only password option Microsoft documents on that page. A note on other guides: Adobe's hub article lists File &gt; Info &gt; Protect Document &gt; Encrypt with Password under securing a PDF with Word. That path is Word's own document encryption, so it protects the Word file. To put a password on the exported PDF, use the export option above.</p><h2>Using an online tool</h2><p>Adobe's free online tool works like this, per <a href=\"https://www.adobe.com/acrobat/online/password-protect-pdf.html\">Adobe's password-protect page</a>:</p><ol><li>Select a file, or drag and drop it onto the page.</li><li>Enter a password and re-type it. The tool rates it as weak, medium or strong.</li><li>Select <strong>Set password</strong>.</li><li>Download the protected file, or sign in to share it.</li></ol><p>Think about where the file goes. Adobe says: \"Your file will be securely handled by Adobe servers and deleted unless you sign in to save it\" (<a href=\"https://www.adobe.com/acrobat/online/password-protect-pdf.html\">Adobe</a>). For contracts, invoices with bank details or ID scans, decide whether you're comfortable uploading the file, or use Acrobat desktop, Preview or Word instead.</p><p>If you have an Acrobat account, you can also sign in at acrobat.adobe.com and choose <strong>Edit &gt; Protect a PDF</strong>. Only a view (open) password can be set on the web (<a href=\"https://experienceleague.adobe.com/en/slides/protect-pdfs\">Adobe Experience League</a>).</p><p>Another option is <a href=\"https://private-pdf-editor.com/?utm_source=newearns&amp;utm_medium=referral&amp;utm_campaign=password-protect-pdf\">Private PDF Editor</a>, a browser-based PDF toolkit with about 30 tools, including Protect and Unlock. Standard PDF editing runs in the browser; some conversions are handled differently and have separate disclosures, so check how the Protect tool handles your file before using it for anything sensitive. It has paid plans; see its pricing page for current prices.</p><p><em>Disclosure: Private PDF Editor is built by the team behind New Earns. We mention it where it fits the task; the steps in this guide also work with other tools.</em></p><h2>What a PDF password doesn't protect</h2><h3>Print, edit and copy restrictions depend on the reader app</h3><p>The qpdf documentation explains that the open and owner passwords unlock the same encryption key, so \"the security of the restrictions placed on PDF files is solely enforced by the software.\" Software can be modified to ignore those restrictions, and the PDF specification is clear about this (<a href=\"https://qpdf.readthedocs.io/en/stable/encryption.html\">qpdf</a>). Treat restrictions as a polite request that compliant apps honour. If someone must not see the content, don't send it to them; an open password only keeps out people who don't have it.</p><h3>Older encryption settings are weak, so choose 256-bit AES</h3><p>As of its last review in 2022, the <a href=\"https://qpdf.readthedocs.io/en/stable/encryption.html\">qpdf documentation</a> says 40-bit encryption can be easily brute-forced whatever the password, and 128-bit encryption with RC4 is insecure. It recommends AES, and if you use AES, 256-bit. It also notes that with 256-bit encryption, leaving the owner password blank effectively makes the restrictions useless, so set an owner password if you want restrictions at all.</p><h3>The password is only as safe as the way you send it</h3><p>The UK Information Commissioner's Office advises long, complex passwords and sending the password by a separate channel, for example by phone once delivery is confirmed. It is direct about the common mistake: \"Do not include the password within the same email as the encrypted file attachment\" (<a href=\"https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/encryption/encryption-scenarios/\">ICO</a>). The same ICO guidance notes that recipients need compatible software to open encrypted files, and it describes a £120,000 fine issued to Surrey County Council, under the previous data protection regime, after misdirected emails that included an unencrypted, unprotected file (<a href=\"https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/encryption/encryption-scenarios/\">ICO</a>).</p><p>A practical routine for freelancers: email the protected PDF, then text or call the client with the password. If the file is too large to email, see <a href=\"https://newearns.com/compress-pdf-for-email/\">how to compress a PDF for email</a>.</p><h3>A lost password can't be recovered</h3><p>Adobe states: \"Your password is not stored anywhere and cannot be retrieved if lost or forgotten.\" It suggests using a memorable password or a password manager (<a href=\"https://experienceleague.adobe.com/en/slides/protect-pdfs\">Adobe Experience League</a>). Keep an unprotected original somewhere safe, such as encrypted storage you control, and send only the protected copy. Preview's option to export under a new name makes this easy (<a href=\"https://support.apple.com/guide/preview/password-protect-a-pdf-prvw587dd90f/mac\">Apple</a>).</p><h3>Hidden information stays in the file unless you remove it</h3><p>A password doesn't clean the document. Anyone who opens it can still find metadata and other invisible content. Acrobat has a Remove Hidden Information option that erases potentially identifying invisible data (<a href=\"https://www.adobe.com/acrobat/hub/how-to-secure-pdf-documents.html\">Adobe Acrobat hub</a>). Run it before you add the password; its exact location may vary by Acrobat version.</p><h3>Saving as PDF alone doesn't stop editing</h3><p>Microsoft points out that many programs, Word included, can open and edit PDFs: \"Simply sharing something as a PDF is not sufficient to guarantee the recipient can't edit the file\" (<a href=\"https://support.microsoft.com/en-us/office/collab-files/save-or-convert-to-pdf-or-xps-in-office-desktop-apps\">Microsoft Support</a>). If a quote or contract must not be altered, keep your own original copy as the reference version.</p><h2>Choosing a password you can actually share</h2><p>You'll often be reading the password out over the phone, so it needs to be strong and easy to say. The UK National Cyber Security Centre recommends combining three random words, which it says creates passwords that are \"'long enough' and 'strong enough' for most purposes.\" It also suggests a password manager to create and remember strong passwords, and says writing a password down is OK if you keep it somewhere safe (<a href=\"https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/three-random-words\">NCSC</a>).</p><ul><li>Use a different password for each client or file, so one leak doesn't expose everything.</li><li>Avoid the client's name, the project name or the date. Those are easy to guess.</li><li>Check the strength meter: Acrobat desktop and Adobe's online tool both rate the password as you type (<a href=\"https://experienceleague.adobe.com/en/slides/protect-pdfs\">Adobe Experience League</a>, <a href=\"https://www.adobe.com/acrobat/online/password-protect-pdf.html\">Adobe online tool</a>).</li></ul><h2>FAQ</h2><h3>Why won't Acrobat let me add a password?</h3><p>The file may be signed or certified. Adobe says you can't add passwords to a signed or certified document (<a href=\"https://experienceleague.adobe.com/en/slides/protect-pdfs\">Adobe Experience League</a>). Add the password to an unsigned version instead, before it goes out for signature.</p><h3>Why can I only set an open password in Acrobat online?</h3><p>That's expected. Acrobat on the web only lets you set a view password (<a href=\"https://experienceleague.adobe.com/en/slides/protect-pdfs\">Adobe Experience League</a>). Use Acrobat desktop or Preview if you need printing or editing restrictions.</p><h3>How do I change or remove a PDF password?</h3><p>In Acrobat desktop, use <strong>Remove security</strong> in the left-hand pane (<a href=\"https://experienceleague.adobe.com/en/slides/protect-pdfs\">Adobe Experience League</a>). Adobe's online tool FAQ says the owner can remove the password with an Acrobat Pro subscription or 7-day free trial (<a href=\"https://www.adobe.com/acrobat/online/password-protect-pdf.html\">Adobe</a>). In Preview, choose <strong>File &gt; Edit Permissions</strong> to change the protection options or the owner password (<a href=\"https://support.apple.com/guide/preview/password-protect-a-pdf-prvw587dd90f/mac\">Apple</a>). For removing protection from your own files in a browser, <a href=\"https://private-pdf-editor.com/?utm_source=newearns&amp;utm_medium=referral&amp;utm_campaign=password-protect-pdf\">Private PDF Editor</a> also includes an Unlock tool.</p><h3>Can I recover a forgotten PDF password?</h3><p>Not through Acrobat. Adobe says the password isn't stored anywhere and can't be retrieved if lost or forgotten (<a href=\"https://experienceleague.adobe.com/en/slides/protect-pdfs\">Adobe Experience League</a>). That's why keeping an unprotected original in a safe place matters.</p><h3>Should I compress a PDF before or after adding a password?</h3><p>As a workflow, compress first and add the password last, so the file you actually send is the protected, final version. Our guide on <a href=\"https://newearns.com/compress-pdf-for-email/\">compressing a PDF for email</a> covers the first step.</p><h3>Which encryption should I pick?</h3><p>Adobe names 128-bit and 256-bit AES as common encryption types (<a href=\"https://www.adobe.com/acrobat/online/password-protect-pdf.html\">Adobe</a>). The qpdf documentation recommends 256-bit AES and calls 40-bit and RC4 options weak (<a href=\"https://qpdf.readthedocs.io/en/stable/encryption.html\">qpdf</a>).</p>",
+      "sources": [
+        {
+          "url": "https://experienceleague.adobe.com/en/slides/protect-pdfs",
+          "title": "Adobe Experience League: How to protect PDFs in Acrobat on the desktop",
+          "supports": "Acrobat desktop steps (All tools > Protect a PDF, Protect with password > Viewing, Encrypt with Password restrictions), signed/certified limitation, password not stored or retrievable, Remove security, Ctrl/Cmd+D Security tab, Acrobat web view-password-only, password strength display"
+        },
+        {
+          "url": "https://support.apple.com/guide/preview/password-protect-a-pdf-prvw587dd90f/mac",
+          "title": "Apple Support: Password-protect a PDF in Preview on Mac",
+          "supports": "Preview steps via File > Export and Permissions, Owner Password, saving a protected copy under a new name, changes take effect on next open, File > Edit Permissions"
+        },
+        {
+          "url": "https://support.microsoft.com/en-us/office/collab-files/save-or-convert-to-pdf-or-xps-in-office-desktop-apps",
+          "title": "Microsoft Support: Save or convert to PDF or XPS in Office Desktop apps",
+          "supports": "Word steps to encrypt an exported PDF with a password, version scope, and the point that sharing as PDF doesn't prevent editing"
+        },
+        {
+          "url": "https://www.adobe.com/acrobat/online/password-protect-pdf.html",
+          "title": "Adobe: Password protect a PDF (online tool)",
+          "supports": "Online tool steps, file handled on Adobe servers and deleted unless you sign in, weak/medium/strong rating, removing password with Acrobat Pro or 7-day trial, 128-bit and 256-bit AES as common types"
+        },
+        {
+          "url": "https://www.adobe.com/acrobat/hub/how-to-secure-pdf-documents.html",
+          "title": "Adobe Acrobat hub: How to secure a PDF with a password",
+          "supports": "Restrict Editing description (anyone can open, edits need password) and Remove Hidden Information option"
+        },
+        {
+          "url": "https://qpdf.readthedocs.io/en/stable/encryption.html",
+          "title": "qpdf documentation: PDF Encryption",
+          "supports": "Restrictions enforced only by software; 40-bit and RC4 weak, 256-bit AES recommended (as of 2022 review); blank owner password with 256-bit makes restrictions useless"
+        },
+        {
+          "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/encryption/encryption-scenarios/",
+          "title": "ICO: Encryption scenarios",
+          "supports": "Long complex passwords, sending password by separate channel and not in the same email, recipient software compatibility, Surrey County Council fine under the previous regime"
+        },
+        {
+          "url": "https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/three-random-words",
+          "title": "NCSC: Three random words",
+          "supports": "Three random words guidance, password managers, writing passwords down if kept safe"
+        }
+      ],
+      "product_link_reason": "Linked at the online-tool step because readers looking for a browser-based alternative can use Private PDF Editor's Protect tool, and once in the FAQ on removing a password from your own file because the toolkit includes an Unlock tool. Only allowed claims are used, and readers are told to check the tool's disclosures on file handling.",
+      "internal_links_note": "",
+      "image_headline": "Password-Protect Any PDF, Safely",
+      "search_intent": "How-to: readers want quick, accurate steps to add a password to a PDF on their device (Acrobat, Mac Preview, Word on Windows, or online), plus a sense of which method fits their needs.",
+      "unique_value": "One tool-neutral guide with a decision table, a clear explanation of open vs permissions passwords, Microsoft's correct Word PDF-export steps (not Word document encryption), current Acrobat menu paths, and a sourced section on what PDF passwords don't protect: reader-enforced restrictions, weak legacy encryption, sending passwords separately, unrecoverable passwords and hidden data.",
+      "image_alt_text": "Old key and laptop",
+      "featured_image": {
+        "alt_text": "Old key and laptop",
+        "license": "cc-by-sa",
+        "creator": "User:Nikowsk",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      "inline_images": [
+        {
+          "alt_text": "Screenshot of the Private PDF Editor page \"Private PDF Editor | PrivatePDF\" at private-pdf-editor.com",
+          "license": "own-screenshot"
+        }
+      ]
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "Microsoft's steps apply to \"Word for Microsoft 365, Word 2024, 2021, 2019 and 2016\"",
+          "verdict": "contradicted",
+          "source_url": "https://support.microsoft.com/en-us/office/collab-files/save-or-convert-to-pdf-or-xps-in-office-desktop-apps",
+          "evidence": "The \"Applies To\" list names Word for Microsoft 365, Word 2021, Word 2019 and Word 2016. It lists Excel, Access, OneNote and Project 2024, but not Word 2024.",
+          "suggested_fix": "Change to \"Word for Microsoft 365, Word 2021, 2019 and 2016\", or drop the version list."
+        },
+        {
+          "claim": "Acrobat desktop open password steps: All tools > Protect a PDF, then Protect with password, then Viewing, then enter, re-type and Apply, then a confirmation message.",
+          "verdict": "supported",
+          "source_url": "https://experienceleague.adobe.com/en/slides/protect-pdfs",
+          "evidence": "The page says \"select All tools from the toolbar and choose Protect a PDF\", \"select Viewing\" and \"A confirmation message appears.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Acrobat desktop restriction steps: Encrypt with Password, then Yes, then \"Restrict editing and printing\", then Printing Allowed set to High Resolution and Changes Allowed set to None, then the strength boxes, then compatibility/encryption and OK, then re-enter and Save.",
+          "verdict": "supported",
+          "source_url": "https://experienceleague.adobe.com/en/slides/protect-pdfs",
+          "evidence": "The page says \"Re-enter your password to confirm and select OK. Save the file.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "You cannot add passwords to a signed or certified document, so add the password before signing.",
+          "verdict": "supported",
+          "source_url": "https://experienceleague.adobe.com/en/slides/protect-pdfs",
+          "evidence": "The page says \"You cannot add passwords to a signed or certified document.\" The advice to add the password before signing is a reasonable inference from this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Checking protection: Ctrl+D / Cmd+D, then the Security tab; test by reopening the file.",
+          "verdict": "supported",
+          "source_url": "https://experienceleague.adobe.com/en/slides/protect-pdfs",
+          "evidence": "Supported by the page; testing by reopening the file matches the page's \"Test the open password\" step.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Removing protection in Acrobat desktop via Remove security.",
+          "verdict": "supported",
+          "source_url": "https://experienceleague.adobe.com/en/slides/protect-pdfs",
+          "evidence": "The page says \"Select Remove security from the left-hand pane.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Lost passwords cannot be recovered; use a memorable password or a password manager.",
+          "verdict": "supported",
+          "source_url": "https://experienceleague.adobe.com/en/slides/protect-pdfs",
+          "evidence": "The page says \"Your password is not stored anywhere and cannot be retrieved if lost or forgotten\", plus the advice to use a memorable password or a password manager.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Acrobat on the web: sign in at acrobat.adobe.com, then Edit > Protect a PDF; only a view password can be set (table row and FAQ answer).",
+          "verdict": "supported",
+          "source_url": "https://experienceleague.adobe.com/en/slides/protect-pdfs",
+          "evidence": "The page says \"You can only set a view password in Acrobat on the web.\" This covers the table row and the FAQ answer.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Mac Preview steps 1–7: File > Export, the new-name copy, Permissions, \"Require Password To Open Document\", the checkboxes, the Owner Password and Apply/Save.",
+          "verdict": "supported",
+          "source_url": "https://support.apple.com/guide/preview/password-protect-a-pdf-prvw587dd90f/mac",
+          "evidence": "All steps 1–7 are supported by the Apple page (full page read).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "In Preview, the owner password can be the same as or different from the open password.",
+          "verdict": "supported",
+          "source_url": "https://support.apple.com/guide/preview/password-protect-a-pdf-prvw587dd90f/mac",
+          "evidence": "The page says the owner password \"can be the same as or different from\" the open password.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "In Preview, changes take effect the next time the PDF is opened.",
+          "verdict": "supported",
+          "source_url": "https://support.apple.com/guide/preview/password-protect-a-pdf-prvw587dd90f/mac",
+          "evidence": "The page says \"Changes take effect the next time the PDF is opened.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "In Preview, File > Edit Permissions works for later changes.",
+          "verdict": "supported",
+          "source_url": "https://support.apple.com/guide/preview/password-protect-a-pdf-prvw587dd90f/mac",
+          "evidence": "Supported by the Apple page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Word export steps: Save a Copy / Save As, then Browse, then select PDF, then More Options > Options, then \"Encrypt the document with a password\", then the \"Encrypt PDF Document\" box.",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/office/collab-files/save-or-convert-to-pdf-or-xps-in-office-desktop-apps",
+          "evidence": "Supported by the Microsoft save-as-PDF page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Word's PDF export sets an open password only.",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/office/collab-files/save-or-convert-to-pdf-or-xps-in-office-desktop-apps",
+          "evidence": "The page says \"so only people with the password can open the PDF.\" No permissions option was found in the Word section read. The excerpt was partial, but the Word section looked complete.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Quote: \"Simply sharing something as a PDF is not sufficient…\"",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/office/collab-files/save-or-convert-to-pdf-or-xps-in-office-desktop-apps",
+          "evidence": "The quote matches exactly.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "File > Info > Protect Document > Encrypt with Password encrypts the Word file, not the exported PDF.",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Microsoft's \"Protect a Word document with a password\" page (support.microsoft.com/en-us/word/protect-a-word-document-with-a-password) lists that exact path. That URL is not among the allowed cited URLs, so source_url is left empty.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "qpdf terminology: \"user password\" and \"owner password\".",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Confirmed in the same qpdf doc read via github.com/qpdf/qpdf/blob/main/manual/encryption.rst; the cited readthedocs page did not render. The stable 12.4.2 version could differ slightly.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Both passwords unlock the same encryption key; restrictions are \"solely enforced by the software\".",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Confirmed in the qpdf doc read on GitHub (main branch); the quote \"solely enforced by the software\" is exact. The cited readthedocs page did not render.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Any open source PDF reader could be trivially modified…\" and \"The PDF specification is clear about this point.\"",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Confirmed in the qpdf doc read on GitHub (main branch); the cited readthedocs page did not render.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "40-bit keys can be easily brute-forced; 128-bit RC4 is known to be insecure; AES is the only secure option, so just use 256-bit.",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "The qpdf doc on GitHub says 40-bit keys \"can be easily brute-forced\"; 128-bit RC4 is \"known to be insecure\"; \"as of the last review of this chapter in 2022\", AES is the only secure option, so \"just use 256-bit\". The cited readthedocs page did not render.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "With 256-bit encryption, a blank owner password makes the restrictions useless.",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "The qpdf doc on GitHub says a blank owner password means \"effectively rendering the security restrictions useless.\" The cited readthedocs page did not render.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Passwords should be sufficiently long and complex and sent by a separate channel, e.g. by phone once delivery is confirmed.",
+          "verdict": "supported",
+          "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/encryption/encryption-scenarios/",
+          "evidence": "The ICO page says passwords should be \"sufficiently long and complex\" and sent by a separate channel, for example by phone once delivery is confirmed.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Quote: \"Do not include the password within the same email…\"",
+          "verdict": "supported",
+          "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/encryption/encryption-scenarios/",
+          "evidence": "The quote is exact.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Recipients need compatible software.",
+          "verdict": "supported",
+          "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/encryption/encryption-scenarios/",
+          "evidence": "Supported by the ICO page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Surrey County Council was fined £120,000; one file was neither encrypted nor password protected.",
+          "verdict": "supported",
+          "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/encryption/encryption-scenarios/",
+          "evidence": "The ICO page says the fine was \"under the previous data protection regime\"; one file was \"neither encrypted nor password protected.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Private PDF Editor has about 30 tools including Protect and Unlock; editing runs in the browser, with separate disclosures for some conversions; it has paid plans.",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "All of this matches the allowed claims. No source URL given.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "U1: Adobe online tool steps (drag and drop, Set password, download or sign in to share).",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "Cited page adobe.com/acrobat/online/password-protect-pdf.html could not be read (HTTP 403; web_fetch quota used up).",
+          "suggested_fix": "Re-check the live page before publishing, or point readers to the Experience League web steps, which could be read."
+        },
+        {
+          "claim": "U2: Online tool rates passwords as weak, medium or strong (table and tips list).",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "Cited page adobe.com/acrobat/online/password-protect-pdf.html could not be read (HTTP 403).",
+          "suggested_fix": "Re-check; or keep only the Acrobat desktop strength meter, which is supported."
+        },
+        {
+          "claim": "U3: Quote: \"securely handled by Adobe servers and deleted unless you sign in…\"",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "Cited page adobe.com/acrobat/online/password-protect-pdf.html could not be read (HTTP 403). A search snippet hints that it's right, but a snippet isn't evidence.",
+          "suggested_fix": "Re-check the exact wording."
+        },
+        {
+          "claim": "U4: Table: restrictions \"not offered in the tool's steps\".",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "Cited page adobe.com/acrobat/online/password-protect-pdf.html could not be read (HTTP 403).",
+          "suggested_fix": "Re-check."
+        },
+        {
+          "claim": "U5: Adobe FAQ: removal needs an Acrobat Pro subscription or 7-day free trial.",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "Cited page adobe.com/acrobat/online/password-protect-pdf.html could not be read (HTTP 403).",
+          "suggested_fix": "Re-check; plan and trial terms change often. Otherwise remove."
+        },
+        {
+          "claim": "U6: Adobe names 128-bit and 256-bit AES as common types.",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "Cited page adobe.com/acrobat/online/password-protect-pdf.html could not be read (HTTP 403).",
+          "suggested_fix": "Re-check, or cite qpdf only."
+        },
+        {
+          "claim": "U7: Hub quote: \"Anyone can open and view the file, but they need to know the password…\"",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "Cited page adobe.com/acrobat/hub/how-to-secure-pdf-documents.html could not be read (HTTP 403).",
+          "suggested_fix": "Re-check, or use Apple's wording, which could be read."
+        },
+        {
+          "claim": "U8: Hub lists File > Info > Protect Document > Encrypt with Password under Word.",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "Cited page adobe.com/acrobat/hub/how-to-secure-pdf-documents.html could not be read (HTTP 403). The point itself (that this protects the .docx) is supported by Microsoft.",
+          "suggested_fix": "Re-check."
+        },
+        {
+          "claim": "U9: Remove Hidden Information erases identifying invisible data, and metadata stays in the file.",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "Cited page adobe.com/acrobat/hub/how-to-secure-pdf-documents.html could not be read (HTTP 403); Adobe helpx was also blocked.",
+          "suggested_fix": "Re-check against Adobe's help page."
+        },
+        {
+          "claim": "U10: NCSC: three random words are \"'long enough' and 'strong enough'…\"; password manager advice; writing passwords down is OK if kept safe.",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "Cited page ncsc.gov.uk/…/three-random-words text did not load (only 282 characters). NCSC now also pushes passkeys (April 2026 news), which doesn't affect this PDF advice.",
+          "suggested_fix": "Re-check the live page."
+        },
+        {
+          "claim": "Some older Adobe pages describe a Tools > Protect path instead.",
+          "verdict": "unsupported",
+          "source_url": "",
+          "evidence": "No cited text says it; low risk.",
+          "suggested_fix": "Cite a source or remove it."
+        },
+        {
+          "claim": "Hidden information… Run it before you add the password.",
+          "verdict": "unsupported",
+          "source_url": "",
+          "evidence": "Sensible but unsourced; no cited text says it.",
+          "suggested_fix": "Hedge it as advice."
+        },
+        {
+          "claim": "Compress first, password last.",
+          "verdict": "unsupported",
+          "source_url": "",
+          "evidence": "Listed under unsupported, but the notes say this is an editorial workflow, not a fact claim, so it's fine as advice.",
+          "suggested_fix": "None needed; fine as advice."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://experienceleague.adobe.com/en/slides/protect-pdfs",
+          "relevant": true,
+          "notes": "Read, including the \"Confirm password and save\" section. Every claim cited to it checks out."
+        },
+        {
+          "url": "https://support.apple.com/guide/preview/password-protect-a-pdf-prvw587dd90f/mac",
+          "relevant": true,
+          "notes": "Full page read. All claims supported."
+        },
+        {
+          "url": "https://support.microsoft.com/en-us/office/collab-files/save-or-convert-to-pdf-or-xps-in-office-desktop-apps",
+          "relevant": true,
+          "notes": "Mostly read. Supports the article except the Word 2024 error (C1)."
+        },
+        {
+          "url": "https://www.adobe.com/acrobat/online/password-protect-pdf.html",
+          "relevant": false,
+          "notes": "Could not be read (HTTP 403; web_fetch quota used up). Can't confirm; 6 claims depend on it."
+        },
+        {
+          "url": "https://www.adobe.com/acrobat/hub/how-to-secure-pdf-documents.html",
+          "relevant": false,
+          "notes": "Could not be read (HTTP 403). Can't confirm; 3 claims depend on it."
+        },
+        {
+          "url": "https://qpdf.readthedocs.io/en/stable/encryption.html",
+          "relevant": false,
+          "notes": "The cited page didn't render. The same doc file read on GitHub (main branch) supports everything cited, but the stable 12.4.2 version could differ slightly."
+        },
+        {
+          "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/encryption/encryption-scenarios/",
+          "relevant": true,
+          "notes": "Read (page published 2 Sep 2025). All cited claims supported."
+        },
+        {
+          "url": "https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/three-random-words",
+          "relevant": false,
+          "notes": "Could not be read (only 282 characters loaded). Can't confirm."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "Yes, mostly. Gives quick, correct steps for all four methods, each checked against official documentation. The comparison table and explanation of the two password types answer \"which method fits me\". Weaknesses: the online-tool section, the main path for readers without paid software, is the least verified part; the \"What a PDF password doesn't protect\" section is long for a how-to, but that's fine because the steps come first. Not ready to publish as is: fix C1 and re-check U1–U10 against the live Adobe and NCSC pages, or reword those claims to use readable sources.",
+      "adds_original_value": true,
+      "value_notes": "Adds real value in three places: it points out that Word's File > Info encryption protects the Word file, not the PDF (confirmed by Microsoft); it explains that print/edit restrictions only work if the reader app honours them and that old encryption settings are weak, with a sourced qpdf explanation; and it covers sending the password by a separate channel, sourced to the ICO.",
+      "product_claims_accurate": true,
+      "product_notes": "All product statements match the allowed claims. The disclosure line is present. Table rows (\"Check the tool's options\") avoid claiming how the Protect tool behaves, which is correct. The \"in a browser\" wording for Unlock is consistent with \"browser-based toolkit\". Links carry utm referral tags, which is fine since the article discloses the relationship.",
+      "fetched_urls": [
+        "https://experienceleague.adobe.com/en/slides/protect-pdfs",
+        "https://github.com/qpdf/qpdf/blob/main/manual/encryption.rst",
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/encryption/encryption-scenarios/",
+        "https://qpdf.readthedocs.io/en/stable/encryption.html",
+        "https://support.apple.com/guide/preview/password-protect-a-pdf-prvw587dd90f/mac",
+        "https://support.microsoft.com/en-us/office/collab-files/save-or-convert-to-pdf-or-xps-in-office-desktop-apps",
+        "https://support.microsoft.com/en-us/office/protect-a-document-with-a-password-05084cc3-300d-4c1a-8416-38d3e37d6826",
+        "https://support.microsoft.com/en-us/word/protect-a-word-document-with-a-password",
+        "https://www.adobe.com/acrobat/hub/how-to-secure-pdf-documents.html",
+        "https://www.adobe.com/acrobat/online/password-protect-pdf.html",
+        "https://www.ncsc.gov.uk/blog-post/three-random-words-or-thinkrandom-0",
+        "https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online",
+        "https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/three-random-words",
+        "https://www.ncsc.gov.uk/cyberaware/home"
+      ],
+      "content_sha256": "52ab9c35b96f8c6222d060d3dca16eb1f9fe0cf48570462cf93094cff07870ab"
+    },
+    "images": {
+      "words": 2156,
+      "target": [
+        3,
+        4
+      ],
+      "stock_api_calls": 8,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "how to password protect a pdf",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "openverse",
+          "query": "password protect a PDF",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "commons",
+          "query": "how to password protect a pdf",
+          "result": "0"
+        },
+        {
+          "provider": "commons",
+          "query": "password protect a PDF",
+          "result": "0"
+        },
+        {
+          "provider": "commons",
+          "query": "laptop password security",
+          "result": "3"
+        },
+        {
+          "provider": "commons",
+          "query": "padlock on laptop keyboard",
+          "result": "0"
+        }
+      ],
+      "notes": [
+        "2 image(s), below the 3-4 guideline: nothing else in the article would gain from a visual, and decorative images are not added"
+      ],
+      "topic": {
+        "motif": "lock",
+        "match": "\\b(password|protect|encrypt|lock|unlock)"
+      },
+      "photo_rejections": [
+        {
+          "description": "Crypto Passwords & Security",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Dr. Rodney Ch.3.cmap",
+          "reason": "no laptop/computer/screen in its title"
+        }
+      ],
+      "featured": {
+        "provider": "commons",
+        "id": "61970624",
+        "description": "Old key and laptop",
+        "page_url": "https://commons.wikimedia.org/wiki/File:Old_key_and_laptop.jpg",
+        "creator": "User:Nikowsk",
+        "creator_url": "https://commons.wikimedia.org/w/index.php?title=User:Nikowsk&amp;action=edit&amp;redlink=1",
+        "license": "cc-by-sa",
+        "license_version": "4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "wikimedia",
+        "query": "laptop password security",
+        "relevance": "shows password",
+        "alt_text": "Old key and laptop",
+        "caption": "",
+        "filename": "password-protect-pdf-featured.webp",
+        "file": "featured.webp",
+        "bytes": 29512
+      },
+      "inline": [
+        {
+          "provider": "in-house",
+          "license": "own-screenshot",
+          "kind": "screenshot",
+          "anchor": {
+            "href": "https://private-pdf-editor.com/"
+          },
+          "file": "inline-1.webp",
+          "url_shot": "https://private-pdf-editor.com/",
+          "filename": "password-protect-pdf-private-pdf-editor-screenshot.webp",
+          "width": 1200,
+          "height": 751,
+          "bytes": 46062,
+          "captured": "2026-10-22",
+          "alt_text": "Screenshot of the Private PDF Editor page \"Private PDF Editor | PrivatePDF\" at private-pdf-editor.com",
+          "caption": "Private PDF Editor (private-pdf-editor.com), screenshot taken 2026-10-22."
+        }
+      ]
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2152 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "9 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "How to Password-Protect a PDF (and What the Password Doesn't Protect)"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.56% (3x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "2/9 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "146 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "50 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "password-protect-pdf"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "password-protect-pdf"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.02"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.51: How to Compress a PDF for Email (and What to Do When It’s Still Too Big)"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": "2 confirmed by fact-check fetch"
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "2 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "2 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "ownership_disclosed",
+        "passed": true,
+        "detail": "disclosure missing"
+      },
+      {
+        "check": "product_link_justified",
+        "passed": true,
+        "detail": "no reason given"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "7 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "8 of 8 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "18 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "cc-by-sa"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "1 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "1 contradicted by a source (likely wrong): Microsoft's steps apply to \"Word for Microsoft 365, Word 2024, 2021, 2019 and 2016\" (fix: Change to \"Word for Microsoft 365, Word 2021, 2019 and 2016\", or drop the version list.) || 3 no supporting evidence found (not shown to be false): Some older Adobe pages describe a Tools > Protect path instead. (fix: Cite a source or remove it.) | Hidden information… Run it before you add the password. (fix: Hedge it as advice.) | Compress first, password last. (fix: None needed; fine as advice.) || 10 could not be checked (source unreadable or partial): U1: Adobe online tool steps (drag and drop, Set password, download or sign in to share). (fix: Re-check the live page before publishing, or point readers to the Experience League web steps, which could be read.) | U2: Online tool rates passwords as weak, medium or strong (table and tips list). (fix: Re-check; or keep only the Acrobat desktop strength meter, which is supported.) | U3: Quote: \"securely handled by Adobe servers and deleted unless you sign in…\" (fix: Re-check the exact wording.) | U4: Table: restrictions \"not offered in the tool's steps\". (fix: Re-check.) || 7 marked supported, but its source_url is missing or was not read by the pipeline: File > Info > Protect Document > Encrypt with Password encrypts the Word file, not the exp | qpdf terminology: \"user password\" and \"owner password\". | Both passwords unlock the same encryption key; restrictions are \"solely enforced by the so | \"Any open source PDF reader could be trivially modified…\" and \"The PDF specification is cl",
+        "fix": "Contradicted: correct the claim to what the source says. No evidence found: cite an official source that states it, narrow it to what a source does say, or remove it. Could not be checked: verify it against a readable source or remove it. Source page not read: cite a page the pipeline can open that states the claim, or remove the claim. No claims listed: the fact-check did not check anything. Then re-run the fact-check only."
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Yes, mostly. Gives quick, correct steps for all four methods, each checked against official documentation. The comparison table and explanation of the two password types answer \"which method fits me\". Weaknesses: the online-tool section, the main path for readers without paid software, is the least verified part; the \"What a PDF password doesn't protect\" section is long for a how-to, but that's fine because the steps come first. Not ready to publish as is: fix C1 and re-check U1–U10 against the live Adobe and NCSC pages, or reword those claims to use readable sources."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "Adds real value in three places: it points out that Word's File > Info encryption protects the Word file, not the PDF (confirmed by Microsoft); it explains that print/edit restrictions only work if the reader app honours them and that old encryption settings are weak, with a sourced qpdf explanation; and it covers sending the password by a separate channel, sourced to the ICO."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "All product statements match the allowed claims. The disclosure line is present. Table rows (\"Check the tool's options\") avoid claiming how the Protect tool behaves, which is correct. The \"in a browser\" wording for Unlock is consistent with \"browser-based toolkit\". Links carry utm referral tags, which is fine since the article discloses the relationship."
+      },
+      {
+        "check": "fact_check_current",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "sources_verified",
+        "passed": false,
+        "detail": "https://www.adobe.com/acrobat/online/password-protect-pdf.html does not support what it is cited for (Could not be read (HTTP 403; web_fetch quota used up). Can't confirm; 6 claims depend on it.); https://www.adobe.com/acrobat/hub/how-to-secure-pdf-documents.html does not support what it is cited for (Could not be read (HTTP 403). Can't confirm; 3 claims depend on it.); https://qpdf.readthedocs.io/en/stable/encryption.html does not support what it is cited for (The cited page didn't render. The same doc file read on GitHub (main branch) supports everything cit); https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/three-random-words does not support what it is cited for (Could not be read (only 282 characters loaded). Can't confirm.)",
+        "fix": "Replace each unreadable or irrelevant source with a page that states the fact, or remove the claims that relied on it; then re-run the fact-check only."
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 1.115,
+        "write": 0.302,
+        "fact_check": 0.523,
+        "fact_check_json": 0.181
+      },
+      "total_usd": 2.121
+    },
+    "wp_media": {
+      "id": 3725,
+      "url": "https://newearns.com/wp-content/uploads/2026/10/password-protect-pdf-featured.webp"
+    },
+    "wp_media_inline": [
+      {
+        "id": 3726,
+        "url": "https://newearns.com/wp-content/uploads/2026/10/password-protect-pdf-private-pdf-editor-screenshot.webp"
+      }
+    ],
+    "wp_post": {
+      "id": 3727,
+      "status": "pending",
+      "link": "https://newearns.com/?p=3727"
+    },
+    "image_check": "ok",
+    "final": "held_for_review"
+  },
+  "updated": "2026-10-22T14:33:48+00:00"
+}
