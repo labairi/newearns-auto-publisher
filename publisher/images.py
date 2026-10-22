@@ -907,6 +907,17 @@ def figure(src: str, media_id: int, img: dict) -> str:
             f'class="wp-image-{media_id}" loading="lazy" decoding="async"/>{cap}</figure>')
 
 
+def featured_figure(media: dict, plan: dict) -> str:
+    """The featured image at the top of the post body, for themes that do not print it on the
+    single post page (config images.featured_in_content). It is above the fold, so it is not
+    lazy-loaded; WordPress adds srcset/sizes to the wp-image-<id> class when the page renders."""
+    e = htmllib.escape
+    f = plan["featured"]
+    return (f'<figure class="wp-block-image size-large newearns-featured-image"><img src="{e(media["url"])}" '
+            f'alt="{e(f["alt_text"])}" width="{FEATURED_SIZE[0]}" height="{FEATURED_SIZE[1]}" '
+            f'class="wp-image-{media["id"]}" fetchpriority="high" decoding="async"/></figure>')
+
+
 def credit_line(plan: dict) -> str:
     """Attribution for the featured photo, as its licence asks (and as a courtesy where it doesn't)."""
     f = plan.get("featured") or {}
@@ -949,9 +960,11 @@ def _anchor_at(content_html: str, anchor: dict) -> int | None:
     return at + nxt.end() if nxt else at
 
 
-def insert(content_html: str, plan: dict, uploaded: list[dict]) -> str:
-    """Each inline visual goes at its anchor; the photo credit goes last."""
-    placed = []
+def insert(content_html: str, plan: dict, uploaded: list[dict], featured: dict | None = None) -> str:
+    """Each inline visual goes at its anchor; the photo credit goes last. With `featured` (the
+    uploaded featured image), it goes first: below the title the theme prints, above the intro."""
+    placed = [(0, featured_figure(featured, plan))] if featured and f'wp-image-{featured["id"]}"' not in content_html \
+        else []
     for img, media in zip(plan.get("inline", []), uploaded):
         at = _anchor_at(content_html, img["anchor"])
         if at is not None:
@@ -962,13 +975,22 @@ def insert(content_html: str, plan: dict, uploaded: list[dict]) -> str:
     return out + credit_line(plan)
 
 
-def check_in_post(post: dict, featured: dict, uploaded: list[dict], get=requests.get) -> list[str]:
+def check_in_post(post: dict, featured: dict, uploaded: list[dict], get=requests.get, *,
+                  in_content: bool = False) -> list[str]:
     """Problems with the images in the saved post: featured image set, every inline image in the
-    stored content, and every file served as an image."""
+    stored content, and every file served as an image. With `in_content`, the featured image must
+    also be in the content exactly once, before the first paragraph."""
     problems = []
     if post.get("featured_media") != featured["id"]:
         problems.append(f"featured image is {post.get('featured_media')}, expected media {featured['id']}")
     content = (post.get("content") or {}).get("raw") or (post.get("content") or {}).get("rendered") or ""
+    if in_content:
+        at = [m.start() for m in re.finditer(rf'wp-image-{featured["id"]}"', content)]
+        first_p = content.find("<p")
+        if len(at) != 1:
+            problems.append(f"featured image {featured['id']} is in the post content {len(at)} times, expected once")
+        elif first_p != -1 and at[0] > first_p:
+            problems.append(f"featured image {featured['id']} is not above the introduction")
     for m in uploaded:
         if f"wp-image-{m['id']}" not in content or m["url"] not in content:
             problems.append(f"image {m['id']} is not in the post content")
@@ -982,6 +1004,17 @@ def check_in_post(post: dict, featured: dict, uploaded: list[dict], get=requests
         if not ok:
             problems.append(f"{m['url']} does not load as an image ({getattr(r, 'status_code', r)})")
     return problems
+
+
+def featured_on_page(page_url: str, media_url: str, get=requests.get) -> int:
+    """How many images on the rendered article page show the featured file (any size WordPress
+    made of it, lazy-loaded or not). 1 is right; 2 means the theme prints it as well."""
+    r = get(page_url, timeout=30, headers={"User-Agent": USER_AGENT})
+    r.raise_for_status()
+    stem = re.escape(media_url.rsplit("/", 1)[-1].rsplit(".", 1)[0])
+    shows = re.compile(rf"/{stem}(?:-\d+x\d+)?\.\w+")
+    page = re.sub(r"<noscript\b.*?</noscript>", "", r.text, flags=re.S | re.I)  # lazy-load fallbacks repeat each image
+    return sum(1 for tag in re.findall(r"<img\b[^>]*>", page) if shows.search(tag))
 
 
 def served_featured(wp, post: dict, local: bytes) -> tuple[dict, bytes]:
