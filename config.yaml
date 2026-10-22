@@ -195,6 +195,11 @@ images:
   max_queries: 4                   # per source per article: the article's query first
   max_inline: 2                    # inline visuals per article at most
   product_screenshots: true        # own products from `products` only, never third-party sites
+  # The site's theme does not print the featured image on a single post (checked on the live
+  # pages of posts 3695 and 3699 on 2026-10-22), so the post body starts with it: below the
+  # title, above the introduction. Set to false if the theme ever shows it, or it shows twice;
+  # a live run warns when it counts the image more than once on the page.
+  featured_in_content: true
   # Scene searches tried after the article's own query, when no topic rule below matches.
   photo_queries:
     pdf: ["pdf on laptop screen", "person using laptop computer"]

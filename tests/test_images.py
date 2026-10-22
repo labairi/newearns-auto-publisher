@@ -393,7 +393,8 @@ def test_image_test_makes_a_draft_and_leaves_logs_and_schedule_alone(env, monkey
     assert run.main(["image-test", "--article-file", f]) == 0
     (post,) = wp.posts.values()
     assert post["status"] == "draft" and post["slug"].startswith("image-test-") and ("status", "publish") not in wp.calls
-    assert post["content"].count("wp-image-") == len(wp.media) - 1 == 1  # the Instagramaps screenshot
+    assert post["content"].count("wp-image-") == len(wp.media) == 2  # featured first, then the Instagramaps screenshot
+    assert post["content"].startswith('<figure class="wp-block-image size-large newearns-featured-image">')
     assert ledger.read_log() == [] and not (tmp / "schedule_log.jsonl").exists() and not (tmp / "runs").exists()
     assert not (tmp / "image_cache" / "used.json").exists()
 
@@ -533,3 +534,68 @@ def test_served_featured_detects_a_different_file():
             return b"other"
     served, _ = images.served_featured(WP(), {"featured_media": 7}, b"chosen")
     assert not served["same_as_chosen"]
+
+
+# ---------------------------------------------------------------- featured image placement
+FEAT = {"id": 901, "url": "https://newearns.com/wp-content/uploads/2026/10/compress-pdf-for-email-featured.webp"}
+
+
+def test_featured_image_opens_the_body_above_the_intro_once():
+    plan = {"featured": {"provider": "in-house", "alt_text": "Illustration of a PDF shrinking"}, "inline": []}
+    body = "<p>Intro paragraph.</p><h2>Steps</h2><p>More.</p>"
+    out = images.insert(body, plan, [], FEAT)
+    fig, rest = out.split("</figure>", 1)
+    assert rest == body  # nothing else moved; the intro follows the image directly
+    assert 'alt="Illustration of a PDF shrinking"' in fig and 'class="wp-image-901"' in fig
+    assert 'width="1200" height="630"' in fig and 'fetchpriority="high"' in fig and "lazy" not in fig
+    assert images.insert(out, plan, [], FEAT).count("wp-image-901") == 1  # never added twice
+    assert images.insert(body, plan, []) == body  # off unless asked for
+    post = {"featured_media": 901, "content": {"raw": out}}
+    assert images.check_in_post(post, FEAT, [], in_content=True) == []
+    assert images.check_in_post({"featured_media": 901, "content": {"raw": body}}, FEAT, [], in_content=True) \
+        == ["featured image 901 is in the post content 0 times, expected once"]
+    twice = {"featured_media": 901, "content": {"raw": out.replace("<h2>", images.featured_figure(FEAT, plan) + "<h2>")}}
+    assert "2 times" in images.check_in_post(twice, FEAT, [], in_content=True)[0]
+    late = {"featured_media": 901, "content": {"raw": body + images.featured_figure(FEAT, plan)}}
+    assert images.check_in_post(late, FEAT, [], in_content=True) == ["featured image 901 is not above the introduction"]
+
+
+def test_photo_credit_stays_with_a_featured_photo_in_the_body():
+    plan = {"featured": {"provider": "commons", "alt_text": "Laptop showing a PDF", "page_url": "https://commons.wikimedia.org/x",
+                         "description": "Laptop", "creator": "A. Person", "license": "cc-by-sa", "license_version": "4.0",
+                         "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"}, "inline": []}
+    out = images.insert("<p>Intro.</p>", plan, [], FEAT)
+    assert out.index("wp-image-901") < out.index("<p>Intro.</p>") < out.index('class="image-credits"')
+    assert "CC BY-SA 4.0" in out and "A. Person" in out
+
+
+def test_featured_image_counted_on_the_rendered_page():
+    def page(html):
+        class R:
+            text = html
+            def raise_for_status(self):
+                pass
+        return lambda url, **kw: R()
+    url = FEAT["url"]
+    ours = '<img src="https://newearns.com/wp-content/uploads/2026/10/compress-pdf-for-email-featured.webp" ' \
+           'srcset="https://newearns.com/wp-content/uploads/2026/10/compress-pdf-for-email-featured-300x158.webp 300w" class="wp-image-901">'
+    theme = '<img data-src="https://newearns.com/wp-content/uploads/2026/10/compress-pdf-for-email-featured-1024x538.webp" ' \
+            'class="attachment-full wp-post-image">'
+    lazy = '<noscript>' + ours + '</noscript>'
+    other = '<img src="https://newearns.com/wp-content/uploads/2025/07/cropped-logo-new-earn.png">'
+    og = '<meta property="og:image" content="https://newearns.com/wp-content/uploads/2026/10/compress-pdf-for-email-featured.webp">'
+    assert images.featured_on_page("p", url, get=page(og + other + ours + lazy)) == 1
+    assert images.featured_on_page("p", url, get=page(theme + ours)) == 2
+    assert images.featured_on_page("p", url, get=page(og + other)) == 0
+
+
+def test_live_run_reports_the_featured_image_count_without_unpublishing(env, monkeypatch):
+    wp, tmp, _ = env
+    monkeypatch.setattr(images.featured_on_page, "__defaults__", (lambda url, **kw: type("R", (), {
+        "text": '<img src="https://newearns.com/u/compress-pdf-for-email-featured.webp">' * 2,
+        "raise_for_status": lambda self: None})(),))
+    assert run.main(["article", "--article-file", write(tmp, make_article())]) == 0
+    (post,) = wp.posts.values()
+    assert post["status"] == "publish" and post["content"].startswith('<figure class="wp-block-image size-large newearns-featured-image">')
+    state = json.loads(next((tmp / "runs").glob("*/state.json")).read_text())["stages"]
+    assert state["featured_on_page"] == 2 and state["final"] == "published"

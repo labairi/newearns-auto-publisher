@@ -174,6 +174,23 @@ def upload_images(wp: WordPress, cp: ledger.Checkpoint, plan: dict, featured_byt
     return media, inline
 
 
+def featured_on_page_report(cp: ledger.Checkpoint, link: str, media_url: str) -> None:
+    """After publishing: count the featured image on the live page as visitors get it. Report only;
+    the post stays live (the text passed every gate), and a wrong count is for the owner to fix."""
+    try:
+        n = images.featured_on_page(link, media_url)
+    except Exception as e:
+        say(f"Could not check the featured image on the live page ({str(e)[:120]}).")
+        return
+    cp.put("featured_on_page", n)
+    if n == 1:
+        say("Featured image shows once on the live page.")
+    else:
+        say(f"WARNING: the featured image shows {n} times on the live page. "
+            + ("The theme prints it too: set images.featured_in_content to false." if n > 1
+               else "Check the post in WP Admin."))
+
+
 # ---------------------------------------------------------------- commands
 def cmd_check_setup(cfg: dict) -> int:
     ok = True
@@ -380,7 +397,8 @@ def cmd_article(cfg: dict, args) -> int:
         media, inline = upload_images(wp, cp, plan, img_bytes, article["slug"])
         # Images go in after the gates and the fact-check, which judged the text itself;
         # charts only restate a table already in that text, and screenshots carry no claims.
-        content_html = images.insert(article["content_html"], plan, inline)
+        content_html = images.insert(article["content_html"], plan, inline,
+                                     media if cfg["images"].get("featured_in_content") else None)
         # Create as draft first, then flip to publish only after the post exists intact.
         post = wp.create_post(title=article["title"], slug=article["slug"], content_html=content_html,
                               excerpt=article["excerpt"], status="draft", category_id=category,
@@ -395,7 +413,8 @@ def cmd_article(cfg: dict, args) -> int:
         if post["slug"] != article["slug"]:
             say(f"WordPress changed the slug to {post['slug']} (collision); holding for review.")
             target = "pending"
-        problems = images.check_in_post(wp.get_post(post["id"]), media, inline)
+        problems = images.check_in_post(wp.get_post(post["id"]), media, inline,
+                                        in_content=bool(cfg["images"].get("featured_in_content")))
         cp.put("image_check", problems or "ok")
         if problems:
             say("Images did not land correctly; holding for review:\n" + "\n".join(f"  - {p}" for p in problems))
@@ -420,6 +439,7 @@ def cmd_article(cfg: dict, args) -> int:
             return 5
         entry.update(status="published", url=post["link"], post_id=post["id"])
         say(f"Published and verified: {post['link']}")
+        featured_on_page_report(cp, post["link"], (cp.get("wp_media") or {}).get("url", ""))
     else:
         entry.update(status="held_for_review" if target == "pending" else "draft", url=post["link"], post_id=post["id"])
         say(f"Saved to WordPress as '{target}' (post {post['id']}). Review in WP Admin > Posts.")
@@ -461,14 +481,15 @@ def cmd_image_test(cfg: dict, args) -> int:
     media, inline = upload_images(wp, cp, plan, (cp.dir / plan["featured"]["file"]).read_bytes(), article["slug"],
                                   mark_used=False)
     post = wp.create_post(title=article["title"], slug=article["slug"],
-                          content_html=images.insert(article["content_html"], plan, inline),
+                          content_html=images.insert(article["content_html"], plan, inline,
+                                                     media if cfg["images"].get("featured_in_content") else None),
                           excerpt=article.get("excerpt", ""), status="draft",
                           category_id=category_for(cfg, pillar, wp.categories()), featured_media=media["id"],
                           seo_title=article["seo_title"], meta_description=article["meta_description"],
                           focus_keyphrase=article["focus_keyphrase"])
     cp.put("wp_post", {"id": post["id"], "status": post["status"], "link": post["link"]})
     saved = wp.get_post(post["id"])
-    problems = images.check_in_post(saved, media, inline)
+    problems = images.check_in_post(saved, media, inline, in_content=bool(cfg["images"].get("featured_in_content")))
     try:  # the file WordPress serves as the featured image, kept beside the run for review
         served, data = images.served_featured(wp, saved, (cp.dir / plan["featured"]["file"]).read_bytes())
         (cp.dir / "wp-featured-served.webp").write_bytes(data)
