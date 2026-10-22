@@ -1,0 +1,6 @@
+{
+  "max_attempts": 3,
+  "stale_publishing_minutes": 30,
+  "dedupe_window_hours": 24,
+  "max_lateness_hours": 24
+}

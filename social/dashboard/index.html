@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Post Queue</title>
+<style>
+:root{--bg:#f6f4ef;--panel:#fffdf8;--ink:#1d2320;--mute:#5d6862;--line:#ddd8cc;--accent:#14604a;--accent-ink:#fff;--warn:#8a5a00;--warn-bg:#fff1cf;--bad:#9c2a1f;--bad-bg:#fde4df;--good:#14604a;--good-bg:#dff1e8;--info-bg:#e6edf5;--info:#274a72;--mono:ui-monospace,SFMono-Regular,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#141815;--panel:#1c211d;--ink:#e8ece7;--mute:#9aa59e;--line:#2f3832;--accent:#5fc19c;--accent-ink:#0c1a14;--warn:#f0c26a;--warn-bg:#3a2f12;--bad:#ff9a8c;--bad-bg:#3d1c18;--good:#7fd8b2;--good-bg:#173528;--info-bg:#1a2938;--info:#9cc2ee}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto;padding-block:16px 48px}
+header{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between}
+h1{font-size:20px;margin:0;letter-spacing:-.01em}
+h2{font-size:17px;margin:0 0 8px}
+nav{display:flex;flex-wrap:wrap;gap:4px;margin:12px 0 16px;border-bottom:1px solid var(--line);padding-bottom:8px}
+nav button{background:none;border:1px solid transparent;color:var(--mute);padding:6px 10px;border-radius:6px;cursor:pointer;font:inherit}
+nav button[aria-current=page]{background:var(--panel);border-color:var(--line);color:var(--ink);font-weight:600}
+button,.btn{font:inherit;cursor:pointer}
+.b{background:var(--accent);color:var(--accent-ink);border:0;border-radius:6px;padding:7px 12px}
+.b.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.b.danger{background:var(--bad-bg);color:var(--bad);border:1px solid var(--bad)}
+.b:disabled{opacity:.5;cursor:not-allowed}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:12px;min-width:0}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.stat b{display:block;font-size:26px;line-height:1.1}
+.stat span{color:var(--mute);font-size:13px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.row.split{justify-content:space-between}
+.pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600;border:1px solid var(--line)}
+.pill.published{background:var(--good-bg);color:var(--good)}
+.pill.scheduled,.pill.publishing{background:var(--info-bg);color:var(--info)}
+.pill.failed,.pill.cancelled{background:var(--bad-bg);color:var(--bad)}
+.pill.uncertain,.pill.partial{background:var(--warn-bg);color:var(--warn)}
+.pill.draft{color:var(--mute)}
+.mute{color:var(--mute)}.small{font-size:13px}
+.notice{padding:10px 12px;border-radius:8px;margin:0 0 12px;border:1px solid var(--line)}
+.notice.err{background:var(--bad-bg);color:var(--bad);border-color:var(--bad)}
+.notice.ok{background:var(--good-bg);color:var(--good)}
+.notice.warn{background:var(--warn-bg);color:var(--warn)}
+.notice.info{background:var(--info-bg);color:var(--info)}
+label{display:block;font-weight:600;font-size:13px;margin:10px 0 3px}
+input,select,textarea{width:100%;max-width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:7px 9px}
+textarea{min-height:90px;resize:vertical}
+input[type=checkbox]{width:auto}
+.cols{display:grid;gap:0 14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.cnt{font-size:12px;color:var(--mute);text-align:right}.cnt.over{color:var(--bad);font-weight:700}
+.list{list-style:none;margin:0;padding:0}
+.list li{border-top:1px solid var(--line);padding:10px 0;min-width:0}
+.list li:first-child{border-top:0}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top;font-size:14px}
+code,pre{font-family:var(--mono);font-size:12.5px}
+pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.cal div{border:1px solid var(--line);border-radius:6px;min-height:70px;padding:4px;font-size:12px;overflow:hidden}
+.cal .h{min-height:0;border:0;color:var(--mute);font-weight:600}
+.cal .ev{display:block;background:var(--info-bg);color:var(--info);border-radius:3px;padding:0 4px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;border:0;width:100%;text-align:left;font-size:12px}
+.media{display:flex;flex-wrap:wrap;gap:8px}.media figure{margin:0;width:130px}.media img,.media video{width:130px;height:90px;object-fit:cover;border-radius:6px;background:var(--line)}
+.media figcaption{font-size:11px;word-break:break-all}
+.empty{color:var(--mute);text-align:center;padding:24px 8px}
+dialog{border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);max-width:min(460px,92vw)}
+@media (max-width:560px){.cal div{min-height:48px}.cal .ev{font-size:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Post Queue <span class="mute small" id="repoLabel"></span></h1>
+  <div class="row"><span class="small mute" id="loaded"></span><button class="b alt" id="reload">Reload</button></div>
+</header>
+<nav id="nav" aria-label="Sections"></nav>
+<div id="msg" role="status" aria-live="polite"></div>
+<main id="view"></main>
+</div>
+<dialog id="dlg"><form method="dialog"><p id="dlgText"></p><div class="row"><button class="b danger" value="ok" id="dlgOk">Yes</button><button class="b alt" value="cancel">Cancel</button></div></form></dialog>
+
+<script>
+/*RULES*/const RULES = {"bluesky": {"image": true, "label": "Bluesky", "max_chars": 300, "max_images": 4, "requires_media": false, "requires_video": false, "status": "implemented", "title_required": false, "video": false}, "facebook_page": {"image": true, "label": "Facebook Page", "max_chars": 63206, "max_images": 1, "requires_media": false, "requires_video": false, "status": "implemented", "title_required": false, "video": true}, "instagram": {"daily_cap": 100, "image": true, "image_ext": ["jpg", "jpeg"], "label": "Instagram", "max_chars": 2200, "max_images": 1, "requires_media": true, "requires_video": false, "status": "implemented", "title_required": false, "video": true}, "linkedin": {"image": true, "label": "LinkedIn", "max_chars": 3000, "max_images": 20, "requires_media": false, "requires_video": false, "status": "not_implemented", "title_required": false, "video": true, "why": "Needs the LinkedIn 'Share on LinkedIn' product; company pages need Community Management API approval."}, "linkedin_page": {"image": true, "label": "LinkedIn Page", "max_chars": 3000, "max_images": 20, "requires_media": false, "requires_video": false, "status": "not_implemented", "title_required": false, "video": true, "why": "Company pages need Community Management API approval (about 1 to 2 weeks)."}, "mastodon": {"image": true, "label": "Mastodon", "max_chars": 500, "max_images": 4, "requires_media": false, "requires_video": false, "status": "implemented", "title_required": false, "video": true}, "threads": {"daily_cap": 250, "image": true, "label": "Threads", "max_chars": 500, "max_images": 1, "requires_media": false, "requires_video": false, "status": "implemented", "title_required": false, "video": true}, "tiktok": {"image": false, "label": "TikTok", "max_chars": 2200, "max_images": 0, "requires_media": true, "requires_video": true, "status": "not_implemented", "title_required": false, "video": true, "why": "Posts from an unaudited app are private-only until TikTok audits the app."}, "x": {"image": true, "label": "X", "max_chars": 280, "max_images": 4, "requires_media": false, "requires_video": false, "status": "not_implemented", "title_required": false, "video": true, "why": "X has no free posting tier for new developers; posting is pay-per-use."}, "youtube": {"image": false, "label": "YouTube", "max_chars": 5000, "max_images": 0, "requires_media": true, "requires_video": true, "status": "not_implemented", "title_max": 100, "title_required": true, "video": true, "why": "Needs a Google Cloud project with OAuth consent; check the upload quota and visibility rules for unverified projects."}};/*END*/
+const PAGES = [["overview","Overview"],["compose","New / edit"],["drafts","Drafts"],["queue","Queue"],["calendar","Calendar"],["published","Published"],["failed","Failed"],["media","Media"],["accounts","Accounts"],["logs","Logs"],["ai","AI import"],["setup","Setup"]];
+const WORKFLOW = "social-publish.yml";
+const TOP_KEYS = ["id","title","campaign","hook","headline","description","primary","alt","cta","hashtags","intent","scheduled","targets","versions","media","settings","created_at","updated_at","notes"];
+const $ = (s, r=document) => r.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* ---------- settings (kept in this browser only) ---------- */
+let mem = {};
+const store = {
+  get(k){ try { return localStorage.getItem(k); } catch(e){ return mem[k] ?? null; } },
+  set(k,v){ try { localStorage.setItem(k,v); } catch(e){ mem[k]=v; } },
+  del(k){ try { localStorage.removeItem(k); } catch(e){ delete mem[k]; } }
+};
+const cfg = () => ({ owner: store.get("pq.owner")||"", repo: store.get("pq.repo")||"", branch: store.get("pq.branch")||"main", path: (store.get("pq.path")||"social").replace(/^\/+|\/+$/g,""),
+  token: store.get("pq.token")||"", mediaRepo: store.get("pq.mediaRepo")||"", mediaPath: (store.get("pq.mediaPath")||"media").replace(/^\/+|\/+$/g,"") });
+
+/* ---------- GitHub API ---------- */
+class ApiError extends Error { constructor(status, message){ super(message); this.status = status; } }
+async function gh(method, url, body){
+  const c = cfg();
+  if(!c.token) throw new ApiError(0, "Add your GitHub token in Setup first.");
+  let r;
+  try {
+    r = await fetch("https://api.github.com" + url, { method, headers: { "Accept":"application/vnd.github+json", "Authorization":"Bearer "+c.token, "X-GitHub-Api-Version":"2022-11-28", ...(body ? {"Content-Type":"application/json"} : {}) }, body: body ? JSON.stringify(body) : undefined });
+  } catch(e){ throw new ApiError(0, "Could not reach GitHub (network). " + e.message); }
+  if(r.status === 204) return null;
+  let j = null; try { j = await r.json(); } catch(e){}
+  if(!r.ok){
+    const m = (j && j.message) || r.statusText;
+    const hint = r.status===401 ? " The token was rejected: it may be expired or wrong." : r.status===403 ? " The token may lack permission, or the rate limit was hit." : r.status===404 ? " Not found, or the token cannot see this repository." : r.status===409||r.status===422 ? " The file changed since it was loaded. Reload and try again." : "";
+    throw new ApiError(r.status, `GitHub said ${r.status}: ${m}.${hint}`);
+  }
+  return j;
+}
+const b64d = s => new TextDecoder().decode(Uint8Array.from(atob(String(s).replace(/\n/g,"")), c => c.charCodeAt(0)));
+const b64e = s => { const b = new TextEncoder().encode(s); let t=""; for(const x of b) t+=String.fromCharCode(x); return btoa(t); };
+const repoUrl = () => { const c = cfg(); return `/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}`; };
+const fpath = p => cfg().path + "/" + p;
+async function readFile(p){
+  try { const j = await gh("GET", `${repoUrl()}/contents/${fpath(p)}?ref=${encodeURIComponent(cfg().branch)}`); return { text: b64d(j.content), sha: j.sha }; }
+  catch(e){ if(e.status===404) return null; throw e; }
+}
+async function readJson(p, dflt){ const f = await readFile(p); if(!f) return dflt; try { return JSON.parse(f.text); } catch(e){ return { __broken: true, error: e.message }; } }
+async function listDir(p){ try { const j = await gh("GET", `${repoUrl()}/contents/${fpath(p)}?ref=${encodeURIComponent(cfg().branch)}`); return Array.isArray(j) ? j : []; } catch(e){ if(e.status===404) return []; throw e; } }
+async function writeFile(p, text, msg, sha){
+  return gh("PUT", `${repoUrl()}/contents/${fpath(p)}`, { message: msg, content: b64e(text), branch: cfg().branch, ...(sha ? {sha} : {}) });
+}
+async function deleteFile(p, sha, msg){ return gh("DELETE", `${repoUrl()}/contents/${fpath(p)}`, { message: msg, sha, branch: cfg().branch }); }
+async function dispatch(mode, allow){
+  return gh("POST", `${repoUrl()}/actions/workflows/${WORKFLOW}/dispatches`, { ref: cfg().branch, inputs: { mode, allow_publish: allow ? "true" : "false" } });
+}
+
+/* ---------- mirrors of the Python rules (checked against rules.py by a test) ---------- */
+const hashtagify = t => { t = String(t).replace(/[^\p{L}\p{N}_]/gu,""); return t ? "#"+t : ""; };
+function derivedText(post, platform){
+  const r = RULES[platform]; const v = (post.versions||{})[platform]||{};
+  let title = (v.title||"").trim();
+  if(v.text != null && String(v.text).trim()) return [title, String(v.text).trim()];
+  const primary = (post.primary || post.alt || "").trim(), cta = (post.cta||"").trim();
+  const tags = (post.hashtags||[]).map(hashtagify).filter(Boolean).join(" ");
+  const short = (post.alt || primary).trim();
+  const hook = ((post.hook||"") + " " + (post.headline||"")).trim();
+  const join = (...p) => p.filter(Boolean).join("\n\n"), one = (...p) => p.filter(Boolean).join(" ");
+  const cands = [join(primary,cta,tags), join(primary,cta), join(short,cta,tags), join(short,cta), one(hook,cta), short, primary, hook].filter(Boolean);
+  if(platform==="youtube" && !title) title = (post.headline||post.title||"").trim().slice(0, r.title_max||100);
+  for(const c of cands) if([...c].length <= r.max_chars) return [title, c];
+  return [title, cands.length ? cands[cands.length-1] : ""];
+}
+const len = s => [...String(s)].length;
+function localToUtcMs(local, tz){
+  // Resolve a wall-clock time in an IANA zone to a UTC instant, rejecting gaps and overlaps like the publisher does.
+  const m = /^(\d{4})-(\d\d)-(\d\d)T(\d\d):(\d\d)$/.exec(local||""); if(!m) throw new Error("Pick a date and time.");
+  const [Y,Mo,D,h,mi] = m.slice(1).map(Number);
+  const asUtc = Date.UTC(Y,Mo-1,D,h,mi);
+  let fmt; try { fmt = new Intl.DateTimeFormat("en-US",{timeZone:tz,hourCycle:"h23",year:"numeric",month:"numeric",day:"numeric",hour:"numeric",minute:"numeric"}); } catch(e){ throw new Error("Unknown time zone: "+tz); }
+  const offsetAt = ms => { const p = Object.fromEntries(fmt.formatToParts(new Date(ms)).map(x=>[x.type,x.value])); return Date.UTC(+p.year,+p.month-1,+p.day,+p.hour,+p.minute) - ms; };
+  const cands = new Set([asUtc - offsetAt(asUtc - 864e5/2), asUtc - offsetAt(asUtc + 864e5/2)]);
+  const ok = [...cands].filter(ms => offsetAt(ms) + ms === asUtc);
+  if(ok.length === 0) throw new Error(`${local} does not exist in ${tz} (clocks skip it). Choose another time.`);
+  if(ok.length > 1) throw new Error(`${local} happens twice in ${tz} (clocks go back). Choose another time.`);
+  return ok[0];
+}
+function validatePost(p, accounts, forSchedule){
+  const e = [];
+  if(!/^[a-z0-9][a-z0-9-]{2,79}$/.test(p.id||"")) e.push("The id must be 3 to 80 characters: lowercase letters, digits, hyphens.");
+  const sched = forSchedule ?? (p.intent==="scheduled");
+  if(sched){
+    if(!p.scheduled || !p.scheduled.local || !p.scheduled.tz) e.push("Pick a date, time and time zone to schedule.");
+    else { try { localToUtcMs(p.scheduled.local, p.scheduled.tz); } catch(x){ e.push(x.message); } }
+  }
+  const media = p.media||[]; media.forEach((m,i) => { if(!/^https:\/\/\S+$/.test(m.url||"")) e.push(`Media ${i+1}: the address must be a public https link.`); });
+  const targets = p.targets||[]; if(!targets.length) e.push("Choose at least one account.");
+  const imgs = media.filter(m=>m.type==="image").length, vids = media.filter(m=>m.type==="video").length;
+  for(const t of targets){
+    const a = accounts[t.account]; if(!a){ e.push(`Unknown account: ${t.account}`); continue; }
+    const r = RULES[a.platform]; if(!r){ e.push(`${a.id}: unknown platform`); continue; }
+    const label = `${r.label} (${a.id})`;
+    if(r.status!=="implemented"){ e.push(`${label}: publishing to ${r.label} is not built yet. ${r.why||""}`.trim()); continue; }
+    const [title, text] = derivedText(p, a.platform);
+    if(len(text) > r.max_chars) e.push(`${label}: ${len(text)} characters, over the ${r.max_chars} limit.`);
+    if(r.requires_media && !(imgs||vids)) e.push(`${label}: needs an image or a video.`);
+    if(vids && !r.video) e.push(`${label}: does not take video here.`);
+    if(imgs && !r.image) e.push(`${label}: does not take images.`);
+    if(r.image_ext) media.forEach(m => { if(m.type==="image"){ const ext = (m.url||"").split("?")[0].split(".").pop().toLowerCase(); if(!r.image_ext.includes(ext)) e.push(`${label}: images must be ${r.image_ext.join("/").toUpperCase()} (this one is .${ext}).`); } });
+    if(r.max_images>0 && imgs > r.max_images) e.push(`${label}: takes at most ${r.max_images} image(s).`);
+    if(vids>1) e.push(`${label}: takes one video.`); if(vids && imgs) e.push(`${label}: cannot mix a video and images.`);
+    if(r.title_required && !title) e.push(`${label}: a title is required.`);
+    if(!text && !(imgs||vids)) e.push(`${label}: nothing to post.`);
+  }
+  return e;
+}
+function displayStatus(post, st){
+  if(st && st.cancelled) return "cancelled";
+  const ts = Object.values((st||{}).targets||{}).map(t=>t.status);
+  if(ts.length){
+    if(ts.includes("publishing")) return "publishing";
+    if(ts.includes("published") && ts.every(s=>s==="published"||s==="skipped")) return "published";
+    if(ts.includes("published") && ts.some(s=>["failed","uncertain","pending"].includes(s))) return "partial";
+    if(ts.includes("uncertain")) return "uncertain";
+    if(ts.includes("failed")) return "failed";
+  }
+  return post.intent==="scheduled" ? "scheduled" : "draft";
+}
+
+/* ---------- data ---------- */
+let D = null;          // { accounts, posts:{id:{post,sha}}, states:{id:{state}}, log:[], setup, runs, at }
+let route = "overview", editing = null;
+
+function say(kind, text){ $("#msg").innerHTML = text ? `<div class="notice ${kind}">${esc(text)}</div>` : ""; }
+async function load(){
+  const c = cfg();
+  $("#repoLabel").textContent = c.owner ? `· ${c.owner}/${c.repo}` : "";
+  if(!c.token || !c.owner || !c.repo){ D = null; return; }
+  say("info", "Loading from GitHub…");
+  const out = { posts:{}, states:{}, log:[], runs:null, errors:[] };
+  try {
+    const acc = await readJson("config/accounts.json", {accounts:[]});
+    out.accounts = Object.fromEntries(((acc && acc.accounts)||[]).map(a=>[a.id,a]));
+    const [pl, sl] = await Promise.all([listDir("queue/posts"), listDir("queue/state")]);
+    await Promise.all(pl.filter(f=>f.name.endsWith(".json")).map(async f => {
+      const x = await readFile("queue/posts/"+f.name); try { out.posts[f.name.slice(0,-5)] = { post: JSON.parse(x.text), sha: x.sha }; } catch(e){ out.errors.push(`${f.name} is not valid JSON`); }
+    }));
+    await Promise.all(sl.filter(f=>f.name.endsWith(".json")).map(async f => {
+      const x = await readFile("queue/state/"+f.name); try { out.states[f.name.slice(0,-5)] = JSON.parse(x.text); } catch(e){ out.errors.push(`state ${f.name} is not valid JSON`); }
+    }));
+    const lg = await readFile("queue/log.jsonl");
+    out.log = lg ? lg.text.split("\n").filter(Boolean).map(l=>{ try { return JSON.parse(l); } catch(e){ return null; } }).filter(Boolean) : [];
+    out.setup = await readJson("status/setup.json", null);
+    const br = await readJson("config/brand.json", {}); out.brand = br && !br.__broken ? br : {};
+    try { out.runs = (await gh("GET", `${repoUrl()}/actions/workflows/${WORKFLOW}/runs?per_page=15`)).workflow_runs; } catch(e){ out.errors.push("Workflow runs: " + e.message); }
+    out.at = new Date();
+    D = out; say("", "");
+    $("#loaded").textContent = "Loaded " + out.at.toLocaleTimeString();
+    if(out.errors.length) say("warn", out.errors.join(" · "));
+  } catch(e){ D = null; say("err", e.message); }
+}
+const statusOf = id => { const p = D.posts[id]; return p ? displayStatus(p.post, D.states[id]) : "draft"; };
+const ids = pred => Object.keys(D.posts).filter(id => pred(statusOf(id), id)).sort((a,b) => (D.posts[b].post.updated_at||"").localeCompare(D.posts[a].post.updated_at||""));
+
+/* ---------- actions ---------- */
+function confirmBox(text){ return new Promise(res => { const d = $("#dlg"); $("#dlgText").textContent = text; d.addEventListener("close", () => res(d.returnValue==="ok"), {once:true}); d.returnValue = ""; if(d.showModal) d.showModal(); else res(true); }); }
+async function command(obj, okMsg){
+  try { await writeFile(`queue/commands/${crypto.randomUUID()}.json`, JSON.stringify(obj, null, 2)+"\n", `social: ${obj.action} ${obj.post_id}`); say("ok", okMsg); }
+  catch(e){ say("err", e.message); }
+}
+async function runQueue(mode, allow){
+  try { await dispatch(mode, allow); say("ok", `Started “${mode}”. It takes about a minute. Press Reload afterwards.`); }
+  catch(e){ say("err", e.message + (e.status===404 ? " (Is the workflow file on the branch you configured?)" : "")); }
+}
+async function savePost(post){
+  const cur = D && D.posts[post.id];
+  const out = { ...post }; out.updated_at = new Date().toISOString().replace(/\.\d+Z$/,"Z"); out.created_at = out.created_at || out.updated_at;
+  const clean = Object.fromEntries(Object.entries(out).filter(([k,v]) => TOP_KEYS.includes(k) && v !== undefined));
+  await writeFile(`queue/posts/${post.id}.json`, sortKeys(clean), `social: save ${post.id}`, cur && cur.sha);
+}
+function sortKeys(o){ const s = v => Array.isArray(v) ? v.map(s) : (v && typeof v==="object") ? Object.fromEntries(Object.keys(v).sort().map(k=>[k,s(v[k])])) : v; return JSON.stringify(s(o), null, 2)+"\n"; }
+
+/* ---------- views ---------- */
+const V = {};
+function when(post){ const s = post.scheduled; return s && s.local ? `${s.local.replace("T"," ")} ${s.tz}` : "—"; }
+function pill(s){ return `<span class="pill ${esc(s)}">${esc(s)}</span>`; }
+function targetsLine(id){ const st = D.states[id]; const p = D.posts[id].post;
+  return (p.targets||[]).map(t => { const x = st && st.targets && st.targets[t.account]; return `<span class="small">${esc(t.account)}: ${pill(x ? x.status : (p.intent==="scheduled"?"scheduled":"draft"))}${x && x.url ? ` <a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">open</a>`:""}</span>`; }).join(" "); }
+function postItem(id, actions){
+  const p = D.posts[id].post, st = D.states[id], s = statusOf(id);
+  const errs = Object.entries((st||{}).targets||{}).filter(([,t])=>t.last_error).map(([a,t])=>`<div class="small" style="color:var(--bad)">${esc(a)}: ${esc(t.last_error)}${t.next_attempt_at?` Next try: ${esc(t.next_attempt_at)}`:""}</div>`).join("");
+  return `<li><div class="row split"><div style="min-width:0"><b>${esc(p.title||id)}</b> ${pill(s)} <span class="mute small">${esc(when(p))}</span><div class="small mute">${esc((p.primary||"").slice(0,140))}</div><div>${targetsLine(id)}</div>${errs}</div><div class="row">${actions(id,s)}</div></li>`;
+}
+const btn = (act, id, label, cls="alt", extra="") => `<button class="b ${cls}" data-act="${act}" data-id="${esc(id)}" ${extra}>${esc(label)}</button>`;
+const needSetup = () => `<div class="card"><h2>Connect your repository</h2><p>Open <b>Setup</b> and enter the repository and a GitHub token. Nothing is loaded until then.</p></div>`;
+
+V.overview = () => {
+  const cnt = s => ids(x=>x===s).length;
+  const lastRun = D.runs && D.runs[0];
+  const next = Object.keys(D.posts).filter(i=>statusOf(i)==="scheduled").map(i=>[i, safeUtc(D.posts[i].post)]).filter(x=>x[1]).sort((a,b)=>a[1]-b[1])[0];
+  return `<div class="grid">${["draft","scheduled","published","failed","uncertain"].map(s=>`<div class="card stat"><b>${cnt(s)}</b><span>${s}</span></div>`).join("")}</div>
+  <div class="card"><h2>Next up</h2>${next?`<b>${esc(D.posts[next[0]].post.title||next[0])}</b> <span class="mute">${esc(new Date(next[1]).toLocaleString())} your time</span>`:`<span class="mute">Nothing is scheduled.</span>`}</div>
+  <div class="card"><h2>Queue runs</h2>${lastRun?`<p>Last run: <b>${esc(lastRun.conclusion||lastRun.status)}</b> at ${esc(new Date(lastRun.created_at).toLocaleString())} (${esc(lastRun.event)}). <a href="${esc(lastRun.html_url)}" target="_blank" rel="noopener noreferrer">Open on GitHub</a></p>`:`<p class="mute">No runs found yet. GitHub starts the hourly run by itself once the workflow is on the main branch.</p>`}
+  <p class="small mute">Posts go out on the next hourly run after their time, usually within minutes, sometimes later when GitHub is busy. This is not exact-second scheduling.</p>
+  <div class="row"><button class="b alt" data-act="run" data-mode="dry-run">Dry run (sends nothing)</button><button class="b" data-act="run" data-mode="publish-due">Publish due posts now</button></div></div>
+  <div class="card"><h2>Analytics</h2><p class="mute">Only what this tool has recorded: the counts above and the Logs page. Likes, reach and impressions are not collected, so none are shown (they are not zero, they are unknown).</p></div>`;
+};
+function safeUtc(p){ try { return localToUtcMs(p.scheduled.local, p.scheduled.tz); } catch(e){ return null; } }
+
+V.drafts = () => { const l = ids(s=>s==="draft"); return `<div class="card">${l.length?`<ul class="list">${l.map(id=>postItem(id,(i)=>btn("edit",i,"Edit","alt")+btn("delete",i,"Delete","danger"))).join("")}</ul>`:`<div class="empty">No drafts. Use “New / edit”, or the AI import page.</div>`}</div>`; };
+V.queue = () => { const l = ids(s=>["scheduled","publishing","uncertain","partial"].includes(s)); return `<div class="card">${l.length?`<ul class="list">${l.map(id=>postItem(id,(i,s)=>btn("edit",i,"Edit")+(s==="scheduled"?btn("now",i,"Publish now","b")+btn("cancel",i,"Cancel","danger"):"")+(s==="uncertain"||s==="partial"?btn("resolve",i,"Resolve…"):"" ))).join("")}</ul>`:`<div class="empty">Nothing is waiting.</div>`}</div>`; };
+V.published = () => { const l = ids(s=>s==="published"); return `<div class="card">${l.length?`<ul class="list">${l.map(id=>postItem(id,()=>"")).join("")}</ul>`:`<div class="empty">Nothing has been confirmed as published yet. A post only appears here after the platform confirmed it.</div>`}</div>`; };
+V.failed = () => { const l = ids(s=>["failed","cancelled"].includes(s)); return `<div class="card">${l.length?`<ul class="list">${l.map(id=>postItem(id,(i)=>btn("retry",i,"Retry","b")+btn("edit",i,"Edit"))).join("")}</ul>`:`<div class="empty">No failed posts.</div>`}<p class="small mute">Errors that are not temporary are not retried automatically. Fix the cause (usually the token or the media), then press Retry.</p></div>`; };
+
+V.calendar = () => {
+  const now = new Date(); const y = V.calY ?? now.getFullYear(), m = V.calM ?? now.getMonth();
+  const first = new Date(y,m,1), pad = (first.getDay()+6)%7, days = new Date(y,m+1,0).getDate();
+  const by = {}; Object.keys(D.posts).forEach(id => { const p = D.posts[id].post; if(p.scheduled && p.scheduled.local){ const d = p.scheduled.local.slice(0,10); (by[d] ||= []).push(id); } });
+  let cells = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].map(d=>`<div class="h">${d}</div>`).join("") + "<div style='border:0'></div>".repeat(pad);
+  for(let d=1; d<=days; d++){ const key = `${y}-${String(m+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
+    cells += `<div><b>${d}</b>${(by[key]||[]).map(id=>`<button class="ev" data-act="edit" data-id="${esc(id)}" title="${esc(D.posts[id].post.title||id)}">${esc(D.posts[id].post.scheduled.local.slice(11))} ${esc(D.posts[id].post.title||id)}</button>`).join("")}</div>`; }
+  return `<div class="card"><div class="row split"><button class="b alt" data-act="calprev">‹</button><h2>${esc(first.toLocaleString(undefined,{month:"long",year:"numeric"}))}</h2><button class="b alt" data-act="calnext">›</button></div><div class="cal">${cells}</div><p class="small mute">Times are the local time you chose for each post, in that post's own time zone.</p></div>`;
+};
+
+V.media = () => {
+  const items = []; Object.keys(D.posts).forEach(id => (D.posts[id].post.media||[]).forEach(m => items.push({...m, post:id})));
+  const c = cfg();
+  return `<div class="card"><h2>Media used by your posts</h2>${items.length?`<div class="media">${items.map(m=>`<figure>${m.type==="video"?`<video src="${esc(m.url)}" preload="metadata" muted></video>`:`<img src="${esc(m.url)}" alt="${esc(m.alt||"")}" loading="lazy">`}<figcaption>${esc(m.post)}<br>${esc(m.url.split("/").pop())}</figcaption></figure>`).join("")}</div>`:`<div class="empty">No media yet.</div>`}</div>
+  <div class="card"><h2>Upload an image or video</h2>${c.mediaRepo?`<p class="small mute">Files go to the <b>public</b> repository ${esc(c.mediaRepo)} (folder ${esc(c.mediaPath)}), because Instagram, Threads and Facebook download media from a public address. Anything uploaded there is public. Instagram needs JPEG.</p><input type="file" id="file" accept="image/jpeg,image/png,video/mp4"><div class="row" style="margin-top:8px"><button class="b" data-act="upload">Upload</button></div><div id="uploaded"></div>`:`<p class="mute">Set a public media repository in Setup to upload from here. You can also paste any public https link in the editor.</p>`}</div>`;
+};
+
+V.accounts = () => {
+  const a = Object.values(D.accounts||{}); const setup = D.setup && D.setup.accounts ? Object.fromEntries(D.setup.accounts.map(x=>[x.account,x])) : {};
+  return `<div class="card"><h2>Accounts</h2>${a.length?`<div class="tbl"><table><thead><tr><th>Account</th><th>Platform</th><th>Publishing</th><th>Last setup check</th></tr></thead><tbody>${a.map(x=>{ const r = RULES[x.platform]||{}; const s = setup[x.id]; return `<tr><td>${esc(x.id)}</td><td>${esc(r.label||x.platform)}</td><td>${r.status==="implemented"?"built":"<span class='mute'>not built</span>"}</td><td>${s?`${s.ok?"✓ "+esc(s.identity||"ok"):"✗ "+esc(s.error||"failed")} <span class="mute small">${esc(s.checked_at)}</span>`:`<span class="mute">never checked</span>`}</td></tr>`; }).join("")}</tbody></table></div>`:`<div class="empty">No accounts yet. Add them in <code>${esc(cfg().path)}/config/accounts.json</code> (see the Setup page). Tokens are never stored there.</div>`}
+  <p class="small mute">Accounts hold only the <i>names</i> of secrets. The tokens live in the repository's GitHub secret.</p><div class="row"><button class="b alt" data-act="run" data-mode="check-setup">Check accounts now (read-only)</button></div></div>`;
+};
+
+V.logs = () => {
+  const rows = D.log.slice(-200).reverse();
+  return `<div class="card"><h2>Publishing log</h2>${rows.length?`<div class="tbl"><table><thead><tr><th>Time (UTC)</th><th>Event</th><th>Post</th><th>Account</th><th>Detail</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${esc(r.ts)}</td><td>${esc(r.event)}</td><td>${esc(r.post_id||"")}</td><td>${esc(r.account||"")}</td><td class="small">${esc(Object.entries(r).filter(([k])=>!["ts","event","post_id","account"].includes(k)).map(([k,v])=>`${k}=${v}`).join(" "))}</td></tr>`).join("")}</tbody></table></div>`:`<div class="empty">The log is empty.</div>`}</div>
+  <div class="card"><h2>Workflow runs</h2>${D.runs&&D.runs.length?`<div class="tbl"><table><thead><tr><th>When</th><th>Trigger</th><th>Result</th><th></th></tr></thead><tbody>${D.runs.map(r=>`<tr><td>${esc(new Date(r.created_at).toLocaleString())}</td><td>${esc(r.event)}</td><td>${esc(r.conclusion||r.status)}</td><td><a href="${esc(r.html_url)}" target="_blank" rel="noopener noreferrer">open</a></td></tr>`).join("")}</tbody></table></div>`:`<div class="empty">No runs found.</div>`}</div>`;
+};
+
+/* ----- compose ----- */
+function blank(){ return { id:"", title:"", campaign:"", hook:"", headline:"", description:"", primary:"", alt:"", cta:"", hashtags:[], intent:"draft", targets:[], versions:{}, media:[], scheduled:{local:"", tz:Intl.DateTimeFormat().resolvedOptions().timeZone||"UTC"} }; }
+function zones(){ try { return Intl.supportedValuesOf("timeZone"); } catch(e){ return ["UTC","Africa/Casablanca","Europe/Paris","Europe/London","America/New_York","America/Los_Angeles","Asia/Dubai","Asia/Tokyo"]; } }
+V.compose = () => {
+  const p = editing || (editing = blank()); const accs = Object.values(D.accounts||{});
+  const tz = zones(); if(p.scheduled && p.scheduled.tz && !tz.includes(p.scheduled.tz)) tz.unshift(p.scheduled.tz);
+  const f = (k, label, area) => `<div><label for="f_${k}">${label}</label>${area?`<textarea id="f_${k}" data-f="${k}">${esc(p[k])}</textarea>`:`<input id="f_${k}" data-f="${k}" value="${esc(p[k])}">`}</div>`;
+  const chosen = (p.targets||[]).map(t=>t.account);
+  return `<div class="card"><h2>${D.posts[p.id]?"Edit post":"New post"}</h2><form id="form" novalidate>
+  <div class="cols">${f("title","Post title")}${f("campaign","Campaign")}</div>
+  <div class="cols">${f("hook","Main hook")}${f("headline","Headline")}</div>
+  ${f("description","Short description",1)}${f("primary","Primary caption",1)}<div class="cnt" id="cnt_primary"></div>${f("alt","Alternative (shorter) caption",1)}
+  <div class="cols">${f("cta","Call to action")}<div><label for="f_hashtags">Hashtags (space or comma separated)</label><input id="f_hashtags" data-f="hashtags" value="${esc((p.hashtags||[]).join(" "))}"></div></div>
+  <label>Post to</label>${accs.length?accs.map(a=>`<label style="font-weight:400;display:inline-flex;gap:6px;margin-right:14px"><input type="checkbox" data-acc="${esc(a.id)}" ${chosen.includes(a.id)?"checked":""}> ${esc(a.id)} <span class="mute small">${esc((RULES[a.platform]||{}).label||a.platform)}${(RULES[a.platform]||{}).status!=="implemented"?" · not built":""}</span></label>`).join(""):`<div class="mute">No accounts configured yet (see Setup).</div>`}
+  <div id="versions"></div>
+  <label>Media</label><div id="mediaList"></div><div class="row"><button type="button" class="b alt" data-act="addmedia">Add media link</button></div>
+  <div class="cols"><div><label for="f_intent">Status</label><select id="f_intent" data-f="intent"><option value="draft" ${p.intent==="draft"?"selected":""}>Draft (never published)</option><option value="scheduled" ${p.intent==="scheduled"?"selected":""}>Scheduled</option></select></div>
+  <div><label for="f_local">Date and time</label><input id="f_local" type="datetime-local" value="${esc((p.scheduled||{}).local||"")}"></div>
+  <div><label for="f_tz">Time zone</label><select id="f_tz">${tz.map(z=>`<option ${z===(p.scheduled||{}).tz?"selected":""}>${esc(z)}</option>`).join("")}</select></div></div>
+  <div id="problems"></div>
+  <div class="row" style="margin-top:12px"><button type="submit" class="b">Save</button><button type="button" class="b alt" data-act="newpost">Start a new one</button>${D.posts[p.id]?`<span class="small mute">${pill(statusOf(p.id))}</span>`:""}</div>
+  </form><p class="small mute">Saving writes the post file to GitHub. A scheduled post goes out on the first hourly run after its time. Editing a post that is already published never posts it again.</p></div>`;
+};
+function readForm(){
+  const p = editing; const g = k => { const el = $(`[data-f="${k}"]`); return el ? el.value : p[k]; };
+  ["title","campaign","hook","headline","description","primary","alt","cta"].forEach(k => p[k] = g(k));
+  p.hashtags = g("hashtags").split(/[\s,]+/).map(s=>s.replace(/^#/,"")).filter(Boolean);
+  p.intent = g("intent");
+  p.targets = [...document.querySelectorAll("[data-acc]")].filter(x=>x.checked).map(x=>({account:x.dataset.acc}));
+  p.scheduled = { local: $("#f_local").value, tz: $("#f_tz").value };
+  p.versions = p.versions || {};
+  document.querySelectorAll("[data-ver]").forEach(el => { const k = el.dataset.ver; if(el.value.trim()) p.versions[k] = { ...(p.versions[k]||{}), text: el.value }; else if(p.versions[k]) { delete p.versions[k].text; if(!Object.keys(p.versions[k]).length) delete p.versions[k]; } });
+  document.querySelectorAll("[data-mrow]").forEach(row => { const i = +row.dataset.mrow; p.media[i] = { type: row.querySelector("[data-mt]").value, url: row.querySelector("[data-mu]").value.trim(), alt: row.querySelector("[data-ma]").value }; });
+}
+function slugify(t){ const s = String(t).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,60).replace(/-+$/,""); return (s.length>=3 ? s : "post-"+Date.now().toString(36)) ; }
+function refreshCompose(){
+  if(route!=="compose" || !editing) return; readForm();
+  const p = editing, accs = D.accounts||{};
+  const plats = [...new Set(p.targets.map(t=>(accs[t.account]||{}).platform).filter(x=>RULES[x]&&RULES[x].status==="implemented"))];
+  const pc = $("#cnt_primary"); if(pc) pc.textContent = `${len(p.primary)} characters`;
+  $("#versions").innerHTML = plats.length ? `<label>Per-platform text <span class="mute" style="font-weight:400">(leave blank to use the main caption, fitted to each limit)</span></label>` + plats.map(pl => {
+    const r = RULES[pl], v = ((p.versions||{})[pl]||{}).text || "", [, auto] = derivedText({...p, versions: {...p.versions, [pl]: {...(p.versions||{})[pl], text: ""}}}, pl), eff = derivedText(p, pl)[1], n = len(eff);
+    return `<div class="card" style="margin:6px 0"><div class="row split"><b>${esc(r.label)}</b><span class="cnt ${n>r.max_chars?"over":""}">${n} / ${r.max_chars}</span></div><textarea data-ver="${pl}" placeholder="${esc(auto.slice(0,200))}">${esc(v)}</textarea>${p.media.length?`<div class="small mute">${p.media.length} media item(s) attached</div>`:""}</div>`; }).join("") : "";
+  const ml = $("#mediaList"); const rows = p.media.map((m,i)=>`<div class="card" data-mrow="${i}" style="margin:6px 0"><div class="cols"><div><label>Type</label><select data-mt><option ${m.type==="image"?"selected":""}>image</option><option ${m.type==="video"?"selected":""}>video</option></select></div><div><label>Public https link</label><input data-mu value="${esc(m.url)}"></div><div><label>Description (alt text)</label><input data-ma value="${esc(m.alt||"")}"></div></div><div class="row" style="margin-top:6px">${m.url&&/^https:/.test(m.url)?(m.type==="video"?`<video src="${esc(m.url)}" style="height:70px" preload="metadata" muted></video>`:`<img src="${esc(m.url)}" alt="" style="height:70px;border-radius:6px">`):""}<button type="button" class="b alt" data-act="rmmedia" data-i="${i}">Remove</button></div></div>`).join("");
+  if(ml.dataset.sig !== rows){ ml.innerHTML = rows; ml.dataset.sig = rows; }
+  const errs = validatePost({...p, id: p.id || slugify(p.title||"x")}, accs, p.intent==="scheduled");
+  $("#problems").innerHTML = errs.length ? `<div class="notice ${p.intent==="scheduled"?"err":"warn"}" style="margin-top:10px"><b>${p.intent==="scheduled"?"Fix before scheduling:":"Notes (a draft can still be saved):"}</b><ul style="margin:4px 0 0 18px;padding:0">${errs.map(e=>`<li>${esc(e)}</li>`).join("")}</ul></div>` : `<div class="notice ok" style="margin-top:10px">Looks valid.</div>`;
+}
+
+/* ----- AI import ----- */
+function buildPrompt(request, count){
+  const accs = Object.values(D.accounts||{}).filter(a=>RULES[a.platform]&&RULES[a.platform].status==="implemented");
+  const brand = D.brand || {};
+  return `You are writing social media posts for a brand. Return ONLY JSON, nothing else.
+
+Brand: ${brand.name||""}
+Website: ${brand.website||""}
+Voice: ${brand.voice||"clear, friendly, no hype"}
+Audience: ${brand.audience||""}
+Facts you may use (use nothing else; do not invent features, prices, numbers or testimonials):
+${(brand.facts||[]).map(f=>"- "+f).join("\n")||"- (none given)"}
+Never say: ${(brand.avoid||[]).join(", ")||"(nothing listed)"}
+
+Task: ${request||"(describe what the posts are about)"}
+Write ${count} post(s).
+
+Accounts you can target (use these ids in "targets"):
+${accs.map(a=>`- ${a.id} (${a.platform})`).join("\n")}
+
+Platform limits (the version for each platform must fit):
+${[...new Set(accs.map(a=>a.platform))].map(p=>`- ${RULES[p].label} (${p}): at most ${RULES[p].max_chars} characters`).join("\n")}
+
+Output shape (a JSON list). Fields marked optional can be left out:
+[{
+  "title": "short internal name",
+  "campaign": "optional",
+  "primary": "the main caption",
+  "alt": "optional shorter caption",
+  "cta": "optional call to action",
+  "hashtags": ["optional"],
+  "targets": [{"account": "<an account id from above>"}],
+  "versions": {"<platform id>": {"text": "optional hand-written version"}},
+  "media": [{"type": "image", "url": "https://public-address", "alt": "describe the image"}]
+}]
+Do not include dates: scheduling is done in the dashboard. Do not include an "id".
+`;
+}
+V.ai = () => `<div class="card"><h2>1 · Build the prompt</h2><p class="small mute">No paid AI service is used. Copy this into the assistant you already use (Claude, ChatGPT…), then paste its answer below.</p>
+  <label for="aiReq">What should the posts be about?</label><textarea id="aiReq" placeholder="Announce the new merge tool, friendly tone"></textarea>
+  <label for="aiN">How many posts?</label><input id="aiN" type="number" min="1" max="20" value="3" style="max-width:100px">
+  <div class="row" style="margin-top:8px"><button class="b" data-act="mkprompt">Build prompt</button><button class="b alt" data-act="copyprompt">Copy</button></div><pre id="promptOut" class="small" style="display:none"></pre></div>
+  <div class="card"><h2>2 · Import the answer as drafts</h2><textarea id="aiIn" style="min-height:160px" placeholder='Paste the JSON here'></textarea><div class="row" style="margin-top:8px"><button class="b" data-act="import">Import as drafts</button></div><div id="importOut"></div><p class="small mute">Imports are always saved as drafts. Nothing is scheduled or published until you open each one and schedule it.</p></div>`;
+async function doImport(){
+  const out = $("#importOut"); let t = $("#aiIn").value.trim().replace(/^```(?:json)?\s*|\s*```$/gi,"");
+  let data; try { const i = Math.min(...["[","{"].map(c=>{const k=t.indexOf(c);return k<0?1e9:k;})); if(i===1e9) throw new Error("No JSON found."); data = JSON.parse(t.slice(i)); } catch(e){ out.innerHTML = `<div class="notice err">${esc(e.message)}</div>`; return; }
+  if(data && !Array.isArray(data)) data = data.posts || [data];
+  const lines = []; let saved = 0;
+  for(const raw of data){
+    const p = Object.fromEntries(Object.entries(raw).filter(([k])=>TOP_KEYS.includes(k))); p.intent = "draft"; delete p.scheduled;
+    p.id = (p.id && /^[a-z0-9][a-z0-9-]{2,79}$/.test(p.id)) ? p.id : slugify(p.title||"post");
+    let base = p.id, n = 1; while(D.posts[p.id]){ n++; p.id = `${base}-${n}`; }
+    const errs = validatePost(p, D.accounts||{}, false);
+    if(errs.length){ lines.push(`<div class="notice err"><b>${esc(p.title||p.id)}</b> was not imported: ${esc(errs.join(" "))}</div>`); continue; }
+    try { await savePost(p); D.posts[p.id] = { post: p, sha: "" }; saved++; lines.push(`<div class="notice ok">Saved draft <b>${esc(p.id)}</b>.</div>`); } catch(e){ lines.push(`<div class="notice err">${esc(p.id)}: ${esc(e.message)}</div>`); }
+  }
+  out.innerHTML = lines.join(""); if(saved) await load();
+}
+
+V.setup = () => { const c = cfg(); return `<div class="card"><h2>Connect</h2><p class="small mute">These stay in this browser. The token is never sent anywhere except api.github.com.</p>
+  <div class="cols"><div><label for="s_owner">Repository owner</label><input id="s_owner" value="${esc(c.owner)}"></div><div><label for="s_repo">Repository (the one that holds ${esc(c.path)}/)</label><input id="s_repo" value="${esc(c.repo)}"></div><div><label for="s_branch">Branch</label><input id="s_branch" value="${esc(c.branch)}"></div><div><label for="s_path">Folder</label><input id="s_path" value="${esc(c.path)}"></div></div>
+  <label for="s_token">Fine-grained personal access token</label><input id="s_token" type="password" autocomplete="off" placeholder="${c.token?"saved in this browser":"github_pat_…"}">
+  <details><summary class="small">Optional: public repository for media uploads</summary><div class="cols"><div><label for="s_mr">Public media repository (owner/name)</label><input id="s_mr" value="${esc(c.mediaRepo)}" placeholder="you/your-media-repo"></div><div><label for="s_mp">Folder</label><input id="s_mp" value="${esc(c.mediaPath)}"></div></div></details>
+  <div class="row" style="margin-top:12px"><button class="b" data-act="savecfg">Save and load</button><button class="b alt" data-act="forget">Forget this browser's settings</button></div></div>
+  <div class="card"><h2>Token permissions</h2><ul><li>Repository access: only the one repository above (and the media repository if you use uploads).</li><li><b>Contents: Read and write</b> (posts, commands, uploads).</li><li><b>Actions: Read and write</b> (start runs, list runs).</li><li>Nothing else. Set an expiry (30 to 90 days) and renew it. To revoke: GitHub → Settings → Developer settings → Fine-grained tokens → Delete.</li></ul>
+  <p class="small mute">Anyone with this token can write to the repository, so treat it like a password and do not use a shared computer.</p></div>
+  <div class="card"><h2>Honest limits</h2><ul class="small"><li>Posts go out when the hourly GitHub Actions run picks them up. Runs can start late.</li><li>This page cannot publish by itself. It writes files and starts the workflow; the workflow talks to the platforms.</li><li>Built: Bluesky, Mastodon, Threads, Facebook Page, Instagram. Not built: X, LinkedIn, TikTok, YouTube (see the notes beside each account).</li><li>Setup steps for each platform are in <code>${esc(c.path)}/docs/SETUP.md</code> and <code>PLATFORMS.md</code>.</li></ul></div>`; };
+
+/* ---------- wiring ---------- */
+function nav(){ $("#nav").innerHTML = PAGES.map(([k,l]) => `<button data-go="${k}" ${k===route?'aria-current="page"':""}>${l}</button>`).join(""); }
+function render(){
+  nav(); const v = $("#view");
+  if(route==="setup"){ v.innerHTML = V.setup(); return; }
+  if(!D){ v.innerHTML = needSetup(); return; }
+  v.innerHTML = V[route](); if(route==="compose") refreshCompose();
+}
+function go(r){ route = r; try { history.replaceState(null,"","#"+r); } catch(e){} render(); }
+document.addEventListener("click", async ev => {
+  const g = ev.target.closest("[data-go]"); if(g){ go(g.dataset.go); return; }
+  const b = ev.target.closest("[data-act]"); if(!b) return;
+  const act = b.dataset.act, id = b.dataset.id;
+  if(act==="run"){ const mode = b.dataset.mode; if(mode==="publish-due"){ if(!await confirmBox("Publish everything that is due right now to the real accounts?")) return; } return runQueue(mode, mode==="publish-due"); }
+  if(act==="edit"){ editing = JSON.parse(JSON.stringify(D.posts[id].post)); editing.scheduled = editing.scheduled || {local:"", tz:Intl.DateTimeFormat().resolvedOptions().timeZone||"UTC"}; editing.media ||= []; editing.versions ||= {}; return go("compose"); }
+  if(act==="newpost"){ editing = blank(); return render(); }
+  if(act==="addmedia"){ readForm(); editing.media.push({type:"image",url:"",alt:""}); $("#mediaList").dataset.sig=""; return refreshCompose(); }
+  if(act==="rmmedia"){ readForm(); editing.media.splice(+b.dataset.i,1); $("#mediaList").dataset.sig=""; return refreshCompose(); }
+  if(act==="calprev"||act==="calnext"){ const n = new Date(); let y = V.calY ?? n.getFullYear(), m = V.calM ?? n.getMonth(); m += act==="calnext"?1:-1; if(m<0){m=11;y--} if(m>11){m=0;y++} V.calY=y; V.calM=m; return render(); }
+  if(act==="delete"){ if(!await confirmBox(`Delete the draft “${D.posts[id].post.title||id}”?`)) return; try { await deleteFile(`queue/posts/${id}.json`, D.posts[id].sha, `social: delete ${id}`); await load(); render(); say("ok","Deleted."); } catch(e){ say("err", e.message); } return; }
+  if(act==="cancel"){ if(!await confirmBox("Cancel this post? It will not be published.")) return; await command({action:"cancel", post_id:id}, "Cancel requested. It takes effect when the next run starts. Use “Dry run” on Overview to start one now."); return; }
+  if(act==="now"){ if(!await confirmBox("Publish this post now to the real accounts?")) return; await command({action:"publish_now", post_id:id}, "Requested."); return runQueue("publish-due", true); }
+  if(act==="retry"){ const st = D.states[id]||{}; const unc = Object.values(st.targets||{}).some(t=>t.status==="uncertain"); if(!await confirmBox("Retry the failed account(s) of this post?"+(unc?" Some accounts are marked uncertain: only continue if you checked that nothing was posted.":""))) return; await command({action:"retry", post_id:id}, "Retry requested."); return runQueue("publish-due", true); }
+  if(act==="resolve"){ const st = D.states[id]||{}; const acc = Object.entries(st.targets||{}).filter(([,t])=>t.status==="uncertain").map(([a])=>a); if(!acc.length) return say("info","No uncertain accounts on this post.");
+    const url = prompt_(`Check ${acc[0]} on the platform. If the post IS there, paste its link to mark it published. If it is NOT there, leave empty to allow a retry.`); if(url===null) return;
+    if(url) await command({action:"mark_published", post_id:id, account:acc[0], url}, "Marked as published."); else await command({action:"retry", post_id:id, account:acc[0], confirm_not_posted:true}, "Retry requested. Run the queue to send it."); return; }
+  if(act==="mkprompt"){ const o = $("#promptOut"); o.textContent = buildPrompt($("#aiReq").value, +$("#aiN").value||3); o.style.display="block"; return; }
+  if(act==="copyprompt"){ const o = $("#promptOut"); if(o.style.display==="none") $('[data-act="mkprompt"]').click(); try { await navigator.clipboard.writeText(o.textContent); say("ok","Copied."); } catch(e){ const r = document.createRange(); r.selectNodeContents(o); getSelection().removeAllRanges(); getSelection().addRange(r); say("info","Select and copy the text."); } return; }
+  if(act==="import") return doImport();
+  if(act==="upload") return upload();
+  if(act==="savecfg"){ ["owner","repo","branch","path"].forEach(k => store.set("pq."+k, $("#s_"+k).value.trim())); if($("#s_token").value.trim()) store.set("pq.token", $("#s_token").value.trim()); store.set("pq.mediaRepo",$("#s_mr").value.trim()); store.set("pq.mediaPath",$("#s_mp").value.trim()); await load(); return go(D?"overview":"setup"); }
+  if(act==="forget"){ ["owner","repo","branch","path","token","mediaRepo","mediaPath"].forEach(k=>store.del("pq."+k)); D=null; say("ok","Forgotten."); return render(); }
+});
+const prompt_ = text => { const r = window.__promptAnswer; return r !== undefined ? r : window.prompt(text); };
+document.addEventListener("input", ev => { if(route==="compose" && ev.target.closest("#form")) refreshCompose(); });
+document.addEventListener("change", ev => { if(route==="compose" && ev.target.closest("#form")) refreshCompose(); });
+document.addEventListener("submit", async ev => {
+  if(ev.target.id!=="form") return;     // the confirm dialog's own form must submit normally
+  ev.preventDefault();
+  readForm(); const p = editing;
+  if(!p.id){ const base = slugify(p.title || p.primary.slice(0,40)); p.id = base; let n = 1; while(D.posts[p.id]){ n++; p.id = `${base}-${n}`; } }
+  const errs = validatePost(p, D.accounts||{}, p.intent==="scheduled");
+  if(p.intent==="scheduled" && errs.length){ say("err","Fix the problems listed below the form before scheduling."); return; }
+  if(!p.title.trim() && !p.primary.trim()){ say("err","Add a title or a caption."); return; }
+  const existing = D.posts[p.id]; const st = D.states[p.id];
+  if(existing && st && Object.values(st.targets||{}).some(t=>t.status==="published")) say("warn","This post was already published to at least one account. Editing it will not post it again.");
+  try { const out = {...p}; if(out.intent!=="scheduled" && !(out.scheduled||{}).local) delete out.scheduled; await savePost(out); await load(); editing = JSON.parse(JSON.stringify(D.posts[p.id].post)); editing.media ||= []; editing.versions ||= {}; editing.scheduled ||= {local:"",tz:"UTC"}; render(); say("ok", p.intent==="scheduled" ? "Saved and scheduled. It goes out on the first run after its time." : "Draft saved."); }
+  catch(e){ say("err", e.message); }
+});
+async function upload(){
+  const c = cfg(), f = $("#file").files[0]; if(!f) return say("err","Choose a file.");
+  if(f.size > 20*1024*1024) return say("err","Files over 20 MB are not supported here.");
+  const [mo, mr] = c.mediaRepo.split("/"); if(!mo||!mr) return say("err","Set the media repository as owner/name in Setup.");
+  const safe = f.name.toLowerCase().replace(/[^a-z0-9._-]+/g,"-"); const path = `${c.mediaPath}/${Date.now().toString(36)}-${safe}`;
+  const buf = new Uint8Array(await f.arrayBuffer()); let s=""; for(let i=0;i<buf.length;i+=0x8000) s += String.fromCharCode.apply(null, buf.subarray(i,i+0x8000));
+  try { await gh("PUT", `/repos/${mo}/${mr}/contents/${path}`, { message: "media: upload "+safe, content: btoa(s) });
+    const url = `https://raw.githubusercontent.com/${mo}/${mr}/HEAD/${path}`; $("#uploaded").innerHTML = `<div class="notice ok">Uploaded. Public link: <code>${esc(url)}</code></div>`; }
+  catch(e){ say("err", e.message + " (Does the token have Contents write on the media repository, and is it public?)"); }
+}
+$("#reload").addEventListener("click", async () => { await load(); render(); });
+(async function init(){
+  const h = location.hash.slice(1); if(PAGES.some(p=>p[0]===h)) route = h;
+  const c = cfg(); if(!c.token || !c.owner || !c.repo) route = "setup";
+  await load(); render();
+})();
+</script>
+</body>
+</html>

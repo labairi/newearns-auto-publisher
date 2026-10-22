@@ -1,0 +1,66 @@
+name: social-publish
+
+# Processes the social post queue in social/queue. Independent of the blog publisher (publish.yml).
+# GitHub cron is UTC and can start several minutes late (sometimes more at busy times), so a post goes
+# out at its time plus up to one cron interval plus that delay. See social/docs/SETUP.md.
+on:
+  schedule:
+    - cron: "7 * * * *"       # hourly, at minute 7 (avoids the busy top of the hour)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "What to do"
+        type: choice
+        default: dry-run
+        options: [dry-run, publish-due, check-setup]
+      allow_publish:
+        description: "Second key: tick this as well to really publish (needed for publish-due)"
+        type: boolean
+        default: false
+
+# Only one run at a time, and a run is never cancelled half way: it may be in the middle of a post.
+concurrency:
+  group: social-publisher
+  cancel-in-progress: false
+
+# Least privilege: the only write is committing queue state back to this repo.
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SOCIAL_SECRETS: ${{ secrets.SOCIAL_SECRETS }}
+      # Real publishing happens only on main, from the schedule, or from a manual run with BOTH keys.
+      ALLOW_PUBLISH: ${{ github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || (inputs.mode == 'publish-due' && inputs.allow_publish)) && 'true' || 'false' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: social/requirements.txt
+      - run: pip install -r social/requirements.txt
+      - name: Check config
+        run: python -m socialpub validate
+        working-directory: social
+      - name: Check accounts (read-only, never posts)
+        if: ${{ inputs.mode == 'check-setup' }}
+        run: python -m socialpub check-setup
+        working-directory: social
+        env:
+          SOCIAL_GIT_SYNC: "1"
+      - name: Process the queue
+        if: ${{ inputs.mode != 'check-setup' }}
+        working-directory: social
+        env:
+          SOCIAL_GIT_SYNC: "1"
+        run: |
+          if [ "$ALLOW_PUBLISH" = "true" ]; then
+            python -m socialpub run
+          else
+            echo "ALLOW_PUBLISH is false: dry run only, nothing is sent or saved."
+            python -m socialpub run --dry-run
+          fi

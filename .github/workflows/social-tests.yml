@@ -1,0 +1,22 @@
+name: social-tests
+on:
+  push:
+    paths: ["social/**", ".github/workflows/social-*.yml"]
+  pull_request:
+    paths: ["social/**", ".github/workflows/social-*.yml"]
+permissions:
+  contents: read      # no secrets are used here, so pull requests from forks are safe
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: social
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt pytest
+      - run: python -m pytest -q

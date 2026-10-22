@@ -1,0 +1,4 @@
+{
+  "_comment": "Accounts you publish to. 'secrets' maps each credential role to the NAME of a key inside the SOCIAL_SECRETS GitHub secret. Never put a token here.",
+  "accounts": []
+}
