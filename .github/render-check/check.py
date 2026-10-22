@@ -43,6 +43,9 @@ MEASURE = """(stem) => {
     wp_post_image: document.querySelectorAll('img.wp-post-image').length,
     header: box(document.querySelector('.site-header')), sidebar: box(document.querySelector('#right-sidebar, .sidebar')),
     horizontal_overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
+    page_width: [document.documentElement.scrollWidth, document.documentElement.clientWidth],
+    widest: [...document.querySelectorAll('body *')].filter(e => e.getBoundingClientRect().right > document.documentElement.clientWidth + 1)
+      .slice(0, 3).map(e => e.tagName + '.' + (e.className || '') + ' right=' + Math.round(e.getBoundingClientRect().right)),
   };
 }"""
 
@@ -84,7 +87,8 @@ with sync_playwright() as p:
                 "shown_once": after["featured_imgs_visible"] == 1 and after_count == 1,
                 "theme_prints_none_before": before["featured_imgs_visible"] == 0 and before["wp_post_image"] == 0
                                            and live_count == 0,
-                "fits_column": img["width"] <= after["content"]["width"] and not after["horizontal_overflow"],
+                "fits_column": img["width"] <= after["content"]["width"] and f["left"] + f["width"] <= size["width"],
+                "no_new_overflow": after["page_width"] == before["page_width"],
                 "aspect_kept": abs(img["height"] / img["width"] - 630 / 1200) < 0.01,
                 "alt_text": img["alt"] == m["alt_text"] and len(img["alt"]) >= 10,
                 "not_lazy": img["loading"] != "lazy" and img["fetchpriority"] == "high",
@@ -106,4 +110,5 @@ for k, v in report.items():
     a = v["after"]
     print(f"  title {a['title']} | meta {a['entry_meta']} | figure {a['figure']} | intro {a['first_p']}")
     print(f"  img {a['img']}")
+    print(f"  page width before {v['before']['page_width']} after {a['page_width']}; overflowing before: {v['before']['widest']}")
 print("RESULT:", "ALL PASS" if all(v["all_pass"] for v in report.values()) else "FAILURES")
