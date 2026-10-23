@@ -1,0 +1,1072 @@
+{
+  "run_id": "20261023T133354837612Z",
+  "stages": {
+    "pillar": "money",
+    "topic": "How to Make Money Online: Ways That Actually Pay, and What They Pay",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 40,
+        "cache_creation_input_tokens": 67898,
+        "cache_read_input_tokens": 684302,
+        "output_tokens": 17866,
+        "web_search_requests": 8,
+        "web_fetch_requests": 5,
+        "requests": 8,
+        "read_source_calls": 21,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 40,
+            "cache_write_5m_tokens": 67898,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 684302,
+            "output_tokens": 17866
+          }
+        },
+        "fetched_urls": [
+          "https://consumer.ftc.gov/articles/job-scams",
+          "https://www.etsy.com/legal/fees/",
+          "https://www.fiverr.com/legal-portal/legal-terms/terms-of-service"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.914
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 10628,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 12366,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 10628,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 12366
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.3
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 18,
+        "cache_creation_input_tokens": 53156,
+        "cache_read_input_tokens": 311690,
+        "output_tokens": 10497,
+        "web_search_requests": 0,
+        "web_fetch_requests": 3,
+        "requests": 2,
+        "read_source_calls": 3,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 18,
+            "cache_write_5m_tokens": 53156,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 311690,
+            "output_tokens": 10497
+          }
+        },
+        "fetched_urls": [
+          "https://ReportFraud.ftc.gov",
+          "https://consumer.ftc.gov/articles/job-scams",
+          "https://www.etsy.com/legal/fees/"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.538
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 7085,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 9727,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 7085,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 9727
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.23
+      }
+    ],
+    "brief": "I've built the brief below. Two things limited the research. The search tool hit its usage cap after the first query, so the search-intent read is based on one top-ranking page (Acorns) rather than a full results page. And three sources couldn't be read: Fiverr's fee terms (the page needs JavaScript), Amazon Associates commission rates (behind a login) and Prolific's minimum pay rate (I couldn't find the page). Those numbers are left out on purpose. All other figures come from the platforms' own help pages, the FTC or the IRS, which I read on 23 October 2026.\n\n---\n\n# CONTENT BRIEF — New Earns, pillar: money\n\n## 1. Chosen query and keyphrase\n- **Primary query:** how to make money online\n- **Focus keyphrase:** how to make money online. Use it in the title, the intro and once or twice more in the body, not in headings.\n- **Working title:** *How to Make Money Online: 5 Ways That Pay, and What the Platforms Take*\n- **Meta description (draft):** \"Five realistic ways to make money online, with each platform's own fees, payout thresholds and requirements, plus the scams and tax rules to know before you start.\"\n\n## 2. Search intent\n- **Type:** Informational list (\"ways to…\") for beginners. It also has a \"how much can I really make\" side and a \"which are legit\" side.\n- **What ranks (based on one page):** Acorns, \"How to Make Money Online: 20+ Ways for Beginners\". It sorts methods into five groups (freelance services, selling products, creating content, teaching skills, completing tasks) and adds a scam section and an FAQ.\n- **Where it falls short:** Many of its earnings figures aren't backed by platform sources, for example \"Tests typically pay $4–$60 each\" and \"Freelance writing on Upwork or Fiverr can also produce a first paycheck in 48–72 hours\". It also quotes platform rates without saying where they came from, such as \"Royalties run 35%–70% depending on price\". Do **not** reuse any Acorns figures, including the PYMNTS \"4 in 10\" stat it cites.\n\n## 3. Unique angle (the value we add)\nFewer methods (5 instead of 20+), each covered properly with:\n1. **What the platform takes:** fees and revenue shares quoted from the platform's own help pages, with a worked \"what you keep\" example.\n2. **What it takes to start this week:** sign-up requirements, thresholds, waitlists, upfront costs.\n3. **The catch:** a sourced fact most list posts skip, such as Upwork Connects costing money, Etsy listing fees being charged whether or not the item sells, KDP's 70% royalty only applying in certain price bands and countries, YouTube needing 1,000 subscribers before any ad revenue share, or Prolific's waitlist.\n4. **A decision table** comparing all five.\n5. **Scam and tax sections** sourced to the FTC and IRS.\n\n**Never promise income.** No \"you can earn $X/month\". Only platform rates, fees and thresholds, plus arithmetic labelled as an illustration.\n\n**Non-overlap:** existing New Earns posts cover from-home lists, phone apps, passive income and games. This piece is different because it compares platform fees and rules. Keep phone-app and survey-app roundups out.\n\n## 4. Outline (H2/H3)\n\n**Intro (2–3 sentences):** Making money online means picking a platform and then living with its fees, thresholds and payout rules. This guide covers five methods with each platform's own numbers. No income promises.\n\n**H2: The five ways compared** (decision table)\nColumns: Method / Example platform / Where the money comes from / Platform's cut (sourced) / Before you can earn / Main catch.\n- Freelancing / Upwork / clients / fee of 0–15% per contract / Connects to bid, at $0.15 each / fee set per contract\n- Selling digital or handmade products / Etsy / buyers / $0.20 listing fee + 6.5% transaction fee + payment processing (varies by country) / possible one-time set-up fee / listing fee charged whether or not the item sells; Offsite Ads fee of 15% or 12%\n- Self-publishing ebooks / Amazon KDP / readers / you keep a 35% or 70% royalty / price within the band for your royalty option / 70% only at $2.99–$12.99 (Amazon.com) and only in 70% territories, minus delivery costs\n- Video / YouTube Partner Program / ads and fan funding / creator gets 55% (watch page ads), 45% (Shorts pool), 70% (memberships, Supers) / 1,000 subscribers plus 4,000 watch hours or 10M Shorts views, then a review / no ad revenue share before you're accepted\n- Paid research studies / Prolific / researchers / not stated / waitlist, then about 15-minute verification / $6/£6 minimum to cash out; payouts are instant only after your first 4 cashouts\n\n**H2: Freelancing on a marketplace**\n- H3: What Upwork takes (0–15%, locked per contract; Upwork's own $22.22 → $20 example)\n- H3: The cost of applying for work: Connects (a billing method is required)\n- H3: Ways to get free Connects (10 monthly for *some* freelancers, 30 per talent badge, activity rewards; all conditional)\n- Tip: work out your rate after fees with Upwork's rate calculator.\n- *Internal link:* \"How to Start Your Digital Marketing Agency in 2025\", for freelancers who want to grow into an agency.\n\n**H2: Selling on Etsy**\n- H3: Every fee that can apply (listing, transaction, payment processing, Offsite Ads, optional Etsy Plus at $10/month, 2.5% currency conversion)\n- H3: Worked example (illustration): a $20 item plus $5 shipping gives a 6.5% transaction fee on $25 = $1.63, plus the $0.20 listing fee. Payment processing comes on top and depends on your bank country, so don't quote a figure.\n- Catch: listings expire after four months and auto-renew at $0.20 unless you switch renewal to manual.\n\n**H2: Self-publishing ebooks with Kindle Direct Publishing**\n- H3: 35% vs 70% royalty, and when each applies\n- H3: Worked examples. Amazon's own $0.99 example ($0.35 at 0% VAT). Illustration: a $4.99 ebook on the 70% option to a buyer in a 70% territory with 0% VAT gives 0.70 × $4.99 = $3.49, minus delivery costs (average $0.06; varies by file size). Label it as an estimate.\n- Catch: public-domain works only qualify for 35%. Brazil, Japan, Mexico and India also require KDP Select for 70%.\n- *Internal link:* \"10 Proven Passive Income Ideas skyrocket Earnings\", for readers interested in digital products.\n\n**H2: Earning from YouTube**\n- H3: Eligibility thresholds and review (thresholds don't mean automatic entry)\n- H3: Revenue shares by module (55/45/70)\n- H3: When you get paid (finalized 7th–12th, paid 21st–26th once your threshold is met; US tax info required)\n- Catches: monetization can be removed after 6+ months with no uploads or posts. Ads on your videos before you join YPP don't earn you anything. The YPP terms update on February 1, 2027.\n- Don't describe the \"Earlier Access\" lower tier. Its details weren't readable.\n\n**H2: Paid research studies (Prolific)**\n- Steps: join the waitlist, accept the invite, verify (about 15 minutes, includes a practice task), then choose tasks.\n- Cash out at $6/£6 via PayPal; instant after your first 4 cashouts. Paid in cash, not gift cards.\n- Don't state pay rates or hourly minimums. They weren't sourced.\n- *Internal link:* \"How to earn money from your phone in 2025\", for readers who want app-based options (one line).\n\n**H2: How to spot an online job scam** (FTC)\n- No honest employer asks you to pay to get a job.\n- Fake check \"overpayment\" scams.\n- Reshipping is \"never a real job\".\n- \"Make a lot of money in a short period of time with little work\" is almost certainly a scam.\n- Paying for starter kits, training or certifications is a warning sign.\n- Before accepting an offer: search the company plus \"scam\", \"review\" or \"complaint\", and talk to someone you trust.\n- Report scams at reportfraud.ftc.gov.\n\n**H2: Taxes on online income (US)** (IRS)\n- Gig income is taxable even without a 1099, whatever form the payment takes.\n- File if your net self-employment earnings are $400 or more.\n- Quarterly estimated taxes are due April 15, June 15, September 15 and January 15.\n- Keep records; Schedule C and Schedule SE.\n- Platforms may withhold or report: YouTube requires US tax info from all monetizing creators, and Etsy issues 1099-Ks to certain sellers.\n- Note for non-US readers: rules differ where you live.\n\n**H2: How to choose your first method** (short checklist, no promises)\n- Have a skill clients pay for → freelancing.\n- Can make a product → Etsy or KDP.\n- Willing to build an audience for months before any payout → YouTube.\n- Want small, flexible tasks → research studies.\n- Do the after-fee maths before you start.\n\n**FAQ (optional):** \"Is it free to start?\" (Upwork Connects cost money; Etsy may charge a set-up fee and $0.20 per listing; KDP and YouTube don't charge to join; that last point isn't directly sourced, so either phrase it as \"neither page lists a joining fee\" or drop it). \"How fast can I get paid?\" (sourced only for YouTube and Prolific).\n\n**UI note for the writer:** menu paths change. Where you name one (Upwork's Connects > Buy Connects, YouTube Studio > Settings > Agreements), add \"the menu may look different on your account\".\n\n## 5. Product link\nNone. There's no product for this pillar, so no product link is justified at any step.\n\n## 6. Internal links (only where relevant)\n- \"10 Smart Ways to Make Money from Home in 2025\": in the intro or the closing section, for readers who want a broader list.\n- \"How to earn money from your phone in 2025\": in the research-studies section.\n- \"10 Proven Passive Income Ideas skyrocket Earnings\": in the KDP section.\n- \"How to Start Your Digital Marketing Agency in 2025\": in the freelancing section.\n- Don't link the PDF, Instagram, loans, games, AI-business or SEO posts. They aren't relevant.\n\n## 7. Do not include (unsourced)\n- Fiverr's fee and clearance period.\n- Amazon Associates commission rates.\n- Prolific hourly minimums.\n- Etsy's set-up fee amount and payment-processing percentages.\n- YouTube's payment-threshold amount and the \"Earlier Access\" criteria.\n- Any average-earnings statistics.\n- Upwork's previous fee history.\n\n---\n\n# SOURCE NOTES\nAll pages were read on 23 October 2026.\n\n**1. Upwork: \"Learn about the Freelancer Service Fee\"**\nURL: https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee. No date on the page.\n- \"It's the fee you pay on your Upwork earnings. The fee ranges from 0% to 15% per contract…\"\n- \"Once your contract begins, the fee is fixed and won't change.\"\n- \"You'll see the fee percentage when a client sends you an offer, or you are submitting a proposal…\"\n- Example: \"You want to take home $20 USD per hour after the Freelancer Service Fee. If your fee is 10%, you'll want to charge the client $22.22 USD per hour.\" 12 hours gives net earnings of \"$239.98 USD ($0.02 less than estimated…)\".\n- Refunds: \"If your client is refunded… we'll return the Freelancer Service Fee you paid on that amount.\"\n- \"No, we are not offering any regular discounts.\"\n- Exceptions: Upwork Payroll (\"excluded from paying an Upwork Freelancer Service Fee\"); Any Hire (\"you will not pay a Freelancer Service Fee\"); Direct Contracts (\"you'll pay a reduced Freelancer Service Fee\"); Enterprise (\"Typically, freelancers partnered with Enterprise clients pay a 10% service fee… your exact rate depends on the specific terms\").\n\n**2. Upwork: \"Understanding and using Connects\"**\nURL: https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects. No date on the page.\n- \"Connects are the virtual tokens freelancers use on Upwork to submit proposals for jobs, as well as for various ad products…\"\n- \"The number of Connects you'll need varies per job and can change during the time the job is posted.\"\n- \"Connects cost $0.15 (USD) each and are sold in bundles. To buy Connects, you'll need to have a verified billing method set up on your account. This is required even if you plan to use your existing earnings to pay for them.\"\n- \"We run different offers at times and some freelancers may receive 10 free Connects each month.\"\n- \"You earn 30 free Connects for each badge: Rising Talent, Top Rated, and Top Rated Plus.\"\n- \"You may* earn 12 free Connects when you: Submit three or more proposals AND Spend a total of at least 54 Connects doing so.\"\n- Before bidding, Upwork recommends checking whether \"the client has hired anyone yet\" and reviewing \"the client's history and feedback from other freelancers.\"\n\n**3. Etsy: \"Fees & Payments Policy\"**\nURL: https://www.etsy.com/legal/fees/. The page says \"Last updated on Oct 5, 2026\".\n- \"all fees are listed exclusive of any value-added tax (VAT)… all service fees, including prepaid fees, are non-refundable.\"\n- Set-up fee: \"you may be required to pay a one-time set-up fee… In certain circumstances or promotional periods, the set-up fee may be waived.\" No amount is stated.\n- \"You will be charged a listing fee of $0.20 USD for each item… whether or not the listed item sells, unless you create a private listing…\" Also \"Etsy.com listings expire after four months.\" Auto-renew charges $0.20 \"until you cancel automatic renewals.\"\n- \"a transaction fee of 6.5% of the price you display for each listing plus the amount you charge for shipping and gift wrapping.\" \"If you sell from the US, the transaction fee will not apply to sales tax.\"\n- Payment processing: \"Payment processing fees vary based on the location of your bank account… assessed on the total amount of the sale, including tax and shipping.\"\n- Offsite Ads: charged if a buyer clicks the ad and orders \"within 30 days of that click\". \"The standard fee you will pay is 15%.\" Shops with $10,000+ in sales over the prior 365 days pay 12%, and that is mandatory \"for the lifetime of your shop\". Shops under $10,000 can opt out. The fee is capped: it \"will not exceed $100 USD\" per order.\n- \"The fee for an Etsy Plus subscription is $10 USD per month.\"\n- Currency: \"you will be charged a 2.5% currency conversion fee\" if you list in a currency other than your payment account's.\n- \"For US sellers, Etsy will issue 1099-K forms to certain sellers.\"\n\n**4. Amazon KDP: \"eBook Royalties\"**\nURL: https://kdp.amazon.com/en_US/help/topic/G200644210. No date on the page.\n- \"You can choose between two royalty options for each of your eBooks: the 35% royalty option and the 70% royalty option.\"\n- 35% example: \"0.35 x ($0.99 - $0.00) = $0.35\" (buyer at 0% VAT).\n- \"70% of your list price without VAT, less delivery costs (average delivery costs are $0.06 per unit sold, and vary by file size), for each eligible book sold to customers in the 70% territories, and 35%… to customers residing outside the 70% territories.\"\n- \"You do not need to live in one of the 70% territories in order to receive the 70% royalty option.\"\n- \"Works in the public domain or consisting primarily of public domain content are only eligible for the 35% royalty option.\"\n\n**5. Amazon KDP: \"eBook List Price Requirements\"**\nURL: https://kdp.amazon.com/en_US/help/topic/G200634560. States \"Effective July 7, 2026\".\n- \"Effective July 7, 2026, the 70% royalty option price band is $2.99-$12.99 on Amazon.com, expanding from the previous range of $2.99-$9.99.\"\n- 35% option on Amazon.com: minimum $0.99 (files under 3 MB), $1.99 (3–10 MB), $2.99 (10 MB or more); maximum $200.00.\n- \"For sales to customers in Brazil, Japan, Mexico, and India, Digital Books must also be enrolled in KDP Select to be eligible for the 70% royalty option.\"\n- \"Delivery costs still apply to the 70% royalty option.\"\n\n**6. YouTube Help: \"YouTube Partner Program overview & eligibility\"**\nURL: https://support.google.com/youtube/answer/72851. No page date; it mentions an update on February 1, 2027.\n- \"Starting February 1, 2027, we are introducing updates to the YouTube Partner Program (YPP). To continue fully monetizing your content, review and accept the updated terms in YouTube Studio by January 31, 2027.\"\n- Requirements: follow the monetization policies; \"Live in a country/region where the YouTube Partner Program is available\"; \"Have no active Community Guidelines strikes.\"\n- \"1. Get 1,000 subscribers with 4,000 qualified watch hours in the last 12 months, or 2. Get 1,000 subscribers with 10 million qualified Shorts views in the last 90 days.\"\n- \"any qualified watch hours from Shorts views in the Shorts Feed won't count towards the 4,000 qualified public watch hours threshold.\"\n- \"If I meet the threshold, do I automatically get into YPP? No. Every channel that meets the threshold will go through a standard review process.\"\n- \"we may turn off monetization on channels that haven't uploaded a video or posted to the Posts tab for 6 months or more.\"\n- On ads shown before joining: \"If you do not currently meet the higher eligibility criteria of YPP you may still see ads being served on your content. In this case, you are not yet eligible to receive a share of the revenue.\"\n\n**7. YouTube Help: \"YouTube partner earnings overview\"**\nURL: https://support.google.com/youtube/answer/72902. No date on the page.\n- \"There are no guarantees under the YouTube partner agreement about how much or whether you'll be paid.\"\n- Commerce Product Module: \"YouTube will pay them 70% of net revenues from channel memberships, Super Chat, Super Stickers, and Super Thanks.\"\n- Watch Page Monetization Module: \"YouTube will pay them 55% of net revenues from ads displayed or streamed on their public videos on their content Watch Page.\"\n- Shorts Monetization Module: \"YouTube will pay them 45% of the revenue allocated to them based on their share of views from the Creator Pool allocation.\"\n- Timing: \"Finalized YouTube earnings for the previous month are added… between the 7th and 12th of the current month… paid out by the 21st-26th of the current month as long as your total balance has reached the payment threshold and if you have no payment holds.\"\n- \"Submitting U.S. tax info is required for all monetizing creators, regardless of their location in the world.\" Also \"If tax info isn't provided, Google may be required to withhold at the maximum rate.\"\n\n**8. Prolific: \"Participants\"**\nURL: https://www.prolific.com/participants. No date on the page.\n- \"Join our waitlist in 3 minutes. We'll invite you as soon as possible.\"\n- \"It takes just 15 minutes to verify your identity and complete a short practice task.\"\n- \"After your first 4 cashouts, payments are instantly transferred to your PayPal. You'll always receive cash, never gift cards or points. Once you've earned at least $6/£6, you can cash out directly from your Prolific account.\"\n- \"You can exit a task at any time, for any reason.\"\n\n**9. FTC Consumer Advice: \"Job Scams\"**\nURL: https://consumer.ftc.gov/articles/job-scams. Page metadata: published 2020-12-08, modified 2026-08-13.\n- Work-from-home scams: \"instead of making money, you end up paying for starter kits, so-called training, or certifications that are useless.\"\n- \"If someone offers you a job and claims that you can make a lot of money in a short period of time with little work, that's almost certainly a scam.\"\n- \"Reshipping goods is never a real job. That's simply being part of a scam.\"\n- \"Honest employers, including the federal government, will never ask you to pay to get a job. Anyone who does is a scammer.\"\n- \"No honest potential employer will ever send you a check to deposit and then tell you to send on part of the money, or buy gift cards with it.\"\n- On searching for complaints: \"No complaints? It doesn't guarantee that a company is honest, but complaints can tip you off to possible problems.\"\n- Report link: https://reportfraud.ftc.gov/\n\n**10. IRS: \"Gig economy tax center\"**\nURL: https://www.irs.gov/businesses/gig-economy-tax-center. No date on the page.\n- \"You must report income earned from the gig economy on a tax return, even if the income is: From part-time, temporary or side work; Not reported on an information return form — like a Form 1099-K, 1099-MISC, 1099-NEC, W-2…; Paid in any form, including cash, property, goods, or virtual currency.\"\n- Gig work examples include \"Sell goods online\" and \"Provide creative or professional services\".\n\n**11. IRS: \"Manage taxes for your gig work\"**\nURL: https://www.irs.gov/businesses/small-businesses-self-employed/manage-taxes-for-your-gig-work. No date on the page.\n- \"You must file a tax return if you have net earnings from self-employment of $400 or more from gig work, even if it's a side job, part-time or temporary.\"\n- \"If you do gig work as an independent contractor, you may have to pay estimated taxes.\"\n- Due dates: \"April 15… June 15… September 15… January 15.\" Condition: \"If these due dates fall on a Saturday, Sunday or legal holiday, the payments are due the next business day.\"\n- \"You must report all income on your tax return, even if you don't receive Forms 1099.\"\n- Forms for the self-employed: Form 1040, Schedule SE, Schedule C.\n\n**12. Acorns: \"How to Make Money Online: 20+ Ways for Beginners\"** (competitor analysis only, not a fact source)\nURL: https://www.acorns.com/learn/earning/how-to-make-money-online/. No date on the page.\n- Used only to judge search intent and spot gaps (see Section 2). Don't cite it for facts.",
+    "candidates": [
+      "How to Make Money Online: Ways That Actually Pay, and What They Pay (primary query: how to make money online)"
+    ],
+    "article": {
+      "title": "How to Make Money Online: 5 Ways and What Each Platform Takes",
+      "seo_title": "How to Make Money Online: 5 Ways and What Platforms Take",
+      "slug": "how-to-make-money-online",
+      "meta_description": "Five ways to make money online, with each platform's own fees, payout thresholds and requirements, plus the scams and tax rules to know first.",
+      "focus_keyphrase": "how to make money online",
+      "excerpt": "Five ways to earn online (freelancing, Etsy, Kindle ebooks, YouTube and paid research studies) with each platform's fees, thresholds and catches taken from its own help pages, plus FTC scam warnings and IRS tax basics.",
+      "content_html": "<p>Working out how to make money online mostly comes down to two things: choosing a platform, then living with its fees, thresholds and payout rules. This guide covers five methods in depth. Every fee and threshold comes from the platform's own help pages. It doesn't promise any income. It shows what each platform takes, what you need before your first payment, and the catch most lists skip. If you want a broader set of ideas first, see our list of <a href=\"https://newearns.com/10-smart-ways-to-make-money-from-home-in-2025/\">10 smart ways to make money from home</a>.</p><h2>The five ways compared</h2><p>The figures below come from each platform's help pages. Fees and rules change, so check the linked page before you sign up. Details and sources for each row are in the sections that follow.</p><table><thead><tr><th>Method</th><th>Example platform</th><th>Where the money comes from</th><th>Platform's cut</th><th>Before you can earn</th><th>Main catch</th></tr></thead><tbody><tr><td>Freelancing</td><td>Upwork</td><td>Clients</td><td>Service fee of 0% to 15% per contract</td><td>Connects to submit proposals, at $0.15 each</td><td>The fee is set per contract, and applying costs money</td></tr><tr><td>Selling digital or handmade products</td><td>Etsy</td><td>Buyers</td><td>$0.20 listing fee, 6.5% transaction fee, plus payment processing (varies by bank country)</td><td>A one-time set-up fee may apply</td><td>The listing fee is charged whether or not the item sells; Offsite Ads fee of 15% or 12% on attributed orders</td></tr><tr><td>Self-publishing ebooks</td><td>Amazon KDP</td><td>Readers</td><td>You keep a 35% or 70% royalty</td><td>A list price inside the band for your royalty option</td><td>70% applies only at $2.99 to $12.99 on Amazon.com and only in 70% territories, minus delivery costs</td></tr><tr><td>Video</td><td>YouTube Partner Program</td><td>Ads and fan funding</td><td>Creator receives 55% (watch page ads), 45% (Shorts pool allocation), 70% (memberships and Supers)</td><td>1,000 subscribers plus 4,000 watch hours or 10M Shorts views, then a review</td><td>No ad revenue share until you're accepted</td></tr><tr><td>Paid research studies</td><td>Prolific</td><td>Researchers</td><td>Not stated on the page we read</td><td>Waitlist, then about 15 minutes of verification</td><td>$6/£6 minimum to cash out; payouts are instant only after your first 4 cashouts</td></tr></tbody></table><h2>Freelancing on a marketplace</h2><p>Freelancing suits you if you already have a skill clients pay for: writing, design, development, bookkeeping or marketing. Upwork is a useful example because its fee rules are clearly documented. If you later want to grow from solo freelancer to a team, our guide on <a href=\"https://newearns.com/how-to-start-your-digital-marketing-agency-in-2025/\">starting a digital marketing agency</a> covers that next step.</p><h3>What Upwork takes</h3><p>According to <a href=\"https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee\">Upwork's Freelancer Service Fee page</a>, the fee \"ranges from 0% to 15% per contract\". You see the percentage when a client sends you an offer or when you submit a proposal, and once the contract begins, \"the fee is fixed and won't change.\" Upwork also states that it is not offering any regular discounts.</p><p>Upwork's own worked example: if you want to take home $20 per hour and your fee is 10%, charge the client $22.22 per hour. Over 12 hours, that gives net earnings of $239.98, which Upwork notes is $0.02 less than estimated because of rounding (<a href=\"https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee\">source</a>). To set your own rate, divide your target take-home rate by (1 minus your fee percentage). At a 10% fee, that's $20 ÷ 0.90.</p><p>Some contract types are treated differently, according to the <a href=\"https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee\">same page</a>:</p><ul><li>Upwork Payroll and Any Hire contracts: no Freelancer Service Fee.</li><li>Direct Contracts: a reduced fee.</li><li>Enterprise clients: \"typically\" a 10% fee, with the exact rate depending on the contract terms.</li><li>Refunds: if your client is refunded, Upwork returns the service fee you paid on that amount.</li></ul><h3>The cost of applying for work: Connects</h3><p>Connects are the virtual tokens you spend to submit proposals. Per <a href=\"https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects\">Upwork's Connects help page</a>, they cost $0.15 each and are sold in bundles. To buy them, you need a verified billing method on your account, \"even if you plan to use your existing earnings to pay for them.\" The number of Connects a job needs varies, and it can change while the job is posted.</p><p>That makes job hunting a small, real expense. Before you spend Connects, Upwork suggests checking whether the client has already hired anyone, and reviewing the client's history and feedback from other freelancers (<a href=\"https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects\">source</a>). Upwork's menus can change, so the screen where you buy Connects may look different on your account.</p><h3>Ways to get free Connects</h3><p>All of these are conditional, according to <a href=\"https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects\">Upwork</a>:</p><ul><li>Upwork runs offers \"at times\", and \"some freelancers may receive 10 free Connects each month.\"</li><li>You earn 30 free Connects for each talent badge: Rising Talent, Top Rated and Top Rated Plus.</li><li>You \"may\" earn 12 free Connects when you submit three or more proposals and spend at least 54 Connects doing so.</li></ul><h2>Selling on Etsy</h2><p>Etsy fits people who make handmade goods or digital products such as printables and templates. It charges several separate fees, so add them all up before you price anything. All figures below come from <a href=\"https://www.etsy.com/legal/fees/\">Etsy's Fees &amp; Payments Policy</a> (last updated October 5, 2026). Etsy lists its fees exclusive of VAT and states that service fees are non-refundable.</p><h3>Every fee that can apply</h3><ul><li><strong>Set-up fee:</strong> you \"may be required to pay a one-time set-up fee\". It may be waived in certain circumstances or promotional periods. The policy doesn't state an amount.</li><li><strong>Listing fee:</strong> $0.20 per item, \"whether or not the listed item sells,\" unless you create a private listing.</li><li><strong>Transaction fee:</strong> 6.5% of your displayed price plus whatever you charge for shipping and gift wrapping. For US sellers, it doesn't apply to sales tax.</li><li><strong>Payment processing:</strong> varies with the location of your bank account and is charged on the total sale, including tax and shipping.</li><li><strong>Offsite Ads:</strong> if a buyer clicks an Etsy ad for your item and orders within 30 days, you pay a standard fee of 15%. Shops with $10,000 or more in sales over the prior 365 days pay 12%, and that participation is mandatory \"for the lifetime of your shop\". Shops under $10,000 can opt out. The fee won't exceed $100 per order.</li><li><strong>Etsy Plus (optional):</strong> $10 per month.</li><li><strong>Currency conversion:</strong> 2.5% if you list in a currency different from your payment account's.</li></ul><h3>Worked example (illustration)</h3><p>Say you sell a $20 item and charge $5 for shipping, from a US shop. The 6.5% transaction fee applies to $25, which is about $1.63. Add the $0.20 listing fee and Etsy's fees reach about $1.83 before payment processing (<a href=\"https://www.etsy.com/legal/fees/\">fee rates per Etsy's policy</a>). Payment processing comes on top, and the rate depends on your bank's country, so look up your own rate. If the sale came through Offsite Ads, add 15% or 12% of the order as well. This is arithmetic, not a forecast.</p><h3>The catch: listings renew and charge again</h3><p>Etsy.com listings expire after four months. With automatic renewal on, each renewal charges another $0.20 \"until you cancel automatic renewals\" (<a href=\"https://www.etsy.com/legal/fees/\">source</a>). If you have dozens of slow-selling listings, review them before they renew.</p><h2>Self-publishing ebooks with Kindle Direct Publishing</h2><p>Amazon KDP lets you publish ebooks and earn a royalty on each sale. Ebooks are one of several digital products people build. For more ideas in that direction, see our roundup of <a href=\"https://newearns.com/10-proven-passive-income-ideas-skyrocket-earnings/\">passive income ideas</a>.</p><h3>35% vs 70% royalty, and when each applies</h3><p>You choose <a href=\"https://kdp.amazon.com/en_US/help/topic/G200644210\">one of two royalty options</a> for each ebook: 35% or 70%. The 70% option pays 70% of your list price without VAT, less delivery costs, for sales to customers in the 70% territories. Sales to customers outside those territories earn 35%. You don't need to live in a 70% territory yourself.</p><p>Price matters too. According to <a href=\"https://kdp.amazon.com/en_US/help/topic/G200634560\">KDP's list price requirements</a>, from July 7, 2026, the 70% price band on Amazon.com is $2.99 to $12.99, up from $2.99 to $9.99. On the 35% option, the Amazon.com minimum depends on file size: $0.99 under 3 MB, $1.99 for 3 to 10 MB, and $2.99 for 10 MB or more. The maximum is $200.00.</p><h3>Worked examples</h3><p>Amazon's own example: a $0.99 ebook on the 35% option, sold to a buyer at 0% VAT, earns 0.35 × $0.99 = $0.35 (<a href=\"https://kdp.amazon.com/en_US/help/topic/G200644210\">source</a>).</p><p>Illustration: a $4.99 ebook on the 70% option, sold to a buyer in a 70% territory at 0% VAT, gives 0.70 × $4.99 = $3.49, minus delivery costs. KDP says <a href=\"https://kdp.amazon.com/en_US/help/topic/G200644210\">average delivery costs are $0.06 per unit and vary by file size</a>. With that average, the estimate is about $3.43 per sale. A larger file would cost more to deliver.</p><h3>The catch: not every book or market qualifies for 70%</h3><ul><li>Works in the public domain, or made up mainly of public domain content, can only use the 35% option (<a href=\"https://kdp.amazon.com/en_US/help/topic/G200644210\">source</a>).</li><li>For sales to customers in Brazil, Japan, Mexico and India, the ebook must also be enrolled in KDP Select to qualify for 70% (<a href=\"https://kdp.amazon.com/en_US/help/topic/G200634560\">source</a>).</li><li>Delivery costs still apply on the 70% option.</li></ul><h2>Earning from YouTube</h2><p>YouTube pays through the YouTube Partner Program (YPP), and it suits people willing to build an audience for months before any payout. YouTube states plainly that <a href=\"https://support.google.com/youtube/answer/72902\">the partner agreement makes no promise</a> about how much, or whether, you'll be paid.</p><h3>Eligibility thresholds and review</h3><p>Per <a href=\"https://support.google.com/youtube/answer/72851\">YouTube's YPP eligibility page</a>, you need to follow YouTube's monetization policies, live in a country or region where YPP is available, and have no active Community Guidelines strikes. You also need either:</p><ol><li>1,000 subscribers with 4,000 qualified watch hours in the last 12 months, or</li><li>1,000 subscribers with 10 million qualified Shorts views in the last 90 days.</li></ol><p>Watch hours from Shorts views in the Shorts Feed don't count toward the 4,000 hours. Meeting a threshold also doesn't get you in automatically: every channel that qualifies goes through a standard review (<a href=\"https://support.google.com/youtube/answer/72851\">source</a>).</p><h3>Revenue shares by module</h3><p>According to <a href=\"https://support.google.com/youtube/answer/72902\">YouTube's partner earnings overview</a>:</p><ul><li><strong>Watch Page Monetization:</strong> 55% of net revenue from ads on your public videos' watch pages.</li><li><strong>Shorts Monetization:</strong> 45% of the revenue allocated to you based on your share of views from the Creator Pool.</li><li><strong>Commerce Product:</strong> 70% of net revenue from channel memberships, Super Chat, Super Stickers and Super Thanks.</li></ul><h3>When you get paid</h3><p>Finalized earnings for the previous month are added to your balance between the 7th and 12th of the month. They're paid out by the 21st to 26th, as long as your balance has reached the payment threshold and you have no payment holds. YouTube requires U.S. tax info from all monetizing creators, wherever they live. If it isn't provided, Google may be required to withhold at the maximum rate (<a href=\"https://support.google.com/youtube/answer/72902\">source</a>).</p><h3>The catches</h3><ul><li>Ads may appear on your videos before you join YPP, but until you qualify, you aren't eligible for a share of that revenue (<a href=\"https://support.google.com/youtube/answer/72851\">source</a>).</li><li>YouTube may turn off monetization on channels that haven't uploaded a video or posted to the Posts tab for 6 months or more.</li><li>YPP updates take effect on February 1, 2027. To keep fully monetizing, review and accept the updated terms in YouTube Studio by January 31, 2027. The menu may look different on your account.</li></ul><h2>Paid research studies (Prolific)</h2><p>Prolific connects participants with researchers who need people for studies. It suits you if you want small, flexible tasks rather than building a business. The steps below come from <a href=\"https://www.prolific.com/participants\">Prolific's participant page</a>:</p><ol><li>Join the waitlist. Prolific says this takes about 3 minutes, and it invites people \"as soon as possible.\"</li><li>Accept your invite.</li><li>Verify your identity and complete a short practice task, which Prolific says takes about 15 minutes.</li><li>Choose tasks. You can exit a task at any time, for any reason.</li></ol><p>Once you've earned at least $6/£6, you can cash out to PayPal. After your first 4 cashouts, payments are transferred instantly. Prolific says you always receive cash, never gift cards or points (<a href=\"https://www.prolific.com/participants\">source</a>). The page we read doesn't state pay rates, so check study details inside your account. For app-based options, see <a href=\"https://newearns.com/how-to-earn-money-from-your-phone-in-2025/\">how to earn money from your phone</a>.</p><h2>How to spot an online job scam</h2><p>Plenty of offers promise easy online income. The <a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC's job scams guide</a> lists clear warning signs:</p><ul><li><strong>Paying to get a job.</strong> \"Honest employers, including the federal government, will never ask you to pay to get a job. Anyone who does is a scammer.\"</li><li><strong>Starter kits and training fees.</strong> In work-from-home scams, people end up paying for starter kits, \"so-called training,\" or certifications that are useless.</li><li><strong>Fake check overpayments.</strong> No honest employer will send you a check to deposit and then ask you to send part of the money on, or buy gift cards with it.</li><li><strong>Reshipping.</strong> \"Reshipping goods is never a real job.\"</li><li><strong>Big money, little work.</strong> An offer claiming you can make a lot of money in a short time with little work is \"almost certainly a scam.\"</li></ul><p>Before accepting an offer, search the company name with words like \"scam,\" \"review\" or \"complaint,\" and talk it over with someone you trust. The FTC notes that a lack of complaints \"doesn't guarantee that a company is honest,\" but complaints can tip you off to problems (<a href=\"https://consumer.ftc.gov/articles/job-scams\">source</a>). Report scams at <a href=\"https://reportfraud.ftc.gov/\">ReportFraud.ftc.gov</a>.</p><h2>Taxes on online income (US)</h2><p>Whichever method you choose, the money is taxable. The IRS rules below apply in the US. If you live elsewhere, the rules where you live will differ, so check with your local tax authority.</p><ul><li><strong>Report all of it.</strong> The <a href=\"https://www.irs.gov/businesses/gig-economy-tax-center\">IRS gig economy tax center</a> says you must report gig income even if it's from part-time or side work, isn't reported on a form such as a 1099-K or 1099-NEC, or is paid in cash, property, goods or virtual currency. Its examples of gig work include selling goods online and providing creative or professional services.</li><li><strong>The $400 filing rule.</strong> You must file a tax return if you have net earnings from self-employment of $400 or more from gig work, even if it's a side job (<a href=\"https://www.irs.gov/businesses/small-businesses-self-employed/manage-taxes-for-your-gig-work\">source</a>).</li><li><strong>Estimated taxes.</strong> Independent contractors may have to pay estimated taxes. The due dates are April 15, June 15, September 15 and January 15, moving to the next business day if one falls on a weekend or legal holiday (<a href=\"https://www.irs.gov/businesses/small-businesses-self-employed/manage-taxes-for-your-gig-work\">source</a>).</li><li><strong>Forms.</strong> Self-employed people use Form 1040 with Schedule C and Schedule SE. Keep records of income and expenses so you can complete them.</li><li><strong>Platform reporting.</strong> Etsy issues 1099-K forms to certain US sellers (<a href=\"https://www.etsy.com/legal/fees/\">source</a>), and YouTube requires U.S. tax info from all monetizing creators (<a href=\"https://support.google.com/youtube/answer/72902\">source</a>).</li></ul><h2>How to choose your first method</h2><p>There's no single best answer to how to make money online. Match the method to what you already have:</p><ul><li><strong>You have a skill clients pay for:</strong> start with freelancing, and budget for Connects.</li><li><strong>You can make a product:</strong> try Etsy for physical or digital goods, or KDP for ebooks.</li><li><strong>You'll build an audience for months before any payout:</strong> YouTube.</li><li><strong>You want small, flexible tasks:</strong> research studies on Prolific.</li><li><strong>Whatever you pick:</strong> do the after-fee maths before you start, using the platform's own fee page, and set aside money for tax.</li></ul><h2>FAQ</h2><h3>Is it free to start making money online?</h3><p>Not always. Upwork Connects cost $0.15 each (<a href=\"https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects\">source</a>), and Etsy may charge a one-time set-up fee plus $0.20 per listing (<a href=\"https://www.etsy.com/legal/fees/\">source</a>). Neither the KDP royalty pages nor YouTube's YPP pages we read list a joining fee.</p><h3>How fast can I get paid?</h3><p>On YouTube, finalized earnings are paid by the 21st to 26th of the following month, once you've passed the payment threshold (<a href=\"https://support.google.com/youtube/answer/72902\">source</a>). On Prolific, you can cash out once you reach $6/£6, and payouts become instant after your first 4 cashouts (<a href=\"https://www.prolific.com/participants\">source</a>). The other platforms' payout timing isn't covered here.</p><h3>Which online money-making offers are legit?</h3><p>Use the FTC's tests: honest employers never ask you to pay to get a job, and offers of big money for little work are almost certainly scams (<a href=\"https://consumer.ftc.gov/articles/job-scams\">source</a>). Search the company name with \"scam\" or \"complaint\" before you agree to anything.</p><h3>Do I have to pay tax on small online earnings?</h3><p>In the US, you must report gig income even without a 1099, and you must file if your net self-employment earnings are $400 or more (<a href=\"https://www.irs.gov/businesses/small-businesses-self-employed/manage-taxes-for-your-gig-work\">source</a>).</p>",
+      "sources": [
+        {
+          "url": "https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee",
+          "title": "Upwork: Learn about the Freelancer Service Fee",
+          "supports": "0–15% fee per contract, fixed once the contract begins; $22.22 → $20 and $239.98 examples; no regular discounts; Payroll, Any Hire, Direct Contracts and Enterprise exceptions; fee refunds"
+        },
+        {
+          "url": "https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects",
+          "title": "Upwork: Understanding and using Connects",
+          "supports": "Connects cost $0.15 each, sold in bundles; verified billing method required; number needed varies; free Connects conditions (10 monthly for some, 30 per badge, 12 for activity); advice to check client history before bidding"
+        },
+        {
+          "url": "https://www.etsy.com/legal/fees/",
+          "title": "Etsy: Fees & Payments Policy",
+          "supports": "Set-up fee may apply; $0.20 listing fee whether or not the item sells; four-month expiry and auto-renew; 6.5% transaction fee; payment processing varies by bank location; Offsite Ads 15%/12% with $100 cap; Etsy Plus $10/month; 2.5% currency conversion; fees exclude VAT and are non-refundable; 1099-K to certain US sellers"
+        },
+        {
+          "url": "https://kdp.amazon.com/en_US/help/topic/G200644210",
+          "title": "Amazon KDP: eBook Royalties",
+          "supports": "35% and 70% royalty options; $0.99 → $0.35 example; 70% of list price without VAT less delivery costs (average $0.06) in 70% territories; no residency requirement; public domain works limited to 35%"
+        },
+        {
+          "url": "https://kdp.amazon.com/en_US/help/topic/G200634560",
+          "title": "Amazon KDP: eBook List Price Requirements",
+          "supports": "70% price band $2.99–$12.99 on Amazon.com from July 7, 2026; 35% minimums by file size and $200 maximum; KDP Select required for 70% in Brazil, Japan, Mexico and India; delivery costs apply"
+        },
+        {
+          "url": "https://support.google.com/youtube/answer/72851",
+          "title": "YouTube Help: YouTube Partner Program overview & eligibility",
+          "supports": "YPP requirements and thresholds; Shorts Feed hours don't count toward watch hours; standard review; 6-month inactivity rule; no revenue share before joining; February 1, 2027 updates and January 31, 2027 acceptance deadline"
+        },
+        {
+          "url": "https://support.google.com/youtube/answer/72902",
+          "title": "YouTube Help: YouTube partner earnings overview",
+          "supports": "No promise of payment amounts; 55%, 45% and 70% revenue shares; payment timing (7th–12th, 21st–26th); U.S. tax info required for all monetizing creators; maximum-rate withholding"
+        },
+        {
+          "url": "https://www.prolific.com/participants",
+          "title": "Prolific: Participants",
+          "supports": "Waitlist in about 3 minutes; about 15-minute verification with practice task; $6/£6 cash-out minimum; instant PayPal payouts after first 4 cashouts; cash not gift cards; exit tasks at any time"
+        },
+        {
+          "url": "https://consumer.ftc.gov/articles/job-scams",
+          "title": "FTC Consumer Advice: Job Scams",
+          "supports": "Scam warning signs: paying to get a job, starter kits and training, fake check overpayments, reshipping, big money for little work; advice on searching for complaints"
+        },
+        {
+          "url": "https://reportfraud.ftc.gov/",
+          "title": "FTC: ReportFraud.ftc.gov",
+          "supports": "Where to report scams"
+        },
+        {
+          "url": "https://www.irs.gov/businesses/gig-economy-tax-center",
+          "title": "IRS: Gig economy tax center",
+          "supports": "Gig income must be reported even without an information return and in any form of payment; examples include selling goods online and providing services"
+        },
+        {
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/manage-taxes-for-your-gig-work",
+          "title": "IRS: Manage taxes for your gig work",
+          "supports": "$400 net self-employment filing threshold; estimated taxes and due dates; report all income without 1099s; Form 1040, Schedule C and Schedule SE"
+        }
+      ],
+      "product_link_reason": "",
+      "internal_links_note": "",
+      "image_headline": "5 Ways to Earn Online, Fees Included",
+      "search_intent": "Informational, beginner-focused list query ('ways to make money online'), with secondary intents of 'how much can I really keep' and 'which methods are legit'. Readers want a short list of realistic methods, clear costs and payout rules, and scam warnings.",
+      "unique_value": "Instead of 20+ thinly covered ideas, it covers five methods in depth. Each platform's fees, revenue shares and thresholds are quoted from its own help pages, and worked 'what you keep' examples are labelled as illustrations. The guide also flags catches most lists skip (paid Upwork Connects, Etsy listing fees charged whether or not items sell, KDP's 70% price band and territory rules, YouTube's review and inactivity rules, Prolific's cash-out conditions) and includes a comparison table plus FTC-sourced scam checks and IRS-sourced tax rules. It makes no income promises.",
+      "image_alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+      "featured_image": {
+        "alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+        "license": "generated-in-house",
+        "creator": "",
+        "license_url": ""
+      },
+      "inline_images": [
+        {
+          "alt_text": "Bar chart of platform's cut by method: Freelancing 0%; Selling digital or handmade products 6.5%; Self-publishing ebooks...",
+          "license": "generated-in-house"
+        }
+      ]
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "Upwork fee is 0% to 15% per contract",
+          "verdict": "supported",
+          "source_url": "https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee",
+          "evidence": "\"ranges from 0% to 15% per contract\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "You see the % in the offer or the proposal; the fee is fixed once the contract begins",
+          "verdict": "supported",
+          "source_url": "https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee",
+          "evidence": "\"Once your contract begins, the fee is fixed and won't change.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "No regular discounts on the Upwork fee",
+          "verdict": "supported",
+          "source_url": "https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee",
+          "evidence": "\"we are not offering any regular discounts\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "$20 take-home at 10% means charging $22.22; 12 hours nets $239.98, $0.02 under the estimate",
+          "verdict": "supported",
+          "source_url": "https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee",
+          "evidence": "Upwork's worked example. The fact-checker called the article's \"because of rounding\" a fair inference here, since the page talks about rounding just before it. The General/FAQ section separately rates \"because of rounding\" as unsupported.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Divide target by (1 − fee): $20 ÷ 0.90",
+          "verdict": "supported",
+          "source_url": "https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee",
+          "evidence": "Supported (arithmetic): 20/0.9 = 22.22, matching Upwork's figure",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Payroll and Any Hire: no fee. Direct Contracts: reduced fee. Enterprise: \"typically\" 10%. Fee is refunded if the client is refunded.",
+          "verdict": "supported",
+          "source_url": "https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee",
+          "evidence": "\"There are exceptions\" section and refunds section",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Connects cost $0.15, are sold in bundles, need a verified billing method \"even if…\" earnings are used",
+          "verdict": "supported",
+          "source_url": "https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects",
+          "evidence": "\"Connects cost $0.15 (USD) each and are sold in bundles\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Connects needed vary and can change while a job is posted",
+          "verdict": "supported",
+          "source_url": "https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects",
+          "evidence": "\"varies per job and can change during the time the job is posted\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Tips: check whether the client has hired, check their history and feedback",
+          "verdict": "supported",
+          "source_url": "https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects",
+          "evidence": "\"Check if the client has hired anyone yet\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Some freelancers may get 10 free Connects a month",
+          "verdict": "supported",
+          "source_url": "https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects",
+          "evidence": "Confirmed on the Connects page",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "30 Connects per talent badge (Rising Talent, Top Rated, Top Rated Plus)",
+          "verdict": "supported",
+          "source_url": "https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects",
+          "evidence": "\"You earn 30 free Connects for each badge\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "May earn 12 Connects for 3+ proposals with at least 54 Connects spent",
+          "verdict": "supported",
+          "source_url": "https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects",
+          "evidence": "Confirmed on the Connects page. Upwork also says the reward \"is being tested\" and is capped at twice a month. The article's \"may\" covers this, but adding it would be clearer.",
+          "suggested_fix": "Optional: after the 12-Connects bullet, add \"(Upwork says this reward is being tested and is limited to twice per calendar month).\""
+        },
+        {
+          "claim": "Etsy fees page last updated October 5, 2026",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"Last updated on Oct 5, 2026\" (read_source got HTTP 403; web_fetch worked)",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy fees are listed without VAT; service fees are non-refundable",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"all service fees, including prepaid fees, are non-refundable\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "One-time set-up fee \"may\" apply, may be waived, no amount stated",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"In certain circumstances or promotional periods, the set-up fee may be waived\" (no amount given)",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "$0.20 per listing whether or not it sells, except private listings",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"listing fee whether or not the listed item sells, unless you create a private listing\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "6.5% on price plus shipping and gift wrap; not charged on sales tax for US sellers",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"If you sell from the US, the transaction fee will not apply to sales tax.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Payment processing varies by bank location and is charged on the total including tax and shipping",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"assessed on the total amount of the sale, including tax and shipping\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Offsite Ads: 30-day window; 15% standard; 12% at $10k+ and mandatory for the shop's lifetime; under $10k can opt out; capped at $100 per order",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"will not exceed $100 USD\"; \"12% advertising fee for the lifetime of your shop\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy Plus costs $10 a month",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"$10 USD per month\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "2.5% currency conversion fee",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"2.5% currency conversion fee on the sale amount\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Listings expire after 4 months; auto-renewal charges $0.20 \"until you cancel automatic renewals\"",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "Exact wording on the page",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Worked example: 6.5% × $25 ≈ $1.63, plus $0.20 ≈ $1.83",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "Supported (arithmetic): 1.625 → $1.63; $1.83",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy issues 1099-K forms to certain US sellers",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"Etsy will issue 1099-K forms to certain sellers\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "KDP has two royalty options: 35% or 70%",
+          "verdict": "supported",
+          "source_url": "https://kdp.amazon.com/en_US/help/topic/G200644210",
+          "evidence": "Confirmed on G200644210",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "70% = list price without VAT, less delivery costs, in 70% territories; 35% elsewhere; you don't have to live there",
+          "verdict": "supported",
+          "source_url": "https://kdp.amazon.com/en_US/help/topic/G200644210",
+          "evidence": "\"You do not need to live in one of the 70% territories\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "From July 7, 2026 the 70% band on Amazon.com is $2.99 to $12.99, up from $9.99",
+          "verdict": "supported",
+          "source_url": "https://kdp.amazon.com/en_US/help/topic/G200634560",
+          "evidence": "\"Effective July 7, 2026, the 70% royalty option price band is $2.99-$12.99\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "35% option minimums by file size ($0.99 / $1.99 / $2.99); maximum $200",
+          "verdict": "supported",
+          "source_url": "https://kdp.amazon.com/en_US/help/topic/G200634560",
+          "evidence": "Price table on G200634560",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "$0.99 book at 35% and 0% VAT earns $0.35",
+          "verdict": "supported",
+          "source_url": "https://kdp.amazon.com/en_US/help/topic/G200644210",
+          "evidence": "Example on G200644210",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Average delivery cost is $0.06 a unit and varies by file size",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "\"average delivery costs are $0.06 per unit sold, and vary by file size\" (the notes quote this but do not name which KDP page it is from)",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Illustration: 0.70 × $4.99 = $3.49, minus $0.06 ≈ $3.43",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Supported (arithmetic): 3.493 − 0.06 = 3.433 (the notes do not name a page for this row)",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Public-domain works get 35% only",
+          "verdict": "supported",
+          "source_url": "https://kdp.amazon.com/en_US/help/topic/G200644210",
+          "evidence": "Confirmed on G200644210",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Brazil, Japan, Mexico and India sales need KDP Select for 70%",
+          "verdict": "supported",
+          "source_url": "https://kdp.amazon.com/en_US/help/topic/G200634560",
+          "evidence": "Note on G200634560",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "YouTube partner agreement guarantees nothing about how much or whether you're paid",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/youtube/answer/72902",
+          "evidence": "\"There are no guarantees under the YouTube partner agreement\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "YPP requirements: follow the policies, live in a YPP country or region, no active strikes (\"You also need either…\")",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/youtube/answer/72851",
+          "evidence": "Rated \"supported but incomplete\": the \"What you need to join\" section also requires 2-Step Verification, advanced features access, and a linked AdSense for YouTube account",
+          "suggested_fix": "Add the missing items: \"…have no active Community Guidelines strikes, turn on 2-Step Verification, have advanced features access, and link one AdSense for YouTube account\" (support.google.com/youtube/answer/72851). Could also add that review \"typically\" takes about a month."
+        },
+        {
+          "claim": "1,000 subscribers plus 4,000 hours in 12 months, or 10M Shorts views in 90 days",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/youtube/answer/72851",
+          "evidence": "Confirmed on 72851",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Shorts Feed hours don't count toward the 4,000; meeting a threshold still means a standard review",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/youtube/answer/72851",
+          "evidence": "\"Every channel that meets the threshold will go through a standard review process.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Revenue shares: 55% watch page, 45% Shorts allocation, 70% memberships, Super Chat, Super Stickers and Super Thanks",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/youtube/answer/72902",
+          "evidence": "\"Revenue share rates\" section",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Balance updated on the 7th to 12th; paid by the 21st to 26th if you've hit the threshold and have no holds",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/youtube/answer/72902",
+          "evidence": "\"Payment timelines\" section",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "US tax info required from all creators; otherwise maximum withholding may apply",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/youtube/answer/72902",
+          "evidence": "\"Submitting U.S. tax info is required for all monetizing creators\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Ads may run before YPP, with no revenue share",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/youtube/answer/72851",
+          "evidence": "72851 FAQ",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Monetization may be turned off after 6+ months with no uploads or Posts",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/youtube/answer/72851",
+          "evidence": "\"haven't uploaded a video or posted to the Posts tab for 6 months or more\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "YPP updates start Feb 1, 2027; accept by Jan 31, 2027",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/youtube/answer/72851",
+          "evidence": "72851 banner",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "FAQ: paid \"once you've passed the payment threshold\"",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/youtube/answer/72902",
+          "evidence": "72902 (payment also needs no holds, US tax info submitted, monetization not suspended, policy compliance)",
+          "suggested_fix": "Optional: after \"once you've passed the payment threshold\", add \"and have no holds on your account.\""
+        },
+        {
+          "claim": "About 3 minutes to join the Prolific waitlist; invites \"as soon as possible\"; about 15 minutes to verify plus a practice task; exit any time",
+          "verdict": "supported",
+          "source_url": "https://www.prolific.com/participants",
+          "evidence": "Confirmed on prolific.com/participants",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Cash out at $6/£6; instant after the first 4 cashouts; cash, never gift cards or points",
+          "verdict": "supported",
+          "source_url": "https://www.prolific.com/participants",
+          "evidence": "\"After your first 4 cashouts, payments are instantly transferred to your PayPal.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Once you've earned at least $6/£6, you can cash out to PayPal\"",
+          "verdict": "unsupported",
+          "source_url": "https://www.prolific.com/participants",
+          "evidence": "Overstated: the page says \"cash out directly from your Prolific account\" and names PayPal only for the instant payouts after the first 4",
+          "suggested_fix": "Change to \"Once you've earned at least $6/£6, you can cash out from your Prolific account; after your first 4 cashouts, payments go instantly to your PayPal.\""
+        },
+        {
+          "claim": "Prolific page states no pay rates and no platform cut",
+          "verdict": "supported",
+          "source_url": "https://www.prolific.com/participants",
+          "evidence": "Accurate statement of what's missing from the page",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Honest employers never ask you to pay to get a job",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "\"Anyone who does is a scammer.\" (read_source got 404; web_fetch worked, page modified 2026-08-13)",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Starter kits, \"so-called training\", useless certifications",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Exact wording on the page",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Fake check: send on part of the money or buy gift cards",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "\"No honest potential employer will ever send you a check to deposit\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Reshipping goods is never a real job.\"",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Exact quote",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Big money for little work is \"almost certainly a scam\"",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Exact wording",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Search the name plus scam, review or complaint; talk to someone you trust; no complaints \"doesn't guarantee…\"",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "\"How To Avoid a Job Scam\" section (the page writes \"It doesn't guarantee\")",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Report at ReportFraud.ftc.gov",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Job-scams page: \"report it to the FTC at ReportFraud.ftc.gov\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Gig income must be reported even if it's side work, not on a 1099, or paid in cash, property or crypto; examples include selling goods online and creative or professional services",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/businesses/gig-economy-tax-center",
+          "evidence": "Confirmed on the gig economy tax center page",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Must file at $400+ net self-employment earnings",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/manage-taxes-for-your-gig-work",
+          "evidence": "Confirmed on manage-taxes-for-your-gig-work",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Estimated tax due Apr 15, Jun 15, Sep 15, Jan 15, moving to the next business day if needed",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/manage-taxes-for-your-gig-work",
+          "evidence": "Confirmed on the same page",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Form 1040 with Schedule C and Schedule SE; keep records",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/manage-taxes-for-your-gig-work",
+          "evidence": "Confirmed on the same page",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Every fee and threshold comes from the platform's own help pages\"",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Etsy's figures come from its legal policy page, which is still Etsy's own document. No single source page given for this claim.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Neither the KDP royalty pages nor YouTube's YPP pages we read list a joining fee\"",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Matches what the fact-checker read. No single source page given for this claim.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Upwork worked example: \"$0.02 less than estimated because of rounding\"",
+          "verdict": "unsupported",
+          "source_url": "",
+          "evidence": "Minor inference: Upwork shows the $0.02 gap without labelling the cause. The notes give no URL for this row.",
+          "suggested_fix": "Drop \"because of rounding\" or say \"after rounding\", e.g. \"…net earnings of $239.98, $0.02 less than the $240 estimate.\""
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee",
+          "relevant": true,
+          "notes": "Readable; supports what it's cited for."
+        },
+        {
+          "url": "https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects",
+          "relevant": true,
+          "notes": "Readable after a targeted re-read; supports what it's cited for."
+        },
+        {
+          "url": "https://www.etsy.com/legal/fees/",
+          "relevant": true,
+          "notes": "read_source got 403; web_fetch worked. Supports all Etsy figures and the 1099-K claim."
+        },
+        {
+          "url": "https://kdp.amazon.com/en_US/help/topic/G200644210",
+          "relevant": true,
+          "notes": "Readable; supports what it's cited for."
+        },
+        {
+          "url": "https://kdp.amazon.com/en_US/help/topic/G200634560",
+          "relevant": true,
+          "notes": "Readable; supports what it's cited for."
+        },
+        {
+          "url": "https://support.google.com/youtube/answer/72851",
+          "relevant": true,
+          "notes": "Readable after a re-read; supports what it's cited for, but the article's requirements list is incomplete."
+        },
+        {
+          "url": "https://support.google.com/youtube/answer/72902",
+          "relevant": true,
+          "notes": "Readable after a re-read; supports what it's cited for."
+        },
+        {
+          "url": "https://www.prolific.com/participants",
+          "relevant": true,
+          "notes": "Readable; supports what it's cited for, apart from the PayPal overstatement."
+        },
+        {
+          "url": "https://consumer.ftc.gov/articles/job-scams",
+          "relevant": true,
+          "notes": "read_source got 404; web_fetch worked. All quotes match."
+        },
+        {
+          "url": "https://reportfraud.ftc.gov/",
+          "relevant": true,
+          "notes": "Barely readable: the fetch returned a cached Nov 2025 government-shutdown notice. The link is valid, and the FTC job-scams page confirms it's the place to report. The notes' summary counts it among the pages that support what they're cited for, though it only partly confirms itself."
+        },
+        {
+          "url": "https://www.irs.gov/businesses/gig-economy-tax-center",
+          "relevant": true,
+          "notes": "Readable; supports what it's cited for."
+        },
+        {
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/manage-taxes-for-your-gig-work",
+          "relevant": true,
+          "notes": "Readable; supports what it's cited for."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "Meets the intent and beats a generic answer. Covers five realistic methods, each with the platform's cut, pre-earning requirements and payout rules. Answers \"how much can I really keep\" with checked worked examples for Upwork, Etsy and KDP (arithmetic correct), and \"which methods are legit\" with accurate FTC-sourced warning signs and a reporting route. Gaps: no Prolific pay information (admitted; Prolific's help centre documents a minimum hourly reward that could fill it); payout timing for Upwork, Etsy and KDP is skipped; only YouTube's eligibility list is incomplete.",
+      "adds_original_value": true,
+      "value_notes": "Not a generic rewrite. The catches it flags (paid Connects, listing fees charged whether or not items sell, auto-renewal, the KDP price band and territory rules, the KDP Select requirement, YouTube's review and inactivity rules, Prolific's cash-out conditions) are specific and sourced. It makes no income promises.",
+      "product_claims_accurate": true,
+      "product_notes": "Allowed product claims: none. The article makes no claims about the publisher's own product; internal newearns.com links are editorial cross-links, not product claims. Compliant.",
+      "fetched_urls": [
+        "https://ReportFraud.ftc.gov",
+        "https://consumer.ftc.gov/articles/job-scams",
+        "https://kdp.amazon.com/en_US/help/topic/G200634560",
+        "https://kdp.amazon.com/en_US/help/topic/G200644210",
+        "https://support.google.com/youtube/answer/72851",
+        "https://support.google.com/youtube/answer/72902",
+        "https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee",
+        "https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects",
+        "https://www.etsy.com/legal/fees/",
+        "https://www.irs.gov/businesses/gig-economy-tax-center",
+        "https://www.irs.gov/businesses/small-businesses-self-employed/manage-taxes-for-your-gig-work",
+        "https://www.prolific.com/participants"
+      ],
+      "content_sha256": "39759b678af8b8f0a4e7354017e1de526eb6428657c13429ea887a6626439828"
+    },
+    "images": {
+      "words": 2646,
+      "target": [
+        4,
+        5
+      ],
+      "stock_api_calls": 11,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "how to make money online",
+          "result": "2"
+        },
+        {
+          "provider": "openverse",
+          "query": "freelancer working laptop",
+          "result": "20"
+        },
+        {
+          "provider": "openverse",
+          "query": "person working laptop home",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "openverse",
+          "query": "laptop home office",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "commons",
+          "query": "how to make money online",
+          "result": "0"
+        },
+        {
+          "provider": "commons",
+          "query": "freelancer working laptop",
+          "result": "0"
+        },
+        {
+          "provider": "commons",
+          "query": "person working laptop home",
+          "result": "13"
+        },
+        {
+          "provider": "commons",
+          "query": "laptop home office",
+          "result": "19"
+        }
+      ],
+      "notes": [
+        "FALLBACK: no free, clearly licensed photo matched this article's topic, so the featured image is an in-house illustration (earnings). Replace it in WP Admin if you find a better photo.",
+        "2 image(s), below the 4-5 guideline: nothing else in the article would gain from a visual, and decorative images are not added"
+      ],
+      "topic": {
+        "motif": "earnings",
+        "match": "pillar money"
+      },
+      "photo_rejections": [
+        {
+          "description": "Who???",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "'Fields of Lilac' Jackson Pollock Inspired Painting Tutorial [2750 Subscriber Special]",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Business freelance Asian woman working, doing projects and sending email on laptop or comp",
+          "reason": "nothing about each, platform, take, takes"
+        },
+        {
+          "description": "Laptop Working",
+          "reason": "nothing about each, platform, take, takes"
+        },
+        {
+          "description": "Woman Working",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Business Work",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Close-up Photography of Woman Sitting Beside Table While Using Macbook",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Desk Office",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Home Office",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Computer Laptop",
+          "reason": "nothing about each, platform, take, takes"
+        },
+        {
+          "description": "Desk Laptop",
+          "reason": "nothing about each, platform, take, takes"
+        },
+        {
+          "description": "Laptop Work",
+          "reason": "wrong scene (meeting)"
+        }
+      ],
+      "featured": {
+        "provider": "in-house",
+        "kind": "illustration",
+        "motif": "earnings",
+        "license": "generated-in-house",
+        "alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+        "caption": "",
+        "filename": "how-to-make-money-online-featured.webp",
+        "fallback": true,
+        "file": "featured.webp",
+        "bytes": 5796
+      },
+      "inline": [
+        {
+          "provider": "in-house",
+          "license": "generated-in-house",
+          "kind": "chart",
+          "anchor": {
+            "table_index": 0
+          },
+          "file": "inline-1.webp",
+          "filename": "how-to-make-money-online-chart-the-five-ways-compared.webp",
+          "width": 1200,
+          "height": 542,
+          "bytes": 19342,
+          "heading": "The five ways compared",
+          "alt_text": "Bar chart of platform's cut by method: Freelancing 0%; Selling digital or handmade products 6.5%; Self-publishing ebooks...",
+          "caption": "The figures from the table above, side by side."
+        }
+      ]
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2700 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "10 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "How to Make Money Online: 5 Ways and What Each Platform Takes"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.37% (2x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "0/10 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "142 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "56 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "how-to-make-money-online"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "how-to-make-money-online"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.00"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.56: How to Make Money for Playing Games: 7 Strategies"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": "2 confirmed by fact-check fetch"
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "4 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "0 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "8 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "12 of 12 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": false,
+        "detail": "Service fee of 0% to 15% per contract | $0.20 listing fee, 6.5% transaction fee, plus payment processing (varies by bank country) | The listing fee is charged whether or not the item sells; Offsite Ads fee of 15% or 12% on",
+        "fix": "Link the source inside the same paragraph or list item as the number or 'according to' statement, or remove the statement."
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "69 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "generated-in-house"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "1 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "2 no supporting evidence found (not shown to be false): \"Once you've earned at least $6/£6, you can cash out to PayPal\" (fix: Change to \"Once you've earned at least $6/£6, you can cash out from your Prolific account; after your first 4 cashouts, ) | Upwork worked example: \"$0.02 less than estimated because of rounding\" (fix: Drop \"because of rounding\" or say \"after rounding\", e.g. \"…net earnings of $239.98, $0.02 less than the $240 estimate.\") || 4 marked supported, but its source_url is missing or was not read by the pipeline: Average delivery cost is $0.06 a unit and varies by file size | Illustration: 0.70 × $4.99 = $3.49, minus $0.06 ≈ $3.43 | \"Every fee and threshold comes from the platform's own help pages\" | \"Neither the KDP royalty pages nor YouTube's YPP pages we read list a joining fee\"",
+        "fix": "Contradicted: correct the claim to what the source says. No evidence found: cite an official source that states it, narrow it to what a source does say, or remove it. Could not be checked: verify it against a readable source or remove it. Source page not read: cite a page the pipeline can open that states the claim, or remove the claim. No claims listed: the fact-check did not check anything. Then re-run the fact-check only."
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Meets the intent and beats a generic answer. Covers five realistic methods, each with the platform's cut, pre-earning requirements and payout rules. Answers \"how much can I really keep\" with checked worked examples for Upwork, Etsy and KDP (arithmetic correct), and \"which methods are legit\" with accurate FTC-sourced warning signs and a reporting route. Gaps: no Prolific pay information (admitted; Prolific's help centre documents a minimum hourly reward that could fill it); payout timing for Upwork, Etsy and KDP is skipped; only YouTube's eligibility list is incomplete."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "Not a generic rewrite. The catches it flags (paid Connects, listing fees charged whether or not items sell, auto-renewal, the KDP price band and territory rules, the KDP Select requirement, YouTube's review and inactivity rules, Prolific's cash-out conditions) are specific and sourced. It makes no income promises."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "Allowed product claims: none. The article makes no claims about the publisher's own product; internal newearns.com links are editorial cross-links, not product claims. Compliant."
+      },
+      {
+        "check": "fact_check_current",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "sources_verified",
+        "passed": true,
+        "detail": ""
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 0.914,
+        "write": 0.3,
+        "fact_check": 0.538,
+        "fact_check_json": 0.23
+      },
+      "total_usd": 1.982
+    },
+    "wp_media": {
+      "id": 3729,
+      "url": "https://newearns.com/wp-content/uploads/2026/10/how-to-make-money-online-featured.webp"
+    },
+    "wp_media_inline": [
+      {
+        "id": 3730,
+        "url": "https://newearns.com/wp-content/uploads/2026/10/how-to-make-money-online-chart-the-five-ways-compared.webp"
+      }
+    ],
+    "wp_post": {
+      "id": 3731,
+      "status": "pending",
+      "link": "https://newearns.com/?p=3731"
+    },
+    "image_check": "ok",
+    "final": "held_for_review"
+  },
+  "updated": "2026-10-23T13:45:57+00:00"
+}
