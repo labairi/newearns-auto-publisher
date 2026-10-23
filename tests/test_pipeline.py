@@ -273,10 +273,10 @@ def test_verification_failure_unpublishes(env, monkeypatch):
 
 
 def test_pillar_rotation(monkeypatch):
-    # With no history, a 40% pillar comes first; the real publication log must not decide this.
+    # With no history, the heaviest pillar comes first; the real publication log must not decide this.
     monkeypatch.setattr(ledger, "read_log", lambda: [])
     cfg = copy.deepcopy(CFG)
-    assert run.choose_pillar(cfg) in ("pdf", "instagram")
+    assert run.choose_pillar(cfg) == max(cfg["pillars"], key=lambda n: cfg["pillars"][n]["weight"])
 
 
 # ------------------------------------------------------------ safety switches
@@ -406,7 +406,7 @@ def test_calendar_topic_drives_generation_and_publishes_after_gates(env, monkeyp
                     "candidates": ["How to Compress a PDF for Email (primary query: compress pdf for email)"]}
     assert [p["status"] for p in wp.posts.values()] == ["publish"]
     # The daily spacing rule still blocks a second live article the same day.
-    assert run.main(["article", "--pillar", "pdf", "--topic", "How to Split a PDF into Separate Files"]) == 0
+    assert run.main(["article", "--pillar", "pdf", "--topic", "How to Remove Pages from a PDF"]) == 0
     assert len(wp.posts) == 1
 
 

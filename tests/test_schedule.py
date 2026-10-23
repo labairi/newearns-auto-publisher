@@ -2,6 +2,7 @@
 
 All offline: WordPress is a fake, Claude calls are fakes that count themselves.
 """
+import copy
 import json
 from datetime import datetime, timedelta, timezone
 
@@ -11,8 +12,19 @@ import yaml
 from publisher import ledger, run, schedule
 from tests.test_pipeline import CFG, env, make_article, write  # noqa: F401
 
+# Most tests here are about topic order, the gap and the pause, so they run with the weekly
+# product rule off; the topic-mix tests at the end switch it on.
+FLAT = copy.deepcopy(CFG)
+FLAT["topic_mix"]["product_every_days"] = 0
 FIRST = CFG["calendar"][0]
 SECOND = CFG["calendar"][1]
+PRODUCT = schedule.product_pillars(CFG)
+
+
+@pytest.fixture(autouse=True)
+def flat_mix(request):
+    if "env" in request.fixturenames:
+        request.getfixturevalue("env")[2]["topic_mix"]["product_every_days"] = 0
 
 
 def ago(hours):
@@ -162,18 +174,18 @@ def test_scheduled_run_takes_no_manual_options(env, calls, extra):
 # ------------------------------------------------------------ topic selection
 def test_picks_first_calendar_topic_not_yet_attempted(env):
     checkpoint("a", pillar=FIRST["pillar"], topic=FIRST["topic"], final="held_for_review")
-    assert schedule.pick_topic(CFG) == (SECOND, None)
+    assert schedule.pick_topic(FLAT) == (SECOND, None)
 
 
 def test_dry_runs_and_refused_runs_do_not_use_up_a_topic(env):
     checkpoint("a", pillar=FIRST["pillar"], topic=FIRST["topic"], final="dry-run")
     checkpoint("b", pillar=FIRST["pillar"], topic=FIRST["topic"], final="refused")
-    assert schedule.pick_topic(CFG) == (FIRST, None)
+    assert schedule.pick_topic(FLAT) == (FIRST, None)
 
 
 def test_logged_calendar_topic_counts_as_attempted(env):
     log("draft", 30, pillar=FIRST["pillar"], calendar_topic=FIRST["topic"])
-    assert schedule.pick_topic(CFG) == (SECOND, None)
+    assert schedule.pick_topic(FLAT) == (SECOND, None)
 
 
 def test_held_topic_is_not_regenerated_and_next_topic_runs(env, calls):
@@ -188,7 +200,7 @@ def test_no_eligible_topic_skips_without_claude_or_wordpress(env, calls):
     wp, tmp, _ = env
     for n, e in enumerate(CFG["calendar"]):
         checkpoint(f"r{n:02}", pillar=e["pillar"], topic=e["topic"], final="draft")
-    assert schedule.pick_topic(CFG) is None
+    assert schedule.pick_topic(FLAT) is None
     assert run.main(["article", "--scheduled"]) == 0
     assert calls == [] and wp.calls == [] and sched_log() == []
 
@@ -206,7 +218,7 @@ def test_unfinished_calendar_run_is_resumed_without_regenerating(env, calls):
 
 def test_unfinished_run_without_a_calendar_topic_is_left_alone(env, calls):
     checkpoint("20261019T000000000000Z", pillar="pdf", brief="brief")  # e.g. an old manual run
-    assert schedule.pick_topic(CFG) == (FIRST, None)
+    assert schedule.pick_topic(FLAT) == (FIRST, None)
 
 
 def test_resumed_run_that_already_created_its_post_does_not_create_another(env, calls):
@@ -349,7 +361,7 @@ def test_still_pending_post_is_not_logged_as_published(env, calls):
     wp, tmp, _ = env
     held_post(wp, 3699, "r2", FIRST, hours=40)
     assert schedule.reconcile(wp.all_posts()) == []
-    assert schedule.pick_topic(CFG) == (SECOND, None)  # held topics are still not retried
+    assert schedule.pick_topic(FLAT) == (SECOND, None)  # held topics are still not retried
 
 
 def test_wordpress_unreachable_stops_before_any_claude_call(env, calls, monkeypatch):
@@ -386,3 +398,93 @@ def test_repeated_invocations_take_successive_topics_and_never_republish(env, ca
     researched = [c[2][0].split(" (primary")[0] for c in calls if c[0] == "research"]
     assert researched == [e["topic"] for e in CFG["calendar"][:3]]  # each topic once, in calendar order
     assert len(wp.posts) == 3
+
+
+# ------------------------------------------------------------ topic mix: one product post a week
+def test_shipped_config_has_one_product_post_a_week():
+    assert CFG["topic_mix"]["product_every_days"] == 7
+    assert PRODUCT == {"pdf", "instagram"}
+    assert {"money", "passive", "ai"} <= set(CFG["pillars"]) - PRODUCT
+    for name in ("money", "passive", "ai"):
+        assert CFG["categories"][CFG["pillars"][name]["category"]]  # an existing category id
+
+
+def mix(days):
+    cfg = copy.deepcopy(CFG)
+    cfg["topic_mix"]["product_every_days"] = days
+    return cfg
+
+
+def open_entries(cfg, product):
+    used = {(e["pillar"], e["topic"]) for e in cfg["calendar"][:3]}  # the three already published
+    return [e for e in cfg["calendar"] if (e["pillar"], e["topic"]) not in used
+            and (e["pillar"] in PRODUCT) == product]
+
+
+def test_product_topic_runs_when_none_in_the_last_7_days(env):
+    log("published", 24 * 8, pillar="pdf", calendar_topic=CFG["calendar"][0]["topic"])
+    for e in CFG["calendar"][1:3]:
+        checkpoint(e["topic"][:8], pillar=e["pillar"], topic=e["topic"], final="published")
+    entry, _ = schedule.pick_topic(mix(7))
+    assert entry == open_entries(CFG, True)[0]
+
+
+def test_other_topic_runs_within_7_days_of_a_product_post(env):
+    for e in CFG["calendar"][:3]:
+        checkpoint(e["topic"][:8], pillar=e["pillar"], topic=e["topic"], final="published")
+    log("published", 24 * 3, pillar="instagram")
+    entry, _ = schedule.pick_topic(mix(7))
+    assert entry == open_entries(CFG, False)[0] and entry["pillar"] not in PRODUCT
+
+
+def test_product_slot_counts_calendar_days_and_crashed_attempts(env):
+    now = datetime(2026, 10, 29, 11, 0, tzinfo=timezone.utc)
+    ledger.append_log({"run_id": "p", "date": "2026-10-22T15:15:48+00:00", "status": "published", "pillar": "pdf"})
+    assert schedule.product_slot_due(mix(7), now) is True        # 7 calendar days, though < 168 hours
+    assert schedule.product_slot_due(mix(7), now - timedelta(days=1)) is False
+    schedule._append({"event": "started", "attempt": "x", "run_id": "x", "date": "2026-10-28T11:00:00+00:00",
+                      "pillar": "instagram", "topic": "t"})       # crashed: never finished
+    assert schedule.product_slot_due(mix(7), now) is False
+    assert schedule.product_slot_due(mix(0), now) is True
+
+
+def test_no_other_topic_left_skips_instead_of_an_early_product_post(env):
+    log("published", 24, pillar="pdf")
+    cfg = mix(7)
+    for n, e in enumerate(cfg["calendar"]):
+        if e["pillar"] not in PRODUCT:
+            checkpoint(f"o{n:02}", pillar=e["pillar"], topic=e["topic"], final="draft")
+    assert schedule.pick_topic(cfg) is None
+
+
+def test_due_product_slot_with_no_product_topic_left_runs_another_topic(env):
+    cfg = mix(7)
+    for n, e in enumerate(cfg["calendar"]):
+        if e["pillar"] in PRODUCT:
+            checkpoint(f"p{n:02}", pillar=e["pillar"], topic=e["topic"], final="draft")
+    entry, _ = schedule.pick_topic(cfg)
+    assert entry == open_entries(CFG, False)[0]
+
+
+def test_two_scheduled_weeks_have_one_product_post_each(env, calls, monkeypatch):
+    wp, tmp, cfg = env
+    cfg["topic_mix"]["product_every_days"] = 7
+    monkeypatch.setattr(schedule, "PAUSE_AFTER", 99)  # held fake articles must not pause the run
+    for e in CFG["calendar"][:3]:
+        checkpoint(e["topic"][:8], pillar=e["pillar"], topic=e["topic"], final="published")
+    n = iter(range(1, 30))
+    def article(*a, **k):
+        calls.append(("write",))
+        return make_article(slug=f"post-{next(n)}"), {"stage": "write"}
+    monkeypatch.setattr(run.writer, "write_article", article)
+    for day in range(14):
+        assert run.main(["article", "--scheduled"]) in (0, 6)
+        for path in (ledger.LOG, schedule._log_path()):
+            if path.exists():
+                lines = [json.loads(l) for l in path.read_text().splitlines()]
+                for e in lines:
+                    e["date"] = (datetime.fromisoformat(e["date"]) - timedelta(hours=24)).isoformat()
+                path.write_text("".join(json.dumps(e) + "\n" for e in lines))
+    pillars = [c[1] for c in calls if c[0] == "research"]
+    assert len(pillars) == 14
+    assert [p in PRODUCT for p in pillars] == [True] + [False] * 6 + [True] + [False] * 6

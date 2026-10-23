@@ -248,7 +248,8 @@ def cmd_scheduled(cfg: dict, args) -> int:
         return 0
     pick = schedule.pick_topic(cfg)
     if not pick:
-        say("Skipped: no eligible calendar topic (every approved topic has been attempted). "
+        say("Skipped: no eligible calendar topic (every approved topic has been attempted, or only "
+            "product topics are left and this week's product post is done). "
             "Add topics to `calendar` in config.yaml.")
         return 0
     entry, run_id = pick

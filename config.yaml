@@ -41,16 +41,23 @@ categories:
   documents-productivity: null
   creator-economy: null
 
+# Topic mix (owner, 2026-10-23): one article a week about our own products (the pillars
+# below that name a `product`), every other day a topic from New Earns' usual fields
+# (make money online, passive income, AI & future trends) chosen for search demand and
+# shareability. The scheduled run enforces it (publisher/schedule.py:pick_topic): a
+# product topic runs only when no product article was attempted in the last
+# `product_every_days` calendar days. 0 turns the rule off. Manual runs are not limited.
+topic_mix:
+  product_every_days: 7
+
 pillars:
   pdf:
-    weight: 0.4
+    weight: 0.07
     category: documents-productivity
     fallback_category: make-money-online
     product: private_pdf_editor
     seed_topics:
-      - how to compress a PDF for email without losing quality
       - how to merge PDF files for client invoices
-      - how to password protect a PDF before sending it
       - how to sign a PDF contract as a freelancer
       - how to convert PDF to Word and keep formatting
       - how to make an invoice PDF as a freelancer
@@ -59,49 +66,106 @@ pillars:
       - how to extract text from a scanned image
       - how to add page numbers to a PDF
   instagram:
-    weight: 0.4
+    weight: 0.07
     category: creator-economy
     fallback_category: make-money-online
     product: instagramaps
     seed_topics:
       - how brands find Instagram creators to work with
       - how to pitch a brand collaboration on Instagram
-      - how to read Instagram audience location insights
       - how much to charge for a sponsored Instagram post
       - micro influencer marketing for small businesses
       - how to vet an Instagram influencer before paying
       - how to build a creator media kit
       - Instagram Professional dashboard insights explained
   money:
-    weight: 0.2
+    weight: 0.36
     category: make-money-online
     fallback_category: make-money-online
     product: null
+    angle: >-
+      Pick the angle people search for and share: real numbers from the platforms'
+      own pages (payout rates, fees, requirements), what it takes to start this week,
+      and the catches nobody mentions. Never promise income.
     seed_topics:
-      - document side hustles for freelancers
-      - how small businesses can use AI tools responsibly
+      - side hustle ideas that work from home
+      - how creators get paid on TikTok and YouTube
+      - remote jobs with no experience
+      - how to spot a make money online scam
+  passive:
+    weight: 0.25
+    category: passive-income-ideas
+    fallback_category: make-money-online
+    product: null
+    angle: >-
+      Pick the angle people search for and share: what the income stream really costs
+      to set up, the platform fees and cuts, how long it takes before it earns, and
+      which ideas are not as passive as they sound. Never promise income.
+    seed_topics:
+      - digital products to sell online
+      - print on demand for beginners
+      - affiliate marketing for beginners
+  ai:
+    weight: 0.25
+    category: ai-future-trends
+    fallback_category: make-money-online
+    product: null
+    angle: >-
+      Pick the angle people search for and share: what AI tools can do today (from
+      the vendors' own documentation), what they cost, what the research says about
+      jobs and work, and practical ways to use them for earning or saving time.
+      No predictions presented as facts.
+    seed_topics:
+      - how to make money with AI
+      - jobs AI is changing and jobs it won't replace
+      - best free AI tools for everyday work
+      - what AI agents are and what they can do today
 
-# Approved 30-day editorial calendar (new articles only, from the 2026-10-20 plan).
-# A run given --pillar/--topic must match one of these entries exactly; live
-# publishing of a generated article requires one. Updates to existing posts and
-# the already-written influencer-vetting draft are not here.
+# Approved editorial calendar (new articles only). A run given --pillar/--topic must
+# match one of these entries exactly; live publishing of a generated article requires
+# one. The scheduled run takes the first open topic in this order, subject to
+# `topic_mix` above (so the order of product topics and of other topics matters,
+# not where product topics sit between them).
+# DRAFT 2026-10-23, waiting for the owner's approval. Demand = DataForSEO monthly Google
+# searches, sum of US+UK+CA+AU+IN (12-month average; data/topic-research-2026-10-23.csv).
+# kd = DataForSEO keyword difficulty (US, 0-100).
 calendar:
+  # Published already (kept so their topics stay used up):
   - {week: 1, pillar: pdf, topic: "How to Compress a PDF for Email", query: "compress pdf for email"}
   - {week: 1, pillar: instagram, topic: "How to See Where Your Instagram Followers Are From", query: "instagram follower location"}
   - {week: 1, pillar: pdf, topic: "How to Password-Protect a PDF, and What It Doesn't Protect", query: "how to password protect a pdf"}
-  - {week: 2, pillar: instagram, topic: "Views vs Reach vs Impressions on Instagram: What Changed", query: "instagram views vs reach"}
-  - {week: 2, pillar: pdf, topic: "How to Split a PDF into Separate Files", query: "how to split a pdf"}
-  - {week: 2, pillar: pdf, topic: "What to Put on a Freelance Invoice", query: "what to include on an invoice"}
-  - {week: 2, pillar: instagram, topic: "How to Switch to a Professional Instagram Account", query: "switch to professional account instagram"}
-  - {week: 3, pillar: money, topic: "How to Spot a Make-Money-Online Scam", query: "make money online scams"}
-  - {week: 3, pillar: pdf, topic: "Electronic vs Digital Signatures: What Signing a PDF Proves", query: "electronic signature vs digital signature"}
-  - {week: 3, pillar: instagram, topic: "How to Calculate Instagram Engagement Rate", query: "instagram engagement rate formula"}
-  - {week: 3, pillar: pdf, topic: "How to Extract Text from an Image or Screenshot", query: "extract text from image"}
-  - {week: 3, pillar: instagram, topic: "How Small Businesses Can Find Local Instagram Creators", query: "find local influencers"}
-  - {week: 4, pillar: money, topic: "Freelancing on Upwork and Fiverr: Fees and First Steps", query: "upwork vs fiverr fees"}
-  - {week: 4, pillar: pdf, topic: "How to Convert a PDF to PDF/A, and Check It Really Is", query: "convert pdf to pdf/a"}
-  - {week: 4, pillar: instagram, topic: "How to Build a Creator Media Kit", query: "creator media kit"}
-  - {week: 4, pillar: pdf, topic: "How to Add Page Numbers to a PDF", query: "add page numbers to pdf"}
+  # Product topics, one a week, in this order:
+  - {week: 2, pillar: instagram, topic: "Best Time to Post on Instagram, and How to Find Your Own", query: "best time to post on instagram"}   # 123,500, kd 15
+  - {week: 3, pillar: pdf, topic: "How to Convert a PDF to Word Without Losing the Formatting", query: "how to convert pdf to word"}       # 82,900, kd 46
+  - {week: 4, pillar: instagram, topic: "How to Make Money on Instagram: Every Way Creators Get Paid", query: "how to make money on instagram"}  # 20,380, kd 36
+  - {week: 5, pillar: pdf, topic: "How to Combine PDF Files on Any Device", query: "how to combine pdf files"}                         # 37,400, kd 51
+  - {week: 6, pillar: instagram, topic: "How to Get More Followers on Instagram Without Buying Them", query: "how to get more followers on instagram"}  # 13,840, kd 33
+  - {week: 7, pillar: pdf, topic: "How to Remove Pages from a PDF", query: "how to remove pages from pdf"}                              # 29,300, kd 33
+  # Everything else, in order:
+  - {week: 2, pillar: money, topic: "How to Make Money Online: Ways That Actually Pay, and What They Pay", query: "how to make money online"}  # 245,800, kd 26
+  - {week: 2, pillar: ai, topic: "ChatGPT Prompts That Save Hours: Copy-Ready Examples for Work and Side Hustles", query: "chatgpt prompts"}  # 179,100, kd 47
+  - {week: 2, pillar: money, topic: "TikTok Creator Rewards Program: Requirements and What It Really Pays", query: "tiktok creator rewards program"}  # 99,620, kd 22
+  - {week: 2, pillar: money, topic: "Data Entry Jobs from Home: Where to Find Real Ones and How to Spot Scams", query: "data entry jobs from home"}  # 86,200, kd 13
+  - {week: 2, pillar: ai, topic: "Best Free AI Tools for Writing, Images, Video and Work", query: "free ai tools"}  # 95,600, kd 31
+  - {week: 2, pillar: money, topic: "Remote Jobs with No Experience: Where to Find Real Ones", query: "remote jobs no experience"}  # 47,210, kd 18
+  - {week: 3, pillar: ai, topic: "What Is an AI Agent, and What Can AI Agents Do Today?", query: "what is an ai agent"}  # 32,500 (+ "ai agents" 123,600, kd 67)
+  - {week: 3, pillar: passive, topic: "How to Make Money on Pinterest Without a Big Following", query: "how to make money on pinterest"}  # 33,220, kd 17
+  - {week: 3, pillar: money, topic: "How Much YouTube Pays per View, and Why the Number Varies", query: "how much does youtube pay per view"}  # 18,790, kd 7
+  - {week: 3, pillar: passive, topic: "How to Sell on Etsy: Fees, Setup and First Sales", query: "how to sell on etsy"}  # 25,400, kd 25
+  - {week: 3, pillar: ai, topic: "Will AI Replace Jobs? What the Research Says, Job by Job", query: "will ai replace jobs"}  # 10,460 with "jobs ai will replace", kd 25
+  - {week: 3, pillar: money, topic: "Online Jobs for Students: Legit Ways to Earn Between Classes", query: "online jobs for students"}  # 25,860, kd 5
+  - {week: 4, pillar: money, topic: "Side Hustle Ideas You Can Start from Home", query: "side hustles from home"}  # 16,480 (+ "side hustle ideas" 13,880), kd 27
+  - {week: 4, pillar: money, topic: "How to Start a YouTube Channel That Can Get Monetized", query: "how to start a youtube channel"}  # 21,590, kd 17
+  - {week: 4, pillar: money, topic: "YouTube Monetization Requirements: What You Need to Get Paid", query: "youtube monetization requirements"}  # 13,860, kd 19
+  - {week: 4, pillar: passive, topic: "Print on Demand for Beginners: Costs, Platforms and Real Margins", query: "print on demand"}  # 43,700, kd 76
+  - {week: 4, pillar: money, topic: "How to Make Money as a Teenager: Online and Offline Ideas", query: "how to make money as a teenager"}  # 9,410, kd 1
+  - {week: 4, pillar: passive, topic: "Affiliate Marketing for Beginners: How It Works and What It Pays", query: "affiliate marketing for beginners"}  # 11,420, kd 42
+  - {week: 5, pillar: ai, topic: "How to Make Money with AI: Side Hustles That Hold Up", query: "how to make money with ai"}  # 8,980, kd 31
+  - {week: 5, pillar: passive, topic: "How to Start Dropshipping: Costs, Suppliers and Risks", query: "how to start dropshipping"}  # 9,050, kd 28
+  - {week: 5, pillar: passive, topic: "Digital Products to Sell Online, and Where to Sell Them", query: "digital products to sell"}  # 8,300, kd 34
+  - {week: 5, pillar: money, topic: "How to Become a Virtual Assistant with No Experience", query: "how to become a virtual assistant"}  # 3,480, kd 22
+  - {week: 5, pillar: money, topic: "Upwork vs Fiverr: Fees and First Steps for New Freelancers", query: "upwork vs fiverr"}  # 2,500, kd 11
+  - {week: 5, pillar: ai, topic: "Faceless YouTube Channel Ideas, and Whether AI Videos Can Be Monetized", query: "faceless youtube channel ideas"}  # 2,150, kd 7
 
 # Facts about the products. The writer may ONLY claim what is listed here
 # (all taken from the public product pages on 2026-10-19). Edit when the
@@ -205,6 +269,8 @@ images:
     pdf: ["pdf on laptop screen", "person using laptop computer"]
     instagram: ["instagram smartphone", "woman using smartphone", "content creator smartphone"]
     money: ["freelancer working laptop", "person working laptop home", "laptop home office"]
+    passive: ["person working laptop home", "laptop home office", "freelancer working laptop"]
+    ai: ["person using laptop computer", "laptop home office", "woman using smartphone"]
   # Scene words: people and objects that belong in the pillar's photos. Words in the photo's
   # own title count double; words from the article count three times as much (see score()).
   photo_keywords:
@@ -214,11 +280,15 @@ images:
                 people, using, holding, taking]
     money: [laptop, freelance, freelancer, computer, office, desk, working, entrepreneur, woman, man, person, people,
             home office, using]
+    passive: [laptop, computer, office, desk, working, entrepreneur, woman, man, person, people, home office, using]
+    ai: [laptop, computer, screen, smartphone, phone, office, desk, working, woman, man, person, people, using]
   # The photo's own title must name one of these: the device the article's task is done on.
   photo_must_show:
     pdf: [laptop, computer, screen, monitor, tablet, pdf]
     instagram: [smartphone, phone, mobile, instagram, iphone]
     money: [laptop, computer, screen, monitor, smartphone, phone]
+    passive: [laptop, computer, screen, monitor, smartphone, phone]
+    ai: [laptop, computer, screen, monitor, smartphone, phone]
   # Relevance per topic (first match on the title, keyphrase or query wins). A photo must mention
   # one `subject` word; `allow` lifts the wrong-scene rule for words the topic is really about.
   # With no photo, the featured image is the `motif` illustration.
@@ -243,7 +313,7 @@ images:
     - {match: "\\b(follower|location|audience|insights|analytics)", motif: location, pillars: [instagram],
        subject: [instagram, insights, analytics, map, location],
        queries: ["instagram app on smartphone", "smartphone map app", "instagram analytics"]}
-  pillar_motif: {pdf: pdf, instagram: phone, money: earnings}
+  pillar_motif: {pdf: pdf, instagram: phone, money: earnings, passive: earnings, ai: earnings}
 
 tracking:
   gsc_site_url: sc-domain:newearns.com   # or https://newearns.com/ (URL-prefix property)
