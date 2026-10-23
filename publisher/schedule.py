@@ -126,12 +126,41 @@ def _key(pillar, topic) -> tuple:
     return pillar, (topic or "").strip().lower()
 
 
-def pick_topic(cfg: dict) -> tuple[dict, str | None] | None:
+def product_pillars(cfg: dict) -> set[str]:
+    """Pillars whose articles are about one of our own products."""
+    return {name for name, p in cfg["pillars"].items() if p.get("product")}
+
+
+def product_slot_due(cfg: dict, now: datetime | None = None) -> bool:
+    """True when no product article was attempted in the last `topic_mix.product_every_days`
+    calendar days, counting manual and scheduled attempts, crashed ones included.
+
+    With 7, a product post on a Monday makes the next one due the following Monday; a day
+    the schedule skipped (or GitHub dropped) moves it to the next run, not to the next week.
+    """
+    every = (cfg.get("topic_mix") or {}).get("product_every_days") or 0
+    if not every:
+        return True
+    now = now or datetime.now(timezone.utc)
+    prod = product_pillars(cfg)
+    dates = [_when(e["date"]) for e in ledger.read_log()
+             if e.get("pillar") in prod and e.get("status") in ATTEMPT_STATUSES]
+    dates += [_when(e["date"]) for e in read_schedule_log()
+              if e.get("event") == "started" and e.get("pillar") in prod]
+    return not dates or (now.date() - max(dates).date()).days >= every
+
+
+def pick_topic(cfg: dict, now: datetime | None = None) -> tuple[dict, str | None] | None:
     """(calendar entry, run_id to resume or None) for today's run, or None if nothing is eligible.
 
     A topic counts as attempted once any run of it reached a WordPress outcome
     (published, draft, held, duplicate, failed verification). Held topics are not
     retried automatically: retrying would pay for a new article. Dry runs don't count.
+
+    Topic mix (`topic_mix.product_every_days`, 0 = off): when the product slot is due, the
+    first open product topic runs (any other topic if none is left); otherwise only
+    topics without a product run, and a day with none left is skipped rather than
+    spent on a product post early.
     """
     calendar = {_key(e["pillar"], e["topic"]): e for e in cfg.get("calendar") or []}
     runs = _runs()
@@ -143,10 +172,14 @@ def pick_topic(cfg: dict) -> tuple[dict, str | None] | None:
         k = _key(s.get("pillar"), s.get("topic"))
         if "final" not in s and k in calendar and k not in attempted:
             return calendar[k], run_id
-    for k, e in calendar.items():  # calendar order
-        if k not in attempted:
-            return e, None
-    return None
+    open_ = [e for k, e in calendar.items() if k not in attempted]  # calendar order
+    every = (cfg.get("topic_mix") or {}).get("product_every_days") or 0
+    if every:
+        prod = product_pillars(cfg)
+        products = [e for e in open_ if e["pillar"] in prod]
+        others = [e for e in open_ if e["pillar"] not in prod]
+        open_ = (products + others) if product_slot_due(cfg, now) else others
+    return (open_[0], None) if open_ else None
 
 
 def start(run_id: str, entry: dict) -> str:

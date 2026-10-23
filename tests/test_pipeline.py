@@ -273,10 +273,10 @@ def test_verification_failure_unpublishes(env, monkeypatch):
 
 
 def test_pillar_rotation(monkeypatch):
-    # With no history, a 40% pillar comes first; the real publication log must not decide this.
+    # With no history, the heaviest pillar comes first; the real publication log must not decide this.
     monkeypatch.setattr(ledger, "read_log", lambda: [])
     cfg = copy.deepcopy(CFG)
-    assert run.choose_pillar(cfg) in ("pdf", "instagram")
+    assert run.choose_pillar(cfg) == max(cfg["pillars"], key=lambda n: cfg["pillars"][n]["weight"])
 
 
 # ------------------------------------------------------------ safety switches

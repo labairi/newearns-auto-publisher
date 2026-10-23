@@ -281,6 +281,7 @@ Already published on New Earns (do not overlap with these intents):
 {json.dumps(existing_titles, indent=1)}
 
 {"Relevant product (mention only if it genuinely helps): " + json.dumps(product) if product else "No product for this pillar."}
+{("Angle for this pillar: " + p["angle"].strip()) if p.get("angle") else ""}
 
 Do this:
 1. Search the web for the strongest candidate query. Look at what currently ranks
