@@ -1,0 +1,955 @@
+{
+  "run_id": "20261024T142015404124Z",
+  "stages": {
+    "pillar": "ai",
+    "topic": "ChatGPT Prompts That Save Hours: Copy-Ready Examples for Work and Side Hustles",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 52,
+        "cache_creation_input_tokens": 67230,
+        "cache_read_input_tokens": 1040779,
+        "output_tokens": 18394,
+        "web_search_requests": 18,
+        "web_fetch_requests": 9,
+        "requests": 9,
+        "read_source_calls": 17,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 52,
+            "cache_write_5m_tokens": 67230,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 1040779,
+            "output_tokens": 18394
+          }
+        },
+        "fetched_urls": [
+          "https://mitsloan.mit.edu/sites/default/files/2023-10/SSRN-id4573321.pdf",
+          "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials",
+          "https://www.researchgate.net/publication/372342901_Experimental_evidence_on_the_productivity_effects_of_generative_artificial_intelligence"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 1.092
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 12014,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 19380,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 12014,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 19380
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.448
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 38,
+        "cache_creation_input_tokens": 53606,
+        "cache_read_input_tokens": 790824,
+        "output_tokens": 12768,
+        "web_search_requests": 1,
+        "web_fetch_requests": 7,
+        "requests": 5,
+        "read_source_calls": 6,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 38,
+            "cache_write_5m_tokens": 53606,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 790824,
+            "output_tokens": 12768
+          }
+        },
+        "fetched_urls": [
+          "https://mitsloan.mit.edu/sites/default/files/2023-10/SSRN-id4573321.pdf",
+          "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials",
+          "https://www.mendeley.com/catalogue/35312800-4345-3022-98ab-d1bd6ff8b744/",
+          "https://www.researchgate.net/publication/372342901_Experimental_evidence_on_the_productivity_effects_of_generative_artificial_intelligence"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.692
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 7457,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 9182,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 7457,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 9182
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.221
+      }
+    ],
+    "brief": "# Content brief: ChatGPT prompts for freelancers, creators and small businesses\n\n## 1. Chosen query and search intent\n\n- **Chosen query:** chatgpt prompts. I kept the candidate topic but narrowed it to our readers' work.\n- **Focus keyphrase:** ChatGPT prompts\n- **Proposed title:** ChatGPT Prompts for Freelancers and Side Hustles: Copy-Ready Templates and How to Adapt Them\n  - I dropped \"Save Hours\" from the working title because it sounds like a promise. The research below doesn't support promising a specific time saving.\n- **Slug:** /chatgpt-prompts-freelancers-side-hustles\n- **Search intent:** Readers want prompts to copy and paste, and usually a short \"how to write your own\" section too. The results for \"chatgpt prompts\" and \"best chatgpt prompts for work\" are mostly big lists:\n  - Buildfastwithai: \"100 Best ChatGPT Prompts 2026 (Copy-Paste)\"\n  - Writesonic: \"300+ Best ChatGPT Prompts + How to Write Your Own\"\n  - Semrush: \"234 ChatGPT prompts (and how to write your own)\"\n  - Techpresso: \"50 Best…\"\n  - A Medium post titled \"I Tested 200 ChatGPT Prompts\"\n  - The freelancer results (godofprompt, solowise, learnprompt, aipromptlibrary) are 10–30 item lists.\n\n## 2. What these results miss, and what we add\n\n1. **They don't explain why a prompt works.** The lists are generic and don't connect to the vendor's own guidance. We build every template on OpenAI's documented structure (**Goal / Context / Output / Boundaries**). Google's Gemini guide (**Persona / Task / Context / Format**) supports the same idea. Readers can then adapt any template instead of collecting hundreds.\n2. **We organise by workflow, not by topic.** About 15 templates grouped around real freelance and side-business tasks: winning and scoping clients, client communication, getting paid, content repurposing, product listings, admin. Each template has three parts:\n   - **What to paste in:** the context the reader supplies\n   - **The prompt**\n   - **Check before you use it:** the verification step\n3. **A missing scenario: client data and privacy.** We show where the \"Improve the model for everyone\" setting is and when to use Temporary Chat. Rival lists rarely cover this.\n4. **A decision table** for where to save a reusable prompt: one chat, custom instructions, a Project, or a Temporary chat. It includes the plan-specific limits from OpenAI's help pages.\n5. **Troubleshooting:** generic output, wrong length, made-up facts, wrong tone, and edits to things that shouldn't change. Each fix comes from OpenAI's guidance.\n6. **The line not to cross:** don't use ChatGPT to write reviews or testimonials. The FTC rule names \"AI-generated fake reviews.\"\n7. **Honest research context:** two experiments show time and quality gains on some tasks. The same research shows AI can make results worse on tasks outside its capability, so we present it with its limits and make no promises.\n\n## 3. Outline (H2/H3)\n\n**Intro** (no filler)\n- Say what readers get: copy-ready ChatGPT prompts for client work and side businesses, plus a four-part structure for adapting them.\n- Use the keyphrase once here.\n\n**H2: What a good prompt includes** (the four parts OpenAI recommends)\n- H3: Goal, Context, Output, Boundaries, explained in plain English. Note OpenAI's own point that you don't need all four every time. [S2]\n- H3: Same idea, different vendor. Google's Persona/Task/Context/Format. [S7]\n- H3: Your first prompt doesn't have to be perfect. Follow-ups and iterating. [S1, S2]\n\n**H2: Prompts for finding and scoping client work**\n- H3: Draft a proposal from a job post (paste the job post and your relevant experience; boundary: don't invent experience or results)\n- H3: Questions to ask before quoting a project\n- H3: Turn a messy brief into a scope-of-work outline\n\n**H2: Prompts for client communication**\n- H3: Meeting notes → follow-up email with decisions, owners and due dates (adapted from OpenAI's own example) [S2]\n- H3: Weekly status update with the decisions first [S2]\n- H3: Politely declining or pushing back on scope creep (adapted from OpenAI's \"decline an invitation… under 120 words\" pattern) [S2]\n- H3: A friendly late-payment reminder. Boundary: \"Prepare as a draft. Don't send it.\" [S2]\n\n**H2: Prompts for content and creator work**\n- H3: Repurpose one long post into short social posts\n- H3: Headline and hook options, with a warning: tell it not to add statistics. Hallucinations include fabricated studies. [S5]\n- H3: Explain a topic for a beginner audience (adapted from OpenAI's compound-interest example) [S2]\n\n**H2: Prompts for running a small online business**\n- H3: Product description from your own notes. Boundary: use only the features you list.\n- H3: FAQ draft from real customer questions you paste in\n- H3: Planned vs. actual spending table that flags gaps over 10% (OpenAI example) [S2]\n\n**H2: Save your best prompts so you don't retype them**\n- H3: Custom instructions for preferences that apply to every chat. Path, character limits. [S4]\n- H3: Projects for each client or side business. Steps, file limits, instructions override. [S3]\n- **Decision table:** one-off chat / custom instructions / Project / Temporary chat. Columns: applies to, where to set it, limits, best for. [S3, S4, S6]\n- Note: \"Menu names may differ by app version and plan.\"\n\n**H2: Keep client information private**\n- How to turn off \"Improve the model for everyone,\" and what it does and doesn't do. [S6]\n- Temporary chat: what it does, including the 30-day safety retention. [S6]\n- Exception: the thumbs up/down feedback caveat. [S6]\n- Note that Business, Enterprise and Edu workspaces aren't used for training by default. [S6]\n- Custom instructions note: information from them is used to improve models unless you opt out. [S4]\n\n**H2: Check everything before it reaches a client**\n- ChatGPT can be wrong and sound confident. It can make up citations. Verify quotes and data. [S5]\n- Ask for sources and use search when accuracy matters. [S2, S5]\n- Don't ask ChatGPT whether a text was AI-written; its answers aren't reliable evidence. [S5]\n\n**H2: Don't use ChatGPT to write reviews or testimonials**\n- FTC final rule: what it prohibits, and that it names AI-generated fake reviews. Frame it as US rules for businesses. [S8]\n\n**H2: What research says about time saved (and where AI makes work worse)**\n- Noy & Zhang, published in *Science* (2023): 453 professionals, writing tasks, 40% less time and 18% higher quality. [S9]\n- Dell'Acqua et al. (HBS working paper, 2023), 758 BCG consultants:\n  - Tasks inside AI's capabilities: 12.2% more tasks, 25.1% faster, more than 40% higher quality.\n  - One task outside: 19 percentage points less likely to be correct. [S10]\n- Takeaway: test a prompt on your own task and check the output. Don't assume a time saving.\n\n**H2: When a prompt doesn't work: quick fixes** (table)\n\n| Symptom | Fix | Source |\n|---|---|---|\n| Generic output | Add context and audience | [S1, S2] |\n| Wrong length or format | Say how you'll use the result | [S2] |\n| Made-up facts | Add \"Use only the supplied sources. Flag missing information instead of guessing.\" Then verify | [S2, S5] |\n| Wrong tone | Use descriptive adjectives | [S1] |\n| Changed things it shouldn't | Add one or two boundaries | [S2] |\n\n**Short wrap-up.** No FAQ padding.\n\n## 4. Facts to rely on (with URLs)\n\n| # | Fact | URL |\n|---|---|---|\n| F1 | OpenAI recommends clear, specific prompts with enough context, and refining them over several tries; it says tone words guide the model | https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt |\n| F2 | For larger tasks, include Goal, Context, Output and Boundaries; use only the parts that help | https://learn.chatgpt.com/docs/prompting |\n| F3 | Example prompts from OpenAI: meeting notes → update; decline-invitation email under 120 words; spending table that highlights differences over 10%; compound interest explainer; boundary phrases | https://learn.chatgpt.com/docs/prompting |\n| F4 | Preferences that should apply across chats go in Settings > Personalization as custom instructions | https://learn.chatgpt.com/docs/prompting and https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions |\n| F5 | Custom instructions are available on all plans. Limits: Free and Go 1,500 characters; Plus, Pro, Enterprise, Business and Education 5,000 characters | https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions |\n| F6 | Projects keep chats, files and instructions together. Create one with New project in the sidebar. Instructions are under ••• > Project settings, apply only inside the project and override global custom instructions | https://help.openai.com/en/articles/10169521-projects-in-chatgpt |\n| F7 | Project file limits: Free 5; Go and Plus 25; Edu, Pro, Business and Enterprise 40. Only 10 files can be uploaded at once. Projects are unlimited | https://help.openai.com/en/articles/10169521-projects-in-chatgpt |\n| F8 | Free, Plus and Pro share data for training by default. You can turn off \"Improve the model for everyone\" and keep your history. Temporary chats aren't used for training but may be kept up to 30 days. Giving feedback can make the whole conversation usable for training | https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt |\n| F9 | ChatGPT can hallucinate, including fabricated quotes, studies and citations; verify important information; use it as a first draft | https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth |\n| F10 | Google's four areas: Persona, Task, Context, Format. You don't need all four | https://workspace.google.com/resources/ai/writing-effective-prompts/ |\n| F11 | The FTC final rule prohibits fake reviews and testimonials, including AI-generated fake reviews | https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials |\n| F12 | Noy & Zhang: 40% less time, 18% higher quality | https://www.researchgate.net/publication/372342901_Experimental_evidence_on_the_productivity_effects_of_generative_artificial_intelligence (abstract read here; the *Science* page itself, DOI 10.1126/science.adh2586, wouldn't load) |\n| F13 | Dell'Acqua et al.: \"jagged frontier\" results | https://mitsloan.mit.edu/sites/default/files/2023-10/SSRN-id4573321.pdf |\n\n## 5. Internal links (only where genuinely related)\n\n- **How to Use Artificial Intelligence to Start a Business.** Link from the \"running a small online business\" section. This is the closest related piece.\n- **How to Make Money Online: 5 Ways and What Each Platform Takes.** Link from the \"finding and scoping client work\" intro, for readers who don't have a freelance platform yet.\n- **How to Start Your Digital Marketing Agency in 2025.** Optional, from the proposal and scope templates.\n- Don't link the PDF, Instagram, loans or gaming posts.\n\n## 6. Product link\n\nThere's no product for this pillar, so there's no product link. Mention ChatGPT and Google Gemini only as the tools described in their own documentation. Don't compare them or rank them.\n\n## 7. Writer guardrails\n\n- The prompt templates are our own editorial examples. Never say they were \"tested,\" and never claim any outcome for them.\n- Don't state ChatGPT prices or plan prices. I didn't read a vendor pricing page. If needed, link to OpenAI's pricing page without numbers, or leave it out.\n- Mark menu paths as possibly different by app version or plan. The help pages split web/desktop and iOS/Android paths.\n- Present the research with its scope: year, task type, sample, and that one paper is a working paper. Never write \"ChatGPT saves 40% of your time.\"\n- The FTC rule is US law. Say so.\n- Inside templates, use boundary wording such as \"Don't invent experience, results, clients or statistics.\" That fits both the hallucination guidance and our editorial rules.\n\n---\n\n## SOURCE NOTES\n\n**[S1] Prompt engineering best practices for ChatGPT, OpenAI Help Center**\n- URL: https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt\n- Date: the page showed \"Updated: 5 days ago\" when read (late Oct 2026). No absolute date.\n- Supporting text:\n  - \"Ensure your prompts are clear, specific, and provide enough context for the model to understand what you are asking. Avoid ambiguity and be as precise as possible to get accurate and relevant responses.\"\n  - \"Prompt engineering often requires an iterative approach. Start with an initial prompt, review the response, and refine the prompt based on the output. Adjust the wording, add more context, or simplify the request as needed to improve the results.\"\n  - \"Use descriptive adjectives to indicate the tone. Words like formal, informal, friendly, professional, humorous, or serious can help guide the model. For instance, 'Explain this in a friendly and engaging tone.'\"\n\n**[S2] Prompting | ChatGPT Learn (OpenAI)**\n- URL: https://learn.chatgpt.com/docs/prompting\n- Note: openai.com/academy/prompting/ redirects here. Cite this URL.\n- Date: none stated.\n- Supporting text:\n  - \"A short prompt is often enough. For larger or more important tasks, include the parts that matter: Goal: What should ChatGPT do? Context: What information or sources will help? Output: What format, length, or level of detail do you need? Boundaries: What must stay unchanged? What should ChatGPT avoid or check with you before it acts?\"\n  - Condition: \"Use only the parts that help. You don't need to fill in every item or follow a required format.\"\n  - \"Start with the result, not a detailed list of steps. Include the audience or format when those details change what ChatGPT should produce.\"\n    - Example: \"Turn these meeting notes into a short update for the project team. Put the decisions and next steps first.\"\n  - \"Share the information that could change the result. Add only the sources that matter, and explain what ChatGPT should take from each one.\"\n  - \"Ask ChatGPT to use web search when the answer depends on current information, and ask for sources when you need to check the result.\"\n  - \"Use a project when related chats should share files, sources, or a local folder.\"\n  - \"Put preferences that should apply across chats in Settings > Personalization as custom instructions. Keep details that matter only to the current chat in the prompt.\"\n  - Boundary examples: \"Keep the approved dates and budget figures unchanged.\" / \"Use only the supplied sources. Flag missing information instead of guessing.\" / \"Keep recommendations within the stated budget.\" / \"Prepare the message as a draft. Don't send it.\"\n    - Followed by: \"Focus on the one or two boundaries that matter most. You don't need to control every step ChatGPT takes.\"\n  - \"Tell ChatGPT how you plan to use the result. This helps it choose the right length, level of detail, and organization.\"\n    - Examples: \"Turn these notes into a follow-up email with the decisions, owners, and due dates.\" / \"Create a clear table of planned versus actual spending and highlight any difference over 10%.\"\n  - \"For important work, ask ChatGPT for a final check, such as confirming every action item has an owner and due date or flagging information it couldn't verify. Then review the result yourself before you use or share it.\"\n  - \"Your first prompt doesn't need to be perfect. Review the result, then ask for the specific change you want.\"\n  - Examples: \"Explain how compound interest works for someone who has never invested. Use one concrete example and define any financial terms you introduce.\" / \"Draft a friendly email declining this invitation because I will be traveling. Keep it under 120 words and leave the door open for a future event.\"\n\n**[S3] Projects in ChatGPT, OpenAI Help Center**\n- URL: https://help.openai.com/en/articles/10169521-projects-in-chatgpt\n- Date: the page showed \"Updated: 27 minutes ago\" when read (late Oct 2026).\n- Supporting text:\n  - \"Projects keep related chats, files, and instructions together. ChatGPT can use that context to support ongoing work, such as writing, research, or planning.\"\n  - Condition: \"Projects and project sharing are available to signed-in ChatGPT users, subject to plan availability and workspace settings.\"\n  - Create: \"Select New project in the sidebar. Enter a project name, then select an icon and color.\"\n  - \"Add reference material to your project by uploading PDFs, spreadsheets, docs, images, or by pasting text.\"\n  - \"Select the more options menu (•••), then select Project settings to add instructions for the project. For example: 'Act like my marketing mentor. Be concise. Use bullet points. Ask clarifying questions.' Project instructions apply only within that project and override your global custom instructions.\"\n  - Moving chats: \"drag a chat onto your project, or open a chat's menu and select Move to project.\" Exception: \"Chats created with a GPT can't be moved into a project.\"\n  - \"Users can create an unlimited amount of projects. File upload limits vary by subscription type. Note that only 10 files can be uploaded at the same time. Free: 5 files per project. Go, Plus: 25 files per project. Edu, Pro, Business, Enterprise: 40 files per project.\"\n  - \"Deleted projects and their chats, files stored only in the project, and custom instructions are removed from OpenAI systems within 30 days unless OpenAI must retain them for legal or security reasons.\"\n\n**[S4] ChatGPT Custom Instructions, OpenAI Help Center**\n- URL: https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions\n- Date: the page showed \"Updated: 7 minutes ago\" when read.\n- Supporting text:\n  - \"Custom instructions allow you to share anything you'd like ChatGPT to consider in its response. Your custom instructions are applied immediately to all chats. Custom instructions are available on all plans on Web, Desktop, iOS, and Android.\"\n  - Web and Desktop: \"In your Settings, select Personalization.\"\n  - iOS/Android: \"In your Settings, select Customize ChatGPT. Please make sure that Enable customization is toggled ON. Enter your instructions in the Custom Instructions field.\"\n  - \"Free and Go users can save up to 1,500 characters in custom instructions. Plus, Pro, Enterprise, Business, and Education users can save up to 5,000 characters.\"\n  - Data caveat: \"Important: Information from your use of custom instructions will also be used to improve model performance – like teaching the model how to adapt its responses to your instructions without overdoing it.\" The page links to opt-out information.\n  - Plug-in caveat: \"If you use third party plug-ins, then the model may provide plug-in developers with relevant information from your instructions.\"\n  - Internal inconsistency: one line says updates apply \"across all chats (including existing conversations)\", but the FAQ says \"updates to your instructions are reflected only in future conversations.\" Don't state which chats an update affects.\n\n**[S5] Does ChatGPT tell the truth?, OpenAI Help Center**\n- URL: https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth\n- Date: the page showed \"Updated: 2 days ago\" when read.\n- Supporting text:\n  - \"Like any language model, it can produce incorrect or misleading outputs. Sometimes, it might sound confident—even when it's wrong.\"\n  - Hallucination examples include \"Fabricated quotes, studies, citations or references to non-existent sources.\"\n  - \"That's why we encourage users to approach ChatGPT critically and verify important information from reliable sources.\"\n  - \"Use ChatGPT as a first draft, not a final source. Please check important information. Always verify quotes, data, technical information or references to external documents.\"\n  - \"ChatGPT can't reliably determine whether text was AI-generated or whether it wrote the text… Those answers are not reliable evidence of authorship.\"\n  - Tools are plan-dependent: \"Depending on your plan, ChatGPT may have access to tools…\" Search \"Lets ChatGPT look up current or niche information from the web and provide cited answers.\"\n\n**[S6] Data controls in ChatGPT, OpenAI Help Center**\n- URL: https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt\n- Date: the page showed \"Updated: 2 days ago\" when read.\n- Supporting text:\n  - \"On personal workspaces with ChatGPT Free, Plus, or Pro, data sharing is enabled by default. You can turn off Improve the model for everyone and keep your chat history.\"\n  - \"When Improve the model for everyone is off, your new conversations won't be used to train OpenAI models. They can still appear in your chat history.\"\n  - Web steps include: \"Select Data controls. Select Improve the model for everyone, turn it off, and select Done.\"\n  - Mobile: \"Select your profile icon to open Settings. Turn off Improve the model for everyone.\"\n  - Condition: \"Voice mode has a separate control for sharing data for model training.\"\n  - Temporary chat, while temporary: \"do not appear in your chat history; do not create or update memories; are not used to improve OpenAI models; may be retained for up to 30 days for safety purposes.\"\n    - Exception: \"If you save a temporary chat, it becomes a regular chat in your history and follows your account's personalization and model-improvement settings.\"\n  - \"By default, OpenAI does not use content from ChatGPT Business, Enterprise, Edu, or ChatGPT for Healthcare workspaces to train its models.\"\n  - Exception: \"If you choose to provide feedback, such as selecting thumbs up or thumbs down on a response, the entire conversation associated with that feedback may be used to train OpenAI models.\"\n  - \"Turning off Improve the model for everyone does not delete or hide saved chats.\"\n\n**[S7] Writing Effective AI Prompts for Business | Gemini for Workspace (Google)**\n- URL: https://workspace.google.com/resources/ai/writing-effective-prompts/\n- Date: none stated.\n- Supporting text:\n  - \"The four main areas to consider when writing an effective prompt are: Persona, Task, Context, Format.\"\n  - \"You don't need to use all four in every prompt, but using a few will help!\"\n  - \"Before putting an output from Gemini for Workspace into action, review it to ensure clarity, relevance, and accuracy.\"\n  - Scope: this guidance is written for Gemini. Use it only to show the general principle; don't apply its feature tips (e.g., \"Make this a power prompt\") to ChatGPT.\n\n**[S8] Federal Trade Commission Announces Final Rule Banning Fake Reviews and Testimonials, FTC press release**\n- URL: https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials\n- Date: August 14, 2024 (modified Aug 20, 2024).\n- Supporting text:\n  - \"The final rule addresses reviews and testimonials that misrepresent that they are by someone who does not exist, such as AI-generated fake reviews, or who did not have actual experience with the business or its products or services, or that misrepresent the experience of the person giving it. It prohibits businesses from creating or selling such reviews or testimonials.\"\n  - Condition on buying and disseminating: \"when the business knew or should have known that the reviews or testimonials were fake or false.\"\n  - The rule will \"allow the agency to seek civil penalties against knowing violators.\"\n  - \"The rule will become effective 60 days after the date it's published in the Federal Register.\" The effective date isn't on this page. Don't state one.\n\n**[S9] Noy & Zhang, \"Experimental evidence on the productivity effects of generative artificial intelligence,\" *Science* (2023)**\n- Abstract read at: https://www.researchgate.net/publication/372342901_Experimental_evidence_on_the_productivity_effects_of_generative_artificial_intelligence\n- The journal page (science.org DOI 10.1126/science.adh2586) returned 403 and wasn't read.\n- Date: search metadata indicates 2023. The page I read gives no exact date.\n- Supporting text:\n  - \"In a preregistered online experiment, we assigned occupation-specific, incentivized writing tasks to 453 college-educated professionals and randomly exposed half of them to ChatGPT. Our results show that ChatGPT substantially raised productivity: The average time taken decreased by 40% and output quality rose by 18%.\"\n  - Scope: \"midlevel professional writing tasks.\"\n\n**[S10] Dell'Acqua et al., \"Navigating the Jagged Technological Frontier,\" Harvard Business School Working Paper 24-013**\n- URL: https://mitsloan.mit.edu/sites/default/files/2023-10/SSRN-id4573321.pdf\n- Date: September 22, 2023.\n- Condition: \"Working papers are in draft form.\"\n- Supporting text:\n  - \"The pre-registered experiment involved 758 consultants comprising about 7% of the individual contributor-level consultants at the company.\" Conditions were \"no AI access, GPT-4 AI access, or GPT-4 AI access with a prompt engineering overview.\"\n  - \"For each one of a set of 18 realistic consulting tasks within the frontier of AI capabilities, consultants using AI were significantly more productive (they completed 12.2% more tasks on average, and completed tasks 25.1% more quickly), and produced significantly higher quality results (more than 40% higher quality compared to a control group).\"\n  - Exception: \"For a task selected to be outside the frontier, however, consultants using AI were 19 percentage points less likely to produce correct solutions compared to those without AI.\"",
+    "candidates": [
+      "ChatGPT Prompts That Save Hours: Copy-Ready Examples for Work and Side Hustles (primary query: chatgpt prompts)"
+    ],
+    "article": {
+      "title": "ChatGPT Prompts for Freelancers and Side Hustles: Copy-Ready Templates and How to Adapt Them",
+      "seo_title": "ChatGPT Prompts for Freelancers and Side Hustles",
+      "slug": "chatgpt-prompts-freelancers-side-hustles",
+      "meta_description": "Copy-ready ChatGPT prompts for proposals, client emails, content and listings, built on OpenAI's four-part structure, plus privacy and fact-check steps.",
+      "focus_keyphrase": "ChatGPT prompts",
+      "excerpt": "Copy-ready ChatGPT prompts for proposals, client emails, payment reminders, content repurposing and product listings, built on OpenAI's Goal/Context/Output/Boundaries structure, with privacy settings and a check-before-you-send step for each one.",
+      "content_html": "<p>This guide gives you copy-ready ChatGPT prompts for the work freelancers and side-business owners do every week: proposals, client emails, payment reminders, content repurposing, product listings and spending checks. Each template tells you what to paste in and what to check before anything reaches a client. You also get the four-part structure OpenAI recommends, so you can adapt any prompt instead of collecting hundreds of them.</p><p>The templates are editorial examples written for this guide, not proven formulas. Swap in your own details, run them, and edit the output.</p><h2>What a good prompt includes</h2><h3>Goal, Context, Output, Boundaries</h3><p>OpenAI's <a href=\"https://learn.chatgpt.com/docs/prompting\">ChatGPT Learn prompting guide</a> says a short prompt is often enough, but for larger or more important tasks you should include the parts that matter:</p><ul><li><strong>Goal:</strong> what ChatGPT should do.</li><li><strong>Context:</strong> the information or sources that will help.</li><li><strong>Output:</strong> the format, length or level of detail you need.</li><li><strong>Boundaries:</strong> what must stay unchanged, and what ChatGPT should avoid or check with you before it acts.</li></ul><p>The <a href=\"https://learn.chatgpt.com/docs/prompting\">same guide</a> says to use only the parts that help; you don't need to fill in every item or follow a required format. It also recommends starting with the result you want rather than a detailed list of steps, and naming the audience or format when those details change what ChatGPT should produce.</p><h3>Same idea, different vendor</h3><p>Google's <a href=\"https://workspace.google.com/resources/ai/writing-effective-prompts/\">Gemini for Workspace prompt guide</a> names four areas: Persona, Task, Context and Format, and notes that you don't need all four in every prompt. The labels differ, but the principle is the same: say what you want, give the background, and describe the shape of the answer.</p><h3>Your first prompt doesn't have to be perfect</h3><p>OpenAI's help center describes <a href=\"https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt\">prompting as iterative</a>: start with a prompt, review the response, then adjust the wording, add context or simplify the request. <a href=\"https://learn.chatgpt.com/docs/prompting\">ChatGPT Learn</a> puts it simply: review the result, then ask for the specific change you want. Follow-ups such as “Make it shorter” or “Put the price in the first line” are part of the process.</p><h2>Prompts for finding and scoping client work</h2><p>These templates assume you already have a lead or a job post. If you're still deciding where to find work, start with <a href=\"https://newearns.com/how-to-make-money-online/\">How to Make Money Online: 5 Ways and What Each Platform Takes</a>. In every template, replace the square-bracket parts with your own details.</p><h3>Draft a proposal from a job post</h3><p><strong>What to paste in:</strong> the full job post, two or three examples of relevant work, and your availability.</p><p><strong>Prompt:</strong> Goal: Draft a proposal for the job post below. Context: The post is under JOB POST; my relevant experience is under MY EXPERIENCE. Output: Under 200 words. Open with a line that refers to a specific detail in the post, then explain how I'd approach the work, then end with one question for the client. Boundaries: Use only the experience I list. Don't invent experience, results, clients or statistics. If the post asks for something my experience doesn't cover, flag it instead of filling the gap.</p><p><strong>Check before you use it:</strong> every claim about you is true, and the “specific detail” actually appears in the post.</p><h3>Questions to ask before quoting a project</h3><p><strong>What to paste in:</strong> the client's first message or project description, and a line on what you normally deliver.</p><p><strong>Prompt:</strong> I'm a [freelance web designer] preparing a quote for the project below. List the questions I should ask before I can price it, grouped under scope, timeline, budget, approvals and materials the client will supply. Put the five most important questions first. Keep each question to one plain-English sentence.</p><p><strong>Check before you use it:</strong> delete questions the brief already answers and add anything specific to your service.</p><h3>Turn a messy brief into a scope-of-work outline</h3><p><strong>What to paste in:</strong> the brief, relevant emails and your call notes.</p><p><strong>Prompt:</strong> Turn the notes below into a scope-of-work outline with these headings: objective, deliverables, out of scope, client responsibilities, timeline, revision rounds, open questions. Use only what's in the notes. Where the notes don't cover something, write “To confirm with client” instead of guessing. Keep the approved dates and budget figures unchanged.</p><p><strong>Check before you use it:</strong> compare every line with the original notes. A scope you send reads as a commitment. If you're growing freelance work into an agency, see <a href=\"https://newearns.com/how-to-start-your-digital-marketing-agency-in-2025/\">How to Start Your Digital Marketing Agency in 2025</a>.</p><h2>Prompts for client communication</h2><h3>Meeting notes to follow-up email</h3><p>This one is adapted from an example in <a href=\"https://learn.chatgpt.com/docs/prompting\">OpenAI's prompting guide</a>, which also suggests asking for a final check on important work.</p><p><strong>What to paste in:</strong> your raw meeting notes.</p><p><strong>Prompt:</strong> Turn these notes into a follow-up email with the decisions, owners and due dates. Put the decisions first. Before the email, confirm that every action item has an owner and a due date, and list any that don't. Use only the supplied notes. Flag missing information instead of guessing.</p><p><strong>Check before you use it:</strong> names, dates and who agreed to what.</p><h3>Weekly status update with decisions first</h3><p><strong>What to paste in:</strong> your notes from the week.</p><p><strong>Prompt:</strong> Turn these notes into a short weekly update for [client name]. Put decisions and next steps first, then progress, then anything I need from the client. Under 150 words, friendly and professional. Keep all dates and figures unchanged.</p><p><strong>Check before you use it:</strong> nothing is promised that you haven't agreed to.</p><h3>Push back on scope creep</h3><p>Adapted from OpenAI's <a href=\"https://learn.chatgpt.com/docs/prompting\">example of declining an invitation in under 120 words</a>.</p><p><strong>What to paste in:</strong> the client's new request and the relevant line from your agreed scope.</p><p><strong>Prompt:</strong> Draft a friendly email declining this extra request because it's outside the agreed scope (pasted below). Keep it under 120 words, offer to quote it as a separate piece of work, and leave the door open. Apologise no more than once.</p><p><strong>Check before you use it:</strong> the scope line you quote matches your actual agreement.</p><h3>A friendly late-payment reminder</h3><p><strong>What to paste in:</strong> invoice number, amount, due date and how the client can pay.</p><p><strong>Prompt:</strong> Write a friendly reminder that invoice [number] for [amount], due [date], hasn't been paid. Include how to pay: [details]. Under 100 words, polite and direct. Keep the invoice number, amount and dates exactly as given. Prepare the message as a draft. Don't send it.</p><p><strong>Check before you use it:</strong> every number against your invoice. “Prepare the message as a draft. Don't send it” is one of the <a href=\"https://learn.chatgpt.com/docs/prompting\">boundary examples OpenAI lists</a>, and a sensible habit for anything involving money.</p><h3>Fix the tone of a rough reply</h3><p>OpenAI's help center says <a href=\"https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt\">descriptive adjectives such as formal, friendly or professional help guide tone</a>.</p><p><strong>Prompt:</strong> Rewrite my reply below in a friendly, professional tone. Keep every fact, date and price the same. Make it shorter if you can without dropping information.</p><p><strong>Check before you use it:</strong> it still sounds like you.</p><h2>Prompts for content and creator work</h2><h3>Repurpose one long post into short social posts</h3><p><strong>What to paste in:</strong> the full article, the platform and your audience.</p><p><strong>Prompt:</strong> Turn the article below into five short posts for [platform] aimed at [audience]. Each post makes one point from the article and stands alone. Output a numbered list. Use only ideas and facts from the article; don't add statistics, quotes or claims that aren't in it.</p><p><strong>Check before you use it:</strong> the platform's current length limits, and that each post matches the article.</p><h3>Headline and hook options</h3><p><strong>Prompt:</strong> Give me 10 headline options and 5 opening hooks for the post below, aimed at [audience]. Mix direct, curiosity-led and benefit-led styles. Don't add statistics, numbers, studies or quotes that aren't in the post.</p><p><strong>Check before you use it:</strong> the “no statistics” line matters. OpenAI says ChatGPT can hallucinate, including <a href=\"https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth\">fabricated quotes, studies, citations or references to non-existent sources</a>. A punchy invented number in a headline is exactly that risk.</p><h3>Explain a topic for beginners</h3><p>Adapted from OpenAI's <a href=\"https://learn.chatgpt.com/docs/prompting\">compound-interest example</a>.</p><p><strong>Prompt:</strong> Explain [topic] for someone who has never [done it]. Use one concrete example and define any terms you introduce. Under 300 words.</p><p><strong>Check before you use it:</strong> technical details against a reliable source before you publish.</p><h2>Prompts for running a small online business</h2><p>For the bigger picture on building a business with AI tools, see <a href=\"https://newearns.com/how-to-use-artificial-intelligence-to-start-a-business/\">How to Use Artificial Intelligence to Start a Business</a>.</p><h3>Product description from your own notes</h3><p><strong>What to paste in:</strong> your product notes, specs and who it's for.</p><p><strong>Prompt:</strong> Write a product description for [product] for [buyer]. Use only the features and specs listed below. Output: a one-sentence summary, three bullet points on benefits tied to listed features, then the specs as a list. Don't invent features, materials, certifications, measurements or results.</p><p><strong>Check before you use it:</strong> every feature and number against your notes.</p><h3>FAQ draft from real customer questions</h3><p><strong>What to paste in:</strong> real customer questions with names and contact details removed, plus your shipping, refund or delivery policies.</p><p><strong>Prompt:</strong> Group the customer questions below into an FAQ of no more than eight questions. Answer each using only the policy text I've pasted. If the policies don't answer a question, write “Needs answer from owner” instead of guessing.</p><p><strong>Check before you use it:</strong> each answer matches your current policy.</p><h3>Planned vs. actual spending table</h3><p>This is close to an example in <a href=\"https://learn.chatgpt.com/docs/prompting\">OpenAI's guide</a>.</p><p><strong>Prompt:</strong> Create a clear table of planned versus actual spending from the figures below and highlight any difference over 10%. Add a total row and list any line where a figure is missing. Use only the figures I've pasted.</p><p><strong>Check before you use it:</strong> recalculate totals in your spreadsheet. OpenAI advises users to <a href=\"https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth\">always verify data</a>.</p><h2>Save your best prompts so you don't retype them</h2><p>Once a few ChatGPT prompts work for you, store the parts you reuse. Menu names may differ by app version and plan.</p><h3>Custom instructions for preferences in every chat</h3><p>OpenAI recommends putting <a href=\"https://learn.chatgpt.com/docs/prompting\">preferences that should apply across chats in custom instructions</a> and keeping details for one chat in the prompt. According to the <a href=\"https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions\">custom instructions help page</a>, they're available on all plans on web, desktop, iOS and Android:</p><ul><li><strong>Web and desktop:</strong> Settings, then Personalization.</li><li><strong>iOS and Android:</strong> Settings, then Customize ChatGPT; make sure Enable customization is on, then use the Custom Instructions field.</li><li><strong>Limits:</strong> Free and Go users can save up to 1,500 characters; Plus, Pro, Enterprise, Business and Education users up to 5,000 (<a href=\"https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions\">source</a>).</li></ul><p>An example: “I'm a freelance copywriter. Use British English. Keep emails short. Never invent client names, results or statistics.”</p><h3>Projects for each client or side business</h3><p><a href=\"https://help.openai.com/en/articles/10169521-projects-in-chatgpt\">Projects</a> keep related chats, files and instructions together, and are available to signed-in users subject to plan and workspace settings. To set one up:</p><ol><li>Select New project in the sidebar, enter a name, and pick an icon and color.</li><li>Upload PDFs, spreadsheets, docs or images, or paste text, such as a client's brief and style guide.</li><li>Open the more options menu (•••), select Project settings, and add instructions. These apply only inside that project and override your global custom instructions.</li><li>Drag existing chats onto the project or use Move to project. Chats created with a GPT can't be moved in.</li></ol><p>Per OpenAI, you can create unlimited projects, upload only 10 files at a time, and store 5 files per project on Free, 25 on Go and Plus, and 40 on Edu, Pro, Business and Enterprise (<a href=\"https://help.openai.com/en/articles/10169521-projects-in-chatgpt\">source</a>).</p><table><thead><tr><th>Option</th><th>Applies to</th><th>Where to set it</th><th>Limits</th><th>Best for</th></tr></thead><tbody><tr><td>One-off chat</td><td>That conversation only</td><td>In the prompt</td><td>Retype or paste each time</td><td>Details for one task (<a href=\"https://learn.chatgpt.com/docs/prompting\">OpenAI</a>)</td></tr><tr><td>Custom instructions</td><td>All chats</td><td>Settings &gt; Personalization (web/desktop)</td><td>1,500 or 5,000 characters by plan (<a href=\"https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions\">OpenAI</a>)</td><td>Your tone, language, standing rules</td></tr><tr><td>Project</td><td>Chats inside the project</td><td>••• &gt; Project settings</td><td>5, 25 or 40 files by plan; 10 per upload (<a href=\"https://help.openai.com/en/articles/10169521-projects-in-chatgpt\">OpenAI</a>)</td><td>One client or business with shared files</td></tr><tr><td>Temporary chat</td><td>That chat only</td><td>Temporary chat option in the app</td><td>Not in history; may be kept up to 30 days for safety (<a href=\"https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt\">OpenAI</a>)</td><td>Sensitive one-off tasks</td></tr></tbody></table><h2>Keep client information private</h2><p>According to OpenAI's <a href=\"https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt\">data controls page</a>, data sharing is on by default for personal Free, Plus and Pro workspaces. You can turn off Improve the model for everyone and keep your chat history. On web, open Settings, select Data controls, select Improve the model for everyone, turn it off and select Done. On mobile, select your profile icon to open Settings and turn it off. Once it's off, new conversations won't be used to train OpenAI models but still appear in your history; it doesn't delete saved chats. Voice mode has a separate control.</p><p>The <a href=\"https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt\">same page</a> says temporary chats don't appear in history, don't create or update memories, aren't used to improve models, and may be retained for up to 30 days for safety. If you save a temporary chat, it becomes a regular chat that follows your account settings.</p><p>Two caveats from OpenAI:</p><ul><li>If you give feedback, such as thumbs up or down, the <a href=\"https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt\">entire conversation tied to that feedback may be used for training</a>.</li><li>Information from your use of custom instructions is <a href=\"https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions\">also used to improve model performance</a>; the page links to opt-out information.</li></ul><p>By default, OpenAI <a href=\"https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt\">does not use content from Business, Enterprise, Edu or ChatGPT for Healthcare workspaces</a> to train its models. Whatever your plan, it's good practice to remove names, emails and account details before pasting, and to check what your client contract says about third-party tools.</p><h2>Check everything before it reaches a client</h2><p>OpenAI says ChatGPT <a href=\"https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth\">can produce incorrect or misleading outputs and may sound confident when wrong</a>. It recommends using it as a first draft, not a final source, and always verifying quotes, data, technical information and references.</p><ul><li>When an answer depends on current information, <a href=\"https://learn.chatgpt.com/docs/prompting\">ask ChatGPT to use web search and ask for sources</a>. Search access depends on your plan, per <a href=\"https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth\">OpenAI</a>.</li><li>For important work, <a href=\"https://learn.chatgpt.com/docs/prompting\">ask for a final check</a>, such as flagging information it couldn't verify, then review it yourself.</li><li>Don't ask ChatGPT whether a text was AI-written. OpenAI says those answers <a href=\"https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth\">are not reliable evidence of authorship</a>.</li></ul><h2>Don't use ChatGPT to write fake reviews</h2><p>In the US, the FTC announced a <a href=\"https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials\">final rule on fake reviews</a> in August 2024. It addresses reviews and similar customer endorsements that misrepresent that they are by someone who does not exist, such as AI-generated fake reviews, or by someone who had no actual experience with the business or its products, or that misrepresent the person's experience. It prohibits businesses from creating or selling them, and covers buying or disseminating them when the business knew or should have known they were fake. The FTC said the rule lets it seek civil penalties against knowing violators. Use the FAQ template above with real customer questions instead.</p><h2>What research says about time saved (and where AI makes work worse)</h2><p>In a preregistered experiment published in <em>Science</em> in 2023, Noy and Zhang gave occupation-specific, midlevel writing tasks to 453 college-educated professionals; those given ChatGPT took 40% less time on average and produced 18% higher-quality output (<a href=\"https://www.researchgate.net/publication/372342901_Experimental_evidence_on_the_productivity_effects_of_generative_artificial_intelligence\">abstract</a>).</p><p>A September 2023 Harvard Business School working paper by Dell'Acqua and colleagues, still in draft form, studied 758 consultants. On 18 realistic tasks inside AI's capabilities, those using GPT-4 completed 12.2% more tasks, worked 25.1% faster and produced more than 40% higher-quality results than a control group. On one task chosen to be outside those capabilities, consultants using AI were 19 percentage points less likely to produce correct solutions (<a href=\"https://mitsloan.mit.edu/sites/default/files/2023-10/SSRN-id4573321.pdf\">paper</a>).</p><p>The takeaway: these were specific tasks and groups, not a promise for your work. Try a prompt on your own task, check the output, and judge the time saved yourself.</p><h2>When a prompt doesn't work: quick fixes</h2><table><thead><tr><th>Symptom</th><th>Fix</th><th>Source</th></tr></thead><tbody><tr><td>Generic output</td><td>Add context and the audience</td><td><a href=\"https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt\">OpenAI Help</a>, <a href=\"https://learn.chatgpt.com/docs/prompting\">ChatGPT Learn</a></td></tr><tr><td>Wrong length or format</td><td>Say how you'll use the result</td><td><a href=\"https://learn.chatgpt.com/docs/prompting\">ChatGPT Learn</a></td></tr><tr><td>Made-up facts</td><td>Add “Use only the supplied sources. Flag missing information instead of guessing.” Then verify</td><td><a href=\"https://learn.chatgpt.com/docs/prompting\">ChatGPT Learn</a>, <a href=\"https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth\">OpenAI Help</a></td></tr><tr><td>Wrong tone</td><td>Use descriptive adjectives (friendly, formal, serious)</td><td><a href=\"https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt\">OpenAI Help</a></td></tr><tr><td>Changed things it shouldn't</td><td>Add the one or two boundaries that matter most</td><td><a href=\"https://learn.chatgpt.com/docs/prompting\">ChatGPT Learn</a></td></tr></tbody></table><h2>Wrapping up</h2><p>Pick the two or three templates closest to your weekly work, fill in the brackets, and keep the boundary lines. Save what you reuse in custom instructions or a project, protect client details, and check every number and claim before you hit send.</p><h2>FAQ</h2><h3>Do I need all four parts in every prompt?</h3><p>No. OpenAI says to <a href=\"https://learn.chatgpt.com/docs/prompting\">use only the parts that help</a>, and Google's guide says the same about its <a href=\"https://workspace.google.com/resources/ai/writing-effective-prompts/\">four areas</a>.</p><h3>Will client information I paste be used to train models?</h3><p>On personal Free, Plus and Pro workspaces, data sharing is on by default, but you can turn off Improve the model for everyone or use a temporary chat, per <a href=\"https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt\">OpenAI's data controls page</a>. Feedback ratings are an exception.</p><h3>Can ChatGPT tell me if a client's text was written by AI?</h3><p>Not reliably. OpenAI says ChatGPT <a href=\"https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth\">can't reliably determine whether text was AI-generated</a>.</p>",
+      "sources": [
+        {
+          "url": "https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt",
+          "title": "Prompt engineering best practices for ChatGPT (OpenAI Help Center)",
+          "supports": "Clear, specific prompts with context; iterative refinement; descriptive adjectives to guide tone."
+        },
+        {
+          "url": "https://learn.chatgpt.com/docs/prompting",
+          "title": "Prompting | ChatGPT Learn (OpenAI)",
+          "supports": "Goal/Context/Output/Boundaries structure and 'use only the parts that help'; example prompts (meeting notes, decline under 120 words, spending table over 10%, compound interest); boundary phrases; custom instructions for cross-chat preferences; web search and sources; final-check advice; first prompt needn't be perfect."
+        },
+        {
+          "url": "https://help.openai.com/en/articles/10169521-projects-in-chatgpt",
+          "title": "Projects in ChatGPT (OpenAI Help Center)",
+          "supports": "What Projects do, availability, creation steps, Project settings instructions overriding custom instructions, moving chats, GPT exception, unlimited projects, 10-file upload cap and per-plan file limits."
+        },
+        {
+          "url": "https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions",
+          "title": "ChatGPT Custom Instructions (OpenAI Help Center)",
+          "supports": "Availability on all plans and platforms, menu paths for web/desktop and mobile, 1,500 vs 5,000 character limits, use of custom instructions information to improve models."
+        },
+        {
+          "url": "https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth",
+          "title": "Does ChatGPT tell the truth? (OpenAI Help Center)",
+          "supports": "Incorrect or confident-but-wrong outputs, fabricated quotes/studies/citations, verify quotes and data, first draft not final source, plan-dependent search tool, unreliability of AI-authorship answers."
+        },
+        {
+          "url": "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt",
+          "title": "Data controls in ChatGPT (OpenAI Help Center)",
+          "supports": "Default data sharing on Free/Plus/Pro, turning off Improve the model for everyone (web and mobile steps), voice mode separate control, temporary chat behaviour and 30-day safety retention, saved temporary chats, feedback exception, Business/Enterprise/Edu/Healthcare not used for training by default."
+        },
+        {
+          "url": "https://workspace.google.com/resources/ai/writing-effective-prompts/",
+          "title": "Writing Effective AI Prompts for Business | Gemini for Workspace (Google)",
+          "supports": "Persona/Task/Context/Format as four areas of a prompt; not all four needed every time."
+        },
+        {
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials",
+          "title": "FTC press release: final rule banning fake reviews (August 14, 2024)",
+          "supports": "US rule addressing fake reviews including AI-generated fake reviews; prohibition on creating or selling them; knew-or-should-have-known condition for buying/disseminating; civil penalties against knowing violators."
+        },
+        {
+          "url": "https://www.researchgate.net/publication/372342901_Experimental_evidence_on_the_productivity_effects_of_generative_artificial_intelligence",
+          "title": "Noy & Zhang, Experimental evidence on the productivity effects of generative artificial intelligence (Science, 2023), abstract",
+          "supports": "453 college-educated professionals, occupation-specific midlevel writing tasks, 40% less time and 18% higher quality."
+        },
+        {
+          "url": "https://mitsloan.mit.edu/sites/default/files/2023-10/SSRN-id4573321.pdf",
+          "title": "Dell'Acqua et al., Navigating the Jagged Technological Frontier (HBS Working Paper 24-013, 2023)",
+          "supports": "758 consultants; 12.2% more tasks, 25.1% faster, more than 40% higher quality on tasks inside the frontier; 19 percentage points less likely to be correct on a task outside it; working paper in draft form."
+        }
+      ],
+      "product_link_reason": "",
+      "internal_links_note": "",
+      "image_headline": "Copy-Ready ChatGPT Prompts for Freelancers",
+      "search_intent": "Informational/practical: readers searching 'chatgpt prompts' want copy-and-paste prompts they can use right away, plus a short explanation of how to write or adapt their own; freelancers and side-business owners want prompts tied to client work, content and running a small online business.",
+      "unique_value": "Instead of a generic list of hundreds of prompts, every template is built on OpenAI's documented Goal/Context/Output/Boundaries structure and organised by freelance workflow, with what to paste in and a verification step for each. It adds what rival lists skip: sourced privacy settings (Improve the model for everyone, temporary chat, feedback caveat), a decision table for saving prompts with plan-specific limits from OpenAI's help pages, a sourced troubleshooting table, the FTC rule on AI-generated fake reviews, and productivity research presented with its limits rather than as a promise.",
+      "image_alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+      "featured_image": {
+        "alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+        "license": "generated-in-house",
+        "creator": "",
+        "license_url": ""
+      },
+      "inline_images": []
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "A short prompt is often enough; for larger tasks include Goal/Context/Output/Boundaries, defined as in the article",
+          "verdict": "supported",
+          "source_url": "https://learn.chatgpt.com/docs/prompting",
+          "evidence": "\"A short prompt is often enough. For larger or more important tasks, include the parts that matter\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Use only the parts that help; there is no required format",
+          "verdict": "supported",
+          "source_url": "https://learn.chatgpt.com/docs/prompting",
+          "evidence": "\"You don't need to fill in every item or follow a required format.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Start with the result, not a list of steps; name the audience or format when it matters",
+          "verdict": "supported",
+          "source_url": "https://learn.chatgpt.com/docs/prompting",
+          "evidence": "\"Start with the result, not a detailed list of steps.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Google's framework is Persona, Task, Context, Format, and you don't need all four",
+          "verdict": "supported",
+          "source_url": "https://workspace.google.com/resources/ai/writing-effective-prompts/",
+          "evidence": "\"You don't need to use all four in every prompt\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The help center calls prompting iterative: start, review, adjust wording, add context or simplify",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt",
+          "evidence": "\"Start with an initial prompt, review the response, and refine the prompt\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "ChatGPT Learn says to review the result, then ask for the specific change",
+          "verdict": "supported",
+          "source_url": "https://learn.chatgpt.com/docs/prompting",
+          "evidence": "\"Review the result, then ask for the specific change you want.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The meeting-notes template is adapted from an OpenAI example, and the guide suggests a final check",
+          "verdict": "supported",
+          "source_url": "https://learn.chatgpt.com/docs/prompting",
+          "evidence": "\"Turn these notes into a follow-up email with the decisions, owners, and due dates.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The scope-creep template is adapted from a 'decline an invitation in under 120 words' example",
+          "verdict": "supported",
+          "source_url": "https://learn.chatgpt.com/docs/prompting",
+          "evidence": "\"Draft a friendly email declining this invitation… Keep it under 120 words\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Prepare the message as a draft. Don't send it\" is one of OpenAI's boundary examples",
+          "verdict": "supported",
+          "source_url": "https://learn.chatgpt.com/docs/prompting",
+          "evidence": "Listed verbatim under \"Set boundaries that prevent real problems\".",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Descriptive adjectives (formal, friendly, professional) guide tone",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt",
+          "evidence": "\"Words like formal, informal, friendly, professional, humorous, or serious can help guide the model.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "A compound-interest example exists",
+          "verdict": "supported",
+          "source_url": "https://learn.chatgpt.com/docs/prompting",
+          "evidence": "\"Explain how compound interest works for someone who has never invested.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The planned-vs-actual table template is close to an OpenAI example",
+          "verdict": "supported",
+          "source_url": "https://learn.chatgpt.com/docs/prompting",
+          "evidence": "\"Create a clear table of planned versus actual spending and highlight any difference over 10%.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Ask for web search when you need current information, and ask for sources",
+          "verdict": "supported",
+          "source_url": "https://learn.chatgpt.com/docs/prompting",
+          "evidence": "\"Ask ChatGPT to use web search when the answer depends on current information\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Ask for a final check (e.g. flag what it couldn't verify), then review it yourself",
+          "verdict": "supported",
+          "source_url": "https://learn.chatgpt.com/docs/prompting",
+          "evidence": "\"flagging information it couldn't verify. Then review the result yourself\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Put cross-chat preferences in custom instructions; keep one-chat details in the prompt",
+          "verdict": "supported",
+          "source_url": "https://learn.chatgpt.com/docs/prompting",
+          "evidence": "\"Keep details that matter only to the current chat in the prompt.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Troubleshooting: for generic output, add context and the audience",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt",
+          "evidence": "Supported by OpenAI Help 10032626 (\"provide enough context\") and ChatGPT Learn (\"Include the audience or format\").",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Troubleshooting: for wrong length or format, say how you'll use the result",
+          "verdict": "supported",
+          "source_url": "https://learn.chatgpt.com/docs/prompting",
+          "evidence": "\"Tell ChatGPT how you plan to use the result. This helps it choose the right length\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Troubleshooting: for made-up facts, use \"Use only the supplied sources. Flag missing information instead of guessing.\" (credited to ChatGPT Learn)",
+          "verdict": "unsupported",
+          "source_url": "https://learn.chatgpt.com/docs/prompting",
+          "evidence": "Unsupported in part. Learn has \"Flag any conflicting or missing information\" but no \"use only the supplied sources\" instruction.",
+          "suggested_fix": "Present it as the article's own suggested wording, or change it to Learn's actual phrasing: \"Flag any conflicting or missing information.\" Keep the OpenAI Help citation for \"then verify\"."
+        },
+        {
+          "claim": "Troubleshooting: if it changed things it shouldn't, add the one or two boundaries that matter most",
+          "verdict": "supported",
+          "source_url": "https://learn.chatgpt.com/docs/prompting",
+          "evidence": "\"Focus on the one or two boundaries that matter most.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Custom instructions are available on all plans on web, desktop, iOS and Android",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions",
+          "evidence": "\"available on all plans on Web, Desktop, iOS, and Android\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Web/desktop: Settings → Personalization",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions",
+          "evidence": "\"In your Settings, select Personalization.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "iOS/Android: Settings → Customize ChatGPT; turn Enable customization on; Custom Instructions field",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions",
+          "evidence": "\"select Customize ChatGPT… Enable customization is toggled ON\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The custom-instructions limit is 1,500 characters for Free/Go and 5,000 for Plus, Pro, Enterprise, Business and Education",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions",
+          "evidence": "\"Free and Go users can save up to 1,500 characters\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Custom-instructions data is used to improve models, and the page links to opt-out information",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions",
+          "evidence": "\"Information from your use of custom instructions will also be used to improve model performance\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Projects keep chats, files and instructions together; available to signed-in users, subject to plan and workspace",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/10169521-projects-in-chatgpt",
+          "evidence": "\"available to signed-in ChatGPT users, subject to plan availability and workspace settings\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Create a new project in the sidebar and choose a name, icon and color",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/10169521-projects-in-chatgpt",
+          "evidence": "\"Enter a project name, then select an icon and color.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "You can upload PDFs, spreadsheets, docs or images, or paste text",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/10169521-projects-in-chatgpt",
+          "evidence": "\"uploading PDFs, spreadsheets, docs, images, or by pasting text\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "••• → Project settings; project instructions apply only in the project and override global custom instructions",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/10169521-projects-in-chatgpt",
+          "evidence": "\"apply only within that project and override your global custom instructions\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Drag chats or use Move to project; chats created with a GPT can't be moved",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/10169521-projects-in-chatgpt",
+          "evidence": "\"Chats created with a GPT can't be moved into a project.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Unlimited projects; 10 files per upload; 5 / 25 / 40 files by plan",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/10169521-projects-in-chatgpt",
+          "evidence": "\"Users can create an unlimited amount of projects… only 10 files can be uploaded at the same time\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Data sharing is on by default for personal Free, Plus and Pro; you can turn it off and keep your history",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt",
+          "evidence": "\"On personal workspaces with ChatGPT Free, Plus, or Pro, data sharing is enabled by default.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Web steps: Settings → Data controls → Improve the model for everyone → off → Done",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt",
+          "evidence": "Steps listed under \"Web (signed in)\". The source starts with \"Open your account menu\", which the article skips.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Mobile: the profile icon opens Settings, then turn it off",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt",
+          "evidence": "\"Select your profile icon to open Settings.\" The source starts with \"Open the sidebar.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "When it's off, new chats aren't used for training but stay in history; saved chats aren't deleted",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt",
+          "evidence": "\"Turning off Improve the model for everyone does not delete or hide saved chats.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Voice mode has a separate control",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt",
+          "evidence": "\"Voice mode has a separate control for sharing data for model training.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Temporary chats don't appear in history, create no memories, aren't used for training, and may be kept up to 30 days for safety",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt",
+          "evidence": "\"may be retained for up to 30 days for safety purposes\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "A saved temporary chat becomes a regular chat that follows account settings",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt",
+          "evidence": "\"If you save a temporary chat, it becomes a regular chat in your history\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Feedback (thumbs up/down) can bring the whole conversation into training",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt",
+          "evidence": "\"the entire conversation associated with that feedback may be used to train OpenAI models\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Business, Enterprise, Edu and Healthcare workspaces aren't used for training by default",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt",
+          "evidence": "\"By default, OpenAI does not use content from ChatGPT Business, Enterprise, Edu, or ChatGPT for Healthcare workspaces\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "ChatGPT can hallucinate, including fabricated quotes, studies and citations",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth",
+          "evidence": "\"Fabricated quotes, studies, citations or references to non-existent sources\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "It can be incorrect or misleading and may sound confident when wrong",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth",
+          "evidence": "\"Sometimes, it might sound confident—even when it's wrong.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Use it as a first draft; always verify quotes, data, technical information and references",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth",
+          "evidence": "\"Use ChatGPT as a first draft, not a final source.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Search access depends on your plan",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth",
+          "evidence": "Supported with a caveat: \"Depending on your plan, ChatGPT may have access to tools\". The same page also says search tools \"are enabled for all models by default\", so the claim is weaker than it sounds.",
+          "suggested_fix": "Optional: \"Search is on by default in most cases; check for the search icon.\""
+        },
+        {
+          "claim": "It can't reliably tell whether text is AI-written; those answers aren't evidence of authorship",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth",
+          "evidence": "\"Those answers are not reliable evidence of authorship.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The FTC's final rule on fake reviews was announced in August 2024",
+          "verdict": "supported",
+          "source_url": "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials",
+          "evidence": "Dated August 14, 2024. Read with web_fetch because read_source returned a 404.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The rule covers reviews by people who don't exist (e.g. AI-generated), people with no real experience, or misrepresented experience; it bans creating or selling them, and buying or disseminating is covered when the business knew or should have known",
+          "verdict": "supported",
+          "source_url": "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials",
+          "evidence": "\"misrepresent that they are by someone who does not exist, such as AI-generated fake reviews\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The rule lets the FTC seek civil penalties against knowing violators",
+          "verdict": "supported",
+          "source_url": "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials",
+          "evidence": "\"allow the agency to seek civil penalties against knowing violators\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Noy & Zhang: preregistered study of 453 college-educated professionals doing occupation-specific midlevel writing tasks; 40% less time, 18% higher quality",
+          "verdict": "supported",
+          "source_url": "https://www.researchgate.net/publication/372342901_Experimental_evidence_on_the_productivity_effects_of_generative_artificial_intelligence",
+          "evidence": "\"The average time taken decreased by 40% and output quality rose by 18%.\" Read with web_fetch (abstract only).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The Noy & Zhang study was published in Science in 2023",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Supported, but not on the cited page. The Mendeley catalogue (web_fetch), which is not a cited source, shows \"(2023) Noy, Zhang. Science.\" with volume 381, issue 6654, pp. 187–192. The cited ResearchGate page doesn't name the journal.",
+          "suggested_fix": "Cite the DOI, 10.1126/science.adh2586, or add it next to the ResearchGate link."
+        },
+        {
+          "claim": "HBS working paper, September 2023, in draft form, by Dell'Acqua et al., with 758 consultants",
+          "verdict": "supported",
+          "source_url": "https://mitsloan.mit.edu/sites/default/files/2023-10/SSRN-id4573321.pdf",
+          "evidence": "Dated \"September 22, 2023\"; \"Working Paper 24-013… Working papers are in draft form.\" \"Still in draft form\" repeats standard HBS wording.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "On 18 tasks inside AI's capabilities: 12.2% more tasks, 25.1% faster, more than 40% higher quality; GPT-4",
+          "verdict": "supported",
+          "source_url": "https://mitsloan.mit.edu/sites/default/files/2023-10/SSRN-id4573321.pdf",
+          "evidence": "\"completed 12.2% more tasks on average, and completed tasks 25.1% more quickly\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "On a task outside the frontier, consultants were 19 percentage points less likely to be correct",
+          "verdict": "supported",
+          "source_url": "https://mitsloan.mit.edu/sites/default/files/2023-10/SSRN-id4573321.pdf",
+          "evidence": "\"19 percentage points less likely to produce correct solutions\"",
+          "suggested_fix": ""
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt",
+          "relevant": true,
+          "notes": "Read in full. Supports the iteration, context and tone claims."
+        },
+        {
+          "url": "https://learn.chatgpt.com/docs/prompting",
+          "relevant": true,
+          "notes": "Read in part; the relevant sections were read again. Supports every use except row 18's \"use only the supplied sources\"."
+        },
+        {
+          "url": "https://help.openai.com/en/articles/10169521-projects-in-chatgpt",
+          "relevant": true,
+          "notes": "Read in part; steps and limits read again. Supports the Projects claims."
+        },
+        {
+          "url": "https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions",
+          "relevant": true,
+          "notes": "Read in full. Supports the custom-instructions claims."
+        },
+        {
+          "url": "https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth",
+          "relevant": true,
+          "notes": "Read in full. Supports the accuracy claims; small caveat on row 43 (search is enabled for all models by default)."
+        },
+        {
+          "url": "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt",
+          "relevant": true,
+          "notes": "Read in part; web, mobile and temporary-chat sections read again. Supports the data-control claims."
+        },
+        {
+          "url": "https://workspace.google.com/resources/ai/writing-effective-prompts/",
+          "relevant": true,
+          "notes": "Read in full. Supports the Persona/Task/Context/Format claim."
+        },
+        {
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials",
+          "relevant": true,
+          "notes": "read_source gave a 404; web_fetch worked. Supports the FTC claims."
+        },
+        {
+          "url": "https://www.researchgate.net/publication/372342901_Experimental_evidence_on_the_productivity_effects_of_generative_artificial_intelligence",
+          "relevant": false,
+          "notes": "read_source gave a 403; web_fetch worked (abstract only). Supports the numbers, not \"published in Science\"; the notes do not give a plain yes."
+        },
+        {
+          "url": "https://mitsloan.mit.edu/sites/default/files/2023-10/SSRN-id4573321.pdf",
+          "relevant": true,
+          "notes": "web_fetch worked; PDF text extracted. Supports the HBS working-paper claims."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "Yes; clearly better than a generic list. About 16 prompts grouped by freelance work (proposals, scoping, client emails, payment reminders, content repurposing, product listings, spending). Each adds rules against making things up, and most include a check step. It also explains how to write your own prompts. The settings advice is practical and sourced, and all the plan limits checked are correct.",
+      "adds_original_value": true,
+      "value_notes": "Adds value through freelance-specific templates, anti-fabrication rules, check steps, sourced settings advice, and FTC and research context (including the result where AI made work worse) that most prompt lists leave out. The notes call the article's own 'original value' claim overstated in two places. (1) \"With what to paste in… for each\": the headline/hook, tone-fix, explain-a-topic and planned-vs-actual templates have no \"What to paste in\" line. Fix: add one to each, or change the claim to \"for most\". (2) \"Every template is built on… Goal/Context/Output/Boundaries\": only the proposal template uses those labels; the rest follow the idea loosely. Fix: say \"templates follow\" instead of \"every template is built on\", or label each part. The template wording, the custom-instruction example and the advice about removing client details are the article's own suggestions, not factual claims.",
+      "product_claims_accurate": true,
+      "product_notes": "Allowed product claims: none. ChatGPT and Gemini are only discussed as the tools being explained, with no pricing pitches or affiliate claims. The internal newearns.com links don't make product claims. Nothing violates the allowed claims.",
+      "fetched_urls": [
+        "https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt",
+        "https://help.openai.com/en/articles/10169521-projects-in-chatgpt",
+        "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt",
+        "https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions",
+        "https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth",
+        "https://learn.chatgpt.com/docs/prompting",
+        "https://mitsloan.mit.edu/sites/default/files/2023-10/SSRN-id4573321.pdf",
+        "https://workspace.google.com/resources/ai/writing-effective-prompts/",
+        "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials",
+        "https://www.mendeley.com/catalogue/35312800-4345-3022-98ab-d1bd6ff8b744/",
+        "https://www.researchgate.net/publication/372342901_Experimental_evidence_on_the_productivity_effects_of_generative_artificial_intelligence"
+      ],
+      "content_sha256": "2ced2ee80c33a462475eeab084433859b230cc7242cfd95d6b835ddca5a2c841"
+    },
+    "images": {
+      "words": 2824,
+      "target": [
+        4,
+        5
+      ],
+      "stock_api_calls": 7,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "chatgpt prompts",
+          "result": "10"
+        },
+        {
+          "provider": "openverse",
+          "query": "ChatGPT prompts",
+          "result": "10 (cached)"
+        },
+        {
+          "provider": "openverse",
+          "query": "person using laptop computer",
+          "result": "20"
+        },
+        {
+          "provider": "openverse",
+          "query": "laptop home office",
+          "result": "20"
+        },
+        {
+          "provider": "commons",
+          "query": "chatgpt prompts",
+          "result": "7"
+        },
+        {
+          "provider": "commons",
+          "query": "ChatGPT prompts",
+          "result": "7 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "person using laptop computer",
+          "result": "17"
+        },
+        {
+          "provider": "commons",
+          "query": "laptop home office",
+          "result": "19 (cached)"
+        }
+      ],
+      "notes": [
+        "FALLBACK: no free, clearly licensed photo matched this article's topic, so the featured image is an in-house illustration (earnings). Replace it in WP Admin if you find a better photo.",
+        "1 image(s), below the 4-5 guideline: nothing else in the article would gain from a visual, and decorative images are not added"
+      ],
+      "topic": {
+        "motif": "earnings",
+        "match": "pillar ai"
+      },
+      "photo_rejections": [
+        {
+          "description": "Pool Girl Midjourney",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Happy Easter PostCard",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Mondri EasterEgg by ChtGPT & bennoH. at 2026",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Canine Code Crisis",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Canine Code Crisis",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Petulant Trump",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "ChatGPT and Truth",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Trump is a Threat to National Security",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "War Over TikTok",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Prompting ChatGPT to code Arduinos",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Pool Girl Midjourney",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Happy Easter PostCard",
+          "reason": "no laptop/computer/screen in its title"
+        }
+      ],
+      "featured": {
+        "provider": "in-house",
+        "kind": "illustration",
+        "motif": "earnings",
+        "license": "generated-in-house",
+        "alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+        "caption": "",
+        "filename": "chatgpt-prompts-freelancers-side-hustles-featured.webp",
+        "fallback": true,
+        "file": "featured.webp",
+        "bytes": 5796
+      },
+      "inline": []
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2851 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "13 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "ChatGPT Prompts for Freelancers and Side Hustles: Copy-Ready Templates and How to Adapt Them"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.14% (2x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "0/13 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "152 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "48 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "chatgpt-prompts-freelancers-side-hustles"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "chatgpt-prompts-freelancers-side-hustles"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.00"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.45: How to Password-Protect a PDF (and What the Password Doesn’t Protect)"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": "2 confirmed by fact-check fetch"
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "3 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "0 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "6 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "10 of 10 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": false,
+        "detail": "Prompt: Goal: Draft a proposal for the job post below. Context: The post is under JOB POST | Prompt: Turn the article below into five short posts for [platform] aimed at [audience]. E | Prompt: Give me 10 headline options and 5 opening hooks for the post below, aimed at [audi",
+        "fix": "Link the source inside the same paragraph or list item as the number or 'according to' statement, or remove the statement."
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "69 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "generated-in-house"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "0 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "1 no supporting evidence found (not shown to be false): Troubleshooting: for made-up facts, use \"Use only the supplied sources. Flag missing infor (fix: Present it as the article's own suggested wording, or change it to Learn's actual phrasing: \"Flag any conflicting or mis) || 1 marked supported, but its source_url is missing or was not read by the pipeline: The Noy & Zhang study was published in Science in 2023 (fix: Cite the DOI, 10.1126/science.adh2586, or add it next to the ResearchGate link.)",
+        "fix": "Contradicted: correct the claim to what the source says. No evidence found: cite an official source that states it, narrow it to what a source does say, or remove it. Could not be checked: verify it against a readable source or remove it. Source page not read: cite a page the pipeline can open that states the claim, or remove the claim. No claims listed: the fact-check did not check anything. Then re-run the fact-check only."
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Yes; clearly better than a generic list. About 16 prompts grouped by freelance work (proposals, scoping, client emails, payment reminders, content repurposing, product listings, spending). Each adds rules against making things up, and most include a check step. It also explains how to write your own prompts. The settings advice is practical and sourced, and all the plan limits checked are correct."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "Adds value through freelance-specific templates, anti-fabrication rules, check steps, sourced settings advice, and FTC and research context (including the result where AI made work worse) that most prompt lists leave out. The notes call the article's own 'original value' claim overstated in two places. (1) \"With what to paste in… for each\": the headline/hook, tone-fix, explain-a-topic and planned-vs-actual templates have no \"What to paste in\" line. Fix: add one to each, or change the claim to \"for most\". (2) \"Every template is built on… Goal/Context/Output/Boundaries\": only the proposal template uses those labels; the rest follow the idea loosely. Fix: say \"templates follow\" instead of \"every template is built on\", or label each part. The template wording, the custom-instruction example and the advice about removing client details are the article's own suggestions, not factual claims."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "Allowed product claims: none. ChatGPT and Gemini are only discussed as the tools being explained, with no pricing pitches or affiliate claims. The internal newearns.com links don't make product claims. Nothing violates the allowed claims."
+      },
+      {
+        "check": "fact_check_current",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "sources_verified",
+        "passed": false,
+        "detail": "https://www.researchgate.net/publication/372342901_Experimental_evidence_on_the_productivity_effects_of_generative_artificial_intelligence does not support what it is cited for (read_source gave a 403; web_fetch worked (abstract only). Supports the numbers, not \"published in Sc)",
+        "fix": "Replace each unreadable or irrelevant source with a page that states the fact, or remove the claims that relied on it; then re-run the fact-check only."
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 1.092,
+        "write": 0.448,
+        "fact_check": 0.692,
+        "fact_check_json": 0.221
+      },
+      "total_usd": 2.453
+    },
+    "wp_media": {
+      "id": 3736,
+      "url": "https://newearns.com/wp-content/uploads/2026/10/chatgpt-prompts-freelancers-side-hustles-featured.webp"
+    },
+    "wp_post": {
+      "id": 3737,
+      "status": "pending",
+      "link": "https://newearns.com/?p=3737"
+    },
+    "image_check": "ok",
+    "final": "held_for_review"
+  },
+  "updated": "2026-10-24T14:33:24+00:00"
+}
