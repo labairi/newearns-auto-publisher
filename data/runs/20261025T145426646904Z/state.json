@@ -1,0 +1,678 @@
+{
+  "run_id": "20261025T145426646904Z",
+  "stages": {
+    "pillar": "money",
+    "topic": "TikTok Creator Rewards Program: Requirements and What It Really Pays",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 44,
+        "cache_creation_input_tokens": 51281,
+        "cache_read_input_tokens": 484637,
+        "output_tokens": 17563,
+        "web_search_requests": 12,
+        "web_fetch_requests": 6,
+        "requests": 12,
+        "read_source_calls": 18,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 44,
+            "cache_write_5m_tokens": 51281,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 484637,
+            "output_tokens": 17563
+          }
+        },
+        "fetched_urls": [
+          "https://support.tiktok.com/en/business-and-creator/creator-rewards-program/creator-rewards-program",
+          "https://support.tiktok.com/en/business-and-creator/creator-rewards-program/how-rewards-work"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.825
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 12691,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 10958,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 12691,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 10958
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.283
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 12,
+        "cache_creation_input_tokens": 51306,
+        "cache_read_input_tokens": 147969,
+        "output_tokens": 9444,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 5,
+        "read_source_calls": 8,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 12,
+            "cache_write_5m_tokens": 51306,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 147969,
+            "output_tokens": 9444
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.475
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 5182,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 6115,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 5182,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 6115
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.148
+      }
+    ],
+    "brief": "I've planned one article on the TikTok Creator Rewards Program, built mostly from TikTok's own terms pages. Two gaps the writer needs to know about first:\n\n- **TikTok's help pages couldn't be read.** The TikTok Support and Creator Academy pages for this programme load only with JavaScript and came back empty. So there is **no official list of eligible countries and no official step-by-step for applying in the app**. The article must not list countries or exact menu labels.\n- **TikTok doesn't publish a pay rate.** The only per-1,000-views figure comes from Influencer Marketing Hub, and it must be labelled as that site's estimate.\n\n---\n\n# BRIEF: TikTok Creator Rewards Program\n\n## 1. Chosen query and focus keyphrase\n- **Primary query:** tiktok creator rewards program\n- **Focus keyphrase:** TikTok Creator Rewards Program\n- **Proposed title:** TikTok Creator Rewards Program: Requirements, How Payouts Work, and the Fine Print\n- **Use the keyphrase in:** the title, the intro and one or two more places naturally. Variants like \"requirements\" and \"how much it pays\" go in body text, not stuffed into headings.\n- **Search-demand data:** none was provided. Don't state any search volumes.\n\n## 2. Search intent (from what ranks now)\n- Results for \"tiktok creator rewards program\" and the \"requirements\", \"RPM / how much pays\" and \"eligible countries\" variants are mostly third-party explainers: theleap.co, passionfru.it, onestream.live, manychat.com, creatorsagency.co, brandwatch.com, influencermarketinghub.com. TikTok's own EEA Creator Rewards Program Terms page also ranks.\n- **Intent:** informational, with a strong \"can I qualify, and what will it pay?\" side. Searchers want the requirements, how pay is worked out, a realistic pay-per-1,000-views figure and how to join.\n\n**Weaknesses in what ranks now:**\n- Pages state pay figures with no method behind them.\n- Most mix up regions and ignore that TikTok has separate terms for the US and the EEA, which differ.\n- Some repeat conditions TikTok's terms don't state, such as \"views must come from the For You feed\". **The writer must not repeat that.**\n- Almost none mention the fine print: the US confidentiality clause, clawbacks, the possible reward cap, the 30-day wait before reapplying, how balances under $50 are handled, or tax.\n\n## 3. Unique angle and added value\n**Angle:** \"What TikTok's own terms actually say, and how to check your real payout rate yourself.\"\n\n1. **Requirements checklist**, every line sourced to TikTok's terms. Covers age, where you live, account type, the 10,000 followers and 100,000 views in 30 days, a PayPal account in your own name, and tax onboarding.\n2. **Video rules checklist:** at least 1 minute long, at least 1,000 qualified views, a plain-language definition of a qualified view, and what's excluded (Duet, Stitch, Photo Mode, sponsored content, non-original content).\n3. **US vs EEA comparison table.** A difference no ranking page explains: in the EEA, amounts under $50 are still paid out \"as set out on the Balance dashboard\". In the US, an amount under $50 \"may be deemed expired\" at TikTok's discretion.\n4. **\"What it really pays\", handled honestly.**\n   - TikTok publishes no rate. Its US terms say the program's reporting metrics must be kept confidential, which helps explain why public pay figures are informal.\n   - Quote Influencer Marketing Hub's $0.40–$1.00 per 1,000 views as that publication's estimate.\n   - Show the arithmetic for working out your own rate: estimated rewards ÷ qualified views × 1,000.\n   - Show what the $50 payout threshold means in practice.\n   - No income promises.\n5. **\"The fine print\" section:** see H2 #6 in the outline.\n6. **\"What you can do this week\" checklist:** things the reader can act on whether or not they qualify yet.\n\n## 4. H2/H3 outline\n\n**Intro (2–3 sentences).** Explain what the programme is: TikTok paying creators directly for eligible videos of at least one minute, which replaced the Creativity Program Beta. Say plainly that TikTok doesn't publish a fixed rate.\n\n**H2 1: What the Creator Rewards Program is**\n- Came out of beta on March 18, 2024, as the renamed Creativity Program [Newsroom].\n- At launch TikTok named four core metrics: originality, play duration, search value and audience engagement. Present these as **\"at launch, TikTok said…\"**. Today's US terms describe rewards more generally: legitimate views and \"other signals\" of popularity and engagement.\n- In the EEA terms, rewards depend on where the views come from (country), the number of views, engagement and whether the views are authentic.\n\n**H2 2: Who can join: the requirements**\n- H3: Account requirements (checklist), all from the US terms unless noted:\n  - aged 18+ or the age of majority where you live\n  - legal resident of a country where the programme is available (EEA: no VPN)\n  - 10,000 authentic followers\n  - 100,000 authentic video views in the 30 days before applying\n  - account active and in good standing\n  - linked payment account in your own name, plus onboarding and tax documents\n  - not a Business or Organization account, and not a government body, politician or political party\n- H3: Where it's available. TikTok says \"selected countries\" only. Tell readers to check eligibility in the app. Don't list countries.\n\n**H2 3: Which videos earn rewards**\n- Checklist from the EEA terms: at least 1 minute long; at least 1,000 qualified views; not a Duet or Stitch; not Photo Mode; not an ad, paid promotion or sponsored content; original or adds new ideas; \"high quality\" as TikTok decides; follows all policies.\n- H3: What counts as a qualified view: watched for 5 seconds or more, not marked \"not interested\", and repeat views from the same account count once. Your own views and artificial views are excluded.\n- Note that this list comes from the **EEA terms**. The US terms only say \"at least 1 minute\", plus exclusions for artificial, paid or incentivised, or self-generated metrics. Don't say the 1,000-qualified-views rule is in the US terms.\n- The US terms also let TikTok mute, remove or disqualify videos that use music without authorisation.\n\n**H2 4: How much the Creator Rewards Program pays**\n- TikTok publishes no fixed rate. In the US, TikTok decides rewards \"in its sole discretion\" and may cap rewards monthly or yearly.\n- Third-party estimate: Influencer Marketing Hub says $0.40–$1.00 per 1,000 views, and that pay \"depends heavily on engagement, watch time, and audience location\". Label it as their estimate.\n- H3: Work out your own rate: estimated rewards ÷ qualified views × 1,000. For example, 100,000 qualified views at that site's estimated range would be about $40–$100. **Present this as arithmetic only, not a forecast**, and note that $40 is below the $50 payout threshold.\n- H3: Why public pay figures vary so much: the US confidentiality clause; pay depends on viewer country and engagement; rewards are discretionary.\n\n**H2 5: How and when you get paid**\n- Payments go through PayPal via Hyperwallet.\n- The dashboard shows estimated rewards in US dollars and updates daily.\n- Rewards are calculated in the month after they're earned and paid on the 15th if you've reached the $50 minimum. When the money arrives depends on the payment provider.\n- Transfer fees may apply, and in the US the creator pays them.\n- H3: US vs EEA table. Rows:\n  - balances under $50\n  - balance forfeiture (EEA: after 2 years if onboarding or payment details are incomplete; US Rewards Policy: rewards generally expire 2 years after you first become eligible)\n  - VPN rule (EEA)\n  - where to check earnings (EEA path: Profile > Balance > Others > Monthly Earnings)\n- H3: Taxes. You are responsible for tax and TikTok may withhold it. For US readers, IRS: gig-economy income must be reported even without a 1099 form.\n\n**H2 6: The fine print most guides skip**\n1. Meeting the requirements doesn't guarantee you get in or get paid. TikTok has full discretion over whether to give rewards and how much.\n2. If you're rejected, you can reapply after 30 days (US).\n3. A possible monthly or yearly cap on rewards (US).\n4. Clawback: if you were paid for something you weren't eligible for, TikTok may take it from future rewards. If there are none, you refund within 30 days of written notice (US).\n5. Confidentiality of reporting metrics (US).\n6. You must disclose that you're in the programme (e.g. #Ad) when you endorse TikTok (US).\n7. Licence to your name, likeness and content for promoting TikTok, and in the EEA, your content may be shown to advertisers.\n8. Suspension for \"derogatory\" public statements about TikTok (EEA) or situations that \"reflect unfavorably\" on you or TikTok (US and EEA).\n9. You're an independent contractor with no employee benefits (US).\n10. TikTok can change the terms or end the rewards (US: with \"reasonable advance notice\" for changes to rewards).\n\n**H2 7: What to do this week**\n- Check your age and account type. Business accounts aren't eligible, so the writer can say \"if you use a Business account, you would need a personal account\". Don't describe the steps to switch, because there's no source for them.\n- Check your followers and your views over the last 30 days.\n- Set up a PayPal account in your own name and have your tax information ready.\n- Plan original videos of a minute or more. Audit old content: Duets, Stitches, Photo Mode and sponsored videos won't count.\n- Apply in the app. The terms say you \"submit a complete Program application via the Platform\". In 2024 TikTok said its monetisation tools sit in the in-app Creator tools. Add: **\"menu names may differ by app version and region.\"**\n\n**H2 8: Is it worth it?** A short, balanced close.\n- Influencer Marketing Hub calls these payouts a small piece of most creators' income compared with brand deals, affiliate sales and TikTok Shop. Attribute this to them.\n- No promises.\n\n**Optional FAQ** (only questions answerable from the sources): Do Duets count? Is there a fee to join? (EEA: \"Participation… doesn't require payment.\") When do I get paid? What if I earn under $50?\n\n## 5. Facts to rely on, with URLs\nShort codes used in the notes below:\n- **US** = US Creator Rewards Program Terms: https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en\n- **EEA** = EEA Creator Rewards Program Terms: https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en\n- **RP** = US Rewards Policy: https://www.tiktok.com/legal/page/us/rewards-policy/en\n- **NR** = TikTok Newsroom launch post: https://newsroom.tiktok.com/introducing-the-new-creator-rewards-program?lang=en\n- **IMH** = Influencer Marketing Hub, How Much Does TikTok Pay: https://influencermarketinghub.com/how-much-does-tiktok-pay/\n- **IRS** = IRS Gig Economy Tax Center: https://www.irs.gov/businesses/gig-economy-tax-center\n\n| # | Fact | Source |\n|---|---|---|\n| 1 | Out of beta and renamed on March 18, 2024 | NR |\n| 2 | Four core metrics at launch (originality, play duration, search value, engagement), plus \"ad value\" | NR (2024; frame as \"at launch\") |\n| 3 | 18+ or the age of majority where you live | US §1a, US §5; RP; NR |\n| 4 | 10,000 authentic followers; 100,000 authentic views in the 30 days before applying | US §1c–d; EEA |\n| 5 | Personal account only, not Business/Organization/government/politician | US §1f; EEA (\"not a Business Account\") |\n| 6 | Payment account in your own name, plus onboarding and tax documents | US §1e |\n| 7 | Live in an available country; no VPN | US §1a; EEA |\n| 8 | Video ≥ 1 minute | US §2; EEA |\n| 9 | ≥ 1,000 qualified views; no Duet/Stitch/Photo Mode/sponsored content; original; high quality | EEA |\n| 10 | Qualified view = watched 5+ seconds, not marked \"not interested\", repeat views from one account count once | EEA |\n| 11 | Rewards based on viewer country, views, engagement and authenticity | EEA |\n| 12 | Sole discretion; possible monthly or yearly cap; Specialized Rewards Program by invitation | US §2 |\n| 13 | Apply in the app or by invitation; reapply 30 days after a rejection | US \"How to Apply\" |\n| 14 | Paid through PayPal/Hyperwallet; calculated the month after; paid on the 15th; $50 minimum; arrival time depends on the provider | US §3; EEA |\n| 15 | US: balances under $50 \"may be deemed expired\"; EEA: under $50 paid \"as set out on the Balance dashboard\" | US §3; EEA |\n| 16 | Transfer fees paid by the creator (US); provider may charge fees (EEA) | US §3; EEA |\n| 17 | Clawback and 30-day refund | US §3 |\n| 18 | Taxes are your responsibility; withholding possible | US §2; RP |\n| 19 | Metrics confidential; disclosure needed when endorsing TikTok; licence to likeness | US §6 |\n| 20 | Termination grounds; music can be muted or removed; appeal possible | US §4; EEA |\n| 21 | Independent contractor | US §7 |\n| 22 | Reward rights expire after 2 years (US); balance forfeited after 2 years if onboarding is incomplete (EEA) | RP; EEA |\n| 23 | Free to join (EEA) | EEA |\n| 24 | $0.40–$1.00 per 1,000 views (third-party estimate) | IMH |\n| 25 | Gig income must be reported even without a 1099 | IRS |\n\n## 6. Internal links (from the published list, only where genuinely related)\n- **\"How to Make Money Online: 5 Ways and What Each Platform Takes\"**: link from the \"Is it worth it?\" section as a wider view of platform income and fees.\n- **\"How to earn money from your phone in 2025\"**: optional, from the \"What to do this week\" intro.\n- **Don't link:** the PDF, loan, ChatGPT-prompts, agency or SEO articles (not related). The Instagram follower-location article is a different platform and a different intent, so skip it.\n\n## 7. Product link\n**No product for this pillar, so no product link.**\n\n## 8. Writer guardrails\n- Don't promise income.\n- Present IMH figures only as IMH's estimate, with the link in the same paragraph.\n- Don't claim \"views must come from the For You feed\". It isn't in TikTok's terms that were read.\n- Don't list eligible countries.\n- Don't give exact in-app menu steps. Note that \"menu names may differ by version and region\".\n- Label which rules come from the US terms and which from the EEA terms. Don't generalise one region's rules to the other.\n- Don't use \"four core metrics\" as the current formula. Use \"at launch in March 2024, TikTok said…\".\n- No first-person testing.\n\n---\n\n## SOURCE NOTES\n\n**1. TikTok Creator Rewards Program Terms (US)**\nURL: https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en\nPage states: \"Last Update: July 20, 2026\". Provider: TikTok USDS Joint Venture LLC, United States.\n- Former name: \"...participation in the Creator Rewards Program (fka the Creativity Program Beta) provided by TikTok USDS Joint Venture LLC...\"\n- How to apply: \"To apply to join the Program, you must submit a complete Program application via the Platform or be invited directly by TikTok.\" / \"If your application is rejected, you may re-apply after 30 days.\"\n- §1 Eligibility: \"...only those Creators meeting all the following requirements, which may be updated at any time in our sole discretion, are eligible...\"\n  - a. \"Creator is a legal resident of a country where the Program is made available, and is 18 years of age or older or the age of majority in their place of residence;\"\n  - c. \"Creator has at least 10,000 authentic followers;\"\n  - d. \"Creator had at least 100,000 authentic total video views in the last 30 days before submitting an application or being invited to join the Program;\"\n  - e. Requires a valid linked payment account \"registered in Creator's own name\" and completed onboarding documentation, \"including... any tax reporting documents\".\n  - f. \"Creator's account does not belong to a government organization, politician, or political party, nor is it a non-personal account, such as a Business Account or Organization Account.\"\n  - \"TikTok reserves the right to add or modify eligibility requirements in its sole discretion...\"\n- §2 Rewards: \"eligible Creators may be rewarded by TikTok for their eligible User Content with a duration of at least 1 minute publicly posted on the Platform\". Rewards are based on \"total legitimate video views and other signals reflecting the popularity of, and engagement with, Eligible Videos,\" in TikTok's sole discretion.\n  - \"TikTok reserves the right to impose a monthly or annual cap on each Creator's available rewards for Eligible Videos.\"\n  - Excluded metrics: \"(i) artificially produced or obtained, (ii) paid or incentivized, (iii) from the Creator or accounts acting in connection with Creator to inflate metrics...\"\n  - Invited creators may join \"a monthly Specialized Rewards Program.\"\n  - Taxes: Creator \"has sole responsibility and liability for any and all taxes...\"; TikTok \"is authorized to withhold from rewards redemptions any amounts it is required to withhold\".\n  - Changes: \"From time to time, we may modify or cease rewards under this Program. If we do so, we will provide you with reasonable advance notice...\"\n- §3 Payment Terms:\n  - PayPal \"through Hyperwallet, is responsible for all aspects of the transaction processing\".\n  - The dashboard shows estimated rewards \"in U.S. dollars... daily\".\n  - \"Any rewards accumulated under the Program will be calculated in the month following the date that the rewards were earned.\"\n  - Rewards are \"paid on the 15th of each month if the payable amount meets the minimum payment threshold of $50.00 USD\".\n  - \"...the time of receipt will depend on the payment service provider.\"\n  - \"TikTok reserves the right to change the Minimum Payment Threshold. If the unpaid estimated rewards do not reach the Minimum Payment Threshold, subject to TikTok's discretion, the unpaid amount may be deemed expired.\"\n  - \"Creator acknowledges that fees may be incurred by the transfer and agrees to bear the cost.\"\n  - Clawback: \"TikTok may offset any future rewards by the amount of rewards erroneously paid. If no future payments are payable, Creator will refund to TikTok any amounts owed within thirty (30) days of receiving written notification...\"\n- §4 Termination:\n  - TikTok may terminate or suspend \"immediately in its sole discretion\" for breaches, \"including... failure to meet or maintain the eligibility requirements\", or if a creator is involved in a situation \"that could reflect unfavorably upon Creator or TikTok\".\n  - \"TikTok reserves the right to mute, remove or disqualify your Eligible Videos if they contain unauthorized uses of music...\"\n  - \"Creator may appeal the termination decision within the prescribed timeframe...\"\n- §5: Creator must not use any method \"which attempts to artificially increase views or interactions\".\n- §6:\n  - \"...the details of any reporting metrics that may be provided by TikTok USDS Joint Venture or other non-public information contained or resulting from this Program shall be kept strictly confidential by Creator...\" (Exception: legal or professional advisors bound by confidentiality.)\n  - Royalty-free licence to use the creator's \"user name, image, voice, and likeness\" and content for \"marketing and promoting TikTok to advertisers\".\n  - Disclosure: Creator \"shall clearly and conspicuously disclose Creator's participation in the Program when making any endorsement of TikTok (including a disclosure, such as #Ad...)\".\n- §7: \"...their relationship is that of independent contractors\"; the creator is \"not an employee of TikTok\".\n\n**2. Creator Rewards Program Terms (EEA)**\nURL: https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en\nPage states: \"Last Update: Apr 2025\".\n- \"After joining Creator Rewards Program and connecting a payment method, you can collect higher Rewards from TikTok for eligible videos of a duration of at least 1 minute.\"\n- \"Creator Rewards Program is available only in selected countries, whether you are entitled to participate will depend on your country of residence.\"\n- \"...we may show your content to advertisers and brands so they can see the value of advertising on TikTok.\"\n- Who can join:\n  - \"you reside in a country in which Creator Rewards Program is available and do not use a VPN or other similar tool\"\n  - \"at least 10,000 authentic followers\"\n  - \"at least 100,000 authentic video views in total over the last 30 days prior to joining\"\n  - \"your account on the Platform is not a Business Account\"\n  - account \"in good standing\"\n  - \"Participation in Creator Rewards Program doesn't require payment.\"\n- \"Rewards are calculated dynamically based on the country of the video views origin, the number of video views, video engagement and authenticity of a video view.\" Excluded: views that \"are artificially produced or obtained\", \"are your own views\", or violate policies. \"...not all content you post to participate in the Creator Rewards Program will collect Rewards.\"\n- Video criteria (\"meets all these criteria\"):\n  - \"one minute or longer\"\n  - \"at least 1,000 qualified views\"\n  - \"not a Duet or Stitch video\"\n  - \"not a Photo Mode video\"\n  - \"not an advertisement, paid promotion, or sponsored content\"\n  - \"original content and produced entirely by the creator and/or adds new ideas to preexisting content\"\n  - \"high quality as determined by TikTok in its sole discretion\"\n  - complies with the terms, Community Guidelines and Copyright Policy\n- Qualified view: \"*Qualified views are those that a user views for five seconds or more, are not marked by the viewer as 'not interested'...\" and \"(the views generated from the same user account will be counted as one view)\".\n- Earnings: \"Profile > Balance > Others> Monthly Earnings\" shows the last 30 days; \"The Program page will be updated daily.\"\n- Payment:\n  - Through PayPal/Hyperwallet.\n  - Calculated \"in the month following\".\n  - Paid \"on the 15th of each month if the payable amount is equal to or exceeds the minimum payment threshold of $50.00 USD or its equivalent in local currency\".\n  - **\"The payable amount, even if lower than the minimum payment threshold, will be transferred to you as set out on the Balance dashboard.\"**\n- \"We will forfeit any balance related to the Creator Rewards Program after 2 years if you fail to fill in the required information for your onboarding and payment method.\"\n- \"Your payment method provider might charge you fees when processing our payment...\"\n- \"Any payments you receive do not reflect or guarantee your entitlement to any future payment.\"\n- Tax info is required: \"Creator must complete all the onboarding requirements, including providing tax information, to receive rewards.\"\n- Losing access: suspension or termination is possible if \"you make any derogatory public statement or comment concerning TikTok\" or are involved in a situation \"which reflects unfavourably upon you or TikTok\". \"You can withdraw from the Creator Rewards Program by contacting us through the Feedback functionality.\"\n\n**3. Rewards Policy (US)**\nURL: https://www.tiktok.com/legal/page/us/rewards-policy/en\nNo last-updated date was visible in the text read. This policy covers all TikTok reward programmes.\n- \"In short: You must be at least 18 years old and meet certain other eligibility criteria (above) to take part in Rewards Programs.\"\n- \"Meeting eligibility requirements does not guarantee your participation in any Rewards Program.\" / TikTok \"maintains full discretion on whether to provide Rewards and the nature and amount of Rewards.\"\n- Eligibility may change \"at any time and without prior notice\" (unless the law requires otherwise).\n- \"You are responsible for paying any taxes related to any Rewards you receive.\" TikTok may \"withhold and/or deduct tax from payments\".\n- \"Unless the Rewards Program-specific provisions state otherwise, your ability to receive a Reward will expire two (2) years from the date you are first eligible to receive it.\"\n- \"Minimum and maximum Reward Payment limits may apply, along with transaction fees.\"\n- \"In short: We maintain the discretion to withhold or delay (in part or in full) the granting of a Reward where we have cause to do so.\"\n\n**4. TikTok Newsroom: \"Introducing the New Creator Rewards Program\"**\nURL: https://newsroom.tiktok.com/introducing-the-new-creator-rewards-program?lang=en (redirected from the /en-us/ URL)\nPage states: March 18, 2024.\n- \"Today, we're excited to share that the Creativity Program is out of beta.\"\n- At launch, the programme was to reward \"high-quality, original content that is over a minute long, using an optimized rewards formula focused on four core metrics: originality, play duration, search value and audience engagement.\"\n- \"Play duration accounts for both watch time and finish rate.\"\n- The formula \"will also automatically reward creators for their account's ad value determined by their community's ad watchtime.\"\n- Eligibility at launch: \"at least 18 years old, have at least 10K followers with a minimum of 100K views in the last 30 days, and have a personal account in good standing where the program is available.\"\n- The dashboard gives each video \"dedicated pages for RPM and qualified video views\".\n- Monetisation tools sit in \"the in-app Creator tools\" (2024 wording; the UI may have changed since).\n\n**5. Influencer Marketing Hub: \"How Much Does TikTok Pay in 2026? (+Free Calculator)\"**\nURL: https://influencermarketinghub.com/how-much-does-tiktok-pay/\nPage states: last updated October 1, 2026 (first published January 4, 2023). Third-party estimate; no method given.\n- Estimate: \"On average, TikTok pays between $0.40 and $1.00 per 1,000 views through its Creator Rewards Program\". The same sentence adds that earnings depend \"heavily on engagement, watch time, and audience location.\"\n- Context to attribute to IMH: brand deals, affiliate sales and TikTok Shop make up most TikTok income, with view payouts \"a small piece\" for most creators.\n- **Don't use** IMH's \"For You feed\" claim or its country examples. Neither is confirmed in TikTok's terms that were read.\n\n**6. IRS: Gig Economy Tax Center**\nURL: https://www.irs.gov/businesses/gig-economy-tax-center\nNo date stated. US readers only.\n- \"You must report income earned from the gig economy on a tax return, even if the income is:\" from \"part-time, temporary or side work\", or \"Not reported on an information return form — like a Form 1099-K, 1099-MISC, 1099-NEC, W-2 or other income statement\".\n- Gig work examples include \"Provide creative or professional services\". The IRS doesn't name social media creators specifically, so say \"the IRS's gig-economy guidance\".\n\n**Pages tried but not read (don't use as evidence):**\n- support.tiktok.com Creator Rewards Program pages (the \"creator-rewards-program\" and \"how-rewards-work\" pages) and the tiktok.com/support/faq_detail versions they redirect to: needed JavaScript, returned no text.\n- TikTok Creator Academy (/creator-academy/en/article/creator-rewards-program and /creator-academy/article/creator-rewards-program): no text came back.\n- https://www.tiktok.com/legal/page/us/tiktok-creator-rewards-program/en: redirected to TikTok's 404 page.",
+    "candidates": [
+      "TikTok Creator Rewards Program: Requirements and What It Really Pays (primary query: tiktok creator rewards program)"
+    ],
+    "article": {
+      "title": "TikTok Creator Rewards Program: Requirements, How Payouts Work, and the Fine Print",
+      "seo_title": "TikTok Creator Rewards Program: Requirements and Pay",
+      "slug": "tiktok-creator-rewards-program",
+      "meta_description": "What TikTok's own terms say about the Creator Rewards Program: requirements, which videos earn, US vs EEA payout rules, and how to work out your real rate.",
+      "focus_keyphrase": "TikTok Creator Rewards Program",
+      "excerpt": "What TikTok's own US and EEA terms say about the Creator Rewards Program: who qualifies, which videos earn, how payouts and the $50 threshold work, the fine print most guides skip, and how to calculate your own rate.",
+      "content_html": "<p>The TikTok Creator Rewards Program is how TikTok pays creators directly for eligible videos that run at least one minute. It replaced the Creativity Program Beta, and TikTok does not publish a fixed pay rate. This guide sticks to what TikTok's own US and EEA terms actually say, separates the two regions where their rules differ, and shows how to work out your real rate from your own numbers.</p><p>A note on sources: this guide is built from TikTok's published legal terms and its launch announcement. TikTok's in-app screens and regional help pages may show extra detail for your country, so treat the app as the final word on whether you can join.</p><h2>What the Creator Rewards Program is</h2><p>TikTok announced on March 18, 2024 that the Creativity Program was out of beta and relaunched as the Creator Rewards Program, according to the <a href=\"https://newsroom.tiktok.com/introducing-the-new-creator-rewards-program?lang=en\">TikTok Newsroom launch post</a>. The <a href=\"https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en\">US Creator Rewards Program Terms</a> still describe it as the program \"fka the Creativity Program Beta\".</p><p>At launch in March 2024, TikTok said the rewards formula focused on four core metrics: originality, play duration (watch time and finish rate), search value and audience engagement. It also said creators would be rewarded for their account's \"ad value\", based on their community's ad watch time (<a href=\"https://newsroom.tiktok.com/introducing-the-new-creator-rewards-program?lang=en\">TikTok Newsroom</a>). That was the launch description, not a published current formula.</p><p>The current terms describe rewards more generally, and the two regions word it differently:</p><ul><li><strong>US:</strong> rewards are based on \"total legitimate video views and other signals reflecting the popularity of, and engagement with, Eligible Videos\", in TikTok's sole discretion (<a href=\"https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en\">US terms, §2</a>).</li><li><strong>EEA:</strong> \"Rewards are calculated dynamically based on the country of the video views origin, the number of video views, video engagement and authenticity of a video view\" (<a href=\"https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en\">EEA terms</a>).</li></ul><h2>Who can join: the requirements</h2><h3>Account requirements</h3><p>The checklist below comes from the <a href=\"https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en\">US terms (§1)</a> unless marked EEA. TikTok says these requirements \"may be updated at any time in our sole discretion\".</p><ul><li><strong>Age:</strong> 18 or older, or the age of majority where you live.</li><li><strong>Residence:</strong> a legal resident of a country where the program is available. The <a href=\"https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en\">EEA terms</a> add that you must \"not use a VPN or other similar tool\".</li><li><strong>Followers:</strong> at least 10,000 authentic followers.</li><li><strong>Views:</strong> at least 100,000 authentic total video views in the 30 days before you apply (or are invited).</li><li><strong>Standing:</strong> an account in good standing (stated in the EEA terms and in TikTok's 2024 launch post).</li><li><strong>Payment and tax:</strong> a valid linked payment account \"registered in Creator's own name\", plus completed onboarding documentation, including any tax reporting documents.</li><li><strong>Account type:</strong> not a Business Account or Organization Account, and not an account belonging to a government organization, politician or political party. The EEA terms also say your account must not be a Business Account.</li></ul><h3>Where it's available</h3><p>TikTok's EEA terms say only that the program \"is available only in selected countries, whether you are entitled to participate will depend on your country of residence\" (<a href=\"https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en\">EEA terms</a>). The terms read for this guide don't list the countries, so check eligibility inside the TikTok app rather than relying on country lists from third-party sites.</p><h2>Which videos earn rewards</h2><p>Both regions require videos of at least one minute. The <a href=\"https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en\">EEA terms</a> spell out a fuller list. Under those terms, a video must meet all of these criteria:</p><ul><li>one minute or longer</li><li>at least 1,000 qualified views</li><li>not a Duet or Stitch video</li><li>not a Photo Mode video</li><li>not an advertisement, paid promotion or sponsored content</li><li>original content produced entirely by the creator, and/or adds new ideas to preexisting content</li><li>\"high quality as determined by TikTok in its sole discretion\"</li><li>complies with the terms, Community Guidelines and Copyright Policy</li></ul><p>The EEA terms also say plainly that \"not all content you post to participate in the Creator Rewards Program will collect Rewards.\"</p><h3>What counts as a qualified view (EEA)</h3><p>In the EEA terms, a qualified view is one where the viewer watched for five seconds or more and did not mark the video as \"not interested\". Repeat views from the same account count as one view. Your own views and artificially produced views are excluded (<a href=\"https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en\">EEA terms</a>).</p><h3>What the US terms say</h3><p>The <a href=\"https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en\">US terms</a> are shorter on video rules. They require eligible content \"with a duration of at least 1 minute publicly posted on the Platform\" and exclude metrics that are artificially produced or obtained, paid or incentivized, or generated by you or accounts acting with you to inflate numbers. The 1,000-qualified-views rule and the Duet, Stitch and Photo Mode exclusions appear in the EEA terms, not in the US terms read for this guide. The US terms also let TikTok \"mute, remove or disqualify your Eligible Videos if they contain unauthorized uses of music\" (§4).</p><h2>How much the Creator Rewards Program pays</h2><p>TikTok publishes no fixed rate. In the US, rewards are decided \"in its sole discretion\", and TikTok \"reserves the right to impose a monthly or annual cap on each Creator's available rewards\" (<a href=\"https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en\">US terms, §2</a>). The US terms also mention a \"monthly Specialized Rewards Program\" that creators may join by invitation.</p><p>The most widely quoted figure is a third-party estimate. <a href=\"https://influencermarketinghub.com/how-much-does-tiktok-pay/\">Influencer Marketing Hub</a> estimates that TikTok pays between $0.40 and $1.00 per 1,000 views through the Creator Rewards Program, and says earnings depend \"heavily on engagement, watch time, and audience location.\" That is the publication's estimate; it doesn't explain how it was calculated, and TikTok hasn't confirmed it.</p><h3>Work out your own rate</h3><p>Your own dashboard is a better guide than any public figure. TikTok's 2024 launch post said the dashboard gives each video dedicated pages for RPM and qualified video views (<a href=\"https://newsroom.tiktok.com/introducing-the-new-creator-rewards-program?lang=en\">TikTok Newsroom</a>). To calculate your rate per 1,000 views:</p><p><strong>Estimated rewards ÷ qualified views × 1,000 = your rate per 1,000 views</strong></p><p>A hypothetical example: if a video showed $30 in estimated rewards on 60,000 qualified views, that's $30 ÷ 60,000 × 1,000 = $0.50 per 1,000 views. Track this across several videos and months; a single video tells you little.</p><p>To see what <a href=\"https://influencermarketinghub.com/how-much-does-tiktok-pay/\">Influencer Marketing Hub's estimated range</a> would mean in practice, here is the arithmetic only, not a forecast:</p><ul><li>100,000 views × $0.40 ÷ 1,000 = $40</li><li>100,000 views × $1.00 ÷ 1,000 = $100</li></ul><p>Note that $40 is below the $50 minimum payment threshold in TikTok's terms (covered below). At $0.40 per 1,000 you would need 125,000 views to reach $50; at $1.00, 50,000 views. Your actual rate may fall outside that range, and TikTok may cap rewards.</p><h3>Why public pay figures vary so much</h3><ul><li><strong>Confidentiality (US):</strong> the <a href=\"https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en\">US terms (§6)</a> say the details of reporting metrics TikTok provides \"shall be kept strictly confidential by Creator\", with an exception for legal or professional advisors bound by confidentiality. That helps explain why public pay figures tend to be informal. If you're in the US, think twice before posting screenshots of your dashboard.</li><li><strong>Viewer location and engagement:</strong> the EEA terms base rewards partly on the country the views come from and on engagement, so two videos with the same view count can pay differently.</li><li><strong>Discretion:</strong> TikTok decides rewards in its sole discretion and may cap them (US).</li></ul><h2>How and when you get paid</h2><p>Both the <a href=\"https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en\">US terms (§3)</a> and the <a href=\"https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en\">EEA terms</a> describe the same basic schedule:</p><ul><li>Payments are processed by PayPal through Hyperwallet.</li><li>The dashboard shows estimated rewards in US dollars and updates daily.</li><li>Rewards are calculated in the month after they're earned.</li><li>They're paid on the 15th of the month if the payable amount meets the $50.00 USD minimum (EEA: \"or its equivalent in local currency\").</li><li>When the money actually arrives depends on the payment provider (US terms).</li><li>Fees may apply. In the US, the creator \"agrees to bear the cost\" of transfer fees; in the EEA, your payment provider \"might charge you fees\".</li></ul><p>The US terms also say TikTok \"reserves the right to change the Minimum Payment Threshold.\"</p><h3>US vs EEA: where the rules differ</h3><table><thead><tr><th>Topic</th><th>US terms</th><th>EEA terms</th></tr></thead><tbody><tr><td>Balances under $50</td><td>\"Subject to TikTok's discretion, the unpaid amount may be deemed expired\" (<a href=\"https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en\">US §3</a>)</td><td>\"The payable amount, even if lower than the minimum payment threshold, will be transferred to you as set out on the Balance dashboard\" (<a href=\"https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en\">EEA</a>)</td></tr><tr><td>Expiry or forfeiture</td><td>Unless program-specific terms say otherwise, your ability to receive a reward expires two years from the date you first become eligible (<a href=\"https://www.tiktok.com/legal/page/us/rewards-policy/en\">US Rewards Policy</a>)</td><td>Balance forfeited after two years if you don't complete onboarding and payment-method information</td></tr><tr><td>VPN</td><td>Not addressed in the terms read</td><td>You must not use a VPN or similar tool</td></tr><tr><td>Where to check earnings</td><td>Program dashboard (estimated rewards, updated daily)</td><td>\"Profile &gt; Balance &gt; Others &gt; Monthly Earnings\" shows the last 30 days</td></tr><tr><td>Cost to join</td><td>Not addressed in the terms read</td><td>\"Participation in Creator Rewards Program doesn't require payment.\"</td></tr></tbody></table><p>Menu names in the app may differ by version and region, so if the EEA path doesn't match your screen, look for Balance or earnings in your profile.</p><h3>Taxes</h3><p>Under the <a href=\"https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en\">US terms (§2)</a>, the creator \"has sole responsibility and liability for any and all taxes\", and TikTok may withhold amounts it is required to withhold. The <a href=\"https://www.tiktok.com/legal/page/us/rewards-policy/en\">US Rewards Policy</a> says the same: you're responsible for taxes on rewards, and TikTok may withhold or deduct tax. In the EEA, providing tax information is part of onboarding and is required to receive rewards.</p><p>For US readers, the <a href=\"https://www.irs.gov/businesses/gig-economy-tax-center\">IRS's gig-economy guidance</a> says income from part-time, temporary or side work must be reported on a tax return even if it isn't reported on a form such as a 1099-K, 1099-MISC or 1099-NEC. Keep your own record of payouts rather than waiting for a form.</p><h2>The fine print most guides skip</h2><ol><li><strong>Meeting the requirements doesn't mean you get in or get paid.</strong> The <a href=\"https://www.tiktok.com/legal/page/us/rewards-policy/en\">US Rewards Policy</a> says meeting eligibility requirements \"does not guarantee your participation\", and TikTok keeps \"full discretion on whether to provide Rewards and the nature and amount of Rewards.\" The EEA terms add that payments \"do not reflect or guarantee your entitlement to any future payment.\"</li><li><strong>Rejected? Wait 30 days (US).</strong> \"If your application is rejected, you may re-apply after 30 days\" (<a href=\"https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en\">US terms</a>).</li><li><strong>Possible reward cap (US).</strong> TikTok may impose a monthly or annual cap on each creator's rewards.</li><li><strong>Clawbacks (US).</strong> TikTok may offset future rewards by any amount paid in error. If no future payments are due, you must refund the amount within 30 days of written notice (US §3).</li><li><strong>Confidential metrics (US).</strong> Reporting metrics and other non-public program information must be kept strictly confidential (US §6).</li><li><strong>Disclosure when you promote TikTok (US).</strong> You must \"clearly and conspicuously disclose\" your participation when endorsing TikTok, for example with #Ad (US §6).</li><li><strong>Licence to your name and content.</strong> The US terms grant TikTok a royalty-free licence to use your user name, image, voice, likeness and content for marketing and promoting TikTok to advertisers. The <a href=\"https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en\">EEA terms</a> say TikTok may show your content to advertisers and brands.</li><li><strong>Suspension for public statements or situations.</strong> The EEA terms allow suspension or termination if you make \"any derogatory public statement or comment concerning TikTok\" or are involved in a situation \"which reflects unfavourably upon you or TikTok\". The US terms cover situations \"that could reflect unfavorably upon Creator or TikTok\". The US terms say you may appeal a termination \"within the prescribed timeframe\".</li><li><strong>You're a contractor (US).</strong> The relationship is \"that of independent contractors\", and the creator is \"not an employee of TikTok\" (US §7).</li><li><strong>Terms and rewards can change.</strong> TikTok may add or modify eligibility requirements in its sole discretion, and \"may modify or cease rewards\" with \"reasonable advance notice\" (US §2). The Rewards Policy says eligibility may change \"at any time and without prior notice\" unless the law requires otherwise.</li></ol><p>In the EEA, you can leave the program by contacting TikTok through the Feedback functionality, according to the EEA terms.</p><h2>What to do this week</h2><p>Whether or not you qualify yet, these steps put you in a position to apply and to judge the program on real numbers. If you're building income from mobile tools more broadly, see <a href=\"https://newearns.com/how-to-earn-money-from-your-phone-in-2025/\">how to earn money from your phone</a>.</p><ol><li><strong>Check your age and account type.</strong> Business and Organization accounts aren't eligible, so if you use a Business account, you would need a personal account.</li><li><strong>Check your numbers.</strong> Compare your followers against 10,000 and your total views over the last 30 days against 100,000. TikTok's terms say both must be authentic.</li><li><strong>Get payment and tax details ready.</strong> Set up a PayPal account in your own name and have your tax information ready, since onboarding requires both.</li><li><strong>Plan original videos of a minute or more.</strong> Audit your recent content: under the EEA terms, Duets, Stitches, Photo Mode posts and sponsored videos don't qualify, and both regions exclude artificial or paid views. Check that any music you use is authorised.</li><li><strong>Apply in the app.</strong> The US terms say you \"submit a complete Program application via the Platform\" or are invited by TikTok. In 2024, TikTok said its monetisation tools sit in the in-app Creator tools (<a href=\"https://newsroom.tiktok.com/introducing-the-new-creator-rewards-program?lang=en\">TikTok Newsroom</a>). Menu names may differ by app version and region.</li><li><strong>Start a simple log.</strong> Once you're in, record each video's estimated rewards and qualified views monthly so you can calculate your own rate per 1,000 views.</li></ol><h2>Is it worth it?</h2><p>For creators who already meet the thresholds and post original videos over a minute, the program is a way to earn from views without negotiating anything. But the terms leave the rate, caps and final decision to TikTok, and in the US balances under $50 may expire. <a href=\"https://influencermarketinghub.com/how-much-does-tiktok-pay/\">Influencer Marketing Hub</a> describes view payouts as a small piece of most creators' TikTok income compared with brand deals, affiliate sales and TikTok Shop.</p><p>A sensible approach is to treat Creator Rewards as one income stream, measure your actual rate after a few months, and compare it with other options. For a wider view of platform income and what each platform takes, see <a href=\"https://newearns.com/how-to-make-money-online/\">How to Make Money Online: 5 Ways and What Each Platform Takes</a>.</p><h2>FAQ</h2><h3>Do Duets and Stitches count for Creator Rewards?</h3><p>Under the <a href=\"https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en\">EEA terms</a>, no: eligible videos must not be a Duet or Stitch, or a Photo Mode video. The US terms read for this guide don't list these exclusions, so US creators should check the requirements shown in the app.</p><h3>Is there a fee to join?</h3><p>The EEA terms say \"Participation in Creator Rewards Program doesn't require payment.\" Payment providers may charge fees on payouts, and in the US the creator bears transfer fees (<a href=\"https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en\">US terms, §3</a>).</p><h3>When do I get paid?</h3><p>Rewards are calculated in the month after they're earned and paid on the 15th if you've reached the $50 minimum. Arrival time depends on the payment provider (<a href=\"https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en\">US terms</a>).</p><h3>What happens if I earn less than $50?</h3><p>It depends on your region. In the US, unpaid amounts below the threshold \"may be deemed expired\" at TikTok's discretion. In the EEA, the amount \"will be transferred to you as set out on the Balance dashboard\" (<a href=\"https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en\">EEA terms</a>).</p><h3>Can I reapply if I'm rejected?</h3><p>Under the US terms, yes, after 30 days.</p>",
+      "sources": [
+        {
+          "url": "https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en",
+          "title": "TikTok Creator Rewards Program Terms (US)",
+          "supports": "Former name; how to apply and 30-day reapply rule; eligibility (age, residence, 10,000 followers, 100,000 views in 30 days, payment account in own name, tax onboarding, no Business/Organization/government/political accounts); 1-minute video rule; reward basis and sole discretion; possible monthly/annual cap; Specialized Rewards Program; excluded metrics; taxes and withholding; PayPal/Hyperwallet payments, daily USD dashboard, calculation month after, payment on the 15th, $50 threshold, under-$50 may be deemed expired, transfer fees; clawback and 30-day refund; termination, music removal, appeal; confidentiality; licence to likeness; #Ad disclosure; independent contractor; changes with reasonable advance notice."
+        },
+        {
+          "url": "https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en",
+          "title": "TikTok Creator Rewards Program Terms (EEA)",
+          "supports": "Selected countries only; no VPN; eligibility thresholds; not a Business Account; good standing; free to join; reward calculation factors; video criteria (1 minute, 1,000 qualified views, no Duet/Stitch/Photo Mode/sponsored, original, high quality); qualified view definition; Monthly Earnings path; payment schedule; under-$50 amounts transferred as set out on the Balance dashboard; 2-year forfeiture; provider fees; no guarantee of future payments; tax info required; content shown to advertisers; suspension for derogatory statements; withdrawal via Feedback."
+        },
+        {
+          "url": "https://www.tiktok.com/legal/page/us/rewards-policy/en",
+          "title": "TikTok Rewards Policy (US)",
+          "supports": "Meeting eligibility does not guarantee participation; full discretion over rewards; eligibility may change without prior notice; tax responsibility and withholding; rewards expire two years from first eligibility unless program terms say otherwise."
+        },
+        {
+          "url": "https://newsroom.tiktok.com/introducing-the-new-creator-rewards-program?lang=en",
+          "title": "TikTok Newsroom: Introducing the New Creator Rewards Program",
+          "supports": "Program out of beta on March 18, 2024; four core metrics and ad value at launch; play duration definition; dashboard pages for RPM and qualified views; monetisation tools in in-app Creator tools (2024)."
+        },
+        {
+          "url": "https://influencermarketinghub.com/how-much-does-tiktok-pay/",
+          "title": "Influencer Marketing Hub: How Much Does TikTok Pay",
+          "supports": "Third-party estimate of $0.40-$1.00 per 1,000 views; earnings depend on engagement, watch time and audience location; view payouts are a small piece of most creators' income compared with brand deals, affiliate sales and TikTok Shop."
+        },
+        {
+          "url": "https://www.irs.gov/businesses/gig-economy-tax-center",
+          "title": "IRS Gig Economy Tax Center",
+          "supports": "Gig-economy income must be reported on a tax return even if not reported on a 1099 or other information return."
+        }
+      ],
+      "product_link_reason": "",
+      "internal_links_note": "",
+      "image_headline": "TikTok Creator Rewards: The Fine Print",
+      "search_intent": "Informational with an eligibility and earnings focus: readers want to know if they qualify for the TikTok Creator Rewards Program, which videos earn, how much it realistically pays, how payouts work and how to join.",
+      "unique_value": "Every requirement and rule is sourced to TikTok's own US and EEA terms and labelled by region, including a US vs EEA comparison (under-$50 balances, expiry, VPN rule) and fine print other guides skip: confidentiality, clawbacks, possible caps, 30-day reapply wait and tax. Pay figures are clearly labelled as a third-party estimate, with a formula for readers to calculate their own rate from their dashboard.",
+      "image_alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+      "featured_image": {
+        "alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+        "license": "generated-in-house",
+        "creator": "",
+        "license_url": ""
+      },
+      "inline_images": []
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "Confidentiality is labelled \"(US)\" in both the pay-figures section and the fine-print list, and is not in the US vs EEA table. Plus: \"If you're in the US, think twice before posting screenshots\"",
+          "verdict": "unsupported",
+          "source_url": "https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en",
+          "evidence": "The notes rate this 'Misleading (incomplete)', which has no direct schema equivalent. The EEA terms have their own Confidentiality section: \"The details of rewards, reporting metrics, or other non-public information… shall be considered Confidential Information\". That is arguably wider than the US clause, because it also covers reward details.",
+          "suggested_fix": "Remove \"(US)\". Say both regions treat metrics as confidential, and that the EEA terms also cover \"details of rewards\". Change the screenshot advice to apply to everyone."
+        },
+        {
+          "claim": "\"Both regions exclude artificial or paid views\" (step 4 of the action plan)",
+          "verdict": "unsupported",
+          "source_url": "https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en",
+          "evidence": "Unsupported for the EEA. US §2 excludes metrics that are \"paid or incentivized\". The EEA terms exclude views that are \"artificially produced or obtained\", your own views, and views that break the policies. The EEA paid-content rule is about videos (\"not an advertisement, paid promotion, or sponsored content\"), not paid views.",
+          "suggested_fix": "\"Both regions exclude artificial views; the US terms also exclude paid or incentivized metrics.\""
+        },
+        {
+          "claim": "\"Set up a PayPal account in your own name\"",
+          "verdict": "unsupported",
+          "source_url": "https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en",
+          "evidence": "Unsupported as stated. US §1(e) requires \"a valid linked digital payment account with an approved third party… registered in Creator's own name\". PayPal is named as the processor (through Hyperwallet). The terms never say you need a personal PayPal account.",
+          "suggested_fix": "\"Set up the payment account TikTok offers during onboarding (the terms name PayPal/Hyperwallet), registered in your own name.\""
+        },
+        {
+          "claim": "FAQ: \"Can I reapply if I'm rejected? Under the US terms, yes, after 30 days.\"",
+          "verdict": "supported",
+          "source_url": "https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en",
+          "evidence": "Supported, but incomplete. US terms: \"If your application is rejected, you may re-apply after 30 days.\" US §4 adds: \"Creator terminated from the Program for cause is ineligible to re-apply… and forfeits any ability to redeem unpaid rewards.\"",
+          "suggested_fix": "Add the for-cause exception. Also mention the US right to appeal an eligibility decision \"within 30 days\" (§1)."
+        },
+        {
+          "claim": "Standing requirement \"(stated in the EEA terms and in TikTok's 2024 launch post)\"",
+          "verdict": "supported",
+          "source_url": "https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en",
+          "evidence": "Supported, but the attribution is off. US §1(b) also says the account must be \"active and in good standing\".",
+          "suggested_fix": "Credit US §1(b) too."
+        },
+        {
+          "claim": "US licence covers \"user name, image, voice, likeness and content for marketing and promoting TikTok to advertisers\"",
+          "verdict": "uncertain",
+          "source_url": "https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en",
+          "evidence": "The notes rate this 'Mostly supported, slightly merged', which has no direct schema equivalent, so it is not upgraded to supported. US §6 has two parts. Name, image, voice and likeness are licensed \"to identify you as a participant\". Public data and User Content are licensed for \"showcasing you… and marketing and promoting TikTok to advertisers.\"",
+          "suggested_fix": "Split the two purposes."
+        },
+        {
+          "claim": "IMH \"doesn't explain how it was calculated\"",
+          "verdict": "uncertain",
+          "source_url": "https://influencermarketinghub.com/how-much-does-tiktok-pay/",
+          "evidence": "The IMH page was returned only partly. No methodology was found in the passages read; it only says \"a realistic breakdown based on current Creator Rewards Program rates\".",
+          "suggested_fix": "Soften to \"doesn't publish a methodology\"."
+        },
+        {
+          "claim": "\"The dashboard shows estimated rewards in US dollars and updates daily\"",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Supported, but slightly stronger than the source. Both sets of terms (US and EEA) say TikTok \"may provide a dashboard… daily\". The notes do not name a single page for this claim.",
+          "suggested_fix": "Optional: \"TikTok may show…\"."
+        },
+        {
+          "claim": "Program history: launched March 18, 2024, when the Creativity Program came \"out of beta\" as the Creator Rewards Program; the four launch metrics (originality, play duration, search value, engagement) and \"ad value\"; per-video RPM and qualified-view pages; Monetization module \"within the in-app Creator tools\"; 18+ / 10K followers / 100K views / good standing at launch",
+          "verdict": "supported",
+          "source_url": "https://newsroom.tiktok.com/introducing-the-new-creator-rewards-program?lang=en",
+          "evidence": "Match the TikTok Newsroom launch post.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The US terms say \"fka the Creativity Program Beta\"",
+          "verdict": "supported",
+          "source_url": "https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en",
+          "evidence": "Checked against the US terms.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "US eligibility (§1): 18 or older or the age of majority where you live; legal resident of a country where the program runs; 10,000 authentic followers; 100,000 authentic views in the 30 days before applying or being invited; payment account \"registered in Creator's own name\" plus onboarding and tax documents; no Business or Organization accounts and no government, politician or political party accounts; requirements \"may be updated at any time in our sole discretion\"; apply with a \"complete Program application via the Platform\" or be invited",
+          "verdict": "supported",
+          "source_url": "https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en",
+          "evidence": "Checked against US terms §1.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "US rewards (§2): the quoted rewards criteria, the cap wording and the \"monthly Specialized Rewards Program\"; exclusion of artificial, paid or self-inflated metrics; \"sole responsibility and liability for any and all taxes\" and the withholding right; \"may modify or cease rewards\" with \"reasonable advance notice\"",
+          "verdict": "supported",
+          "source_url": "https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en",
+          "evidence": "Checked against US terms §2.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "US payment (§3): PayPal via Hyperwallet; calculated the month after earning; paid on the 15th; $50.00 minimum which TikTok can change; amounts under $50 \"may be deemed expired\"; arrival time depends on the payment provider; creator \"agrees to bear the cost\" of transfer fees; clawback by offset or refund within 30 days of written notice",
+          "verdict": "supported",
+          "source_url": "https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en",
+          "evidence": "Checked against US terms §3.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "US termination, publicity and contractor status (§4, §6, §7): music clause (\"mute, remove or disqualify\"), the \"reflect unfavorably\" clause, appeal \"within the prescribed timeframe\"; #Ad disclosure when endorsing TikTok; \"independent contractors\" / \"not an employee of TikTok\"",
+          "verdict": "supported",
+          "source_url": "https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en",
+          "evidence": "Checked against US terms §4, §6 and §7.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "EEA terms: \"selected countries\" wording; no VPN; 10K authentic followers; 100K views; not a Business Account; good standing; \"doesn't require payment\"; rewards-calculation sentence quoted correctly; full eight-point video list including 1,000 qualified views, no Duet/Stitch/Photo Mode, no ads or sponsored content, original content, high quality and policy compliance; qualified view = watched 5 seconds or more, not marked \"not interested\", one view per account, own and artificial views excluded; \"Not all content… will collect Rewards\"; $50 \"or its equivalent in local currency\"; balances under $50 still transferred; balance forfeited after 2 years if onboarding and payment details aren't completed; \"Profile > Balance > Others > Monthly Earnings\" shows the last 30 days; provider \"might charge you fees\"; payments \"do not… guarantee\" future payment; tax information needed at onboarding; content may be shown to advertisers; suspension for a \"derogatory public statement\" or something that \"reflects unfavourably\"; you can leave through Feedback",
+          "verdict": "supported",
+          "source_url": "https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en",
+          "evidence": "Checked against the EEA terms.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "US Rewards Policy: meeting eligibility \"does not guarantee your participation\"; TikTok keeps \"full discretion… nature and amount of Rewards\"; 2-year expiry \"unless the Rewards Program-specific provisions state otherwise\"; you are responsible for taxes and TikTok may withhold or deduct; eligibility can change \"at any time and without prior notice\" unless the law requires otherwise",
+          "verdict": "supported",
+          "source_url": "https://www.tiktok.com/legal/page/us/rewards-policy/en",
+          "evidence": "Checked against the US Rewards Policy.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "IMH: $0.40–$1.00 per 1,000 views; depends \"heavily on engagement, watch time, and audience location\"; view payouts are \"only a small piece\" next to brand deals, affiliate sales and TikTok Shop",
+          "verdict": "supported",
+          "source_url": "https://influencermarketinghub.com/how-much-does-tiktok-pay/",
+          "evidence": "Checked against the IMH page (partly returned).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Gig income must be reported even if it is from side work or isn't on a 1099-K, 1099-MISC, 1099-NEC or W-2",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/businesses/gig-economy-tax-center",
+          "evidence": "Checked against the IRS gig-economy page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Arithmetic: $30 ÷ 60,000 × 1,000 = $0.50; 100,000 views gives $40 at $0.40 or $100 at $1.00, and $40 is under the $50 minimum; views needed for $50 are 125,000 at $0.40 and 50,000 at $1.00",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "All calculations are correct; no source page applies.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Absence claims: no VPN rule, fee-to-join statement, Duet/Stitch/Photo Mode exclusion or 1,000-view rule in the US terms",
+          "verdict": "supported",
+          "source_url": "https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en",
+          "evidence": "Supported as hedged, but the US page was only partly returned. Every section from How to Apply through §8 was read, though some only partly, so absence claims are less certain.",
+          "suggested_fix": ""
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en",
+          "relevant": true,
+          "notes": "US Creator Rewards terms (\"Last Update: July 20, 2026\"). Readable in partial passes, all sections reached. Supports what it is cited for; one gap: §1(b) good standing isn't credited."
+        },
+        {
+          "url": "https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en",
+          "relevant": true,
+          "notes": "EEA terms (\"Apr 2025\"). Readable. Supports what it is cited for, but the article leaves out the EEA Confidentiality section (issue A)."
+        },
+        {
+          "url": "https://www.tiktok.com/legal/page/us/rewards-policy/en",
+          "relevant": true,
+          "notes": "US Rewards Policy. Readable. Supports what it is cited for."
+        },
+        {
+          "url": "https://newsroom.tiktok.com/introducing-the-new-creator-rewards-program?lang=en",
+          "relevant": true,
+          "notes": "TikTok Newsroom post. Readable (complete). Supports what it is cited for; correctly framed as the 2024 launch description."
+        },
+        {
+          "url": "https://influencermarketinghub.com/how-much-does-tiktok-pay/",
+          "relevant": true,
+          "notes": "Influencer Marketing Hub. Readable (partial). Supports what it is cited for; correctly labelled as a third-party estimate."
+        },
+        {
+          "url": "https://www.irs.gov/businesses/gig-economy-tax-center",
+          "relevant": true,
+          "notes": "IRS gig-economy page. Readable (complete). Supports what it is cited for."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "Passes. The guide covers eligibility, which videos earn, a realistic pay picture, how payouts work, and how to join. Overall accurate with no outright contradictions among about 70 checkable claims; fix issue A (confidentiality label), B and C (claims beyond source text), and D (FAQ missing the for-cause exception) before publishing. Internal newearns.com links were not checkable. Adding the terms' dates (US \"Last Update: July 20, 2026\", EEA \"Apr 2025\") would help readers.",
+      "adds_original_value": true,
+      "value_notes": "Not a generic rewrite. Ties every rule to the region whose terms state it; flags the under-$50 difference (US balances \"may be deemed expired\", EEA balances still transferred); uses the commonly quoted figure but labels it a third-party estimate; includes a formula readers can apply to their dashboard numbers. However, the regional comparison is the main claimed value and issue A gets it wrong on confidentiality; fixing A–D would make the claimed value hold up.",
+      "product_claims_accurate": true,
+      "product_notes": "Allowed product claims: none. The article promotes no product; it only describes TikTok's program and links to the site's own pages, so it complies.",
+      "fetched_urls": [
+        "https://influencermarketinghub.com/how-much-does-tiktok-pay/",
+        "https://newsroom.tiktok.com/introducing-the-new-creator-rewards-program?lang=en",
+        "https://www.irs.gov/businesses/gig-economy-tax-center",
+        "https://www.tiktok.com/legal/page/global/creator-rewards-program-us/en",
+        "https://www.tiktok.com/legal/page/global/tiktok-creator-rewards-program-eea/en",
+        "https://www.tiktok.com/legal/page/us/rewards-policy/en"
+      ],
+      "content_sha256": "67cdaa9515c337873124dc3747675f80616d702016b807b8cc9545cb5284f53f"
+    },
+    "images": {
+      "words": 2526,
+      "target": [
+        4,
+        5
+      ],
+      "stock_api_calls": 4,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "tiktok creator rewards program",
+          "result": "0"
+        },
+        {
+          "provider": "openverse",
+          "query": "TikTok Creator Rewards Program",
+          "result": "0 (cached)"
+        },
+        {
+          "provider": "openverse",
+          "query": "freelancer working laptop",
+          "result": "20 (cached)"
+        },
+        {
+          "provider": "openverse",
+          "query": "person working laptop home",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "commons",
+          "query": "tiktok creator rewards program",
+          "result": "0"
+        },
+        {
+          "provider": "commons",
+          "query": "TikTok Creator Rewards Program",
+          "result": "0 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "freelancer working laptop",
+          "result": "0 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "person working laptop home",
+          "result": "13 (cached)"
+        }
+      ],
+      "notes": [
+        "FALLBACK: no free, clearly licensed photo matched this article's topic, so the featured image is an in-house illustration (earnings). Replace it in WP Admin if you find a better photo.",
+        "1 image(s), below the 4-5 guideline: nothing else in the article would gain from a visual, and decorative images are not added"
+      ],
+      "topic": {
+        "motif": "earnings",
+        "match": "pillar money"
+      },
+      "photo_rejections": [
+        {
+          "description": "Business freelance Asian woman working, doing projects and sending email on laptop or comp",
+          "reason": "nothing about creator, fine, payout, payouts"
+        },
+        {
+          "description": "Laptop Working",
+          "reason": "nothing about creator, fine, payout, payouts"
+        },
+        {
+          "description": "Woman Working",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Business Work",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Close-up Photography of Woman Sitting Beside Table While Using Macbook",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Desk Office",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Home Office",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Computer Laptop",
+          "reason": "nothing about creator, fine, payout, payouts"
+        },
+        {
+          "description": "Desk Laptop",
+          "reason": "nothing about creator, fine, payout, payouts"
+        },
+        {
+          "description": "Laptop Work",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Laptop Work",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Working Together",
+          "reason": "wrong scene (meeting)"
+        }
+      ],
+      "featured": {
+        "provider": "in-house",
+        "kind": "illustration",
+        "motif": "earnings",
+        "license": "generated-in-house",
+        "alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+        "caption": "",
+        "filename": "tiktok-creator-rewards-program-featured.webp",
+        "fallback": true,
+        "file": "featured.webp",
+        "bytes": 5796
+      },
+      "inline": []
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2543 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "9 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "TikTok Creator Rewards Program: Requirements, How Payouts Work, and the Fine Print"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.16% (1x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "0/9 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "155 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "52 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "tiktok-creator-rewards-program"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "tiktok-creator-rewards-program"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.00"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.48: ChatGPT Prompts for Freelancers and Side Hustles: Copy-Ready Templates and How to Adapt Them"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "2 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "0 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "4 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "6 of 6 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": false,
+        "detail": "In the EEA, you can leave the program by contacting TikTok through the Feedback functional",
+        "fix": "Link the source inside the same paragraph or list item as the number or 'according to' statement, or remove the statement."
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "69 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "generated-in-house"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "0 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "3 no supporting evidence found (not shown to be false): Confidentiality is labelled \"(US)\" in both the pay-figures section and the fine-print list (fix: Remove \"(US)\". Say both regions treat metrics as confidential, and that the EEA terms also cover \"details of rewards\". C) | \"Both regions exclude artificial or paid views\" (step 4 of the action plan) (fix: \"Both regions exclude artificial views; the US terms also exclude paid or incentivized metrics.\") | \"Set up a PayPal account in your own name\" (fix: \"Set up the payment account TikTok offers during onboarding (the terms name PayPal/Hyperwallet), registered in your own ) || 2 could not be checked (source unreadable or partial): US licence covers \"user name, image, voice, likeness and content for marketing and promoti (fix: Split the two purposes.) | IMH \"doesn't explain how it was calculated\" (fix: Soften to \"doesn't publish a methodology\".) || 2 marked supported, but its source_url is missing or was not read by the pipeline: \"The dashboard shows estimated rewards in US dollars and updates daily\" (fix: Optional: \"TikTok may show…\".) | Arithmetic: $30 ÷ 60,000 × 1,000 = $0.50; 100,000 views gives $40 at $0.40 or $100 at $1.0",
+        "fix": "Contradicted: correct the claim to what the source says. No evidence found: cite an official source that states it, narrow it to what a source does say, or remove it. Could not be checked: verify it against a readable source or remove it. Source page not read: cite a page the pipeline can open that states the claim, or remove the claim. No claims listed: the fact-check did not check anything. Then re-run the fact-check only."
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Passes. The guide covers eligibility, which videos earn, a realistic pay picture, how payouts work, and how to join. Overall accurate with no outright contradictions among about 70 checkable claims; fix issue A (confidentiality label), B and C (claims beyond source text), and D (FAQ missing the for-cause exception) before publishing. Internal newearns.com links were not checkable. Adding the terms' dates (US \"Last Update: July 20, 2026\", EEA \"Apr 2025\") would help readers."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "Not a generic rewrite. Ties every rule to the region whose terms state it; flags the under-$50 difference (US balances \"may be deemed expired\", EEA balances still transferred); uses the commonly quoted figure but labels it a third-party estimate; includes a formula readers can apply to their dashboard numbers. However, the regional comparison is the main claimed value and issue A gets it wrong on confidentiality; fixing A–D would make the claimed value hold up."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "Allowed product claims: none. The article promotes no product; it only describes TikTok's program and links to the site's own pages, so it complies."
+      },
+      {
+        "check": "fact_check_current",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "sources_verified",
+        "passed": true,
+        "detail": ""
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 0.825,
+        "write": 0.283,
+        "fact_check": 0.475,
+        "fact_check_json": 0.148
+      },
+      "total_usd": 1.731
+    },
+    "wp_media": {
+      "id": 3742,
+      "url": "https://newearns.com/wp-content/uploads/2026/10/tiktok-creator-rewards-program-featured.webp"
+    },
+    "wp_post": {
+      "id": 3743,
+      "status": "pending",
+      "link": "https://newearns.com/?p=3743"
+    },
+    "image_check": "ok",
+    "final": "held_for_review"
+  },
+  "updated": "2026-10-25T15:03:39+00:00"
+}
