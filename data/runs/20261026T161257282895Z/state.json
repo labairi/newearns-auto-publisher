@@ -1,0 +1,949 @@
+{
+  "run_id": "20261026T161257282895Z",
+  "stages": {
+    "pillar": "money",
+    "topic": "Data Entry Jobs from Home: Where to Find Real Ones and How to Spot Scams",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 72,
+        "cache_creation_input_tokens": 104431,
+        "cache_read_input_tokens": 2177177,
+        "output_tokens": 25077,
+        "web_search_requests": 30,
+        "web_fetch_requests": 14,
+        "requests": 12,
+        "read_source_calls": 30,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 72,
+            "cache_write_5m_tokens": 104431,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 2177177,
+            "output_tokens": 25077
+          }
+        },
+        "fetched_urls": [
+          "https://consumer.ftc.gov/articles/how-spot-avoid-and-report-fake-check-scams",
+          "https://consumer.ftc.gov/articles/job-scams",
+          "https://consumer.ftc.gov/consumer-alerts/2024/11/task-scams-create-illusion-making-money",
+          "https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam",
+          "https://ftc.gov/news-events/data-visualizations/data-spotlight/2024/12/paying-get-paid-gamified-job-scams-drive-record-losses",
+          "https://www.bls.gov/emp/tables/fastest-declining-occupations.htm",
+          "https://www.bls.gov/news.release/archives/ecopro_08282025.htm",
+          "https://www.bls.gov/oes/2023/may/oes439021.htm",
+          "https://www.bls.gov/opub/mlr/2026/article/industry-and-occupational-employment-projections-overview.htm"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 1.759
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 12883,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 12566,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 12883,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 12566
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.316
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 50,
+        "cache_creation_input_tokens": 61916,
+        "cache_read_input_tokens": 1052583,
+        "output_tokens": 14227,
+        "web_search_requests": 1,
+        "web_fetch_requests": 9,
+        "requests": 4,
+        "read_source_calls": 5,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 50,
+            "cache_write_5m_tokens": 61916,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 1052583,
+            "output_tokens": 14227
+          }
+        },
+        "fetched_urls": [
+          "https://consumer.ftc.gov/articles/how-spot-avoid-and-report-fake-check-scams",
+          "https://consumer.ftc.gov/articles/job-scams",
+          "https://consumer.ftc.gov/consumer-alerts/2024/11/task-scams-create-illusion-making-money",
+          "https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam",
+          "https://www.bls.gov/news.release/archives/ecopro_08282025.htm",
+          "https://www.bls.gov/oes/2023/may/oes439021.htm",
+          "https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2024/12/paying-get-paid-gamified-job-scams-drive-record-losses"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.815
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 6878,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 9565,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 6878,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 9565
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.226
+      }
+    ],
+    "brief": "I've picked **\"data entry jobs from home\"**. The brief is below and gives the writer everything they need. A few things to know first:\n\n- **Amazon Mechanical Turk has shut down.** Its homepage says it \"permanently closed on September 30, 2026.\" Older articles may still recommend it, so our piece should mention the closure.\n- **Pay figures are for employees only.** The pay and job-outlook numbers come from O*NET, the Labor Department's job database, which uses Bureau of Labor Statistics (BLS) 2025 data. That data leaves out self-employed people, so nothing in the article should suggest what freelancers or task workers earn.\n- **Some newer sources couldn't be read.** The current BLS data pages were blocked, so the brief relies on O*NET. The scam-loss figures are from December 2024; I couldn't confirm the FTC's 2025 job-scam numbers. The writer must label every figure with its date.\n\nThere is no product link, since this pillar has no product.\n\n---\n\n# BRIEF: Data Entry Jobs from Home\n\n**Chosen query:** data entry jobs from home\n**Focus keyphrase:** data entry jobs from home. Use it in the title, the intro and one or two more times. Use it in at most one heading.\n**Working title:** Data Entry Jobs from Home: Where to Find Real Ones and How to Spot Scams\n**Pillar:** money. **Product link:** none (this pillar has no product).\n\n## 1. Search intent (what ranks now)\n- **What ranks:** a mix of three types:\n  - company lists (Indeed's \"30 Data Entry-At-Home Jobs\" and listicles like \"23 Legit…\" or \"24… Not Scams\")\n  - job-board listing pages (LinkedIn, ZipRecruiter, Indeed searches, Upwork's data-entry category)\n  - scam articles (Indeed, FTC alerts, small blogs)\n- **What searchers want:** to find a real job or gig and not get scammed. Their main questions are \"where do I look?\" and \"is this offer legit?\"\n- **Gaps in current results:**\n  - Pay ranges are unsourced (ZipRecruiter shows \"$16–$28/hr\", and listicles quote \"$14–$25/hour\").\n  - Lists don't explain what each channel costs the worker (fees, bid credits, payout minimums).\n  - Scam advice is generic.\n  - Likely gap: lists that still recommend Mechanical Turk. I didn't read the listicles, so the article shouldn't claim that any particular list does this.\n\n## 2. Our angle (the added value)\n1. **Honest pay and job-outlook figures** from O*NET's 2025 data, labelled as covering employees only and not self-employed people.\n2. **A decision table of four places to look:** employer jobs, staffing agencies, freelance marketplaces and microtask platforms. For each: how you get paid, what it costs you, and the catch. Every cost comes from the vendor's own help pages.\n3. **A 5-minute scam check** built from FTC, FBI and Upwork wording, covering the scams that hit data-entry seekers right now: fake-recruiter texts, task scams, fake checks and reshipping.\n4. **The fine print people miss:** Mechanical Turk's closure, payout minimums, the Upwork fee being set per contract, paid bid credits (Connects), and the IRS $400 filing rule.\n5. **What to do if you already paid or shared information.**\n\nTone: editorial guide. No first-person testing, no income promises.\n\n## 3. Outline\n\n**H1: Data Entry Jobs from Home: Where to Find Real Ones and How to Spot Scams**\n\nIntro (2–3 short paragraphs):\n- Real work exists in three forms: employee roles, freelance gigs and per-task microwork.\n- Scammers advertise the same way honest employers do (FTC).\n- Say what the article covers. No filler.\n\n**H2: What remote data entry work actually involves**\n- O*NET tasks: compile, sort and verify data before entry; compare data with source documents; locate and correct errors; read documents such as canceled checks, sales reports or bills and enter the data.\n- Sample job titles to search for: Data Entry Clerk, Data Entry Specialist, Data Transcriber, Data Capture Specialist, Records Clerk.\n- Education: O*NET Job Zone 1–2, \"Usually requires a high school diploma or GED.\"\n- Software named by O*NET: QuickBooks, Microsoft Access, Salesforce CRM, Google Drive.\n- Work context: O*NET says 93% report sitting \"continually or almost continually\" and 85% report repetitive motions that often. Optional, with link.\n\n**H2: What it pays and how many openings there are**\n- Median wage (2025): $19.88 an hour, $41,340 a year. 2025 employment: 131,800.\n- Projected growth 2025–2035: \"Decline (-1% or lower)\". Projected openings 2025–2035: 7,700. O*NET explains that openings include growth and replacement.\n- BLS (2024–34 projections release): \"The use of automated systems, including AI, is expected to contribute to declining employment of office and administrative support workers.\"\n- Caveat: BLS wage estimates \"do not include self-employed workers.\" The source is a footnote on the BLS May 2023 page; present it as a method note. Freelance and per-task pay is set per job and isn't covered. Never present the median as what a beginner or freelancer will earn.\n\n**H2: Where real listings are, and what each option costs you** (decision table first, then H3s)\n\nTable columns: Where to look | How you're paid | What it costs you | The catch\n\n| Where to look | How you're paid | What it costs you | The catch |\n|---|---|---|---|\n| Employer jobs (USAJobs, CareerOneStop, local government sites, company career pages) | Wage from the employer | Nothing. Applying for federal or postal jobs is always free (FTC). | Few openings (see projections above) |\n| Staffing agencies | Through the agency | \"Honest placement firms do not typically charge a fee to job candidates\" (FTC) | Any upfront fee means walk away |\n| Freelance marketplaces (Upwork as the example) | Client pays through the platform | Service fee of 0–15% per contract; Connects cost $0.15 each to bid | The number of Connects per job varies; keep all talks and payment on the platform |\n| Microtask platforms (Clickworker as the example) | \"paid per task\" by the platform | Minimum payout: €/$10 for PayPal, SEPA or ACH; €/$20 for Payoneer or non-EU bank transfer | Payment depends on four conditions; US workers must give an SSN and a signed W-9 |\n\n- **H3: Employer jobs on job boards and government sites.** The FTC recommends USAJobs.gov, CareerOneStop (sponsored by the Labor Department) and local government sites via USA.gov.\n- **H3: Staffing and placement agencies.** FTC wording: the hiring company pays them, and a fee \"especially one you have to pay in advance\" means walk away.\n- **H3: Freelance marketplaces (Upwork example).**\n  - Fee range and when it's shown.\n  - Worked example: to take home $20 an hour with a 10% fee, charge $22.22.\n  - Connects price, and \"varies per job\".\n  - Upwork's red flags: off-platform talk, off-platform payment, requests for free work.\n  - Optional internal link to the ChatGPT prompts article for writing proposals.\n- **H3: Microtask platforms (Clickworker example).**\n  - The four payment conditions. Earnings stay in your balance if a condition isn't met.\n  - Changing account details puts payments on hold until you confirm the change.\n  - Don't quote Clickworker crowd sizes: the page gives inconsistent figures (8 million and 10 million).\n- **H3 or callout: Amazon Mechanical Turk closed on September 30, 2026.**\n  - Source: the mturk.com homepage.\n  - Background from Quartz via Yahoo Finance: a marketplace for small tasks including data labeling and transcription, launched in 2005.\n\n**H2: How data entry scams work**\nEach bullet uses FTC or FBI wording and a link:\n- **Work-from-home job scams:** you pay for starter kits, \"so-called training\" or certifications that turn out to be useless.\n- **Fake check scams:** you deposit an \"employer\" check, then send money back or buy gift cards. The check bounces and the bank wants repayment. Banks must make deposited funds available quickly, but seeing the funds doesn't mean the check is good, and fakes can take weeks to discover.\n- **Fake recruiter texts (FTC, April 2026):**\n  - The scammers say they're with companies you might know, offering \"online assessor\" or \"remote position\" jobs.\n  - They mention pay but give no details of the actual job.\n  - They ask you to reply \"YES\" or \"INTERESTED\".\n- **Task scams:**\n  - Simple tasks such as liking videos or rating products, \"product boosting\" and \"optimization\".\n  - Fake earnings shown in an app, then a demand that you deposit money, usually crypto.\n  - FBI: scammers pose as staffing or recruiting agencies.\n- **Reshipping scams:** \"Reshipping goods is never a real job.\"\n- **Scale (one sentence, dated):**\n  - FTC Data Spotlight, December 2024: reported job-scam losses topped $220 million in the first half of 2024.\n  - About 20,000 task-scam reports in the first half of 2024, against about 5,000 in all of 2023.\n  - Crypto losses to job scams: about $41 million in the first half of 2024, against about $21 million in all of 2023.\n  - Mention that most fraud goes unreported.\n\n**H2: A 5-minute check before you reply or accept** (checklist)\n1. Did it arrive as a generic or unexpected text, WhatsApp or Telegram message? FTC: \"Real employers will never contact you that way.\"\n2. Are you asked to pay for the job, training, certification or a \"deposit\" to unlock work? That's a scam (FTC and FBI).\n3. Is there a check to deposit, with part of it to be sent on or spent on gift cards? That's a fake check scam.\n4. Is the pay high but the job vague, or are there no references or interview (FBI red flag)?\n5. Does a platform client want to move off-platform, pay outside it, or get free \"test\" work (Upwork)?\n6. Search the company or person's name with \"scam\", \"review\" or \"complaint\". Finding no complaints is no guarantee (FTC).\n7. Don't send financial or personal identifying information to people making unsolicited job offers (FBI). For contrast: legitimate platforms such as Clickworker collect tax details inside your account settings, not over chat.\n8. Describe the offer to someone you trust (FTC).\n\n**H2: Getting started this week**\nA practical sequence:\n- Pick a channel from the table.\n- Search with the O*NET job titles.\n- Set up only the official accounts you need.\n- On marketplaces, read the fee and Connects cost shown before you apply.\n- Run every offer through the checklist.\n- **H3: Taxes if you're paid as a freelancer or task worker.**\n  - IRS: gig workers are generally self-employed.\n  - You must file a return if your net self-employment earnings were $400 or more.\n  - Self-employment tax covers Social Security and Medicare; estimated taxes are generally paid quarterly (Form 1040-ES; Schedule C and Schedule SE).\n  - Advise readers to check IRS.gov or a tax professional. No personal tax advice.\n\n**H2: If you already paid a scammer or shared your details**\n- FTC: contact the company you used to send the money and ask for a reversal, however you paid.\n- Payment-specific steps from the fake check page:\n  - Gift card: contact the issuer and the store where you bought it.\n  - Wire transfer: call the company. The FTC page gives MoneyGram 1-800-666-3947 and Western Union 1-800-325-6000.\n  - Money order: contact the issuer, and the USPS Inspection Service on 877-876-2455 if it went by mail.\n  - Crypto: contact the company you used.\n- Report to:\n  - ReportFraud.ftc.gov\n  - your state attorney general\n  - the U.S. Postal Inspection Service (for fake checks)\n  - FBI IC3 at ic3.gov, with transaction details\n- FBI: don't pay services that claim they can recover lost crypto.\n\n**Optional FAQ (2–4 questions, answers from the facts below):** Do real data entry jobs make you pay for training or software? Do I need experience? Is Mechanical Turk still an option? Why does Upwork charge me to apply?\n\n## 4. Internal links (only where they fit)\n- \"How to Make Money Online: 5 Ways and What Each Platform Takes\": put it in the marketplace/microtask H3. It covers the same \"what platforms take\" theme.\n- \"10 Smart Ways to Make Money from Home in 2025\": in the intro or getting-started section, for readers deciding whether data entry suits them.\n- \"ChatGPT Prompts for Freelancers and Side Hustles\": in the Upwork H3, for writing proposals.\n- Don't link the PDF, Instagram, loans, agency or SEO posts; they aren't relevant.\n\n## 5. Product link\nNot justified. This pillar has no product.\n\n## 6. Rules for the writer\n- Give every number its link in the same paragraph.\n- Date the FTC 2024 figures (\"in the first half of 2024, per the FTC's December 2024 Data Spotlight\").\n- Say \"Upwork's fee can vary per contract\", not a single figure.\n- Note that platform screens may differ from the descriptions.\n- Don't name other companies as \"legit\" unless you add a source; the brief has no vendor pages for others.\n- No income promises.\n\n---\n\n# SOURCE NOTES\n\n**1. FTC Consumer Advice: \"Job Scams\"**\n- URL: https://consumer.ftc.gov/articles/job-scams\n- Dates: published 2020-12-08; modified 2026-08-13; footer says \"March 2023\".\n- Quotes:\n  - \"Scammers advertise jobs the same way honest employers do — online (in ads, on job sites, and social media)…\"\n  - Work-from-home scams: \"instead of making money, you end up paying for starter kits, so-called training, or certifications that are useless.\"\n  - Fake checks: \"you deposit a check from your new employer, the employer then asks you to send some money back due to 'overpayment,' but the check will ultimately bounce, and the bank will want you to repay the full amount of the fake check…\"\n  - \"If someone offers you a job and claims that you can make a lot of money in a short period of time with little work, that's almost certainly a scam.\"\n  - Reshipping: \"Reshipping goods is never a real job.\"\n  - Placement firms: \"Honest placement firms do not typically charge a fee to job candidates. Instead, the hiring company pays them a fee to find qualified candidates. If a placement firm asks you for a fee — especially one you have to pay in advance — walk away.\"\n  - Government jobs: \"it's always free to apply for a federal or postal job.\"\n  - How to avoid, search online: \"No complaints? It doesn't guarantee that a company is honest…\"\n  - \"Honest employers, including the federal government, will never ask you to pay to get a job.\"\n  - \"No honest potential employer will ever send you a check to deposit and then tell you to send on part of the money, or buy gift cards with it.\"\n- Safe sources it lists: USAJobs.gov; CareerOneStop (\"Sponsored by the U.S. Department of Labor\"); local government sites via USA.gov.\n- If you paid: \"immediately contact the company you used to send the money, report the fraud, and ask to have the transaction reversed, if possible.\"\n- Report: ReportFraud.ftc.gov and your state attorney general.\n\n**2. FTC Consumer Advice: \"How To Spot, Avoid, and Report Fake Check Scams\"**\n- URL: https://consumer.ftc.gov/articles/how-spot-avoid-and-report-fake-check-scams\n- Dates: published 2022-07-05; modified 2026-08-13; footer says \"June 2025\".\n- Quotes:\n  - \"By law, banks have to make deposited funds available quickly. Even if you see the funds in your account, that doesn't mean it's a good check. Fake checks can take weeks to be discovered and untangled.\"\n  - Personal-assistant example: told \"to use the money to buy gift cards and send the PIN numbers to your 'boss.'\"\n  - \"Never use money from a check to send gift cards, money orders, cryptocurrency, or to wire money to anyone who asks you to.\"\n- Recovery steps:\n  - Gift card: tell the issuer and the store.\n  - Wire transfer: MoneyGram 1-800-666-3947, Western Union 1-800-325-6000. \"It's unlikely to happen, but it's important to ask.\"\n  - Money order: issuer, plus USPIS 877-876-2455 if mailed.\n  - Crypto: contact the company you used.\n- Report to: the FTC, USPIS (uspis.gov/report) and your state attorney general.\n\n**3. FTC Consumer Alert: \"That job offer text is probably a scam\"**\n- URL: https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam\n- Date: April 30, 2026.\n- Quotes:\n  - The fake recruiters \"claim to be with legit companies you might know and say they're hiring for jobs you can do from home like 'online assessor' or just simply a 'remote position.'\"\n  - \"They'll often mention pay (sometimes daily or weekly rates) without any details on the actual job.\"\n  - \"…they'll ask you to reply with 'YES' or 'INTERESTED.' Don't do this…\"\n  - \"Ignore generic and unexpected texts, WhatsApp, or Telegram messages about jobs. Real employers will never contact you that way.\"\n  - \"Never pay to get paid or get a job.\"\n\n**4. FTC Consumer Alert: \"Task scams create the illusion of making money\"**\n- URL: https://consumer.ftc.gov/consumer-alerts/2024/11/task-scams-create-illusion-making-money\n- Date: December 12, 2024 (metadata says published 2024-11-27).\n- Quotes:\n  - \"In a task scam, scammers ask you to do simple, repetitive tasks, such as liking videos or rating product images online.\"\n  - \"'product boosting' or doing 'optimization tasks'\"\n  - \"the app or online platform will ask you to deposit your own money — usually in crypto…\"\n  - \"Don't trust anyone who says they'll pay you to rate or like things online. That's illegal and no honest company will do it.\"\n\n**5. FTC Data Spotlight: \"Paying to get paid: gamified job scams drive record losses\"**\n- URL: https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2024/12/paying-get-paid-gamified-job-scams-drive-record-losses\n- Date: updated 2024-12-12.\n- Quotes:\n  - \"Reported losses to job scams increased more than threefold from 2020 to 2023 and, in just the first half of 2024, topped $220 million.\"\n  - \"About 20,000 people reported these scams in the first half of the year, compared to about 5,000 in all of 2023.\"\n  - \"Since the vast majority of frauds are not reported, this likely reflects only a fraction of the actual harm.\"\n  - Crypto losses to job scams: \"about $41 million in the first half of 2024, compared to about $21 million in all of 2023.\"\n- Conditions:\n  - Footnote 1: figures are Consumer Sentinel reports \"classified as job scams and employment agencies\". By year: $223M (2024 through June), $286M (2023), $179M (2022), $131M (2021), $90M (2020).\n  - Footnote 2: task-scam counts are estimates from hand-coding a random sample of 500 reports per year.\n\n**6. FBI IC3 PSA: \"Scammers Defraud Individuals via Work-From-Home Scams\"**\n- URL: https://www.ic3.gov/PSA/2024/PSA240604\n- Date: June 4, 2024.\n- Quotes:\n  - \"The scammers pose as a legitimate business, such as a staffing or recruiting agency, and may contact victims via an unsolicited call or message.\"\n  - Red flags:\n    - \"You are directed to make cryptocurrency payments to your employer as part of a job.\"\n    - \"The job description uses the term 'optimization' and involves relatively simple tasks.\"\n    - \"The scammer does not require any references as part of the hiring process.\"\n  - Tips:\n    - \"Never send money to an alleged employer.\"\n    - \"Do not pay for services that claim to be able to recover any lost cryptocurrency funds.\"\n    - \"Do not send financial or personal identifiable information to people making unsolicited job offers.\"\n- Report at www.ic3.gov \"and provide any transaction information associated with the scam.\"\n\n**7. O*NET OnLine: \"43-9021.00 – Data Entry Keyers\"** (U.S. Department of Labor, ETA; CC-BY 4.0)\n- URL: https://www.onetonline.org/link/summary/43-9021.00\n- Dates: \"Updated 2026\"; site updated October 6, 2026.\n- Facts:\n  - Median wages (2025): \"$19.88 hourly, $41,340 annual\".\n  - Employment (2025): \"131,800 employees\".\n  - Projected growth (2025–2035): \"Decline (-1% or lower)\".\n  - Projected job openings (2025–2035): \"7,700\".\n  - Condition: \"Source: Bureau of Labor Statistics 2025 wage data and 2025-2035 employment projections. … 'Projected job openings' represent openings due to growth and replacement.\"\n  - Job titles: Data Capture Specialist, Data Entry Clerk, Data Entry Operator, Data Entry Specialist, Data Transcriber, Records Clerk, among others.\n  - Tasks: \"Compile, sort, and verify the accuracy of data before it is entered.\"; \"Compare data with source documents…\"; \"Locate and correct data entry errors…\"\n  - Education (Job Zone 1–2): \"Usually requires a high school diploma or GED, though some occupations may not.\"\n  - Software listed: Intuit QuickBooks, Microsoft Access, Salesforce CRM, Google Drive.\n  - Work context: \"Spend Time Sitting — 93% responded 'Continually or almost continually.'\"\n\n**8. BLS OEWS: \"Occupational Employment and Wages, May 2023 – 43-9021 Data Entry Keyers\"**\n- URL: https://www.bls.gov/oes/2023/may/oes439021.htm\n- Date: last modified April 3, 2024.\n- Use only for the method caveat: \"Estimates do not include self-employed workers.\"\n- Its May 2023 wages ($18.17 median hourly) are out of date. Use O*NET's 2025 figure instead. The 2024 and 2025 versions of this page were blocked (HTTP 403).\n\n**9. BLS Employment Projections news release (2024–34 projections)**\n- URL: https://www.bls.gov/news.release/archives/ecopro_08282025.htm\n- Date: the archive filename indicates August 28, 2025. I didn't see a date on the page itself.\n- Quote: \"The use of automated systems, including AI, is expected to contribute to declining employment of office and administrative support workers.\"\n- This is about the broad occupational group, not data entry specifically.\n\n**10. Upwork Help: \"Learn about the Freelancer Service Fee\"**\n- URL: https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee\n- Date: none stated.\n- Short quote: \"The fee ranges from 0% to 15% per contract\".\n- Paraphrase for the writer (don't quote further):\n  - The fee is shown when you submit a proposal or receive an offer.\n  - It's locked once a proposal, offer or contract is sent, and can differ between contracts.\n  - Example: to take home $20 an hour with a 10% fee, charge $22.22.\n  - If the client is refunded, the fee on that amount is returned.\n  - No regular discounts.\n  - Exceptions: Upwork Payroll and Any Hire (no fee); Direct Contracts (reduced fee); Enterprise (typically 10%, customised).\n\n**11. Upwork Help: \"Understanding and using Connects\"**\n- URL: https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects\n- Date: none stated.\n- Short quote: \"Connects cost $0.15 (USD) each and are sold in bundles.\"\n- Paraphrase:\n  - The number of Connects needed to submit a proposal varies per job, can change while the job is posted, and is shown in the job post.\n  - Buying Connects needs a verified billing method.\n  - Free-Connects offers are conditional and partly \"being tested\". Don't promise free Connects.\n\n**12. Upwork Help: \"Recognize red flags and avoid scams\"**\n- URL: https://support.upwork.com/hc/en-us/articles/35088484250003-Recognize-red-flags-and-avoid-scams\n- Date: none stated.\n- Short quote: \"Scammers often lure freelancers with unrealistic pay, vague job descriptions, off-platform communication, or free work requests.\"\n- Paraphrase:\n  - Pressure to communicate outside Upwork before a contract starts, and payments outside Upwork, both break its Terms of Service.\n  - Requests for free work break its policies. Report them.\n  - Payment protection requires keeping payments on Upwork. For fixed-price work, use funded milestones; for hourly work, track time in the Upwork desktop app.\n\n**13. Clickworker Support: \"What do I have to do to receive payment from clickworker?\"**\n- URL: https://support-workplace.clickworker.com/support/solutions/articles/80000672348-what-do-i-have-to-do-to-receive-payment-from-clickworker-\n- Date: none stated.\n- Short quote: \"The minimum is €/$20 for Payoneer and Direct Bank Transfers (non-EU countries), and €/$10 for PayPal, SEPA, and ACH.\"\n- Paraphrase:\n  - Payment needs four things: complete payment details; the minimum reached by the start of the bill run; tax details (US workers give an SSN and upload a signed W-9; EU residents give a TIN); and no payment hold.\n  - Changing account data puts payments on hold until you confirm by email.\n  - If a condition isn't met, earnings stay in the Clickworker balance, not lost.\n  - PayPal must be verified and able to receive EUR.\n\n**14. Clickworker homepage**\n- URL: https://www.clickworker.com (the FAQ URL redirects here)\n- Date: modified 2026-07-17.\n- Short quote: Clickworkers \"are paid per task directly by us.\"\n- Also says Clickworkers are registered freelancers doing microtasks via app or desktop. Don't use the crowd-size figures: the page says both \"over eight million\" and \"More than 10 million\".\n\n**15. Amazon Mechanical Turk homepage**\n- URL: https://www.mturk.com/\n- Date: none stated. The page is very short but states the fact directly.\n- Quote: \"Mechanical Turk is no longer available. Amazon Mechanical Turk permanently closed on September 30, 2026.\"\n\n**16. Quartz via Yahoo Finance: \"Amazon shutting down Mechanical Turk platform on Sept. 30, 2026\"**\n- URL: https://finance.yahoo.com/technology/ai/articles/amazon-shutting-down-mechanical-turk-110911035.html\n- Date: August 26, 2026 (Cris Tolomia).\n- Background, paraphrased:\n  - Launched in 2005 as a marketplace for small digital jobs, including data labeling, transcription and surveys.\n  - Amazon stopped accepting new customers the month before the announcement.\n- Short quote: Amazon decided to close it \"following an internal assessment of its programs and services.\"\n\n**17. IRS: \"Self-employed individuals tax center\"**\n- URL: https://www.irs.gov/businesses/small-businesses-self-employed/self-employed-individuals-tax-center\n- Date: none stated.\n- Quotes:\n  - You're generally self-employed if \"You are otherwise in business for yourself (including in a part-time business or as a gig worker).\"\n  - \"You have to file an income tax return if your net earnings from self-employment were $400 or more.\"\n  - Condition: \"If your net earnings from self-employment were less than $400, you still have to file an income tax return if you meet any other filing requirement…\"\n  - \"As a self-employed individual, generally you are required to file an annual income tax return and pay estimated taxes quarterly.\"\n  - Self-employment tax \"is a Social Security and Medicare tax primarily for individuals who work for themselves.\"\n- Forms: 1040-ES (estimated tax), Schedule C, Schedule SE.",
+    "candidates": [
+      "Data Entry Jobs from Home: Where to Find Real Ones and How to Spot Scams (primary query: data entry jobs from home)"
+    ],
+    "article": {
+      "title": "Data Entry Jobs from Home: Where to Find Real Ones and How to Spot Scams",
+      "seo_title": "Data Entry Jobs from Home: Real Listings vs. Scams",
+      "slug": "data-entry-jobs-from-home",
+      "meta_description": "Where to find real data entry jobs from home, what each channel costs you, 2025 pay data for employees, and a 5-minute check to spot job scams.",
+      "focus_keyphrase": "data entry jobs from home",
+      "excerpt": "Real data entry work comes as employee jobs, freelance gigs and per-task microwork. Here is where to look, what each channel costs you, what the official pay data covers, and how to spot the scams aimed at data-entry job seekers.",
+      "content_html": "<p>Real data entry jobs from home come in three forms: employee roles where a company pays you a wage, freelance gigs you win on a marketplace, and per-task microwork paid by a platform. The difficulty is that, as the <a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC warns</a>, “Scammers advertise jobs the same way honest employers do — online (in ads, on job sites, and social media).”</p><p>This guide explains what the work involves, what official data says it pays and who that data covers, where real listings are and what each channel costs you, how today's job scams work, and a short check to run before you reply to any offer. It ends with what to do if you have already paid or shared personal details.</p><p>If you are still deciding whether data entry suits you, our roundup of <a href=\"https://newearns.com/10-smart-ways-to-make-money-from-home-in-2025/\">smart ways to make money from home</a> covers other options.</p><h2>What remote data entry work actually involves</h2><p>O*NET, the U.S. Department of Labor's occupation database, describes the core tasks of <a href=\"https://www.onetonline.org/link/summary/43-9021.00\">data entry keyers</a> as:</p><ul><li>“Compile, sort, and verify the accuracy of data before it is entered.”</li><li>“Compare data with source documents” and re-enter data where needed.</li><li>“Locate and correct data entry errors.”</li></ul><p><strong>Job titles to search for.</strong> O*NET lists titles including Data Entry Clerk, Data Entry Specialist, Data Entry Operator, Data Transcriber, Data Capture Specialist and Records Clerk. Searching several of these finds more listings than “data entry” alone.</p><p><strong>Education.</strong> O*NET places the occupation in Job Zones 1–2: “Usually requires a high school diploma or GED, though some occupations may not.”</p><p><strong>Software.</strong> Tools O*NET lists for the role include Intuit QuickBooks, Microsoft Access, Salesforce CRM and Google Drive. Familiarity with spreadsheets and these tools is worth mentioning on applications if you have it.</p><p><strong>The physical side.</strong> On the same <a href=\"https://www.onetonline.org/link/summary/43-9021.00\">O*NET profile</a>, 93% of respondents said they spend time sitting “continually or almost continually,” so a workable desk and chair matter.</p><h2>What it pays and how many openings there are</h2><p>O*NET's figures for data entry keyers, based on <a href=\"https://www.onetonline.org/link/summary/43-9021.00\">Bureau of Labor Statistics 2025 wage data and 2025–2035 projections</a>:</p><ul><li><strong>Median wage (2025):</strong> $19.88 an hour, $41,340 a year.</li><li><strong>Employment (2025):</strong> 131,800 employees.</li><li><strong>Projected growth (2025–2035):</strong> “Decline (-1% or lower).”</li><li><strong>Projected job openings (2025–2035):</strong> 7,700. O*NET notes these openings come from growth and replacement, which means people leaving existing jobs.</li></ul><p>On the wider picture, the BLS said in its <a href=\"https://www.bls.gov/news.release/archives/ecopro_08282025.htm\">2024–34 employment projections release</a> that “The use of automated systems, including AI, is expected to contribute to declining employment of office and administrative support workers.” That statement covers the broad office and administrative support group, not data entry alone.</p><p><strong>Method note: who these numbers cover.</strong> BLS occupational wage estimates cover employees. Its <a href=\"https://www.bls.gov/oes/2023/may/oes439021.htm\">data entry keyers wage page</a> states: “Estimates do not include self-employed workers.” Freelance and per-task pay is set job by job and is not reflected in the median. Treat $19.88 as a reference point for employee roles, not as what a beginner, freelancer or task worker will earn.</p><h2>Where real listings are, and what each option costs you</h2><p>Each channel pays you differently and has different costs. The costs below come from official sources and the platforms' own help pages. Platform screens and terms can change, so check the current version before you sign up.</p><table><thead><tr><th>Where to look</th><th>How you're paid</th><th>What it costs you</th><th>The catch</th></tr></thead><tbody><tr><td>Employer jobs (USAJobs, CareerOneStop, local government sites, company career pages)</td><td>Wage from the employer</td><td>Nothing. The FTC says it's “always free to apply for a federal or postal job.”</td><td>Few openings (see the projections above)</td></tr><tr><td>Staffing and placement agencies</td><td>Through the agency</td><td>“Honest placement firms do not typically charge a fee to job candidates” (FTC)</td><td>Any upfront fee is a reason to walk away</td></tr><tr><td>Freelance marketplaces (Upwork as the example)</td><td>The client pays through the platform</td><td>Service fee of 0% to 15% per contract; Connects cost $0.15 each to bid</td><td>The number of Connects varies per job; keep all communication and payment on the platform</td></tr><tr><td>Microtask platforms (Clickworker as the example)</td><td>Paid per task by the platform</td><td>Minimum payout of €/$10 (PayPal, SEPA, ACH) or €/$20 (Payoneer, non-EU bank transfer)</td><td>Payment depends on four conditions; US workers must provide an SSN and a signed W-9</td></tr></tbody></table><h3>Employer jobs on job boards and government sites</h3><p>The <a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC's job-scam guide</a> points job seekers to USAJobs.gov, CareerOneStop (sponsored by the U.S. Department of Labor) and local government job sites, which you can find through USA.gov. Applying costs nothing: “Honest employers, including the federal government, will never ask you to pay to get a job.” Company career pages are another direct route. Reach them by typing the company's address yourself rather than following a link in an unexpected message.</p><h3>Staffing and placement agencies</h3><p>Agencies can be a legitimate route into remote clerical work. The <a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC</a> explains how honest ones are paid: “the hiring company pays them a fee to find qualified candidates. If a placement firm asks you for a fee — especially one you have to pay in advance — walk away.”</p><h3>Freelance marketplaces (Upwork example)</h3><p>On Upwork, clients post data entry projects and freelancers send proposals. Two costs apply:</p><ul><li><strong>Service fee.</strong> According to <a href=\"https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee\">Upwork's help page</a>, “The fee ranges from 0% to 15% per contract.” The fee is shown when you submit a proposal or receive an offer, it is locked once the proposal, offer or contract is sent, and it can differ from one contract to the next. Upwork's own example: to take home $20 an hour with a 10% fee, you would charge $22.22. Because Upwork's fee can vary per contract, check the figure shown on each one before you set your rate.</li><li><strong>Connects.</strong> Proposals use Connects, and <a href=\"https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects\">Upwork says</a> “Connects cost $0.15 (USD) each and are sold in bundles.” The number needed for a proposal varies per job, can change while the job is posted, and is shown in the job post. Buying Connects requires a verified billing method.</li></ul><p>Upwork's <a href=\"https://support.upwork.com/hc/en-us/articles/35088484250003-Recognize-red-flags-and-avoid-scams\">scam guidance</a> warns that “Scammers often lure freelancers with unrealistic pay, vague job descriptions, off-platform communication, or free work requests.” Pressure to talk outside Upwork before a contract starts and payment outside Upwork both break its Terms of Service, and requests for free work break its policies. Upwork's payment protection only applies when payments stay on the platform: funded milestones for fixed-price work, and time tracked in the Upwork desktop app for hourly work.</p><p>For help drafting proposals, see our <a href=\"https://newearns.com/chatgpt-prompts-freelancers-side-hustles/\">ChatGPT prompts for freelancers</a>. Edit any draft so it answers the specific job post.</p><h3>Microtask platforms (Clickworker example)</h3><p>Microtask platforms split work into small jobs. <a href=\"https://www.clickworker.com\">Clickworker</a> describes its workers as registered freelancers doing microtasks through an app or desktop, who “are paid per task directly by us.”</p><p>According to <a href=\"https://support-workplace.clickworker.com/support/solutions/articles/80000672348-what-do-i-have-to-do-to-receive-payment-from-clickworker-\">Clickworker's support page</a>, you need four things to get paid:</p><ol><li>Complete payment details.</li><li>The payout minimum reached by the start of the bill run: “The minimum is €/$20 for Payoneer and Direct Bank Transfers (non-EU countries), and €/$10 for PayPal, SEPA, and ACH.”</li><li>Tax details. US workers give an SSN and upload a signed W-9; EU residents give a tax identification number.</li><li>No payment hold on the account.</li></ol><p>If a condition isn't met, your earnings stay in your Clickworker balance rather than being lost. Changing your account details puts payments on hold until you confirm the change by email, so avoid editing them just before a payout. PayPal accounts must be verified and able to receive euros.</p><p>For more on what different platforms take from your earnings, see <a href=\"https://newearns.com/how-to-make-money-online/\">how to make money online and what each platform takes</a>.</p><h3>Amazon Mechanical Turk has closed</h3><p>Older lists of data entry sites often include Mechanical Turk. It is no longer an option: its <a href=\"https://www.mturk.com/\">homepage</a> now reads, “Amazon Mechanical Turk permanently closed on September 30, 2026.” As <a href=\"https://finance.yahoo.com/technology/ai/articles/amazon-shutting-down-mechanical-turk-110911035.html\">Quartz reported via Yahoo Finance</a>, it launched in 2005 as a marketplace for small digital jobs including data labeling, transcription and surveys, and Amazon decided to close it “following an internal assessment of its programs and services.” Be wary of any message offering Mechanical Turk work now.</p><h2>How data entry scams work</h2><p>These are the patterns the FTC and FBI describe most often for remote job seekers:</p><ul><li><strong>Pay-to-work schemes.</strong> In work-from-home scams, the <a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC says</a>, “instead of making money, you end up paying for starter kits, so-called training, or certifications that are useless.”</li><li><strong>Fake checks.</strong> You deposit a check from your “employer,” who then asks you to send part of it back or buy gift cards. The check bounces and the bank wants the full amount back. The <a href=\"https://consumer.ftc.gov/articles/how-spot-avoid-and-report-fake-check-scams\">FTC explains</a>: “By law, banks have to make deposited funds available quickly. Even if you see the funds in your account, that doesn't mean it's a good check. Fake checks can take weeks to be discovered and untangled.”</li><li><strong>Fake recruiter texts.</strong> In an <a href=\"https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam\">April 2026 alert</a>, the FTC described scammers who “claim to be with legit companies you might know” and offer jobs like “online assessor” or a “remote position.” They “often mention pay (sometimes daily or weekly rates) without any details on the actual job,” then ask you to reply “YES” or “INTERESTED.” The FTC's advice: don't.</li><li><strong>Task scams.</strong> The <a href=\"https://consumer.ftc.gov/consumer-alerts/2024/11/task-scams-create-illusion-making-money\">FTC describes</a> scammers asking you to do “simple, repetitive tasks, such as liking videos or rating product images online,” often called “product boosting” or “optimization tasks.” An app shows earnings, then asks you to deposit your own money, “usually in crypto.” The <a href=\"https://www.ic3.gov/PSA/2024/PSA240604\">FBI notes</a> these scammers may “pose as a legitimate business, such as a staffing or recruiting agency.”</li><li><strong>Reshipping.</strong> Offers to receive and forward packages are not data entry or any other job: “Reshipping goods is never a real job,” according to the <a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC</a>.</li></ul><p>The problem is growing. In the first half of 2024, reported losses to job scams topped $220 million, per the <a href=\"https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2024/12/paying-get-paid-gamified-job-scams-drive-record-losses\">FTC's December 2024 Data Spotlight</a>. The same report estimated about 20,000 task-scam reports in the first half of 2024, compared with about 5,000 in all of 2023, and crypto losses to job scams of about $41 million in the first half of 2024, compared with about $21 million in all of 2023. The FTC adds that because most frauds go unreported, these figures likely reflect only a fraction of the harm.</p><h2>A 5-minute check before you reply or accept</h2><ol><li><strong>How did it reach you?</strong> If it's a generic or unexpected text, WhatsApp or Telegram message, the <a href=\"https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam\">FTC says</a> to ignore it: “Real employers will never contact you that way.”</li><li><strong>Are you asked to pay?</strong> Fees for the job, training, certification or a “deposit” to unlock work are a scam sign. The FTC's rule is “Never pay to get paid or get a job,” and the <a href=\"https://www.ic3.gov/PSA/2024/PSA240604\">FBI says</a> “Never send money to an alleged employer.”</li><li><strong>Is there a check involved?</strong> “No honest potential employer will ever send you a check to deposit and then tell you to send on part of the money, or buy gift cards with it” (<a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC</a>).</li><li><strong>Is the pay specific but the job vague?</strong> Pay mentioned with no real job description is a pattern the FTC flags. The <a href=\"https://www.ic3.gov/PSA/2024/PSA240604\">FBI</a> also lists hiring that doesn't require any references, and job descriptions that use the term “optimization” for simple tasks, as red flags.</li><li><strong>On a platform, does the client want to move off it?</strong> Requests to chat or pay outside the platform, or to do free “test” work, are red flags in <a href=\"https://support.upwork.com/hc/en-us/articles/35088484250003-Recognize-red-flags-and-avoid-scams\">Upwork's guidance</a>.</li><li><strong>Search the name.</strong> Search the company or recruiter's name with words like “scam,” “review” or “complaint.” As the <a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC notes</a>, finding no complaints “doesn't guarantee that a company is honest.”</li><li><strong>Hold back personal and financial details.</strong> The FBI advises: “Do not send financial or personal identifiable information to people making unsolicited job offers.” Compare that with a documented process: Clickworker's support page lists tax details such as a signed W-9 as part of its payment setup, not something requested over chat.</li><li><strong>Talk it through.</strong> The FTC suggests describing the offer to someone you trust before you act.</li></ol><h2>Getting started this week</h2><ol><li><strong>Pick one channel</strong> from the table: employer jobs if you want a wage, a marketplace if you want project work, a microtask platform if you want small tasks.</li><li><strong>Search with the O*NET titles:</strong> Data Entry Clerk, Data Entry Specialist, Data Transcriber, Data Capture Specialist, Records Clerk. Searching several titles helps you find data entry jobs from home that are listed under other names.</li><li><strong>Set up only the official accounts you need</strong>, by typing the site address yourself.</li><li><strong>On marketplaces, read the costs before you apply:</strong> the Connects shown in the job post and the service fee shown when you submit your proposal.</li><li><strong>Run every offer through the checklist above</strong>, especially ones that arrive unprompted.</li></ol><h3>Taxes if you're paid as a freelancer or task worker</h3><p>Employer jobs normally handle tax withholding. Freelance and task work works differently. According to the <a href=\"https://www.irs.gov/businesses/small-businesses-self-employed/self-employed-individuals-tax-center\">IRS self-employed tax center</a>, you are generally self-employed if you are in business for yourself, “including in a part-time business or as a gig worker.” Key points from that page:</p><ul><li>“You have to file an income tax return if your net earnings from self-employment were $400 or more.” Below $400, you may still have to file if you meet another filing requirement.</li><li>Self-employment tax “is a Social Security and Medicare tax primarily for individuals who work for themselves.”</li><li>Self-employed people generally file an annual return and pay estimated taxes quarterly. The forms involved are Form 1040-ES (estimated tax), Schedule C and Schedule SE.</li></ul><p>This is general information, not tax advice. Check IRS.gov or a tax professional for your situation.</p><h2>If you already paid a scammer or shared your details</h2><p>Act quickly. The <a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC says</a> to “immediately contact the company you used to send the money, report the fraud, and ask to have the transaction reversed, if possible.” Its <a href=\"https://consumer.ftc.gov/articles/how-spot-avoid-and-report-fake-check-scams\">fake check guide</a> gives steps by payment method:</p><ul><li><strong>Gift card:</strong> contact the card issuer and the store where you bought it.</li><li><strong>Wire transfer:</strong> call the transfer company, for example MoneyGram at 1-800-666-3947 or Western Union at 1-800-325-6000. The FTC says a reversal is “unlikely to happen, but it's important to ask.”</li><li><strong>Money order:</strong> contact the issuer, and the U.S. Postal Inspection Service at 877-876-2455 if you sent it by mail.</li><li><strong>Cryptocurrency:</strong> contact the company you used to send it.</li></ul><p>Then report it:</p><ul><li>To the FTC at ReportFraud.ftc.gov.</li><li>To your state attorney general.</li><li>To the U.S. Postal Inspection Service at uspis.gov/report if a fake check was involved.</li><li>To the FBI's Internet Crime Complaint Center at www.ic3.gov, including any transaction information, as the <a href=\"https://www.ic3.gov/PSA/2024/PSA240604\">FBI asks</a>.</li></ul><p>Watch for follow-up scams. The FBI warns: “Do not pay for services that claim to be able to recover any lost cryptocurrency funds.”</p><h2>FAQ</h2><h3>Do real data entry jobs make you pay for training or software?</h3><p>No. The <a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC says</a> honest employers “will never ask you to pay to get a job,” and paying for starter kits, training or certifications is a common work-from-home scam. Freelance marketplaces are different: they may charge platform costs such as Upwork's service fee and Connects, which their help pages document.</p><h3>Do I need experience?</h3><p>O*NET places the occupation in Job Zones 1–2, which “Usually requires a high school diploma or GED, though some occupations may not.” Individual employers and clients set their own requirements, so read each listing.</p><h3>Is Mechanical Turk still an option?</h3><p>No. The <a href=\"https://www.mturk.com/\">Mechanical Turk homepage</a> says it “permanently closed on September 30, 2026.”</p><h3>Why does Upwork charge me to apply?</h3><p>Upwork proposals use Connects, which <a href=\"https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects\">cost $0.15 each</a> and are sold in bundles. The number needed varies per job and is shown in the job post. That is separate from the service fee, which applies to what you earn on a contract.</p>",
+      "sources": [
+        {
+          "url": "https://consumer.ftc.gov/articles/job-scams",
+          "title": "FTC Consumer Advice: Job Scams",
+          "supports": "Scammers advertise like honest employers; work-from-home, fake check and reshipping scams; placement firm fees; free federal job applications; USAJobs, CareerOneStop and USA.gov; search caveat; what to do if you paid; reporting"
+        },
+        {
+          "url": "https://consumer.ftc.gov/articles/how-spot-avoid-and-report-fake-check-scams",
+          "title": "FTC: How To Spot, Avoid, and Report Fake Check Scams",
+          "supports": "Funds availability and fake checks taking weeks to discover; recovery steps by payment method including MoneyGram, Western Union and USPIS phone numbers; reporting to USPIS"
+        },
+        {
+          "url": "https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam",
+          "title": "FTC Consumer Alert: That job offer text is probably a scam (April 30, 2026)",
+          "supports": "Fake recruiter text tactics, reply YES/INTERESTED, real employers won't contact via generic texts/WhatsApp/Telegram, never pay to get paid"
+        },
+        {
+          "url": "https://consumer.ftc.gov/consumer-alerts/2024/11/task-scams-create-illusion-making-money",
+          "title": "FTC Consumer Alert: Task scams create the illusion of making money",
+          "supports": "Description of task scams, product boosting/optimization tasks, deposits usually in crypto"
+        },
+        {
+          "url": "https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2024/12/paying-get-paid-gamified-job-scams-drive-record-losses",
+          "title": "FTC Data Spotlight: Paying to get paid (December 2024)",
+          "supports": "Job-scam losses topped $220 million in H1 2024; ~20,000 task-scam reports vs ~5,000 in 2023; crypto losses ~$41M vs ~$21M; most fraud unreported"
+        },
+        {
+          "url": "https://www.ic3.gov/PSA/2024/PSA240604",
+          "title": "FBI IC3 PSA: Scammers Defraud Individuals via Work-From-Home Scams (June 4, 2024)",
+          "supports": "Scammers posing as staffing/recruiting agencies; red flags (optimization, no references); never send money; don't share personal info; don't pay crypto recovery services; report at ic3.gov"
+        },
+        {
+          "url": "https://www.onetonline.org/link/summary/43-9021.00",
+          "title": "O*NET OnLine: 43-9021.00 Data Entry Keyers",
+          "supports": "Tasks, job titles, Job Zone education, software, sitting work context, 2025 median wage, 2025 employment, 2025-2035 growth and openings"
+        },
+        {
+          "url": "https://www.bls.gov/oes/2023/may/oes439021.htm",
+          "title": "BLS OEWS May 2023: Data Entry Keyers",
+          "supports": "Method note that wage estimates do not include self-employed workers"
+        },
+        {
+          "url": "https://www.bls.gov/news.release/archives/ecopro_08282025.htm",
+          "title": "BLS Employment Projections 2024-34 news release",
+          "supports": "Automation including AI expected to contribute to declining employment of office and administrative support workers"
+        },
+        {
+          "url": "https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee",
+          "title": "Upwork Help: Learn about the Freelancer Service Fee",
+          "supports": "Fee ranges 0% to 15% per contract, shown at proposal/offer, locked once sent, varies by contract; $22.22 example"
+        },
+        {
+          "url": "https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects",
+          "title": "Upwork Help: Understanding and using Connects",
+          "supports": "Connects cost $0.15 each in bundles; number varies per job and is shown in post; verified billing method required"
+        },
+        {
+          "url": "https://support.upwork.com/hc/en-us/articles/35088484250003-Recognize-red-flags-and-avoid-scams",
+          "title": "Upwork Help: Recognize red flags and avoid scams",
+          "supports": "Red flags: unrealistic pay, vague descriptions, off-platform communication, free work; payment protection requires on-platform payments"
+        },
+        {
+          "url": "https://support-workplace.clickworker.com/support/solutions/articles/80000672348-what-do-i-have-to-do-to-receive-payment-from-clickworker-",
+          "title": "Clickworker Support: What do I have to do to receive payment from clickworker?",
+          "supports": "Four payment conditions, payout minimums, SSN and W-9 for US workers, account-change hold, earnings stay in balance, PayPal requirements"
+        },
+        {
+          "url": "https://www.clickworker.com",
+          "title": "Clickworker homepage",
+          "supports": "Clickworkers are registered freelancers doing microtasks and are paid per task directly by Clickworker"
+        },
+        {
+          "url": "https://www.mturk.com/",
+          "title": "Amazon Mechanical Turk homepage",
+          "supports": "Mechanical Turk permanently closed on September 30, 2026"
+        },
+        {
+          "url": "https://finance.yahoo.com/technology/ai/articles/amazon-shutting-down-mechanical-turk-110911035.html",
+          "title": "Quartz via Yahoo Finance: Amazon shutting down Mechanical Turk platform on Sept. 30, 2026",
+          "supports": "Launched in 2005 as a marketplace for small digital jobs incl. data labeling, transcription, surveys; closure followed internal assessment"
+        },
+        {
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employed-individuals-tax-center",
+          "title": "IRS: Self-employed individuals tax center",
+          "supports": "Gig workers generally self-employed; $400 filing rule and its condition; self-employment tax; quarterly estimated taxes; Forms 1040-ES, Schedule C, Schedule SE"
+        }
+      ],
+      "product_link_reason": "",
+      "internal_links_note": "",
+      "image_headline": "Real Data Entry Work, Not Scams",
+      "search_intent": "Transactional/informational: readers want to find a legitimate remote data entry job or gig, understand where to look and what it costs, and avoid being scammed.",
+      "unique_value": "Sourced 2025 O*NET pay and outlook figures clearly labelled as employee-only, a decision table comparing employer jobs, agencies, freelance marketplaces and microtask platforms with costs from vendor help pages (Upwork fees and Connects, Clickworker payout minimums), the Mechanical Turk closure, a scam checklist built from FTC, FBI and Upwork wording, the IRS $400 rule, and payment-specific recovery steps.",
+      "image_alt_text": "Computer Laptop",
+      "featured_image": {
+        "alt_text": "Computer Laptop",
+        "license": "cc0",
+        "creator": "Design by Matt",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "inline_images": []
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "O*NET tasks include \"re-enter data where needed\"",
+          "verdict": "unsupported",
+          "source_url": "https://www.onetonline.org/link/summary/43-9021.00",
+          "evidence": "The paraphrase drifts from the source. O*NET says: \"Compare data with source documents, or re-enter data in verification format to detect errors.\"",
+          "suggested_fix": "Write \"or re-enter data in verification format to detect errors.\""
+        },
+        {
+          "claim": "\"The problem is growing.\" (the next sentence cites first-half 2024 data)",
+          "verdict": "unsupported",
+          "source_url": "https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2024/12/paying-get-paid-gamified-job-scams-drive-record-losses",
+          "evidence": "Unsupported in the present tense. The FTC Data Spotlight only covers 2020 through the first half of 2024. In late 2026 that data is about two years old.",
+          "suggested_fix": "Write \"The problem grew sharply in 2024,\" or cite newer FTC Consumer Sentinel data."
+        },
+        {
+          "claim": "Searching several O*NET titles \"finds more listings than 'data entry' alone\"",
+          "verdict": "unsupported",
+          "source_url": "https://www.onetonline.org/link/summary/43-9021.00",
+          "evidence": "This is advice, not something O*NET says. O*NET lists the titles but says nothing about search results. The risk is low.",
+          "suggested_fix": "Present it as a tip (\"may surface more listings\")."
+        },
+        {
+          "claim": "O*NET core tasks: \"Compile, sort, and verify the accuracy…\", \"Locate and correct data entry errors\", and \"Compare data with source documents\"",
+          "verdict": "supported",
+          "source_url": "https://www.onetonline.org/link/summary/43-9021.00",
+          "evidence": "All match the O*NET page, which was read and says \"Updated 2026\".",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "O*NET job titles: Data Capture Specialist, Data Entry Clerk, Operator, Specialist, Data Transcriber, Records Clerk",
+          "verdict": "supported",
+          "source_url": "https://www.onetonline.org/link/summary/43-9021.00",
+          "evidence": "All are listed on the O*NET page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Job Zone 1–2: usually requires a high school diploma or GED",
+          "verdict": "supported",
+          "source_url": "https://www.onetonline.org/link/summary/43-9021.00",
+          "evidence": "O*NET: \"Usually requires a high school diploma or GED, though some occupations may not.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Software used includes QuickBooks, Microsoft Access, Salesforce CRM, Google Drive and Excel",
+          "verdict": "supported",
+          "source_url": "https://www.onetonline.org/link/summary/43-9021.00",
+          "evidence": "All are listed on the O*NET page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Sitting: 93% responded \"Continually or almost continually\"",
+          "verdict": "supported",
+          "source_url": "https://www.onetonline.org/link/summary/43-9021.00",
+          "evidence": "O*NET: \"93% responded 'Continually or almost continually.'\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Median pay (2025) $19.88 hourly, $41,340 annual; employment (2025) 131,800; growth Decline (-1% or lower); 7,700 openings due to growth and replacement",
+          "verdict": "supported",
+          "source_url": "https://www.onetonline.org/link/summary/43-9021.00",
+          "evidence": "All match O*NET.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Pay estimates do not include self-employed workers (method note)",
+          "verdict": "supported",
+          "source_url": "https://www.bls.gov/oes/2023/may/oes439021.htm",
+          "evidence": "The BLS OEWS page (read via web_fetch) says \"Estimates do not include self-employed workers.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Automated systems, including AI, are expected to contribute to declining employment of office and administrative support workers (broad occupation group)",
+          "verdict": "supported",
+          "source_url": "https://www.bls.gov/news.release/archives/ecopro_08282025.htm",
+          "evidence": "The BLS release (read via web_fetch) says \"The use of automated systems, including AI, is expected to contribute to declining employment of office and administrative support workers.\" It covers 2024–34, and the article correctly scopes this to the broad occupation group.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Opening quote from the FTC job-scams page",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Supported. The source continues \"…in newspapers, and sometimes on TV and radio,\" so the article's quote is truncated without an ellipsis.",
+          "suggested_fix": "Add an ellipsis instead of ending the quote with a period."
+        },
+        {
+          "claim": "FTC warnings: \"starter kits, so-called training, or certifications\"; \"always free to apply for a federal or postal job\"; \"Honest placement firms do not typically charge a fee…\"; the hiring company pays the firm, so \"walk away\" if asked for a fee",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "All match the FTC job-scams page (read via web_fetch; modified 2026-08-13).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Job search sites: USAJobs.gov, CareerOneStop (\"Sponsored by the U.S. Department of Labor\"), and USA.gov for local government sites",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Matches the FTC job-scams page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"will never ask you to pay to get a job\"; \"Reshipping goods is never a real job\"; \"No honest potential employer will ever send you a check…\"",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "All match the FTC job-scams page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Search tips: \"scam/review/complaint\" search; \"doesn't guarantee that a company is honest\"; \"Talk to someone you trust\"",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Matches the FTC job-scams page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "If you've paid: \"immediately contact the company you used to send the money… reversed, if possible\"; report at ReportFraud.ftc.gov",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Matches the FTC job-scams page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Bank-law quote from the FTC fake-check page",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/how-spot-avoid-and-report-fake-check-scams",
+          "evidence": "The quote is exact (page read via web_fetch).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "What to do by payment method: gift card means contact the issuer and the store; MoneyGram 1-800-666-3947 and Western Union 1-800-325-6000; \"unlikely to happen, but it's important to ask\"; money order means contact the issuer, plus USPIS at 877-876-2455 if mailed; crypto means contact the sending company",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/how-spot-avoid-and-report-fake-check-scams",
+          "evidence": "All supported by the FTC fake-check page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Where to report: FTC, USPIS (uspis.gov/report) and your state Attorney General",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/how-spot-avoid-and-report-fake-check-scams",
+          "evidence": "Supported by the FTC fake-check page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Scam texts mention \"legit companies you might know,\" \"online assessor,\" \"remote position,\" and pay \"without any details on the actual job\"",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam",
+          "evidence": "Matches the FTC alert of April 30, 2026.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Texts ask for \"YES\"/\"INTERESTED\" replies; \"Don't do this.\"",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam",
+          "evidence": "Matches the FTC April 2026 alert.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Ignore generic and unexpected texts, WhatsApp, or Telegram messages… Real employers will never contact you that way.\"",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam",
+          "evidence": "Matches the FTC April 2026 alert.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Never pay to get paid or get a job.\"",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam",
+          "evidence": "Matches the FTC April 2026 alert.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Task scams involve \"simple, repetitive tasks, such as liking videos or rating product images online\"; \"product boosting\" and \"optimization tasks\"; deposits \"usually in crypto\"",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/consumer-alerts/2024/11/task-scams-create-illusion-making-money",
+          "evidence": "All supported. The URL says /2024/11, but the page is dated December 12, 2024. The article doesn't state a date, so this doesn't matter.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Losses in the first half of 2024 \"topped $220 million\"; \"About 20,000 people reported these scams… compared to about 5,000 in all of 2023\"; crypto losses \"about $41 million… compared to about $21 million\"; \"likely reflects only a fraction of the actual harm\"",
+          "verdict": "supported",
+          "source_url": "https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2024/12/paying-get-paid-gamified-job-scams-drive-record-losses",
+          "evidence": "All match the FTC Data Spotlight (read via web_fetch).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "FBI IC3: scammers \"pose as a legitimate business, such as a staffing or recruiting agency\"; \"Never send money to an alleged employer\"; no references required and \"optimization\" are red flags; quote about not sharing personal information; crypto-recovery warning; report at ic3.gov with transaction information",
+          "verdict": "supported",
+          "source_url": "https://www.ic3.gov/PSA/2024/PSA240604",
+          "evidence": "All match IC3 PSA240604.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Upwork fees: \"The fee ranges from 0% to 15% per contract\"; it is shown on the proposal or offer, locked once sent, and can vary by contract; $20 → $22.22 example",
+          "verdict": "supported",
+          "source_url": "https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee",
+          "evidence": "Matches the Upwork Freelancer Service Fee page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Upwork Connects: \"$0.15 (USD) each and are sold in bundles\"; number per job varies, can change and is shown in the job post; buying them requires a verified billing method",
+          "verdict": "supported",
+          "source_url": "https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects",
+          "evidence": "Matches the Upwork Connects page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Upwork scam guidance quote; off-platform communication and payment break the Terms of Service; free work breaks Upwork's policies",
+          "verdict": "supported",
+          "source_url": "https://support.upwork.com/hc/en-us/articles/35088484250003-Recognize-red-flags-and-avoid-scams",
+          "evidence": "The quote matches the Upwork red-flags page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Clickworker workers are \"registered freelancers\" and are \"paid per task directly by us\"",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Supported by the Clickworker pages, which were read. The notes don't say which Clickworker page (homepage or support article) contains this wording.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Clickworker payout rules: four requirements; €/$20 and €/$10 minimums; SSN and signed W-9 for US workers, TIN for EU residents; changing account details puts payments on hold until you confirm by email; PayPal must be verified and able to receive EUR; unpaid earnings stay in your balance",
+          "verdict": "supported",
+          "source_url": "https://support-workplace.clickworker.com/support/solutions/articles/80000672348-what-do-i-have-to-do-to-receive-payment-from-clickworker-",
+          "evidence": "All supported by the Clickworker payment support page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Amazon Mechanical Turk permanently closed on September 30, 2026",
+          "verdict": "supported",
+          "source_url": "https://www.mturk.com/",
+          "evidence": "The mturk.com homepage (short page, but the text is plain) says \"Amazon Mechanical Turk permanently closed on September 30, 2026.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Mechanical Turk launched in 2005 and offered small jobs including data labeling, transcription and surveys; \"internal assessment\" wording attributed to Quartz",
+          "verdict": "supported",
+          "source_url": "https://finance.yahoo.com/technology/ai/articles/amazon-shutting-down-mechanical-turk-110911035.html",
+          "evidence": "Supported by Yahoo/Quartz (dated Aug 26, 2026). The quoted phrase is Quartz's paraphrase, not Amazon's words, and the article attributes it to Quartz correctly.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "IRS: self-employment \"including in a part-time business or as a gig worker\"; $400 rule and the exception for other filing requirements; SE tax definition; annual return plus quarterly estimated taxes; Forms 1040-ES, Schedule C and Schedule SE",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employed-individuals-tax-center",
+          "evidence": "All supported by the IRS self-employed tax center page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Upwork payment protection \"only applies when payments stay on the platform: funded milestones… desktop app\"",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "The notes give no explicit verdict; they call it broadly right but simplified. Upwork presents these as ways to \"maximize your chances of qualifying,\" and hourly protection also depends on a verified billing method and staying within weekly limits. The notes don't name which Upwork page this is from.",
+          "suggested_fix": "Payment protection requires keeping payments on Upwork; for fixed-price work fund milestones first, and for hourly work track time in the desktop app (other conditions apply)."
+        },
+        {
+          "claim": "7,700 projected job openings (2025–2035)",
+          "verdict": "uncertain",
+          "source_url": "https://www.onetonline.org/link/summary/43-9021.00",
+          "evidence": "The notes give no explicit verdict. This is O*NET's own label, but readers may take it as a total for the whole decade.",
+          "suggested_fix": "If O*NET's methodology confirms it's an annual average, say so."
+        },
+        {
+          "claim": "Table row \"Employer jobs … Nothing\" (cost to apply)",
+          "verdict": "uncertain",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "The notes give no explicit verdict. The FTC quote used only covers federal and postal jobs. The broader \"honest employers… never ask you to pay\" quote supports the whole row better.",
+          "suggested_fix": "Support the row with the broader \"honest employers… never ask you to pay\" quote."
+        },
+        {
+          "claim": "BLS wage page link for 2025 pay figures",
+          "verdict": "uncertain",
+          "source_url": "https://www.bls.gov/oes/2023/may/oes439021.htm",
+          "evidence": "The notes give no explicit verdict. The article links the May 2023 OEWS page, while its figures are 2025. The self-employed exclusion is standard OEWS method, so the point holds.",
+          "suggested_fix": "Link the current OEWS page."
+        },
+        {
+          "claim": "Intro says jobs come in \"three forms\" (the table has four rows)",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "The notes give no explicit verdict. Agencies are a route to employee jobs, so this is fine, but it could be clarified.",
+          "suggested_fix": "Clarify the three forms vs. the four table rows."
+        },
+        {
+          "claim": "Internal link anchor \"smart-ways-to-make-money-from-home-in-2025\"",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "The notes give no explicit verdict. The anchor looks dated in a late-2026 article.",
+          "suggested_fix": "Update the anchor so it isn't dated."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://consumer.ftc.gov/articles/how-spot-avoid-and-report-fake-check-scams",
+          "relevant": true,
+          "notes": "Read via web_fetch. Supports the bank-law quote, recovery steps and reporting guidance."
+        },
+        {
+          "url": "https://consumer.ftc.gov/articles/job-scams",
+          "relevant": true,
+          "notes": "Read via web_fetch (modified 2026-08-13). Supports what it's cited for. The opening quote is truncated without an ellipsis."
+        },
+        {
+          "url": "https://consumer.ftc.gov/consumer-alerts/2024/11/task-scams-create-illusion-making-money",
+          "relevant": true,
+          "notes": "Read via web_fetch. Supports the task-scam descriptions. The URL says 2024/11, but the page is dated December 12, 2024; the article doesn't state a date."
+        },
+        {
+          "url": "https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam",
+          "relevant": true,
+          "notes": "Read via web_fetch (April 30, 2026 alert). Supports the job-text scam claims."
+        },
+        {
+          "url": "https://finance.yahoo.com/technology/ai/articles/amazon-shutting-down-mechanical-turk-110911035.html",
+          "relevant": true,
+          "notes": "Read (Yahoo/Quartz, Aug 26, 2026). Supports the MTurk history; the quoted phrase is Quartz's paraphrase and is attributed correctly."
+        },
+        {
+          "url": "https://support-workplace.clickworker.com/support/solutions/articles/80000672348-what-do-i-have-to-do-to-receive-payment-from-clickworker-",
+          "relevant": true,
+          "notes": "Read. Supports the payout rules."
+        },
+        {
+          "url": "https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee",
+          "relevant": true,
+          "notes": "Read. Supports the fee claims and the $20 → $22.22 example."
+        },
+        {
+          "url": "https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects",
+          "relevant": true,
+          "notes": "Read. Supports the Connects pricing and rules."
+        },
+        {
+          "url": "https://support.upwork.com/hc/en-us/articles/35088484250003-Recognize-red-flags-and-avoid-scams",
+          "relevant": true,
+          "notes": "Read. Supports the scam guidance. The protection wording in the article is slightly simplified."
+        },
+        {
+          "url": "https://www.bls.gov/news.release/archives/ecopro_08282025.htm",
+          "relevant": true,
+          "notes": "Read via web_fetch. Supports the AI/automation statement, and the scope is stated correctly (2024–34, broad occupation group)."
+        },
+        {
+          "url": "https://www.bls.gov/oes/2023/may/oes439021.htm",
+          "relevant": true,
+          "notes": "Read via web_fetch. Supports the method note that self-employed workers are excluded. It is the May 2023 page while the figures are 2025; linking the current page would be cleaner."
+        },
+        {
+          "url": "https://www.clickworker.com",
+          "relevant": true,
+          "notes": "Read. The notes list the Clickworker homepage as supporting what it's cited for."
+        },
+        {
+          "url": "https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2024/12/paying-get-paid-gamified-job-scams-drive-record-losses",
+          "relevant": true,
+          "notes": "Read via web_fetch (only the PDF version couldn't be read, and it wasn't needed). The statistics match, but the data is from 2024, which is why claim B needs fixing."
+        },
+        {
+          "url": "https://www.ic3.gov/PSA/2024/PSA240604",
+          "relevant": true,
+          "notes": "Read. Supports the FBI scam warnings and reporting guidance."
+        },
+        {
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employed-individuals-tax-center",
+          "relevant": true,
+          "notes": "Read. Supports the self-employment tax claims."
+        },
+        {
+          "url": "https://www.mturk.com/",
+          "relevant": true,
+          "notes": "Read. Short page, but it explicitly states the September 30, 2026 closure."
+        },
+        {
+          "url": "https://www.onetonline.org/link/summary/43-9021.00",
+          "relevant": true,
+          "notes": "Read (\"Updated 2026\"). Supports the tasks, titles, job zone, software, pay and outlook, except the paraphrase in claim A."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "The article serves the intent well, and better than a generic answer. It covers where to look (four channels), what each channel costs (exact fees, Connects prices and payout minimums from the platforms' own help pages), and how to avoid scams (a checklist built from FTC, FBI and Upwork wording). Verdict: pass, after fixes A and B and the ellipsis on the opening quote.",
+      "adds_original_value": true,
+      "value_notes": "The claimed original value holds up. Pay figures are clearly labelled as covering employees only, the Mechanical Turk closure is current, recovery steps are given for each payment method, and tax obligations are covered. It isn't a generic rewrite. Weaknesses: there's no pay data for freelance or microtask work (the article admits this); it uses only one example platform per category; the \"Few openings\" note in the table is the writer's interpretation; and the scam-trend statistics are two years old.",
+      "product_claims_accurate": true,
+      "product_notes": "The article makes no product claims. Upwork and Clickworker appear only as neutral examples. This passes.",
+      "fetched_urls": [
+        "https://consumer.ftc.gov/articles/how-spot-avoid-and-report-fake-check-scams",
+        "https://consumer.ftc.gov/articles/job-scams",
+        "https://consumer.ftc.gov/consumer-alerts/2024/11/task-scams-create-illusion-making-money",
+        "https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam",
+        "https://finance.yahoo.com/technology/ai/articles/amazon-shutting-down-mechanical-turk-110911035.html",
+        "https://support-workplace.clickworker.com/support/solutions/articles/80000672348-what-do-i-have-to-do-to-receive-payment-from-clickworker-",
+        "https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee",
+        "https://support.upwork.com/hc/en-us/articles/211062898-Understanding-and-using-Connects",
+        "https://support.upwork.com/hc/en-us/articles/35088484250003-Recognize-red-flags-and-avoid-scams",
+        "https://www.bls.gov/news.release/archives/ecopro_08282025.htm",
+        "https://www.bls.gov/oes/2023/may/oes439021.htm",
+        "https://www.clickworker.com",
+        "https://www.clickworker.com/",
+        "https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2024/12/paying-get-paid-gamified-job-scams-drive-record-losses",
+        "https://www.ic3.gov/PSA/2024/PSA240604",
+        "https://www.irs.gov/businesses/small-businesses-self-employed/self-employed-individuals-tax-center",
+        "https://www.onetonline.org/link/summary/43-9021.00"
+      ],
+      "content_sha256": "44cfa853f6d86bb6f7ac98b95e797650d66fd10bae9b0ed68fd7e999a66b7ae2"
+    },
+    "images": {
+      "words": 2593,
+      "target": [
+        4,
+        5
+      ],
+      "stock_api_calls": 3,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "data entry jobs from home",
+          "result": "0"
+        },
+        {
+          "provider": "openverse",
+          "query": "freelancer working laptop",
+          "result": "20 (cached)"
+        },
+        {
+          "provider": "openverse",
+          "query": "person working laptop home",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "openverse",
+          "query": "laptop home office",
+          "result": "20 (cached)"
+        }
+      ],
+      "notes": [
+        "1 image(s), below the 4-5 guideline: nothing else in the article would gain from a visual, and decorative images are not added"
+      ],
+      "topic": {
+        "motif": "earnings",
+        "match": "pillar money"
+      },
+      "photo_rejections": [
+        {
+          "description": "Laptop Working",
+          "reason": "nothing about data, entry, find, home"
+        },
+        {
+          "description": "Woman Working",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Business Work",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Close-up Photography of Woman Sitting Beside Table While Using Macbook",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Desk Office",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Home Office",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Desk Laptop",
+          "reason": "nothing about data, entry, find, home"
+        },
+        {
+          "description": "Laptop Work",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Laptop Work",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Working Together",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Keyboard Typing",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Laptop Typing",
+          "reason": "nothing about data, entry, find, home"
+        }
+      ],
+      "featured": {
+        "provider": "openverse",
+        "id": "713229bc-d407-449d-9f88-2fc062c4806f",
+        "description": "Computer Laptop",
+        "page_url": "https://stocksnap.io/photo/computer-laptop-FBXB2DA8O7",
+        "creator": "Design by Matt",
+        "creator_url": "https://mattbango.com",
+        "license": "cc0",
+        "license_version": "1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "source": "stocksnap",
+        "query": "freelancer working laptop",
+        "relevance": "shows job",
+        "alt_text": "Computer Laptop",
+        "caption": "",
+        "filename": "data-entry-jobs-from-home-featured.webp",
+        "file": "featured.webp",
+        "bytes": 96872
+      },
+      "inline": []
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2665 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "8 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "Data Entry Jobs from Home: Where to Find Real Ones and How to Spot Scams"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.38% (2x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "0/8 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "143 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "50 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "data-entry-jobs-from-home"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "data-entry-jobs-from-home"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.01"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.49: TikTok Creator Rewards Program: Requirements, How Payouts Work, and the Fine Print"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": "7 confirmed by fact-check fetch"
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "3 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "0 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "11 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "17 of 17 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": false,
+        "detail": "Projected growth (2025–2035): “Decline (-1% or lower).” | Service fee of 0% to 15% per contract; Connects cost $0.15 each to bid",
+        "fix": "Link the source inside the same paragraph or list item as the number or 'according to' statement, or remove the statement."
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "15 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "cc0"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "0 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "3 no supporting evidence found (not shown to be false): O*NET tasks include \"re-enter data where needed\" (fix: Write \"or re-enter data in verification format to detect errors.\") | \"The problem is growing.\" (the next sentence cites first-half 2024 data) (fix: Write \"The problem grew sharply in 2024,\" or cite newer FTC Consumer Sentinel data.) | Searching several O*NET titles \"finds more listings than 'data entry' alone\" (fix: Present it as a tip (\"may surface more listings\").) || 6 could not be checked (source unreadable or partial): Upwork payment protection \"only applies when payments stay on the platform: funded milesto (fix: Payment protection requires keeping payments on Upwork; for fixed-price work fund milestones first, and for hourly work ) | 7,700 projected job openings (2025–2035) (fix: If O*NET's methodology confirms it's an annual average, say so.) | Table row \"Employer jobs … Nothing\" (cost to apply) (fix: Support the row with the broader \"honest employers… never ask you to pay\" quote.) | BLS wage page link for 2025 pay figures (fix: Link the current OEWS page.) || 2 marked supported, but its source_url is missing or was not read by the pipeline: Clickworker workers are \"registered freelancers\" and are \"paid per task directly by us\" | Amazon Mechanical Turk permanently closed on September 30, 2026",
+        "fix": "Contradicted: correct the claim to what the source says. No evidence found: cite an official source that states it, narrow it to what a source does say, or remove it. Could not be checked: verify it against a readable source or remove it. Source page not read: cite a page the pipeline can open that states the claim, or remove the claim. No claims listed: the fact-check did not check anything. Then re-run the fact-check only."
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "The article serves the intent well, and better than a generic answer. It covers where to look (four channels), what each channel costs (exact fees, Connects prices and payout minimums from the platforms' own help pages), and how to avoid scams (a checklist built from FTC, FBI and Upwork wording). Verdict: pass, after fixes A and B and the ellipsis on the opening quote."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "The claimed original value holds up. Pay figures are clearly labelled as covering employees only, the Mechanical Turk closure is current, recovery steps are given for each payment method, and tax obligations are covered. It isn't a generic rewrite. Weaknesses: there's no pay data for freelance or microtask work (the article admits this); it uses only one example platform per category; the \"Few openings\" note in the table is the writer's interpretation; and the scam-trend statistics are two years old."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "The article makes no product claims. Upwork and Clickworker appear only as neutral examples. This passes."
+      },
+      {
+        "check": "fact_check_current",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "sources_verified",
+        "passed": false,
+        "detail": "https://www.mturk.com/ could not be read, so nothing it is cited for is verified",
+        "fix": "Replace each unreadable or irrelevant source with a page that states the fact, or remove the claims that relied on it; then re-run the fact-check only."
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 1.759,
+        "write": 0.316,
+        "fact_check": 0.815,
+        "fact_check_json": 0.226
+      },
+      "total_usd": 3.116
+    },
+    "wp_media": {
+      "id": 3748,
+      "url": "https://newearns.com/wp-content/uploads/2026/10/data-entry-jobs-from-home-featured.webp"
+    },
+    "wp_post": {
+      "id": 3749,
+      "status": "pending",
+      "link": "https://newearns.com/?p=3749"
+    },
+    "image_check": "ok",
+    "final": "held_for_review"
+  },
+  "updated": "2026-10-26T16:28:02+00:00"
+}
