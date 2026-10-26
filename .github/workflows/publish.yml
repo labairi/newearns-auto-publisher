@@ -11,8 +11,10 @@ on:
     # GitHub cron is always UTC. Morocco has been on UTC+0 all year, with no daylight
     # saving and no Ramadan change, since 2026-09-20, so 11:00 Morocco = 11:00 UTC.
     # If Morocco changes its clocks again, both lines must change.
-    - cron: "0 11 * * *"    # 11:00 Morocco time
-    - cron: "30 11 * * *"   # backup if GitHub drops the 11:00 run; skips (free) after a run
+    # Off the hour on purpose: GitHub delays or drops top-of-hour schedules under load
+    # (on 2026-10-22..26 the 11:00/11:30 runs arrived 3-5 hours late).
+    - cron: "7 11 * * *"    # 11:07 Morocco time
+    - cron: "37 11 * * *"   # backup if GitHub drops the 11:07 run; skips (free) after a run
   workflow_dispatch:
     inputs:
       command:

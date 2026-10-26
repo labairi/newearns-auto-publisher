@@ -148,10 +148,11 @@ GitHub: Actions > **publisher** > Run workflow > choose `check-setup`, `article-
 
 ## Daily scheduled run
 
-The workflow also runs once a day at **11:00 Morocco time**: cron `0 11 * * *`, with a
-backup at `30 11 * * *` in case GitHub drops the first one. GitHub cron is always UTC.
+The workflow also runs once a day at **11:07 Morocco time**: cron `7 11 * * *`, with a
+backup at `37 11 * * *` in case GitHub drops the first one. Both are off the hour because
+GitHub delays top-of-hour schedules most (in October 2026 the 11:00 runs arrived 3-5 hours late). GitHub cron is always UTC.
 Morocco has been on UTC+0 all year since 2026-09-20, with no daylight saving and no
-Ramadan change, so 11:00 Morocco is 11:00 UTC. If Morocco changes its clocks again, both
+Ramadan change, so 11:07 Morocco is 11:07 UTC. If Morocco changes its clocks again, both
 cron lines must change. GitHub can start a scheduled run late, or occasionally skip one.
 The backup costs nothing when the first run already happened, because of the 20-hour gap.
 Schedules only run from `main`.

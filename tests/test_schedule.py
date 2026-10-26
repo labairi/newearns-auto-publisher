@@ -103,7 +103,7 @@ def test_shipped_config_allows_live_scheduled_runs_with_daily_spacing():
 def test_schedule_is_11_00_morocco_time():
     # Morocco is on UTC+0 all year since 2026-09-20 (no DST, no Ramadan change), so 11:00 local = 11:00 UTC.
     crons = [c["cron"] for c in workflow()[True]["schedule"]]
-    assert crons == ["0 11 * * *", "30 11 * * *"]
+    assert crons == ["7 11 * * *", "37 11 * * *"]
 
 
 # ------------------------------------------------------------ draft-only and one article
