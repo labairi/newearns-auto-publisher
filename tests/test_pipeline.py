@@ -322,7 +322,7 @@ def test_only_one_daily_schedule_and_only_in_publish_workflow():
         y = __import__("yaml").safe_load(wf.read_text())
         triggers = y.get("on", y.get(True)) or {}  # PyYAML parses bare `on` as True
         if wf.name == "publish.yml":
-            assert triggers["schedule"] == [{"cron": "0 11 * * *"}, {"cron": "30 11 * * *"}]
+            assert triggers["schedule"] == [{"cron": "7 11 * * *"}, {"cron": "37 11 * * *"}]
             assert "workflow_dispatch" in triggers
         else:
             assert "schedule" not in triggers, wf.name
