@@ -16,13 +16,13 @@ with sync_playwright() as p:
         pg.screenshot(path=str(out / f"viewport-{name}.png"))
         report[name] = pg.evaluate("""() => {
           const t = document.querySelector('.entry-content table');
-          const td = t.querySelector('td'), cs = getComputedStyle(td), ts = getComputedStyle(t);
+          const td = t.querySelector('td, th') || t, cs = getComputedStyle(td), ts = getComputedStyle(t);
           const css = document.getElementById('wp-custom-css');
           return {parent: t.parentElement.tagName + '.' + t.parentElement.className,
                   table_display: ts.display, table_width: t.getBoundingClientRect().width, table_height: t.getBoundingClientRect().height,
-                  td_border: cs.border, td_padding: cs.padding, td_display: cs.display, rows: t.rows.length,
+                  td_border: cs.border, td_padding: cs.padding, td_display: cs.display, rows: t.rows.length, cells_td: t.querySelectorAll('td').length, cells_th: t.querySelectorAll('th').length, children: [...t.children].map(c => c.tagName),
                   custom_css: css ? css.textContent.slice(0, 1500) : null,
-                  table_html_start: t.outerHTML.slice(0, 600)};
+                  table_html_start: t.outerHTML.slice(0, 1500)};
         }""")
     b.close()
 (out / "report.json").write_text(json.dumps(report, indent=2))
