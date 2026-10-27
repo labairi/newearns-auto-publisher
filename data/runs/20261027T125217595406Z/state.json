@@ -1,0 +1,860 @@
+{
+  "run_id": "20261027T125217595406Z",
+  "stages": {
+    "pillar": "ai",
+    "topic": "Best Free AI Tools for Writing, Images, Video and Work",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 64,
+        "cache_creation_input_tokens": 64825,
+        "cache_read_input_tokens": 963885,
+        "output_tokens": 17601,
+        "web_search_requests": 11,
+        "web_fetch_requests": 14,
+        "requests": 10,
+        "read_source_calls": 21,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 64,
+            "cache_write_5m_tokens": 64825,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 963885,
+            "output_tokens": 17601
+          }
+        },
+        "fetched_urls": [
+          "https://chatgpt.com/plans/free/",
+          "https://chatgpt.com/pricing",
+          "https://chatgpt.com/pricing/",
+          "https://claude.com/pricing",
+          "https://helpx.adobe.com/firefly/get-set-up/learn-the-basics/generative-credits-overview.html",
+          "https://openai.com/policies/row-terms-of-use/"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.979
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 10180,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 12034,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 10180,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 12034
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.292
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 12,
+        "cache_creation_input_tokens": 103303,
+        "cache_read_input_tokens": 204932,
+        "output_tokens": 14128,
+        "web_search_requests": 0,
+        "web_fetch_requests": 4,
+        "requests": 5,
+        "read_source_calls": 8,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 12,
+            "cache_write_5m_tokens": 103303,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 204932,
+            "output_tokens": 14128
+          }
+        },
+        "fetched_urls": [
+          "https://chatgpt.com/pricing",
+          "https://claude.com/pricing",
+          "https://openai.com/policies/row-terms-of-use/"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.84
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 5897,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 7656,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 5897,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 7656
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.183
+      }
+    ],
+    "brief": "I've finished the research. One thing to know before the brief: several vendor pricing pages render with JavaScript and couldn't be read, either fully or at all (Adobe Firefly, Canva pricing, ChatGPT plan prices). They are listed as \"do not use\" so the writer won't fill the gaps from memory.\n\n---\n\n# BRIEF: Free AI tools (pillar: ai)\n\n## 1. Chosen query and search intent\n- **Chosen query:** free ai tools\n- **Focus keyphrase:** free AI tools\n- **Search intent:** Commercial investigation, written as a listicle. The top results for \"free ai tools\" and \"best free ai tools for work\" are big roundups: Zapier (\"The 20+ best free AI tools\"), DataCamp (\"The 40 Best Free AI Tools in 2026\"), Simplilearn, and several \"I tested…\" lists. Readers want to know which tool to use for which job without paying.\n- **What current results do badly (our added value):**\n  1. They name tools but rarely say **what the free plan includes or where it stops**. One Medium result's title makes exactly this complaint: \"actually free, not free trial.\"\n  2. They skip the questions people earning money need answered: **Can I use the output for client or commercial work? Who owns it? Is my client's data used for training?**\n  3. Many claim first-hand testing, which we can't and won't do. We answer with **vendor documentation** and a **decision table**: free / limited / paid-only, by task.\n  4. Video: we say honestly that the big free plans mostly keep AI video generation behind paid plans. Other roundups gloss over this.\n\n## 2. Working title and angle\n**Title:** \"Free AI Tools for Writing, Images, Video and Work: What Each Free Plan Actually Includes\"\n**Angle:** A guide built from vendor documentation. It covers what you get free from ChatGPT, Gemini, Claude, Microsoft Copilot and Canva; where each free plan limits you; what paying adds (with sourced prices only); and three checks to run before using free AI output in paid work (accuracy, ownership/copyright, privacy). One clearly limited research finding covers time saved. No predictions.\n\n## 3. Outline (H2/H3)\n**Intro (2–3 sentences):** Most \"free AI tools\" are free plans with usage limits. This guide shows what each vendor says its free plan includes and what to check before using the output for clients. Use the keyphrase once here.\n\n**H2: Quick comparison: what the free plans include**\n- Decision table. Columns: Tool | Free plan covers | Where the free plan limits you | What paying adds (sourced price or \"see pricing page\")\n- Rows: ChatGPT Free, Gemini (Free), Claude Free, Microsoft Copilot (free), Canva Free\n- Note under the table: plans and limits change often, and vendors measure limits differently (messages, compute, or monthly \"uses\"). Check the linked page.\n\n**H2: Free AI tools for writing and everyday work**\n- H3: ChatGPT Free (list of free-plan limits; Go plan \"may include ads\")\n- H3: Claude Free (features listed on the pricing page; Pro price)\n- H3: Microsoft Copilot (free) vs Copilot in Microsoft 365 (Word/Excel features need a Microsoft 365 Personal/Family/Premium subscription, owner only, usage limits apply)\n- H3: Gemini Free (how its usage limits work)\n\n**H2: Free AI tools for images and design**\n- ChatGPT Free: \"limited and slower image generation\"\n- Gemini Free: image generation and editing, plus limited Nano Banana Pro access in Flow\n- Copilot free: creates images, and signing in unlocks image creation\n- H3: Canva Free's 20 monthly AI uses: how they're counted and when they reset (the fullest documentation of any free plan, so give it the most detail)\n\n**H2: Free AI video: what's actually included**\n- Stick to the sources: Google lists video generation among the extras in its paid AI Plus/AI Pro plans. Canva's \"Create a video clip with Canva AI\" is an Ultra AI tool, and Canva Free has no access to Ultra tools.\n- Tell readers to check any \"free AI video generator\" for watermarks, credit limits and commercial-use terms on the vendor's own pricing page. Don't name specific video tools unless the writer sources them.\n\n**H2: Before you use free AI output in paid work**\n- H3: Check accuracy: OpenAI's terms tell you to review output, with human review where appropriate\n- H3: Ownership vs copyright: OpenAI assigns output rights to you, but output may not be unique; the US Copyright Office says prompts alone don't make output copyrightable\n- H3: Keep client data out of free chats (or change your settings): OpenAI training opt-out; Gemini human reviewers, Keep Activity setting and temporary chats\n\n**H2: How much time can AI save? What one study found**\n- The MIT/Science study: 40% less time, quality up 18%, plus the study's own limitations. Present it as one experiment on short writing tasks, not a general rule.\n\n**H2: When a paid plan is worth it**\n- Base this on reasons the vendors give: Gemini's paid plans offer 2x/4x the free usage limits plus video; Claude Pro adds more usage and Projects; Canva Pro gives up to 200 Premium AI uses; Copilot inside Office apps needs Microsoft 365. Cover prices only where sourced.\n\n**FAQ (optional, 3 questions):** Is ChatGPT free? / Can I sell images made with free AI tools? / Do free AI tools train on my data?\n\n## 4. Facts to rely on (each with URL)\n**ChatGPT** (https://chatgpt.com/pricing, read via web_fetch; retrieval timestamp 2026-06-08; prices did NOT render, so don't state ChatGPT prices)\n- Free plan list: limited access to GPT-5.5 Instant; limited messages and uploads; limited and slower image generation; limited deep research; limited memory and context; limited Codex access.\n- Go = \"Everything in Free and\" more access, messages, uploads, image creation, longer memory; \"This plan may include ads.\"\n- Plus adds GPT-5.5 Thinking, expanded deep research and agent mode, Projects, tasks and custom GPTs. \"Limits apply.\"\n- Writer guidance: model names change quickly. Prefer \"the current default model\" or link instead of naming GPT-5.5.\n\n**OpenAI Terms of Use** (https://openai.com/policies/row-terms-of-use/, \"Published: January 1, 2026 / Effective: January 1, 2026\"). Covers ownership, similarity, training opt-out and accuracy; see Source Notes for exact wording. The URL is the \"row\" version, so terms may differ by region. Say \"OpenAI's Terms of Use state…\" and link.\n\n**Gemini / Google AI plans** (https://gemini.google/subscriptions/, US prices, no date stated)\n- Free: Gemini app with access to the Flash-Lite model; image generation and editing; Gems; Google Flow access \"including limited access to Nano Banana Pro\"; Gemini Notebook; 15 GB storage.\n- Google AI Plus $4.99/month: \"2x higher usage limits than Free and access to more features like video generation and Daily Brief\"; 400 GB.\n- Google AI Pro $19.99/month: \"4x higher usage limits than Free and access to more features like video generation\"; 5 TB. Available \"for over 18 users.\"\n- Ultra from $99.99/month ($199.99 tier).\n- Footnote 2: limits are compute-based (prompt complexity, features, chat length) and refresh every 5 hours up to a weekly limit; AI credits can be bought to extend them.\n- **Caution:** the page names models inconsistently (title says \"Gemini 4 Argon\", FAQ says \"3.1 Pro\"). Don't name Gemini model versions.\n\n**Gemini privacy** (https://support.google.com/gemini/answer/13594961, \"Last updated: October 23, 2026\"): human reviewers, the Keep Activity setting, temporary chats. Exact wording in Source Notes.\n\n**Claude** (https://claude.com/pricing, no date)\n- Free $0: chat on web, desktop and mobile; search the web, create files and run code; memory across conversations; connect apps and tools; Artifacts; Claude Design, Slides, Docs.\n- Pro $17/month with the annual discount ($200 billed up front), or $20 billed monthly. Adds more usage, Claude Code, Projects, more models, and Claude in Chrome and Microsoft 365.\n- Max from $100/month.\n- \"Prices shown don't include applicable tax. Price and plans are subject to change at Anthropic's discretion.\"\n\n**Microsoft Copilot** (https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365, no date)\n- Free at copilot.cloud.microsoft, as an app, or in Edge.\n- Free version: chat for writing, brainstorming and summarizing; real-time answers from web search; webpage summaries in Edge; creates images.\n- Sign-in isn't required, but signing in unlocks chat history, image creation, longer conversations and voice.\n- Copilot in Word, Excel, PowerPoint, Outlook and OneNote needs Microsoft 365 Personal, Family or Premium. Only the subscription owner gets it, and usage limits apply.\n- Features may vary by region.\n- No prices sourced, so don't state them.\n\n**Canva** (https://www.canva.com/help/ai-access-variantb/, no date)\n- Canva Free gets \"Up to 20 uses of Standard AI tools, OR Premium AI tools.\" No Ultra AI tools.\n- The allowance resets at 12:00 a.m. UTC on the 1st of each month.\n- On Free, Standard tools (e.g. Magic Write, Canva AI text, Image Upscaler, image generation with Canva AI) count against the allowance. On paid plans they don't (fair use limits apply).\n- Uses are estimates; complex prompts use more.\n- After hitting the limit, Free users get \"short pauses between generations\" for Standard and Premium tools.\n- Pro: up to 200 Premium or 20 Ultra uses.\n- \"Create a video clip with Canva AI\" is an Ultra tool.\n- Canva pricing page unreadable, so no Canva prices.\n\n**US Copyright Office** (https://www.copyright.gov/newsnet/2025/1060.html, January 29, 2025; context page https://www.copyright.gov/ai/). This is US law; tell readers outside the US their rules may differ.\n\n**Research** (https://news.mit.edu/2023/study-finds-chatgpt-boosts-worker-productivity-writing-0714, July 14, 2023; study published in *Science*)\n- 453 college-educated professionals, two 20–30-minute writing tasks specific to their jobs.\n- ChatGPT cut time by 40% and raised quality 18%, as rated by blind evaluators.\n- The tasks didn't require factual accuracy or company context, and outputs weren't fact-checked.\n\n## 5. Internal links (only genuinely related)\n- \"ChatGPT Prompts for Freelancers and Side Hustles: Copy-Ready Templates and How to Adapt Them\": link from the ChatGPT Free section (\"once you've picked a tool, use these prompts\").\n- \"How to Use Artificial Intelligence to Start a Business\": link from \"When a paid plan is worth it\" or the conclusion.\n- \"How to Make Money Online: 5 Ways and What Each Platform Takes\": optional, one link from the intro or conclusion.\n- Don't link the PDF, Instagram, loans or gaming posts.\n\n## 6. Product link\nThere's no product for this pillar, so no product link. Vendor links go to official pricing and help pages only, with no utm parameters.\n\n## 7. Do-not-use list\n- **Adobe Firefly:** helpx and the plans page returned 403 or nav-only text. Make no claims about Firefly credits or prices.\n- **Canva prices:** page unreadable.\n- **ChatGPT Go/Plus/Pro prices:** didn't render.\n- **Microsoft 365 prices:** not read.\n- **NBER \"Generative AI at Work\":** abstract not readable, so don't cite the 14%/34% figures.\n- **Third-party listicles** (Zapier, DataCamp, Krea's Canva blog): use them for intent only, not as fact sources.\n- **No unsourced free video tools** (Runway, CapCut, etc.).\n\n---\n\n## SOURCE NOTES\n\n**1. https://chatgpt.com/pricing** — \"Plans and Pricing | ChatGPT\". No date on the page (web_fetch retrieval 2026-06-08).\n- Free: \"Limited access to GPT-5.5 Instant / Limited messages and uploads / Limited and slower image generation / Limited deep research / Limited memory and context / Limited Codex access\"\n- Go: \"Everything in Free and: More access to GPT-5.5 Instant / More messages / More uploads / More image creation / Longer memory\" … \"This plan may include ads.\"\n- Plus: \"Everything in Go and: Advanced reasoning with GPT-5.5 Thinking … Expanded deep research and agent mode … Projects, tasks, and custom GPTs\" … \"Limits apply\"\n- Pro: \"Unlimited subject to abuse guardrails.\"\n- Condition: price amounts weren't in the readable text.\n\n**2. https://openai.com/policies/row-terms-of-use/** — \"Terms of Use | OpenAI\". \"Published: January 1, 2026\", \"Effective: January 1, 2026\".\n- \"As between you and OpenAI, and to the extent permitted by applicable law, you (a) retain your ownership rights in Input and (b) own the Output.\"\n- \"Due to the nature of our Services and artificial intelligence generally, output may not be unique and other users may receive similar output from our Services.\"\n- \"If you do not want us to use your Content to train our models, you can opt out by following the instructions in this article.\" Condition: \"in some cases this may limit the ability of our Services to better address your specific use case.\"\n- \"You must evaluate Output for accuracy and appropriateness for your use case, including using human review as appropriate, before using or sharing Output from the Services.\"\n\n**3. https://gemini.google/subscriptions/** — \"Google AI Pro & Ultra — get access to Gemini 4 Argon & more\". No date stated; US pricing shown.\n- Free: \"Access to our Flash-Lite model / Image generation and editing … Gems / Google Flow Access to our AI creative studio … including limited access to Nano Banana Pro … Storage 15 GB\"\n- AI Plus: \"$4.99/ month … Get 2x higher usage limits than Free and access to more features like video generation and Daily Brief.\"\n- AI Pro: \"$19.99/ month … Get 4x higher usage limits than Free and access to more features like video generation\"; \"available for over 18 users\"\n- Ultra: \"Starting at: $99.99/ month … $199.99 / month: 20x higher usage limits vs. AI Pro\"\n- Footnote 2: \"compute-based usage limits factor in the complexity of your prompt, the features you use, and the length of your chat. Your limit refreshes every 5 hours until you reach your weekly limit.\"\n- Conditions: \"Rate limits may apply.\" \"Cancel anytime. No refunds for partial billing periods, except as required by applicable law.\"\n\n**4. https://support.google.com/gemini/answer/13594961** — \"Gemini Apps Privacy Hub\". \"Last updated: October 23, 2026\".\n- \"Please don't enter confidential information that you wouldn't want a reviewer to see or Google to use to improve our services\"\n- \"To stop your future chats from being reviewed to improve Google services, turn off your Keep Activity setting.\"\n- \"You can also use temporary chats, which are not used to improve Google AI with help from human reviewers.\"\n- Exception: \"Even if your Keep Activity setting is off or you use temporary chats, Google still uses your chats to respond to you and help protect Google, our users, and the public, including with help from human reviewers.\"\n\n**5. https://claude.com/pricing** — \"Plans & pricing | Claude by Anthropic\". No date.\n- Free: \"$0 Free for everyone … Chat on web, desktop, and mobile / Search the web, create files, and run code / Memory across conversations / Connect your apps and tools / Create Artifacts\"\n- Pro: \"$17 Per month with annual subscription discount ($200 billed up front). $20 if billed monthly.\" Adds \"More usage … Claude Code … Projects / More Claude models\"\n- Max: \"From $100 Per month\"\n- Condition: \"Prices shown don't include applicable tax. Price and plans are subject to change at Anthropic's discretion.\"\n\n**6. https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365** — \"What's the difference between Microsoft Copilot (free) and Copilot in Microsoft 365\". No date.\n- \"Microsoft Copilot is available at no cost at copilot.cloud.microsoft.\"\n- \"Sign in isn't required, but signing in with your personal account gives you access to chat history, image creation, longer conversations, voice interactions, and other Copilot features.\"\n- Free lets you \"Chat with AI for help with writing, brainstorming, summarizing, and more. Get real-time answers based on web search.\"\n- \"Copilot features in Microsoft 365 Personal, Family, Premium, and Pro subscriptions are subject to limits and can be used by subscription owner only.\"\n- Condition: \"Copilot features, functionality, and availability may vary by region.\"\n\n**7. https://www.canva.com/help/ai-access-variantb/** — \"Understanding your AI usage – Canva Help Center\". No date.\n- \"Canva Free: Up to 20 uses of Standard AI tools, OR Premium AI tools. No access to Ultra AI tools or Affinity's Premium AI tools.\"\n- \"If you're on Canva Free, your AI allowance resets at 12:00 a.m. UTC on the first of each month.\"\n- \"For Canva Free, Standard AI tools still draw from the monthly AI allowance.\" Standard tools include \"Image Upscaler / Image generation with Canva AI / Magic Formulas\"; design tools listed include \"Magic Write\".\n- \"The ranges provided above are estimates. More complex prompts and tasks use more of your monthly AI allowance\"\n- \"For Canva Free, if you reach your limit you'll see short pauses between generations for Standard and Premium AI tools.\"\n- Pro: \"up to 200 uses for Premium AI tools, OR up to 20 uses for Ultra AI tools\". Ultra tools include \"Create a video clip with Canva AI\".\n- Condition: \"*Fair use limits apply\"\n\n**8. https://www.copyright.gov/newsnet/2025/1060.html** — \"NewsNet Issue 1060 | U.S. Copyright Office\". January 29, 2025.\n- \"It concludes that the outputs of generative AI can be protected by copyright only where a human author has determined sufficient expressive elements.\"\n- The press release says this can include situations where \"a human makes creative arrangements or modifications of the output, but not the mere provision of prompts.\"\n- \"the use of AI to assist in the process of creation or the inclusion of AI-generated material in a larger human-generated work does not bar copyrightability.\"\n- Scope: US Copyright Office position; not legal advice.\n\n**9. https://news.mit.edu/2023/study-finds-chatgpt-boosts-worker-productivity-writing-0714** — \"Study finds ChatGPT boosts worker productivity for some writing tasks\". July 14, 2023.\n- \"Access to the assistive chatbot ChatGPT decreased the time it took workers to complete the tasks by 40 percent, and output quality, as measured by independent evaluators, rose by 18 percent.\"\n- Sample: \"453 college-educated marketers, grant writers, consultants, data analysts, human resource professionals, and managers\"; \"20- to 30-minute tasks\"\n- Limitation: tasks \"didn't require precise factual accuracy or context about things like a company's goals or a customer's preferences.\" The researchers \"didn't think it was feasible to hire fact-checkers.\"\n- Caveat from co-author Noy: speed benefits may be \"lesser in the real world because you need to spend time fact-checking and writing the prompts.\"",
+    "candidates": [
+      "Best Free AI Tools for Writing, Images, Video and Work (primary query: free ai tools)"
+    ],
+    "article": {
+      "title": "Free AI Tools for Writing, Images, Video and Work: What Each Free Plan Actually Includes",
+      "seo_title": "Free AI Tools: What Each Free Plan Actually Includes",
+      "slug": "free-ai-tools-free-plans",
+      "meta_description": "Compare free AI tools from ChatGPT, Gemini, Claude, Copilot and Canva: what each free plan includes, where it stops, and what to check for client work.",
+      "focus_keyphrase": "free AI tools",
+      "excerpt": "Most free AI tools are free plans with usage limits. Here is what ChatGPT, Gemini, Claude, Microsoft Copilot and Canva say their free plans include, where each one stops, what paying adds, and three checks to run before you use AI output in client work.",
+      "content_html": "<p>Most free AI tools are really free plans with usage limits. They are not unlimited products, and they are not short trials. This guide uses each vendor's own pricing and help pages to show what the free plans from ChatGPT, Gemini, Claude, Microsoft Copilot and Canva include and where they stop. It also covers three things to check before free AI output goes into work a client pays for.</p><h2>Quick comparison: what the free plans include</h2><p>The table summarizes each vendor's own page. Prices appear only where the vendor's page could be read. Where it couldn't, the table points you to the vendor's pricing page.</p><table><thead><tr><th>Tool</th><th>Free plan covers</th><th>Where the free plan limits you</th><th>What paying adds</th></tr></thead><tbody><tr><td><a href=\"https://chatgpt.com/pricing\">ChatGPT Free</a></td><td>Chat with the current default model, image generation, deep research, memory, Codex access</td><td>All of these are listed as \"limited\". Image generation is \"limited and slower\". Messages and uploads are limited.</td><td>Go: more messages, uploads and image creation, plus longer memory (\"may include ads\"). Plus: Projects, tasks, custom GPTs, expanded deep research and agent mode. Prices: see the pricing page.</td></tr><tr><td><a href=\"https://gemini.google/subscriptions/\">Gemini (Free)</a></td><td>Gemini app, image generation and editing, Gems, Google Flow with limited Nano Banana Pro access, 15 GB storage</td><td>Compute-based usage limits that refresh every 5 hours, up to a weekly limit</td><td>AI Plus $4.99/month (2x the free limits, video generation). AI Pro $19.99/month (4x the free limits, video generation). Ultra from $99.99/month. US prices.</td></tr><tr><td><a href=\"https://claude.com/pricing\">Claude Free</a></td><td>Chat on web, desktop and mobile; web search; creating files; running code; memory; connecting apps; Artifacts</td><td>Pro is listed with \"more usage\", plus Projects, Claude Code and more models</td><td>Pro $17/month with the annual discount ($200 billed up front) or $20 billed monthly. Max from $100/month. Prices exclude tax.</td></tr><tr><td><a href=\"https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365\">Microsoft Copilot (free)</a></td><td>Chat for writing, brainstorming and summarizing; real-time web answers; webpage summaries in Edge; image creation</td><td>Chat history, image creation, longer conversations and voice need you to sign in. No Copilot inside Word, Excel and the other Office apps.</td><td>Copilot in Word, Excel, PowerPoint, Outlook and OneNote through a Microsoft 365 subscription (owner only, limits apply). Prices: see Microsoft.</td></tr><tr><td><a href=\"https://www.canva.com/help/ai-access-variantb/\">Canva Free</a></td><td>Up to 20 uses a month of Standard or Premium AI tools</td><td>Standard tools count toward the 20 uses. No Ultra AI tools. Short pauses between generations once you hit the limit.</td><td>Pro: up to 200 Premium or 20 Ultra uses. Standard tools stop counting toward the allowance (fair use applies). Prices: see Canva.</td></tr></tbody></table><p><strong>Note:</strong> Plans and limits change often, and each vendor measures them differently: messages and uploads, compute, or monthly \"uses\". Check the linked page before you rely on any row.</p><h2>Free AI tools for writing and everyday work</h2><h3>ChatGPT Free</h3><p>OpenAI's <a href=\"https://chatgpt.com/pricing\">pricing page</a> lists the Free plan as limited access to its current default model, plus limited messages and uploads, limited and slower image generation, limited deep research, limited memory and context, and limited Codex access. In practice, the free plan works for drafting a proposal, rewriting an email or outlining a blog post. You can expect to hit a ceiling during a long working session.</p><p>The next tier, Go, is described as \"Everything in Free\" plus more access, messages, uploads and image creation, and longer memory. The page also says \"This plan may include ads.\" Plus adds advanced reasoning, expanded deep research and agent mode, and Projects, tasks and custom GPTs. OpenAI notes that \"Limits apply.\" Model names on this page change often, so check the page itself rather than relying on any article, including this one.</p><p>Once you've chosen a tool, these <a href=\"https://newearns.com/chatgpt-prompts-freelancers-side-hustles/\">ChatGPT prompts for freelancers and side hustles</a> give you copy-ready starting points for proposals, client emails and content outlines.</p><h3>Claude Free</h3><p>Anthropic's <a href=\"https://claude.com/pricing\">pricing page</a> lists Claude Free at $0, \"Free for everyone\". It covers chat on web, desktop and mobile; searching the web, creating files and running code; memory across conversations; connecting your apps and tools; and creating Artifacts. The ability to create files and run code is useful if you want a quick spreadsheet, a formatted document or a small calculation without leaving the chat.</p><p>Pro costs $17 per month with the annual discount ($200 billed up front), or $20 if billed monthly. It adds more usage, Claude Code, Projects and more Claude models. Anthropic notes that prices exclude applicable tax and that \"Price and plans are subject to change at Anthropic's discretion.\"</p><h3>Microsoft Copilot (free) vs Copilot in Microsoft 365</h3><p>These are two different products. Microsoft's <a href=\"https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365\">support page</a> says Microsoft Copilot \"is available at no cost at copilot.cloud.microsoft\". It is also available as an app and in the Edge browser. The free version lets you chat for help with writing, brainstorming and summarizing, get real-time answers based on web search, summarize webpages in Edge, and create images.</p><p>You don't have to sign in. Microsoft says, however, that signing in with a personal account \"gives you access to chat history, image creation, longer conversations, voice interactions, and other Copilot features.\" If images seem to be missing, check that you are signed in.</p><p>Copilot inside Word, Excel, PowerPoint, Outlook and OneNote is a separate offer that needs a Microsoft 365 subscription. On the same page, Microsoft states: \"Copilot features in Microsoft 365 Personal, Family, Premium, and Pro subscriptions are subject to limits and can be used by subscription owner only.\" On a Family plan, that means the other members don't get Copilot in the apps. Microsoft also says features and availability \"may vary by region.\"</p><h3>Gemini Free</h3><p>Google's <a href=\"https://gemini.google/subscriptions/\">plans page</a> lists the free tier as the Gemini app with access to its Flash-Lite model, image generation and editing, Gems (custom assistants), access to the Google Flow creative studio, and 15 GB of storage.</p><p>Gemini's limits work differently from a message count. According to the page's footnote, \"compute-based usage limits factor in the complexity of your prompt, the features you use, and the length of your chat. Your limit refreshes every 5 hours until you reach your weekly limit.\" The page also says you can buy AI credits to extend your limits. In practice, one long chat with heavy features can use more of your allowance than several short questions. If you run out mid-task, starting a new, shorter chat for the next task may use less of your allowance. That follows from the footnote's mention of chat length, not from a published figure. Google also notes that \"Rate limits may apply.\"</p><h2>Free AI tools for images and design</h2><p>Several free plans include some image generation:</p><ul><li><strong>ChatGPT Free:</strong> \"Limited and slower image generation\", according to <a href=\"https://chatgpt.com/pricing\">OpenAI's pricing page</a>.</li><li><strong>Gemini Free:</strong> image generation and editing, plus Google Flow access \"including limited access to Nano Banana Pro\", per <a href=\"https://gemini.google/subscriptions/\">Google's plans page</a>.</li><li><strong>Microsoft Copilot (free):</strong> creates images. Signing in with a personal account unlocks image creation, according to <a href=\"https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365\">Microsoft's support page</a>.</li></ul><p>None of these pages gives an exact number of free images, so plan around \"some\" rather than a fixed quota. Canva is the exception, and it documents its allowance in the most detail.</p><h3>Canva Free: how the 20 monthly AI uses are counted</h3><p>According to <a href=\"https://www.canva.com/help/ai-access-variantb/\">Canva's help page on AI usage</a>, Canva Free includes \"Up to 20 uses of Standard AI tools, OR Premium AI tools,\" and \"No access to Ultra AI tools.\" Here is how that works in practice:</p><ul><li><strong>Standard tools count on Free.</strong> Canva says that \"For Canva Free, Standard AI tools still draw from the monthly AI allowance.\" Its list of Standard tools includes Image Upscaler, image generation with Canva AI and Magic Formulas, and Magic Write appears among its design tools. On paid plans, Standard tools don't draw from the allowance, though fair use limits apply.</li><li><strong>One generation isn't always one use.</strong> Canva calls its ranges \"estimates\" and says \"More complex prompts and tasks use more of your monthly AI allowance.\" A detailed, multi-part request may use more than a simple one.</li><li><strong>The reset is in UTC.</strong> The allowance \"resets at 12:00 a.m. UTC on the first of each month.\" If you're in the Americas, that falls on the evening of the last day of the previous month, local time.</li><li><strong>Hitting the limit slows you down.</strong> Canva says that once Free users reach the limit, \"you'll see short pauses between generations for Standard and Premium AI tools.\"</li></ul><p>Here is a simple way to make 20 uses last a month. Use free, non-AI editing (templates, text, layout) for most of the work. Save AI uses for the steps where AI clearly helps, such as upscaling a low-resolution client logo or generating a background image.</p><h2>Free AI video: what's actually included</h2><p>Free plans mostly don't include AI video generation:</p><ul><li><strong>Google:</strong> its <a href=\"https://gemini.google/subscriptions/\">plans page</a> lists video generation among the extras in the paid AI Plus ($4.99/month) and AI Pro ($19.99/month) plans. These are US prices.</li><li><strong>Canva:</strong> \"Create a video clip with Canva AI\" is listed as an Ultra AI tool on <a href=\"https://www.canva.com/help/ai-access-variantb/\">Canva's help page</a>. Canva Free has no access to Ultra tools. Pro includes up to 20 Ultra uses.</li><li>None of the free-plan feature lists for ChatGPT, Claude and Copilot summarized in this guide mention AI video generation.</li></ul><p>If you find a tool advertised as a \"free AI video generator\", check three things on the vendor's own pricing or help page before you build a client project around it: whether free exports carry a watermark, how many credits or clips the free tier allows, and whether the terms permit commercial use.</p><h2>Before you use free AI output in paid work</h2><h3>Check accuracy</h3><p>The tool doesn't take responsibility for the output; you do. <a href=\"https://openai.com/policies/row-terms-of-use/\">OpenAI's Terms of Use</a> state: \"You must evaluate Output for accuracy and appropriateness for your use case, including using human review as appropriate, before using or sharing Output from the Services.\" Before you deliver anything, check names, figures, dates, quotes and links against the original source.</p><h3>Ownership is not the same as copyright</h3><p>OpenAI's <a href=\"https://openai.com/policies/row-terms-of-use/\">Terms of Use</a> say that, \"As between you and OpenAI, and to the extent permitted by applicable law,\" you retain ownership of your input and \"own the Output.\" The same terms warn that \"output may not be unique and other users may receive similar output.\" That matters if a client expects an exclusive logo or slogan. The linked version is OpenAI's rest-of-world terms, and terms may differ by region. Other vendors have their own terms, so read them for the tool you use.</p><p>Owning output under a contract is a different question from whether copyright law protects it. In January 2025, the <a href=\"https://www.copyright.gov/newsnet/2025/1060.html\">US Copyright Office</a> concluded that generative AI outputs \"can be protected by copyright only where a human author has determined sufficient expressive elements.\" According to its announcement, this can include cases where \"a human makes creative arrangements or modifications of the output, but not the mere provision of prompts.\" It also says that using AI to assist creation, or including AI material in a larger human-made work, \"does not bar copyrightability.\" This is the US position (more on the Office's <a href=\"https://www.copyright.gov/ai/\">AI page</a>). Rules elsewhere may differ, and this guide isn't legal advice. If copyright matters for a deliverable, make your own substantial creative changes and tell the client how AI was used.</p><h3>Keep client data out of free chats, or change your settings</h3><ul><li><strong>ChatGPT:</strong> OpenAI's <a href=\"https://openai.com/policies/row-terms-of-use/\">Terms of Use</a> say: \"If you do not want us to use your Content to train our models, you can opt out.\" They add that opting out may in some cases \"limit the ability of our Services to better address your specific use case.\"</li><li><strong>Gemini:</strong> Google's <a href=\"https://support.google.com/gemini/answer/13594961\">Gemini Apps Privacy Hub</a> asks you not to \"enter confidential information that you wouldn't want a reviewer to see or Google to use to improve our services.\" To stop future chats from being reviewed to improve Google services, turn off the Keep Activity setting. You can also use temporary chats, which Google says \"are not used to improve Google AI with help from human reviewers.\" Even then, Google says it still uses your chats to respond to you and to help protect Google, its users and the public, \"including with help from human reviewers.\"</li></ul><p>A safe habit for any tool: replace client names, emails and figures with placeholders such as [CLIENT] or [AMOUNT] before pasting text, then put the real details back in your own document.</p><h2>How much time can AI save? What one study found</h2><p>An experiment published in <em>Science</em> and reported by <a href=\"https://news.mit.edu/2023/study-finds-chatgpt-boosts-worker-productivity-writing-0714\">MIT News</a> gave 453 college-educated professionals, including marketers, grant writers, consultants and data analysts, 20- to 30-minute writing tasks related to their jobs. Access to ChatGPT cut the time taken by 40 percent, and output quality, as rated by independent evaluators, rose by 18 percent.</p><p>The limits matter, according to the same <a href=\"https://news.mit.edu/2023/study-finds-chatgpt-boosts-worker-productivity-writing-0714\">MIT News report</a>. The tasks \"didn't require precise factual accuracy or context about things like a company's goals or a customer's preferences,\" and the researchers didn't hire fact-checkers. Co-author Shakked Noy said the speed benefits may be \"lesser in the real world because you need to spend time fact-checking and writing the prompts.\" Treat the result as evidence from one 2023 experiment on short writing tasks, not as a promise for your own work.</p><h2>When a paid plan is worth it</h2><p>Base the decision on what each vendor says the paid plan adds, and on whether you keep hitting a specific limit:</p><ul><li><strong>You keep running out of Gemini usage, or you need video:</strong> Google says AI Plus ($4.99/month) offers 2x the free usage limits and AI Pro ($19.99/month) 4x, both with video generation (<a href=\"https://gemini.google/subscriptions/\">US prices</a>). The page also notes \"No refunds for partial billing periods, except as required by applicable law.\"</li><li><strong>You need longer working sessions or organized client work in Claude:</strong> <a href=\"https://claude.com/pricing\">Claude Pro</a> adds more usage and Projects, at $17/month billed annually or $20 billed monthly, before tax.</li><li><strong>You use up Canva's 20 uses or need video clips:</strong> <a href=\"https://www.canva.com/help/ai-access-variantb/\">Canva Pro</a> provides up to 200 Premium or 20 Ultra AI uses, and Standard tools stop counting toward the allowance.</li><li><strong>You want AI inside Word or Excel:</strong> that needs a Microsoft 365 subscription, and only the <a href=\"https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365\">subscription owner</a> gets Copilot in the apps.</li><li><strong>You hit ChatGPT Free's message or image limits:</strong> compare Go and Plus on <a href=\"https://chatgpt.com/pricing\">OpenAI's pricing page</a>, and note that Go \"may include ads.\"</li></ul><p>A practical rule is to stay on free plans until a limit costs you billable time on more than one occasion, then upgrade only the tool causing it. If you're turning AI into a service or product, see <a href=\"https://newearns.com/how-to-use-artificial-intelligence-to-start-a-business/\">how to use artificial intelligence to start a business</a>, and compare income routes in <a href=\"https://newearns.com/how-to-make-money-online/\">how to make money online</a>.</p><h2>FAQ</h2><h3>Is ChatGPT free?</h3><p>Yes, there is a free plan, but it comes with limits. <a href=\"https://chatgpt.com/pricing\">OpenAI's pricing page</a> describes limited access to the default model, limited messages and uploads, limited and slower image generation, and limited deep research, memory and Codex access. Paid tiers raise those limits.</p><h3>Can I sell images made with free AI tools?</h3><p>It depends on each tool's terms and on your local law. <a href=\"https://openai.com/policies/row-terms-of-use/\">OpenAI's Terms of Use</a> say you own the output, to the extent permitted by law, but that similar output may go to other users. In the US, the <a href=\"https://www.copyright.gov/newsnet/2025/1060.html\">Copyright Office</a> says prompts alone don't make output copyrightable. For other tools, read the vendor's own terms before you sell.</p><h3>Do free AI tools train on my data?</h3><p>Check each tool's settings. OpenAI's <a href=\"https://openai.com/policies/row-terms-of-use/\">terms</a> describe an opt-out from model training. Google's <a href=\"https://support.google.com/gemini/answer/13594961\">Gemini privacy hub</a> says human reviewers may see chats, and it explains how the Keep Activity setting and temporary chats change that. For Claude, Copilot and Canva, read their privacy pages. Whichever tool you use, keep confidential client details out of your prompts.</p>",
+      "sources": [
+        {
+          "url": "https://chatgpt.com/pricing",
+          "title": "Plans and Pricing | ChatGPT",
+          "supports": "ChatGPT Free plan limits (messages, uploads, slower image generation, deep research, memory, Codex); Go adds more access and 'may include ads'; Plus adds Projects, tasks, custom GPTs, deep research and agent mode; 'Limits apply'."
+        },
+        {
+          "url": "https://openai.com/policies/row-terms-of-use/",
+          "title": "Terms of Use | OpenAI",
+          "supports": "Users own output to the extent permitted by law; output may not be unique; training opt-out and its caveat; duty to evaluate output for accuracy, including human review."
+        },
+        {
+          "url": "https://gemini.google/subscriptions/",
+          "title": "Google AI Pro & Ultra plans",
+          "supports": "Gemini free features (image generation and editing, Gems, Flow with limited Nano Banana Pro, 15 GB); AI Plus $4.99 and AI Pro $19.99 with 2x/4x limits and video generation; Ultra from $99.99; compute-based limits refreshing every 5 hours up to a weekly limit; AI credits; rate limits; refund policy."
+        },
+        {
+          "url": "https://support.google.com/gemini/answer/13594961",
+          "title": "Gemini Apps Privacy Hub",
+          "supports": "Human reviewers, advice not to enter confidential information, Keep Activity setting, temporary chats and the exception that chats are still used to respond and protect users."
+        },
+        {
+          "url": "https://claude.com/pricing",
+          "title": "Plans & pricing | Claude by Anthropic",
+          "supports": "Claude Free features; Pro at $17/month annual ($200 up front) or $20 monthly, with more usage, Claude Code, Projects and more models; Max from $100/month; prices exclude tax and are subject to change."
+        },
+        {
+          "url": "https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365",
+          "title": "What's the difference between Microsoft Copilot (free) and Copilot in Microsoft 365",
+          "supports": "Free Copilot features and availability; what signing in unlocks; Copilot in Microsoft 365 apps is subject to limits and for the subscription owner only; regional variation."
+        },
+        {
+          "url": "https://www.canva.com/help/ai-access-variantb/",
+          "title": "Understanding your AI usage – Canva Help Center",
+          "supports": "Canva Free's 20 Standard or Premium AI uses, no Ultra tools, UTC monthly reset, Standard tools counting on Free, estimates, pauses after the limit; Pro's 200 Premium or 20 Ultra uses; video clip creation as an Ultra tool."
+        },
+        {
+          "url": "https://www.copyright.gov/newsnet/2025/1060.html",
+          "title": "NewsNet Issue 1060 | U.S. Copyright Office",
+          "supports": "AI outputs are copyrightable only where a human author determined sufficient expressive elements; prompts alone are not enough; AI assistance doesn't bar copyrightability."
+        },
+        {
+          "url": "https://www.copyright.gov/ai/",
+          "title": "Copyright and Artificial Intelligence | U.S. Copyright Office",
+          "supports": "Context page for the US Copyright Office's work on AI."
+        },
+        {
+          "url": "https://news.mit.edu/2023/study-finds-chatgpt-boosts-worker-productivity-writing-0714",
+          "title": "Study finds ChatGPT boosts worker productivity for some writing tasks | MIT News",
+          "supports": "453 professionals, 20–30-minute writing tasks, 40% less time, 18% higher rated quality, and the study's limitations (no fact-checking, no company context, real-world gains may be smaller)."
+        }
+      ],
+      "product_link_reason": "",
+      "internal_links_note": "",
+      "image_headline": "What Free AI Plans Really Include",
+      "search_intent": "Commercial investigation: readers searching 'free ai tools' want to know which free AI tool to use for writing, images, video and everyday work, what the free plan really includes, and when paying is worth it.",
+      "unique_value": "Unlike roundups that only name tools, this guide uses vendor documentation to show what each free plan includes and where it stops, says plainly that AI video generation is mostly paid, and covers the questions freelancers need answered: accuracy duties, ownership vs US copyright, and keeping client data out of training and human review.",
+      "image_alt_text": "Home office",
+      "featured_image": {
+        "alt_text": "Home office",
+        "license": "cc-by-sa",
+        "creator": "Wagner Tamanaha from Sao Paulo, Brazil",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      },
+      "inline_images": []
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "ChatGPT Free: limited default model, messages and uploads, \"limited and slower\" images, deep research, memory, Codex",
+          "verdict": "supported",
+          "source_url": "https://chatgpt.com/pricing",
+          "evidence": "\"Limited access to GPT-5.5 Instant… Limited and slower image generation… Limited Codex access\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Go = \"Everything in Free\" + more messages, uploads, images, longer memory; \"may include ads\"",
+          "verdict": "supported",
+          "source_url": "https://chatgpt.com/pricing",
+          "evidence": "\"This plan may include ads.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Plus adds advanced reasoning, expanded deep research and agent mode, Projects, tasks, custom GPTs; \"Limits apply\"",
+          "verdict": "supported",
+          "source_url": "https://chatgpt.com/pricing",
+          "evidence": "Supported by the plan card text: \"Projects, tasks, and custom GPTs… Limits apply\". See fix 3: the comparison table shows Projects and GPT creation are not Plus-only.",
+          "suggested_fix": "See fix 3."
+        },
+        {
+          "claim": "Table: paying adds Projects and custom GPTs at Plus",
+          "verdict": "contradicted",
+          "source_url": "https://chatgpt.com/pricing",
+          "evidence": "Same page's comparison table: Projects \"Free… Yes\"; Create & share GPTs \"Go… Yes\". Only Tasks is Plus-only (Free: No, Go: No).",
+          "suggested_fix": "Table, \"What paying adds\": \"Go: …can create custom GPTs. Plus: tasks, advanced reasoning, expanded deep research and agent mode.\""
+        },
+        {
+          "claim": "You'll hit a ceiling in a long session",
+          "verdict": "unsupported",
+          "source_url": "https://chatgpt.com/pricing",
+          "evidence": "Editorial guess; the page lists a 27K Free context window.",
+          "suggested_fix": "\"Free has a smaller context window (27K) and message limits\""
+        },
+        {
+          "claim": "Claude Free $0, \"Free for everyone\"; web/desktop/mobile chat, web search, files, code, memory, connected apps, Artifacts",
+          "verdict": "supported",
+          "source_url": "https://claude.com/pricing",
+          "evidence": "Supported by claude.com/pricing.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Pro $17/mo with annual discount ($200 up front), $20 monthly; Max from $100; excludes tax; \"subject to change\" quote",
+          "verdict": "supported",
+          "source_url": "https://claude.com/pricing",
+          "evidence": "\"$200 billed up front). $20 if billed monthly.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Pro adds more usage, Claude Code, Projects, more models",
+          "verdict": "supported",
+          "source_url": "https://claude.com/pricing",
+          "evidence": "Supported by the Pro card. The Projects caveat in fix 4 applies (Free includes up to 5 Projects).",
+          "suggested_fix": "See fix 4."
+        },
+        {
+          "claim": "\"Claude Pro adds… Projects\" as a reason to upgrade",
+          "verdict": "contradicted",
+          "source_url": "https://claude.com/pricing",
+          "evidence": "Comparison table: Projects \"Up to 5\" on Free. The table row (\"Pro… plus Projects\") and the \"organized client work… Pro adds… Projects\" bullet both imply Projects are Pro-only.",
+          "suggested_fix": "\"Free includes up to 5 Projects; Pro removes that cap.\""
+        },
+        {
+          "claim": "Copilot free at copilot.cloud.microsoft, also as an app and in Edge",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365",
+          "evidence": "\"available at no cost at copilot.cloud.microsoft\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Free features: writing/brainstorm/summary chat, real-time web answers, Edge summaries, image creation",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365",
+          "evidence": "\"even creates images\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Sign-in not required; sign-in quote",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365",
+          "evidence": "Same page, quoted correctly.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Copilot in Word, Excel, PowerPoint, Outlook, OneNote needs an M365 subscription; owner only; limits apply; quote",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365",
+          "evidence": "Supported for consumer plans: \"limited to the subscription owner\". The owner-only rule holds for Personal, Family and Premium; on business plans it depends on the license.",
+          "suggested_fix": "Say \"on Personal/Family/Premium plans.\""
+        },
+        {
+          "claim": "Family members don't get Copilot in the apps",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365",
+          "evidence": "\"Other AI benefits, such as Copilot in the desktop apps are limited to the subscription owner.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"may vary by region\"",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365",
+          "evidence": "Supported by the same page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Gemini Free: app with Flash-Lite, image generation and editing, Gems, Flow with limited Nano Banana Pro, 15 GB",
+          "verdict": "supported",
+          "source_url": "https://gemini.google/subscriptions/",
+          "evidence": "Supported by gemini.google/subscriptions.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Compute-based limits footnote quote; 5-hour refresh up to a weekly limit; can buy AI credits; \"Rate limits may apply\"",
+          "verdict": "supported",
+          "source_url": "https://gemini.google/subscriptions/",
+          "evidence": "Supported by footnote 2.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "A long, heavy chat \"can\" use more allowance (flagged as inference)",
+          "verdict": "supported",
+          "source_url": "https://gemini.google/subscriptions/",
+          "evidence": "Supported as a hedged inference. Footnote: \"factor in… the length of your chat\".",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "AI Plus $4.99 (2x, video), AI Pro $19.99 (4x, video), Ultra from $99.99; US prices",
+          "verdict": "supported",
+          "source_url": "https://gemini.google/subscriptions/",
+          "evidence": "\"$19.99/ month Get 4x higher usage access than Free\"; \"United States\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"No refunds for partial billing periods…\"",
+          "verdict": "supported",
+          "source_url": "https://gemini.google/subscriptions/",
+          "evidence": "Supported by the same page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Canva Free up to 20 Standard OR Premium uses; no Ultra",
+          "verdict": "uncertain",
+          "source_url": "https://www.canva.com/help/ai-access-variantb/",
+          "evidence": "The notes give a mixed verdict: supported by one section, contradicted by another. The \"Monthly usage by plan\" section says Canva Free gets \"Up to 20 uses of Standard AI tools, OR Premium AI tools.\" The \"Plan Eligibility\" section says Premium and Ultra tools \"are available with\" Pro, Teams, Business, Enterprise and Nonprofit, and does not list Free. The article follows only the first section.",
+          "suggested_fix": "Say Canva's page conflicts on whether Free includes Premium tools, and tell readers to check in the app."
+        },
+        {
+          "claim": "Standard tools count on Free; list (Image Upscaler, image generation, Magic Formulas; Magic Write as a design tool)",
+          "verdict": "supported",
+          "source_url": "https://www.canva.com/help/ai-access-variantb/",
+          "evidence": "\"For Canva Free, Standard AI tools still draw from the monthly AI allowance.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Paid plans: Standard tools don't count; fair use applies",
+          "verdict": "supported",
+          "source_url": "https://www.canva.com/help/ai-access-variantb/",
+          "evidence": "\"*Fair use limits apply\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Ranges are \"estimates\"; complex prompts use more",
+          "verdict": "supported",
+          "source_url": "https://www.canva.com/help/ai-access-variantb/",
+          "evidence": "Supported by the same page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Free resets 12:00 a.m. UTC on the 1st",
+          "verdict": "supported",
+          "source_url": "https://www.canva.com/help/ai-access-variantb/",
+          "evidence": "Supported by the same page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Evening\" local time in the Americas",
+          "verdict": "contradicted",
+          "source_url": "",
+          "evidence": "Based on the checker's time-zone arithmetic, not a quoted source: 12:00 a.m. UTC is 7–9 p.m. on the US East Coast and in Brazil, but 4–5 p.m. on the Pacific coast and 2 p.m. in Hawaii.",
+          "suggested_fix": "\"the afternoon or evening of the last day of the previous month.\""
+        },
+        {
+          "claim": "Short pauses for Free after the limit",
+          "verdict": "supported",
+          "source_url": "https://www.canva.com/help/ai-access-variantb/",
+          "evidence": "Supported by the same page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Pro: up to 200 Premium OR 20 Ultra",
+          "verdict": "supported",
+          "source_url": "https://www.canva.com/help/ai-access-variantb/",
+          "evidence": "Supported by the same page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Create a video clip with Canva AI\" is Ultra; Free has no Ultra",
+          "verdict": "supported",
+          "source_url": "https://www.canva.com/help/ai-access-variantb/",
+          "evidence": "Supported by the same page. However, Canva says Premium tools use allowance \"for image, video, interactives…\" and that \"video and image generation are available in multiple tiers,\" so the implied framing that Canva Free gets no AI video is not safe (fix 2).",
+          "suggested_fix": "\"Canva lists 'Create a video clip with Canva AI' as Ultra, but says video generation can come in several quality tiers. Check which tier your plan can use.\""
+        },
+        {
+          "claim": "Free plans \"mostly\" lack video; Google lists video among paid extras",
+          "verdict": "uncertain",
+          "source_url": "https://gemini.google/subscriptions/",
+          "evidence": "The notes support this only for Google: \"access to more features like video generation\" (Plus/Pro). The Free Flow line (\"create cinematic scenes\") is ambiguous, and footnote 3 wasn't in the checker's excerpt. The notes also say the claim that AI video generation is mostly paid is overstated for Canva. Recorded as uncertain because the notes do not support the claim as a whole.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "ChatGPT, Claude and Copilot free lists don't mention video generation",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "The pages the checker read show no video generation in these free lists.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "OpenAI accuracy quote",
+          "verdict": "supported",
+          "source_url": "https://openai.com/policies/row-terms-of-use/",
+          "evidence": "Row terms of use (effective Jan 1, 2026), exact match.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Ownership quote; \"output may not be unique…\"",
+          "verdict": "supported",
+          "source_url": "https://openai.com/policies/row-terms-of-use/",
+          "evidence": "Exact match.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Rest-of-world terms; terms differ by region",
+          "verdict": "supported",
+          "source_url": "https://openai.com/policies/row-terms-of-use/",
+          "evidence": "\"If you reside in the European Economic Area, Switzerland, or the UK…\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Opt-out quote and \"may… limit\" caveat",
+          "verdict": "supported",
+          "source_url": "https://openai.com/policies/row-terms-of-use/",
+          "evidence": "Exact match.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "US Copyright Office, Jan 2025: \"sufficient expressive elements\"; \"not the mere provision of prompts\"; \"does not bar copyrightability\"",
+          "verdict": "supported",
+          "source_url": "https://www.copyright.gov/newsnet/2025/1060.html",
+          "evidence": "copyright.gov/newsnet/2025/1060 (Jan 29, 2025).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Gemini: don't enter confidential info (quote); Keep Activity off stops future review; temporary chats quote; still uses chats \"including with help from human reviewers\"",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/gemini/answer/13594961",
+          "evidence": "Supported by the Gemini Apps Privacy Hub.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "MIT study: Science; 453 college-educated professionals; 20–30 minute tasks; −40% time; +18% quality",
+          "verdict": "supported",
+          "source_url": "https://news.mit.edu/2023/study-finds-chatgpt-boosts-worker-productivity-writing-0714",
+          "evidence": "news.mit.edu (July 14, 2023).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Limitations quotes (no precise accuracy needed; no fact-checkers; Noy \"lesser in the real world\")",
+          "verdict": "supported",
+          "source_url": "https://news.mit.edu/2023/study-finds-chatgpt-boosts-worker-productivity-writing-0714",
+          "evidence": "\"didn't think it was feasible to hire fact-checkers\"",
+          "suggested_fix": ""
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://chatgpt.com/pricing",
+          "relevant": true,
+          "notes": "Readable through web_fetch; supports the feature claims. Prices aren't in the text (they load with JavaScript), so \"see the pricing page\" is correct. The comparison table undercuts the Projects and GPTs framing. The fetched page was cached on 2026-06-08, about four months older than the other pages; re-check it before publishing."
+        },
+        {
+          "url": "https://claude.com/pricing",
+          "relevant": true,
+          "notes": "Readable through web_fetch. Prices and features are supported; the Projects caveat applies (Free includes up to 5 Projects)."
+        },
+        {
+          "url": "https://gemini.google/subscriptions/",
+          "relevant": true,
+          "notes": "Readable. Supports the plans, prices, footnote and refund line."
+        },
+        {
+          "url": "https://news.mit.edu/2023/study-finds-chatgpt-boosts-worker-productivity-writing-0714",
+          "relevant": true,
+          "notes": "Readable. Accurately cited, including the limitations."
+        },
+        {
+          "url": "https://openai.com/policies/row-terms-of-use/",
+          "relevant": true,
+          "notes": "Readable through web_fetch. Every quote matches exactly."
+        },
+        {
+          "url": "https://support.google.com/gemini/answer/13594961",
+          "relevant": true,
+          "notes": "Gemini Privacy Hub. Readable; supports all privacy claims."
+        },
+        {
+          "url": "https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365",
+          "relevant": true,
+          "notes": "Readable; supports the claims. The \"free has no in-app Copilot\" point comes from how the page contrasts the products, not from an explicit statement. The owner-only rule applies to Personal/Family/Premium; on business plans it depends on the license."
+        },
+        {
+          "url": "https://www.canva.com/help/ai-access-variantb/",
+          "relevant": true,
+          "notes": "Readable. Supports the numbers, but contradicts itself on Free's Premium access, and its video tiers weaken the video framing."
+        },
+        {
+          "url": "https://www.copyright.gov/ai/",
+          "relevant": true,
+          "notes": "Readable. Accurately cited (notes cover both copyright.gov pages together)."
+        },
+        {
+          "url": "https://www.copyright.gov/newsnet/2025/1060.html",
+          "relevant": true,
+          "notes": "Readable. Accurately cited (Jan 29, 2025)."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "Passes, but not strongly. For a commercial-investigation reader: it never says outright which free tool to use for each job; the image and video sections name no dedicated free tools; the comparison table makes two vendor-feature errors (fixes 3 and 4), which matters in a guide whose selling point is accuracy to vendor pages; and the claim that \"AI video generation is mostly paid\" is reasonable for Google but overstated for Canva.",
+      "adds_original_value": true,
+      "value_notes": "Does more than a generic roundup: it reads vendor documentation directly; explains how each vendor measures limits (compute, monthly \"uses\", messages); and covers the Canva UTC reset, the Copilot sign-in and owner-only rules, accuracy duties, OpenAI ownership versus US copyright, and Gemini's human review. Real value for freelancers. No invented quotes or numbers were found.",
+      "product_claims_accurate": true,
+      "product_notes": "Complies with the \"no product\" rule. The article promotes no product of its own; the newearns.com links are internal editorial links, not product claims.",
+      "fetched_urls": [
+        "https://chatgpt.com/pricing",
+        "https://claude.com/pricing",
+        "https://gemini.google/subscriptions/",
+        "https://news.mit.edu/2023/study-finds-chatgpt-boosts-worker-productivity-writing-0714",
+        "https://openai.com/policies/row-terms-of-use/",
+        "https://support.google.com/gemini/answer/13594961",
+        "https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365",
+        "https://www.canva.com/help/ai-access-variantb/",
+        "https://www.copyright.gov/ai/",
+        "https://www.copyright.gov/newsnet/2025/1060.html"
+      ],
+      "content_sha256": "9aecead4a93addb42b42d7cb5c91861f4a1e3b83125d1998145bc6c2046bb366"
+    },
+    "images": {
+      "words": 2592,
+      "target": [
+        4,
+        5
+      ],
+      "stock_api_calls": 5,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "free ai tools",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "openverse",
+          "query": "free AI tools",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "commons",
+          "query": "free ai tools",
+          "result": "20"
+        },
+        {
+          "provider": "commons",
+          "query": "free AI tools",
+          "result": "20 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "person using laptop computer",
+          "result": "17 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "laptop home office",
+          "result": "19 (cached)"
+        }
+      ],
+      "notes": [
+        "1 image(s), below the 4-5 guideline: nothing else in the article would gain from a visual, and decorative images are not added"
+      ],
+      "topic": {
+        "motif": "earnings",
+        "match": "pillar ai"
+      },
+      "photo_rejections": [
+        {
+          "description": "2026 Wiki AI - Building Wiki Tools with AI - Andrew Lih",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "AI, Automation, and Human Judgment Safeguarding Reliability in the Age of Generative Tools",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "AI, Automation, and Human Judgment Safeguarding Reliability in the Age of Generative Tools",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "AI, Automation, and Human Judgment Safeguarding Reliability in the Age of Generative Tools",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "AI, Automation, and Human Judgment Safeguarding Reliability in the Age of Generative Tools",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "AI, Automation, and Human Judgment Safeguarding Reliability in the Age of Generative Tools",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "AI, Automation, and Human Judgment Safeguarding Reliability in the Age of Generative Tools",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "AI, Automation, and Human Judgment Safeguarding Reliability in the Age of Generative Tools",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "AI, Automation, and Human Judgment Safeguarding Reliability in the Age of Generative Tools",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "AI, Automation, and Human Judgment Safeguarding Reliability in the Age of Generative Tools",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "WikiAnalyzer v2 & WikiDebate - Open AI Tools to Teach Critical Thinking and Bias Detection",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "WikiAnalyzer v2 - WikiDebate Open AI Tools to Teach Critical Thinking and Bias Detection t",
+          "reason": "no laptop/computer/screen in its title"
+        }
+      ],
+      "featured": {
+        "provider": "commons",
+        "id": "101801633",
+        "description": "Home office (suporte para laptop em papelão) (4875984286)",
+        "page_url": "https://commons.wikimedia.org/wiki/File:Home_office_(suporte_para_laptop_em_papel%C3%A3o)_(4875984286).jpg",
+        "creator": "Wagner Tamanaha from Sao Paulo, Brazil",
+        "creator_url": "https://www.flickr.com/people/98899298@N00",
+        "license": "cc-by-sa",
+        "license_version": "2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+        "source": "wikimedia",
+        "query": "laptop home office",
+        "relevance": "shows images",
+        "alt_text": "Home office",
+        "caption": "",
+        "filename": "free-ai-tools-free-plans-featured.webp",
+        "file": "featured.webp",
+        "bytes": 50714
+      },
+      "inline": []
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2632 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "8 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "Free AI Tools for Writing, Images, Video and Work: What Each Free Plan Actually Includes"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.57% (5x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "2/8 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "151 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "52 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "free-ai-tools-free-plans"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "free-ai-tools-free-plans"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.00"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.47: How to Make Money Online: 5 Ways and What Each Platform Takes"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "3 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "0 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "9 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "10 of 10 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": false,
+        "detail": "Gemini's limits work differently from a message count. According to the page's footnote, \"",
+        "fix": "Link the source inside the same paragraph or list item as the number or 'according to' statement, or remove the statement."
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "11 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "cc-by-sa"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "0 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "3 contradicted by a source (likely wrong): Table: paying adds Projects and custom GPTs at Plus (fix: Table, \"What paying adds\": \"Go: …can create custom GPTs. Plus: tasks, advanced reasoning, expanded deep research and age) | \"Claude Pro adds… Projects\" as a reason to upgrade (fix: \"Free includes up to 5 Projects; Pro removes that cap.\") | \"Evening\" local time in the Americas (fix: \"the afternoon or evening of the last day of the previous month.\") || 1 no supporting evidence found (not shown to be false): You'll hit a ceiling in a long session (fix: \"Free has a smaller context window (27K) and message limits\") || 2 could not be checked (source unreadable or partial): Canva Free up to 20 Standard OR Premium uses; no Ultra (fix: Say Canva's page conflicts on whether Free includes Premium tools, and tell readers to check in the app.) | Free plans \"mostly\" lack video; Google lists video among paid extras || 1 marked supported, but its source_url is missing or was not read by the pipeline: ChatGPT, Claude and Copilot free lists don't mention video generation",
+        "fix": "Contradicted: correct the claim to what the source says. No evidence found: cite an official source that states it, narrow it to what a source does say, or remove it. Could not be checked: verify it against a readable source or remove it. Source page not read: cite a page the pipeline can open that states the claim, or remove the claim. No claims listed: the fact-check did not check anything. Then re-run the fact-check only."
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Passes, but not strongly. For a commercial-investigation reader: it never says outright which free tool to use for each job; the image and video sections name no dedicated free tools; the comparison table makes two vendor-feature errors (fixes 3 and 4), which matters in a guide whose selling point is accuracy to vendor pages; and the claim that \"AI video generation is mostly paid\" is reasonable for Google but overstated for Canva."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "Does more than a generic roundup: it reads vendor documentation directly; explains how each vendor measures limits (compute, monthly \"uses\", messages); and covers the Canva UTC reset, the Copilot sign-in and owner-only rules, accuracy duties, OpenAI ownership versus US copyright, and Gemini's human review. Real value for freelancers. No invented quotes or numbers were found."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "Complies with the \"no product\" rule. The article promotes no product of its own; the newearns.com links are internal editorial links, not product claims."
+      },
+      {
+        "check": "fact_check_current",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "sources_verified",
+        "passed": true,
+        "detail": ""
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 0.979,
+        "write": 0.292,
+        "fact_check": 0.84,
+        "fact_check_json": 0.183
+      },
+      "total_usd": 2.294
+    },
+    "wp_media": {
+      "id": 3756,
+      "url": "https://newearns.com/wp-content/uploads/2026/10/free-ai-tools-free-plans-featured.webp"
+    },
+    "wp_post": {
+      "id": 3757,
+      "status": "pending",
+      "link": "https://newearns.com/?p=3757"
+    },
+    "image_check": "ok",
+    "final": "held_for_review"
+  },
+  "updated": "2026-10-27T13:04:21+00:00"
+}
