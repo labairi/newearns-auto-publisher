@@ -1,0 +1,933 @@
+{
+  "run_id": "20261028T165821070214Z",
+  "stages": {
+    "pillar": "money",
+    "topic": "Remote Jobs with No Experience: Where to Find Real Ones",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 46,
+        "cache_creation_input_tokens": 72104,
+        "cache_read_input_tokens": 872746,
+        "output_tokens": 17799,
+        "web_search_requests": 21,
+        "web_fetch_requests": 10,
+        "requests": 7,
+        "read_source_calls": 11,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 46,
+            "cache_write_5m_tokens": 72104,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 872746,
+            "output_tokens": 17799
+          }
+        },
+        "fetched_urls": [
+          "https://consumer.ftc.gov/articles/job-scams",
+          "https://consumer.ftc.gov/consumer-alerts/2023/05/scammers-are-hijacking-job-ads-heres-how-spot-fakes",
+          "https://consumer.ftc.gov/consumer-alerts/2025/08/how-spot-avoid-task-scams",
+          "https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam",
+          "https://help.usajobs.gov/faq/job-announcement/remote",
+          "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+          "https://www.careeronestop.org/Toolkit/Jobs/find-jobs-help.aspx"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 1.101
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 11459,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 11834,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 11459,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 11834
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.294
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 38,
+        "cache_creation_input_tokens": 44679,
+        "cache_read_input_tokens": 492921,
+        "output_tokens": 11013,
+        "web_search_requests": 0,
+        "web_fetch_requests": 9,
+        "requests": 2,
+        "read_source_calls": 1,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 38,
+            "cache_write_5m_tokens": 44679,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 492921,
+            "output_tokens": 11013
+          }
+        },
+        "fetched_urls": [
+          "https://consumer.ftc.gov/articles/job-scams",
+          "https://consumer.ftc.gov/consumer-alerts/2023/05/scammers-are-hijacking-job-ads-heres-how-spot-fakes",
+          "https://consumer.ftc.gov/consumer-alerts/2025/08/how-spot-avoid-task-scams",
+          "https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam",
+          "https://help.usajobs.gov/faq/job-announcement/remote",
+          "https://reportfraud.ftc.gov/",
+          "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+          "https://www.careeronestop.org/Toolkit/Jobs/find-jobs-help.aspx"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.542
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 6012,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 7426,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 6012,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 7426
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.179
+      }
+    ],
+    "brief": "I've finished the brief below. I picked the query you suggested, but the article will show the real odds instead of another list. In a US job-postings analysis published by staffing firm Robert Half in July 2026, only **2% of entry-level postings were fully remote**. Current top results don't mention this. The brief draws on five sites (FTC, BLS, USAJOBS, CareerOneStop and Robert Half). No product link is justified.\n\n---\n\n# CONTENT BRIEF: Remote jobs with no experience\n\n## 1. The query\n- **Chosen query:** remote jobs no experience\n- **Focus keyphrase:** remote jobs with no experience. Use it in the title, the intro and once or twice more. Don't put it in headings.\n- **Suggested title:** Remote Jobs with No Experience: Where to Find Real Ones (and Spot the Fakes)\n- **Search intent:** Mixed. Readers want a list of job types, where to search and whether they can get hired. What ranks now:\n  - FlexJobs' \"25 Remote Jobs, No Experience Needed\" (job types with \"average salary\" figures)\n  - Indeed job-search result pages and an Indeed career guide\n  - Remote job boards (Remote Rocketship, Working Nomads, Real Work From Anywhere)\n  - Several spam pages on hijacked university subdomains\n- **Search-demand data:** none provided, and no volumes are claimed here.\n- **Region:** All sources are US. Say near the top that the article covers US job searches and official US sites.\n\n## 2. What we add that current results don't\n1. **The real odds, sourced.** Robert Half's Q2 2026 posting analysis gives 2% fully remote at entry level and 2% for administrative and customer support. That explains why applying for remote-only jobs can feel hopeless. Then it points to fixes: apply widely, consider hybrid roles and target roles where employers do the training.\n2. **One role backed by BLS data instead of 25 guessed salaries.** Customer service representative: a high school diploma is typical, training is 2–4 weeks on the job, some companies allow working from home, and BLS gives the pay range.\n3. **Filter steps that work.** USAJOBS's own remote-filter steps, including that its \"telework\" label means hybrid, not remote. Plus CareerOneStop's warning that some listings may be duplicates or not real openings.\n4. **A scam decision table** that matches what a reader actually sees (\"online assessor\" texts, check-for-equipment offers, task apps) to the FTC's guidance and what to do next.\n5. **A five-step plan for this week** that promises no income.\n\n## 3. Outline\n\n**H1: Remote Jobs with No Experience: Where to Find Real Ones (and Spot the Fakes)**\n\n**Intro (no filler, about 80 words):** Give the answer first. Real remote jobs with no experience exist, but in the analysis cited below few entry-level postings are fully remote. The best chances are roles employers train people for, found through filtered or official sources and checked on the company's own site. Never pay to get a job. Say the article covers US job searches.\n\n**H2: How many entry-level jobs are actually fully remote**\n- Robert Half Q2 2026: 87% fully on-site, 10% hybrid, 3% fully remote. Entry level (0–2 years): 8% hybrid, 2% remote. Administrative and customer support: 93% on-site, 5% hybrid, 2% remote.\n- Small table: experience level → % hybrid → % remote.\n- State the scope every time: postings in the professional fields Robert Half covers, from TalentNeuron data. This is not the whole US job market.\n- What it means for the reader: expect competition, apply widely and treat hybrid roles as a possible first step. Robert Half itself says fully remote roles face \"more competition.\"\n\n**H2: Remote-friendly roles employers train beginners for**\n- **H3: Customer service representative.** All BLS facts are in Section 4. Mention the catches: call quotas, supervisor monitoring and stressful calls. Some finance and insurance roles need a state license and months of training.\n- **H3: Other job titles to search for.** List search terms only, with no pay or requirement claims: \"customer support,\" \"chat support,\" \"administrative assistant,\" \"virtual assistant.\" Rule for the writer: don't attach pay or requirements to these unless they come from a specific posting the reader is shown how to read. Add a warning: the FTC names virtual personal assistant and customer service rep as common fake-job titles. Link to the data-entry article here.\n\n**H2: Where to search and how to filter for fully remote jobs**\n- **H3: Company careers pages.** The FTC's first check is to apply through the company's official website.\n- **H3: USAJOBS (federal jobs).** Give the exact filter steps. Explain the \"Anywhere in the U.S. (remote job)\" label, that telework ≠ remote, possible time-zone requirements and how locality pay works. Add a note: \"USAJOBS may change its layout; these steps follow its help page.\" Don't claim USAJOBS has many entry-level remote jobs.\n- **H3: CareerOneStop (US Department of Labor).** The FTC lists it as a safe source. Mention the \"Find a Remote Job\" search, that some of those jobs need some onsite time, and that postings pulled from commercial job banks may be duplicates or not real openings. The date-posted filter has a \"1 Day Back\" option.\n- **H3: Big job boards (Indeed, LinkedIn).** Don't give step-by-step filter instructions (no source). Say to use the site's remote or location filter, noting that layouts vary. Key point: the FTC reports scammers posting altered real ads on Indeed and LinkedIn, so check every listing on the company's own site.\n\n**H2: A five-step plan for this week** (numbered; no income promises)\n1. Pick one or two target roles, for example customer service, where BLS says employers train new staff on the job.\n2. Run the USAJOBS remote filter and CareerOneStop's remote search. Set the date filter to recent postings.\n3. Find each promising posting on the company's own careers page before applying (FTC).\n4. Tailor the resume to communication skills, which BLS lists as an important quality for customer service reps. Don't invent any further skill lists.\n5. Search the company name with \"scam,\" \"review\" or \"complaint\" before accepting anything (FTC). Note: finding no complaints doesn't guarantee a company is honest.\n\n**H2: How to tell a real remote job from a scam**\nDecision table (what you see → what it means → what to do), all from FTC sources:\n- Unexpected text, WhatsApp or Telegram message offering a \"remote position\" or \"online assessor\" job, often with pay but no job details → FTC: real employers never contact you that way → ignore it and don't reply \"YES.\"\n- Fee for training, a starter kit, certification or placement → FTC: honest employers never ask you to pay to get a job → walk away.\n- A check to deposit, keep part of and send the rest (or spend on \"equipment\" or gift cards) → fake check scam; the bank will want the full amount back → don't deposit it.\n- Paid to rate, like or \"boost\" products in an app, then asked to deposit money (often crypto) to unlock your earnings → task scam → stop.\n- Package reshipping \"quality control\" job → reshipping is never a real job and can lead to identity theft → decline.\n- Asked for your Social Security or bank number before a verified hire → FTC describes this in hijacked-ad scams → check on the company's site first.\n- Promises of lots of money fast for little work → the FTC says that's \"almost certainly a scam.\"\n- **H3: If you already paid or shared information.** Contact the payment company immediately and ask for a reversal. Report at ReportFraud.ftc.gov, and to your state attorney general if you choose.\n\n**H2: FAQ** (brief, sourced answers only)\n- Do I need a degree? (For customer service reps, BLS says a high school diploma or equivalent is typical.)\n- Is a hybrid job worth taking? (Robert Half's 2% / 8% split; telework ≠ remote on USAJOBS.)\n- Should I ever pay for training or equipment to get hired? (FTC: no.)\n- Can a job offer by text be real? (FTC: ignore unexpected texts and messages about jobs.)\n\n**Closing (2–3 sentences):** The realistic route is training-based roles, filtered searches and checking every listing. Don't promise income.\n\n## 4. Facts to use (with URLs)\n\n| # | Fact | URL |\n|---|---|---|\n| F1 | Q2 2026: 87% of analyzed postings fully on-site, 10% hybrid, 3% fully remote. In-office share rose from 65% (Q4 2025) to 87% (Q2 2026). | https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends |\n| F2 | Entry level (0–2 yrs): 8% hybrid, 2% remote. Mid (3–5): 10%/3%. Senior (5+): 12%/4%. | same |\n| F3 | Administrative and customer support: 93% on-site, 5% hybrid, 2% remote. | same |\n| F4 | Scope: TalentNeuron postings mapped to 450+ job titles in the finance and accounting, technology, marketing and creative, legal, administrative and customer support, HR and healthcare support fields. | same |\n| F5 | Customer service reps: 2025 median pay $44,770/yr ($21.53/hr). Typical entry education is a high school diploma or equivalent. Training is short-term on the job. | https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm |\n| F6 | Training usually lasts 2–4 weeks. Finance and insurance may need several months. | same |\n| F7 | Lowest 10% earned under $15.27/hr, highest 10% over $30.57 (May 2025). | same |\n| F8 | Employment projected to fall 5% from 2025 to 2035, yet about 289,500 openings a year on average, all from replacing workers who leave. | same |\n| F9 | Working from home is possible at some companies. Reps may face call quotas and supervisor monitoring, and the work can be stressful. | same |\n| F10 | Finance and insurance reps may need a state license. Communication skills are an important quality. | same |\n| F11 | USAJOBS remote definition, filter steps, \"Anywhere in the U.S. (remote job)\" label, telework ≠ remote, time zones, locality pay. | https://help.usajobs.gov/faq/job-announcement/remote |\n| F12 | CareerOneStop: remote search, onsite caveat, possible duplicate or non-existent openings, date filter. | https://www.careeronestop.org/Toolkit/Jobs/find-jobs-help.aspx |\n| F13 | FTC job scams overview: work-from-home scams, fake checks, never pay, safe sources (USAJobs, CareerOneStop, USA.gov), reporting. | https://consumer.ftc.gov/articles/job-scams |\n| F14 | FTC: job-offer texts (\"online assessor,\" reply \"YES\"). | https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam |\n| F15 | FTC: task scams. | https://consumer.ftc.gov/consumer-alerts/2025/08/how-spot-avoid-task-scams |\n| F16 | FTC: hijacked ads on Indeed and LinkedIn; verify on the official site. | https://consumer.ftc.gov/consumer-alerts/2023/05/scammers-are-hijacking-job-ads-heres-how-spot-fakes |\n\n**Don't use:**\n- Any overall job-scam loss figure. I couldn't find a primary FTC page that gives one.\n- LinkedIn \"share of applications\" figures. These appear only on secondary sites.\n- Pay or equipment claims about named companies (e.g., Amazon). Search results showed many third-party \"Amazon WFH\" listings I couldn't verify, which is itself a reason to check jobs on the company's own site.\n\n## 5. Internal links (only genuinely related)\n- **Data Entry Jobs from Home: Where to Find Real Ones and How to Spot Scams.** Link from the \"other job titles\" H3 and the scam section. Don't repeat its content.\n- **Can You Really Make $100 a Day Online? The Honest Truth.** Link near the odds section or the closing.\n- **How to Make Money Online: 5 Ways and What Each Platform Takes.** Link in the closing as the freelance alternative if employee roles are slow.\n- Skip the others; none are clearly relevant.\n\n## 6. Product link\nNone. This pillar has no product, and none would fit a step.\n\n## 7. Writer rules for this piece\n- Keep the Robert Half scope (\"postings in the fields Robert Half covers\") with every percentage.\n- No personal testing claims, no income promises and no invented company names or pay.\n- Add \"layouts may differ\" wherever you describe a site's buttons.\n\n---\n\n# SOURCE NOTES\n\n**1. Robert Half, \"Remote work statistics and trends for 2026\"** (by Katie Merritt)\nURL: https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends\nPublished 2026-07-31; modified 2026-08-14. This is a copyrighted commercial page, so paraphrase and keep quotes under 20 words.\n- F1: Fully in-office roles rose \"from 65% in Q4 2025 to 87% in Q2 2026.\" Also: \"Of the job postings analyzed in Q2 2026, 87% were fully on-site, while 10% were hybrid and just 3% were fully remote.\"\n- On competition: the page says this means \"more competition for fully remote roles\" and in-office time for most new roles.\n- F2: The experience table gives senior (5+ years) 12% hybrid / 4% remote, mid (3–5) 10% / 3%, entry (0–2) 8% / 2%. Experience means years of relevant experience for that type of role.\n- F3: The field breakdown gives administrative and customer support 93% fully on-site, 5% hybrid, 2% remote. Source line: Robert Half analysis of US job postings from TalentNeuron, sorted into 450+ job titles in its 2026 Salary Guide.\n- F4 (condition): Postings come from TalentNeuron and are mapped to more than 450 job titles using a proprietary large-language-model method. The dataset covers finance and accounting, technology, marketing and creative, legal, administrative and customer support, human resources and healthcare support.\n\n**2. BLS Occupational Outlook Handbook, \"Customer Service Representatives\"**\nURL: https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm\nLast modified August 27, 2026. US government work, quotable.\n- F5: Quick facts: \"2025 Median Pay: $44,770 per year / $21.53 per hour\"; \"Typical Entry-Level Education: High school diploma or equivalent\"; \"On-the-job Training: Short-term on-the-job training.\"\n  - \"Customer service representatives typically need a high school diploma or equivalent to enter the occupation and receive on-the-job training to learn the specific skills needed for the job.\"\n  - Condition: \"some of these workers have postsecondary education that may include a bachelor's degree…\"\n- F6: \"Customer service representatives usually receive short-term on-the-job training, which typically lasts 2 to 4 weeks. Those who work in finance and insurance may need several months of training to learn complicated financial regulations.\"\n- F7: \"The median hourly wage for customer service representatives was $21.53 in May 2025… The lowest 10 percent earned less than $15.27, and the highest 10 percent earned more than $30.57.\"\n- F8: \"Employment of customer service representatives is projected to decline 5 percent from 2025 to 2035. Despite declining employment, about 289,500 openings for customer service representatives are projected each year, on average, over the decade. All of those openings are expected to result from the need to replace workers who transfer to other occupations or exit the labor force, such as to retire.\"\n- F9: \"Working from home is also possible in some companies. Representatives may be under pressure to answer a designated number of calls while supervisors monitor them for quality assurance. In addition, the work may be stressful when representatives must interact with dissatisfied customers…\"\n- F10: \"Customer service representatives who provide information about finance and insurance may need a state license. Although licensing requirements vary by state, they usually include passing an exam.\" Under Important Qualities: \"Communication skills. Customer service representatives must be able to provide clear information in writing, by phone, or in person.\"\n\n**3. USAJOBS Help Center, \"What is a remote job and how do I search for one?\"**\nURL: https://help.usajobs.gov/faq/job-announcement/remote\nNo date stated. US government, quotable.\n- Definition: \"A remote job in the federal government is one where you are not expected to report to an official agency worksite regularly. Instead, you will work from your home or other alternative worksite either within or outside of the commuting area of your agency's official worksite.\"\n- Label: \"Under the Location header in the Overview section of the job announcement, we will list the remote job location as Anywhere in the U.S. (remote job).\"\n- Office visits: \"As a remote worker, you may occasionally travel to an office for training or other reasons, but you will not regularly commute to an office for your day-to-day work.\"\n- Steps, method 1: \"Enter remote in the Location search box at the top of any page. You may have to click on the Search icon, at the top of the page, to display the Location box. Select from the auto-populated choices. Click Search.\"\n- Steps, method 2: \"Scroll down to Remote jobs and select to show the options. Select Only show remote jobs or Exclude remote jobs.\"\n- Pay: \"The locality adjustment of a remote job is based on the area where you regularly work—your home or alternative worksite.\"\n- Telework: \"A telework-eligible job is not the same as a remote position, which is a position where you would regularly work from home or an approved alternative worksite.\"\n- Time zones: \"Yes, some government jobs may require you to work hours in a time zone that is different from the one you live in.\"\n\n**4. CareerOneStop (sponsored by the US Department of Labor), \"Job Finder Help\"**\nURL: https://www.careeronestop.org/Toolkit/Jobs/find-jobs-help.aspx\nNo date stated. US government, quotable.\n- Remote search: \"Visit CareerOneStop's Employment Recovery Find a Remote Job to search for jobs that don't require you to commute or be onsite every day… Some of the jobs listed are entirely work-from-home, and some may require you to be onsite some of the time.\"\n- Listing quality: \"not all of these commercial job banks have the same requirements for job postings as; some of the job postings you find on these job banks may be duplicates and some may not be for existing job openings.\" (The page's wording is garbled; paraphrase it.)\n- Filter: \"Filter by date posted… click '1 Day Back' if you only want to see jobs posted in the past day.\"\n- Applying: \"Click 'Apply' to go directly to the hiring company's website to apply.\"\n- Who posts: \"Any employer may post jobs here.\"\n\n**5. FTC Consumer Advice, \"Job Scams\"**\nURL: https://consumer.ftc.gov/articles/job-scams\nPublished 2020-12-08; modified 2026-08-13 (page footer says \"March 2023\"). US government, quotable.\n- \"Scammers advertise jobs the same way honest employers do — online (in ads, on job sites, and social media)…\"\n- \"If someone offers you a job and claims that you can make a lot of money in a short period of time with little work, that's almost certainly a scam.\"\n- Upfront costs: \"instead of making money, you end up paying for starter kits, so-called training, or certifications that are useless.\"\n- Reshipping: \"Reshipping goods is never a real job… if you gave your personal information thinking it was for payroll, you may now have an identity theft problem.\"\n- Virtual assistant and check scams: \"if you get an offer that includes depositing a check and then using some of the money for any reason, that's a scam. Walk away.\"\n- Placement firms: \"Honest placement firms do not typically charge a fee to job candidates… If a placement firm asks you for a fee — especially one you have to pay in advance — walk away.\"\n- Search check: \"Look up the name of the company or the person who's hiring you, plus the words 'scam,' 'review,' or 'complaint.'… No complaints? It doesn't guarantee that a company is honest…\"\n- \"Honest employers, including the federal government, will never ask you to pay to get a job. Anyone who does is a scammer.\"\n- \"No honest potential employer will ever send you a check to deposit and then tell you to send on part of the money, or buy gift cards with it… The check will bounce, and the bank will want you to repay the amount of the fake check.\"\n- Safe sources: USAJobs.gov (\"the federal government's official site\"), CareerOneStop (\"Sponsored by the U.S. Department of Labor… lists hundreds of thousands of jobs\"), USA.gov local government sites.\n- If you paid: \"immediately contact the company you used to send the money, report the fraud, and ask to have the transaction reversed, if possible.\"\n- Report: \"report it to the FTC at ReportFraud.ftc.gov. You can also report it to your state attorney general.\"\n\n**6. FTC Consumer Alert, \"That job offer text is probably a scam\"** (April 30, 2026)\nURL: https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam\n- \"The (fake) recruiters claim to be with legit companies you might know and say they're hiring for jobs you can do from home like 'online assessor' or just simply a 'remote position.' They'll often mention pay (sometimes daily or weekly rates) without any details on the actual job.\"\n- \"instead of asking you to click a link, they'll ask you to reply with 'YES' or 'INTERESTED.' Don't do this…\"\n- \"Ignore generic and unexpected texts, WhatsApp, or Telegram messages about jobs. Real employers will never contact you that way.\"\n- \"Never pay to get paid or get a job. That's a sure sign of a scam.\"\n\n**7. FTC Consumer Alert, \"How to spot and avoid task scams\"** (August 14, 2025)\nURL: https://consumer.ftc.gov/consumer-alerts/2025/08/how-spot-avoid-task-scams\n- \"Task scams — or gamified job scams — begin with an unexpected message offering you 'work' doing things like 'optimization' or 'product boosting' online.\"\n- \"they might pay you a little — usually $5 to $20 — to try to gain your trust.\"\n- \"To unlock and complete your next set of tasks, and to be able to get your 'earnings' out of the app, the scammer tells you to deposit your own money, usually in crypto.\"\n- \"Don't trust anyone who says they'll pay you to give a positive rating or like things online. No honest company will do that.\"\n\n**8. FTC Consumer Alert, \"Scammers are hijacking job ads. Here's how to spot the fakes\"** (Gema de las Heras, May 22, 2023)\nURL: https://consumer.ftc.gov/consumer-alerts/2023/05/scammers-are-hijacking-job-ads-heres-how-spot-fakes\n- \"Scammers are taking outdated ads from real employers, changing them, and posting them on employment websites and career-oriented platforms like Indeed or LinkedIn.\"\n- \"some of the hijacked job postings are offers to work from home as a personal assistant or customer service representative. Then, they'll ask you for information like your Social Security and your bank account number…\"\n- \"Sometimes, they say you got the job and send you a check to buy equipment that you have to cash (and send money to them).\"\n- \"Verify job openings before you apply. Visit the official website for the organization or company you're applying for. Most include a 'career opportunities' or 'jobs' section.\"\n- Don't use the reader comments on this page as evidence.\n\n**Searched but not used as evidence:** FlexJobs, Indeed career guide (blocked), ZipRecruiter, third-party remote-statistics roundups and Amazon WFH aggregator listings (not verifiable on Amazon's own site).",
+    "candidates": [
+      "Remote Jobs with No Experience: Where to Find Real Ones (primary query: remote jobs no experience)"
+    ],
+    "article": {
+      "title": "Remote Jobs with No Experience: Where to Find Real Ones (and Spot the Fakes)",
+      "seo_title": "Remote Jobs with No Experience: Find Real Ones, Avoid Scams",
+      "slug": "remote-jobs-no-experience",
+      "meta_description": "Few entry-level postings are fully remote. Here's where to find real remote jobs with no experience in the US, and how to spot the scams.",
+      "focus_keyphrase": "remote jobs with no experience",
+      "excerpt": "In a Robert Half analysis, only 2% of entry-level postings in the fields it covers were fully remote. Here are the realistic odds, a beginner-friendly role backed by BLS data, filter steps for USAJOBS and CareerOneStop, and an FTC-based scam checklist.",
+      "content_html": "<p>Real remote jobs with no experience do exist, but they make up a small slice of what's posted. In a <a href=\"https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends\">Robert Half analysis of US job postings</a>, only 2% of entry-level postings in the professional fields it covers were fully remote. Your best odds are roles that employers train beginners for, found through filtered or official job sources and confirmed on the company's own website before you apply. One rule never bends: according to the <a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC</a>, honest employers will never ask you to pay to get a job.</p><p>This guide covers job searches in the United States and official US sites.</p><h2>How many entry-level jobs are actually fully remote</h2><p>Staffing firm Robert Half analyzed US job postings from the data provider TalentNeuron. The postings were mapped to more than 450 job titles in finance and accounting, technology, marketing and creative, legal, administrative and customer support, human resources and healthcare support. That is the scope behind every figure in this section: postings in the fields Robert Half covers, not the whole US job market (<a href=\"https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends\">Robert Half, Remote work statistics and trends</a>).</p><p>Within that scope, Robert Half reports that in Q2 2026, 87% of analyzed postings were fully on-site, 10% were hybrid and 3% were fully remote. The fully in-office share rose from 65% in Q4 2025 to 87% in Q2 2026 (<a href=\"https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends\">Robert Half</a>).</p><p>The split by years of relevant experience, again for postings in the fields Robert Half covers (<a href=\"https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends\">source</a>):</p><table><thead><tr><th>Experience level</th><th>Hybrid postings</th><th>Fully remote postings</th></tr></thead><tbody><tr><td>Entry level (0–2 years)</td><td>8%</td><td>2%</td></tr><tr><td>Mid level (3–5 years)</td><td>10%</td><td>3%</td></tr><tr><td>Senior (5+ years)</td><td>12%</td><td>4%</td></tr></tbody></table><p>The field most beginners look at first is no better. For administrative and customer support postings in Robert Half's analysis, 93% were fully on-site, 5% hybrid and 2% fully remote (<a href=\"https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends\">Robert Half</a>).</p><h3>What these numbers mean for your search</h3><p>Robert Half says the shift means more competition for fully remote roles (<a href=\"https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends\">source</a>). If you apply only to fully remote listings and hear nothing back, that does not necessarily mean you are doing something wrong. Three practical adjustments follow from the data:</p><ul><li><strong>Apply widely.</strong> When few postings match, a short list of applications will rarely be enough.</li><li><strong>Treat hybrid as a possible first step.</strong> In the analysis above, entry-level hybrid postings outnumbered fully remote ones four to one (8% vs. 2%).</li><li><strong>Target roles where employers do the training.</strong> That way \"no experience\" is expected, not a disadvantage.</li></ul><h2>Remote-friendly roles employers train beginners for</h2><h3>Customer service representative</h3><p>This is one of the clearest examples of an occupation that hires people without prior experience and trains them on the job. According to the <a href=\"https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm\">Bureau of Labor Statistics Occupational Outlook Handbook</a>:</p><ul><li><strong>Education:</strong> The typical entry-level education is a high school diploma or equivalent, though BLS notes some workers have postsecondary education, including bachelor's degrees.</li><li><strong>Training:</strong> Short-term on-the-job training, which typically lasts 2 to 4 weeks. Those in finance and insurance may need several months of training to learn complicated financial regulations.</li><li><strong>Pay:</strong> The 2025 median pay was $44,770 per year, or $21.53 per hour. In May 2025, the lowest 10% earned less than $15.27 an hour and the highest 10% earned more than $30.57.</li><li><strong>Remote possibility:</strong> BLS says working from home is possible in some companies, not all.</li><li><strong>Outlook:</strong> Employment is projected to decline 5% from 2025 to 2035, but about 289,500 openings are still projected each year, on average. All of them are expected to come from replacing workers who move to other occupations or leave the labor force.</li></ul><p>These figures describe the occupation as a whole, not remote positions specifically. The job also has real drawbacks. BLS notes that representatives may be under pressure to answer a set number of calls while supervisors monitor them for quality assurance, and the work can be stressful when dealing with dissatisfied customers. Representatives who give information about finance and insurance may need a state license, which usually includes passing an exam (<a href=\"https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm\">BLS</a>).</p><h3>Other job titles to search for</h3><p>These search terms can surface similar beginner-friendly listings:</p><ul><li>\"customer support\"</li><li>\"chat support\"</li><li>\"administrative assistant\"</li><li>\"virtual assistant\"</li></ul><p>Pay, hours and requirements vary by employer, so take them from the specific posting, not from a generic list. For each listing, look for the job location line (does it say fully remote, hybrid or a city?), any time-zone or hours requirement, the training period and how you apply.</p><p>A warning that applies to several of these titles: the FTC has found hijacked job ads offering work from home as a personal assistant or customer service representative, which then ask for Social Security and bank account numbers (<a href=\"https://consumer.ftc.gov/consumer-alerts/2023/05/scammers-are-hijacking-job-ads-heres-how-spot-fakes\">FTC</a>). Its job scams guide also describes virtual assistant offers built around depositing a check (<a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC</a>). If you are also considering data entry, our guide to <a href=\"https://newearns.com/data-entry-jobs-from-home/\">data entry jobs from home</a> covers where to look and the scams specific to that field.</p><h2>Where to search and how to filter for fully remote jobs</h2><p>The FTC notes that scammers advertise jobs the same way honest employers do, in online ads, on job sites and on social media (<a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC</a>). Where you search matters, but checking each listing matters more.</p><h3>Company careers pages</h3><p>The FTC's advice is to verify job openings before you apply by visiting the official website of the organization or company. It notes most include a \"career opportunities\" or \"jobs\" section (<a href=\"https://consumer.ftc.gov/consumer-alerts/2023/05/scammers-are-hijacking-job-ads-heres-how-spot-fakes\">FTC</a>). Use this as your final check no matter where you first saw the job.</p><h3>USAJOBS (federal jobs)</h3><p>The FTC calls USAJobs.gov the federal government's official job site (<a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC</a>). USAJOBS defines a remote job as one where you are not expected to report regularly to an official agency worksite and instead work from home or another alternative worksite (<a href=\"https://help.usajobs.gov/faq/job-announcement/remote\">USAJOBS Help Center</a>).</p><p>USAJOBS describes two ways to find remote jobs. USAJOBS may change its layout; these steps follow its <a href=\"https://help.usajobs.gov/faq/job-announcement/remote\">help page</a>.</p><ol><li><strong>Location search:</strong> Enter \"remote\" in the Location search box at the top of any page. You may need to click the Search icon at the top of the page to display the Location box. Select from the auto-populated choices, then click Search.</li><li><strong>Remote jobs filter:</strong> Scroll down to Remote jobs, open the options and select \"Only show remote jobs.\"</li></ol><p>What to check in each announcement, according to <a href=\"https://help.usajobs.gov/faq/job-announcement/remote\">USAJOBS</a>:</p><ul><li><strong>The label.</strong> A remote job is listed as \"Anywhere in the U.S. (remote job)\" under the Location header in the Overview section.</li><li><strong>Telework is not remote.</strong> USAJOBS states that a telework-eligible job is not the same as a remote position. In practice, read \"telework\" as hybrid.</li><li><strong>Occasional travel.</strong> Remote workers may occasionally travel to an office for training or other reasons, but do not commute there for day-to-day work.</li><li><strong>Time zones.</strong> Some government jobs may require you to work hours in a different time zone from the one you live in.</li><li><strong>Locality pay.</strong> For a remote job, the locality adjustment is based on where you regularly work, meaning your home or alternative worksite.</li></ul><p>Read each announcement's qualifications carefully, since the filter shows remote jobs at every level, not only entry-level ones.</p><h3>CareerOneStop (US Department of Labor)</h3><p>CareerOneStop is sponsored by the US Department of Labor, and the FTC lists it as a source for finding jobs (<a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC</a>). Its help page points to a \"Find a Remote Job\" search for jobs that don't require you to commute or be onsite every day. Some of those listings are entirely work-from-home, and some may require onsite time (<a href=\"https://www.careeronestop.org/Toolkit/Jobs/find-jobs-help.aspx\">CareerOneStop Job Finder Help</a>).</p><p>Useful details from the same <a href=\"https://www.careeronestop.org/Toolkit/Jobs/find-jobs-help.aspx\">help page</a> (layouts may differ from what's described):</p><ul><li><strong>Date filter:</strong> You can filter by date posted. Choosing \"1 Day Back\" shows only jobs posted in the past day.</li><li><strong>Listing quality:</strong> Some postings come from commercial job banks that don't share the same posting requirements, so some may be duplicates and some may not be for real, existing openings.</li><li><strong>Applying:</strong> Clicking \"Apply\" takes you to the hiring company's website.</li><li><strong>Who posts:</strong> The page says any employer may post jobs there, so still verify each employer.</li></ul><h3>Big job boards (Indeed, LinkedIn)</h3><p>Large job boards have remote or location filters, but menus and labels vary and change, so use whatever remote or location option the site currently shows. The key point is verification: the FTC reports that scammers take outdated ads from real employers, alter them and post them on platforms like Indeed or LinkedIn. Some then claim you got the job and send a check to buy equipment (<a href=\"https://consumer.ftc.gov/consumer-alerts/2023/05/scammers-are-hijacking-job-ads-heres-how-spot-fakes\">FTC</a>). Find every promising listing on the company's own careers page before you apply.</p><h2>A five-step plan for this week</h2><p>This plan won't produce income on a schedule, but it focuses your effort where the odds are better and the risks are lower.</p><ol><li><strong>Pick one or two target roles.</strong> Customer service is a sensible start, since BLS says representatives typically receive on-the-job training that usually lasts 2 to 4 weeks (<a href=\"https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm\">BLS</a>).</li><li><strong>Run the official searches.</strong> Use the USAJOBS remote filter (<a href=\"https://help.usajobs.gov/faq/job-announcement/remote\">steps</a>) and CareerOneStop's remote search, with the date filter set to recent postings (<a href=\"https://www.careeronestop.org/Toolkit/Jobs/find-jobs-help.aspx\">CareerOneStop</a>). Save hybrid listings too.</li><li><strong>Verify on the company's own site.</strong> Before you apply, find the same opening in the employer's careers or jobs section, as the <a href=\"https://consumer.ftc.gov/consumer-alerts/2023/05/scammers-are-hijacking-job-ads-heres-how-spot-fakes\">FTC</a> advises.</li><li><strong>Tailor your resume to communication.</strong> BLS lists communication skills as an important quality for customer service representatives: providing clear information in writing, by phone or in person (<a href=\"https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm\">BLS</a>). Point to concrete examples from school, volunteering or past jobs where you did exactly that.</li><li><strong>Search before you accept.</strong> Look up the company or recruiter name plus \"scam,\" \"review\" or \"complaint.\" The FTC notes that finding no complaints doesn't guarantee a company is honest (<a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC</a>).</li></ol><h2>How to tell a real remote job from a scam</h2><p>Match what you're seeing to the FTC's guidance:</p><table><thead><tr><th>What you see</th><th>What the FTC says</th><th>What to do</th></tr></thead><tbody><tr><td>An unexpected text, WhatsApp or Telegram message offering an \"online assessor\" job or a \"remote position,\" often mentioning pay but no job details</td><td>Real employers will never contact you that way (<a href=\"https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam\">FTC</a>)</td><td>Ignore it. Don't reply \"YES\" or \"INTERESTED.\"</td></tr><tr><td>A fee for training, a starter kit, certification or placement</td><td>Honest employers will never ask you to pay to get a job; honest placement firms don't typically charge candidates (<a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC</a>)</td><td>Walk away.</td></tr><tr><td>A check to deposit, then send part of the money on, buy gift cards or pay for \"equipment\"</td><td>A fake check scam: the check will bounce and the bank will want you to repay it (<a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC</a>)</td><td>Don't deposit it.</td></tr><tr><td>An app that pays you to rate, like or \"boost\" products, then asks you to deposit money (often crypto) to unlock tasks or earnings</td><td>A task scam; scammers may pay a little first, usually $5 to $20, to gain trust (<a href=\"https://consumer.ftc.gov/consumer-alerts/2025/08/how-spot-avoid-task-scams\">FTC</a>)</td><td>Stop and don't deposit anything.</td></tr><tr><td>A job reshipping packages from home</td><td>Reshipping goods is never a real job, and personal details given \"for payroll\" can lead to identity theft (<a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC</a>)</td><td>Decline.</td></tr><tr><td>A request for your Social Security or bank account number from a job ad you haven't verified</td><td>The FTC describes this in hijacked job ad scams (<a href=\"https://consumer.ftc.gov/consumer-alerts/2023/05/scammers-are-hijacking-job-ads-heres-how-spot-fakes\">FTC</a>)</td><td>Verify the opening on the company's official site first.</td></tr><tr><td>Promises of a lot of money in a short time for little work</td><td>That's \"almost certainly a scam\" (<a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC</a>)</td><td>Walk away.</td></tr></tbody></table><p>Many of the same warning signs show up in data entry offers; our <a href=\"https://newearns.com/data-entry-jobs-from-home/\">data entry scams guide</a> covers that field.</p><h3>If you already paid or shared information</h3><p>The FTC advises contacting the company you used to send the money right away, reporting the fraud and asking to have the transaction reversed, if possible. Report the scam to the FTC at <a href=\"https://reportfraud.ftc.gov\">ReportFraud.ftc.gov</a>, and you can also report it to your state attorney general (<a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC</a>).</p><h2>FAQ</h2><h3>Do I need a degree for remote jobs with no experience?</h3><p>It depends on the role. For customer service representatives, BLS says the typical entry-level education is a high school diploma or equivalent (<a href=\"https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm\">BLS</a>). Check each posting for its own requirements.</p><h3>Is a hybrid job worth taking?</h3><p>It can be a realistic first step. In Robert Half's analysis of postings in the fields it covers, 8% of entry-level postings were hybrid and 2% fully remote (<a href=\"https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends\">Robert Half</a>). On USAJOBS, remember that \"telework-eligible\" does not mean remote (<a href=\"https://help.usajobs.gov/faq/job-announcement/remote\">USAJOBS</a>).</p><h3>Should I ever pay for training or equipment to get hired?</h3><p>No. The FTC says honest employers, including the federal government, will never ask you to pay to get a job, and anyone who does is a scammer (<a href=\"https://consumer.ftc.gov/articles/job-scams\">FTC</a>).</p><h3>Can a job offer by text be real?</h3><p>The FTC advises ignoring generic and unexpected texts, WhatsApp or Telegram messages about jobs, and says real employers will never contact you that way (<a href=\"https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam\">FTC</a>).</p><h2>The realistic route</h2><p>Fully remote entry-level jobs are scarce, so focus on roles employers train for, search official and filtered sources, keep hybrid roles on your list and confirm every opening on the employer's own site. For a wider reality check on online income claims, read <a href=\"https://newearns.com/can-you-really-make-100-a-day-online-the-honest-truth/\">Can You Really Make $100 a Day Online? The Honest Truth</a>. If employee roles are slow to come through, <a href=\"https://newearns.com/how-to-make-money-online/\">How to Make Money Online: 5 Ways and What Each Platform Takes</a> covers freelance and platform-based alternatives.</p>",
+      "sources": [
+        {
+          "url": "https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends",
+          "title": "Robert Half, Remote work statistics and trends for 2026",
+          "supports": "Q2 2026 posting split (87% on-site, 10% hybrid, 3% remote); in-office rise from 65% to 87%; hybrid/remote by experience level (entry 8%/2%, mid 10%/3%, senior 12%/4%); administrative and customer support 93%/5%/2%; dataset scope (TalentNeuron postings, 450+ titles, listed fields); 'more competition for fully remote roles'."
+        },
+        {
+          "url": "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+          "title": "BLS Occupational Outlook Handbook: Customer Service Representatives",
+          "supports": "Typical education, 2–4 week on-the-job training, longer training and possible state license in finance and insurance, 2025 median pay, lowest/highest 10% wages, 5% projected decline and 289,500 annual openings, work-from-home possible at some companies, call quotas, monitoring, stress, communication skills."
+        },
+        {
+          "url": "https://help.usajobs.gov/faq/job-announcement/remote",
+          "title": "USAJOBS Help Center: What is a remote job and how do I search for one?",
+          "supports": "Federal remote job definition, two search methods, 'Anywhere in the U.S. (remote job)' label, occasional travel, telework vs. remote, time-zone requirements, locality pay based on where you regularly work."
+        },
+        {
+          "url": "https://www.careeronestop.org/Toolkit/Jobs/find-jobs-help.aspx",
+          "title": "CareerOneStop: Job Finder Help",
+          "supports": "Find a Remote Job search and onsite caveat, possible duplicate or non-existent postings from commercial job banks, '1 Day Back' date filter, Apply button goes to hiring company site, any employer may post."
+        },
+        {
+          "url": "https://consumer.ftc.gov/articles/job-scams",
+          "title": "FTC Consumer Advice: Job Scams",
+          "supports": "Never pay to get a job, fake check scams, reshipping scams, placement fees, virtual assistant check scams, 'almost certainly a scam' warning, search for scam/review/complaint, safe sources (USAJobs, CareerOneStop), what to do if you paid, reporting to ReportFraud.ftc.gov and state attorney general."
+        },
+        {
+          "url": "https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam",
+          "title": "FTC Consumer Alert: That job offer text is probably a scam",
+          "supports": "Unexpected job texts ('online assessor', 'remote position'), don't reply YES or INTERESTED, real employers never contact you via unexpected texts, WhatsApp or Telegram."
+        },
+        {
+          "url": "https://consumer.ftc.gov/consumer-alerts/2025/08/how-spot-avoid-task-scams",
+          "title": "FTC Consumer Alert: How to spot and avoid task scams",
+          "supports": "Task scam pattern: product boosting, small $5–$20 payments, depositing own money (often crypto) to unlock earnings."
+        },
+        {
+          "url": "https://consumer.ftc.gov/consumer-alerts/2023/05/scammers-are-hijacking-job-ads-heres-how-spot-fakes",
+          "title": "FTC Consumer Alert: Scammers are hijacking job ads. Here's how to spot the fakes",
+          "supports": "Altered real ads on Indeed and LinkedIn, personal assistant and customer service rep offers requesting SSN and bank numbers, equipment check scams, verify openings on the company's official website."
+        },
+        {
+          "url": "https://reportfraud.ftc.gov",
+          "title": "FTC ReportFraud",
+          "supports": "Where to report job scams, as named on the FTC Job Scams page."
+        }
+      ],
+      "product_link_reason": "",
+      "internal_links_note": "",
+      "image_headline": "Remote Jobs Without Experience: Real Odds",
+      "search_intent": "Mixed informational and transactional: US readers with no experience want to know which remote jobs they can realistically get, where to search for them, how to filter for fully remote listings and how to avoid job scams.",
+      "unique_value": "Shows the sourced odds (Robert Half: 2% of entry-level postings fully remote in the fields it covers), profiles one beginner-friendly role with BLS data instead of guessed salaries, gives USAJOBS filter steps including the telework-vs-remote distinction, flags CareerOneStop's duplicate-listing caveat, and maps common scam situations to FTC guidance in a decision table.",
+      "image_alt_text": "Individual holding white pills while working on a laptop in a modern home office during the day",
+      "featured_image": {
+        "alt_text": "Individual holding white pills while working on a laptop in a modern home office during the day",
+        "license": "cc-by",
+        "creator": "Shixart1985",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      },
+      "inline_images": [
+        {
+          "alt_text": "Bar chart of hybrid postings by experience level: Entry level (0–2 years) 8%; Mid level (3–5 years) 10%; Senior (5+...",
+          "license": "generated-in-house"
+        }
+      ]
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "Remote no-experience jobs exist but are a small slice; only 2% of entry-level postings were fully remote",
+          "verdict": "supported",
+          "source_url": "https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends",
+          "evidence": "\"Entry-level (0-2 years of experience): 8% hybrid, 2% remote\" (from the pipeline excerpt, which was marked incomplete)",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Robert Half is a \"staffing firm\"",
+          "verdict": "unsupported",
+          "source_url": "https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends",
+          "evidence": "The page never describes the company. It's common knowledge, so this is low risk.",
+          "suggested_fix": "Keep it, or link Robert Half's About page."
+        },
+        {
+          "claim": "Data comes from TalentNeuron, mapped to 450+ job titles in the 7 listed fields",
+          "verdict": "supported",
+          "source_url": "https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends",
+          "evidence": "\"Job postings provided by TalentNeuron and categorized into more than 450 job titles\" plus the list of fields",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Q2 2026: 87% on-site, 10% hybrid, 3% remote",
+          "verdict": "supported",
+          "source_url": "https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends",
+          "evidence": "\"87% were fully on-site, while 10% were hybrid and just 3% were fully remote\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Fully in-office share went from 65% (Q4 2025) to 87% (Q2 2026)",
+          "verdict": "supported",
+          "source_url": "https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends",
+          "evidence": "Quoted almost word for word. A 22-point jump in two quarters is unusual, but the article reports it accurately.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Experience table (8/2, 10/3, 12/4)",
+          "verdict": "supported",
+          "source_url": "https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends",
+          "evidence": "Matches the source exactly. The source's own brackets overlap at 5 years (\"3-5\" and \"5 or more\"), and the article copies that.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Admin & customer support: 93% on-site, 5% hybrid, 2% remote",
+          "verdict": "supported",
+          "source_url": "https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"More competition for fully remote roles\"",
+          "verdict": "supported",
+          "source_url": "https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends",
+          "evidence": "\"that means more competition for fully remote roles\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Hybrid outnumbers remote 4 to 1 at entry level",
+          "verdict": "supported",
+          "source_url": "https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends",
+          "evidence": "Simple math: 8 ÷ 2",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"The field most beginners look at first is no better\"",
+          "verdict": "unsupported",
+          "source_url": "https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends",
+          "evidence": "Notes label this \"opinion/unsupported\": no source says this is where beginners look first.",
+          "suggested_fix": "\"One field often suggested to beginners, administrative and customer support, is no better.\""
+        },
+        {
+          "claim": "The occupation hires people with no prior experience and trains them on the job",
+          "verdict": "supported",
+          "source_url": "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+          "evidence": "Quick facts: \"Work Experience in a Related Occupation: None\", \"Short-term on-the-job training\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Typical education is a high school diploma; some workers have a bachelor's",
+          "verdict": "supported",
+          "source_url": "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+          "evidence": "\"some of these workers have postsecondary education that may include a bachelor's degree\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Training typically lasts 2–4 weeks; finance and insurance may take several months",
+          "verdict": "supported",
+          "source_url": "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+          "evidence": "Matches word for word",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "2025 median pay: $44,770/yr, $21.53/hr",
+          "verdict": "supported",
+          "source_url": "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+          "evidence": "\"2025 Median Pay: $44,770 per year / $21.53 per hour\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "May 2025: bottom 10% earned under $15.27, top 10% over $30.57",
+          "verdict": "supported",
+          "source_url": "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Working from home is possible at some companies",
+          "verdict": "supported",
+          "source_url": "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+          "evidence": "\"Working from home is also possible in some companies.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Employment projected to fall 5% (2025–35); about 289,500 openings a year, all from replacing workers",
+          "verdict": "supported",
+          "source_url": "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Pressure to answer a set number of calls, monitoring, stress, state license for finance/insurance, usually with an exam",
+          "verdict": "supported",
+          "source_url": "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+          "evidence": "\"pressure to answer a designated number of calls\"; licensing requirements \"usually include passing an exam\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Communication skills: clear information in writing, by phone or in person",
+          "verdict": "supported",
+          "source_url": "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Definition of a remote job",
+          "verdict": "supported",
+          "source_url": "https://help.usajobs.gov/faq/job-announcement/remote",
+          "evidence": "\"not expected to report to an official agency worksite regularly\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Search steps: Location box → auto-populated choices → Search; or the \"Only show remote jobs\" filter",
+          "verdict": "supported",
+          "source_url": "https://help.usajobs.gov/faq/job-announcement/remote",
+          "evidence": "Matches both procedures",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Listed as \"Anywhere in the U.S. (remote job)\" under Location in Overview",
+          "verdict": "supported",
+          "source_url": "https://help.usajobs.gov/faq/job-announcement/remote",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Telework-eligible is not the same as remote; read telework as hybrid",
+          "verdict": "supported",
+          "source_url": "https://help.usajobs.gov/faq/job-announcement/remote",
+          "evidence": "The page answers a question about hybrid jobs with \"We call this telework\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Occasional travel, time zones, locality pay based on where you work",
+          "verdict": "supported",
+          "source_url": "https://help.usajobs.gov/faq/job-announcement/remote",
+          "evidence": "All three are stated",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The filter shows remote jobs at every level",
+          "verdict": "unsupported",
+          "source_url": "https://help.usajobs.gov/faq/job-announcement/remote",
+          "evidence": "Reasonable inference, but the page doesn't say this.",
+          "suggested_fix": "\"The remote filter doesn't limit results to entry-level jobs, so read each announcement's qualifications.\" Or keep it as advice, not a fact."
+        },
+        {
+          "claim": "CareerOneStop is sponsored by the Department of Labor; the FTC lists it as a job source",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "FTC job-scams page: \"Sponsored by the U.S. Department of Labor, CareerOneStop lists hundreds of thousands of jobs\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Find a Remote Job\" exists; some listings are fully work-from-home, some need onsite time",
+          "verdict": "supported",
+          "source_url": "https://www.careeronestop.org/Toolkit/Jobs/find-jobs-help.aspx",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"1 Day Back\" date filter",
+          "verdict": "supported",
+          "source_url": "https://www.careeronestop.org/Toolkit/Jobs/find-jobs-help.aspx",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Commercial job banks: possible duplicates and openings that may not exist",
+          "verdict": "supported",
+          "source_url": "https://www.careeronestop.org/Toolkit/Jobs/find-jobs-help.aspx",
+          "evidence": "\"some may be duplicates and some may not be for existing job openings\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Apply\" goes to the hiring company's website",
+          "verdict": "supported",
+          "source_url": "https://www.careeronestop.org/Toolkit/Jobs/find-jobs-help.aspx",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Any employer may post",
+          "verdict": "supported",
+          "source_url": "https://www.careeronestop.org/Toolkit/Jobs/find-jobs-help.aspx",
+          "evidence": "\"Any employer may post jobs here.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Honest employers, including the federal government, never ask you to pay; anyone who does is a scammer",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Scammers advertise through online ads, job sites and social media",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Virtual assistant offers built around depositing a check",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Section titled \"Nanny, caregiver, and virtual personal assistant job scams\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Calls USAJobs.gov the government's official job site",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Search the company name plus scam/review/complaint; no complaints doesn't guarantee honesty",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Fees for training, starter kits or certification; honest placement firms don't typically charge candidates",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Fake checks bounce and the bank wants the money back; gift cards are mentioned",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Matches. Small citation mismatch: the table row's \"equipment\" example comes from the 2023 hijacked-ads alert, not this page.",
+          "suggested_fix": "Cite the hijacked-ads alert for \"equipment\" in the fake-check table row, or remove the word."
+        },
+        {
+          "claim": "Reshipping is \"never a real job\"; payroll details can lead to identity theft",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Lots of money fast for little work is \"almost certainly a scam\"",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Contact your payment company right away, ask for a reversal, report to ReportFraud.ftc.gov and your state attorney general",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/articles/job-scams",
+          "evidence": "Matches (\"immediately\")",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Hijacked ads on Indeed/LinkedIn; fake personal assistant or customer service roles; requests for Social Security and bank numbers; checks sent \"to buy equipment\"",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/consumer-alerts/2023/05/scammers-are-hijacking-job-ads-heres-how-spot-fakes",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Check the company's official website, which usually has a \"career opportunities\" or \"jobs\" section",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/consumer-alerts/2023/05/scammers-are-hijacking-job-ads-heres-how-spot-fakes",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Texts offering an \"online assessor\" job or \"remote position,\" pay mentioned without details, asking you to reply YES/INTERESTED; ignore texts, WhatsApp and Telegram messages; real employers never contact you that way",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam",
+          "evidence": "Matches",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Task scams: often pay $5–$20 first, then ask for a deposit, often in crypto",
+          "verdict": "supported",
+          "source_url": "https://consumer.ftc.gov/consumer-alerts/2025/08/how-spot-avoid-task-scams",
+          "evidence": "\"usually $5 to $20\"; \"usually in crypto\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The \"five-step plan\" and the advice not to expect income on a schedule",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "The notes give no verdict for these. They say they just reuse claims verified above, or are framing that can't be checked.",
+          "suggested_fix": ""
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends",
+          "relevant": true,
+          "notes": "Published 2026-07-31. Read via the pipeline excerpt, which was marked incomplete, but every figure the article cites is in it. Supports every figure cited. Does not describe Robert Half as a staffing firm (#2) or support the \"most beginners look at first\" framing (#10)."
+        },
+        {
+          "url": "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+          "relevant": true,
+          "notes": "Read with web_fetch, page dated 2026-08-27. Fully supports what is cited."
+        },
+        {
+          "url": "https://help.usajobs.gov/faq/job-announcement/remote",
+          "relevant": true,
+          "notes": "Read with web_fetch; the pipeline's redirect was a false failure. Fully supports what is cited, except the \"every level\" line (#25), which the page doesn't state."
+        },
+        {
+          "url": "https://www.careeronestop.org/Toolkit/Jobs/find-jobs-help.aspx",
+          "relevant": true,
+          "notes": "Read with web_fetch. Fully supports what is cited."
+        },
+        {
+          "url": "https://consumer.ftc.gov/articles/job-scams",
+          "relevant": true,
+          "notes": "Read with web_fetch, modified 2026-08-13; the pipeline's 404 was wrong. Supports what is cited, except the \"equipment\" detail in the fake-check row (#38), which comes from the 2023/05 alert."
+        },
+        {
+          "url": "https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam",
+          "relevant": true,
+          "notes": "Read with web_fetch. Supports what is cited."
+        },
+        {
+          "url": "https://consumer.ftc.gov/consumer-alerts/2025/08/how-spot-avoid-task-scams",
+          "relevant": true,
+          "notes": "Read with web_fetch. Supports what is cited."
+        },
+        {
+          "url": "https://consumer.ftc.gov/consumer-alerts/2023/05/scammers-are-hijacking-job-ads-heres-how-spot-fakes",
+          "relevant": true,
+          "notes": "Read with web_fetch. Supports what is cited, including the \"equipment\" detail."
+        },
+        {
+          "url": "https://reportfraud.ftc.gov",
+          "relevant": false,
+          "notes": "Only an old cached copy (2025-11-14) showing a government-shutdown notice could be read. Can't confirm the site works right now. The FTC article, updated August 2026, still sends people there, so the link is fine."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "Passes, and is clearly better than a generic answer. It covers all four parts of what the reader is looking for: realistic odds (the 2% fully remote figure for entry-level postings, with scope stated); roles (customer service, with BLS data); where to search and how to filter (USAJOBS steps, telework vs. remote, CareerOneStop's duplicate-listing warning, checking the employer's own careers page); and avoiding scams (a table matching each situation to specific FTC guidance). Weaknesses: only one role is profiled in depth, and the other job titles are just search terms with no data. The heading \"If you already paid or shared information\" covers only the money side, with no advice for a shared Social Security number; suggest adding a pointer to IdentityTheft.gov. It doesn't mention typical remote-job requirements such as your own equipment, internet and a quiet workspace, which matter to beginners.",
+      "adds_original_value": true,
+      "value_notes": "Every part of the claimed added value is actually there and checks out. About 75 claims checked; nothing false found. All but four are directly backed by text read, and the four that aren't are minor. The article quotes BLS figures and FTC wording closely and repeatedly notes that the Robert Half numbers cover only the professional fields Robert Half recruits for. Fixes needed: (1) cite the hijacked-ads alert for \"equipment\" in the fake-check table row, or remove the word; (2) reword \"the field most beginners look at first\" (#10); (3) optional: add a source for \"staffing firm\" (#2), and rephrase the USAJOBS \"every level\" line as advice (#25); (4) add IdentityTheft.gov under \"shared information.\"",
+      "product_claims_accurate": true,
+      "product_notes": "There are no product claims, which fits \"no product.\" The internal newearns.com links are just navigation. Passes.",
+      "fetched_urls": [
+        "https://consumer.ftc.gov/articles/job-scams",
+        "https://consumer.ftc.gov/consumer-alerts/2023/05/scammers-are-hijacking-job-ads-heres-how-spot-fakes",
+        "https://consumer.ftc.gov/consumer-alerts/2025/08/how-spot-avoid-task-scams",
+        "https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam",
+        "https://help.usajobs.gov/faq/job-announcement/remote",
+        "https://reportfraud.ftc.gov/",
+        "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+        "https://www.careeronestop.org/Toolkit/Jobs/find-jobs-help.aspx",
+        "https://www.roberthalf.com/us/en/insights/research/remote-work-statistics-and-trends"
+      ],
+      "content_sha256": "b62608e88e39cf5418babed193d2a02e905a8cf9a9ae6ce9922a2a4006d19f21"
+    },
+    "images": {
+      "words": 2197,
+      "target": [
+        3,
+        4
+      ],
+      "stock_api_calls": 6,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "remote jobs no experience",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "openverse",
+          "query": "remote jobs with no experience",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "commons",
+          "query": "remote jobs no experience",
+          "result": "20"
+        },
+        {
+          "provider": "commons",
+          "query": "remote jobs with no experience",
+          "result": "20"
+        },
+        {
+          "provider": "commons",
+          "query": "freelancer working laptop",
+          "result": "0 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "person working laptop home",
+          "result": "13 (cached)"
+        }
+      ],
+      "notes": [
+        "2 image(s), below the 3-4 guideline: nothing else in the article would gain from a visual, and decorative images are not added"
+      ],
+      "topic": {
+        "motif": "earnings",
+        "match": "pillar money"
+      },
+      "photo_rejections": [
+        {
+          "description": "Breaking New Ground in Mekele (154760 - oli 20250531 lrg)",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Breaking New Ground in Mekele (154760 - tm5 19840530 lrg)",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Erica (Thorp) de Berry to Thorp family, 13 April 1918 (13d203f0-3a66-4be8-af84-af3e1d443e9",
+          "reason": "wrong scene (letter)"
+        },
+        {
+          "description": "Erica (Thorp) de Berry to Thorp family, 13 April 1918 (4a63e5a9-be6c-4fff-9e46-4ab4d50e4d5",
+          "reason": "wrong scene (letter)"
+        },
+        {
+          "description": "Erica (Thorp) de Berry to Thorp family, 13 April 1918 (690fdbfe-a7f5-45a5-932b-a07440e543c",
+          "reason": "wrong scene (letter)"
+        },
+        {
+          "description": "Erica (Thorp) de Berry to Thorp family, 13 April 1918 (97cdf670-0657-46fa-90c2-3e20678de2f",
+          "reason": "wrong scene (letter)"
+        },
+        {
+          "description": "Erica (Thorp) de Berry to Thorp family, 13 April 1918 (bad2f089-1940-483f-839c-dfd320a751e",
+          "reason": "wrong scene (letter)"
+        },
+        {
+          "description": "Erica (Thorp) de Berry to Thorp family, 13 April 1918 (bb3aace7-5ed8-468d-9270-40fc7ed9944",
+          "reason": "wrong scene (letter)"
+        },
+        {
+          "description": "Erica (Thorp) de Berry to Thorp family, 13 April 1918 (c2fd6e2f-6b90-43f2-b979-b836075a8cd",
+          "reason": "wrong scene (letter)"
+        },
+        {
+          "description": "Erica (Thorp) de Berry to Thorp family, 13 April 1918 (ccbf5912-58c5-49a3-99a4-1761e1b2063",
+          "reason": "wrong scene (letter)"
+        },
+        {
+          "description": "Erica (Thorp) de Berry to Thorp family, 13 April 1918 (eee583e5-2d3b-4b7a-8341-a126219006d",
+          "reason": "wrong scene (letter)"
+        },
+        {
+          "description": "Erica (Thorp) de Berry to Thorp family, 13 April 1918 (f09a1781-98dc-47df-9bca-9f35f7bca71",
+          "reason": "wrong scene (letter)"
+        }
+      ],
+      "featured": {
+        "provider": "commons",
+        "id": "196292967",
+        "description": "Individual holding white pills while working on a laptop in a modern home office during the day",
+        "page_url": "https://commons.wikimedia.org/wiki/File:Individual_holding_white_pills_while_working_on_a_laptop_in_a_modern_home_office_during_the_day.jpg",
+        "creator": "Shixart1985",
+        "creator_url": "https://commons.wikimedia.org/wiki/User:Shixart1985",
+        "license": "cc-by",
+        "license_version": "2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "source": "wikimedia",
+        "query": "person working laptop home",
+        "relevance": "shows one",
+        "alt_text": "Individual holding white pills while working on a laptop in a modern home office during the day",
+        "caption": "",
+        "filename": "remote-jobs-no-experience-featured.webp",
+        "file": "featured.webp",
+        "bytes": 52060
+      },
+      "inline": [
+        {
+          "provider": "in-house",
+          "license": "generated-in-house",
+          "kind": "chart",
+          "anchor": {
+            "table_index": 0
+          },
+          "file": "inline-1.webp",
+          "filename": "remote-jobs-no-experience-chart-how-many-entry-level-jobs-are-actually.webp",
+          "width": 1200,
+          "height": 508,
+          "bytes": 21534,
+          "heading": "How many entry-level jobs are actually fully remote",
+          "alt_text": "Bar chart of hybrid postings by experience level: Entry level (0–2 years) 8%; Mid level (3–5 years) 10%; Senior (5+...",
+          "caption": "The figures from the table above, side by side."
+        }
+      ]
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2203 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "7 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "Remote Jobs with No Experience: Where to Find Real Ones (and Spot the Fakes)"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.45% (2x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "0/7 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "137 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "59 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "remote-jobs-no-experience"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "remote-jobs-no-experience"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.01"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.60: Data Entry Jobs from Home: Where to Find Real Ones and How to Spot Scams"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": "6 confirmed by fact-check fetch"
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "4 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "0 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "6 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "9 of 9 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": false,
+        "detail": "8% | 2% | 10%",
+        "fix": "Link the source inside the same paragraph or list item as the number or 'according to' statement, or remove the statement."
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "95 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "cc-by"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "1 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "3 no supporting evidence found (not shown to be false): Robert Half is a \"staffing firm\" (fix: Keep it, or link Robert Half's About page.) | \"The field most beginners look at first is no better\" (fix: \"One field often suggested to beginners, administrative and customer support, is no better.\") | The filter shows remote jobs at every level (fix: \"The remote filter doesn't limit results to entry-level jobs, so read each announcement's qualifications.\" Or keep it as) || 1 could not be checked (source unreadable or partial): The \"five-step plan\" and the advice not to expect income on a schedule",
+        "fix": "Contradicted: correct the claim to what the source says. No evidence found: cite an official source that states it, narrow it to what a source does say, or remove it. Could not be checked: verify it against a readable source or remove it. Source page not read: cite a page the pipeline can open that states the claim, or remove the claim. No claims listed: the fact-check did not check anything. Then re-run the fact-check only."
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Passes, and is clearly better than a generic answer. It covers all four parts of what the reader is looking for: realistic odds (the 2% fully remote figure for entry-level postings, with scope stated); roles (customer service, with BLS data); where to search and how to filter (USAJOBS steps, telework vs. remote, CareerOneStop's duplicate-listing warning, checking the employer's own careers page); and avoiding scams (a table matching each situation to specific FTC guidance). Weaknesses: only one role is profiled in depth, and the other job titles are just search terms with no data. The heading \"If you already paid or shared information\" covers only the money side, with no advice for a shared Social Security number; suggest adding a pointer to IdentityTheft.gov. It doesn't mention typical remote-job requirements such as your own equipment, internet and a quiet workspace, which matter to beginners."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "Every part of the claimed added value is actually there and checks out. About 75 claims checked; nothing false found. All but four are directly backed by text read, and the four that aren't are minor. The article quotes BLS figures and FTC wording closely and repeatedly notes that the Robert Half numbers cover only the professional fields Robert Half recruits for. Fixes needed: (1) cite the hijacked-ads alert for \"equipment\" in the fake-check table row, or remove the word; (2) reword \"the field most beginners look at first\" (#10); (3) optional: add a source for \"staffing firm\" (#2), and rephrase the USAJOBS \"every level\" line as advice (#25); (4) add IdentityTheft.gov under \"shared information.\""
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "There are no product claims, which fits \"no product.\" The internal newearns.com links are just navigation. Passes."
+      },
+      {
+        "check": "fact_check_current",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "sources_verified",
+        "passed": false,
+        "detail": "https://reportfraud.ftc.gov does not support what it is cited for (Only an old cached copy (2025-11-14) showing a government-shutdown notice could be read. Can't confi)",
+        "fix": "Replace each unreadable or irrelevant source with a page that states the fact, or remove the claims that relied on it; then re-run the fact-check only."
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 1.101,
+        "write": 0.294,
+        "fact_check": 0.542,
+        "fact_check_json": 0.179
+      },
+      "total_usd": 2.116
+    },
+    "wp_media": {
+      "id": 3767,
+      "url": "https://newearns.com/wp-content/uploads/2026/10/remote-jobs-no-experience-featured.webp"
+    },
+    "wp_media_inline": [
+      {
+        "id": 3768,
+        "url": "https://newearns.com/wp-content/uploads/2026/10/remote-jobs-no-experience-chart-how-many-entry-level-jobs-are-actually.webp"
+      }
+    ],
+    "wp_post": {
+      "id": 3769,
+      "status": "pending",
+      "link": "https://newearns.com/?p=3769"
+    },
+    "image_check": "ok",
+    "final": "held_for_review"
+  },
+  "updated": "2026-10-28T17:10:49+00:00"
+}
