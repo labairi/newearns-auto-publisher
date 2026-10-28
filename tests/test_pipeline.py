@@ -334,7 +334,7 @@ def test_publish_workflow_second_key_needs_article_on_main_and_ticked_box():
     assert inputs["allow_publish"] == {"description": inputs["allow_publish"]["description"],
                                        "type": "boolean", "default": False}
     assert y["jobs"]["run"]["env"]["ALLOW_PUBLISH"] == (
-        "${{ (github.event_name == 'schedule' || (inputs.command == 'article' && inputs.allow_publish))"
+        "${{ (github.event_name == 'schedule' || inputs.command == 'daily' || (inputs.command == 'article' && inputs.allow_publish))"
         " && github.ref == 'refs/heads/main' && 'true' || 'false' }}")
     assert "ALLOW_PUBLISH" not in str(y["jobs"]["run"]["steps"])  # nothing else can turn it on
 

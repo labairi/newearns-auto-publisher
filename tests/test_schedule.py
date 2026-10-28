@@ -77,8 +77,9 @@ def workflow():
 def test_scheduled_workflow_run_is_the_scheduled_command_and_gets_the_second_key_only_on_main():
     y = workflow()
     expr = y["jobs"]["run"]["env"]["ALLOW_PUBLISH"]
-    # "true" only on main: for a schedule, or a manual `article` run with the box ticked.
-    assert expr.startswith("${{ (github.event_name == 'schedule' || (inputs.command == 'article' && "
+    # "true" only on main: for a schedule or the `daily` command (same path), or a manual
+    # `article` run with the box ticked.
+    assert expr.startswith("${{ (github.event_name == 'schedule' || inputs.command == 'daily' || (inputs.command == 'article' && "
                            "inputs.allow_publish)) && github.ref == 'refs/heads/main' && 'true'")
     # A run that waited in the concurrency group checks out the branch tip, so it sees the last run's log.
     checkout = next(s for s in y["jobs"]["run"]["steps"] if s.get("uses", "").startswith("actions/checkout"))
@@ -86,7 +87,8 @@ def test_scheduled_workflow_run_is_the_scheduled_command_and_gets_the_second_key
     assert y["concurrency"] == {"group": "publisher", "cancel-in-progress": False}
     script = next(s for s in y["jobs"]["run"]["steps"] if s.get("name") == "Run")["run"]
     head = script.split("plan=()")[0]
-    assert 'if [ "${{ github.event_name }}" = schedule ]' in head
+    assert 'if [ "${{ github.event_name }}" = schedule ] || [ "${{ inputs.command }}" = daily ]' in head
+    assert "daily" in y[True]["workflow_dispatch"]["inputs"]["command"]["options"]
     assert "python -m publisher.run article --scheduled\n" in head and "exit" in head
     assert "resume-schedule)  python -m publisher.run resume-schedule ;;" in script
     assert "resume-schedule" in y[True]["workflow_dispatch"]["inputs"]["command"]["options"]
