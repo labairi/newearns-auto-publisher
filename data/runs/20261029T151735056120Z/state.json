@@ -1,0 +1,834 @@
+{
+  "run_id": "20261029T151735056120Z",
+  "stages": {
+    "pillar": "instagram",
+    "topic": "Best Time to Post on Instagram, and How to Find Your Own",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 30,
+        "cache_creation_input_tokens": 52474,
+        "cache_read_input_tokens": 327508,
+        "output_tokens": 12659,
+        "web_search_requests": 8,
+        "web_fetch_requests": 3,
+        "requests": 9,
+        "read_source_calls": 19,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 30,
+            "cache_write_5m_tokens": 52474,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 327508,
+            "output_tokens": 12659
+          }
+        },
+        "fetched_urls": [
+          "https://help.instagram.com/1066411004046592",
+          "https://help.instagram.com/788388387972460"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.661
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 9453,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 11684,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 9453,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 11684
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.281
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 12,
+        "cache_creation_input_tokens": 54828,
+        "cache_read_input_tokens": 172244,
+        "output_tokens": 9080,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 5,
+        "read_source_calls": 8,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 12,
+            "cache_write_5m_tokens": 54828,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 172244,
+            "output_tokens": 9080
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.49
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 4325,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 7088,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 4325,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 7088
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.163
+      }
+    ],
+    "brief": "# Article brief: Best time to post on Instagram\n\n## 1. What I checked, and what I couldn't\n\n- **Search limits:** The search tool returned only one results page (Hootsuite's study at the top) before hitting its usage limit. So my read of the results page comes from that result plus the pages ranking for this query that I read in full: Hootsuite, Sprout Social, Buffer and Later. I have no search-volume data.\n- **Instagram Help Center:** help.instagram.com pages don't load as readable text. All I got was one meta description. That means the in-app steps (tab names, where \"Most active times\" sits) **are not confirmed by Instagram's own documentation**. The three vendor guides also describe the path differently (see §4). The writer must treat these steps as \"may differ\".\n- **Official sources I could read:** Instagram's \"Instagram Ranking Explained\" post (Adam Mosseri, May 31, 2023) and the creators.instagram.com site.\n\n## 2. Chosen query and intent\n\n- **Chosen query:** best time to post on instagram (the candidate topic as given)\n- **Focus keyphrase:** best time to post on Instagram\n- **Suggested title:** Best Time to Post on Instagram: What 4 Big Studies Say, and How to Find Your Own\n- **Search intent:** Informational with a how-to second half. Readers want a quick answer (times and days), then a way to work out their own times. All four ranking pages follow that pattern: big dataset, then day-by-day times, then \"find your own\" with the vendor's paid tool.\n- **Where New Earns can do better:**\n  1. **The studies disagree, and nobody shows it side by side.** Later finds early mornings best (overall 5 AM). Sprout calls 3–7 a.m. a \"dead zone\" on weekdays. Hootsuite says to avoid posting before 8 AM. Buffer says evenings (6–11 p.m.) win on most days. A neutral comparison table, with sample size, data period and metric for each study, tells readers what the averages are worth.\n  2. **A free test plan using native Insights** instead of a paid \"best time\" feature. Each vendor's own guide ends by pushing its tool.\n  3. **A decision table by situation:** new account with no data, followers in several time zones, Reels vs Stories, local business.\n  4. **A freshness warning:** Later's \"2026\" article uses data from January–October 2024.\n\n## 3. H2/H3 outline\n\n**Intro (2–3 sentences):** There's no single best time. Big studies give a starting point, but they disagree, so here's how to test your own. Use the keyphrase here.\n\n**H2: What the big studies say (and where they disagree)**\n- Comparison table with columns: Study | Sample | Data period | Best slots | Weakest times. Fill it with Hootsuite, Sprout, Buffer and Later facts from §4. Link every row.\n- H3: Where they agree. Weekdays beat weekends in Sprout, Buffer and Hootsuite. Later also names Saturday as its worst day.\n- H3: Where they disagree. Early morning (Later) vs avoiding early morning (Sprout, Hootsuite). Evenings (Buffer) vs afternoons (Sprout).\n- H3: Why they differ. Each tool's own customers, different periods, different metrics (Buffer uses median engagement rate, Later engagement rate, Sprout engagement windows). All four normalise to local time.\n\n**H2: Why timing matters at all.** Instagram says ranking signals include \"how quickly\" people like, comment, share and save a post, and when it was posted. Feed, Stories, Explore and Reels each rank differently. Don't overstate this: the 2023 post lists your activity as the most important Feed signal, and Instagram says it adds and removes signals over time.\n\n**H2: How to see when your followers are online**\n- H3: What you need: a professional (Creator or Business) account.\n- H3: Steps in the app, with a \"labels vary\" warning. Give the general path (profile → Professional dashboard/Insights → followers section → active-times chart) and say the exact tab names vary by app version.\n- H3: Active isn't the same as engaged. Buffer notes these are times followers use Instagram, not necessarily when they engage with your content.\n\n**H2: A 4-week test to find your own best time** (editorial method, not a fact claim)\n- Pick 2–3 candidate windows: one from your active-times chart, one study benchmark, one wildcard.\n- Keep format and content type steady. Rotate the slots. Record reach, shares, saves and comments for each post.\n- After about 4 weeks, keep the winner and check it again later. Hootsuite suggests reviewing your schedule once or twice a year, or after a big change.\n- *Optional product mention #2 goes here (see §6).*\n\n**H2: Which approach fits your situation** (decision table)\n- New account or no data → start with a weekday benchmark, then test.\n- Followers in several countries → find your biggest region and anchor to its local peak. Sprout and Hootsuite both give this advice, and Hootsuite adds the option of a second post for an overseas audience. *Internal link + optional product mention #1 here.*\n- Reels vs Stories → Sprout and Buffer measured all post types together. Later's Reels-only data says Monday 12 AM. Present this as a difference between studies.\n- Local business → industry tables from Sprout and Hootsuite, used as a hint only.\n\n**H2: Common mistakes.** Treating one study as gospel. Chasing exact minutes: Later says a predictable rhythm matters more. Reading active times as engagement times. Never re-checking.\n\n**H2: FAQ** (short answers, each sourced): best day; worst time; does the time zone matter; same time every day?\n\n## 4. Facts to use (each with its URL)\n\n| # | Fact | Source |\n|---|---|---|\n| F1 | Hootsuite and Critical Truth analysed 1M+ social posts. Times localised across 118 countries. Best by day: Mon 3–9 PM; Tue 5–8 AM & 3–7 PM; Wed 5 PM; Thu 4–5 PM; Fri 4 PM; Sat 11 AM & 5 PM; Sun 12–3 PM. Best days: Mon, Tue, Thu. Worst: before 8 AM and after 10 PM. | https://blog.hootsuite.com/best-time-to-post-on-instagram/ |\n| F2 | Hootsuite: if followers span regions, plan posts that straddle time zones, or post in the morning for North America and again late evening for overseas. Review your schedule once or twice a year or after major changes. | same |\n| F3 | Sprout: nearly 2B engagements, ~307,000 profiles across six networks, 30,000+ customers, Nov 27 2025–Feb 27 2026, local time. Top windows: Mon 2–4 p.m., Tue 1–7 p.m., Wed 12–9 p.m., Thu 12–2 p.m. Best days Mon–Thu, worst weekends. Avoid 3–7 a.m. on weekdays. No significant Friday peaks. | https://sproutsocial.com/insights/best-times-to-post-on-instagram/ |\n| F4 | Sprout: Reels times mirror the overall windows. For multiple time zones, anchor to your highest-value regions' local peaks. | same |\n| F5 | Buffer: 9.6M Instagram posts from 200,000+ accounts, Jan 2024–Dec 2025, median engagement rates. Best: Thu 9 a.m., Wed 12 p.m., Wed 6 p.m. Wednesday best day; Friday and Saturday weakest. Evenings 6–11 p.m. strongest on every weekday except Thursday. Times are normalised to local time. | https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/ |\n| F6 | Buffer: you need a Creator or Business account for Insights. Active times are when followers use Instagram, \"not necessarily\" when they engage. All post types were analysed together. | same |\n| F7 | Later: 6M+ feed posts (images, videos, carousels, Reels), **Jan–Oct 2024**, by engagement rate. Overall best 5 AM; 3–6 AM above average every day. Reels (975K analysed): 12 AM, Monday best. Worst: Thu 3 AM, Sat 11 PM; Saturday worst day. Consistency matters more than the exact minute. | https://later.com/blog/best-time-to-post-on-instagram/ |\n| F8 | Instagram: each part of the app uses its own algorithm. Feed signals include how quickly people engage with a post and when it was posted. Your activity is listed first (\"roughly in order of importance\"). Signals are added and removed over time. | https://about.instagram.com/blog/announcements/instagram-ranking-explained |\n| F9 | Instagram: switching to a professional account gives access to insights. | https://creators.instagram.com/ |\n| F10 | Insights path as each vendor describes it (they conflict, so present it generically): Sprout: Insights → New Followers → Most Active Times. Buffer: Professional dashboard → New followers → Follower active times; on the web, Dashboard → Insights → Account → Followers. Later: professional dashboard/Insights → Total Followers → Most Active Times. | Sprout, Buffer, Later URLs above |\n\n**Do not use:**\n- Buffer says Mosseri suggests posting 30–60 minutes before your audience comes online. I found no primary source for this. Leave it out, or attribute it explicitly to Buffer.\n- Later's Reels/carousel feature claims (e.g. 20-photo carousels). They're off-topic and unverified with Meta.\n- Any minimum follower count for Insights. It's unsourced.\n\n## 5. Internal links\n\n- **\"Instagram Follower Location: How to See Which Countries and Cities Your Followers Are From.\"** This is a direct fit for the multiple-time-zones section (\"first find where your followers are\").\n- None of the other published articles fit closely enough. Don't force them.\n\n## 6. Product link (Instagramaps)\n\nThe link is justified, at most twice:\n1. **Multiple time zones step:** \"Tools such as Instagramaps let creators and businesses connect an Instagram account to see where their audience engages by country and city.\" That's allowed claim 1.\n2. **Optional, in the 4-week test:** it \"compares views, reach and engagement per post.\" That's allowed claim 2.\n\nRules for the writer:\n- **Don't** say it shows active times or \"best times\".\n- If pricing is mentioned, say: free Creator and Business plans; paid plans from 9 USD/month; check the pricing page.\n- Keep the mentions neutral. No comparison with Hootsuite, Sprout, Buffer or Later tools.\n\n## SOURCE NOTES\n\n**1. Hootsuite: \"The best time to post on Instagram [2026 data]\"**\nhttps://blog.hootsuite.com/best-time-to-post-on-instagram/ (published 2026-07-14, modified 2026-10-14)\n- \"the Hootsuite team partnered with Critical Truth to analyze over 1 million social posts\"\n- \"the time of day was localized across 118 countries where sample data came from\"\n- \"The best time to post on Instagram by day is 3–9 PM on Mondays, 5–8 AM and 3–7 PM on Tuesdays, 5 PM on Wednesdays, 4–5 PM on Thursdays, 4 PM on Fridays, 11 AM and 5 PM on Saturdays, and 12–3 PM on Sundays.\"\n- \"the best days to post on Instagram are Mondays, Tuesdays, and Thursdays, according to Hootsuite's 2025 social media analysis.\" Condition: \"the best day for you depends on your unique audience, niche, and time zone.\"\n- \"The least effective times are typically early mornings (before 8 AM) and late nights (after 10 PM).\"\n- \"posting once in the morning for your North American audience, and again in the late evening for your overseas audience, can help…\"\n- \"review your posting schedule once or twice a year, or whenever something major changes\"\n- Note: the page is a vendor study and promotes its own Perch tool. The study's date range is not stated in what I read.\n\n**2. Sprout Social: \"Best times to post on Instagram in 2026 [Updated March 2026]\"**\nhttps://sproutsocial.com/insights/best-times-to-post-on-instagram/ (published 2026-03-31, modified 2026-04-01)\n- \"we analyzed nearly 2 billion engagements across roughly 307,000 social profiles spanning Facebook, Instagram, LinkedIn, Pinterest, TikTok and X.\" Data from \"over 30,000 Sprout Social customers… between November 27, 2025 and February 27, 2026\"\n- \"All optimal posting times are listed in Local Time.\"\n- \"The best times to post Instagram Reels mirror our overall top-performing windows: Mondays 2–4 p.m., Tuesdays 1–7 p.m., Wednesdays 12–9 p.m. and Thursdays 12–2 p.m.\"\n- Best days: \"Mondays, Tuesdays, Wednesdays and Thursdays\". Worst: \"Weekends\".\n- \"During the workweek, you should also avoid the early morning dead zone from 3–7 a.m.\"\n- \"There are no significant peak engagement hours on Fridays.\"\n- \"identify your highest-value regions and anchor your publishing schedule to their local peak hours.\"\n- Insights steps: \"Tap the Insights menu button… Navigate to the New Followers metric… view Most Active Times, broken down by hours and days.\" This is a vendor description, not official.\n\n**3. Buffer: \"Best Time to Post on Instagram: Data from 9.6M Posts [Updated Sep 2026]\"**\nhttps://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/ (the page shows \"Published Sep 23, 2026\"; its metadata says 2026-10-23)\n- \"The best times to post on Instagram in 2026 are Thursday at 9 a.m., Wednesday at 12 p.m., and Wednesday at 6 p.m.\"\n- \"Wednesday is the best day overall, while Friday and Saturday are the weakest.\"\n- Method: \"9.6 million Instagram posts from 200,000+ Buffer accounts (January 2024 to December 2025), measuring median engagement rates\"\n- \"Evening hours (6 p.m. to 11 p.m.) generate the strongest engagement on every weekday except Thursday.\"\n- Times are normalised: \"12 p.m. Wednesday means 12 p.m. local time wherever you are.\"\n- \"we reviewed all post types together rather than segmenting by format.\"\n- \"You'll need a professional Instagram account, a Creator or Business Account, to access these numbers.\"\n- \"these are times your followers are using Instagram, not necessarily when they are most likely to engage with your content.\"\n- App steps: \"Professional dashboard… Tap on New followers… Scroll to Follower active times\". Web steps: \"Click on Dashboard… Under the Insights dropdown, select Account… Scroll down to Followers\".\n\n**4. Later: \"Best time to post on Instagram in 2026 (based on 6M+ posts)\"**\nhttps://later.com/blog/best-time-to-post-on-instagram/ (published/updated 2026-04-21)\n- \"analyzed over 6M Instagram feed posts (images, videos, carousels, and Reels) across time zones from January to October 2024.\" This is the freshness caveat.\n- \"In 2026, the overall best time to post on Instagram is at 5 AM.\" \"content posted between 3 AM to 6 AM every day led to higher-than-average engagement.\"\n- \"After analyzing over 975K Instagram Reels… the best time to post Reels is 12 AM.\" Best Reels day: Monday.\n- \"The worst times to post on Instagram are Thursday at 3 AM and Saturday at 11 PM\"; \"Saturday overall is the worst day\"\n- \"Consistency matters more than posting at the exact same time\"\n- Insights path: \"Navigate to 'Total Followers' and scroll to 'Most Active Times'\"\n\n**5. Instagram: \"Instagram Ranking Explained\" (Adam Mosseri)**\nhttps://about.instagram.com/blog/announcements/instagram-ranking-explained (dated May 31, 2023, so it's older; say so)\n- \"Each part of the app – Feed, Stories, Explore, Reels, Search and more – uses its own algorithm tailored to how people use it.\"\n- Signals \"include everything from when a post was shared to whether you're using a phone or the web\"\n- Feed signals, \"roughly in order of importance\": first \"Your activity\", then \"Information about the post\", which covers \"how quickly people are liking, commenting, sharing and saving a post\" and \"when it was posted\"\n- \"We add and remove signals and predictions over time\"\n- \"People tend to look for their closest friends in Stories, use Explore to discover new content and creators and be entertained in Reels.\"\n\n**6. Instagram for Creators (home page)**\nhttps://creators.instagram.com/ (no date stated)\n- \"Switch to a professional account to access powerful insights and new earning opportunities\"\n\n**7. Instagram Help Center: \"About Instagram insights\" (meta description only; the body didn't load)**\nhttps://help.instagram.com/788388387972460 (no date)\n- \"You can use Instagram insights to learn more about overall trends across your followers and your content's performance with your audience.\"\n- Don't use this page for steps.",
+    "candidates": [
+      "Best Time to Post on Instagram, and How to Find Your Own (primary query: best time to post on instagram)"
+    ],
+    "article": {
+      "title": "Best Time to Post on Instagram: What 4 Big Studies Say, and How to Find Your Own",
+      "seo_title": "Best Time to Post on Instagram: 4 Studies Compared",
+      "slug": "best-time-to-post-on-instagram",
+      "meta_description": "Hootsuite, Sprout, Buffer and Later disagree on the best time to post on Instagram. Compare their data, then run a free 4-week test with Insights.",
+      "focus_keyphrase": "best time to post on Instagram",
+      "excerpt": "Four big studies give four different answers on when to post on Instagram. Here they are side by side, with a free four-week test using native Insights to find the times that work for your own followers.",
+      "content_html": "<p>There is no single best time to post on Instagram that works for every account. Four large studies, from Hootsuite, Sprout Social, Buffer and Later, each give a starting point, but they reach different answers. One names 5 AM as the top slot, while two others warn against early mornings. This guide puts the studies side by side, explains why they disagree, and then walks through a free four-week test with Instagram's own Insights so you can find the times that work for your followers.</p><h2>What the big studies say (and where they disagree)</h2><p>Each row below links to the vendor's own page. Samples, periods and metrics are as each vendor describes them.</p><table><thead><tr><th>Study</th><th>Sample</th><th>Data period</th><th>Metric</th><th>Best slots</th><th>Weakest times</th></tr></thead><tbody><tr><td><a href=\"https://blog.hootsuite.com/best-time-to-post-on-instagram/\">Hootsuite</a> (with Critical Truth)</td><td>Over 1 million social posts, times localised across 118 countries</td><td>Not stated on the page; best days attributed to Hootsuite's 2025 analysis</td><td>Not specified in the summary</td><td>Mon 3–9 PM; Tue 5–8 AM and 3–7 PM; Wed 5 PM; Thu 4–5 PM; Fri 4 PM; Sat 11 AM and 5 PM; Sun 12–3 PM. Best days: Mon, Tue, Thu</td><td>Before 8 AM and after 10 PM</td></tr><tr><td><a href=\"https://sproutsocial.com/insights/best-times-to-post-on-instagram/\">Sprout Social</a></td><td>Nearly 2 billion engagements across roughly 307,000 profiles on six networks, from 30,000+ customers</td><td>Nov 27, 2025 – Feb 27, 2026</td><td>Engagements, in local time</td><td>Mon 2–4 p.m.; Tue 1–7 p.m.; Wed 12–9 p.m.; Thu 12–2 p.m. Best days: Mon–Thu</td><td>Weekends; 3–7 a.m. on weekdays; no significant Friday peaks</td></tr><tr><td><a href=\"https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/\">Buffer</a></td><td>9.6 million Instagram posts from 200,000+ accounts</td><td>Jan 2024 – Dec 2025</td><td>Median engagement rate</td><td>Thu 9 a.m.; Wed 12 p.m.; Wed 6 p.m. Evenings (6–11 p.m.) strongest on every weekday except Thursday. Best day: Wednesday</td><td>Friday and Saturday</td></tr><tr><td><a href=\"https://later.com/blog/best-time-to-post-on-instagram/\">Later</a></td><td>6M+ feed posts (images, videos, carousels, Reels); 975K Reels for the Reels analysis</td><td>Jan – Oct 2024</td><td>Engagement rate</td><td>Overall 5 AM; 3–6 AM above average every day. Reels: 12 AM, Monday best</td><td>Thu 3 AM and Sat 11 PM; Saturday worst day</td></tr></tbody></table><p>A note on freshness: <a href=\"https://later.com/blog/best-time-to-post-on-instagram/\">Later's article is titled for 2026 but analyses posts from January to October 2024</a>. Sprout's data is the most recent of the four, and Buffer's runs through December 2025. Older data is not wrong, but it reflects how people used Instagram at the time.</p><h3>Where they agree</h3><ul><li><strong>Midweek is strong.</strong> <a href=\"https://sproutsocial.com/insights/best-times-to-post-on-instagram/\">Sprout names Monday to Thursday as the best days</a>, <a href=\"https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/\">Buffer names Wednesday as the best day overall</a>, and <a href=\"https://blog.hootsuite.com/best-time-to-post-on-instagram/\">Hootsuite's best days are Monday, Tuesday and Thursday</a>.</li><li><strong>Saturday is weak.</strong> Sprout lists weekends as the worst days, Buffer lists Friday and Saturday as the weakest, and <a href=\"https://later.com/blog/best-time-to-post-on-instagram/\">Later calls Saturday its worst day overall</a>.</li><li><strong>Friday is unremarkable.</strong> Sprout found no significant peak engagement hours on Fridays, and Buffer ranks Friday among its weakest days.</li></ul><h3>Where they disagree</h3><ul><li><strong>Early morning.</strong> <a href=\"https://later.com/blog/best-time-to-post-on-instagram/\">Later found posts published between 3 AM and 6 AM led to higher-than-average engagement every day</a>. <a href=\"https://sproutsocial.com/insights/best-times-to-post-on-instagram/\">Sprout calls 3–7 a.m. on weekdays an \"early morning dead zone\"</a>, and <a href=\"https://blog.hootsuite.com/best-time-to-post-on-instagram/\">Hootsuite says the least effective times are typically before 8 AM</a>.</li><li><strong>Evening vs afternoon.</strong> <a href=\"https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/\">Buffer found 6–11 p.m. the strongest window on every weekday except Thursday</a>. Sprout's top windows are mostly early to mid afternoon, with Wednesday stretching to 9 p.m. Hootsuite's slots cluster in the late afternoon, and it flags after 10 PM as weak.</li></ul><h3>Why they differ</h3><p>The studies measure different things in different ways:</p><ul><li><strong>Different accounts.</strong> Each study draws on its own customers' posts, so the results reflect the kinds of accounts that use that tool. Sprout's and Hootsuite's samples also span several social networks, not just Instagram.</li><li><strong>Different periods.</strong> Later's data ends in October 2024; Sprout's covers late 2025 to early 2026.</li><li><strong>Different metrics.</strong> Buffer uses median engagement rate, Later uses engagement rate, and Sprout reports engagement windows. A post can rank well on one measure and poorly on another.</li><li><strong>Time zones.</strong> Hootsuite localised times across 118 countries, Sprout lists all times in local time, and Buffer says \"12 p.m. Wednesday means 12 p.m. local time wherever you are.\" Later says it analysed posts across time zones.</li></ul><p>The practical takeaway: treat any study's slot as a hypothesis to test, not an answer.</p><h2>Why timing matters at all</h2><p>Instagram's own explanation of ranking gives timing a role, but not the leading one. In <a href=\"https://about.instagram.com/blog/announcements/instagram-ranking-explained\">\"Instagram Ranking Explained\" (Adam Mosseri, May 31, 2023)</a>, Instagram says each part of the app, including Feed, Stories, Explore and Reels, uses its own algorithm. For Feed, it lists signals \"roughly in order of importance\": first comes the viewer's own activity, then information about the post, which includes \"how quickly people are liking, commenting, sharing and saving a post\" and when it was posted.</p><p>So posting when your audience is around can help a post pick up early interactions, but the viewer's activity is listed ahead of it. Two caveats: the post is from 2023, and Instagram says it adds and removes signals and predictions over time. Good content posted at an average time will usually matter more than a mediocre post at a perfect time.</p><h2>How to see when your followers are online</h2><h3>What you need</h3><p>Follower activity data lives in Insights, which requires a professional account. Instagram's creator site says to <a href=\"https://creators.instagram.com/\">switch to a professional account to access insights</a>, and <a href=\"https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/\">Buffer notes you need a Creator or Business account</a> to see these numbers. Switching is done in your account settings.</p><h3>Steps in the app (labels vary)</h3><p>Instagram's Help Center steps could not be confirmed for this guide, and the vendor guides describe the path with different labels, so menu names in your app may differ. The general route is:</p><ol><li>Open your profile.</li><li>Tap <strong>Professional dashboard</strong> or <strong>Insights</strong>.</li><li>Open the followers section. Depending on your app version, this may be labelled New followers, Total followers or similar.</li><li>Scroll to the active-times chart, labelled something like Most active times or Follower active times. It typically shows activity by hour and by day.</li></ol><p>For reference, <a href=\"https://sproutsocial.com/insights/best-times-to-post-on-instagram/\">Sprout describes the path as Insights → New Followers → Most Active Times</a>, <a href=\"https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/\">Buffer as Professional dashboard → New followers → Follower active times</a>, and <a href=\"https://later.com/blog/best-time-to-post-on-instagram/\">Later as Total Followers → Most Active Times</a>. Buffer also describes a web route: Dashboard → Insights → Account → scroll to Followers.</p><h3>Active isn't the same as engaged</h3><p>As <a href=\"https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/\">Buffer puts it</a>, these are times your followers are using Instagram, \"not necessarily\" when they are most likely to engage with your content. A peak at 9 PM might be people scrolling passively before bed. That is why the chart is a starting point for testing rather than a final answer.</p><h2>A 4-week test to find your own best time</h2><p>This is an editorial method, not a published study. It uses only native Insights and a spreadsheet.</p><ol><li><strong>Pick two or three candidate windows.</strong> For example: Slot A is the peak from your active-times chart; Slot B is a study benchmark such as Wednesday 12 p.m. from Buffer or Tuesday afternoon from Sprout; Slot C is a wildcard, such as an early-morning slot to check Later's finding for your audience.</li><li><strong>Keep everything else steady.</strong> Use the same format and a similar content type in each slot. Comparing a Reel at 9 AM against a carousel at 6 PM tells you about format, not timing.</li><li><strong>Rotate the slots across days.</strong> If Slot A always lands on Monday and Slot C always on Friday, you are partly testing days. Shift the order each week so every slot gets a turn on different days.</li><li><strong>Record the same numbers for every post:</strong> date, day, time, format, reach, shares, saves and comments. Check each post at the same age, for example three days after publishing, so older posts don't get a head start.</li><li><strong>Compare after about four weeks.</strong> Average each slot's results. If one slot clearly leads on reach and shares, make it your default and keep the runner-up as a second option. If the numbers are close, treat it as a tie: a few posts per slot is a small sample.</li><li><strong>Re-check later.</strong> <a href=\"https://blog.hootsuite.com/best-time-to-post-on-instagram/\">Hootsuite suggests reviewing your posting schedule once or twice a year, or whenever something major changes</a>, such as a new audience, a new content format or a big jump in followers.</li></ol><p>If logging posts by hand gets tedious, tools such as <a href=\"https://instagramaps.com/?utm_source=newearns&utm_medium=referral&utm_campaign=best-time-to-post-on-instagram\">Instagramaps</a> compare views, reach and engagement per post, which makes it easier to line up your slots side by side.</p><p><em>Disclosure: Instagramaps is built by the team behind New Earns. We mention it where it fits the task; the steps in this guide also work with other tools.</em></p><h2>Which approach fits your situation</h2><table><thead><tr><th>Your situation</th><th>Where to start</th><th>What to test</th></tr></thead><tbody><tr><td>New account or no Insights data yet</td><td>A midweek benchmark, since Sprout, Buffer and Hootsuite all rank midweek days highly</td><td>Run the four-week test once your active-times chart has data</td></tr><tr><td>Followers in several countries</td><td>Your biggest region's local peak</td><td>That peak vs a second post timed for another region</td></tr><tr><td>Reels vs other formats</td><td>Your overall best slot</td><td>Reels-only test, since the studies disagree on Reels timing</td></tr><tr><td>Stories</td><td>Your active-times chart</td><td>Stories separately; none of these studies gives Stories-specific times</td></tr><tr><td>Local business</td><td>Your own time zone and customers' routines</td><td>Industry benchmarks as a hint only, then your own slots</td></tr></tbody></table><h3>Followers in several time zones</h3><p>First find out where your followers actually are; our guide to <a href=\"https://newearns.com/instagram-follower-location/\">Instagram follower location</a> covers how to see which countries and cities they're in. Then <a href=\"https://sproutsocial.com/insights/best-times-to-post-on-instagram/\">Sprout advises</a> identifying your highest-value regions and anchoring your schedule to their local peak hours. <a href=\"https://blog.hootsuite.com/best-time-to-post-on-instagram/\">Hootsuite suggests</a> planning posts that straddle time zones, or posting once in the morning for a North American audience and again in the late evening for an overseas audience. Tools such as Instagramaps also let creators and businesses connect an Instagram account to see where their audience engages by country and city, which helps you decide which region to anchor to.</p><h3>Reels</h3><p>The studies split here. <a href=\"https://sproutsocial.com/insights/best-times-to-post-on-instagram/\">Sprout says the best times for Reels mirror its overall windows</a> (Monday 2–4 p.m. through Thursday 12–2 p.m.). <a href=\"https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/\">Buffer reviewed all post types together</a> rather than by format. <a href=\"https://later.com/blog/best-time-to-post-on-instagram/\">Later's analysis of over 975K Reels points to 12 AM, with Monday the best day</a>. If Reels are your main format, run your test with Reels only.</p><h3>Local businesses</h3><p>If your customers are mostly in one city, the time-zone question disappears and their daily routine matters more. <a href=\"https://sproutsocial.com/insights/best-times-to-post-on-instagram/\">Sprout</a> and <a href=\"https://blog.hootsuite.com/best-time-to-post-on-instagram/\">Hootsuite</a> include industry breakdowns on their pages; use them to pick test slots, then let your own results decide.</p><h2>Common mistakes</h2><ul><li><strong>Treating one study as gospel.</strong> As the table shows, credible studies with millions of posts still disagree about early mornings and evenings.</li><li><strong>Chasing the exact minute.</strong> <a href=\"https://later.com/blog/best-time-to-post-on-instagram/\">Later says consistency matters more than posting at the exact same time</a>. A predictable rhythm is easier to keep up than a precise slot.</li><li><strong>Reading active times as engagement times.</strong> The Insights chart shows when followers are on Instagram, not when they interact with you.</li><li><strong>Changing several things at once.</strong> New time, new format and new caption style in the same week make it impossible to tell what worked.</li><li><strong>Never re-checking.</strong> Audiences change. Put a review in your calendar.</li></ul><h2>FAQ</h2><h3>What is the best day to post on Instagram?</h3><p>It depends on the study. <a href=\"https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/\">Buffer names Wednesday</a>, <a href=\"https://sproutsocial.com/insights/best-times-to-post-on-instagram/\">Sprout names Monday to Thursday</a>, and <a href=\"https://blog.hootsuite.com/best-time-to-post-on-instagram/\">Hootsuite names Monday, Tuesday and Thursday</a>, while noting the best day depends on your audience, niche and time zone.</p><h3>What is the worst time to post on Instagram?</h3><p><a href=\"https://blog.hootsuite.com/best-time-to-post-on-instagram/\">Hootsuite</a> points to before 8 AM and after 10 PM, and <a href=\"https://sproutsocial.com/insights/best-times-to-post-on-instagram/\">Sprout</a> flags 3–7 a.m. on weekdays. <a href=\"https://later.com/blog/best-time-to-post-on-instagram/\">Later</a> disagrees on early mornings and names Thursday 3 AM and Saturday 11 PM as its worst slots. Saturday ranks low in Sprout, Buffer and Later.</p><h3>Does my time zone matter?</h3><p>Yes, in the sense that the studies report times in local time, so \"12 p.m.\" means midday where your audience is. If followers are spread out, <a href=\"https://sproutsocial.com/insights/best-times-to-post-on-instagram/\">anchor to your highest-value region's local peak</a>.</p><h3>Should I post at the same time every day?</h3><p>Not necessarily. <a href=\"https://later.com/blog/best-time-to-post-on-instagram/\">Later says consistency matters more than posting at the exact same time</a>. Pick a few tested windows and stick to a rhythm you can maintain.</p>",
+      "sources": [
+        {
+          "url": "https://blog.hootsuite.com/best-time-to-post-on-instagram/",
+          "title": "Hootsuite: The best time to post on Instagram [2026 data]",
+          "supports": "1M+ posts localised across 118 countries; best times by day; best days Mon/Tue/Thu; least effective before 8 AM and after 10 PM; multi-time-zone posting advice; review schedule once or twice a year; industry breakdowns"
+        },
+        {
+          "url": "https://sproutsocial.com/insights/best-times-to-post-on-instagram/",
+          "title": "Sprout Social: Best times to post on Instagram in 2026",
+          "supports": "Nearly 2B engagements, ~307,000 profiles, 30,000+ customers, Nov 27 2025–Feb 27 2026, local time; top windows Mon–Thu; weekends worst; 3–7 a.m. weekday dead zone; no Friday peaks; Reels mirror overall windows; anchor to highest-value regions; Insights path description; industry breakdowns"
+        },
+        {
+          "url": "https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/",
+          "title": "Buffer: Best Time to Post on Instagram: Data from 9.6M Posts",
+          "supports": "9.6M posts, 200,000+ accounts, Jan 2024–Dec 2025, median engagement rate; Thu 9 a.m., Wed 12 p.m., Wed 6 p.m.; Wednesday best, Friday/Saturday weakest; evenings strongest except Thursday; local-time normalisation; all post types together; Creator/Business account needed; active times not necessarily engagement times; app and web Insights paths"
+        },
+        {
+          "url": "https://later.com/blog/best-time-to-post-on-instagram/",
+          "title": "Later: Best time to post on Instagram in 2026 (based on 6M+ posts)",
+          "supports": "6M+ feed posts Jan–Oct 2024 by engagement rate; overall best 5 AM; 3–6 AM above average; Reels 12 AM and Monday from 975K Reels; worst Thu 3 AM and Sat 11 PM; Saturday worst day; consistency over exact time; Insights path description"
+        },
+        {
+          "url": "https://about.instagram.com/blog/announcements/instagram-ranking-explained",
+          "title": "Instagram: Instagram Ranking Explained (Adam Mosseri, May 31, 2023)",
+          "supports": "Each part of the app uses its own algorithm; Feed signals roughly in order of importance with your activity first; post information includes how quickly people engage and when it was posted; signals added and removed over time"
+        },
+        {
+          "url": "https://creators.instagram.com/",
+          "title": "Instagram for Creators",
+          "supports": "Switching to a professional account gives access to insights"
+        }
+      ],
+      "product_link_reason": "Instagramaps is linked once in the four-week test, where the reader needs to compare views, reach and engagement per post across time slots (allowed claim 2), and mentioned again in the multiple-time-zones section, where the reader needs to see where their audience engages by country and city before anchoring to a region (allowed claim 1). No claims about active times, best times or comparisons with other tools are made.",
+      "internal_links_note": "",
+      "image_headline": "When to Post on Instagram",
+      "search_intent": "Informational with a how-to second half: readers want a quick answer on the best days and times to post on Instagram, then a practical way to work out the best times for their own audience.",
+      "unique_value": "A neutral side-by-side table of the four leading studies (Hootsuite, Sprout Social, Buffer, Later) with sample, data period, metric and weakest times, showing exactly where they agree and disagree; a freshness warning on Later's 2024 data; a free four-week test plan using native Insights instead of a paid scheduling feature; and a decision table by situation (new account, multiple time zones, Reels, Stories, local business).",
+      "image_alt_text": "Instagram app on smartphone",
+      "featured_image": {
+        "alt_text": "Instagram app on smartphone",
+        "license": "cc-by-sa",
+        "creator": "Santeri Viinamäki (both photo and screenshot)",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      "inline_images": [
+        {
+          "alt_text": "Screenshot of the Instagramaps page \"Instagram Maps — Instagram Audience & Content Insights\" at instagramaps.com",
+          "license": "own-screenshot"
+        }
+      ]
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "Buffer found 6–11 p.m. the strongest window \"on every weekday except Thursday\" (said in the table and under \"Where they disagree\")",
+          "verdict": "contradicted",
+          "source_url": "https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/",
+          "evidence": "Buffer: \"Wednesday: 12 p.m., then 6 p.m. or 8 a.m.\"; elsewhere evenings win \"across most days,\" with \"one Thursday-shaped exception\".",
+          "suggested_fix": "\"Buffer found evenings (6–11 p.m.) win on most days. Thursday is the one day mornings beat evenings, and Wednesday's top slot is 12 p.m.\""
+        },
+        {
+          "claim": "Decision table: \"none of these studies gives Stories-specific times\"",
+          "verdict": "contradicted",
+          "source_url": "https://later.com/blog/best-time-to-post-on-instagram/",
+          "evidence": "Later: Stories do best \"early morning (6 AM–8 AM) and late evening (7 PM–9 PM)\". Buffer also says to post Stories \"daily, ideally one to two times per day\".",
+          "suggested_fix": "\"Later suggests 6–8 AM and 7–9 PM for Stories, and Buffer recommends 1–2 Stories a day. Test Stories separately.\""
+        },
+        {
+          "claim": "\"Each study draws on its own customers' posts… Sprout's and Hootsuite's samples also span several social networks\"",
+          "verdict": "unsupported",
+          "source_url": "https://blog.hootsuite.com/best-time-to-post-on-instagram/",
+          "evidence": "Notes verdict: Partly unsupported. Sprout: \"30,000 Sprout Social customers\" across six networks (supported). Buffer: \"200,000+ Buffer accounts\" (supported). Hootsuite only says it \"partnered with Critical Truth to analyze over 1 million social posts\", with no customer base or network list. The reviewer found nothing on where Later's sample came from.",
+          "suggested_fix": "\"Sprout and Buffer draw on their own customers' accounts, and Sprout's sample covers six networks. Hootsuite and Later don't fully describe their samples.\""
+        },
+        {
+          "claim": "\"Hootsuite suggests reviewing… once or twice a year, or whenever something major changes, such as a new audience, a new content format or a big jump in followers\"",
+          "verdict": "unsupported",
+          "source_url": "https://blog.hootsuite.com/best-time-to-post-on-instagram/",
+          "evidence": "Notes verdict: Misattributed examples. Hootsuite's own examples are \"(e.g., a new Instagram algorithm update or a bigger campaign push)\".",
+          "suggested_fix": "Use Hootsuite's own examples, or move yours into a separate sentence in the article's own voice."
+        },
+        {
+          "claim": "The article sets Hootsuite against Later's 5 AM finding (Hootsuite presented as opposing early mornings)",
+          "verdict": "uncertain",
+          "source_url": "https://blog.hootsuite.com/best-time-to-post-on-instagram/",
+          "evidence": "The notes give no explicit verdict; they call it one-sided. Hootsuite does say \"least effective times are typically early mornings (before 8 AM)\", but its own best slot for Tuesday is \"5 AM to 8 AM\", and it says engagement \"peaks during early mornings and early evenings.\"",
+          "suggested_fix": "Say Hootsuite contradicts itself on mornings. That strengthens the article's point that the studies disagree."
+        },
+        {
+          "claim": "\"Switching is done in your account settings.\"",
+          "verdict": "unsupported",
+          "source_url": "",
+          "evidence": "None of the cited pages say this. It's commonly true but not sourced.",
+          "suggested_fix": "Either cite Instagram's Help Center or remove it."
+        },
+        {
+          "claim": "Buffer's web route: Dashboard → Insights → Account → scroll to Followers",
+          "verdict": "uncertain",
+          "source_url": "https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/",
+          "evidence": "Only the first step (\"Log in… via instagram.com\") and \"Scroll down to Followers\" were readable. The middle steps were cut off.",
+          "suggested_fix": "Re-check the steps on the page or shorten the line."
+        },
+        {
+          "claim": "\"Sprout, Buffer and Hootsuite all rank midweek days highly.\"",
+          "verdict": "uncertain",
+          "source_url": "https://blog.hootsuite.com/best-time-to-post-on-instagram/",
+          "evidence": "The notes give no explicit verdict; they call it loose for Hootsuite, whose best days are Monday, Tuesday and Thursday, not Wednesday.",
+          "suggested_fix": "Say \"early-to-midweek days.\""
+        },
+        {
+          "claim": "Hootsuite's metric shown as \"Not specified in the summary.\"",
+          "verdict": "uncertain",
+          "source_url": "https://blog.hootsuite.com/best-time-to-post-on-instagram/",
+          "evidence": "The notes give no explicit verdict; they call the wording awkward. Hootsuite frames best days \"for maximum reach.\"",
+          "suggested_fix": "Use: \"Not stated; best days framed 'for maximum reach.'\""
+        },
+        {
+          "claim": "Hootsuite: over 1 million posts, times localised across 118 countries",
+          "verdict": "supported",
+          "source_url": "https://blog.hootsuite.com/best-time-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Hootsuite daily slots: Mon 3–9 PM; Tue 5–8 AM and 3–7 PM; Wed 5 PM; Thu 4–5 PM; Fri around 4 PM; Sat 11 AM and around 5 PM; Sun 12–3 PM",
+          "verdict": "supported",
+          "source_url": "https://blog.hootsuite.com/best-time-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Hootsuite best days Monday, Tuesday and Thursday, with the caveat that it depends on audience, niche and time zone",
+          "verdict": "supported",
+          "source_url": "https://blog.hootsuite.com/best-time-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Hootsuite weakest times before 8 AM and after 10 PM",
+          "verdict": "supported",
+          "source_url": "https://blog.hootsuite.com/best-time-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Hootsuite time-zone straddling tips and industry breakdowns",
+          "verdict": "supported",
+          "source_url": "https://blog.hootsuite.com/best-time-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Sprout Social: nearly 2 billion engagements, about 307,000 profiles, six networks, 30,000+ customers",
+          "verdict": "supported",
+          "source_url": "https://sproutsocial.com/insights/best-times-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Sprout Social data from Nov 27, 2025 to Feb 27, 2026, reported in local time",
+          "verdict": "supported",
+          "source_url": "https://sproutsocial.com/insights/best-times-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Sprout Social windows: Mon 2–4 p.m., Tue 1–7 p.m., Wed 12–9 p.m., Thu 12–2 p.m.; best days Monday to Thursday",
+          "verdict": "supported",
+          "source_url": "https://sproutsocial.com/insights/best-times-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Sprout Social: weekends are worst; \"early morning dead zone from 3–7 a.m.\" in the workweek; no significant Friday peaks",
+          "verdict": "supported",
+          "source_url": "https://sproutsocial.com/insights/best-times-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Sprout Social Reels times mirror the overall windows",
+          "verdict": "supported",
+          "source_url": "https://sproutsocial.com/insights/best-times-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Sprout Social Insights path: Insights → New Followers → Most Active Times",
+          "verdict": "supported",
+          "source_url": "https://sproutsocial.com/insights/best-times-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Sprout Social advice to anchor to your highest-value regions; industry breakdowns",
+          "verdict": "supported",
+          "source_url": "https://sproutsocial.com/insights/best-times-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Buffer: 9.6 million posts from 200,000+ accounts, January 2024 to December 2025, measured by median engagement rate",
+          "verdict": "supported",
+          "source_url": "https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Buffer top slots Thursday 9 a.m., Wednesday 12 p.m. and Wednesday 6 p.m.; Wednesday best day; Friday and Saturday weakest",
+          "verdict": "supported",
+          "source_url": "https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Buffer local-time quote",
+          "verdict": "supported",
+          "source_url": "https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/",
+          "evidence": "The notes say the local-time quote is accurate.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Buffer analysed all post types together",
+          "verdict": "supported",
+          "source_url": "https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Buffer path: Professional dashboard → New followers → Follower active times; needs a Creator or Business account",
+          "verdict": "supported",
+          "source_url": "https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Buffer \"not necessarily\" quote about active times vs engagement",
+          "verdict": "supported",
+          "source_url": "https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Later: 6M+ feed posts from January to October 2024, under a 2026 title; measured by engagement rate",
+          "verdict": "supported",
+          "source_url": "https://later.com/blog/best-time-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Later: 5 AM best overall; 3–6 AM above average every day",
+          "verdict": "supported",
+          "source_url": "https://later.com/blog/best-time-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Later Reels: 975K analysed, 12 AM best, Monday best day",
+          "verdict": "supported",
+          "source_url": "https://later.com/blog/best-time-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Later worst slots Thursday 3 AM and Saturday 11 PM; Saturday worst day",
+          "verdict": "supported",
+          "source_url": "https://later.com/blog/best-time-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Later path: Total Followers → Most Active Times",
+          "verdict": "supported",
+          "source_url": "https://later.com/blog/best-time-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Later: \"Consistency matters more than posting at the exact same time.\"",
+          "verdict": "supported",
+          "source_url": "https://later.com/blog/best-time-to-post-on-instagram/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Instagram ranking post (Mosseri, May 31, 2023): each part of the app uses its own algorithm",
+          "verdict": "supported",
+          "source_url": "https://about.instagram.com/blog/announcements/instagram-ranking-explained",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Instagram ranking post: Feed signals listed \"roughly in order of importance,\" with your activity first and then information about the post: \"how quickly people are liking…\" and \"when it was posted.\"",
+          "verdict": "supported",
+          "source_url": "https://about.instagram.com/blog/announcements/instagram-ranking-explained",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Instagram ranking post: \"We add and remove signals and predictions over time.\"",
+          "verdict": "supported",
+          "source_url": "https://about.instagram.com/blog/announcements/instagram-ranking-explained",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "creators.instagram.com: \"Switch to a professional account to access powerful insights…\"",
+          "verdict": "supported",
+          "source_url": "https://creators.instagram.com/",
+          "evidence": "Listed as supported in the notes.",
+          "suggested_fix": ""
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://about.instagram.com/blog/announcements/instagram-ranking-explained",
+          "relevant": true,
+          "notes": "Readable and relevant; supports what it is cited for. The article correctly flags that it dates from 2023."
+        },
+        {
+          "url": "https://blog.hootsuite.com/best-time-to-post-on-instagram/",
+          "relevant": true,
+          "notes": "Readable and relevant; supports what it is cited for, except issue #4 (misattributed examples)."
+        },
+        {
+          "url": "https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/",
+          "relevant": true,
+          "notes": "Readable and relevant; supports what it is cited for, except issue #1. The web route was only partly readable."
+        },
+        {
+          "url": "https://creators.instagram.com/",
+          "relevant": true,
+          "notes": "Readable and relevant, but it only shows that a professional account unlocks insights. It gives no steps."
+        },
+        {
+          "url": "https://later.com/blog/best-time-to-post-on-instagram/",
+          "relevant": true,
+          "notes": "Readable and relevant; supports what it is cited for, except issue #2 (Stories timing)."
+        },
+        {
+          "url": "https://sproutsocial.com/insights/best-times-to-post-on-instagram/",
+          "relevant": true,
+          "notes": "Readable and relevant; supports what it is cited for."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "Passes once the fixes are made. Someone wanting a quick answer gets \"it depends\" in the intro, but the table gives specific slots right away. The how-to half (where to find the chart, plus the four-week test) is practical, uses only free tools, and is clearly labelled as an editorial method.",
+      "adds_original_value": true,
+      "value_notes": "Not a generic rewrite. Original value: the side-by-side table with sample, period and metric for each study; the warning that Later's data is from 2024; the explanation of why the studies differ; and a test design that controls for day and format. The value claim is mostly accurate, with two weak spots: \"exactly where they agree and disagree\" is undercut by error #1 and the Hootsuite omission, and the decision table's Stories row is wrong (error #2).",
+      "product_claims_accurate": true,
+      "product_notes": "\"Compare views, reach and engagement per post\" matches the allowed claims. \"Connect an Instagram account to see where their audience engages by country and city\" matches. Disclosure is present. No other product claims (marketplace, pricing) are made.",
+      "fetched_urls": [
+        "https://about.instagram.com/blog/announcements/instagram-ranking-explained",
+        "https://blog.hootsuite.com/best-time-to-post-on-instagram/",
+        "https://buffer.com/resources/when-is-the-best-time-to-post-on-instagram/",
+        "https://creators.instagram.com/",
+        "https://later.com/blog/best-time-to-post-on-instagram/",
+        "https://sproutsocial.com/insights/best-times-to-post-on-instagram/"
+      ],
+      "content_sha256": "4c34811d8e1da2d8f29c6cb07f31de81334d9371d87691eb9e4a6588b02f0cd4"
+    },
+    "images": {
+      "words": 2002,
+      "target": [
+        3,
+        4
+      ],
+      "stock_api_calls": 7,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "best time to post on instagram",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "openverse",
+          "query": "best time to post on Instagram",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "commons",
+          "query": "best time to post on instagram",
+          "result": "17"
+        },
+        {
+          "provider": "commons",
+          "query": "best time to post on Instagram",
+          "result": "17 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "instagram smartphone",
+          "result": "16"
+        },
+        {
+          "provider": "commons",
+          "query": "woman using smartphone",
+          "result": "18"
+        }
+      ],
+      "notes": [
+        "2 image(s), below the 3-4 guideline: nothing else in the article would gain from a visual, and decorative images are not added"
+      ],
+      "topic": {
+        "motif": "phone",
+        "match": "pillar instagram"
+      },
+      "photo_rejections": [
+        {
+          "description": "Best possible dinner view (5334399865)",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "Happy Birthday to James Webb, NASA’s Second Administrator (45101618871)",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "Hubble Goes to the eXtreme to Assemble Farthest-Ever View of the Universe (8024062104)",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "May as well practice for the future today. -safebathroomsdc -capitalpridehealth (141270177",
+          "reason": "wrong scene (signs)"
+        },
+        {
+          "description": "NASA's Best-Observed X-Class Flare of All Time (13944764038)",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "NASA's Best-Observed X-Class Flare of All Time (13944764218)",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "NASA's Best-Observed X-Class Flare of All Time (14108213486)",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "NASA's Best-Observed X-Class Flare of All Time (14128408832)",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "NASA's Best-Observed X-Class Flare of All Time (14131388215)",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "NASA's Best-Observed X-Class Flare of All Time (14131389295)",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "NASA's Best-Observed X-Class Flare of All Time (14131666574)",
+          "reason": "no smartphone/phone/mobile in its title"
+        },
+        {
+          "description": "Nothing To See Here (22221433565)",
+          "reason": "no smartphone/phone/mobile in its title"
+        }
+      ],
+      "featured": {
+        "provider": "commons",
+        "id": "112288344",
+        "description": "Instagram app on smartphone (grass background) (cropped)",
+        "page_url": "https://commons.wikimedia.org/wiki/File:Instagram_app_on_smartphone_(grass_background)_(cropped).jpg",
+        "creator": "Santeri Viinamäki (both photo and screenshot)",
+        "creator_url": "https://commons.wikimedia.org/wiki/User:Zunter",
+        "license": "cc-by-sa",
+        "license_version": "4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "wikimedia",
+        "query": "instagram smartphone",
+        "relevance": "shows instagram",
+        "alt_text": "Instagram app on smartphone",
+        "caption": "",
+        "filename": "best-time-to-post-on-instagram-featured.webp",
+        "file": "featured.webp",
+        "bytes": 72358
+      },
+      "inline": [
+        {
+          "provider": "in-house",
+          "license": "own-screenshot",
+          "kind": "screenshot",
+          "anchor": {
+            "href": "https://instagramaps.com/"
+          },
+          "file": "inline-1.webp",
+          "url_shot": "https://instagramaps.com/",
+          "filename": "best-time-to-post-on-instagram-instagramaps-screenshot.webp",
+          "width": 1200,
+          "height": 751,
+          "bytes": 21786,
+          "captured": "2026-10-29",
+          "alt_text": "Screenshot of the Instagramaps page \"Instagram Maps — Instagram Audience & Content Insights\" at instagramaps.com",
+          "caption": "Instagramaps (instagramaps.com), screenshot taken 2026-10-29."
+        }
+      ]
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2050 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "7 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "Best Time to Post on Instagram: What 4 Big Studies Say, and How to Find Your Own"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.29% (1x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "0/7 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "146 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "50 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "best-time-to-post-on-instagram"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "best-time-to-post-on-instagram"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.01"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.51: Instagram Follower Location: How to See Which Countries and Cities Your Followers Are From"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "1 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "1 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "ownership_disclosed",
+        "passed": true,
+        "detail": "disclosure missing"
+      },
+      {
+        "check": "product_link_justified",
+        "passed": true,
+        "detail": "no reason given"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "6 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "6 of 6 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": false,
+        "detail": "Different accounts. Each study draws on its own customers' posts, so the results reflect t | The practical takeaway: treat any study's slot as a hypothesis to test, not an answer. | This is an editorial method, not a published study. It uses only native Insights and a spr",
+        "fix": "Link the source inside the same paragraph or list item as the number or 'according to' statement, or remove the statement."
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "27 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "cc-by-sa"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "1 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "2 contradicted by a source (likely wrong): Buffer found 6–11 p.m. the strongest window \"on every weekday except Thursday\" (said in th (fix: \"Buffer found evenings (6–11 p.m.) win on most days. Thursday is the one day mornings beat evenings, and Wednesday's top) | Decision table: \"none of these studies gives Stories-specific times\" (fix: \"Later suggests 6–8 AM and 7–9 PM for Stories, and Buffer recommends 1–2 Stories a day. Test Stories separately.\") || 3 no supporting evidence found (not shown to be false): \"Each study draws on its own customers' posts… Sprout's and Hootsuite's samples also span  (fix: \"Sprout and Buffer draw on their own customers' accounts, and Sprout's sample covers six networks. Hootsuite and Later d) | \"Hootsuite suggests reviewing… once or twice a year, or whenever something major changes,  (fix: Use Hootsuite's own examples, or move yours into a separate sentence in the article's own voice.) | \"Switching is done in your account settings.\" (fix: Either cite Instagram's Help Center or remove it.) || 4 could not be checked (source unreadable or partial): The article sets Hootsuite against Later's 5 AM finding (Hootsuite presented as opposing e (fix: Say Hootsuite contradicts itself on mornings. That strengthens the article's point that the studies disagree.) | Buffer's web route: Dashboard → Insights → Account → scroll to Followers (fix: Re-check the steps on the page or shorten the line.) | \"Sprout, Buffer and Hootsuite all rank midweek days highly.\" (fix: Say \"early-to-midweek days.\") | Hootsuite's metric shown as \"Not specified in the summary.\" (fix: Use: \"Not stated; best days framed 'for maximum reach.'\")",
+        "fix": "Contradicted: correct the claim to what the source says. No evidence found: cite an official source that states it, narrow it to what a source does say, or remove it. Could not be checked: verify it against a readable source or remove it. Source page not read: cite a page the pipeline can open that states the claim, or remove the claim. No claims listed: the fact-check did not check anything. Then re-run the fact-check only."
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Passes once the fixes are made. Someone wanting a quick answer gets \"it depends\" in the intro, but the table gives specific slots right away. The how-to half (where to find the chart, plus the four-week test) is practical, uses only free tools, and is clearly labelled as an editorial method."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "Not a generic rewrite. Original value: the side-by-side table with sample, period and metric for each study; the warning that Later's data is from 2024; the explanation of why the studies differ; and a test design that controls for day and format. The value claim is mostly accurate, with two weak spots: \"exactly where they agree and disagree\" is undercut by error #1 and the Hootsuite omission, and the decision table's Stories row is wrong (error #2)."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "\"Compare views, reach and engagement per post\" matches the allowed claims. \"Connect an Instagram account to see where their audience engages by country and city\" matches. Disclosure is present. No other product claims (marketplace, pricing) are made."
+      },
+      {
+        "check": "fact_check_current",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "sources_verified",
+        "passed": true,
+        "detail": ""
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 0.661,
+        "write": 0.281,
+        "fact_check": 0.49,
+        "fact_check_json": 0.163
+      },
+      "total_usd": 1.595
+    },
+    "wp_media": {
+      "id": 3772,
+      "url": "https://newearns.com/wp-content/uploads/2026/10/best-time-to-post-on-instagram-featured.webp"
+    },
+    "wp_media_inline": [
+      {
+        "id": 3773,
+        "url": "https://newearns.com/wp-content/uploads/2026/10/best-time-to-post-on-instagram-instagramaps-screenshot.webp"
+      }
+    ],
+    "wp_post": {
+      "id": 3774,
+      "status": "pending",
+      "link": "https://newearns.com/?p=3774"
+    },
+    "image_check": [
+      "https://newearns.com/wp-content/uploads/2026/10/best-time-to-post-on-instagram-featured.webp does not load as an image (HTTPSConnectionPool(host='newearns.com', port=443): Read timed out. (read timeout=30))"
+    ],
+    "final": "held_for_review"
+  },
+  "updated": "2026-10-29T15:28:33+00:00"
+}
