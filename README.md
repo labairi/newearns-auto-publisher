@@ -157,6 +157,20 @@ cron lines must change. GitHub can start a scheduled run late, or occasionally s
 The backup costs nothing when the first run already happened, because of the 20-hour gap.
 Schedules only run from `main`.
 
+**When GitHub's cron is late.** In October 2026 GitHub delivered the daily cron 3-5 hours
+late or not at all. The `daily` command runs exactly what the cron runs (`article
+--scheduled`, same 20-hour gap, pause rule, calendar and duplicate checks), so an outside
+scheduler can start it on time with one API call:
+
+```
+POST https://api.github.com/repos/labairi/newearns-auto-publisher/actions/workflows/publish.yml/dispatches
+Authorization: Bearer <fine-grained token: this repo only, Actions read and write>
+{"ref": "main", "inputs": {"command": "daily"}}
+```
+
+Whichever comes first, the outside call or the cron, does the day's article; the other skips
+for free.
+
 **What it does.** `python -m publisher.run article --scheduled`:
 
 1. **Skip checks first, with no Claude call and no WordPress write:**
