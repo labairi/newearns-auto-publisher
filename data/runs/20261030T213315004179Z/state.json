@@ -1,0 +1,862 @@
+{
+  "run_id": "20261030T213315004179Z",
+  "stages": {
+    "pillar": "passive",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 50,
+        "cache_creation_input_tokens": 60732,
+        "cache_read_input_tokens": 847108,
+        "output_tokens": 16933,
+        "web_search_requests": 17,
+        "web_fetch_requests": 6,
+        "requests": 6,
+        "read_source_calls": 10,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 50,
+            "cache_write_5m_tokens": 60732,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 847108,
+            "output_tokens": 16933
+          }
+        },
+        "fetched_urls": [
+          "https://www.etsy.com/legal/creativity",
+          "https://www.etsy.com/legal/etsy-payments/",
+          "https://www.etsy.com/legal/fees/",
+          "https://www.etsy.com/legal/ip/"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.982
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 10943,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 15348,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 10943,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 15348
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.362
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 36,
+        "cache_creation_input_tokens": 55233,
+        "cache_read_input_tokens": 641468,
+        "output_tokens": 11970,
+        "web_search_requests": 1,
+        "web_fetch_requests": 5,
+        "requests": 2,
+        "read_source_calls": 2,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 36,
+            "cache_write_5m_tokens": 55233,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 641468,
+            "output_tokens": 11970
+          }
+        },
+        "fetched_urls": [
+          "https://www.etsy.com/legal/creativity",
+          "https://www.etsy.com/legal/etsy-payments/",
+          "https://www.etsy.com/legal/fees/"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.654
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 6171,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 7502,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 6171,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 7502
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.181
+      }
+    ],
+    "brief": "I've picked **\"print on demand for beginners\"** for this article. The pages that rank now are almost all written by print-on-demand companies. None of them adds up the full cost of a sale or shows which parts of the work never go away, and that's exactly the angle for this pillar.\n\n---\n\n# Brief: Print on demand for beginners\n\n**Chosen query:** print on demand for beginners\n**Focus keyphrase:** print on demand for beginners (use it in the title, the intro and once or twice more)\n**Suggested title:** Print on Demand for Beginners: What It Costs, Who Takes a Cut, and What Isn't Passive\n**Pillar:** passive. **Product link:** none. There's no product for this pillar, so none is justified at any step.\n\n## 1. Why this query, and what currently ranks\n\n- **Print on demand for beginners (chosen).** The top results are Printful's \"10 best print-on-demand sites for beginners\", Printify's \"How to start a print-on-demand business for beginners\", a list from Merchize (another print company), an explainer from Hostinger (a web host), a guide from Podbase (a print-on-demand company) and a YouTube tutorial. People searching want two things: how to start, and which platform to use. The companies that make money when you sign up wrote most of these pages.\n- **Digital products to sell online.** The results are long idea lists of 18 to 116+ products from Wix, Easy Digital Downloads, Whop, Printful and others. It's crowded, and it's close to our existing \"10 Proven Passive Income Ideas\" post.\n- **Affiliate marketing for beginners.** The results come from big brands (Shopify, HubSpot, Bluehost, GetResponse). It also partly overlaps with \"How to Make Money Online: 5 Ways and What Each Platform Takes\".\n\n**What we can add that current results don't:**\n1. **The full cost of one sale, in one place.** That means the print company's base cost plus each Etsy fee, with a worked example built only from published rates. Printify's own profit calculator leaves out shipping, taxes and store fees, and says so. Its default example works out to exactly ($35 − $8.77) × 31 days = $813.13, so it shows a gross margin, not take-home pay. Say this neutrally, as an explanation. Don't disparage Printify.\n2. **When a paid plan pays for itself.** A simple calculation for Printify Premium and Printful Growth: the monthly fee divided by the discount per item.\n3. **\"What isn't passive\" checklist,** each point sourced:\n   - Customers who order the wrong size or change their mind: the print companies won't take those back, so the seller covers them.\n   - Etsy listings renew every four months at $0.20 each.\n   - On Etsy you must disclose the production partner, and with Printful you select it manually on each listing.\n   - Etsy requires you to say when a design was made with AI.\n   - Copyright and trademark complaints can close your shop.\n   - Misprint claims have 30-day deadlines.\n4. **Decision table:** Etsy + print company vs. your own Shopify store + print company (who charges what, and who brings the customers).\n\n**Search intent:** a how-to guide for beginners, with a cost and platform comparison inside it.\n\n## 2. Outline (H2/H3)\n\n**Intro (2–3 sentences).** How the model works: products are made only after a customer orders ([Printify pricing](https://printify.com/pricing/)). Then say plainly that this guide covers costs, cuts and ongoing work, and promises no income.\n\n**H2: How print on demand works, and who gets paid**\n- H3: You set the price, the print company charges a base price, and the store or marketplace takes fees. Use Printful's own formula: profit = retail price − Printful cost.\n- H3: What the base price covers and what it doesn't (Printful: the blank product, one print placement and fulfillment; shipping and taxes are extra).\n\n**H2: What it costs to set up**\n- H3: Print company accounts. Printify and Printful both have $0 plans. Paid tiers: Printify Premium from $39/month or $299/year (USD); Printful Growth $24.99/month, which becomes free at $12K/year in sales.\n- H3: Etsy. A one-time set-up fee may apply (Etsy's policy gives no amount, so don't print one). Plus $0.20 per listing.\n- H3: Your own Shopify store. Basic is $39/month, or $29/month billed yearly (US pricing page). Note that prices can differ by country.\n- H3: Samples. Printful gives 20% off sample orders on Free (25% on Growth), with 1 sample order a month of up to 3 items.\n\n**H2: Every cut taken from one sale (worked example)**\n- A table built from published rates (see section 4).\n- H3: Etsy Offsite Ads: 15% or 12%, and when you can opt out.\n- H3: Why the print companies' calculators show more than you'll take home.\n\n**H2: Do the paid plans pay for themselves?**\n- The formula and a worked example. The discount is \"up to\", so this is the best case.\n\n**H2: Etsy or your own store: which suits a beginner** (decision table)\n- Rows: monthly fee, per-sale fees, payment fees, who brings the traffic, disclosure rules.\n\n**H2: The parts of print on demand that aren't passive**\n- Returns for wrong size or change of mind; misprint claims within 30 days; listing renewals; production partner disclosure; AI disclosure; copyright and trademark risk; customer service.\n\n**H2: How long before it earns?**\n- No source gives a timeline. Explain what has to happen first instead: samples, listings, getting found, the first order. Don't give any time estimate.\n\n**H2: Beginner checklist** (short, every step drawn from the sections above)\n\n**Closing (1–2 lines).** No income promises.\n\n## 3. Internal links (only where they genuinely fit)\n- \"How to Make Money Online: 5 Ways and What Each Platform Takes\": in the fees section.\n- \"10 Proven Passive Income Ideas skyrocket Earnings\": in the intro or the \"isn't passive\" section.\n- \"Can You Really Make $100 a Day Online? The Honest Truth\": in the \"how long before it earns\" section.\n- \"Free AI Tools for Writing, Images, Video and Work…\": in the AI disclosure point, next to Etsy's AI disclosure rule.\n\n## 4. Facts to rely on (each with its URL)\n\n**Printify** ([pricing](https://printify.com/pricing/), [Premium help](https://help.printify.com/hc/en-us/articles/4483625875601-How-does-Printify-s-Premium-plan-work), [refunds help](https://help.printify.com/hc/en-us/articles/4483630299025-How-does-Printify-handle-refunds-and-returns))\n- Plans are $0 or from $39/month. The pricing page also shows \"from $24.99\" a month when billed yearly. The help center lists the yearly price as USD 299.\n- Free plan: 5 stores. Premium: 10 stores.\n- Premium gives up to 20% off most products, and up to 33% on some new products.\n- Yearly billing saves \"up to 36%\" compared with monthly.\n- The Premium fee is non-refundable. Uninstalling the Printify app from Shopify cancels Premium, but uninstalling it from other sales channels doesn't.\n- Calculator example: Unisex Jersey Short Sleeve Tee, fulfillment cost $8.77, sold for $35, 1 sale a day, shows $813.13 a month. The cost excludes shipping, taxes and storefront expenses.\n- Misprint or damage: free reprint or refund if reported within 30 calendar days of delivery. No returns for wrong size, wrong color or change of mind.\n- There's a 0.5\" tolerance on print placement, so small shifts don't count as defects.\n\n**Printful** ([pricing](https://www.printful.com/pricing), [returns](https://help.printful.com/hc/en-us/articles/50263870468753-What-is-Printful-s-return-and-refund-policy), [claim window](https://help.printful.com/hc/en-us/articles/50263898892561-How-long-do-I-have-to-submit-a-return-or-exchange-claim), [Etsy production partner](https://help.printful.com/hc/en-us/articles/50262492439953-Do-I-have-to-list-Printful-as-a-production-partner-on-Etsy))\n- Free plan is $0/month. Growth is $24.99/month, becomes free at $12K/year in sales, and gives up to 33% off product pricing.\n- The base price covers the blank product, one print or embroidery placement, and fulfillment.\n- Extra costs: additional placements, a one-time embroidery digitization fee, and branding. Each extra embroidery placement is $2.95.\n- Shipping and taxes are charged separately.\n- Samples: 20% off on Free, 25% off on Growth; 1 sample order a month of up to 3 items.\n- No returns for buyer's remorse, wrong size or wrong color.\n- Damaged, defective or misprinted items, and lost packages, get a free reshipment or refund if reported within 30 days. Returned packages that aren't claimed within 30 days are donated.\n- On Etsy you must select Printful manually on each listing.\n\n**Etsy** ([Fees & Payments Policy](https://www.etsy.com/legal/fees/), [Etsy Payments Policy](https://www.etsy.com/legal/etsy-payments/), [Creativity Standards](https://www.etsy.com/legal/creativity), [IP Policy](https://www.etsy.com/legal/ip/))\n- Listing fee is $0.20. Listings expire after four months and auto-renew at $0.20.\n- Transaction fee is 6.5% of the item price plus shipping and gift wrap. For US sellers it doesn't apply to sales tax.\n- US payment processing is 3% + $0.25 USD, charged on the total including tax and shipping. UK: 4% + 0.20 GBP.\n- Offsite Ads: 15%, or 12% once a shop has made $10,000+ in sales over the past 365 days. Shops under $10K can opt out. The fee is capped at $100 per order.\n- Optional extras: Etsy Plus at $10/month and Pattern at $15/month. There's a 2.5% currency conversion fee if you list in a different currency from your payment account.\n- A Regulatory Operating fee applies in some countries.\n- Disclosure: you must say an item was made by a production partner, and that AI was used.\n- Repeated IP complaints can end your selling privileges.\n\n**Shopify** ([pricing](https://www.shopify.com/pricing))\n- Basic: $39/month paid monthly, or $29/month paid yearly.\n- Online card rates from 2.9% + 30¢.\n- 2% third-party transaction fee if you use a payment provider other than Shopify Payments.\n- 3-day free trial. No setup fees.\n\n**Worked example to publish (illustrative; all inputs are published figures).** Printify's $8.77 tee sold at $35 on Etsy by a US seller. Shipping and sales tax are left out (the reader must add their own shipping rate):\n| Line | Amount |\n|---|---|\n| Sale price | $35.00 |\n| Etsy listing fee | −$0.20 |\n| Etsy transaction fee (6.5%) | −$2.28 |\n| Etsy Payments (3% + $0.25) | −$1.30 |\n| Printify fulfillment (Free plan) | −$8.77 |\n| **Left before shipping, tax, ads, returns** | **≈ $22.46** |\n| If the sale came from Offsite Ads (15%) | −$5.25 → ≈ $17.21 |\n\n**Break-even example:** the best-case 20% Premium discount on $8.77 is about $1.75 per item, so it takes about 22 items a month to cover $39. On the yearly price ($299 ÷ 12 ≈ $24.92 a month) it's about 14 items.\n- Label both numbers \"at the maximum discount\". Real discounts vary by product.\n- Don't present them as typical results.\n\n**Rules for the writer**\n- Don't include sales numbers, success rates or timelines.\n- Say the prices were checked against vendor pages and may change.\n- Etsy menus may look different from the Printful help text, so say the UI may differ.\n\n---\n\n## SOURCE NOTES\n\nQuotes below are kept short. Anything not in quotation marks is a close paraphrase of the source.\n\n**1. Etsy, Fees & Payments Policy.** https://www.etsy.com/legal/fees/ — \"Last updated on Oct 5, 2026\"\n- Quote: \"You will be charged a listing fee of $0.20 USD for each item that you list for sale on Etsy.com\".\n- The listing fee is charged whether or not the item sells (private listings are the exception). Listings expire after four months. Auto-renew charges $0.20 per listing until you switch it to \"Manual\" in Listings Manager. Multi-quantity listings renew at $0.20 after each item sells.\n- Set-up fee: you \"may be required\" to pay a one-time fee. The amount is shown during shop setup, and it may be waived. The policy gives no amount.\n- Transaction fee: 6.5% of the displayed price plus shipping and gift wrapping. For US sellers it doesn't apply to sales tax. Outside the US it applies to tax-inclusive prices. Personalization fees are included.\n- Offsite Ads: the fee applies if a buyer clicks the ad and orders within 30 days. If the last click was an Etsy Ad, only the Etsy Ads fee applies. The standard fee is 15%. Shops with less than $10,000 in sales over the prior 365 days can opt out. Shops at or above $10,000 pay 12% for the shop's lifetime and can't opt out. The fee is capped at $100 USD per order.\n- Payment processing fees vary by bank location and are charged on the total including tax and shipping. Some countries add a Regulatory Operating fee.\n- Optional: Etsy Plus $10/month; Pattern $15/month after a 30-day trial.\n- Currency: a 2.5% conversion fee applies if you list in a currency other than your payment account's.\n- All service fees are non-refundable. Fees are listed exclusive of VAT.\n\n**2. Etsy, Etsy Payments Policy.** https://www.etsy.com/legal/etsy-payments/ — \"Last updated on Jul 31, 2026\"\n- Fee table: United States \"3% + 0.25 USD\"; United Kingdom 4% + 0.20 GBP; Canada (domestic, and orders from the US) 3% + 0.25 CAD.\n- On partial or full refunds, the processing fee is recalculated on the adjusted sale price.\n- Payoneer withdrawal fees can be \"typically up to 3%\" (this only applies in Payoneer countries).\n\n**3. Etsy, Creativity Standards.** https://www.etsy.com/legal/creativity — \"Last updated on Jun 10, 2025\"\n- \"Designed by a seller\" means the seller's original designs, produced by a third party or sold as a download.\n- Quote: \"Sellers must disclose that an item is made by a production partner, and provide accurate information about where the item will ship from.\"\n- AI: you must disclose in the listing description if AI was used.\n- These don't qualify: a bundle or PDF of someone else's work; AI prompt bundles.\n- For personalized items, the first image must show a finished, customized item.\n- A buyer-personalized t-shirt printed on demand qualifies under \"Sourced by a seller\".\n\n**4. Etsy, Intellectual Property Policy.** https://www.etsy.com/legal/ip/ — \"Last updated on Oct 29, 2026\"\n- Quote: \"Sellers are responsible for ensuring they have all necessary rights to their content\".\n- Etsy terminates selling privileges for repeat or multiple infringement notices \"in appropriate circumstances and at Etsy's discretion\". It can also refuse service to new shops linked to the same person.\n\n**5. Printify, Pricing.** https://printify.com/pricing/ — page metadata shows a modified date of 2026-09-26; there's no visible date.\n- Prices: $0, or from $39 billed monthly; $0, or from $24.99 billed yearly.\n- Stores: 5 on Free, 10 on Premium.\n- Premium discounts: up to 20% on all products and up to 33% on new products.\n- Calculator: fulfillment cost $8.77, sell for $35, 1 daily sale shows \"$813.13\" a month.\n- Quote: the cost \"doesn't include shipping fees, taxes, and other possible storefront expenses.\"\n- Merchant Protection gives a free reprint or refund within 30 days for manufacturing errors.\n\n**6. Printify Help, How does Printify's Premium plan work?** https://help.printify.com/hc/en-us/articles/4483625875601-How-does-Printify-s-Premium-plan-work — no date stated\n- Up to 20% off most products, with additional discounts of up to 33% on select new products.\n- Manage up to 10 stores. Yearly billing saves \"up to 36%\".\n- Prices: USD from 39 monthly / 299 yearly; GBP from 29 / 265; CAD from 49 / 409; AUD from 55 / 465; EUR from 34.99 monthly. US and Canadian prices have tax added on top.\n- Quote: \"The Premium plan subscription fee is non-refundable.\"\n- Unsubscribe before the renewal date to avoid the next charge.\n- Uninstalling the app from Shopify cancels Premium; uninstalling it from other channels does not.\n\n**7. Printify Help, How does Printify handle refunds and returns?** https://help.printify.com/hc/en-us/articles/4483630299025-How-does-Printify-handle-refunds-and-returns — no date stated\n- Free reprint or refund for damage or manufacturing errors if you contact them within 30 calendar days of delivery, with a photo. The item doesn't need to be returned.\n- Quote: returns and exchanges \"are not supported if your customer ordered the wrong size, color, or simply changed their mind.\"\n- 0.5\" print placement tolerance for DTG, DTF, EMB and AOP products.\n- Undelivered orders: report within 1 week of day 30 (US domestic and EU regional) or day 45 (international).\n- Refunds go to your Printify Balance. Withdrawals take up to 2 business days for Printify, plus up to 10 for the bank.\n\n**8. Printful, Pricing.** https://www.printful.com/pricing — no date stated\n- Plans: Free $0/month; Growth $24.99/month with \"up to 33% off product pricing\".\n- Quote: Growth \"becomes free once you reach $12K/year in sales.\"\n- The base price covers the blank product, one print or embroidery placement, and fulfillment. Prices may vary slightly by fulfillment location.\n- Extras: additional placements, a one-time embroidery digitization fee, Getty images, labels and packaging. Extra embroidery placements are $2.95 each.\n- Shipping depends on product, order size and destination. Tax is based on the customer's location.\n- Profit = retail price − Printful cost.\n- Samples: 20% off (Free) or 25% off (Growth); 1 sample order a month of up to 3 items.\n- No upfront or monthly fees on Free. Growth can be cancelled anytime, and benefits last until the end of the billing cycle.\n\n**9. Printful Help, What is Printful's return and refund policy?** https://help.printful.com/hc/en-us/articles/50263870468753-What-is-Printful-s-return-and-refund-policy — no date stated\n- Quote: \"we don't accept returns or exchanges for buyer's remorse, wrong size, or wrong color.\"\n- Report quality issues or lost packages within 30 days of delivery (or of the estimated delivery date). Later claims \"can't be honored\".\n- A wrong address entered by the customer can be reshipped, but reshipping costs apply.\n- Exception: Brazil's 7-day \"right to regret\".\n- Unclaimed returned packages are donated after 30 days.\n- Supporting page: [claim deadline](https://help.printful.com/hc/en-us/articles/50263898892561-How-long-do-I-have-to-submit-a-return-or-exchange-claim). Claims for damage or misprints are due within 30 days of receiving the item; claims for lost packages within 30 days of the estimated delivery date.\n\n**10. Printful Help, Do I have to list Printful as a production partner on Etsy?** https://help.printful.com/hc/en-us/articles/50262492439953-Do-I-have-to-list-Printful-as-a-production-partner-on-Etsy — no date stated\n- Quote: \"Etsy requires you to list any production partner (like Printful) when selling print-on-demand products.\"\n- Printful doesn't add the partner to listings automatically. You select it manually each time you publish.\n- Steps: Shop Manager → Settings → Partners you work with → Add production partner. Then in each listing, under About this listing, set \"Who made it?\" to \"Another company or person\" and choose Printful.\n- You can show a generic term like \"A print shop\" publicly instead of the name.\n- If you skip this, Etsy may block or delay orders.\n- Flag in the article that Etsy's menus may differ from this description.\n\n**11. Shopify, Pricing.** https://www.shopify.com/pricing — no page date (the page says a Balance rate is \"accurate as of October 29, 2026\")\n- Basic: $39 USD/month paid monthly, or $29 USD/month paid yearly.\n- Online card rates 2.9% + 30¢. Third-party transaction fees 2%.\n- Quote: \"Shopify starts with a free 3-day trial—no credit card required.\"\n- There are \"no setup fees\". The third-party transaction fee applies when you don't use Shopify Payments, and the rate depends on the plan.\n- The intro offer of $1/month for 3 months applies to \"most plans\". It's a promotion, so leave it out or flag that it can change.\n\n**Couldn't read, so not used as evidence:** Etsy Seller Handbook production-partner article (HTTP 403). Amazon Merch on Demand royalties weren't checked against an official Amazon page, so leave Amazon Merch out.",
+    "candidates": [
+      "digital products to sell online",
+      "print on demand for beginners",
+      "affiliate marketing for beginners"
+    ],
+    "article": {
+      "title": "Print on Demand for Beginners: What It Costs, Who Takes a Cut, and What Isn't Passive",
+      "seo_title": "Print on Demand for Beginners: Costs, Fees and Real Work",
+      "slug": "print-on-demand-for-beginners",
+      "meta_description": "Print on demand for beginners: every fee Etsy, Printify, Printful and Shopify take from one sale, when paid plans pay off, and the work that never goes away.",
+      "focus_keyphrase": "print on demand for beginners",
+      "excerpt": "A beginner's guide to print on demand that adds up the full cost of one sale. It covers base prices, every Etsy fee, when Printify Premium or Printful Growth pays for itself, and the work that keeps coming back after launch.",
+      "content_html": "<p>With print on demand, you upload a design and list the product. A print company makes it only after a customer orders, as <a href=\"https://printify.com/pricing/\">Printify's pricing page</a> describes the model. This print on demand for beginners guide adds up who takes a cut of each sale, what setup costs, and which parts of the work keep coming back. It does not promise any income.</p><p>If you found print on demand on a list of <a href=\"https://newearns.com/10-proven-passive-income-ideas-skyrocket-earnings/\">passive income ideas</a>, read the section on what isn't passive before you open any accounts. All prices below were checked against each vendor's own pricing and policy pages at the time of writing. They can change, so confirm them before you sign up.</p><h2>How print on demand works, and who gets paid</h2><h3>You set the price, the print company charges a base price, the store takes fees</h3><p>Three parties share each sale. You choose the retail price. The print company charges you its cost to make and ship the item. The marketplace or store platform takes its fees. Printful states its formula simply: <a href=\"https://www.printful.com/pricing\">profit = retail price − Printful cost</a>. That formula is accurate for what Printful charges, but it stops there. If you sell on Etsy or Shopify, their fees come out of the same sale. The worked example below shows how much difference they make.</p><h3>What the base price covers, and what it doesn't</h3><p>According to <a href=\"https://www.printful.com/pricing\">Printful's pricing page</a>, its base price covers the blank product, one print or embroidery placement, and fulfillment. These cost extra:</p><ul><li>Additional print placements. Each extra embroidery placement is $2.95 (<a href=\"https://www.printful.com/pricing\">Printful pricing</a>).</li><li>A one-time embroidery digitization fee, Getty images, labels and packaging (<a href=\"https://www.printful.com/pricing\">Printful pricing</a>).</li><li>Shipping, which depends on the product, order size and destination, and tax, which is based on the customer's location (<a href=\"https://www.printful.com/pricing\">Printful pricing</a>).</li></ul><p>Printful also notes that prices may vary slightly by fulfillment location. Printify's profit calculator is similar: its cost figure \"doesn't include shipping fees, taxes, and other possible storefront expenses\" (<a href=\"https://printify.com/pricing/\">Printify pricing</a>).</p><h2>What it costs to set up</h2><h3>Print company accounts</h3><p>Both big print companies let you start without a monthly fee:</p><ul><li><strong>Printify:</strong> a $0 plan with up to 5 stores, or Premium from $39/month billed monthly, with up to 10 stores (<a href=\"https://printify.com/pricing/\">Printify pricing</a>). The pricing page shows \"from $24.99\" a month when billed yearly. The help center lists the yearly price as USD 299 and says yearly billing saves \"up to 36%\" (<a href=\"https://help.printify.com/hc/en-us/articles/4483625875601-How-does-Printify-s-Premium-plan-work\">Printify Premium help</a>). US and Canadian prices have tax added on top.</li><li><strong>Printful:</strong> a Free plan at $0/month with no upfront or monthly fees, or Growth at $24.99/month with \"up to 33% off product pricing.\" Growth \"becomes free once you reach $12K/year in sales\" (<a href=\"https://www.printful.com/pricing\">Printful pricing</a>).</li></ul><p>You don't need a paid plan to make your first sale. Whether one is worth it later is a simple sum, covered further down.</p><h3>Etsy</h3><p>Etsy's <a href=\"https://www.etsy.com/legal/fees/\">Fees &amp; Payments Policy</a> says you \"may be required\" to pay a one-time set-up fee. The amount is shown during shop setup and may be waived, and the policy doesn't state a figure. After that, each listing costs $0.20, whether or not the item sells (private listings are the exception). Twenty designs listed once costs $4.00 in listing fees before you sell anything. Etsy Plus ($10/month) and Pattern ($15/month after a 30-day trial) are optional extras (<a href=\"https://www.etsy.com/legal/fees/\">Etsy fees</a>).</p><h3>Your own Shopify store</h3><p>On <a href=\"https://www.shopify.com/pricing\">Shopify's US pricing page</a>, the Basic plan is $39 USD/month paid monthly, or $29 USD/month paid yearly. Shopify says there are \"no setup fees\" and that it \"starts with a free 3-day trial—no credit card required.\" Prices can differ by country, so check the pricing page for your region. Shopify also runs introductory promotions on most plans, but these change, so don't count on one when you budget.</p><h3>Samples</h3><p>Ordering a sample lets you check print quality and sizing before customers do. Printful gives 20% off sample orders on the Free plan and 25% off on Growth, limited to 1 sample order a month of up to 3 items (<a href=\"https://www.printful.com/pricing\">Printful pricing</a>). Budget for samples as a real setup cost.</p><h2>Every cut taken from one sale (worked example)</h2><p>The example below is illustrative, and every input is a published figure. It uses the tee from Printify's own calculator, a Unisex Jersey Short Sleeve Tee with an $8.77 fulfillment cost sold for $35 (<a href=\"https://printify.com/pricing/\">Printify pricing</a>). The seller is in the US, sells on Etsy and uses Printify's Free plan. Etsy rates come from the <a href=\"https://www.etsy.com/legal/fees/\">Fees &amp; Payments Policy</a> (listing fee $0.20; transaction fee 6.5%) and the <a href=\"https://www.etsy.com/legal/etsy-payments/\">Etsy Payments Policy</a> (US processing 3% + $0.25 USD). Shipping and sales tax are left out because they depend on your product and the buyer's location.</p><table><thead><tr><th>Line</th><th>Amount</th></tr></thead><tbody><tr><td>Sale price</td><td>$35.00</td></tr><tr><td>Etsy listing fee (<a href=\"https://www.etsy.com/legal/fees/\">$0.20</a>)</td><td>−$0.20</td></tr><tr><td>Etsy transaction fee (<a href=\"https://www.etsy.com/legal/fees/\">6.5%</a>)</td><td>−$2.28</td></tr><tr><td>Etsy Payments processing (<a href=\"https://www.etsy.com/legal/etsy-payments/\">3% + $0.25</a>)</td><td>−$1.30</td></tr><tr><td>Printify fulfillment, Free plan (<a href=\"https://printify.com/pricing/\">$8.77</a>)</td><td>−$8.77</td></tr><tr><td><strong>Left before shipping, tax, ads and returns</strong></td><td><strong>≈ $22.45</strong></td></tr><tr><td>If the sale came from an Offsite Ad (<a href=\"https://www.etsy.com/legal/fees/\">15%</a> of $35)</td><td>−$5.25 → ≈ $17.20</td></tr></tbody></table><p>Each line is rounded to the cent. A few things change this result in practice:</p><ul><li><strong>Shipping gets charged twice.</strong> The print company charges you for shipping separately (<a href=\"https://www.printful.com/pricing\">Printful pricing</a>). Etsy's 6.5% transaction fee also applies to any shipping you charge the buyer, and payment processing is charged on the total including tax and shipping (<a href=\"https://www.etsy.com/legal/fees/\">Etsy fees</a>). Add your real shipping rate to both sides of the sum.</li><li><strong>Outside the US the rates differ.</strong> UK processing is 4% + 0.20 GBP (<a href=\"https://www.etsy.com/legal/etsy-payments/\">Etsy Payments Policy</a>). Outside the US, the transaction fee applies to tax-inclusive prices. Some countries add a Regulatory Operating fee, and Etsy lists fees exclusive of VAT (<a href=\"https://www.etsy.com/legal/fees/\">Etsy fees</a>).</li><li><strong>Currency.</strong> Etsy charges a 2.5% conversion fee if you list in a currency other than your payment account's (<a href=\"https://www.etsy.com/legal/fees/\">Etsy fees</a>).</li><li><strong>Withdrawals.</strong> In countries where Etsy pays out through Payoneer, withdrawal fees can be \"typically up to 3%\" (<a href=\"https://www.etsy.com/legal/etsy-payments/\">Etsy Payments Policy</a>).</li></ul><p>For a side-by-side look at what other online income platforms take, see <a href=\"https://newearns.com/how-to-make-money-online/\">How to Make Money Online: 5 Ways and What Each Platform Takes</a>.</p><h3>Etsy Offsite Ads: 15% or 12%, and when you can opt out</h3><p>Etsy may advertise your listings on other websites. If a buyer clicks one of those ads and orders within 30 days, you pay an Offsite Ads fee. The standard rate is 15%. Shops with less than $10,000 in sales over the prior 365 days can opt out. Once a shop reaches $10,000 or more, the rate drops to 12% for the shop's lifetime, but opting out is no longer allowed. The fee is capped at $100 USD per order. If the buyer's last click was an Etsy Ad, only the Etsy Ads fee applies (<a href=\"https://www.etsy.com/legal/fees/\">Etsy fees</a>). For a $35 tee, the 15% fee is larger than the transaction and processing fees combined, so decide early whether to stay opted in.</p><h3>Why the print companies' calculators show more than you'll take home</h3><p>Printify's calculator example shows \"$813.13\" a month for the $8.77 tee sold at $35 with one sale a day (<a href=\"https://printify.com/pricing/\">Printify pricing</a>). That is exactly ($35 − $8.77) × 31 days, which makes it a gross margin. Printify says on the page that the cost excludes shipping, taxes and storefront expenses, so the calculator works as designed. It just answers a narrower question than \"what will I keep?\" On Printify's own assumption of one sale a day, taking off the $3.78 of Etsy fees from each sale leaves about $695.95 for 31 sales. That is still before shipping, tax, ads and returns. It illustrates the arithmetic, and it is not a forecast of sales.</p><h2>Do the paid plans pay for themselves?</h2><p>A paid plan is worth it only when the discount on what you sell adds up to more than the fee. The formula is:</p><p><strong>Items per month to break even = monthly plan fee ÷ (base cost × discount %)</strong></p><p><strong>Printify Premium, at the maximum discount.</strong> Premium gives up to 20% off most products, and up to 33% on select new products (<a href=\"https://help.printify.com/hc/en-us/articles/4483625875601-How-does-Printify-s-Premium-plan-work\">Printify Premium help</a>). On the $8.77 tee, 20% is about $1.75 per item. At $39/month you would need about 22 items a month (22.2, so the 23rd item puts you ahead). On the yearly price of USD 299 (about $24.92 a month), it's about 14 items (14.2). These are best-case numbers, because the discount is \"up to\" and real discounts vary by product. They are not typical results.</p><p><strong>Printful Growth.</strong> Use the same formula with $24.99 as the fee and your product's base price. The discount is \"up to 33%,\" so the result is a best case, and Growth becomes free once you reach $12K/year in sales (<a href=\"https://www.printful.com/pricing\">Printful pricing</a>).</p><p>Read the cancellation terms before you upgrade. Printify says \"The Premium plan subscription fee is non-refundable,\" and you need to unsubscribe before the renewal date to avoid the next charge. Uninstalling the Printify app from Shopify cancels Premium, but uninstalling it from other sales channels does not (<a href=\"https://help.printify.com/hc/en-us/articles/4483625875601-How-does-Printify-s-Premium-plan-work\">Printify Premium help</a>). Printful's Growth plan can be cancelled anytime, and its benefits last until the end of the billing cycle (<a href=\"https://www.printful.com/pricing\">Printful pricing</a>).</p><h2>Etsy or your own store: which suits a beginner</h2><p>Both options connect to a print company. The difference is how you pay the platform, and who finds the customers. Figures come from <a href=\"https://www.etsy.com/legal/fees/\">Etsy's fees policy</a>, the <a href=\"https://www.etsy.com/legal/etsy-payments/\">Etsy Payments Policy</a>, <a href=\"https://www.etsy.com/legal/creativity\">Etsy's Creativity Standards</a> and <a href=\"https://www.shopify.com/pricing\">Shopify's US pricing page</a>.</p><table><thead><tr><th></th><th>Etsy + print company</th><th>Shopify store + print company</th></tr></thead><tbody><tr><td>Monthly fee</td><td>None required; Etsy Plus ($10) and Pattern ($15) are optional</td><td>Basic $39/month, or $29/month paid yearly</td></tr><tr><td>Setup</td><td>A one-time fee may apply; amount shown at setup</td><td>No setup fees; 3-day free trial</td></tr><tr><td>Per listing</td><td>$0.20, renewing every four months</td><td>No per-listing fee on the pricing page</td></tr><tr><td>Per sale</td><td>6.5% transaction fee on item price, shipping and gift wrap</td><td>2% third-party fee only if you don't use Shopify Payments</td></tr><tr><td>Payment processing</td><td>US: 3% + $0.25 on the total including tax and shipping</td><td>Online card rates from 2.9% + 30¢</td></tr><tr><td>Advertising fee</td><td>Offsite Ads 15% or 12% on ad-driven orders, capped at $100</td><td>None charged by default; you pay for any ads you choose to run</td></tr><tr><td>Who brings the traffic</td><td>Your listings sit on Etsy's marketplace, and Etsy may promote them offsite</td><td>You do: your store has no marketplace attached</td></tr><tr><td>Disclosure rules</td><td>Production partner and AI use must be disclosed</td><td>Etsy's rules don't apply; check Shopify's own policies</td></tr></tbody></table><p>For most beginners the trade-off is this. Etsy costs little up front but takes a share of every sale. Shopify charges a monthly fee, and you have to find every visitor yourself. If you don't yet have an audience, that monthly fee keeps running whether or not anyone visits.</p><h2>The parts of print on demand that aren't passive</h2><p>The print company handles production and shipping. Everything else stays with you, every month:</p><ul><li><strong>Wrong size and change of mind are your cost.</strong> Printify says returns and exchanges \"are not supported if your customer ordered the wrong size, color, or simply changed their mind\" (<a href=\"https://help.printify.com/hc/en-us/articles/4483630299025-How-does-Printify-handle-refunds-and-returns\">Printify refunds help</a>). Printful says \"we don't accept returns or exchanges for buyer's remorse, wrong size, or wrong color\" (<a href=\"https://help.printful.com/hc/en-us/articles/50263870468753-What-is-Printful-s-return-and-refund-policy\">Printful returns policy</a>). If you refund a buyer anyway, Etsy recalculates the processing fee on the adjusted sale price (<a href=\"https://www.etsy.com/legal/etsy-payments/\">Etsy Payments Policy</a>), and Etsy states that its service fees are non-refundable (<a href=\"https://www.etsy.com/legal/fees/\">Etsy fees</a>).</li><li><strong>Misprint and damage claims have 30-day deadlines.</strong> Printify offers a free reprint or refund for damage or manufacturing errors if you contact it within 30 calendar days of delivery with a photo. It allows a 0.5\" tolerance on print placement for DTG, DTF, EMB and AOP products, so small shifts don't count as defects (<a href=\"https://help.printify.com/hc/en-us/articles/4483630299025-How-does-Printify-handle-refunds-and-returns\">Printify refunds help</a>). Printful's window is 30 days from receiving the item for damage or misprints, and 30 days from the estimated delivery date for lost packages (<a href=\"https://help.printful.com/hc/en-us/articles/50263898892561-How-long-do-I-have-to-submit-a-return-or-exchange-claim\">Printful claim window</a>). Later claims \"can't be honored\" (<a href=\"https://help.printful.com/hc/en-us/articles/50263870468753-What-is-Printful-s-return-and-refund-policy\">Printful returns policy</a>). Someone has to collect the buyer's photos and file each claim on time.</li><li><strong>Customer mistakes still reach you.</strong> If a customer enters the wrong address, Printful can reship the order, but reshipping costs apply. Unclaimed returned packages are donated after 30 days (<a href=\"https://help.printful.com/hc/en-us/articles/50263870468753-What-is-Printful-s-return-and-refund-policy\">Printful returns policy</a>). The buyer will contact you, not the print company, so customer service stays your job.</li><li><strong>Listings renew and cost money.</strong> Etsy listings expire after four months and auto-renew at $0.20 each until you switch renewal to \"Manual\" in Listings Manager. Multi-quantity listings renew at $0.20 after each item sells (<a href=\"https://www.etsy.com/legal/fees/\">Etsy fees</a>). Review your listings regularly and drop designs that don't sell.</li><li><strong>Production partner disclosure on every listing.</strong> Etsy's rule is that \"Sellers must disclose that an item is made by a production partner, and provide accurate information about where the item will ship from\" (<a href=\"https://www.etsy.com/legal/creativity\">Etsy Creativity Standards</a>). Printful says it doesn't add itself automatically. You add it under Shop Manager → Settings → Partners you work with → Add production partner. Then, in each listing, under About this listing, you set \"Who made it?\" to \"Another company or person\" and choose Printful. You can show a generic term like \"A print shop\" publicly, and skipping this step may lead Etsy to block or delay orders (<a href=\"https://help.printful.com/hc/en-us/articles/50262492439953-Do-I-have-to-list-Printful-as-a-production-partner-on-Etsy\">Printful help</a>). Etsy's menus may look different from this description, so look for the equivalent settings if the labels have changed.</li><li><strong>AI disclosure.</strong> Etsy requires you to say in the listing description if AI was used (<a href=\"https://www.etsy.com/legal/creativity\">Etsy Creativity Standards</a>). If you make designs with tools like those in our guide to <a href=\"https://newearns.com/free-ai-tools-free-plans/\">free AI tools and what each free plan includes</a>, add the disclosure to every affected listing. AI prompt bundles don't qualify for sale under the same standards.</li><li><strong>Copyright and trademark risk.</strong> Etsy says \"Sellers are responsible for ensuring they have all necessary rights to their content.\" It terminates selling privileges for repeat or multiple infringement notices \"in appropriate circumstances and at Etsy's discretion,\" and it can refuse service to new shops linked to the same person (<a href=\"https://www.etsy.com/legal/ip/\">Etsy IP Policy</a>). Check every design before you list it, not after a complaint arrives.</li></ul><h2>How long before it earns?</h2><p>None of the vendor pages used for this guide gives a timeline, and this guide won't invent one. What can be said is what has to happen before the first order arrives. You create designs you have the rights to. You order samples and check them. You set prices that cover the costs above, including your shipping rate. You publish listings with the right disclosures. Then buyers have to find those listings. That last step is the one you control least. If you want a realistic view of online earnings in general, read <a href=\"https://newearns.com/can-you-really-make-100-a-day-online-the-honest-truth/\">Can You Really Make $100 a Day Online? The Honest Truth</a>.</p><h2>Beginner checklist</h2><ol><li>Open a free print company account, such as Printify's $0 plan or Printful's Free plan. Wait on paid plans until the break-even formula says they pay off.</li><li>Choose where to sell: Etsy (low setup cost, fees on every sale) or your own Shopify store (monthly fee, you find the customers).</li><li>Order samples of each product type before listing it.</li><li>Build your price from the full cost: base price + shipping + every platform fee + an allowance for refunds you choose to absorb.</li><li>Decide whether to opt out of Etsy Offsite Ads while your shop is under the $10,000 threshold.</li><li>On Etsy, add your production partner and set \"Who made it?\" on every listing. Disclose AI use where it applies.</li><li>Check each design for copyright and trademark problems before publishing.</li><li>Put the 30-day claim deadlines and Etsy's four-month listing renewals in your calendar.</li><li>Re-check vendor pricing pages before you upgrade or change plans.</li></ol><p>Print on demand removes the need to hold stock, but it doesn't remove the fees or the upkeep. Do the sums for your own product first, and treat any income as something you build, not something you are promised.</p><h2>FAQ</h2><h3>Do I need money to start print on demand?</h3><p>Not much. Printify and Printful both have $0 plans (<a href=\"https://printify.com/pricing/\">Printify pricing</a>, <a href=\"https://www.printful.com/pricing\">Printful pricing</a>). On Etsy you pay $0.20 per listing and possibly a one-time set-up fee shown at setup (<a href=\"https://www.etsy.com/legal/fees/\">Etsy fees</a>). Samples are a real cost too, so plan for them.</p><h3>Is print on demand good for beginners?</h3><p>It has low upfront costs, which is why it suits a beginner's budget. But the margins on each sale shrink after platform fees, and the ongoing work never goes away. Use the worked example above with your own product and shipping rate before deciding.</p><h3>Do I have to tell Etsy I use Printful or Printify?</h3><p>Yes. Etsy requires sellers to disclose when an item is made by a production partner (<a href=\"https://www.etsy.com/legal/creativity\">Etsy Creativity Standards</a>). Printful's help center explains how to add it on each listing (<a href=\"https://help.printful.com/hc/en-us/articles/50262492439953-Do-I-have-to-list-Printful-as-a-production-partner-on-Etsy\">Printful help</a>).</p><h3>Can I sell AI-generated designs on Etsy?</h3><p>Etsy's Creativity Standards require you to disclose AI use in the listing description (<a href=\"https://www.etsy.com/legal/creativity\">Etsy Creativity Standards</a>). You also remain responsible for having the rights to your content (<a href=\"https://www.etsy.com/legal/ip/\">Etsy IP Policy</a>).</p><h3>Who pays when a customer orders the wrong size?</h3><p>Neither Printify nor Printful accepts returns for wrong size, wrong color or change of mind (<a href=\"https://help.printify.com/hc/en-us/articles/4483630299025-How-does-Printify-handle-refunds-and-returns\">Printify refunds help</a>, <a href=\"https://help.printful.com/hc/en-us/articles/50263870468753-What-is-Printful-s-return-and-refund-policy\">Printful returns policy</a>). Any refund you offer the buyer comes out of your own margin.</p>",
+      "sources": [
+        {
+          "url": "https://printify.com/pricing/",
+          "title": "Printify Pricing",
+          "supports": "Products made after orders; $0 and Premium from $39/month (from $24.99 billed yearly); 5 vs 10 stores; calculator example ($8.77 cost, $35 price, $813.13/month) and its exclusion of shipping, taxes and storefront expenses"
+        },
+        {
+          "url": "https://help.printify.com/hc/en-us/articles/4483625875601-How-does-Printify-s-Premium-plan-work",
+          "title": "Printify Help: How does Printify's Premium plan work?",
+          "supports": "Up to 20% off most products and up to 33% on select new products; USD 299 yearly; yearly saves up to 36%; tax added on US/Canadian prices; non-refundable fee; cancellation and Shopify uninstall rules"
+        },
+        {
+          "url": "https://help.printify.com/hc/en-us/articles/4483630299025-How-does-Printify-handle-refunds-and-returns",
+          "title": "Printify Help: How does Printify handle refunds and returns?",
+          "supports": "30-calendar-day reprint/refund window for damage or manufacturing errors with photo; no returns for wrong size, color or change of mind; 0.5-inch placement tolerance"
+        },
+        {
+          "url": "https://www.printful.com/pricing",
+          "title": "Printful Pricing",
+          "supports": "Free and Growth ($24.99/month, up to 33% off, free at $12K/year); what the base price covers; extra placement and embroidery costs; shipping and tax charged separately; profit formula; sample discounts and limits; Growth cancellation terms"
+        },
+        {
+          "url": "https://help.printful.com/hc/en-us/articles/50263870468753-What-is-Printful-s-return-and-refund-policy",
+          "title": "Printful Help: What is Printful's return and refund policy?",
+          "supports": "No returns for buyer's remorse, wrong size or color; late claims can't be honored; wrong-address reshipping costs; unclaimed returns donated after 30 days"
+        },
+        {
+          "url": "https://help.printful.com/hc/en-us/articles/50263898892561-How-long-do-I-have-to-submit-a-return-or-exchange-claim",
+          "title": "Printful Help: How long do I have to submit a return or exchange claim?",
+          "supports": "30 days from receipt for damage/misprints; 30 days from estimated delivery for lost packages"
+        },
+        {
+          "url": "https://help.printful.com/hc/en-us/articles/50262492439953-Do-I-have-to-list-Printful-as-a-production-partner-on-Etsy",
+          "title": "Printful Help: Do I have to list Printful as a production partner on Etsy?",
+          "supports": "Etsy production partner requirement; manual selection per listing; menu steps; generic public label option; risk of blocked or delayed orders"
+        },
+        {
+          "url": "https://www.etsy.com/legal/fees/",
+          "title": "Etsy Fees & Payments Policy",
+          "supports": "$0.20 listing fee and four-month auto-renewal; possible set-up fee; 6.5% transaction fee scope; Offsite Ads 15%/12%, opt-out threshold and $100 cap; Etsy Plus and Pattern prices; 2.5% currency conversion; Regulatory Operating fee; fees non-refundable and exclusive of VAT"
+        },
+        {
+          "url": "https://www.etsy.com/legal/etsy-payments/",
+          "title": "Etsy Payments Policy",
+          "supports": "US processing 3% + 0.25 USD and UK 4% + 0.20 GBP; processing fee recalculated on refunds; Payoneer withdrawal fees typically up to 3%"
+        },
+        {
+          "url": "https://www.etsy.com/legal/creativity",
+          "title": "Etsy Creativity Standards",
+          "supports": "Production partner disclosure quote; AI use disclosure requirement; AI prompt bundles don't qualify"
+        },
+        {
+          "url": "https://www.etsy.com/legal/ip/",
+          "title": "Etsy Intellectual Property Policy",
+          "supports": "Sellers responsible for rights to content; termination for repeat infringement notices; refusal of service to linked new shops"
+        },
+        {
+          "url": "https://www.shopify.com/pricing",
+          "title": "Shopify Pricing",
+          "supports": "Basic $39/month or $29/month billed yearly; online card rates from 2.9% + 30¢; 2% third-party transaction fee; no setup fees; free 3-day trial"
+        }
+      ],
+      "product_link_reason": "",
+      "internal_links_note": "",
+      "image_headline": "The Real Cost of Print on Demand",
+      "search_intent": "Informational how-to: beginners want to know how to start print on demand and which platform to use, with a cost and platform comparison inside the guide.",
+      "unique_value": "Unlike the ranking pages written by print-on-demand companies, this guide adds up every cut from one sale using only published rates (print base cost plus each Etsy fee and Offsite Ads). It explains why vendor calculators show gross margin rather than take-home pay, and gives a break-even formula for Printify Premium and Printful Growth. It also includes an Etsy-vs-Shopify decision table and a sourced checklist of the work that never becomes passive.",
+      "image_alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+      "featured_image": {
+        "alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+        "license": "generated-in-house",
+        "creator": "",
+        "license_url": ""
+      },
+      "inline_images": []
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "If you refund a buyer anyway, Etsy recalculates the processing fee… and Etsy states that its service fees are non-refundable.",
+          "verdict": "contradicted",
+          "source_url": "https://www.etsy.com/legal/etsy-payments/",
+          "evidence": "Notes mark this contradicted (misleading as placed). Etsy Payments says that after a seller refund, processing and \"other applicable fees will be recalculated based on the adjusted sale price\" and \"Other applicable fees will be refunded to the seller's payment account.\" The general \"service fees… are non-refundable\" line is on /legal/fees/, but on a seller refund the transaction fee is credited back. Fees are only kept when Etsy covers the refund (e.g. its Protection Program).",
+          "suggested_fix": "If you refund a buyer, Etsy recalculates the processing fee and other fees on the adjusted sale price and credits the difference back to you. The print company's production cost is not refunded."
+        },
+        {
+          "claim": "Customer mistakes still reach you… The buyer will contact you, not the print company, so customer service stays your job.",
+          "verdict": "unsupported",
+          "source_url": "https://help.printify.com/hc/en-us/articles/4483625875601-How-does-Printify-s-Premium-plan-work",
+          "evidence": "Notes mark this unsupported and partly contradicted. No source says this. The Printify Premium help page lists \"Our Support Team handles order-related issues on your behalf with Printify Connect.\"",
+          "suggested_fix": "Add: \"unless you're on Printify Premium, which includes Printify Connect handling of order-related issues.\""
+        },
+        {
+          "claim": "Worked-example line \"Printify fulfillment, Free plan ($8.77)\"; the break-even sum takes 20% off this $8.77.",
+          "verdict": "unsupported",
+          "source_url": "https://printify.com/pricing/",
+          "evidence": "Notes mark the plan label unsupported. printify.com/pricing shows \"Fulfillment cost*: $8.77\" but doesn't say which plan's price it is.",
+          "suggested_fix": "\"Printify calculator cost ($8.77; plan not stated)\". Note that the break-even assumes $8.77 is the price before any discount."
+        },
+        {
+          "claim": "AI prompt bundles don't qualify for sale under the same standards.",
+          "verdict": "unsupported",
+          "source_url": "https://www.etsy.com/legal/creativity",
+          "evidence": "Notes say this says more than the source. Creativity Standards lists \"AI prompt bundles\" among items that \"do not qualify as 'designed by a seller'\". It doesn't say outright that they're banned from sale.",
+          "suggested_fix": "\"Etsy says AI prompt bundles don't count as 'designed by a seller'.\""
+        },
+        {
+          "claim": "Etsy IP Policy: the \"Sellers are responsible…\" quote, repeat-infringer termination \"in appropriate circumstances and at Etsy's discretion\", and refusing service to new shops linked to the same person (body text and FAQ).",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "Notes mark this uncertain. etsy.com/legal/ip/ couldn't be read (403, then tool limit). A search snippet matches the first quote, but a snippet isn't a page read, so no page is quoted as evidence.",
+          "suggested_fix": "Re-check against the live page before publishing."
+        },
+        {
+          "claim": "Table: Shopify \"Who brings the traffic: You do: your store has no marketplace attached\"; \"Advertising fee: None charged by default\".",
+          "verdict": "unsupported",
+          "source_url": "https://www.shopify.com/pricing",
+          "evidence": "Notes mark this unsupported / oversimplified. The Shopify pricing page says neither. It lists \"Sell on social and marketplaces\" and \"Acquire customers risk-free with Shop Campaigns.\"",
+          "suggested_fix": "Say: \"No built-in marketplace audience like Etsy's; Shopify offers optional paid acquisition tools.\""
+        },
+        {
+          "claim": "Printify products are made \"only after customers order\".",
+          "verdict": "supported",
+          "source_url": "https://printify.com/pricing/",
+          "evidence": "Supported per notes (Printify pricing).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Printify $0 plan with 5 stores; Premium \"From $39\" monthly with 10 stores; yearly option shows \"From $24.99\".",
+          "verdict": "supported",
+          "source_url": "https://printify.com/pricing/",
+          "evidence": "Supported per notes (Printify pricing).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Printify Premium yearly price is USD 299 and yearly billing saves \"up to 36%\".",
+          "verdict": "supported",
+          "source_url": "https://help.printify.com/hc/en-us/articles/4483625875601-How-does-Printify-s-Premium-plan-work",
+          "evidence": "Supported per notes; the Premium help page lists these.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Tax is added for USD and CAD billing (\"Billed additionally according to your state's (or province's) tax rate\").",
+          "verdict": "supported",
+          "source_url": "https://printify.com/pricing/",
+          "evidence": "Supported per notes. Strictly, this applies to the billing currency, not where you live, so the article's wording is slightly loose.",
+          "suggested_fix": "Optionally clarify that it depends on billing currency, not location."
+        },
+        {
+          "claim": "Printify calculator cost \"doesn't include shipping fees, taxes…\".",
+          "verdict": "supported",
+          "source_url": "https://printify.com/pricing/",
+          "evidence": "Supported per notes (Printify pricing).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Printify Premium gives \"up to 20% off most products\" and \"up to 33% on select new products\".",
+          "verdict": "supported",
+          "source_url": "https://help.printify.com/hc/en-us/articles/4483625875601-How-does-Printify-s-Premium-plan-work",
+          "evidence": "Supported per notes (Printify pricing / Premium help page).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"The Premium plan subscription fee is non-refundable\"; you must unsubscribe before the renewal date; uninstalling the app on Shopify cancels Premium while uninstalling elsewhere does not.",
+          "verdict": "supported",
+          "source_url": "https://help.printify.com/hc/en-us/articles/4483625875601-How-does-Printify-s-Premium-plan-work",
+          "evidence": "Supported per notes (Premium help page).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Printify refunds: the wrong size, colour or change of mind quote; damage or manufacturing errors claimed within 30 calendar days of delivery with a photo; 0.5\" print-placement tolerance for DTG, DTF, EMB and AOP products.",
+          "verdict": "supported",
+          "source_url": "https://help.printify.com/hc/en-us/articles/4483630299025-How-does-Printify-handle-refunds-and-returns",
+          "evidence": "Supported per notes; quote accurate.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Printful formula \"Your profit = Retail price – Printful cost\".",
+          "verdict": "supported",
+          "source_url": "https://www.printful.com/pricing",
+          "evidence": "Supported per notes (Printful pricing).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Printful base price covers the blank product, one placement and fulfillment; extra placements, embroidery digitization, Getty images, labels and packaging cost extra; extra embroidery placement is \"$2.95 per additional placement\"; shipping and tax charged separately; \"Prices may vary slightly by fulfillment location.\"",
+          "verdict": "supported",
+          "source_url": "https://www.printful.com/pricing",
+          "evidence": "Supported per notes (Printful pricing).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Printful Free plan is $0 with no monthly fees; Growth is $24.99/month, \"up to 33% off product pricing\", and \"becomes free once you reach $12K/year\".",
+          "verdict": "supported",
+          "source_url": "https://www.printful.com/pricing",
+          "evidence": "Supported per notes (Printful pricing).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Printful samples: 20% off on Free, 25% off on Growth, and \"1 sample order per month with up to 3 items\".",
+          "verdict": "supported",
+          "source_url": "https://www.printful.com/pricing",
+          "evidence": "Supported per notes. Small omission: the page adds that \"you'll unlock additional sample orders\" as sales grow.",
+          "suggested_fix": "Optionally mention that additional sample orders unlock as sales grow."
+        },
+        {
+          "claim": "Printful Growth can be cancelled anytime, with benefits lasting to the end of the billing cycle.",
+          "verdict": "supported",
+          "source_url": "https://www.printful.com/pricing",
+          "evidence": "Supported per notes (Printful pricing).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Printful returns: the \"buyer's remorse, wrong size, or wrong color\" quote; wrong address means reshipping costs apply; unclaimed returns are donated after 30 days.",
+          "verdict": "supported",
+          "source_url": "https://help.printful.com/hc/en-us/articles/50263870468753-What-is-Printful-s-return-and-refund-policy",
+          "evidence": "Supported per notes; quote accurate.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Printful claims are due within 30 days of receiving the item, or of the estimated delivery date for lost packages; late claims \"can't be honored\".",
+          "verdict": "supported",
+          "source_url": "https://help.printful.com/hc/en-us/articles/50263898892561-How-long-do-I-have-to-submit-a-return-or-exchange-claim",
+          "evidence": "Supported per notes (Printful claim window help page).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Printful production-partner steps on Etsy: the menu path, \"Who made it?\", the generic label \"A print shop\", \"Etsy may block or delay orders\", and that Printful doesn't add itself automatically.",
+          "verdict": "supported",
+          "source_url": "https://help.printful.com/hc/en-us/articles/50262492439953-Do-I-have-to-list-Printful-as-a-production-partner-on-Etsy",
+          "evidence": "Supported per notes (Printful Etsy production-partner help page).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy set-up fee \"may be required\", is shown during setup, \"may be waived\", and no amount is stated.",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "Supported per notes (Etsy Fees & Payments Policy).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy listings cost $0.20 whether or not they sell (private listings excepted), expire after four months and auto-renew until set to \"Manual\"; multi-quantity listings renew at $0.20 after each item sells.",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "Supported per notes (Etsy Fees).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy transaction fee is 6.5% on item price plus shipping and gift wrap; payment processing is charged on \"the total amount of the sale, including tax and shipping\".",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "Supported per notes (Etsy Fees).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Outside the US, the transaction fee applies to tax-inclusive listing prices; some countries add a Regulatory Operating fee; fees are listed exclusive of VAT; 2.5% currency conversion fee.",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "Supported per notes (Etsy Fees).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy Plus is $10/month; Pattern is $15/month after a 30-day trial.",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "Supported per notes (Etsy Fees).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Offsite Ads: fee applies if the buyer orders within 30 days of the click at a standard 15%; shops under $10,000 in sales over the prior 365 days can opt out; at $10,000 or more it drops to 12% for the shop's lifetime and the opt-out ends; capped at $100 per order; if the last click was an Etsy Ad, only the Etsy Ads fee applies.",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "Supported per notes (Etsy Fees).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy US processing is \"3% + 0.25 USD\"; UK is \"4% + 0.20 GBP\"; Payoneer withdrawal fees are \"typically up to 3%\".",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/etsy-payments/",
+          "evidence": "Supported per notes (Etsy Payments Policy).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy Creativity Standards production-partner disclosure quote; sellers \"must disclose within their listing description if an item is created with the use of AI.\"",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/creativity",
+          "evidence": "Supported per notes; the production-partner quote is exact.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Shopify Basic is $39/month paid monthly or $29/month paid yearly.",
+          "verdict": "supported",
+          "source_url": "https://www.shopify.com/pricing",
+          "evidence": "Supported per notes. The plan isn't labelled in what was read, but the next tier says \"Everything in Basic\", so this is the Basic plan.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Shopify has \"No setup fees\", a free 3-day trial with \"no credit card required\", and an intro offer of \"$1 per month for the first 3 months\" on most plans.",
+          "verdict": "supported",
+          "source_url": "https://www.shopify.com/pricing",
+          "evidence": "Supported per notes (Shopify pricing).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Shopify 2.9% + 30¢ card rate and a 2% third-party transaction fee.",
+          "verdict": "supported",
+          "source_url": "https://www.shopify.com/pricing",
+          "evidence": "Supported per notes (Shopify pricing).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Fee arithmetic: 6.5% × $35 = $2.275 shown as $2.28; processing $1.30; total Etsy fees $3.78; take-home $22.45 net and $17.20 after the Offsite Ad fee; the $5.25 ad fee exceeds the $3.58 of transaction plus processing fees.",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Notes say arithmetic is all correct (calculation check, no page quoted).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Monthly figures: Printify's $813.13 is $26.23 × 31; after Etsy fees, $22.45 × 31 = $695.95.",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Notes say arithmetic is correct (calculation check, no page quoted).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Break-even: 20% of $8.77 is $1.754 per item; $39 ÷ $1.754 = 22.2 items; $299 ÷ 12 ÷ $1.754 = 14.2 items.",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Notes say arithmetic is correct (calculation check, no page quoted). See claim C on the $8.77 plan label.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Printify Premium shows \"$24.99\" a month billed yearly while 299 ÷ 12 = $24.92; the article reports both figures.",
+          "verdict": "supported",
+          "source_url": "https://printify.com/pricing/",
+          "evidence": "Notes flag this as a minor source inconsistency handled correctly by the article.",
+          "suggested_fix": ""
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://printify.com/pricing/",
+          "relevant": true,
+          "notes": "Read, relevant and supportive. One problem: the \"Free plan\" label on $8.77 isn't stated on the page (claim C)."
+        },
+        {
+          "url": "https://help.printify.com/hc/en-us/articles/4483625875601-How-does-Printify-s-Premium-plan-work",
+          "relevant": true,
+          "notes": "Read, relevant and supportive. Also shows Printify Connect handles order-related issues, undercutting claim B."
+        },
+        {
+          "url": "https://help.printify.com/hc/en-us/articles/4483630299025-How-does-Printify-handle-refunds-and-returns",
+          "relevant": true,
+          "notes": "Read, relevant and supportive."
+        },
+        {
+          "url": "https://www.printful.com/pricing",
+          "relevant": true,
+          "notes": "Read (relevant sections came through though full page cut off); relevant and supportive."
+        },
+        {
+          "url": "https://help.printful.com/hc/en-us/articles/50263870468753-What-is-Printful-s-return-and-refund-policy",
+          "relevant": true,
+          "notes": "Read, relevant and supportive."
+        },
+        {
+          "url": "https://help.printful.com/hc/en-us/articles/50263898892561-How-long-do-I-have-to-submit-a-return-or-exchange-claim",
+          "relevant": true,
+          "notes": "Read, relevant and supportive."
+        },
+        {
+          "url": "https://help.printful.com/hc/en-us/articles/50262492439953-Do-I-have-to-list-Printful-as-a-production-partner-on-Etsy",
+          "relevant": true,
+          "notes": "Read, relevant and supportive."
+        },
+        {
+          "url": "https://www.etsy.com/legal/fees/",
+          "relevant": true,
+          "notes": "Blocked pipeline (403) but full text read via web_fetch. Supportive, except the \"non-refundable\" line is used out of context (claim A)."
+        },
+        {
+          "url": "https://www.etsy.com/legal/etsy-payments/",
+          "relevant": true,
+          "notes": "Read via web_fetch after 403. Supportive; this page also contradicts claim A."
+        },
+        {
+          "url": "https://www.etsy.com/legal/creativity",
+          "relevant": true,
+          "notes": "Read via web_fetch after 403. Supportive, apart from the overstated AI prompt bundle line (claim D)."
+        },
+        {
+          "url": "https://www.etsy.com/legal/ip/",
+          "relevant": false,
+          "notes": "Not read (403, then tool limit). A search snippet doesn't count, so it can't count as evidence yet (claim E)."
+        },
+        {
+          "url": "https://www.shopify.com/pricing",
+          "relevant": true,
+          "notes": "Read (relevant sections came through though full page cut off). Supportive for fees; doesn't support the \"traffic\" and \"ads\" table cells (claim F)."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "Meets the intent better than a generic answer. Gaps a strict reviewer would flag: the headline ≈$22.45 figure excludes shipping (disclosed, but no example shipping figure given); the \"how to start\" side is thin (no coverage of connecting a store to Printify/Printful or choosing a product or print provider); Printify vs Printful compared on price only, nothing on quality or shipping speed.",
+      "adds_original_value": true,
+      "value_notes": "Original, not a rewrite. Claimed extras are present and check out: a full breakdown of every cut from one sale using published rates only; a correct explanation of why Printify's calculator shows gross margin ($813.13 = $26.23 × 31); a break-even formula for paid plans with correct numbers; the Etsy vs Shopify table; a sourced list of the work that never becomes passive.",
+      "product_claims_accurate": true,
+      "product_notes": "Rule was \"no product\". The article mentions no product of its own and doesn't promote any vendor beyond neutral comparison, so it passes. Links to other newearns.com articles are internal links, not product claims.",
+      "fetched_urls": [
+        "https://help.printful.com/hc/en-us/articles/50262492439953-Do-I-have-to-list-Printful-as-a-production-partner-on-Etsy",
+        "https://help.printful.com/hc/en-us/articles/50263870468753-What-is-Printful-s-return-and-refund-policy",
+        "https://help.printful.com/hc/en-us/articles/50263898892561-How-long-do-I-have-to-submit-a-return-or-exchange-claim",
+        "https://help.printify.com/hc/en-us/articles/4483625875601-How-does-Printify-s-Premium-plan-work",
+        "https://help.printify.com/hc/en-us/articles/4483630299025-How-does-Printify-handle-refunds-and-returns",
+        "https://printify.com/pricing/",
+        "https://www.etsy.com/legal/creativity",
+        "https://www.etsy.com/legal/etsy-payments/",
+        "https://www.etsy.com/legal/fees/",
+        "https://www.printful.com/pricing",
+        "https://www.shopify.com/pricing"
+      ],
+      "content_sha256": "803677f023cd9af9bd275288f8282f52484ff81bc2c99c0272a0633258e8de3f"
+    },
+    "images": {
+      "words": 2886,
+      "target": [
+        4,
+        5
+      ],
+      "stock_api_calls": 5,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "print on demand for beginners",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "openverse",
+          "query": "person working laptop home",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "commons",
+          "query": "print on demand for beginners",
+          "result": "0"
+        },
+        {
+          "provider": "commons",
+          "query": "person working laptop home",
+          "result": "13 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "laptop home office",
+          "result": "19 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "freelancer working laptop",
+          "result": "0 (cached)"
+        }
+      ],
+      "notes": [
+        "FALLBACK: no free, clearly licensed photo matched this article's topic, so the featured image is an in-house illustration (earnings). Replace it in WP Admin if you find a better photo.",
+        "1 image(s), below the 4-5 guideline: nothing else in the article would gain from a visual, and decorative images are not added"
+      ],
+      "topic": {
+        "motif": "earnings",
+        "match": "pillar passive"
+      },
+      "photo_rejections": [
+        {
+          "description": "Chandra Levy last seen alive here 4-30-01 (214471893)",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Enjoying a delightful breakfast at home with pastry, coffee, and juice",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Feeling discomfort at home while working on a laptop during the day",
+          "reason": "nothing about beginner, beginners, cost, costs"
+        },
+        {
+          "description": "June 2020- Laptop from Operation Ghost Stories",
+          "reason": "wrong scene (documents)"
+        },
+        {
+          "description": "Natural Fire building partnership 091010 (4005703783)",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Woman at work at a table in a motorhome",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Working on a laptop while enjoying a cup of coffee at home",
+          "reason": "wrong scene (books)"
+        },
+        {
+          "description": "A young business woman holding Macbook in his home office",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Feeling discomfort at home while working on a laptop during the day",
+          "reason": "nothing about beginner, beginners, cost, costs"
+        },
+        {
+          "description": "Home office - suporte de laptop feito com caixa de papelão (4875987444)",
+          "reason": "nothing about beginner, beginners, cost, costs"
+        },
+        {
+          "description": "Middle-aged businesswoman typing on laptop at home office",
+          "reason": "nothing about beginner, beginners, cost, costs"
+        },
+        {
+          "description": "Office Away From Home (192276012)",
+          "reason": "no laptop/computer/screen in its title"
+        }
+      ],
+      "featured": {
+        "provider": "in-house",
+        "kind": "illustration",
+        "motif": "earnings",
+        "license": "generated-in-house",
+        "alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+        "caption": "",
+        "filename": "print-on-demand-for-beginners-featured.webp",
+        "fallback": true,
+        "file": "featured.webp",
+        "bytes": 5796
+      },
+      "inline": []
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2899 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "9 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "Print on Demand for Beginners: What It Costs, Who Takes a Cut, and What Isn't Passive"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.17% (1x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "0/9 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "157 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "56 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "print-on-demand-for-beginners"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "print-on-demand-for-beginners"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.00"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.57: How to Compress a PDF for Email (and What to Do When It’s Still Too Big)"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": false,
+        "detail": "https://www.etsy.com/legal/ip/ (403)",
+        "fix": "Replace each broken link with a working official page that states the same fact, or remove the claim it supported."
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "4 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "0 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "6 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "12 of 12 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": false,
+        "detail": "6.5% transaction fee on item price, shipping and gift wrap | 2% third-party fee only if you don't use Shopify Payments | US: 3% + $0.25 on the total including tax and shipping",
+        "fix": "Link the source inside the same paragraph or list item as the number or 'according to' statement, or remove the statement."
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "69 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "generated-in-house"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "0 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "1 contradicted by a source (likely wrong): If you refund a buyer anyway, Etsy recalculates the processing fee… and Etsy states that i (fix: If you refund a buyer, Etsy recalculates the processing fee and other fees on the adjusted sale price and credits the di) || 4 no supporting evidence found (not shown to be false): Customer mistakes still reach you… The buyer will contact you, not the print company, so c (fix: Add: \"unless you're on Printify Premium, which includes Printify Connect handling of order-related issues.\") | Worked-example line \"Printify fulfillment, Free plan ($8.77)\"; the break-even sum takes 20 (fix: \"Printify calculator cost ($8.77; plan not stated)\". Note that the break-even assumes $8.77 is the price before any disc) | AI prompt bundles don't qualify for sale under the same standards. (fix: \"Etsy says AI prompt bundles don't count as 'designed by a seller'.\") | Table: Shopify \"Who brings the traffic: You do: your store has no marketplace attached\"; \" (fix: Say: \"No built-in marketplace audience like Etsy's; Shopify offers optional paid acquisition tools.\") || 1 could not be checked (source unreadable or partial): Etsy IP Policy: the \"Sellers are responsible…\" quote, repeat-infringer termination \"in app (fix: Re-check against the live page before publishing.) || 3 marked supported, but its source_url is missing or was not read by the pipeline: Fee arithmetic: 6.5% × $35 = $2.275 shown as $2.28; processing $1.30; total Etsy fees $3.7 | Monthly figures: Printify's $813.13 is $26.23 × 31; after Etsy fees, $22.45 × 31 = $695.95 | Break-even: 20% of $8.77 is $1.754 per item; $39 ÷ $1.754 = 22.2 items; $299 ÷ 12 ÷ $1.754",
+        "fix": "Contradicted: correct the claim to what the source says. No evidence found: cite an official source that states it, narrow it to what a source does say, or remove it. Could not be checked: verify it against a readable source or remove it. Source page not read: cite a page the pipeline can open that states the claim, or remove the claim. No claims listed: the fact-check did not check anything. Then re-run the fact-check only."
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Meets the intent better than a generic answer. Gaps a strict reviewer would flag: the headline ≈$22.45 figure excludes shipping (disclosed, but no example shipping figure given); the \"how to start\" side is thin (no coverage of connecting a store to Printify/Printful or choosing a product or print provider); Printify vs Printful compared on price only, nothing on quality or shipping speed."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "Original, not a rewrite. Claimed extras are present and check out: a full breakdown of every cut from one sale using published rates only; a correct explanation of why Printify's calculator shows gross margin ($813.13 = $26.23 × 31); a break-even formula for paid plans with correct numbers; the Etsy vs Shopify table; a sourced list of the work that never becomes passive."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "Rule was \"no product\". The article mentions no product of its own and doesn't promote any vendor beyond neutral comparison, so it passes. Links to other newearns.com articles are internal links, not product claims."
+      },
+      {
+        "check": "fact_check_current",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "sources_verified",
+        "passed": false,
+        "detail": "https://www.etsy.com/legal/ip/ could not be read, so nothing it is cited for is verified",
+        "fix": "Replace each unreadable or irrelevant source with a page that states the fact, or remove the claims that relied on it; then re-run the fact-check only."
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 0.982,
+        "write": 0.362,
+        "fact_check": 0.654,
+        "fact_check_json": 0.181
+      },
+      "total_usd": 2.179
+    },
+    "wp_media": {
+      "id": 3779,
+      "url": "https://newearns.com/wp-content/uploads/2026/10/print-on-demand-for-beginners-featured.webp"
+    },
+    "wp_post": {
+      "id": 3780,
+      "status": "pending",
+      "link": "https://newearns.com/?p=3780"
+    },
+    "image_check": "ok",
+    "final": "held_for_review"
+  },
+  "updated": "2026-10-30T21:46:55+00:00"
+}
