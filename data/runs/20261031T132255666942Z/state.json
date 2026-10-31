@@ -1,0 +1,1004 @@
+{
+  "run_id": "20261031T132255666942Z",
+  "stages": {
+    "pillar": "ai",
+    "topic": "What Is an AI Agent, and What Can AI Agents Do Today?",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 64,
+        "cache_creation_input_tokens": 189316,
+        "cache_read_input_tokens": 2736851,
+        "output_tokens": 21642,
+        "web_search_requests": 26,
+        "web_fetch_requests": 8,
+        "requests": 11,
+        "read_source_calls": 23,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 64,
+            "cache_write_5m_tokens": 189316,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 2736851,
+            "output_tokens": 21642
+          }
+        },
+        "fetched_urls": [
+          "https://arxiv.org/abs/2510.26787",
+          "https://chatgpt.com/pricing",
+          "https://claude.com/pricing",
+          "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+          "https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf",
+          "https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 2.187
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 13364,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 21487,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 13364,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 21487
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.497
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 20,
+        "cache_creation_input_tokens": 67446,
+        "cache_read_input_tokens": 471109,
+        "output_tokens": 14140,
+        "web_search_requests": 0,
+        "web_fetch_requests": 6,
+        "requests": 5,
+        "read_source_calls": 11,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 20,
+            "cache_write_5m_tokens": 67446,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 471109,
+            "output_tokens": 14140
+          }
+        },
+        "fetched_urls": [
+          "https://arxiv.org/abs/2510.26787",
+          "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+          "https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf",
+          "https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.714
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 8086,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 11885,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 8086,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 11885
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.278
+      }
+    ],
+    "brief": "I've built the brief, and one thing changes the article. OpenAI's help page for \"ChatGPT agent\" now says the feature is no longer available. OpenAI's agent is now **ChatGPT Work**, which can use a separate **cloud browser** in the cloud. The rest of that old page, including the 40 and 400 messages per month limits, is out of date. The writer must not use it as current.\n\n# Content brief: What is an AI agent?\n\n**Date of research:** 30–31 October 2026. Vendor help pages were updated between 0 and 3 days before. Say \"as of October 2026\" in the article, and add a note that screens may look different while features roll out.\n\n## 1. Chosen query and keyphrase\n- **Primary query:** what is an ai agent\n- **Focus keyphrase:** what is an AI agent. Use it in the title, the intro and one or two more times.\n- **Working title:** *What Is an AI Agent? What Today's Agents Can Actually Do, What They Cost to Access, and Where They Still Fail*\n- **Meta description idea:** A plain-English definition of AI agents, what ChatGPT Work and Claude Cowork can do according to their own help pages, which plans include them, and what the research says about reliability and jobs.\n\n## 2. Search intent (from current results)\nThis is a definition search, with a second question: \"what can they do / examples\". The top results are IBM, Google Cloud, McKinsey, Zapier, LangChain, Built In and MIT Sloan. Most are written for companies or developers. They cover types like \"simple reflex agents\", multi-agent systems and vendor platforms.\n\n**What those results don't give a freelancer or small business owner:**\n- Which agents a person can actually use today, which plans include them, and what the vendors themselves say the agents can and can't do.\n- A simple way to tell a chatbot, an agent and a fixed automation apart.\n- Practical safety advice. Prompt injection, approval settings and logins are explained in vendor help pages but mostly missing from the top results.\n- Dated, sourced numbers on how reliable agents are, instead of predictions.\n- A warning about \"AI-powered\" income schemes. That matters to New Earns readers specifically.\n\n## 3. Unique angle and added value\n\"An editorial guide to AI agents built only from documentation, for people who earn online.\" What we add:\n1. **A one-paragraph definition plus a comparison table** (chatbot vs agent vs bot/automation), taken from Google Cloud's three-way comparison and IBM's agent vs non-agent chatbot section.\n2. **\"What agents you can use today\" cards** for ChatGPT Work with cloud browser, Claude Cowork and agents in the Microsoft Copilot app. Each card covers what it does, which plans include it, where it runs, approvals, and documented limits, all from vendor help pages.\n3. **Freelancer and small-business task list** using only the examples the vendors publish: invoice reconciliation, receipts into an expense report, research synthesis, transcript action items, spreadsheets, slide decks, requesting quotes.\n4. **A short safety checklist** combining OpenAI's and Anthropic's own guidance.\n5. **A reliability check** with dated numbers from benchmarks, labeled by year.\n6. **Jobs research** from the 2026 AI Index, framed as early and uneven, with no predictions.\n7. **A scam warning** citing the FTC's Operation AI Comply cases.\n\n## 4. Outline (H2/H3)\n\n**Intro (2 short paragraphs).** Use the keyphrase. Give the answer straight away: an agent takes a goal and carries out several steps with tools, instead of answering one prompt at a time. Say the guide uses vendor documentation as of October 2026.\n\n**H2: What is an AI agent? A plain-English definition**\n- Google Cloud's definition (paraphrase plus a short quote). IBM: agents are built on large language models (LLMs) and use \"tool calling\".\n- H3: Chatbot vs AI agent vs bot. Comparison table based on Google Cloud's table, plus IBM on non-agent chatbots.\n- H3: How an agent works, in four steps: plan, use tools, check results, ask you. Use Google Cloud's list (reasoning, acting, observing, planning) and Cowork's \"creates a plan, breaks into subtasks\".\n\n**H2: AI agents you can use today (as of October 2026)**\n- H3: ChatGPT Work and the cloud browser. What it is, where it runs, plans, sign-ins, confirmations, website blocks, tasks triggered by events.\n- H3: Claude Cowork. What it is, plans, the cloud plus the desktop app, three approval modes, scheduled tasks, usage.\n- H3: Agents in the Microsoft Copilot app. Ready-made agents, building your own, and availability depending on account and subscription.\n- H3: Quick comparison table. Columns: product, what it's for, where it runs, plans named in the docs, approval controls, documented limits. **No prices** (see section 7).\n\n**H2: What AI agents can do for freelancers and small businesses**\nOnly vendor-documented examples, grouped as admin and money (invoices, receipts, quotes), research and writing (synthesis, transcripts, reports from messy notes), files and data (organizing, renaming, spreadsheets, charts), and recurring tasks (scheduled or event-triggered). No made-up time savings.\n\n**H2: What AI agents still can't do reliably**\n- H3: Documented limits. Websites can block agents, some steps need you, every vendor says to check results, and computer use is slow and can make errors.\n- H3: What benchmarks show. TheAgentCompany (30%), OSWorld (66.3% vs 72.35% human baseline, 2025) and the Remote Labor Index (2.5%, October 2025). Each must carry its date and a caveat.\n\n**H2: How to try your first agent task safely**\nA numbered list based on OpenAI's documented cloud-browser steps and Cowork's start steps. Before the steps, add: \"Exact buttons may differ by plan and while features roll out.\"\n- H3: Safety checklist covering prompt injection, approval modes, never pasting passwords, limiting connected apps and folders, and stopping tasks that go wrong.\n\n**H2: What the research says about AI, agents and jobs**\nAgent adoption is still early (AI Index / McKinsey survey). Job postings that mention agent skills are rising. Early-career employment has dropped in AI-exposed jobs (AI Index citing Brynjolfsson et al.). Productivity gains depend on the task. No predictions stated as fact; the one-third workforce-reduction figure must be presented as what employers *expect*.\n\n**H2: Watch out for \"AI agent\" income schemes**\nFTC Operation AI Comply (September 2024). Cases include Ascend Ecom, Ecommerce Empire Builders and FBA Machine. Use the FTC chair's quote that there is \"no AI exemption\". Link to the FTC consumer article \"When a Business Offer or Coaching Program Is a Scam\".\n\n**H2: FAQ (short)**\n- Is ChatGPT agent mode still available? No. Point to Work and the cloud browser.\n- Do AI agents work on free plans? The cloud browser excludes Free and Go; Cowork is paid plans only.\n- Can an agent log in to my accounts? Yes, with conditions.\n- Are AI agents safe to use with client data? Use the vendor cautions.\n\n## 5. Facts to rely on (each with its URL)\n\n**Definition and concepts**\n- F1. Google Cloud: agents are software systems that use AI to pursue goals and complete tasks for users, show reasoning, planning and memory, and have some autonomy. Page says \"Last Updated: 04/02/2026\". https://cloud.google.com/discover/what-are-ai-agents\n- F2. Google Cloud comparison. Agent: acts on its own and proactively, handles complex multi-step actions. Assistant: responds to requests, recommends actions, the user decides. Bot: follows pre-defined rules. Same URL.\n- F3. Google Cloud lists challenges: tasks needing empathy, high ethical stakes, unpredictable physical environments, and resource-intensive builds. Same URL.\n- F4. IBM: agents are built on LLMs and use tool calling for up-to-date information. Non-agent chatbots have no tools, memory or reasoning. Risks include infinite feedback loops (some real-time human monitoring may be used) and data privacy. https://www.ibm.com/think/topics/ai-agents (published 2024-07-03, modified 2026-10-30)\n  - Do **not** use IBM's Dynamiq example (\"90 minutes to 45\"). It is a vendor case study, not independent.\n\n**ChatGPT (OpenAI)**\n- F5. ChatGPT agent is no longer available. OpenAI points users to ChatGPT Work and the cloud browser. Operator was merged into agent mode earlier. https://help.openai.com/en/articles/11752874-chatgpt-agent\n- F6. ChatGPT includes Chat and Work. Work is described as an agent for longer, multi-step work and finished deliverables. Codex is for software development. https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex (\"Updated: 2 days ago\")\n- F7. Where Work runs and what counts against usage:\n  - Work is on web and mobile for eligible paid plans, and in the desktop app when your plan includes it.\n  - Work on web and mobile runs in the cloud and can't directly access files on your computer.\n  - The desktop app can use local files and apps with your permission.\n  - Work uses the same usage structure as Codex, so usage varies by task.\n  - Same URL.\n- F8. Tasks triggered by events (for example from Slack) are not available on Free or Go. Admins of Enterprise, Edu and Healthcare workspaces must turn them on first. Same URL.\n- F9. Cloud browser: what it does.\n  - It gives ChatGPT Work its own browser on a separate computer in the cloud.\n  - It can read pages, click, fill forms and take steps on public and signed-in sites.\n  - It keeps working after you leave and pauses for input, sign-in or confirmation.\n  - Available on paid plans in supported regions, excluding Free and Go.\n  - https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt (\"Updated: 3 days ago\")\n- F10. Cloud browser example tasks: request quotes, compare flights or stock, track packages, prepare a DMV booking for your approval, compare utility plans, save apartment listings, and reconcile invoices and update accounting software. Some tasks need your review or a final step you do yourself. Same URL.\n- F11. Cloud browser controls:\n  - It asks before visiting a new site. Settings let you choose Always ask, Auto approve, or Always allow (\"not recommended\").\n  - It asks for confirmation before actions that are hard to undo or that commit money, legal, account or other real-world obligations.\n  - Logins go through a secure form and aren't visible to the model. Sessions persist until they expire.\n  - It doesn't use your own browser's cookies or sign-ins.\n  - Same URL.\n- F12. Cloud browser limits: websites can block automated agents, and the task may not finish. Safeguards against prompt injection, phishing and unintended actions \"do not eliminate every risk\". Same URL.\n\n**Claude (Anthropic)**\n- F13. Cowork brings the agent design behind Claude Code to non-coding work. You describe an outcome, step away, and come back to documents, organized files or research. It runs in the cloud and has scheduled tasks and projects. https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork (page dated 2026-10-30)\n- F14. Cowork plans and requirements:\n  - Paid plans only: Pro, Max, Ultra, Team, Enterprise.\n  - Local files, browser use and computer use need the Claude Desktop app (macOS or Windows) open and connected.\n  - Web and mobile access varies by plan. Team is in beta; Enterprise needs an owner to turn it on.\n  - Same URL.\n- F15. Cowork has three approval modes: Manual, Auto (reviews each action for safety and blocks unsafe ones) and Skip (nothing checks actions). For work involving \"money, messages sent as you, important files\", Anthropic says to stay close or switch to Manual. Same URL.\n- F16. Multi-step tasks use more of your usage limit than quick questions. Same URL.\n- F17. Cowork examples: organize Downloads, turn receipts into an expense report, batch rename, research synthesis, transcript analysis, Excel files with working formulas, slide decks from notes, reports from voice memos, data cleaning and charts. Same URL.\n- F18. Cowork safety: https://support.claude.com/en/articles/13364135-use-claude-cowork-safely (dated 2026-10-30)\n  - Prompt injection needs two things at once: Claude reads content from outside your trusted sources, *and* can take harmful actions.\n  - Anthropic advises against using the browser features for sensitive information.\n  - Computer use works without the permission checks that gate other Cowork tools.\n  - Claude always asks before permanently deleting files.\n  - The chance of an attack is \"still non-zero\".\n- F19. Claude computer use (developer docs) limits: delays may be too slow for real-time work, it can make mistakes with on-screen coordinates, and \"do not use Claude for tasks requiring perfect precision… without human oversight\". https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool\n\n**Microsoft**\n- F20. Agents in the Microsoft Copilot app: ready-made agents, agents made by your organization, or ones you build. What you get varies by account type, subscription and organization settings. Find them under Agents → All agents (Agent Store). https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-agents-in-the-microsoft-365-copilot-app\n  - Do **not** repeat Microsoft's marketing line that agents \"ensure a higher degree of accuracy\". There is no evidence behind it.\n\n**Research and reliability (always give the date)**\n- F21. TheAgentCompany (NeurIPS 2025 Datasets & Benchmarks): in a simulated small software company, the best agent finished 30% of tasks on its own. Simpler tasks were often solved; long, harder tasks were still out of reach. https://papers.nips.cc/paper_files/paper/2025/hash/0d744742f6fac4d1134c019b7cef3c8a-Abstract-Datasets_and_Benchmarks_Track.html\n- F22. Remote Labor Index (arXiv, v1 30 October 2025): agents \"perform near the floor\". The best agent had a 2.5% automation rate on real, paid-type projects. Say \"as of October 2025\" and note that newer models may score differently. https://arxiv.org/abs/2510.26787\n- F23. Stanford HAI 2026 AI Index landing page, chart description: OSWorld (a test of agents using a computer) accuracy reached 66.3% in 2025, still below a 72.35% human baseline. This comes from the chart's alt text. https://hai.stanford.edu/ai-index/2026-ai-index-report\n- F24. AI Index 2026, Economy chapter, citing a McKinsey survey:\n  - 88% of surveyed organizations use AI, but agent use is still early. Fully deployed (\"scaled\") agent use was in the single digits in nearly all business functions.\n  - In the technology sector, scaled use was higher: software engineering 24%, IT 22%, service operations 21%.\n  - https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf\n- F25. Same chapter: from 2024 to 2025, job postings mentioning agentic AI or AI agents rose sharply (\"exponentially\"). Postings that mention ChatGPT or chatbots fell as a share. Same URL.\n- F26. Same chapter, citing Brynjolfsson et al., 2025: by September 2025, employment of US software developers aged 22–25 had fallen close to 20% from its 2022 peak. In the most AI-exposed jobs, employment for workers aged 22–25 fell about 16% compared with the least exposed. The report says the evidence \"does not point to broad, uniform displacement\". These figures are about AI exposure in general, not agents specifically. Same URL.\n- F27. Same chapter on productivity:\n  - Support agents resolved 14–15% more issues per hour (Brynjolfsson et al., 2025).\n  - Developers using GitHub Copilot completed 26% more pull requests (Cui et al., 2025).\n  - METR found experienced open-source developers were 19% slower with AI, but couldn't repeat that result in a later study.\n  - Effects are \"highly context dependent\". These are AI assistants, not agents, so label them that way.\n  - Same URL.\n\n**Scams**\n- F28. FTC, 25 September 2024: Operation AI Comply announced five enforcement actions. https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes\n  - Ascend Ecom allegedly claimed AI tools would bring passive income; it allegedly defrauded consumers of at least $25 million.\n  - Ecommerce Empire Builders allegedly claimed clients could make $10,000 a month, with no evidence.\n  - FBA Machine allegedly cost consumers more than $15.9 million.\n  - Then-Chair Khan said there is \"no AI exemption from the laws on the books\".\n  - Present the cases as allegations announced in 2024, not current outcomes.\n\n## 6. Internal links (only where genuinely related)\n- *Free AI Tools for Writing, Images, Video and Work: What Each Free Plan Actually Includes*: in the plans/FAQ section, because agent features mostly need paid plans.\n- *ChatGPT Prompts for Freelancers and Side Hustles*: in \"first agent task\", for writing clear task instructions.\n- *Can You Really Make $100 a Day Online? The Honest Truth*: in the scams section.\n- *Data Entry Jobs from Home: Where to Find Real Ones and How to Spot Scams*: optional, in the jobs section, as the closest related article on routine admin work. Don't claim agents replace data entry; no source says that.\n\n## 7. Product link and pricing\n- **Product link: not justified.** There is no product for this pillar. Vendor links go to their own help pages only.\n- **Prices: leave them out.** chatgpt.com/pricing and claude.com/pricing wouldn't render, so no prices were checked. Name the plans the docs list (OpenAI uses \"Pro $100\" and \"Pro $200\" as plan names) and link to the pricing pages so readers can check current prices.\n\n## 8. Writer warnings\n- Don't use the old ChatGPT agent limits (40 or 400 per month) or the \"/agent\" steps as current.\n- The AI Index summary page says developer employment fell \"nearly 20% from 2024\", but the body says \"close to 20% from its 2022 peak\". Use the body wording, which comes with the method and attribution.\n- OSWorld, TheAgentCompany and the Remote Labor Index measure different things. Don't compare their percentages with each other.\n- No first-hand testing language, and no made-up time savings.\n\n---\n\n# SOURCE NOTES\nShort exact quotes are used for policy and legal wording; everything else is a close paraphrase.\n\n**1. Google Cloud: \"What are AI agents? Definition, examples, and types\"**\nhttps://cloud.google.com/discover/what-are-ai-agents · Page says \"Last Updated: 04/02/2026\"\n- Definition: \"AI agents are software systems that use AI to pursue goals and complete tasks on behalf of users.\" They show reasoning, planning and memory, and have some autonomy to decide, learn and adapt.\n- Table:\n  - Agent: \"Autonomously and proactively perform tasks\"\n  - Assistant: responds to prompts, can recommend actions, \"but the user makes decisions\"\n  - Bot: \"Follows pre-defined rules; limited learning\"\n- Challenges listed: deep empathy, high ethical stakes, unpredictable physical environments, and resource-intensive applications (which may be unsuitable for smaller organizations with limited budgets).\n\n**2. IBM: \"What Are AI Agents?\" (Anna Gutowska)**\nhttps://www.ibm.com/think/topics/ai-agents · published 2024-07-03, modified 2026-10-30\n- \"At the core of AI agents are large language models (LLMs).\" Agents use tool calling to get current information and break goals into subtasks.\n- Non-agent chatbots: \"without available tools, memory or reasoning.\"\n- Feedback loops: \"some level of real-time human monitoring might be used.\"\n- Privacy risk comes from the \"experimental and often unpredictable behavior of agentic AI.\"\n\n**3. OpenAI Help: \"ChatGPT agent\"**\nhttps://help.openai.com/en/articles/11752874-chatgpt-agent · no date shown\n- Overview: \"ChatGPT agent is no longer available. Use ChatGPT Work for longer, multi-step tasks and finished deliverables.\"\n- Lower sections are old content (plans, the 40/400 limits, safeguards). Use only as background: OpenAI says safeguards \"don't eliminate all risks.\"\n\n**4. OpenAI Help: \"ChatGPT Work and Codex\"**\nhttps://help.openai.com/en/articles/20001275-chatgpt-work-and-codex · \"Updated: 2 days ago\" (around 29 October 2026)\n- \"Work is an agent designed for longer, multi-step work and finished deliverables.\"\n- Availability: on web and mobile for eligible paid plans; in the desktop app when included in your plan.\n- Files: \"Work on web and mobile cannot directly access files on your computer.\" The desktop app can use local files with your permission. Messages and task context may be stored in the cloud even when work runs locally.\n- Usage: Work follows the Codex usage structure, and \"Work usage will vary by task.\"\n- Event-triggered tasks: \"not available on Free or Go, or in FedRAMP workspaces.\"\n\n**5. OpenAI Help: \"Using cloud browser in ChatGPT\"**\nhttps://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt · \"Updated: 3 days ago\"\n- What it is: \"Cloud browser gives ChatGPT Work its own browser on a separate computer in the cloud.\"\n- Availability: \"paid ChatGPT plans in supported regions, excluding Free and Go.\" It may also vary during rollout and by workspace permissions.\n- Example tasks include \"Reconcile invoices and update records in your accounting software.\" Some tasks need your review or a final step you complete yourself.\n- Site access settings: Always ask, Auto approve, and Always allow (\"This is not recommended\").\n- Confirmation before actions that \"could be hard to reverse or create a financial, legal, account, or other real-world commitment.\"\n- Credentials entered in the secure form are \"not visible to the model.\" Sessions persist until they expire.\n- Website blocks: restrictions \"are set by the website, not by ChatGPT.\"\n- Safety: \"Never paste passwords, security codes, or payment details into the conversation.\" Safeguards \"do not eliminate every risk.\"\n\n**6. Claude Help: \"Get started with Claude Cowork\"**\nhttps://support.claude.com/en/articles/13345190-get-started-with-claude-cowork · 2026-10-30\n- Cowork \"brings Claude Code's agentic capabilities to knowledge work beyond coding.\"\n- Requirements: paid plans only (Pro, Max, Ultra, Team, Enterprise). The Desktop app (macOS or Windows) must be open and connected for local files, browser use and computer use.\n- Approval modes:\n  - Auto: Claude reviews each action for safety and blocks unsafe ones.\n  - Skip: \"nothing checks its actions automatically.\"\n  - For \"money, messages sent as you, important files\", stay close or switch back to Manual.\n- Usage: \"Multi-step tasks use more of your usage than quick questions.\"\n- Examples: receipts turned into an expense report; Excel files \"with working VLOOKUP\"; slide decks from notes; transcript analysis.\n\n**7. Claude Help: \"Use Claude Cowork safely\"**\nhttps://support.claude.com/en/articles/13364135-use-claude-cowork-safely · 2026-10-30\n- Prompt injection needs two conditions at once: Claude can read information from outside your trusted sources, *and* can take actions that could harm you.\n- Computer use: Claude clicks and types \"without the permission checks that gate other Cowork tools.\"\n- On browsers: \"we strongly advise against using either to manage or take actions involving sensitive information.\"\n- \"Claude always asks before permanently deleting files, in any mode.\"\n- \"The chances of an attack are still non-zero.\"\n\n**8. Claude Platform Docs: \"Computer use tool\"**\nhttps://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool · no date shown\n- Delays \"might be too slow compared to regular human-directed computer actions.\"\n- \"Do not use Claude for tasks requiring perfect precision or sensitive user information without human oversight.\"\n\n**9. Microsoft Support: \"Get started with agents in the Microsoft Copilot app\"**\nhttps://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-agents-in-the-microsoft-365-copilot-app · no date shown\n- \"Agent capabilities and availability can vary based on your account type, subscription, and organization settings.\"\n- Steps: open the navigation panel, go to Agents, then All agents (Agent Store), then Add or Open.\n\n**10. TheAgentCompany (NeurIPS 2025)**\nhttps://papers.nips.cc/paper_files/paper/2025/hash/0d744742f6fac4d1134c019b7cef3c8a-Abstract-Datasets_and_Benchmarks_Track.html · page date 2026-04-23\n- \"with the most competitive agent, 30% of the tasks can be completed autonomously.\"\n- Condition: the setting simulates a small software company. \"more difficult long-horizon tasks are still beyond the reach of current systems.\"\n\n**11. Remote Labor Index (arXiv 2510.26787)**\nhttps://arxiv.org/abs/2510.26787 · v1, 30 October 2025\n- \"AI agents perform near the floor on RLI, with the highest-performing agent achieving an automation rate of 2.5%.\"\n\n**12. Stanford HAI: \"The 2026 AI Index Report\" (landing page)**\nhttps://hai.stanford.edu/ai-index/2026-ai-index-report\n- Chart alt text: \"OSWorld accuracy rising from about 5% in 2024 to 66.3% in 2025, still below the 72.35% human baseline.\"\n\n**13. AI Index 2026, Chapter 4: Economy (PDF)**\nhttps://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf\n- Agent adoption: \"AI agent deployment was in the single digits across nearly all business functions.\" Source is a McKinsey survey; tech-sector scaled use was software engineering 24%, IT 22%, service operations 21%.\n- Job postings: those referencing agentic AI or AI agents \"exponentially increased\" from 2024 to 2025.\n- Employment: \"By September 2025, employment for software developers ages 22–25 had fallen close to 20% from its 2022 peak.\" In the most-exposed vs least-exposed jobs, roughly 16%. \"The evidence does not point to broad, uniform displacement.\"\n- Productivity: 14–15% (support agents), 26% (Copilot pull requests), METR's 19% slowdown that a later study couldn't repeat, and effects are \"highly context dependent.\"\n- Expectations: one-third of organizations *expect* AI to reduce their workforce in the coming year. That is an expectation, not a measured result.\n\n**14. FTC: \"FTC Announces Crackdown on Deceptive AI Claims and Schemes\"**\nhttps://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes · published 25 September 2024, page modified 15 January 2026\n- \"there is no AI exemption from the laws on the books.\" (Then-Chair Lina M. Khan)\n- Ascend Ecom: allegedly \"defrauded consumers of at least $25 million.\"\n- Ecommerce Empire Builders: claimed clients could make $10,000 monthly; the FTC alleges the company \"has no evidence to back up those claims.\"\n- FBA Machine: allegedly cost consumers \"more than $15.9 million.\"\n- Status at announcement: Ascend and Ecommerce Empire Builders were halted by court order, and those cases were \"ongoing\". Report them as allegations from that date.",
+    "candidates": [
+      "What Is an AI Agent, and What Can AI Agents Do Today? (primary query: what is an ai agent)"
+    ],
+    "article": {
+      "title": "What Is an AI Agent? What Today's Agents Can Actually Do, Which Plans Include Them, and Where They Still Fail",
+      "seo_title": "What Is an AI Agent? What Agents Can Do and Where They Fail",
+      "slug": "what-is-an-ai-agent",
+      "meta_description": "A plain-English guide to AI agents: what ChatGPT Work and Claude Cowork can do, which plans include them, and where agents still fail.",
+      "focus_keyphrase": "what is an AI agent",
+      "excerpt": "An AI agent takes a goal and carries out several steps with tools, instead of answering one prompt at a time. This guide explains the idea in plain English, covers the agents in ChatGPT, Claude and Microsoft Copilot as documented in October 2026, and shows what research says about reliability, jobs and AI income scams.",
+      "content_html": "<p>What is an AI agent? In short, it is an AI system you give a goal to, and it carries out several steps on its own using tools such as a browser, your files or connected apps. A chatbot answers one prompt at a time and waits for your next message.</p><p>This guide is for freelancers, creators and small business owners who want to know what that means in practice. It draws only on vendor documentation and published research as of October 2026. It covers what the agents in ChatGPT, Claude and Microsoft Copilot are documented to do, which plans include them, how to use them safely, and what benchmarks say about how often they still fail. Agent features are rolling out quickly, so screens and menus may look different from what is described here.</p><h2>What is an AI agent? A plain-English definition</h2><p>Google Cloud puts it this way: “AI agents are software systems that use AI to pursue goals and complete tasks on behalf of users.” According to <a href=\"https://cloud.google.com/discover/what-are-ai-agents\">Google Cloud's explainer</a>, agents show reasoning, planning and memory, and have some autonomy to make decisions, learn and adapt.</p><p><a href=\"https://www.ibm.com/think/topics/ai-agents\">IBM's overview</a> adds the technical core. Agents are built on large language models (LLMs). They use “tool calling” to fetch up-to-date information, and they break a goal into subtasks. IBM describes non-agent chatbots as working “without available tools, memory or reasoning.”</p><h3>Chatbot vs AI agent vs bot</h3><p>Google Cloud separates three things that often get lumped together. The table below follows <a href=\"https://cloud.google.com/discover/what-are-ai-agents\">its comparison</a>, with <a href=\"https://www.ibm.com/think/topics/ai-agents\">IBM's description</a> of non-agent chatbots added.</p><table><thead><tr><th>Type</th><th>How it works</th><th>Who makes the decisions</th></tr></thead><tbody><tr><td>AI agent</td><td>Performs tasks on its own and proactively, including complex multi-step actions, using tools</td><td>The agent decides the steps toward the goal you set, within the permissions you give it</td></tr><tr><td>AI assistant or chatbot</td><td>Responds to your prompts and can recommend actions. A non-agent chatbot has no tools, memory or reasoning</td><td>You: “the user makes decisions”</td></tr><tr><td>Bot or fixed automation</td><td>“Follows pre-defined rules; limited learning”</td><td>The rules set up in advance</td></tr></tbody></table><p>A quick test: if you make every decision and type every next step, you are using an assistant. If the tool does the same fixed thing every time, it is a bot or automation. If you describe an outcome and the tool works out the steps, it is acting as an agent.</p><h3>How an agent works, in four steps</h3><p>Google Cloud describes agents in terms of reasoning, acting, observing and planning. Put in everyday order, a task usually goes like this:</p><ol><li><strong>Plan.</strong> The agent reasons about your goal and breaks it into subtasks, which is how <a href=\"https://www.ibm.com/think/topics/ai-agents\">IBM describes</a> agents working toward a goal.</li><li><strong>Use tools.</strong> It acts, for example by opening web pages, reading files or using a connected app.</li><li><strong>Check results.</strong> It observes what each action produced and adjusts the next step.</li><li><strong>Ask you.</strong> It stops when it needs you. OpenAI's <a href=\"https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt\">cloud browser</a>, for example, pauses for your input, a sign-in or a confirmation.</li></ol><h2>AI agents you can use today (as of October 2026)</h2><p>If you have read older guides, note one correction. OpenAI's help page for <a href=\"https://help.openai.com/en/articles/11752874-chatgpt-agent\">ChatGPT agent</a> now says: “ChatGPT agent is no longer available. Use ChatGPT Work for longer, multi-step tasks and finished deliverables.” Articles that describe agent mode, its monthly message limits or its commands as current are out of date.</p><h3>ChatGPT Work and the cloud browser</h3><p>According to <a href=\"https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex\">OpenAI's help center</a>, ChatGPT now includes Chat and Work. “Work is an agent designed for longer, multi-step work and finished deliverables.” Codex is the separate option for software development.</p><ul><li><strong>Where it runs:</strong> Work is available on web and mobile for eligible paid plans, and in the desktop app when your plan includes it. On web and mobile it runs in the cloud, and OpenAI says it “cannot directly access files on your computer.” The desktop app can use local files and apps with your permission, though messages and task context may still be stored in the cloud (<a href=\"https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex\">OpenAI</a>).</li><li><strong>Usage:</strong> Work follows the same usage structure as Codex, and “Work usage will vary by task” (<a href=\"https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex\">OpenAI</a>).</li><li><strong>Tasks triggered by events:</strong> Work can start tasks from events, for example from Slack. These are “not available on Free or Go, or in FedRAMP workspaces.” Admins of Enterprise, Edu and Healthcare workspaces must turn them on first (<a href=\"https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex\">OpenAI</a>).</li></ul><p>The <a href=\"https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt\">cloud browser</a> “gives ChatGPT Work its own browser on a separate computer in the cloud.” It can read pages, click, fill in forms and take steps on public sites and on sites you have signed into. It keeps working after you leave and pauses when it needs your input, a sign-in or a confirmation. It is available on “paid ChatGPT plans in supported regions, excluding Free and Go,” and availability may also vary during rollout and by workspace permissions.</p><ul><li><strong>Site access:</strong> it asks before visiting a new site. In settings you can choose Always ask, Auto approve or Always allow. Of the last option, OpenAI says: “This is not recommended.”</li><li><strong>Confirmations:</strong> it asks before actions that “could be hard to reverse or create a financial, legal, account, or other real-world commitment.”</li><li><strong>Sign-ins:</strong> you log in through a secure form, and the credentials are “not visible to the model.” Sessions persist until they expire. The cloud browser does not use your own browser's cookies or sign-ins.</li><li><strong>Limits:</strong> websites can block automated agents, so a task may not finish. OpenAI notes these restrictions “are set by the website, not by ChatGPT” (<a href=\"https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt\">OpenAI</a>).</li></ul><h3>Claude Cowork</h3><p>Anthropic says <a href=\"https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork\">Cowork</a> “brings Claude Code's agentic capabilities to knowledge work beyond coding.” You describe an outcome, step away, and come back to documents, organized files or research. It runs in the cloud and includes scheduled tasks and projects.</p><ul><li><strong>Plans:</strong> paid plans only, namely Pro, Max, Ultra, Team and Enterprise. Web and mobile access varies by plan. Team is in beta, and on Enterprise an owner must turn it on.</li><li><strong>Desktop app:</strong> local files, browser use and computer use need the Claude Desktop app (macOS or Windows) open and connected.</li><li><strong>Approval modes:</strong> Manual; Auto, where Claude reviews each action for safety and blocks unsafe ones; and Skip, where “nothing checks its actions automatically.” For work involving “money, messages sent as you, important files,” Anthropic says to stay close or switch back to Manual.</li><li><strong>Usage:</strong> “Multi-step tasks use more of your usage than quick questions” (<a href=\"https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork\">Anthropic</a>).</li></ul><h3>Agents in the Microsoft Copilot app</h3><p>Microsoft's <a href=\"https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-agents-in-the-microsoft-365-copilot-app\">getting-started page</a> describes three kinds of agents in the Microsoft 365 Copilot app: ready-made agents, agents made by your organization, and agents you build yourself. To find them, open the navigation panel, go to Agents, then All agents (Agent Store), and choose Add or Open. Microsoft notes that “Agent capabilities and availability can vary based on your account type, subscription, and organization settings,” so what you see depends on your account. If you use a work account, your IT admin controls much of this.</p><h3>Quick comparison</h3><table><thead><tr><th>Product</th><th>What it's for</th><th>Where it runs</th><th>Plans named in the docs</th><th>Approval controls</th><th>Documented limits</th></tr></thead><tbody><tr><td>ChatGPT Work + cloud browser</td><td>Longer, multi-step tasks and finished deliverables; browsing and form-filling on sites</td><td>Cloud (web, mobile); desktop app can use local files with permission</td><td>Eligible paid plans; cloud browser excludes Free and Go</td><td>Site access (Always ask, Auto approve, Always allow); confirmation before hard-to-reverse or committing actions</td><td>Sites can block agents; usage varies by task; safeguards “do not eliminate every risk”</td></tr><tr><td>Claude Cowork</td><td>Non-coding work: documents, files, research, scheduled tasks</td><td>Cloud; Desktop app needed for local files, browser and computer use</td><td>Pro, Max, Ultra, Team (beta), Enterprise (owner enables)</td><td>Manual, Auto, Skip; always asks before permanently deleting files</td><td>Multi-step tasks use more usage; attack risk “still non-zero”</td></tr><tr><td>Microsoft Copilot app agents</td><td>Ready-made, organization-built or self-built agents</td><td>Microsoft 365 Copilot app</td><td>Varies by account type, subscription and organization settings</td><td>Check your account and organization settings</td><td>Availability varies</td></tr></tbody></table><p>Sources for the table: <a href=\"https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt\">OpenAI cloud browser</a>, <a href=\"https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex\">OpenAI Work</a>, <a href=\"https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork\">Claude Cowork</a>, <a href=\"https://support.claude.com/en/articles/13364135-use-claude-cowork-safely\">Cowork safety</a> and <a href=\"https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-agents-in-the-microsoft-365-copilot-app\">Microsoft Support</a>. Prices are left out on purpose because they change. Check current prices on the <a href=\"https://chatgpt.com/pricing\">ChatGPT pricing page</a> and the <a href=\"https://claude.com/pricing\">Claude pricing page</a>. Agent features mostly sit on paid plans. To see what free tiers do include, read our guide to <a href=\"https://newearns.com/free-ai-tools-free-plans/\">free AI tools and what each free plan actually includes</a>.</p><h2>What AI agents can do for freelancers and small businesses</h2><p>The vendors publish their own example tasks. Here they are grouped by the kind of work New Earns readers do. None of them come with documented time savings, and each vendor says some tasks need your review.</p><ul><li><strong>Admin and money:</strong> OpenAI lists “Reconcile invoices and update records in your accounting software,” requesting quotes and comparing utility plans as cloud browser tasks (<a href=\"https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt\">OpenAI</a>). Anthropic lists turning receipts into an expense report (<a href=\"https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork\">Anthropic</a>).</li><li><strong>Research and writing:</strong> Cowork examples include research synthesis, transcript analysis, reports from voice memos and slide decks from notes (<a href=\"https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork\">Anthropic</a>).</li><li><strong>Files and data:</strong> organizing a Downloads folder, batch renaming files, cleaning data, making charts, and building Excel files “with working VLOOKUP” (<a href=\"https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork\">Anthropic</a>).</li><li><strong>Everyday errands:</strong> comparing flights or stock, tracking packages, saving apartment listings and preparing a DMV booking for your approval (<a href=\"https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt\">OpenAI</a>).</li><li><strong>Recurring work:</strong> Cowork offers scheduled tasks (<a href=\"https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork\">Anthropic</a>), and ChatGPT Work can run tasks triggered by events on eligible plans (<a href=\"https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex\">OpenAI</a>).</li></ul><p>For example, a freelance designer could ask Cowork to turn a month of receipt files into an expense report, then check the totals against the receipts before sending it to an accountant. OpenAI notes that some cloud browser tasks need your review or a final step you complete yourself.</p><h2>What AI agents still can't do reliably</h2><h3>Documented limits</h3><ul><li><strong>Websites can say no.</strong> Sites can block automated agents, and the task may not finish (<a href=\"https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt\">OpenAI</a>).</li><li><strong>Computer use is slow and can misclick.</strong> Anthropic's developer docs say delays “might be too slow compared to regular human-directed computer actions,” that Claude can make mistakes with on-screen coordinates, and: “Do not use Claude for tasks requiring perfect precision or sensitive user information without human oversight” (<a href=\"https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool\">Anthropic</a>).</li><li><strong>Safeguards are not complete.</strong> OpenAI says its protections against prompt injection, phishing and unintended actions “do not eliminate every risk” (<a href=\"https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt\">OpenAI</a>). Anthropic says “The chances of an attack are still non-zero” (<a href=\"https://support.claude.com/en/articles/13364135-use-claude-cowork-safely\">Anthropic</a>).</li><li><strong>Some work is a poor fit.</strong> Google Cloud lists tasks that need deep empathy, carry high ethical stakes or happen in unpredictable physical environments. It also notes that resource-intensive builds may not suit smaller organizations with limited budgets (<a href=\"https://cloud.google.com/discover/what-are-ai-agents\">Google Cloud</a>).</li><li><strong>Agents can loop or leak.</strong> IBM warns of infinite feedback loops, where “some level of real-time human monitoring might be used.” It also flags privacy risks from the “experimental and often unpredictable behavior of agentic AI” (<a href=\"https://www.ibm.com/think/topics/ai-agents\">IBM</a>).</li></ul><h3>What benchmarks show</h3><p>These three tests measure different things, so their percentages should not be compared with each other.</p><ul><li><strong>TheAgentCompany (NeurIPS 2025):</strong> in a simulated small software company, “with the most competitive agent, 30% of the tasks can be completed autonomously.” Simpler tasks were often solved, but “more difficult long-horizon tasks are still beyond the reach of current systems” (<a href=\"https://papers.nips.cc/paper_files/paper/2025/hash/0d744742f6fac4d1134c019b7cef3c8a-Abstract-Datasets_and_Benchmarks_Track.html\">NeurIPS paper</a>).</li><li><strong>OSWorld (2025):</strong> this test measures how well agents use a computer. The Stanford HAI 2026 AI Index shows accuracy rising from about 5% in 2024 to 66.3% in 2025, still below a 72.35% human baseline (<a href=\"https://hai.stanford.edu/ai-index/2026-ai-index-report\">Stanford HAI</a>).</li><li><strong>Remote Labor Index (as of October 2025):</strong> on real projects of the kind people are paid to do remotely, “AI agents perform near the floor,” and the best agent reached an automation rate of 2.5% (<a href=\"https://arxiv.org/abs/2510.26787\">arXiv</a>). Newer models may score differently.</li></ul><p>The practical takeaway is to give agents short, well-defined tasks and to treat what they produce as a draft you check.</p><h2>How to try your first agent task safely</h2><p>Exact buttons may differ by plan and while features roll out.</p><ol><li><strong>Check your plan.</strong> The cloud browser excludes Free and Go (<a href=\"https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt\">OpenAI</a>), and Cowork is for paid plans only (<a href=\"https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork\">Anthropic</a>).</li><li><strong>Pick a low-stakes task.</strong> Research synthesis, comparing utility plans or renaming a copy of a folder are safer starts than anything involving payments or client messages.</li><li><strong>Describe the outcome clearly.</strong> Say what you want, which sources or folders to use, the format of the result, and what the agent must not do. Our <a href=\"https://newearns.com/chatgpt-prompts-freelancers-side-hustles/\">ChatGPT prompts for freelancers and side hustles</a> show how to write clear, specific instructions.</li><li><strong>Choose cautious settings.</strong> In the cloud browser, keep site access on Always ask. In Cowork, use Manual for anything involving “money, messages sent as you, important files” (<a href=\"https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork\">Anthropic</a>).</li><li><strong>For local files in Cowork, open the Desktop app.</strong> It must be open and connected for local files, browser use and computer use.</li><li><strong>Sign in only through the secure form.</strong> The cloud browser pauses for sign-ins, and those credentials are not visible to the model (<a href=\"https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt\">OpenAI</a>).</li><li><strong>Stay reachable and review.</strong> Answer confirmation prompts yourself, then check the result before you use or send it.</li></ol><h3>Safety checklist</h3><ul><li><strong>Understand prompt injection.</strong> Anthropic explains that it needs two things at once: Claude reads content from outside your trusted sources, and it can take actions that could harm you. Limit either one and you cut the risk (<a href=\"https://support.claude.com/en/articles/13364135-use-claude-cowork-safely\">Anthropic</a>).</li><li><strong>Never paste secrets.</strong> OpenAI: “Never paste passwords, security codes, or payment details into the conversation” (<a href=\"https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt\">OpenAI</a>).</li><li><strong>Keep sensitive work out of agent browsers.</strong> Anthropic says “we strongly advise against using either to manage or take actions involving sensitive information” (<a href=\"https://support.claude.com/en/articles/13364135-use-claude-cowork-safely\">Anthropic</a>).</li><li><strong>Know which tools skip checks.</strong> In Cowork, computer use clicks and types “without the permission checks that gate other Cowork tools.” Claude does always ask before permanently deleting files, in any mode (<a href=\"https://support.claude.com/en/articles/13364135-use-claude-cowork-safely\">Anthropic</a>).</li><li><strong>Limit access.</strong> Connect only the apps and folders a task needs, and work on copies of important files.</li><li><strong>Avoid “always allow” settings.</strong> OpenAI calls Always allow “not recommended,” and Anthropic's Skip mode means nothing checks actions automatically.</li><li><strong>Stop tasks that go wrong.</strong> If an agent heads somewhere you did not intend, stop it rather than letting it continue.</li></ul><h2>What the research says about AI, agents and jobs</h2><p>The evidence is early and uneven, and none of it predicts what will happen to any one person's income.</p><ul><li><strong>Adoption is still early.</strong> Citing a McKinsey survey, the 2026 AI Index reports that 88% of surveyed organizations use AI, but scaled agent deployment “was in the single digits across nearly all business functions.” In the technology sector it was higher: software engineering 24%, IT 22% and service operations 21% (<a href=\"https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf\">AI Index 2026, Economy</a>).</li><li><strong>Agent skills are showing up in job ads.</strong> Job postings referencing agentic AI or AI agents “exponentially increased” from 2024 to 2025, while postings mentioning ChatGPT or chatbots fell as a share (<a href=\"https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf\">AI Index 2026</a>).</li><li><strong>Early-career workers in exposed jobs have been hit.</strong> Citing Brynjolfsson et al. (2025), the report says that “By September 2025, employment for software developers ages 22–25 had fallen close to 20% from its 2022 peak.” In the most AI-exposed jobs, employment for workers aged 22–25 fell about 16% compared with the least exposed. These figures cover AI exposure in general, not agents specifically, and the report adds that the evidence “does not point to broad, uniform displacement” (<a href=\"https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf\">AI Index 2026</a>).</li><li><strong>Productivity results for AI assistants (not agents) vary.</strong> Support agents resolved 14–15% more issues per hour (Brynjolfsson et al., 2025), and developers using GitHub Copilot completed 26% more pull requests (Cui et al., 2025). METR found experienced open-source developers were 19% slower with AI, but a later study could not repeat that result. The report calls effects “highly context dependent” (<a href=\"https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf\">AI Index 2026</a>).</li><li><strong>Employers' expectations are not outcomes.</strong> About one-third of organizations expect AI to reduce their workforce in the coming year. That is a forecast from employers, not a measured result (<a href=\"https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf\">AI Index 2026</a>).</li></ul><p>If you are weighing routine admin work as a side income, our guide to <a href=\"https://newearns.com/data-entry-jobs-from-home/\">data entry jobs from home</a> covers where to find real openings and how to spot scams.</p><h2>Watch out for “AI agent” income schemes</h2><p>“Let an AI agent run your store” is an easy pitch to sell. On 25 September 2024, the FTC announced Operation AI Comply, a set of five enforcement actions over deceptive AI claims and schemes (<a href=\"https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes\">FTC</a>). The allegations, as announced at the time, included:</p><ul><li><strong>Ascend Ecom</strong> allegedly claimed its AI tools would bring passive income and allegedly “defrauded consumers of at least $25 million.”</li><li><strong>Ecommerce Empire Builders</strong> claimed clients could make $10,000 a month; the FTC alleged the company “has no evidence to back up those claims.”</li><li><strong>FBA Machine</strong> allegedly cost consumers “more than $15.9 million.”</li></ul><p>At the time of the announcement, Ascend Ecom and Ecommerce Empire Builders had been halted by court order and those cases were ongoing. Then-Chair Lina M. Khan said “there is no AI exemption from the laws on the books” (<a href=\"https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes\">FTC</a>). Compare any “AI income” pitch with the benchmark results above, and ask for evidence before you pay. For a grounded look at realistic earnings, read <a href=\"https://newearns.com/can-you-really-make-100-a-day-online-the-honest-truth/\">Can You Really Make $100 a Day Online? The Honest Truth</a>.</p><h2>FAQ</h2><h3>Is ChatGPT agent mode still available?</h3><p>No. OpenAI's help page says “ChatGPT agent is no longer available” and points users to <a href=\"https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex\">ChatGPT Work</a>, which can use the cloud browser for tasks on websites.</p><h3>Do AI agents work on free plans?</h3><p>Not the ones covered here, as of October 2026. The <a href=\"https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt\">cloud browser</a> is for paid ChatGPT plans in supported regions, excluding Free and Go. <a href=\"https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork\">Cowork</a> is for paid Claude plans only. Microsoft says agent availability varies by account type, subscription and organization settings.</p><h3>Can an agent log in to my accounts?</h3><p>Yes, with conditions. ChatGPT's cloud browser takes logins through a secure form that is not visible to the model, sessions last until they expire, and it does not use your own browser's sign-ins. It also asks for confirmation before actions with financial, legal, account or other real-world commitments (<a href=\"https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt\">OpenAI</a>).</p><h3>Are AI agents safe to use with client data?</h3><p>Be cautious. Anthropic strongly advises against using Cowork's browser features for sensitive information and says the chance of an attack is “still non-zero” (<a href=\"https://support.claude.com/en/articles/13364135-use-claude-cowork-safely\">Anthropic</a>). OpenAI says its safeguards “do not eliminate every risk.” Check your client agreements, give the agent only the files a task needs, and review everything before it leaves your hands.</p>",
+      "sources": [
+        {
+          "url": "https://cloud.google.com/discover/what-are-ai-agents",
+          "title": "Google Cloud: What are AI agents? Definition, examples, and types",
+          "supports": "Definition of AI agents, the agent vs assistant vs bot comparison, reasoning/acting/observing/planning, and challenges such as empathy, ethical stakes, physical environments and resource-intensive builds"
+        },
+        {
+          "url": "https://www.ibm.com/think/topics/ai-agents",
+          "title": "IBM: What Are AI Agents?",
+          "supports": "Agents built on LLMs with tool calling and subtasks; non-agent chatbots lack tools, memory or reasoning; risks of feedback loops and data privacy"
+        },
+        {
+          "url": "https://help.openai.com/en/articles/11752874-chatgpt-agent",
+          "title": "OpenAI Help: ChatGPT agent",
+          "supports": "ChatGPT agent is no longer available; users are pointed to ChatGPT Work"
+        },
+        {
+          "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+          "title": "OpenAI Help: ChatGPT Work and Codex",
+          "supports": "Work described as an agent; where it runs; local file access; usage structure; event-triggered task availability"
+        },
+        {
+          "url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+          "title": "OpenAI Help: Using cloud browser in ChatGPT",
+          "supports": "What the cloud browser does, plan availability, example tasks, site access settings, confirmations, secure sign-ins, website blocks and safety guidance"
+        },
+        {
+          "url": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
+          "title": "Claude Help: Get started with Claude Cowork",
+          "supports": "What Cowork is, paid plans, desktop app requirements, approval modes, usage, and example tasks"
+        },
+        {
+          "url": "https://support.claude.com/en/articles/13364135-use-claude-cowork-safely",
+          "title": "Claude Help: Use Claude Cowork safely",
+          "supports": "Prompt injection conditions, advice on sensitive information, computer use permission checks, file deletion prompts, non-zero attack risk"
+        },
+        {
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+          "title": "Claude Platform Docs: Computer use tool",
+          "supports": "Computer use latency, coordinate mistakes, and the need for human oversight on precise or sensitive tasks"
+        },
+        {
+          "url": "https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-agents-in-the-microsoft-365-copilot-app",
+          "title": "Microsoft Support: Get started with agents in the Microsoft Copilot app",
+          "supports": "Types of agents, how to find them in the Agent Store, and availability varying by account, subscription and organization"
+        },
+        {
+          "url": "https://papers.nips.cc/paper_files/paper/2025/hash/0d744742f6fac4d1134c019b7cef3c8a-Abstract-Datasets_and_Benchmarks_Track.html",
+          "title": "TheAgentCompany (NeurIPS 2025 Datasets and Benchmarks)",
+          "supports": "30% of tasks completed autonomously by the best agent in a simulated small software company; long-horizon tasks still out of reach"
+        },
+        {
+          "url": "https://arxiv.org/abs/2510.26787",
+          "title": "Remote Labor Index (arXiv 2510.26787)",
+          "supports": "Agents perform near the floor; best agent 2.5% automation rate as of October 2025"
+        },
+        {
+          "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+          "title": "Stanford HAI: The 2026 AI Index Report",
+          "supports": "OSWorld accuracy about 5% in 2024 to 66.3% in 2025, below a 72.35% human baseline"
+        },
+        {
+          "url": "https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf",
+          "title": "AI Index 2026, Chapter 4: Economy",
+          "supports": "Agent adoption figures from a McKinsey survey, agent job postings trend, early-career employment declines, productivity studies, and employer workforce expectations"
+        },
+        {
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes",
+          "title": "FTC: FTC Announces Crackdown on Deceptive AI Claims and Schemes",
+          "supports": "Operation AI Comply, allegations against Ascend Ecom, Ecommerce Empire Builders and FBA Machine, and the 'no AI exemption' quote"
+        },
+        {
+          "url": "https://chatgpt.com/pricing",
+          "title": "ChatGPT pricing",
+          "supports": "Where readers can check current ChatGPT plan prices (no prices stated in the article)"
+        },
+        {
+          "url": "https://claude.com/pricing",
+          "title": "Claude pricing",
+          "supports": "Where readers can check current Claude plan prices (no prices stated in the article)"
+        }
+      ],
+      "product_link_reason": "",
+      "internal_links_note": "",
+      "image_headline": "What AI Agents Can Really Do",
+      "search_intent": "Informational definition search ('what is an AI agent') with a secondary need for practical examples: which agents a freelancer or small business owner can use today, what they do, which plans include them, how reliable and safe they are, and how to avoid AI income scams.",
+      "unique_value": "A documentation-only guide for people who earn online. It gives a plain definition with a chatbot vs agent vs bot table, documented cards for ChatGPT Work with the cloud browser, Claude Cowork and Microsoft Copilot agents (plans, where they run, approvals, limits), vendor-published freelancer tasks, a combined OpenAI/Anthropic safety checklist, dated benchmark results, cautious jobs research, and an FTC-sourced warning about AI income schemes.",
+      "image_alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+      "featured_image": {
+        "alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+        "license": "generated-in-house",
+        "creator": "",
+        "license_url": ""
+      },
+      "inline_images": []
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "Google's definition quote; agents \"show reasoning, planning and memory\" and some autonomy",
+          "verdict": "supported",
+          "source_url": "https://cloud.google.com/discover/what-are-ai-agents",
+          "evidence": "\"They show reasoning, planning, and memory and have a level of autonomy…\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "IBM: agents are built on LLMs, use tool calling for up-to-date info, and create subtasks",
+          "verdict": "supported",
+          "source_url": "https://www.ibm.com/think/topics/ai-agents",
+          "evidence": "\"uses tool calling on the backend to obtain up-to-date information… create subtasks autonomously\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "IBM: non-agent chatbots work \"without available tools, memory or reasoning\"",
+          "verdict": "supported",
+          "source_url": "https://www.ibm.com/think/topics/ai-agents",
+          "evidence": "\"Nonagentic AI chatbots are ones without available tools, memory or reasoning.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Intro: a chatbot answers one prompt at a time",
+          "verdict": "supported",
+          "source_url": "https://www.ibm.com/think/topics/ai-agents",
+          "evidence": "\"nonagentic chatbots require continuous user input to respond\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Table row for AI agent: works \"on its own and proactively… complex multi-step actions\"",
+          "verdict": "supported",
+          "source_url": "https://cloud.google.com/discover/what-are-ai-agents",
+          "evidence": "\"Autonomously and proactively perform tasks… complex, multi-step actions\". Verdict noted as supported but adds editorial wording: \"using tools\" and \"within the permissions you give it\" are the writer's additions, not in Google's table.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Table row for assistant: \"the user makes decisions\"; can recommend actions",
+          "verdict": "supported",
+          "source_url": "https://cloud.google.com/discover/what-are-ai-agents",
+          "evidence": "\"can recommend actions but the user makes decisions\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Table row for bot: \"Follows pre-defined rules; limited learning\"",
+          "verdict": "supported",
+          "source_url": "https://cloud.google.com/discover/what-are-ai-agents",
+          "evidence": "Google, same table.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Google describes reasoning, acting, observing and planning",
+          "verdict": "supported",
+          "source_url": "https://cloud.google.com/discover/what-are-ai-agents",
+          "evidence": "Google \"Key features\" section.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The cloud browser pauses for input, sign-in or confirmation",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+          "evidence": "\"It pauses when it needs your input, sign-in, or confirmation.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"ChatGPT agent is no longer available…\"",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/11752874-chatgpt-agent",
+          "evidence": "Overview section. The same page still has outdated plan and limit text, so the article is right to warn readers about this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "ChatGPT includes Chat and Work; quote saying Work is an agent; Codex is for software development",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+          "evidence": "Supported by the Work and Codex help page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Work is on web and mobile for eligible paid plans, and in the desktop app when the plan includes it; it runs in the cloud; it \"cannot directly access files on your computer\"; desktop can use local files; context may be stored in the cloud",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+          "evidence": "Same page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Work follows the same usage structure as Codex; \"Work usage will vary by task\"",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+          "evidence": "\"Work follows the same usage structure as Codex… so Work usage will vary by task.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Event-triggered tasks (Slack as an example); not available on Free, Go or FedRAMP; Enterprise, Edu and Healthcare admins must turn them on",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+          "evidence": "\"Enterprise, Edu, and ChatGPT for Healthcare admins must enable Allow event-triggered scheduled tasks\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Cloud browser gets \"its own browser on a separate computer\"; can read pages, click and fill forms on public and signed-in sites; keeps working after you leave",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+          "evidence": "Supported by the cloud browser help page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Available on \"paid ChatGPT plans… excluding Free and Go\"; may vary during rollout and by workspace permissions",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+          "evidence": "Availability section.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Site settings are Always ask, Auto approve and Always allow; Always allow is \"not recommended\"",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+          "evidence": "\"Always allow: Allow access to every website. This is not recommended.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Confirmation before actions that are \"hard to reverse or create a financial, legal, account…\" commitment",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+          "evidence": "\"Review consequential actions\" section.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Sign-in credentials are \"not visible to the model\"; sessions last until they expire; it doesn't use your own browser's cookies or sign-ins",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+          "evidence": "Sign-in and Privacy sections.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Websites can block agents; restrictions \"are set by the website, not by ChatGPT\"",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+          "evidence": "\"When a website blocks the task\" section.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Example tasks: reconcile invoices, request quotes, compare utility plans, flights, stock, package tracking, apartment listings, DMV booking prepared for approval",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+          "evidence": "\"Examples of tasks\" section.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Some tasks need your review or a final step you do yourself",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+          "evidence": "\"Some tasks require your review or a final step you complete yourself.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Never paste passwords…\"; safeguards \"do not eliminate every risk\"; stop tasks that go wrong",
+          "verdict": "supported",
+          "source_url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+          "evidence": "\"Use cloud browser safely\": \"Stop the task if ChatGPT opens the wrong site…\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Cowork \"brings Claude Code's agentic capabilities to knowledge work beyond coding\"; describe an outcome and step away; runs in the cloud; has scheduled tasks and projects",
+          "verdict": "supported",
+          "source_url": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
+          "evidence": "Supported by the Cowork get-started page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Cowork is for paid plans only: Pro, Max, Ultra, Team, Enterprise",
+          "verdict": "supported",
+          "source_url": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
+          "evidence": "\"Cowork is available to paid Claude plans (Pro, Max, Ultra, Team, Enterprise) only.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Article text: Cowork web and mobile access varies by plan; Team is beta; Enterprise needs an owner to turn it on",
+          "verdict": "supported",
+          "source_url": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
+          "evidence": "Supported in the article text. The source applies these limits to \"Web and Claude Mobile…(in beta on Team)…Enterprise plans when an owner enables it\".",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Comparison table: Cowork plans shown as \"Team (beta), Enterprise (owner enables)\" as if applying to Cowork in general",
+          "verdict": "unsupported",
+          "source_url": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
+          "evidence": "Notes label this overstated in the comparison table. The source applies these limits only to \"Web and Claude Mobile…(in beta on Team)…Enterprise plans when an owner enables it\". Desktop is \"Available on all paid plans.\"",
+          "suggested_fix": "\"Pro, Max, Ultra, Team, Enterprise (desktop on all paid plans; web/mobile in beta on Team, owner-enabled on Enterprise).\""
+        },
+        {
+          "claim": "Desktop app (macOS or Windows) must be open and connected for local files, browser use and computer use",
+          "verdict": "supported",
+          "source_url": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
+          "evidence": "Requirements section. The Availability section also lists \"Linux (beta)\", which the article could mention.",
+          "suggested_fix": "Optionally mention Linux (beta)."
+        },
+        {
+          "claim": "Manual, Auto and Skip modes; Skip means \"nothing checks its actions automatically\"; quote about \"money, messages sent as you, important files\"",
+          "verdict": "supported",
+          "source_url": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
+          "evidence": "\"Claude doesn't pause to ask and nothing checks its actions automatically.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Multi-step tasks use more of your usage than quick questions\"",
+          "verdict": "supported",
+          "source_url": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
+          "evidence": "Troubleshooting section.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Example tasks: receipts into an expense report, Downloads folder, batch rename, research synthesis, transcript analysis, voice memos, slide decks, VLOOKUP, cleaning data, charts",
+          "verdict": "supported",
+          "source_url": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
+          "evidence": "\"Example use cases\" sections.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Cowork always asks before permanently deleting files, in any mode",
+          "verdict": "supported",
+          "source_url": "https://support.claude.com/en/articles/13364135-use-claude-cowork-safely",
+          "evidence": "\"Claude always asks before permanently deleting files, in any mode.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"The chances of an attack are still non-zero\"",
+          "verdict": "supported",
+          "source_url": "https://support.claude.com/en/articles/13364135-use-claude-cowork-safely",
+          "evidence": "Cowork safety page (the source has a lowercase \"the\").",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Prompt injection needs two conditions at once",
+          "verdict": "supported",
+          "source_url": "https://support.claude.com/en/articles/13364135-use-claude-cowork-safely",
+          "evidence": "\"two things must be true at the same time…\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"We strongly advise against using either…\"",
+          "verdict": "supported",
+          "source_url": "https://support.claude.com/en/articles/13364135-use-claude-cowork-safely",
+          "evidence": "The source refers specifically to the built-in browser and Claude in Chrome. The checklist heading \"agent browsers\" makes it sound broader.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Computer use works \"without the permission checks that gate other Cowork tools\"",
+          "verdict": "supported",
+          "source_url": "https://support.claude.com/en/articles/13364135-use-claude-cowork-safely",
+          "evidence": "Cowork safety page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Computer use limits: latency, coordinate mistakes, \"Do not use Claude for tasks requiring perfect precision…\"",
+          "verdict": "supported",
+          "source_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+          "evidence": "Computer-use tool docs, Limitations section.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Agents are in the \"Microsoft 365 Copilot app\"",
+          "verdict": "contradicted",
+          "source_url": "https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-agents-in-the-microsoft-365-copilot-app",
+          "evidence": "The page title and text say \"Microsoft Copilot app\".",
+          "suggested_fix": "Use \"Microsoft Copilot app\" in the body text and the table."
+        },
+        {
+          "claim": "Three kinds of agents: pre-built, made by your organization, self-built",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-agents-in-the-microsoft-365-copilot-app",
+          "evidence": "\"pre-built agents, agents created by others in your organization, or create your own\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Steps: Navigation → Agents → All agents (Agent Store) → Add/Open",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-agents-in-the-microsoft-365-copilot-app",
+          "evidence": "Slightly simplified: the source says you expand Agents \"or\" select All agents.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Quote that availability \"can vary based on your account type…\"",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-agents-in-the-microsoft-365-copilot-app",
+          "evidence": "Microsoft page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Your IT admin controls much of this\"",
+          "verdict": "unsupported",
+          "source_url": "https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-agents-in-the-microsoft-365-copilot-app",
+          "evidence": "The page only says \"organization settings\".",
+          "suggested_fix": "\"your organization's settings affect which agents you see.\""
+        },
+        {
+          "claim": "\"Each vendor says some tasks need your review\"",
+          "verdict": "unsupported",
+          "source_url": "https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-agents-in-the-microsoft-365-copilot-app",
+          "evidence": "Unsupported for Microsoft: Microsoft's page says the opposite in tone (\"ensure a higher degree of accuracy\").",
+          "suggested_fix": "\"OpenAI and Anthropic each say…\""
+        },
+        {
+          "claim": "Google's list of poor-fit tasks (empathy, ethics, physical environments, budgets)",
+          "verdict": "supported",
+          "source_url": "https://cloud.google.com/discover/what-are-ai-agents",
+          "evidence": "Google, \"Challenges\" section.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "IBM on loops (\"some level of real-time human monitoring might be used\") and privacy (\"experimental and often unpredictable…\")",
+          "verdict": "supported",
+          "source_url": "https://www.ibm.com/think/topics/ai-agents",
+          "evidence": "IBM, Risks section.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "TheAgentCompany: 30% of tasks completed autonomously; long-horizon tasks still \"beyond the reach…\"",
+          "verdict": "supported",
+          "source_url": "https://papers.nips.cc/paper_files/paper/2025/hash/0d744742f6fac4d1134c019b7cef3c8a-Abstract-Datasets_and_Benchmarks_Track.html",
+          "evidence": "NeurIPS 2025 Datasets & Benchmarks track abstract.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "OSWorld: about 5% (2024) to 66.3% (2025), against a 72.35% human baseline, per the AI Index",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "hai.stanford.edu would not render, and the web_fetch quota ran out before its text could be captured. No quote obtained. The human baseline is usually given as 72.36%, so the decimal needs checking.",
+          "suggested_fix": "Check against the AI Index technical-performance chapter, or cite the OSWorld leaderboard; check the decimal of the human baseline."
+        },
+        {
+          "claim": "RLI: \"AI agents perform near the floor\"; best agent 2.5%",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "The cited page https://arxiv.org/abs/2510.26787 would not render; the quote was read in the HTML v1 version of arXiv 2510.26787 (v1, 30 Oct 2025): \"highest-performing agent achieving an automation rate of 2.5%\".",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Practical takeaway: give agents short, well-defined tasks",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "Notes give no supported/unsupported verdict; they label it editorial and consistent with the sources.",
+          "suggested_fix": "None needed per notes."
+        },
+        {
+          "claim": "Jobs research (#49–55): 88% of organizations use AI; scaled agent use \"in the single digits\" (software engineering 24%, IT 22%, service operations 21%); job postings mentioning agentic AI \"exponentially increased\"; software developers aged 22–25 down \"close to 20%\"; about 16% gap in exposed jobs; \"does not point to broad, uniform displacement\"; support agents 14–15% more issues resolved, Copilot 26% more pull requests, METR 19% slower plus a failed replication, \"highly context dependent\"; about one-third expect workforce cuts",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "All from the AI Index economy chapter PDF (https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf), which was unreadable here; no quotes obtained.",
+          "suggested_fix": "Check each against the PDF before publishing. Also confirm that 24/22/21% are scaled-agent figures \"in the technology sector\", not across all industries."
+        },
+        {
+          "claim": "FTC section (#56–61): Operation AI Comply announced 25 Sept 2024 with five actions; Ascend Ecom \"at least $25 million\"; Ecommerce Empire Builders $10,000/month with \"no evidence\"; FBA Machine \"more than $15.9 million\"; court halts; Khan's \"no AI exemption\" quote",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "read_source returned HTTP 404 for the FTC press release (https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes). web_fetch did return a document for this URL, so the link is probably fine, but no text was verified.",
+          "suggested_fix": "Re-read the release and check each figure and quote before publishing."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://cloud.google.com/discover/what-are-ai-agents",
+          "relevant": true,
+          "notes": "Read. Relevant and supports what's cited."
+        },
+        {
+          "url": "https://www.ibm.com/think/topics/ai-agents",
+          "relevant": true,
+          "notes": "Read. Relevant and supports what's cited."
+        },
+        {
+          "url": "https://help.openai.com/en/articles/11752874-chatgpt-agent",
+          "relevant": true,
+          "notes": "Read. Relevant and supports what's cited. Page still has outdated plan and limit text."
+        },
+        {
+          "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+          "relevant": true,
+          "notes": "Read. Relevant and supports what's cited."
+        },
+        {
+          "url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+          "relevant": true,
+          "notes": "Read. Relevant and supports what's cited."
+        },
+        {
+          "url": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
+          "relevant": true,
+          "notes": "Read. Relevant. Supports what's cited, except the table's plan wording (#26)."
+        },
+        {
+          "url": "https://support.claude.com/en/articles/13364135-use-claude-cowork-safely",
+          "relevant": true,
+          "notes": "Read. Relevant and supports what's cited."
+        },
+        {
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+          "relevant": true,
+          "notes": "Read. Relevant and supports what's cited."
+        },
+        {
+          "url": "https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-agents-in-the-microsoft-365-copilot-app",
+          "relevant": false,
+          "notes": "Read and relevant, but notes say it only mostly supports what's cited: wrong app name (#37), and it doesn't support \"IT admin\" (#41) or \"each vendor\" (#42)."
+        },
+        {
+          "url": "https://papers.nips.cc/paper_files/paper/2025/hash/0d744742f6fac4d1134c019b7cef3c8a-Abstract-Datasets_and_Benchmarks_Track.html",
+          "relevant": true,
+          "notes": "Read (TheAgentCompany). Relevant and supports what's cited."
+        },
+        {
+          "url": "https://arxiv.org/abs/2510.26787",
+          "relevant": true,
+          "notes": "The /abs page wouldn't render; HTML v1 was read instead. Relevant and supports what's cited (RLI)."
+        },
+        {
+          "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+          "relevant": false,
+          "notes": "Could not read. Probably relevant, but support is unverified."
+        },
+        {
+          "url": "https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf",
+          "relevant": false,
+          "notes": "Could not read. Probably relevant, but unverified; the whole jobs section depends on it."
+        },
+        {
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes",
+          "relevant": false,
+          "notes": "Could not read (404 via read_source; web_fetch returned a document, so link probably fine). Probably relevant, but unverified."
+        },
+        {
+          "url": "https://chatgpt.com/pricing",
+          "relevant": false,
+          "notes": "Could not read (JavaScript only). Only linked for \"check current prices\"; no factual claims rest on it, so this is fine."
+        },
+        {
+          "url": "https://claude.com/pricing",
+          "relevant": false,
+          "notes": "Could not read (JavaScript only). Only linked for \"check current prices\"; no factual claims rest on it, so this is fine."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "Passes. Clear definition backed by two sources; the three-way table comes from Google's comparison. Product sections are specific, dated and source-tied (plans, where each tool runs, approval modes, limits), and it flags that ChatGPT agent has been withdrawn. Safety checklist takes concrete steps from both vendors. Benchmark section is careful and warns against comparing the three scores. Weaknesses: the Microsoft section is thin (no plans, no limits); the jobs and FTC sections are the least verified parts.",
+      "adds_original_value": true,
+      "value_notes": "Adds real value for its audience: vendor example tasks grouped by freelancer work, a worked example with receipts, and a scam warning. Not a generic rewrite.",
+      "product_claims_accurate": true,
+      "product_notes": "The rule allows no product claims. The article doesn't promote any New Earns product, and internal links go to guides. No product promotion by the publisher found; it complies.",
+      "fetched_urls": [
+        "https://arxiv.org/abs/2510.26787",
+        "https://arxiv.org/html/2510.26787v1",
+        "https://cloud.google.com/discover/what-are-ai-agents",
+        "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+        "https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf",
+        "https://help.openai.com/en/articles/11752874-chatgpt-agent",
+        "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+        "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+        "https://papers.nips.cc/paper_files/paper/2025/hash/0d744742f6fac4d1134c019b7cef3c8a-Abstract-Datasets_and_Benchmarks_Track.html",
+        "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+        "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
+        "https://support.claude.com/en/articles/13364135-use-claude-cowork-safely",
+        "https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-agents-in-the-microsoft-365-copilot-app",
+        "https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes",
+        "https://www.ibm.com/think/topics/ai-agents"
+      ],
+      "content_sha256": "c875f0a58548bdb00247ed07e77415f4d8a89fdea781ce6fe773dcab67dba883"
+    },
+    "images": {
+      "words": 3033,
+      "target": [
+        4,
+        5
+      ],
+      "stock_api_calls": 5,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "what is an ai agent",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "openverse",
+          "query": "what is an AI agent",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "commons",
+          "query": "what is an ai agent",
+          "result": "6"
+        },
+        {
+          "provider": "commons",
+          "query": "what is an AI agent",
+          "result": "6 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "person using laptop computer",
+          "result": "17 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "laptop home office",
+          "result": "19 (cached)"
+        }
+      ],
+      "notes": [
+        "FALLBACK: no free, clearly licensed photo matched this article's topic, so the featured image is an in-house illustration (earnings). Replace it in WP Admin if you find a better photo.",
+        "1 image(s), below the 4-5 guideline: nothing else in the article would gain from a visual, and decorative images are not added"
+      ],
+      "topic": {
+        "motif": "earnings",
+        "match": "pillar ai"
+      },
+      "photo_rejections": [
+        {
+          "description": "Agreement with security statements - 2024 AI index",
+          "reason": "wrong scene (agreement)"
+        },
+        {
+          "description": "Captured by Code",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Chitresh Gupta Kxrn Official Press Photo",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Sam Altman speaking at TED",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Sam Altman speaking at TED (cropped)",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Synthetica Naturae by Diddo",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Agreement with security statements - 2024 AI index",
+          "reason": "wrong scene (agreement)"
+        },
+        {
+          "description": "Captured by Code",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Chitresh Gupta Kxrn Official Press Photo",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Sam Altman speaking at TED",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Sam Altman speaking at TED (cropped)",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Synthetica Naturae by Diddo",
+          "reason": "no laptop/computer/screen in its title"
+        }
+      ],
+      "featured": {
+        "provider": "in-house",
+        "kind": "illustration",
+        "motif": "earnings",
+        "license": "generated-in-house",
+        "alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+        "caption": "",
+        "filename": "what-is-an-ai-agent-featured.webp",
+        "fallback": true,
+        "file": "featured.webp",
+        "bytes": 5796
+      },
+      "inline": []
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "3047 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "8 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "What Is an AI Agent? What Today's Agents Can Actually Do, Which Plans Include Them, and Where They Still Fail"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.33% (2x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "1/8 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "134 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "59 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "what-is-an-ai-agent"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "what-is-an-ai-agent"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.00"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.54: Free AI Tools for Writing, Images, Video and Work: What Each Free Plan Actually Includes"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": "1 confirmed by fact-check fetch"
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "4 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "0 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "12 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "16 of 16 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "69 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "generated-in-house"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "0 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "1 contradicted by a source (likely wrong): Agents are in the \"Microsoft 365 Copilot app\" (fix: Use \"Microsoft Copilot app\" in the body text and the table.) || 3 no supporting evidence found (not shown to be false): Comparison table: Cowork plans shown as \"Team (beta), Enterprise (owner enables)\" as if ap (fix: \"Pro, Max, Ultra, Team, Enterprise (desktop on all paid plans; web/mobile in beta on Team, owner-enabled on Enterprise).) | \"Your IT admin controls much of this\" (fix: \"your organization's settings affect which agents you see.\") | \"Each vendor says some tasks need your review\" (fix: \"OpenAI and Anthropic each say…\") || 4 could not be checked (source unreadable or partial): OSWorld: about 5% (2024) to 66.3% (2025), against a 72.35% human baseline, per the AI Inde (fix: Check against the AI Index technical-performance chapter, or cite the OSWorld leaderboard; check the decimal of the huma) | Practical takeaway: give agents short, well-defined tasks (fix: None needed per notes.) | Jobs research (#49–55): 88% of organizations use AI; scaled agent use \"in the single digit (fix: Check each against the PDF before publishing. Also confirm that 24/22/21% are scaled-agent figures \"in the technology se) | FTC section (#56–61): Operation AI Comply announced 25 Sept 2024 with five actions; Ascend (fix: Re-read the release and check each figure and quote before publishing.) || 1 marked supported, but its source_url is missing or was not read by the pipeline: RLI: \"AI agents perform near the floor\"; best agent 2.5%",
+        "fix": "Contradicted: correct the claim to what the source says. No evidence found: cite an official source that states it, narrow it to what a source does say, or remove it. Could not be checked: verify it against a readable source or remove it. Source page not read: cite a page the pipeline can open that states the claim, or remove the claim. No claims listed: the fact-check did not check anything. Then re-run the fact-check only."
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Passes. Clear definition backed by two sources; the three-way table comes from Google's comparison. Product sections are specific, dated and source-tied (plans, where each tool runs, approval modes, limits), and it flags that ChatGPT agent has been withdrawn. Safety checklist takes concrete steps from both vendors. Benchmark section is careful and warns against comparing the three scores. Weaknesses: the Microsoft section is thin (no plans, no limits); the jobs and FTC sections are the least verified parts."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "Adds real value for its audience: vendor example tasks grouped by freelancer work, a worked example with receipts, and a scam warning. Not a generic rewrite."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "The rule allows no product claims. The article doesn't promote any New Earns product, and internal links go to guides. No product promotion by the publisher found; it complies."
+      },
+      {
+        "check": "fact_check_current",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "sources_verified",
+        "passed": false,
+        "detail": "https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-agents-in-the-microsoft-365-copilot-app does not support what it is cited for (Read and relevant, but notes say it only mostly supports what's cited: wrong app name (#37), and it ); https://hai.stanford.edu/ai-index/2026-ai-index-report does not support what it is cited for (Could not read. Probably relevant, but support is unverified.); https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf does not support what it is cited for (Could not read. Probably relevant, but unverified; the whole jobs section depends on it.); https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes does not support what it is cited for (Could not read (404 via read_source; web_fetch returned a document, so link probably fine). Probably) (+2 more)",
+        "fix": "Replace each unreadable or irrelevant source with a page that states the fact, or remove the claims that relied on it; then re-run the fact-check only."
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 2.187,
+        "write": 0.497,
+        "fact_check": 0.714,
+        "fact_check_json": 0.278
+      },
+      "total_usd": 3.676
+    },
+    "wp_media": {
+      "id": 3785,
+      "url": "https://newearns.com/wp-content/uploads/2026/10/what-is-an-ai-agent-featured.webp"
+    },
+    "wp_post": {
+      "id": 3786,
+      "status": "pending",
+      "link": "https://newearns.com/?p=3786"
+    },
+    "image_check": "ok",
+    "final": "held_for_review"
+  },
+  "updated": "2026-10-31T13:37:50+00:00"
+}
