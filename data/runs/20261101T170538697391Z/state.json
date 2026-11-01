@@ -1,0 +1,1041 @@
+{
+  "run_id": "20261101T170538697391Z",
+  "stages": {
+    "pillar": "passive",
+    "topic": "How to Make Money on Pinterest Without a Big Following",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 52,
+        "cache_creation_input_tokens": 58973,
+        "cache_read_input_tokens": 807680,
+        "output_tokens": 18741,
+        "web_search_requests": 20,
+        "web_fetch_requests": 7,
+        "requests": 10,
+        "read_source_calls": 15,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 52,
+            "cache_write_5m_tokens": 58973,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 807680,
+            "output_tokens": 18741
+          }
+        },
+        "fetched_urls": [
+          "https://create.pinterest.com/blog/affiliate-marketing-link-basics",
+          "https://create.pinterest.com/blog/make-money-on-pinterest/",
+          "https://create.pinterest.com/creators/grow-and-succeed/",
+          "https://www.etsy.com/legal/fees/",
+          "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 1.031
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 13492,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 13165,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 13492,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 13165
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.331
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 40,
+        "cache_creation_input_tokens": 82943,
+        "cache_read_input_tokens": 1031351,
+        "output_tokens": 14180,
+        "web_search_requests": 1,
+        "web_fetch_requests": 11,
+        "requests": 4,
+        "read_source_calls": 6,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 40,
+            "cache_write_5m_tokens": 82943,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 1031351,
+            "output_tokens": 14180
+          }
+        },
+        "fetched_urls": [
+          "https://create.pinterest.com/blog/affiliate-marketing-link-basics",
+          "https://create.pinterest.com/blog/make-money-on-pinterest/",
+          "https://create.pinterest.com/blog/pinterest-inclusion-fund-merchants-creators-2025/",
+          "https://create.pinterest.com/creators/grow-and-succeed/",
+          "https://tech.yahoo.com/social-media/articles/pinterest-inclusion-fund-returns-providing-151616478.html",
+          "https://www.etsy.com/legal/fees/",
+          "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.915
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 6125,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 9738,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 6125,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 9738
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.225
+      }
+    ],
+    "brief": "I've picked a topic and finished the brief. The article is \"how to make money on Pinterest\" without a big following. Four things came out of the research that matter most:\n\n- **Pinterest doesn't pay creators.** Its last direct payout program ended in November 2022. Today every way of earning sends people to another site, where that site or a brand pays you.\n- **Amazon may not accept a Pinterest-only account.** Pinterest names Amazon Associates US as an official affiliate partner. But Amazon's list of accepted social networks doesn't include Pinterest, and it usually wants about 500 followers. The article should tell readers to check with Amazon, not say Pinterest is banned.\n- **The sources give no \"how long until it earns\" figure, so the article shouldn't make one up.** The only clocks the sources give are Amazon's 180-day window to make three sales and Etsy's four-month listing renewal.\n- **Audience size mostly matters for brand deals.** The Pinterest pages I read don't set a follower minimum for links, affiliate links or the paid partnership label. But Pinterest tells creators to show brands their numbers in a media kit.\n\nI read 10 pages from 5 sites: 6 from Pinterest, 2 from Amazon, plus Etsy, the FTC and TechCrunch. There's no product link because this pillar has no product.\n\n---\n\n# CONTENT BRIEF: New Earns, passive pillar\n\n## Chosen query\n**how to make money on pinterest** (the angle is \"without a big following\")\n\n## Focus keyphrase\n**make money on Pinterest**. Use it in the title, the intro, and once or twice more. Don't put it in every heading.\n\n## Proposed title\nHow to Make Money on Pinterest Without a Big Following: What Pays, Who Takes a Cut, and What Isn't Passive\n\n## Search intent\nHow-to plus a list of methods. The top results are from Buffer, Hostinger, NerdWallet, Printful, Shopify, Outfy and Pinterest's own Create blog. They're all lists of 5 to 10 \"ways to make money\" that cover affiliate links, product pins, sending traffic, brand deals and selling products. Readers want to know which methods work for a small account and how to start.\n\n## Unique angle (what we add)\nMost top results list methods but skip the money questions this pillar cares about. We add:\n1. **The plain answer first:** Pinterest itself doesn't pay you. Its Creator Rewards program ended on November 30, 2022. Pinterest says it isn't part of affiliate agreements and isn't involved in brand-deal payments. All money comes from somewhere off Pinterest.\n2. **A decision table** with one row per method. Columns: does Pinterest pay? / who sets or takes the cut / setup cost / audience needed / what's not passive.\n3. **The Amazon gap that \"without a big following\" readers run into:** Pinterest lists Amazon Associates US as an official partner. Amazon's application page doesn't list Pinterest as an accepted social network and asks social pages for about 500 organic followers.\n4. **Etsy fees, sourced:** what a seller pays when Pinterest traffic goes to an Etsy shop. This includes the Offsite Ads fee, which is easy to confuse with your own Pins.\n5. **What actually starts the clock**, without inventing timelines: Amazon's 180-day window to make 3 sales, Etsy's 4-month listing expiry and auto-renewal, and outbound clicks only counting from the date you add a link.\n6. **Disclosure on a visual platform:** what the FTC and Pinterest each require for affiliate and paid Pins.\n\n**No-go list for the writer:** no income figures, no \"it takes 3–6 months\", no follower-growth claims, no Pinterest user statistics (none were sourced), no first-hand testing, no Etsy payment-processing percentage (it varies by country; link to Etsy instead).\n\n---\n\n## Outline (H2/H3)\n\n**Intro (2–3 short paragraphs):** You can make money on Pinterest with a small account, but Pinterest doesn't pay creators directly. Every method sends people to another site, where a merchant, brand or your own shop pays you. This guide covers what each method costs, who takes a cut, and what you have to keep doing.\n\n### H2: Does Pinterest pay creators?\n- Creator Rewards ended on November 30, 2022. It paid creators for Idea Pins built around monthly themes and engagement goals. [TechCrunch]\n- Affiliate commissions: \"Pinterest isn't part of the affiliate agreements.\" Your commission depends on the merchant's or program's terms. [Pinterest Create blog; Grow + succeed page]\n- Brand deals: \"Pinterest will not be directly involved in payment.\" [Grow + succeed page]\n- Optional and hedged: Pinterest's creator page mentions a **Creator Inclusion Fund** for underrepresented creator communities. The page isn't dated, so tell readers to check whether it's currently open. Don't describe amounts.\n- Internal link: contrast with \"TikTok Creator Rewards Program: Requirements, How Payouts Work, and the Fine Print\". TikTok pays creators directly; Pinterest doesn't.\n\n### H2: The ways to make money on Pinterest at a glance (decision table)\n| Method | Does Pinterest pay? | Who sets or takes the cut | Setup cost (sourced) | Audience needed | What's not passive |\n|---|---|---|---|---|---|\n| Linking to your own monetized site or offer | No | Depends on your site's monetization | Free business account | Pinterest's instructions don't set a minimum | Pins need links to pages worth visiting; you maintain the destination |\n| Affiliate links in Pins | No | Merchant or network terms | Free business account; join an affiliate program | Depends on the affiliate program (see Amazon) | Fixing broken links, disclosure, posting in moderation |\n| Product tags (often with affiliate links) | No | Merchant or affiliate terms | Free | Available only in listed countries | Up to 5 tags per Pin; keep products current |\n| Paid brand partnerships | No (brand pays you) | Terms you agree with the brand | Free business profile; app only | Brands look at your metrics (media kit) | Pitching, making content, disclosure |\n| Selling your own products (e.g., an Etsy shop) | No | The marketplace's fees (Etsy listed below) | Etsy listing fee $0.20; a set-up fee may apply | None from Pinterest | Listings expire and renew; orders, customer service |\n\nWriter: keep the table to sourced facts only.\n\n### H2: Before you start: set up a free business account\n- It's free and gives you Pinterest Analytics and the ability to run ads. You can create a new one or convert a personal account.\n- Converting: business accounts are public, so a private personal account must be switched to public first. \"Your Pins and followers will remain the same.\" You can switch back at any time.\n- New business accounts can only be created from a desktop. Give the desktop steps (Sign up → Create a business account…) and the app conversion steps (profile picture → profile photo → Account management → Convert to a business account). Add a note that menus may differ by app version.\n\n### H2: Method 1: Link Pins to a site or offer you already monetize\n- Pinterest suggests adding a link to every Pin and sending people to pages that earn, such as subscriptions, membership sign-ups or product pages.\n- Where the link goes: you add it while filling in the Pin's details (title, board and so on). The Grow + succeed page calls this the \"finishing touches\" page.\n- What isn't passive: maintaining the destination page; Pinterest notes performance \"may fluctuate or decrease\".\n- Internal link: \"How to Make Money Online: 5 Ways and What Each Platform Takes\".\n\n### H2: Method 2: Affiliate links in your Pins\n#### H3: How to add an affiliate link (Pinterest's steps)\n1. Join an affiliate program. Pinterest's official partners: Rakuten, LTK, ShopStyle, Amazon Associates US.\n2. Create a Pin by uploading an image or video.\n3. Put your unique affiliate URL in the destination link. Per Pinterest, the link \"should go directly to a shop's product detail page.\"\n4. Match the Pin's title and description to the destination page.\n#### H3: Pinterest's affiliate rules\n- Generally run only one account; affiliate content should be original and add value; be open about links. Some link shorteners are blocked, but you can edit the link.\n- Not allowed: fake accounts, asking others to save your affiliate Pins in exchange for something, getting others to make Pins with your affiliate ID, or creating affiliate Pins \"repetitively or in large volumes.\"\n- Penalty: Pinterest \"may remove, limit or block\" content or accounts that break these rules.\n#### H3: If you plan to use Amazon Associates\n- Amazon reviews your application only after you've driven at least three qualified sales within the first 180 days. Personal orders don't count. If you don't make enough sales in that time, the application can be withdrawn, and a rejected account can't be reinstated.\n- The application review page lists accepted social networks as Facebook, Instagram, Twitter, YouTube, TikTok and Twitch.tv. Pinterest isn't on the list. Social pages generally need \"at least 500\" organic followers. Websites must have \"robust original content\" (at least 10 posts as a rule of thumb) and recent content (generally within 60 days).\n- **Writer:** state both facts neutrally. Pinterest calls Amazon Associates US an official partner, and Amazon's page doesn't list Pinterest. Readers with a Pinterest-only setup should check Amazon's current rules before relying on it. Don't say \"Amazon bans Pinterest.\"\n- Required statement: \"As an Amazon Associate I earn from qualifying purchases.\"\n- Amazon \"do[es] not make any representation, warranty, or covenant regarding the amount of traffic or commission income you can expect.\"\n- Amazon only pays commission if the product is shipped to (or streamed or downloaded by) and paid for by the customer within 180 days of the purchase.\n\n### H2: Method 3: Product tags\n- Tag products in a Pin so they appear in \"Shop the Look\". Help center: up to **five** product tags per Pin. Pinterest suggests combining tags with affiliate links.\n- Steps per Pinterest's blog: while creating a Pin, select \"tag products\" → plus icon → search by name or \"Use a link\". Note that the UI may differ (the Grow page calls it a \"product\" sticker).\n- Only available in: US, CA, UK, DE, FR, IT, ES, AT, CH, NL, AU, BR, MX, JP.\n\n### H2: Method 4: Paid brand partnerships, and where audience size matters\n- Pinterest's process: pitch brands that fit your content with a media kit. The kit should include your profile, key metrics (Pin performance and audience insights) and sample work. Be honest that this is the method where your numbers count.\n- Paid partnership tool: needs a free business profile and **only works in the Pinterest app**. Steps: plus icon → Pin → choose media → Next → fill in details → Advanced settings → toggle \"Add paid partnership label\" → Add a brand partner (one brand per Pin) → Create.\n- The brand approves or declines. If they decline, the label is removed and you need a new Pin to tag them again. You can't add the label after publishing. If the brand isn't on Pinterest, the label still shows, just without the brand's name.\n- Only the brand can promote these Pins as ads; the creator can't.\n\n### H2: Method 5: Selling your own products through Pinterest (Etsy fees)\n- Etsy: $0.20 listing fee; listings expire after four months and auto-renew at $0.20 unless you turn that off; 6.5% transaction fee on the item price plus shipping and gift wrapping; payment processing fees that depend on where your bank account is (link to Etsy's page, no percentage); a possible one-time set-up fee.\n- **Offsite Ads:** this applies when *Etsy's own ads* (on partners such as social networks) lead to an order within 30 days of the click. Shops under $10,000 a year pay 15% and can opt out; shops at $10,000 or more pay 12% and must take part for the life of the shop. Make clear this is Etsy's advertising, not the seller's own Pins.\n- Internal link: \"Print on Demand for Beginners: What It Costs, Who Takes a Cut, and What Isn't Passive\".\n\n### H2: Disclosing affiliate links and sponsored Pins\n- FTC: disclose any financial, employment, personal or family relationship. Pins can count as endorsements. Put the disclosure with the endorsement message itself, not only on your profile, not among hashtags, and not where people have to click \"more\". On a picture, superimpose it. Clear words like \"ad\" and \"sponsored\" work; \"sp\", \"spon\" and \"collab\" don't. Don't assume a platform's tool is enough. US law applies if US consumers are likely to see the post.\n- Pinterest: paid partnerships need a clear disclosure (such as #ad or the paid partnership label). In the EEA, commercial content must be clearly disclosed using any feature Pinterest provides.\n\n### H2: How long before it earns, and what keeps it going\n- No source gives a typical timeline. Say that plainly and give only the sourced clocks: Amazon's 180 days and 3 sales; Amazon's 180-day ship-and-pay condition; Etsy's 4-month expiry; outbound clicks measured \"starting from the date the link is added\".\n- Amazon dormancy: after 3 years with no commission income, Amazon may charge a maintenance fee of up to $10 and close the account.\n- Upkeep: check links, remember that published Pins' images and videos can't be edited (titles and links can), and post affiliate Pins in moderation.\n\n### H2: Track which Pins earn\n- Analytics needs a business account. Use **outbound clicks** (the metric closest to income), along with impressions, saves and Pin clicks. Real-time figures are estimates and can go down. The date range goes back up to 18 months.\n- Steps: hamburger icon → Analytics → Overview. Sort top Pins by outbound clicks.\n- Internal link (optional): \"ChatGPT Prompts for Freelancers and Side Hustles\" for drafting Pin titles and descriptions.\n\n### H2: Quick FAQ (optional)\nCan you make money on Pinterest without followers? / Does Pinterest pay for views? / Do I need a blog? Answer only with facts from this brief.\n\n---\n\n## Internal links (genuinely related)\n- \"TikTok Creator Rewards Program: Requirements, How Payouts Work, and the Fine Print\" (contrast: Pinterest has no equivalent today)\n- \"Print on Demand for Beginners: What It Costs, Who Takes a Cut, and What Isn't Passive\" (selling section)\n- \"How to Make Money Online: 5 Ways and What Each Platform Takes\" (intro or Method 1)\n- \"10 Proven Passive Income Ideas skyrocket Earnings\" (optional, closing)\n- \"ChatGPT Prompts for Freelancers and Side Hustles\" (optional, Pin copy)\n\n## Product link\nNone. This pillar has no product, so don't add one.\n\n---\n\n## SOURCE NOTES\n\n**1. Pinterest Create: \"How to make money on Pinterest\"**\nURL: https://create.pinterest.com/blog/make-money-on-pinterest/ · Dated July 28, 2025 (metadata says modified 2026-06-03). Read with web_fetch because the page needs JavaScript.\n- Links: \"If you've got a website, blog or other platform that you've monetized, directly or indirectly, through site visits and engagement or ads, getting more eyes on those pages can help increase how much you earn. Driving to pages like subscriptions, membership sign-ups or even product pages can help increase conversions.\" / \"Make sure all of your Pins include links to a web destination of your choosing.\"\n- Affiliate: \"Adding affiliate links to your Pins lets you earn commission when people on Pinterest click on the product links in your Pins and make purchases.\" / \"Join an affiliate program, then create unique URLs for each product you're featuring. Then add these to your Pin as Pin links.\"\n- Product tags: \"Product tags allow you to link specific products in the 'Shop the Look' section that appears directly below your inspiring Pins…\" / \"combining product tags with affiliate links can be a great way to add more opportunities to drive more affiliate revenue per Pin.\" / \"When you create a Pin, select 'tag products,' then click the plus icon to search for products by name or click on 'Use a link'…\"\n- Partnerships: \"To use the paid partnership tool, you'll need a (free) business profile. Then, once you make a new Pin, you'll find the tool to tag a brand under the Finishing Touches 'advanced settings' menu.\"\n\n**2. Pinterest Create: \"Getting started with affiliate links on Pinterest\"**\nURL: https://create.pinterest.com/blog/affiliate-marketing-link-basics · Dated June 6, 2025. Read with web_fetch.\n- \"Pinterest isn't part of the affiliate agreements, so you'll need to choose an affiliate network. (Our official partners are: Rakuten, LTK, Shop Style and Amazon Associates US.) Your commission will depend on the terms you've set up with external merchants or programs.\"\n- \"Generate a unique product link with your affiliate provider. Then, add it to the destination link in place of a regular product or website URL… (Please note: The link should go directly to a shop's product detail page.)\"\n- \"Ensure your Pin title and description match the information on the destination site page and contain essential keywords.\"\n- \"Some shortener services are not currently supported on Pinterest. If the link on your Pin is blocked, remember that you can always edit it.\"\n- \"Follow Pinterest, your affiliate program and the FTC's rules about link sharing…\"\n- \"Product tagging is available in US, CA, UK, DE, FR, IT, ES, AT, CH, NL, AU, BR, MX, JP.\"\n\n**3. Pinterest Creators: \"How to Grow Your Audience & Make Money on Pinterest\"**\nURL: https://create.pinterest.com/creators/grow-and-succeed/ · No date. Read with web_fetch.\n- \"Pinterest isn't part of the affiliate agreements, so your commission will depend on the terms you've set up with external merchants or programs.\"\n- \"Add a prominent, straightforward link to your website on your Pins… You can find the field in the 'finishing touches' editing page.\"\n- \"Create a media kit… In your media kit, you'll want to include your Pinterest profile, key metrics (Pin performance and audience insights), plus sample content or past collaborations.\"\n- \"When you use the paid partnership tool, you work directly with brands to define the payment terms and process. Pinterest will not be directly involved in payment.\"\n- \"The Creator Inclusion Fund is the program that focuses on underrepresented creator communities.\" (The page refers to \"this year's expansion\" without a date, so hedge it.)\n\n**4. Pinterest Policy: Commercial and Branded Content Guidelines**\nURL: https://policy.pinterest.com/en/commercial-and-branded-content-guidelines · \"Last updated: April 2025\"\n- EEA condition: \"If you reside in the European Economic Area ('EEA') and post Commercial Content on Pinterest, you must ensure that your Commercial Content: Includes a clear disclosure indicating its commercial or promotional purpose, and you must use any functionality Pinterest makes available, such as including a # or applying a label if available…\"\n- \"All paid partnerships must disclose the commercial nature of their content.\" Users must \"Include a clear disclosure… (such as the use of #ad… or applying a label to your content using Pinterest's paid partnership tool)\".\n- \"It's okay for a business to pay… through pay-per-click payment structures (such as affiliate links), but they can't pay large groups of people to save specific Pins…\"\n- Affiliates: \"In general, you should operate only one Pinterest account.\" / \"Affiliate content should be original and add unique value for Pinners.\" / Prohibited: \"Using fake accounts to create or save your affiliate links.\" \"Asking other users to save your affiliate Pins in a quid pro quo.\" \"Asking other users to create Pins with links that include your affiliate identifier.\" \"Creating affiliate Pins repetitively or in large volumes - marketers should follow our spam policy and use affiliate links in moderation.\"\n- \"We may remove, limit or block the distribution of content or accounts that violate our… Affiliates Guidelines…\"\n\n**5. Pinterest Help: Paid partnerships for creators**\nURL: https://help.pinterest.com/en/business/article/paid-partnerships-for-creators · No date.\n- \"These partnerships are already established by the creator and brand outside of Pinterest.\"\n- \"The paid partnership tool is only available on the Pinterest app.\"\n- Steps: plus circle icon → Pin → choose media → Next → edit → Next → fill in information → \"Next to Advanced settings, tap the arrow forward icon\" → \"Toggle on Add paid partnership label\" → \"Tap Add a brand partner\" → \"(you can only tag one brand per Pin)\" → Add on Approval needed → back → \"Review your Pin and tap Create to publish\".\n- \"If the brand declines the tag, the paid partnership label will be removed from the Pin and you will not be able to tag them again in the same Pin.\"\n- \"Creators cannot promote pins themselves that include a paid partnership. Only brand partners can promote these pins…\" (condition: \"Some of these options may only be available to account owners above a certain age.\")\n- \"If your brand partner is not on Pinterest, you can still use the paid partnership label… the brand's name will not [appear].\" / \"Paid partnership labels cannot be added after a Pin is published.\"\n\n**6. Pinterest Help: Get a business account**\nURL: https://help.pinterest.com/en/business/article/get-a-business-account · No date.\n- \"Set up a free Pinterest business account to get access to analytics on your Pins and the ability to run ads.\"\n- \"To create a new business account, the email you use to sign up must not already be in use on an existing Pinterest account.\"\n- \"At this time, you can only create a new business account from your desktop device.\"\n- \"Business accounts are public… if your personal account is set to private, it must be switched to public in order to convert… Your Pins and followers will remain the same. You can switch back to a personal account at any time.\"\n- Desktop conversion: Settings → Account management → Convert to a business account → Convert account. App: profile picture → profile photo → Account management → Convert to a business account → Convert account.\n\n**7. Pinterest Help: Guide to creating Pins** and **Review Pinterest Analytics**\nURLs: https://help.pinterest.com/en/guide/guide-to-creating-pins · https://help.pinterest.com/en/business/article/pinterest-analytics · No dates.\n- \"You can add up to five product tags per Pin.\" (Must follow the merchant and affiliate guidelines.)\n- \"You'll see the option to add a link when you're adding the descriptive details to your Pin (like choosing a title, board, etc.).\"\n- \"After publishing, you can edit a Pin's title, board, and a few other descriptive details. However, you cannot make changes to the image, video or audio contents of your Pin once it's been published.\"\n- \"if we notice any spam-related behaviors, your account may be temporarily blocked.\"\n- Analytics: \"To view Pinterest Analytics, you need to set up a business account.\" / \"these real-time metrics are estimates and subject to change. As a result, they might decrease.\" / \"Outbound clicks: The number of times people perform actions that lead them to a destination off Pinterest. Note: Outbound clicks are measured starting from the date the link is added.\" / \"View custom data ranges for the past year and a half…\" / \"Over time, you may see your performance on Pinterest fluctuate or decrease.\" / Desktop path: hamburger icon → Under Analytics, select Overview.\n\n**8. TechCrunch: \"Pinterest shuts down its 'Creator Rewards' program\"**\nURL: https://techcrunch.com/2022/11/30/pinterest-shuts-down-its-creator-rewards-program/ · November 30, 2022\n- \"Pinterest has shut down its Creator Rewards program that allowed creators to earn money by creating content around monthly prompts and achieving certain engagement goals.\"\n- Pinterest quote: \"The Creator Rewards program will end on November 30, 2022.\"\n\n**9. Amazon Associates (three pages)**\n- Operating Agreement: https://affiliate-program.amazon.com/help/operating/agreement · \"Updated: October 15, 2025\". Section 5: \"You must clearly and prominently state the following… 'As an Amazon Associate I earn from qualifying purchases.'\" Section 4 area: \"We do not make any representation, warranty, or covenant regarding the amount of traffic or commission income you can expect at any time…\"\n- Program Policies (Commission Income Statement): https://affiliate-program.amazon.com/help/operating/policies · Qualifying purchase condition: \"(iii) within 180 days of the purchase, the Product is shipped to, streamed or downloaded by, and paid for by the customer\".\n- Application Review Process: https://affiliate-program.amazon.com/help/node/topic/G8TW5AE9XL2VX9VM · \"our Associates team will check your application once you've driven qualified sales (we require at least three within the first 180 days). Please note that personal orders do not qualify.\" / \"All Sites must have robust original content… a good rule of thumb is at least 10 posts.\" / \"Content on your website must be recent (generally within the last 60 days).\" / \"We currently only accept the following social networks: Facebook (including open group pages and fan pages, but excluding personal pages), Instagram, Twitter, YouTube, Tik Tok and Twitch.tv.\" / \"…a substantive number of organic followers/likes (in most cases, at least 500).\"\n- Account Dormancy: https://affiliate-program.amazon.com/help/node/topic/G7MJTPEP9NC3YKMG · \"Once you've applied, you have 180 days to refer a sale…\" / \"Your application can be withdrawn if there were not enough qualifying sales for 180 days… We're unable to reinstate your account or Associates ID after it's been rejected.\" / \"If you have not earned any commission income in the 3 years prior… we may charge you an account maintenance fee… the lesser of $10 or the amount of unpaid accrued commission income…\"\n\n**10. Etsy: Fees & Payments Policy**\nURL: https://www.etsy.com/legal/fees/ · \"Last updated on Oct 5, 2026\". Read with web_fetch because read_source got a 403.\n- \"To open your Etsy shop, you may be required to pay a one-time set-up fee.\" (It may be waived.)\n- \"You will be charged a listing fee of $0.20 USD for each item that you list for sale on Etsy.com or Etsy's mobile apps.\" / \"Etsy.com listings expire after four months.\" / Auto-renew charges $0.20 \"until you cancel automatic renewals.\"\n- \"When you make a sale through Etsy.com, you will be charged a transaction fee of 6.5% of the price you display for each listing plus the amount you charge for shipping and gift wrapping.\"\n- \"Payment processing fees vary based on the location of your bank account.\" (Link to the Etsy Payments Policy for rates.)\n- Offsite Ads: \"Etsy purchases offsite advertising from a network of participating partners, such as social networks and search engines. If such advertising includes your listing, a buyer clicks on it, and then places any orders from your shop within 30 days of that click, you will be charged an advertising fee…\" / \"The standard fee you will pay is 15% on Attributed Orders, unless the 12% fee applies…\" / Under $10,000 a year: 15% \"unless you opt out\". At $10,000 or more: 12% \"for the lifetime of your shop\", and opting out no longer applies.\n\n**11. FTC: \"Disclosures 101 for Social Media Influencers\"**\nURL: https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers · Brochure dated November 2019. Read with web_fetch.\n- \"Disclose when you have any financial, employment, personal, or family relationship with a brand.\" / \"Financial relationships aren't limited to money.\"\n- \"Keep in mind that tags, likes, pins, and similar ways of showing you like a brand or product can be endorsements.\"\n- \"If posting from abroad, U.S. law applies if it's reasonably foreseeable that the post will affect U.S. consumers.\"\n- \"The disclosure should be placed with the endorsement message itself.\" / \"Disclosures are likely to be missed if they appear only on an ABOUT ME or profile page, at the end of posts or videos, or anywhere that requires a person to click MORE.\" / \"Don't mix your disclosure into a group of hashtags or links.\"\n- \"If your endorsement is in a picture… superimpose the disclosure over the picture…\"\n- \"terms like 'advertisement,' 'ad,' and 'sponsored'\" work. \"Don't use vague or confusing terms like 'sp,' 'spon,' or 'collab'…\"\n- \"Don't assume that a platform's disclosure tool is good enough, but consider using it in addition to your own, good disclosure.\"",
+    "candidates": [
+      "How to Make Money on Pinterest Without a Big Following (primary query: how to make money on pinterest)"
+    ],
+    "article": {
+      "title": "How to Make Money on Pinterest Without a Big Following: What Pays, Who Takes a Cut, and What Isn't Passive",
+      "seo_title": "How to Make Money on Pinterest Without a Big Following",
+      "slug": "make-money-on-pinterest",
+      "meta_description": "Pinterest doesn't pay creators directly. Here's how to make money on Pinterest with a small account: affiliate links, brand deals, Etsy, fees and disclosure.",
+      "focus_keyphrase": "make money on Pinterest",
+      "excerpt": "Pinterest doesn't pay creators directly. Every way to earn sends people to another site, where a merchant, brand or your own shop pays you. Here's what each method costs, who takes a cut, and what you have to keep doing.",
+      "content_html": "<p>You can make money on Pinterest with a small account, but not from Pinterest itself. Pinterest doesn't pay creators directly today. Every method in this guide works the same way: a Pin sends someone to another site, and a merchant, a brand or your own shop pays you there.</p><p>That changes the questions worth asking. Instead of \"how many followers do I need?\", ask who pays, who takes a cut, what setup costs, and what you have to keep doing after a Pin goes live. This guide answers those questions for five methods, using Pinterest's, Amazon's, Etsy's and the FTC's own pages.</p><p>It won't promise an income or a timeline. None of the official sources give one, and any number you see elsewhere isn't a rule.</p><h2>Does Pinterest pay creators?</h2><p>Not directly. Pinterest's last direct payout program, Creator Rewards, paid creators for content built around monthly prompts and for reaching engagement goals. Pinterest said the program would end on November 30, 2022, <a href=\"https://techcrunch.com/2022/11/30/pinterest-shuts-down-its-creator-rewards-program/\">as reported by TechCrunch</a>.</p><p>The ways to earn that Pinterest describes now all involve someone else paying you:</p><ul><li><strong>Affiliate commissions:</strong> \"Pinterest isn't part of the affiliate agreements,\" and your commission depends on the terms you set up with external merchants or programs (<a href=\"https://create.pinterest.com/blog/affiliate-marketing-link-basics\">Pinterest Create</a>).</li><li><strong>Brand deals:</strong> you agree payment terms directly with the brand, and \"Pinterest will not be directly involved in payment\" (<a href=\"https://create.pinterest.com/creators/grow-and-succeed/\">Pinterest Creators</a>).</li></ul><p>Pinterest's creator page also mentions a Creator Inclusion Fund focused on underrepresented creator communities. The page isn't dated, so check <a href=\"https://create.pinterest.com/creators/grow-and-succeed/\">Pinterest's creator page</a> to see whether it's currently open before planning around it.</p><p>If you're comparing platforms, this is the main difference from apps that run their own payout programs, such as the one covered in our guide to the <a href=\"https://newearns.com/tiktok-creator-rewards-program/\">TikTok Creator Rewards Program</a>. On Pinterest, the money is always earned off the platform.</p><h2>The ways to make money on Pinterest at a glance</h2><p>Each row below uses only what the linked sources say. \"No minimum stated\" means the Pinterest pages we read don't set a follower requirement for that feature, not that audience size never matters.</p><table><thead><tr><th>Method</th><th>Does Pinterest pay?</th><th>Who sets or takes the cut</th><th>Setup cost</th><th>Audience needed</th><th>What isn't passive</th></tr></thead><tbody><tr><td>Linking Pins to your own monetized site or offer</td><td>No</td><td>Depends on how your site earns (ads, subscriptions, products)</td><td>Free business account</td><td>No minimum stated by Pinterest</td><td>Keeping the destination page worth visiting</td></tr><tr><td>Affiliate links in Pins</td><td>No</td><td>Merchant or affiliate program terms</td><td>Free business account; join an affiliate program</td><td>Set by the affiliate program (see Amazon below)</td><td>Checking links, disclosure, posting in moderation</td></tr><tr><td>Product tags (can be combined with affiliate links)</td><td>No</td><td>Merchant or affiliate terms</td><td>No fee mentioned in Pinterest's instructions</td><td>Available only in listed countries</td><td>Up to five tags per Pin; keeping products current</td></tr><tr><td>Paid brand partnerships</td><td>No (the brand pays you)</td><td>Terms you agree with the brand</td><td>Free business profile; tool is app-only</td><td>Brands review your metrics in a media kit</td><td>Pitching, creating content, disclosure</td></tr><tr><td>Selling your own products (for example, an Etsy shop)</td><td>No</td><td>The marketplace's fees</td><td>Etsy: $0.20 listing fee; a one-time set-up fee may apply</td><td>None set by Pinterest</td><td>Listings expire and renew; orders and customer service</td></tr></tbody></table><p>Sources for the table: <a href=\"https://create.pinterest.com/blog/affiliate-marketing-link-basics\">Pinterest's affiliate guide</a>, <a href=\"https://help.pinterest.com/en/guide/guide-to-creating-pins\">Pinterest's guide to creating Pins</a>, <a href=\"https://help.pinterest.com/en/business/article/paid-partnerships-for-creators\">Pinterest's paid partnerships help page</a> and <a href=\"https://www.etsy.com/legal/fees/\">Etsy's Fees &amp; Payments Policy</a>.</p><h2>Before you start: set up a free business account</h2><p>Pinterest says a free business account gives you access to analytics on your Pins and the ability to run ads (<a href=\"https://help.pinterest.com/en/business/article/get-a-business-account\">Pinterest Help</a>). You need one to see Pinterest Analytics, which is how you'll find out which Pins send people to your links. You can create a new business account or convert your personal one.</p><p><strong>Creating a new business account:</strong> Pinterest says you can currently only do this from a desktop device, and the email you sign up with must not already be in use on another Pinterest account (<a href=\"https://help.pinterest.com/en/business/article/get-a-business-account\">Pinterest Help</a>).</p><p><strong>Converting a personal account:</strong> business accounts are public, so a private personal account must be switched to public first. Pinterest says \"Your Pins and followers will remain the same,\" and you can switch back to a personal account at any time (<a href=\"https://help.pinterest.com/en/business/article/get-a-business-account\">Pinterest Help</a>).</p><ul><li><strong>On desktop:</strong> Settings → Account management → Convert to a business account → Convert account.</li><li><strong>In the app:</strong> tap your profile picture → tap your profile photo → Account management → Convert to a business account → Convert account.</li></ul><p>Menu names and positions can differ between app versions and devices. If a step doesn't match what you see, check the current help page.</p><h2>Method 1: Link Pins to a site or offer you already monetize</h2><p>This is the simplest route if you already have something that earns from visits: a blog with ads, a newsletter with paid tiers, a membership or a product page. Pinterest suggests driving people to pages \"like subscriptions, membership sign-ups or even product pages\" and making sure \"all of your Pins include links to a web destination of your choosing\" (<a href=\"https://create.pinterest.com/blog/make-money-on-pinterest/\">Pinterest Create</a>).</p><p>How to add the link:</p><ol><li>Start a new Pin and upload your image or video.</li><li>While adding the descriptive details (title, board and so on), fill in the link field. Pinterest's help center says that's where the link option appears (<a href=\"https://help.pinterest.com/en/guide/guide-to-creating-pins\">Pinterest Help</a>), and its creator page calls it the \"finishing touches\" editing page (<a href=\"https://create.pinterest.com/creators/grow-and-succeed/\">Pinterest Creators</a>).</li><li>Link to the specific page that earns, not just your homepage. A Pin about a printable planner should go to the planner's sign-up or product page.</li></ol><p><strong>What isn't passive:</strong> the destination is yours to maintain. If the page breaks, moves or stops earning, the Pin stops helping. Pinterest also notes that over time your performance \"may fluctuate or decrease\" (<a href=\"https://help.pinterest.com/en/business/article/pinterest-analytics\">Pinterest Help</a>).</p><p>If you don't have a monetized site yet, our overview of <a href=\"https://newearns.com/how-to-make-money-online/\">how to make money online and what each platform takes</a> covers options you could point Pins at.</p><h2>Method 2: Affiliate links in your Pins</h2><p>An affiliate link earns you a commission when someone clicks through and buys. Pinterest says your commission \"will depend on the terms you've set up with external merchants or programs\" (<a href=\"https://create.pinterest.com/blog/affiliate-marketing-link-basics\">Pinterest Create</a>).</p><h3>How to add an affiliate link</h3><ol><li><strong>Join an affiliate program.</strong> Pinterest lists its official partners as Rakuten, LTK, ShopStyle and Amazon Associates US (<a href=\"https://create.pinterest.com/blog/affiliate-marketing-link-basics\">Pinterest Create</a>).</li><li><strong>Create a Pin</strong> by uploading an image or video.</li><li><strong>Paste your unique affiliate URL</strong> into the destination link, in place of a regular product URL. Pinterest notes the link \"should go directly to a shop's product detail page.\"</li><li><strong>Match the Pin to the page.</strong> Pinterest asks that your Pin title and description match the information on the destination page.</li></ol><p>Some link shorteners aren't supported. If your link gets blocked, Pinterest says you can edit it (<a href=\"https://create.pinterest.com/blog/affiliate-marketing-link-basics\">Pinterest Create</a>).</p><h3>Pinterest's affiliate rules</h3><p>Pinterest's <a href=\"https://policy.pinterest.com/en/commercial-and-branded-content-guidelines\">Commercial and Branded Content Guidelines</a> say you should generally operate only one Pinterest account, and that affiliate content \"should be original and add unique value for Pinners.\" The guidelines prohibit:</p><ul><li>Using fake accounts to create or save your affiliate links.</li><li>Asking other users to save your affiliate Pins in a quid pro quo.</li><li>Asking other users to create Pins with links that include your affiliate identifier.</li><li>Creating affiliate Pins \"repetitively or in large volumes\"; Pinterest asks marketers to use affiliate links in moderation.</li></ul><p>Pinterest says it \"may remove, limit or block the distribution of content or accounts\" that break these guidelines (<a href=\"https://policy.pinterest.com/en/commercial-and-branded-content-guidelines\">Pinterest Policy</a>).</p><h3>If you plan to use Amazon Associates</h3><p>This is where a \"without a big following\" plan can run into trouble, so check it before you build around Amazon.</p><p>Pinterest names Amazon Associates US as an official affiliate partner (<a href=\"https://create.pinterest.com/blog/affiliate-marketing-link-basics\">Pinterest Create</a>). Separately, Amazon's application review page says it currently only accepts these social networks: Facebook (open group and fan pages, not personal pages), Instagram, Twitter, YouTube, TikTok and Twitch.tv. Pinterest isn't on that list. For social pages, Amazon looks for a substantive number of organic followers, \"in most cases, at least 500\" (<a href=\"https://affiliate-program.amazon.com/help/node/topic/G8TW5AE9XL2VX9VM\">Amazon Associates</a>).</p><p>The same page says websites need \"robust original content\" (a rule of thumb of at least 10 posts) and recent content, generally within the last 60 days. If your setup is Pinterest-only, check Amazon's current requirements or contact Amazon before relying on it. A small blog that your Pins point to may fit Amazon's site criteria more clearly.</p><p>Other Amazon conditions to know:</p><ul><li><strong>Three sales in 180 days:</strong> Amazon checks your application once you've driven at least three qualified sales within the first 180 days, and personal orders don't count (<a href=\"https://affiliate-program.amazon.com/help/node/topic/G8TW5AE9XL2VX9VM\">Amazon Associates</a>). If there aren't enough qualifying sales in that window, the application can be withdrawn, and Amazon says it can't reinstate an account or Associates ID after rejection (<a href=\"https://affiliate-program.amazon.com/help/node/topic/G7MJTPEP9NC3YKMG\">Amazon Associates</a>).</li><li><strong>Required statement:</strong> you must clearly and prominently state, \"As an Amazon Associate I earn from qualifying purchases\" (<a href=\"https://affiliate-program.amazon.com/help/operating/agreement\">Amazon Associates Operating Agreement</a>).</li><li><strong>No income promise:</strong> Amazon says it does not make any representation about \"the amount of traffic or commission income you can expect\" (<a href=\"https://affiliate-program.amazon.com/help/operating/agreement\">Operating Agreement</a>).</li><li><strong>When a sale counts:</strong> the product must be shipped to (or streamed or downloaded by) and paid for by the customer within 180 days of the purchase (<a href=\"https://affiliate-program.amazon.com/help/operating/policies\">Amazon Associates Program Policies</a>).</li></ul><h2>Method 3: Product tags</h2><p>Product tags link specific products in the \"Shop the Look\" section below your Pin. Pinterest suggests that combining product tags with affiliate links can add more chances to earn affiliate revenue per Pin (<a href=\"https://create.pinterest.com/blog/make-money-on-pinterest/\">Pinterest Create</a>). Example: a Pin of a styled desk setup could tag the lamp, chair and organizer separately.</p><p>Steps, per Pinterest's blog: when you create a Pin, select \"tag products,\" then click the plus icon and either search for products by name or click \"Use a link\" (<a href=\"https://create.pinterest.com/blog/make-money-on-pinterest/\">Pinterest Create</a>). Pinterest's creator page refers to this as a \"product\" sticker, so the label you see may differ.</p><ul><li>You can add up to five product tags per Pin, and tags must follow merchant and affiliate guidelines (<a href=\"https://help.pinterest.com/en/guide/guide-to-creating-pins\">Pinterest Help</a>).</li><li>Product tagging is available in the US, CA, UK, DE, FR, IT, ES, AT, CH, NL, AU, BR, MX and JP (<a href=\"https://create.pinterest.com/blog/affiliate-marketing-link-basics\">Pinterest Create</a>). If you're elsewhere, you may not see the option.</li></ul><h2>Method 4: Paid brand partnerships, where audience size matters</h2><p>This is the method where your numbers count. Pinterest doesn't connect you with brands or pay you here; the partnership is set up between you and the brand outside Pinterest (<a href=\"https://help.pinterest.com/en/business/article/paid-partnerships-for-creators\">Pinterest Help</a>).</p><p>Pinterest suggests pitching brands that fit your content with a media kit that includes your Pinterest profile, key metrics (Pin performance and audience insights), and sample content or past collaborations (<a href=\"https://create.pinterest.com/creators/grow-and-succeed/\">Pinterest Creators</a>). With a small account, sample work and strong metrics on a few Pins may carry more of the pitch than follower count.</p><h3>How to add the paid partnership label</h3><p>You need a free business profile, and the tool is only available in the Pinterest app (<a href=\"https://help.pinterest.com/en/business/article/paid-partnerships-for-creators\">Pinterest Help</a>). The steps Pinterest gives:</p><ol><li>Tap the plus icon, then Pin.</li><li>Choose your media, tap Next, edit if needed, and tap Next.</li><li>Fill in the Pin's details.</li><li>Next to Advanced settings, tap the arrow icon.</li><li>Toggle on \"Add paid partnership label.\"</li><li>Tap \"Add a brand partner\" and choose the brand (one brand per Pin).</li><li>Go back, review your Pin and tap Create to publish.</li></ol><p>What to know before you publish (<a href=\"https://help.pinterest.com/en/business/article/paid-partnerships-for-creators\">Pinterest Help</a>):</p><ul><li>The brand approves or declines the tag. If it declines, the label is removed and you can't tag that brand again in the same Pin.</li><li>You can't add the label after a Pin is published.</li><li>If the brand isn't on Pinterest, you can still use the label, but the brand's name won't appear.</li><li>Creators can't promote these Pins as ads; only brand partners can. Pinterest notes some options may only be available to account owners above a certain age.</li></ul><h2>Method 5: Selling your own products through Pinterest</h2><p>If you sell physical or digital products, Pins can point to your product pages. Pinterest doesn't charge you for that traffic, but the place you sell will have its own fees. Here's what <a href=\"https://www.etsy.com/legal/fees/\">Etsy's Fees &amp; Payments Policy</a> lists:</p><ul><li><strong>Set-up fee:</strong> you may be required to pay a one-time fee to open a shop.</li><li><strong>Listing fee:</strong> $0.20 USD per item listed.</li><li><strong>Expiry and renewal:</strong> listings expire after four months and automatically renew at $0.20 unless you cancel automatic renewals.</li><li><strong>Transaction fee:</strong> 6.5% of the price you display, plus the amount you charge for shipping and gift wrapping.</li><li><strong>Payment processing:</strong> varies based on the location of your bank account; check Etsy's policy pages for your rate.</li></ul><h3>Don't confuse your Pins with Etsy's Offsite Ads</h3><p>Etsy's Offsite Ads fee applies when Etsy buys advertising on partners such as social networks and search engines, your listing appears in that ad, and a buyer orders from your shop within 30 days of clicking it. Shops under $10,000 a year pay 15% on those orders unless they opt out. Shops at $10,000 or more pay 12% for the lifetime of the shop and can no longer opt out (<a href=\"https://www.etsy.com/legal/fees/\">Etsy</a>). This fee is about Etsy's own ads, not Pins you post yourself.</p><p>If you're considering products you don't make or ship yourself, our guide to <a href=\"https://newearns.com/print-on-demand-for-beginners/\">print on demand for beginners</a> breaks down what it costs and who takes a cut.</p><h2>Disclosing affiliate links and sponsored Pins</h2><p>The FTC's <a href=\"https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers\">Disclosures 101 for Social Media Influencers</a> says to disclose any financial, employment, personal or family relationship with a brand, and that \"tags, likes, pins, and similar ways of showing you like a brand or product can be endorsements.\" Its guidance for placement and wording:</p><ul><li>Put the disclosure with the endorsement message itself, not only on a profile page, at the end of a post, or anywhere people must click \"more.\"</li><li>Don't mix it into a group of hashtags or links.</li><li>If the endorsement is in a picture, superimpose the disclosure over the picture.</li><li>Use clear terms like \"ad,\" \"advertisement\" or \"sponsored,\" not vague ones like \"sp,\" \"spon\" or \"collab.\"</li><li>Don't assume a platform's disclosure tool is good enough; consider using it in addition to your own disclosure.</li><li>If you post from abroad, U.S. law applies if it's reasonably foreseeable the post will affect U.S. consumers.</li></ul><p>Pinterest's own rules say all paid partnerships must disclose their commercial nature, for example with #ad or the paid partnership label. If you live in the European Economic Area, commercial content must include a clear disclosure, and you must use any functionality Pinterest makes available for it (<a href=\"https://policy.pinterest.com/en/commercial-and-branded-content-guidelines\">Pinterest Policy</a>).</p><p>In practice, for an affiliate Pin: put a short line such as \"Ad: I earn from purchases through this link\" at the start of the description, and add text on the image itself if the image is the endorsement. Amazon affiliates also need Amazon's required statement.</p><h2>How long before it earns, and what keeps it going</h2><p>No source we used gives a typical time before Pinterest income starts, so this guide doesn't offer one. These are the only clocks the official pages set:</p><ul><li><strong>Amazon:</strong> 180 days after applying to make at least three qualified sales (<a href=\"https://affiliate-program.amazon.com/help/node/topic/G7MJTPEP9NC3YKMG\">Amazon Associates</a>), and a 180-day window for an order to be shipped and paid for to count (<a href=\"https://affiliate-program.amazon.com/help/operating/policies\">Program Policies</a>).</li><li><strong>Amazon dormancy:</strong> if you've earned no commission in the previous three years, Amazon may charge an account maintenance fee of the lesser of $10 or your unpaid commission (<a href=\"https://affiliate-program.amazon.com/help/node/topic/G7MJTPEP9NC3YKMG\">Amazon Associates</a>).</li><li><strong>Etsy:</strong> listings expire after four months and auto-renew at $0.20 unless you turn that off (<a href=\"https://www.etsy.com/legal/fees/\">Etsy</a>).</li><li><strong>Pinterest Analytics:</strong> outbound clicks are measured starting from the date the link is added (<a href=\"https://help.pinterest.com/en/business/article/pinterest-analytics\">Pinterest Help</a>), so adding links to older Pins won't show past clicks.</li></ul><p>Ongoing upkeep:</p><ul><li>Check links regularly, especially affiliate links to products that may sell out or move.</li><li>After publishing, you can edit a Pin's title, board and some details, but not its image, video or audio (<a href=\"https://help.pinterest.com/en/guide/guide-to-creating-pins\">Pinterest Help</a>). Fix a broken link by editing; replace a dated image with a new Pin.</li><li>Post affiliate Pins in moderation. Pinterest says spam-related behavior can get an account temporarily blocked (<a href=\"https://help.pinterest.com/en/guide/guide-to-creating-pins\">Pinterest Help</a>).</li></ul><h2>Track which Pins earn</h2><p>Pinterest Analytics requires a business account (<a href=\"https://help.pinterest.com/en/business/article/pinterest-analytics\">Pinterest Help</a>). On desktop, click the hamburger icon, then under Analytics select Overview. Interface details may differ on your device.</p><p>The metric closest to income is <strong>outbound clicks</strong>: the number of times people take actions that lead them to a destination off Pinterest. Look at it alongside impressions, saves and Pin clicks. Pinterest notes that real-time metrics are estimates and may decrease, and you can view custom date ranges for the past year and a half (<a href=\"https://help.pinterest.com/en/business/article/pinterest-analytics\">Pinterest Help</a>).</p><p>A simple routine: once a month, list your Pins with the most outbound clicks, then compare those against sales in your affiliate dashboard or shop. Make more Pins like the ones that lead to sales, not just the ones with the most impressions. If writing Pin titles and descriptions is slowing you down, our <a href=\"https://newearns.com/chatgpt-prompts-freelancers-side-hustles/\">ChatGPT prompts for freelancers and side hustles</a> include templates you can adapt.</p><h2>FAQ</h2><h3>Can you make money on Pinterest without followers?</h3><p>The Pinterest pages we read don't set a follower minimum for adding links, affiliate links or the paid partnership label. Follower and engagement numbers matter most for brand deals, where Pinterest suggests showing your metrics in a media kit (<a href=\"https://create.pinterest.com/creators/grow-and-succeed/\">Pinterest Creators</a>). Individual affiliate programs can set their own requirements, as Amazon does.</p><h3>Does Pinterest pay for views?</h3><p>No current program does. Creator Rewards, which paid for content and engagement goals, ended on November 30, 2022 (<a href=\"https://techcrunch.com/2022/11/30/pinterest-shuts-down-its-creator-rewards-program/\">TechCrunch</a>). Earnings now come from merchants, brands or your own sales off Pinterest.</p><h3>Do I need a blog?</h3><p>Not for Pinterest's link or affiliate features: affiliate links can go directly to a shop's product page (<a href=\"https://create.pinterest.com/blog/affiliate-marketing-link-basics\">Pinterest Create</a>). Some affiliate programs, though, review your website or social presence. Amazon's application page lists site criteria and doesn't include Pinterest among accepted social networks (<a href=\"https://affiliate-program.amazon.com/help/node/topic/G8TW5AE9XL2VX9VM\">Amazon Associates</a>).</p><h3>Can I use Amazon affiliate links on Pinterest?</h3><p>Pinterest lists Amazon Associates US as an official partner. Amazon's own application criteria don't list Pinterest as an accepted social network, so check Amazon's current rules for your situation before relying on a Pinterest-only setup.</p>",
+      "sources": [
+        {
+          "url": "https://techcrunch.com/2022/11/30/pinterest-shuts-down-its-creator-rewards-program/",
+          "title": "TechCrunch: Pinterest shuts down its 'Creator Rewards' program",
+          "supports": "Creator Rewards ended November 30, 2022; it paid for content around monthly prompts and engagement goals."
+        },
+        {
+          "url": "https://create.pinterest.com/blog/make-money-on-pinterest/",
+          "title": "Pinterest Create: How to make money on Pinterest",
+          "supports": "Linking Pins to monetized pages, product tags in Shop the Look, combining tags with affiliate links, tagging steps."
+        },
+        {
+          "url": "https://create.pinterest.com/blog/affiliate-marketing-link-basics",
+          "title": "Pinterest Create: Getting started with affiliate links on Pinterest",
+          "supports": "Pinterest isn't part of affiliate agreements; official partners; affiliate link steps; shortener note; product tagging countries."
+        },
+        {
+          "url": "https://create.pinterest.com/creators/grow-and-succeed/",
+          "title": "Pinterest Creators: How to Grow Your Audience & Make Money on Pinterest",
+          "supports": "Pinterest not involved in brand-deal payment; media kit contents; finishing touches page; Creator Inclusion Fund mention."
+        },
+        {
+          "url": "https://policy.pinterest.com/en/commercial-and-branded-content-guidelines",
+          "title": "Pinterest Commercial and Branded Content Guidelines",
+          "supports": "Affiliate rules and prohibitions, enforcement, paid partnership and EEA disclosure requirements."
+        },
+        {
+          "url": "https://help.pinterest.com/en/business/article/paid-partnerships-for-creators",
+          "title": "Pinterest Help: Paid partnerships for creators",
+          "supports": "App-only paid partnership tool, steps, brand approval, one brand per Pin, no label after publishing, only brands can promote."
+        },
+        {
+          "url": "https://help.pinterest.com/en/business/article/get-a-business-account",
+          "title": "Pinterest Help: Get a business account",
+          "supports": "Free business account, desktop-only creation, conversion rules and steps."
+        },
+        {
+          "url": "https://help.pinterest.com/en/guide/guide-to-creating-pins",
+          "title": "Pinterest Help: Guide to creating Pins",
+          "supports": "Where to add links, five product tags per Pin, editing limits after publishing, spam blocking."
+        },
+        {
+          "url": "https://help.pinterest.com/en/business/article/pinterest-analytics",
+          "title": "Pinterest Help: Review Pinterest Analytics",
+          "supports": "Analytics needs business account, outbound clicks definition and start date, estimates, 18-month range, performance may fluctuate, desktop path."
+        },
+        {
+          "url": "https://affiliate-program.amazon.com/help/node/topic/G8TW5AE9XL2VX9VM",
+          "title": "Amazon Associates: Application Review Process",
+          "supports": "Three qualified sales in 180 days, accepted social networks, 500 follower guideline, site content criteria."
+        },
+        {
+          "url": "https://affiliate-program.amazon.com/help/node/topic/G7MJTPEP9NC3YKMG",
+          "title": "Amazon Associates: Account Dormancy",
+          "supports": "180 days to refer a sale, withdrawal and no reinstatement, maintenance fee after 3 years."
+        },
+        {
+          "url": "https://affiliate-program.amazon.com/help/operating/agreement",
+          "title": "Amazon Associates Operating Agreement",
+          "supports": "Required disclosure statement; no representation about traffic or commission income."
+        },
+        {
+          "url": "https://affiliate-program.amazon.com/help/operating/policies",
+          "title": "Amazon Associates Program Policies",
+          "supports": "Qualifying purchase must ship and be paid for within 180 days."
+        },
+        {
+          "url": "https://www.etsy.com/legal/fees/",
+          "title": "Etsy Fees & Payments Policy",
+          "supports": "Set-up fee, $0.20 listing fee, four-month expiry and auto-renewal, 6.5% transaction fee, payment processing varies, Offsite Ads 15%/12%."
+        },
+        {
+          "url": "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers",
+          "title": "FTC: Disclosures 101 for Social Media Influencers",
+          "supports": "What to disclose, pins as endorsements, placement and wording rules, platform tools, U.S. law applicability."
+        }
+      ],
+      "product_link_reason": "",
+      "internal_links_note": "",
+      "image_headline": "How Pinterest Earnings Actually Work",
+      "search_intent": "How-to and list of methods: readers with small accounts want to know which ways to make money on Pinterest work for them and how to start.",
+      "unique_value": "States plainly that Pinterest doesn't pay creators, adds a sourced decision table on who pays and who takes a cut, flags the Amazon Associates application gap for Pinterest-only accounts, explains Etsy fees including Offsite Ads, and lists only the real sourced clocks instead of invented timelines.",
+      "image_alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+      "featured_image": {
+        "alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+        "license": "generated-in-house",
+        "creator": "",
+        "license_url": ""
+      },
+      "inline_images": []
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "\"Pinterest doesn't pay creators directly today\" / \"On Pinterest, the money is always earned off the platform\"",
+          "verdict": "contradicted",
+          "source_url": "",
+          "evidence": "Pinterest's own 2025 Inclusion Fund blog post on create.pinterest.com says accepted creators \"can unlock monetary incentives in the form of cash or ad credits grants\". An AfroTech article on tech.yahoo.com (July 29, 2026) says the fund is back for a sixth year with \"grants\" and that applications closed Aug 4, 2026. Neither page is in the allowed URL list, so source_url is left empty.",
+          "suggested_fix": "\"Pinterest doesn't pay creators for views or engagement. Apart from selective grants through its Pinterest Inclusion Fund (cash or ad credits for an accepted cohort), the money comes from merchants, brands or your own sales.\" Cite Pinterest's 2025 Inclusion Fund blog post. Also update the Creator Inclusion Fund paragraph: the program is now called the \"Pinterest Inclusion Fund\", and its 2026 applications closed Aug 4, 2026."
+        },
+        {
+          "claim": "\"Pinterest's last direct payout program, Creator Rewards\"",
+          "verdict": "contradicted",
+          "source_url": "https://techcrunch.com/2022/11/30/pinterest-shuts-down-its-creator-rewards-program/",
+          "evidence": "TechCrunch, the article's own source, says \"Pinterest is still continuing with programs like the Creator Fund\" and describes that fund as giving \"cash and ad rewards\".",
+          "suggested_fix": "\"Pinterest's main pay-for-content program, Creator Rewards…\""
+        },
+        {
+          "claim": "\"These are the only clocks the official pages set\"",
+          "verdict": "contradicted",
+          "source_url": "https://affiliate-program.amazon.com/help/operating/policies",
+          "evidence": "Amazon Program Policies say a cart order must be completed \"no later than 89 days\" after the click, and that payment comes \"approximately 60 days following the end of each calendar month\". The article's own Etsy section also gives a 30-day Offsite Ads window.",
+          "suggested_fix": "\"Key clocks the official pages set include…\". Then add that Amazon pays commission about 60 days after the end of the month it was earned, and that a cart order counts only if completed within 89 days of the click. This directly answers \"how long before it earns.\""
+        },
+        {
+          "claim": "\"Does Pinterest pay for views? No current program does.\"",
+          "verdict": "unsupported",
+          "source_url": "",
+          "evidence": "Probably true, but no page the checker read says this. The grow-and-succeed FAQ only covers product tags, affiliate links and brand partnerships. The notes quote no page for this claim.",
+          "suggested_fix": "\"No Pinterest page we read describes a program that pays for views.\""
+        },
+        {
+          "claim": "The paid partnership label needs \"a free business profile\" (cited to the paid-partnerships help page)",
+          "verdict": "supported",
+          "source_url": "https://create.pinterest.com/blog/make-money-on-pinterest/",
+          "evidence": "The claim is supported but miscited. The paid-partnerships help page only says the tool is app-only. The business-profile requirement appears on the make-money page (\"you'll need a (free) business profile\") and on the grow-and-succeed page.",
+          "suggested_fix": "Cite the make-money or grow-and-succeed page for the business-profile requirement."
+        },
+        {
+          "claim": "Creator Rewards paid for content around monthly prompts and for engagement goals",
+          "verdict": "supported",
+          "source_url": "https://techcrunch.com/2022/11/30/pinterest-shuts-down-its-creator-rewards-program/",
+          "evidence": "The checker confirmed the TechCrunch text states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Creator Rewards ended November 30, 2022",
+          "verdict": "supported",
+          "source_url": "https://techcrunch.com/2022/11/30/pinterest-shuts-down-its-creator-rewards-program/",
+          "evidence": "The checker confirmed the TechCrunch text states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Brand payment: Pinterest is not directly involved",
+          "verdict": "supported",
+          "source_url": "https://create.pinterest.com/creators/grow-and-succeed/",
+          "evidence": "The page says \"Pinterest will not be directly involved in payment.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Creator Inclusion Fund focuses on underrepresented creator communities; the page is undated",
+          "verdict": "supported",
+          "source_url": "https://create.pinterest.com/creators/grow-and-succeed/",
+          "evidence": "The grow-and-succeed page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The link field sits on the \"finishing touches\" page",
+          "verdict": "supported",
+          "source_url": "https://create.pinterest.com/creators/grow-and-succeed/",
+          "evidence": "The grow-and-succeed page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Product tags use a \"product\" sticker",
+          "verdict": "supported",
+          "source_url": "https://create.pinterest.com/creators/grow-and-succeed/",
+          "evidence": "The grow-and-succeed page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "A media kit should include your profile, key metrics (Pin performance and audience insights) and sample content",
+          "verdict": "supported",
+          "source_url": "https://create.pinterest.com/creators/grow-and-succeed/",
+          "evidence": "The grow-and-succeed page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Pinterest isn't part of affiliate agreements; commission depends on the terms you set up",
+          "verdict": "supported",
+          "source_url": "https://create.pinterest.com/blog/affiliate-marketing-link-basics",
+          "evidence": "The page says \"Pinterest isn't part of the affiliate agreements\".",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Official affiliate partners are Rakuten, LTK, Shop Style and Amazon Associates US",
+          "verdict": "supported",
+          "source_url": "https://create.pinterest.com/blog/affiliate-marketing-link-basics",
+          "evidence": "The affiliate-basics page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Affiliate Pin steps: upload media; put the affiliate URL in place of a regular URL; link directly to a shop's product detail page; title and description must match the page",
+          "verdict": "supported",
+          "source_url": "https://create.pinterest.com/blog/affiliate-marketing-link-basics",
+          "evidence": "The page states these steps, including linking \"directly to a shop's product detail page\".",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Some link shorteners aren't supported, and you can edit a blocked link",
+          "verdict": "supported",
+          "source_url": "https://create.pinterest.com/blog/affiliate-marketing-link-basics",
+          "evidence": "The affiliate-basics page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Product tagging is available in the 14 listed countries",
+          "verdict": "supported",
+          "source_url": "https://create.pinterest.com/blog/affiliate-marketing-link-basics",
+          "evidence": "The affiliate-basics page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Quotes on subscriptions/membership/product pages and \"links to a web destination of your choosing\"",
+          "verdict": "supported",
+          "source_url": "https://create.pinterest.com/blog/make-money-on-pinterest/",
+          "evidence": "The make-money page contains these quotes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Shop the Look\"; combining product tags with affiliate links; the \"tag products\" → plus icon / \"Use a link\" steps",
+          "verdict": "supported",
+          "source_url": "https://create.pinterest.com/blog/make-money-on-pinterest/",
+          "evidence": "The make-money page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "A free business account gives access to analytics and ads",
+          "verdict": "supported",
+          "source_url": "https://help.pinterest.com/en/business/article/get-a-business-account",
+          "evidence": "The business-account help page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "New business accounts are desktop-only and need an email not already in use",
+          "verdict": "supported",
+          "source_url": "https://help.pinterest.com/en/business/article/get-a-business-account",
+          "evidence": "The business-account help page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Converting requires a public account; Pins and followers remain the same; you can switch back",
+          "verdict": "supported",
+          "source_url": "https://help.pinterest.com/en/business/article/get-a-business-account",
+          "evidence": "The page says \"Your Pins and followers will remain the same\".",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Desktop and app conversion paths match, with some steps condensed",
+          "verdict": "supported",
+          "source_url": "https://help.pinterest.com/en/business/article/get-a-business-account",
+          "evidence": "The business-account help page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The link field appears with the descriptive details",
+          "verdict": "supported",
+          "source_url": "https://help.pinterest.com/en/guide/guide-to-creating-pins",
+          "evidence": "The guide to creating Pins states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Up to five product tags, following merchant and affiliate guidelines",
+          "verdict": "supported",
+          "source_url": "https://help.pinterest.com/en/guide/guide-to-creating-pins",
+          "evidence": "The guide to creating Pins states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "After publishing you can edit the title and board, but not the image, video or audio",
+          "verdict": "supported",
+          "source_url": "https://help.pinterest.com/en/guide/guide-to-creating-pins",
+          "evidence": "The guide to creating Pins states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Spam can get an account temporarily blocked",
+          "verdict": "supported",
+          "source_url": "https://help.pinterest.com/en/guide/guide-to-creating-pins",
+          "evidence": "The guide to creating Pins states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Performance may fluctuate or decrease; a business account is required for analytics",
+          "verdict": "supported",
+          "source_url": "https://help.pinterest.com/en/business/article/pinterest-analytics",
+          "evidence": "The page says performance \"may fluctuate or decrease\".",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Desktop path: hamburger icon → Analytics → Overview",
+          "verdict": "supported",
+          "source_url": "https://help.pinterest.com/en/business/article/pinterest-analytics",
+          "evidence": "The analytics help page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Definition of outbound clicks; they're counted from the date the link is added",
+          "verdict": "supported",
+          "source_url": "https://help.pinterest.com/en/business/article/pinterest-analytics",
+          "evidence": "The analytics help page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Real-time estimates may decrease; custom ranges cover the past year and a half",
+          "verdict": "supported",
+          "source_url": "https://help.pinterest.com/en/business/article/pinterest-analytics",
+          "evidence": "The analytics help page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Generally one account; content must be original and add unique value",
+          "verdict": "supported",
+          "source_url": "https://policy.pinterest.com/en/commercial-and-branded-content-guidelines",
+          "evidence": "The guidelines say content should be \"original and add unique value.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "All four prohibited behaviours, including the \"quid pro quo\" one",
+          "verdict": "supported",
+          "source_url": "https://policy.pinterest.com/en/commercial-and-branded-content-guidelines",
+          "evidence": "The guidelines state these. The checker confirmed the \"quid pro quo\" item with a second read.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Pinterest may remove, limit or block content",
+          "verdict": "supported",
+          "source_url": "https://policy.pinterest.com/en/commercial-and-branded-content-guidelines",
+          "evidence": "The guidelines say Pinterest \"may remove, limit or block…\".",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "#ad or the paid partnership label is required for paid partnerships; EEA disclosure rule",
+          "verdict": "supported",
+          "source_url": "https://policy.pinterest.com/en/commercial-and-branded-content-guidelines",
+          "evidence": "The guidelines state this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Partnerships are set up outside Pinterest",
+          "verdict": "supported",
+          "source_url": "https://help.pinterest.com/en/business/article/paid-partnerships-for-creators",
+          "evidence": "The paid-partnerships help page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "All seven app steps; one brand per Pin; the brand approves or declines; no re-tagging that brand on the same Pin",
+          "verdict": "supported",
+          "source_url": "https://help.pinterest.com/en/business/article/paid-partnerships-for-creators",
+          "evidence": "The paid-partnerships help page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "No label can be added after publishing; a brand not on Pinterest gets no name shown",
+          "verdict": "supported",
+          "source_url": "https://help.pinterest.com/en/business/article/paid-partnerships-for-creators",
+          "evidence": "The paid-partnerships help page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Only brands can promote these Pins; some options are age-gated",
+          "verdict": "supported",
+          "source_url": "https://help.pinterest.com/en/business/article/paid-partnerships-for-creators",
+          "evidence": "The paid-partnerships help page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Amazon's accepted social networks are Facebook (open group and fan pages only), Instagram, Twitter, YouTube, TikTok and Twitch; Pinterest isn't on the list",
+          "verdict": "supported",
+          "source_url": "https://affiliate-program.amazon.com/help/node/topic/G8TW5AE9XL2VX9VM",
+          "evidence": "The Amazon application-review page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Social pages need, in most cases, at least 500 organic followers",
+          "verdict": "supported",
+          "source_url": "https://affiliate-program.amazon.com/help/node/topic/G8TW5AE9XL2VX9VM",
+          "evidence": "The page says \"in most cases, at least 500\".",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Websites: about 10 posts as a rule of thumb, with content generally within 60 days",
+          "verdict": "supported",
+          "source_url": "https://affiliate-program.amazon.com/help/node/topic/G8TW5AE9XL2VX9VM",
+          "evidence": "The Amazon application-review page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Three qualified sales within 180 days; personal orders don't count",
+          "verdict": "supported",
+          "source_url": "https://affiliate-program.amazon.com/help/node/topic/G8TW5AE9XL2VX9VM",
+          "evidence": "The Amazon application-review page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Applications can be withdrawn and can't be reinstated",
+          "verdict": "supported",
+          "source_url": "https://affiliate-program.amazon.com/help/node/topic/G7MJTPEP9NC3YKMG",
+          "evidence": "The Amazon dormancy page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "No commission for 3 years leads to a fee of the lesser of $10 or your unpaid commission",
+          "verdict": "supported",
+          "source_url": "https://affiliate-program.amazon.com/help/node/topic/G7MJTPEP9NC3YKMG",
+          "evidence": "The Amazon dormancy page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Required statement: \"As an Amazon Associate I earn from qualifying purchases.\"",
+          "verdict": "supported",
+          "source_url": "https://affiliate-program.amazon.com/help/operating/agreement",
+          "evidence": "The Operating Agreement contains this statement.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Amazon makes no promise about traffic or income",
+          "verdict": "supported",
+          "source_url": "https://affiliate-program.amazon.com/help/operating/agreement",
+          "evidence": "The Operating Agreement states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Orders must ship or be delivered and paid for within 180 days of the purchase",
+          "verdict": "supported",
+          "source_url": "https://affiliate-program.amazon.com/help/operating/policies",
+          "evidence": "Program Policies say \"within 180 days of the purchase.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy may charge a one-time set-up fee; listings cost $0.20 each",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "The Etsy fees policy states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy listings expire after four months and auto-renew at $0.20",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "The Etsy fees policy states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "6.5% transaction fee, also charged on shipping and gift wrap; processing fees vary by bank location",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "The Etsy fees policy states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Offsite Ads: 30-day window; 15% for shops under $10,000 with opt-out; 12% for the shop's lifetime at $10,000 or more, with no opt-out",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "The Etsy fees policy states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Offsite Ads are \"about Etsy's own ads, not your Pins\"",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "The checker judged this a reasonable reading of the Offsite Ads definition.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Disclose financial, employment, personal or family relationships; tags, likes and pins can be endorsements",
+          "verdict": "supported",
+          "source_url": "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers",
+          "evidence": "The FTC page says \"tags, likes, pins…can be endorsements.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Disclosure placement rules; don't bury it in hashtags; superimpose it on a picture",
+          "verdict": "supported",
+          "source_url": "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers",
+          "evidence": "The FTC page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Use \"ad\", \"advertisement\" or \"sponsored\", not \"sp\", \"spon\" or \"collab\"",
+          "verdict": "supported",
+          "source_url": "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers",
+          "evidence": "The FTC page states this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Don't rely only on a platform's disclosure tool; U.S. law applies to posts from abroad",
+          "verdict": "supported",
+          "source_url": "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers",
+          "evidence": "The FTC page states this.",
+          "suggested_fix": ""
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://techcrunch.com/2022/11/30/pinterest-shuts-down-its-creator-rewards-program/",
+          "relevant": true,
+          "notes": "Readable. Supports what the notes record it as cited for (the end date, and how Creator Rewards paid). However, it says the Creator Fund continued, which contradicts the article's \"last direct payout program\" claim (#2)."
+        },
+        {
+          "url": "https://create.pinterest.com/blog/make-money-on-pinterest/",
+          "relevant": true,
+          "notes": "Readable via web_fetch; the pipeline had marked it too short. Supports what it's cited for. It is also the correct source for the business-profile requirement (#5)."
+        },
+        {
+          "url": "https://create.pinterest.com/blog/affiliate-marketing-link-basics",
+          "relevant": true,
+          "notes": "Readable via web_fetch; the pipeline had marked it too short. Supports what it's cited for."
+        },
+        {
+          "url": "https://create.pinterest.com/creators/grow-and-succeed/",
+          "relevant": true,
+          "notes": "Readable via web_fetch; the pipeline had marked it too short. Supports what it's cited for, and also states the business-profile requirement."
+        },
+        {
+          "url": "https://policy.pinterest.com/en/commercial-and-branded-content-guidelines",
+          "relevant": true,
+          "notes": "Readable. Supports what it's cited for."
+        },
+        {
+          "url": "https://help.pinterest.com/en/business/article/paid-partnerships-for-creators",
+          "relevant": true,
+          "notes": "Readable. Supports what it's cited for, except the business-profile point (#5): it only says the tool is app-only."
+        },
+        {
+          "url": "https://help.pinterest.com/en/business/article/get-a-business-account",
+          "relevant": true,
+          "notes": "Readable. Supports what it's cited for."
+        },
+        {
+          "url": "https://help.pinterest.com/en/guide/guide-to-creating-pins",
+          "relevant": true,
+          "notes": "Readable. Supports what it's cited for."
+        },
+        {
+          "url": "https://help.pinterest.com/en/business/article/pinterest-analytics",
+          "relevant": true,
+          "notes": "Readable. Supports what it's cited for."
+        },
+        {
+          "url": "https://affiliate-program.amazon.com/help/node/topic/G8TW5AE9XL2VX9VM",
+          "relevant": true,
+          "notes": "Amazon application-review page. Readable. Supports what it's cited for."
+        },
+        {
+          "url": "https://affiliate-program.amazon.com/help/node/topic/G7MJTPEP9NC3YKMG",
+          "relevant": true,
+          "notes": "Amazon dormancy page. Readable. Supports what it's cited for."
+        },
+        {
+          "url": "https://affiliate-program.amazon.com/help/operating/agreement",
+          "relevant": true,
+          "notes": "Amazon Operating Agreement. Readable. Supports what it's cited for."
+        },
+        {
+          "url": "https://affiliate-program.amazon.com/help/operating/policies",
+          "relevant": true,
+          "notes": "Amazon Program Policies. Readable. Supports what it's cited for. It also sets the 89-day cart and roughly 60-day payment clocks, which contradict the article's \"only clocks\" claim (#3)."
+        },
+        {
+          "url": "https://www.etsy.com/legal/fees/",
+          "relevant": true,
+          "notes": "Readable via web_fetch; the pipeline got a 403. Supports what it's cited for."
+        },
+        {
+          "url": "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers",
+          "relevant": true,
+          "notes": "Readable via web_fetch; the pipeline got a 404. Supports what it's cited for."
+        }
+      ],
+      "satisfies_search_intent": false,
+      "intent_notes": "The checker's verdict is that the article meets the intent only once problems #1–#3 are fixed. For a small account, it covers which methods need an audience, how to start each one, and the rules that can trip you up, which is better than a generic list. As written, the overstated central claim, the wrong \"last direct payout\" claim and the incomplete clocks list keep it from fully meeting the intent.",
+      "adds_original_value": true,
+      "value_notes": "Most of the claimed original value holds up. The decision table is sourced and accurate. It correctly flags that Amazon's application page doesn't list Pinterest as an accepted network. It explains Etsy Offsite Ads accurately. It avoids inventing income timelines. Two claimed strengths fail as written. \"States plainly that Pinterest doesn't pay creators\" is the headline point and is overstated because of the Inclusion Fund grants. \"Lists only the real sourced clocks\" omits Amazon's roughly 60-day payout lag, the single most useful timing fact for \"when will I see money.\"",
+      "product_claims_accurate": true,
+      "product_notes": "Allowed: no product. The article makes no product claims; the links to other newearns guides are just internal navigation.",
+      "fetched_urls": [
+        "https://affiliate-program.amazon.com/help/node/topic/G7MJTPEP9NC3YKMG",
+        "https://affiliate-program.amazon.com/help/node/topic/G8TW5AE9XL2VX9VM",
+        "https://affiliate-program.amazon.com/help/operating/agreement",
+        "https://affiliate-program.amazon.com/help/operating/policies",
+        "https://create.pinterest.com/blog/affiliate-marketing-link-basics",
+        "https://create.pinterest.com/blog/make-money-on-pinterest/",
+        "https://create.pinterest.com/blog/pinterest-inclusion-fund-merchants-creators-2025/",
+        "https://create.pinterest.com/creators/grow-and-succeed/",
+        "https://help.pinterest.com/en/business/article/get-a-business-account",
+        "https://help.pinterest.com/en/business/article/paid-partnerships-for-creators",
+        "https://help.pinterest.com/en/business/article/pinterest-analytics",
+        "https://help.pinterest.com/en/guide/guide-to-creating-pins",
+        "https://policy.pinterest.com/en/commercial-and-branded-content-guidelines",
+        "https://tech.yahoo.com/social-media/articles/pinterest-inclusion-fund-returns-providing-151616478.html",
+        "https://techcrunch.com/2022/11/30/pinterest-shuts-down-its-creator-rewards-program/",
+        "https://www.etsy.com/legal/fees/",
+        "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers"
+      ],
+      "content_sha256": "ed8abbcf465fb274142128e4efd9feb6349c25e8d851a50ac1582ec61bc97001"
+    },
+    "images": {
+      "words": 3018,
+      "target": [
+        4,
+        5
+      ],
+      "stock_api_calls": 6,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "how to make money on pinterest",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "openverse",
+          "query": "make money on Pinterest",
+          "result": "failed: ReadTimeout"
+        },
+        {
+          "provider": "commons",
+          "query": "how to make money on pinterest",
+          "result": "0"
+        },
+        {
+          "provider": "commons",
+          "query": "make money on Pinterest",
+          "result": "1"
+        },
+        {
+          "provider": "commons",
+          "query": "person working laptop home",
+          "result": "13 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "laptop home office",
+          "result": "19 (cached)"
+        }
+      ],
+      "notes": [
+        "FALLBACK: no free, clearly licensed photo matched this article's topic, so the featured image is an in-house illustration (earnings). Replace it in WP Admin if you find a better photo.",
+        "1 image(s), below the 4-5 guideline: nothing else in the article would gain from a visual, and decorative images are not added"
+      ],
+      "topic": {
+        "motif": "earnings",
+        "match": "pillar passive"
+      },
+      "photo_rejections": [
+        {
+          "description": "Notre Dame Basilica in HDR (7628816096)",
+          "reason": "wrong scene (book)"
+        },
+        {
+          "description": "Chandra Levy last seen alive here 4-30-01 (214471893)",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Enjoying a delightful breakfast at home with pastry, coffee, and juice",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Feeling discomfort at home while working on a laptop during the day",
+          "reason": "nothing about big, cut, following, isn"
+        },
+        {
+          "description": "June 2020- Laptop from Operation Ghost Stories",
+          "reason": "wrong scene (documents)"
+        },
+        {
+          "description": "Natural Fire building partnership 091010 (4005703783)",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Woman at work at a table in a motorhome",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Working on a laptop while enjoying a cup of coffee at home",
+          "reason": "wrong scene (books)"
+        },
+        {
+          "description": "A young business woman holding Macbook in his home office",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Feeling discomfort at home while working on a laptop during the day",
+          "reason": "nothing about big, cut, following, isn"
+        },
+        {
+          "description": "Home office - suporte de laptop feito com caixa de papelão (4875987444)",
+          "reason": "nothing about big, cut, following, isn"
+        },
+        {
+          "description": "Middle-aged businesswoman typing on laptop at home office",
+          "reason": "nothing about big, cut, following, isn"
+        }
+      ],
+      "featured": {
+        "provider": "in-house",
+        "kind": "illustration",
+        "motif": "earnings",
+        "license": "generated-in-house",
+        "alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+        "caption": "",
+        "filename": "make-money-on-pinterest-featured.webp",
+        "fallback": true,
+        "file": "featured.webp",
+        "bytes": 5796
+      },
+      "inline": []
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2989 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "12 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "How to Make Money on Pinterest Without a Big Following: What Pays, Who Takes a Cut, and What Isn't Passive"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.40% (3x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "1/12 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "157 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "54 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "make-money-on-pinterest"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "make-money-on-pinterest"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.00"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.60: Print on Demand for Beginners: What It Costs, Who Takes a Cut, and What Isn’t Passive"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": "2 confirmed by fact-check fetch"
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "4 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "0 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "7 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "15 of 15 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": false,
+        "detail": "Transaction fee: 6.5% of the price you display, plus the amount you charge for shipping an",
+        "fix": "Link the source inside the same paragraph or list item as the number or 'according to' statement, or remove the statement."
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "69 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "generated-in-house"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "0 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "3 contradicted by a source (likely wrong): \"Pinterest doesn't pay creators directly today\" / \"On Pinterest, the money is always earne (fix: \"Pinterest doesn't pay creators for views or engagement. Apart from selective grants through its Pinterest Inclusion Fun) | \"Pinterest's last direct payout program, Creator Rewards\" (fix: \"Pinterest's main pay-for-content program, Creator Rewards…\") | \"These are the only clocks the official pages set\" (fix: \"Key clocks the official pages set include…\". Then add that Amazon pays commission about 60 days after the end of the mo) || 1 no supporting evidence found (not shown to be false): \"Does Pinterest pay for views? No current program does.\" (fix: \"No Pinterest page we read describes a program that pays for views.\")",
+        "fix": "Contradicted: correct the claim to what the source says. No evidence found: cite an official source that states it, narrow it to what a source does say, or remove it. Could not be checked: verify it against a readable source or remove it. Source page not read: cite a page the pipeline can open that states the claim, or remove the claim. No claims listed: the fact-check did not check anything. Then re-run the fact-check only."
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": false,
+        "detail": "The checker's verdict is that the article meets the intent only once problems #1–#3 are fixed. For a small account, it covers which methods need an audience, how to start each one, and the rules that can trip you up, which is better than a generic list. As written, the overstated central claim, the wrong \"last direct payout\" claim and the incomplete clocks list keep it from fully meeting the intent.",
+        "fix": "Rework the article so it answers the query more completely than a generic result."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "Most of the claimed original value holds up. The decision table is sourced and accurate. It correctly flags that Amazon's application page doesn't list Pinterest as an accepted network. It explains Etsy Offsite Ads accurately. It avoids inventing income timelines. Two claimed strengths fail as written. \"States plainly that Pinterest doesn't pay creators\" is the headline point and is overstated because of the Inclusion Fund grants. \"Lists only the real sourced clocks\" omits Amazon's roughly 60-day payout lag, the single most useful timing fact for \"when will I see money.\""
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "Allowed: no product. The article makes no product claims; the links to other newearns guides are just internal navigation."
+      },
+      {
+        "check": "fact_check_current",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "sources_verified",
+        "passed": true,
+        "detail": ""
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 1.031,
+        "write": 0.331,
+        "fact_check": 0.915,
+        "fact_check_json": 0.225
+      },
+      "total_usd": 2.502
+    },
+    "wp_media": {
+      "id": 3790,
+      "url": "https://newearns.com/wp-content/uploads/2026/11/make-money-on-pinterest-featured.webp"
+    },
+    "wp_post": {
+      "id": 3791,
+      "status": "pending",
+      "link": "https://newearns.com/?p=3791"
+    },
+    "image_check": "ok",
+    "final": "held_for_review"
+  },
+  "updated": "2026-11-01T17:18:24+00:00"
+}
