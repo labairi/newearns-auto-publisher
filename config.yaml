@@ -151,6 +151,16 @@ calendar:
   - {week: 3, pillar: ai, topic: "What Is an AI Agent, and What Can AI Agents Do Today?", query: "what is an ai agent"}  # 32,500 (+ "ai agents" 123,600, kd 67)
   - {week: 3, pillar: passive, topic: "How to Make Money on Pinterest Without a Big Following", query: "how to make money on pinterest"}  # 33,220, kd 17
   - {week: 3, pillar: money, topic: "How Much YouTube Pays per View, and Why the Number Varies", query: "how much does youtube pay per view"}  # 18,790, kd 7
+  # Added 2026-11-02 (owner asked for these next): low-competition topics. Demand = DataForSEO
+  # US monthly searches only (not the 5-market sum used above); kd = US keyword difficulty.
+  - {week: 3, pillar: money, topic: "What Jobs Make the Most Money, and What Each One Takes", query: "what jobs make the most money"}  # 18,100 US, kd 7
+  - {week: 3, pillar: money, topic: "How to Make Extra Money: Realistic Ways to Earn This Month", query: "how to make extra money"}  # 18,100 US, kd 16
+  - {week: 3, pillar: passive, topic: "Passive Income vs Active Income: The Difference, with Examples", query: "passive income vs active income"}  # 720 US, kd 4-10
+  - {week: 3, pillar: money, topic: "Side Hustles for Stay-at-Home Moms That Fit Around Family Time", query: "side hustles for stay at home moms"}  # 1,600 US, kd 1
+  - {week: 4, pillar: money, topic: "How Much You Can Make Donating Plasma, and How the Pay Works", query: "how much money can you make donating plasma"}  # 14,800 US, kd 11-15
+  - {week: 4, pillar: money, topic: "Remote Side Hustles You Can Do from Anywhere", query: "remote side hustles"}  # 2,900 US, kd 4
+  - {week: 4, pillar: money, topic: "Side Hustle Apps That Pay: Fees, Payouts and Who They Suit", query: "side hustle apps"}  # 1,600 US, kd 6
+  - {week: 4, pillar: money, topic: "The Side Hustles Reddit Recommends Most, and What They Really Pay", query: "side hustles reddit"}  # 3,600 US, kd 2-6
   - {week: 3, pillar: passive, topic: "How to Sell on Etsy: Fees, Setup and First Sales", query: "how to sell on etsy"}  # 25,400, kd 25
   - {week: 3, pillar: ai, topic: "Will AI Replace Jobs? What the Research Says, Job by Job", query: "will ai replace jobs"}  # 10,460 with "jobs ai will replace", kd 25
   - {week: 3, pillar: money, topic: "Online Jobs for Students: Legit Ways to Earn Between Classes", query: "online jobs for students"}  # 25,860, kd 5
