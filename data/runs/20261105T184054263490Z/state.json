@@ -1,0 +1,871 @@
+{
+  "run_id": "20261105T184054263490Z",
+  "stages": {
+    "pillar": "pdf",
+    "topic": "How to Convert a PDF to Word Without Losing the Formatting",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 46,
+        "cache_creation_input_tokens": 63411,
+        "cache_read_input_tokens": 862945,
+        "output_tokens": 16951,
+        "web_search_requests": 18,
+        "web_fetch_requests": 12,
+        "requests": 5,
+        "read_source_calls": 11,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 46,
+            "cache_write_5m_tokens": 63411,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 862945,
+            "output_tokens": 16951
+          }
+        },
+        "fetched_urls": [
+          "https://helpx.adobe.com/acrobat/desktop/create-documents/scan-documents-to-pdfs/recognize-text.html",
+          "https://helpx.adobe.com/acrobat/desktop/save-export-documents/convert-to-other-formats/pdf-to-word.html",
+          "https://helpx.adobe.com/acrobat/web/share-review-and-export/export-and-print/export-pdfs.html",
+          "https://helpx.adobe.com/document-cloud/faq/try-acrobat-online-services.html",
+          "https://helpx.adobe.com/reader/desktop/export-pdf.html",
+          "https://www.adobe.com/acrobat/how-to/pdf-to-word-doc-converter.html",
+          "https://www.adobe.com/acrobat/online/pdf-to-word.html"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 1.009
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 12223,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 14595,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 12223,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 14595
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.353
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 14,
+        "cache_creation_input_tokens": 71328,
+        "cache_read_input_tokens": 247953,
+        "output_tokens": 8348,
+        "web_search_requests": 1,
+        "web_fetch_requests": 5,
+        "requests": 2,
+        "read_source_calls": 1,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 14,
+            "cache_write_5m_tokens": 71328,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 247953,
+            "output_tokens": 8348
+          }
+        },
+        "fetched_urls": [
+          "https://helpx.adobe.com/document-cloud/faq/try-acrobat-online-services.html",
+          "https://helpx.adobe.com/reader/desktop/export-pdf.html",
+          "https://www.adobe.com/acrobat/how-to/pdf-to-word-doc-converter.html",
+          "https://www.adobe.com/acrobat/online/pdf-to-word.html"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.583
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 4862,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 8046,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 4862,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 8046
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.185
+      }
+    ],
+    "brief": "I've finished the brief. The chosen query is **how to convert pdf to word**. The top results are mostly converter tools that don't explain much. The angle is to help readers pick the right method for their kind of PDF, using official notes on what converts badly. Each method links to its own vendor's documentation. Two gaps: I found no search-volume data, and I couldn't read three Adobe Help pages (details in section 7).\n\n---\n\n# CONTENT BRIEF: New Earns, PDF pillar\n\n## 1. Chosen query and intent\n\n- **Primary query:** how to convert pdf to word\n- **Focus keyphrase:** convert PDF to Word. Use it in the title, the intro and once or twice more. Don't put it in every heading.\n- **Working title:** How to Convert a PDF to Word Without Losing the Formatting: Pick the Right Method for Your File\n- **Search intent:** a how-to with a task to get done. The reader has a PDF and wants an editable Word file now, with the layout kept.\n- **What ranks now:** a search on \"how to convert pdf to word\" returned mostly converter tool pages: Drawboard, Microsoft's PDF-to-Word marketing page, Adobe's online converter, iLovePDF, Smallpdf and Nitro. A search for \"without losing formatting\" returned listicles from PDF-software vendors (PDFgear, Wondershare, PDNob, UPDF) that mainly push their own tool.\n- **Search-demand data:** none was provided, and I haven't estimated any volumes.\n\n## 2. Unique angle (the value we add)\n\nCurrent results say \"upload, click convert, done.\" None of them help readers choose a method based on what's in their PDF, and none use the vendors' own lists of what breaks. New Earns can add:\n\n1. **A first check of the file type.** Is the PDF mostly text, mostly charts or graphics, or a scan/photo? Microsoft says the result depends on this (see facts M2–M4).\n2. **Three methods with sourced steps.** (a) Microsoft Word on the desktop, (b) Google Drive/Docs, which is free and includes OCR, then download as .docx, (c) Adobe Acrobat (the free online tool, paid Acrobat, or Reader with an Export PDF subscription).\n3. **A decision table:** PDF type → best method → what to expect.\n4. **A \"what will break\" section** built on Microsoft's official list of elements that don't convert well, and Google's list of what OCR won't detect.\n5. **Troubleshooting:** fixes for \"the page came in as an image,\" \"footnotes are in the body text,\" \"tables or columns are gone,\" and \"the file is too big for Google Drive.\"\n6. **A privacy note for freelancers handling client files.** Online tools upload the file to a server. Adobe states what it does with uploaded files.\n\n## 3. Outline (H2/H3)\n\n**Intro (2–3 sentences).** You can convert a PDF to Word in the Word app you already have, for free in Google Drive, or with Acrobat. Whether the formatting survives depends mostly on what kind of PDF you have. Don't open with filler.\n\n**H2: First, check what kind of PDF you have**\n- H3: Mostly text (contracts, reports, invoices). Word handles these best (M2).\n- H3: Mostly charts, graphics or designed layouts. A page may come through as an uneditable image (M3).\n- H3: Scanned pages or photos of documents. These need text recognition (OCR) (G1, A4, R3).\n- Practical tip, framed as general guidance and not as a sourced fact: try selecting a line of text in your PDF reader. If you can't, it's probably a scan or image.\n\n**H2: Quick decision table: which method to use**\nColumns: Your PDF | Best first try | What to expect | Source\n\n| Your PDF | Best first try | What to expect | Source |\n|---|---|---|---|\n| Mostly text | Word, File > Open | Close match; lines and page breaks may shift | M1, M2, M5 |\n| Scanned or photo, small file | Google Drive > Open with Google Docs, then download .docx | Bold, italics, font size, font type and line breaks likely kept; lists, tables, columns and footnotes not likely detected | G1–G4 |\n| Scanned or complex layout | Acrobat (online or paid) | Adobe says it rebuilds columns, tables, headers/footers and footnotes \"in most cases\"; OCR runs on scanned text | A1–A5 |\n| Contains a known problem element (bookmarks, comments, tracked changes, etc.) | Consider not converting: open the PDF directly | Microsoft's own advice | M6 |\n\n**H2: Method 1: Convert a PDF to Word in Microsoft Word**\n- Steps M-steps 1–4 (File > Open > find the PDF > OK on the conversion message > save as Word doc or PDF).\n- Note: Word converts a copy and leaves the original PDF alone (M1, M7).\n- Note: page-to-page correspondence may not be exact (M5).\n- Versions: Microsoft's pages list Word for Microsoft 365, Word 2024, 2021, 2019 and 2016. Say menus may look slightly different between versions.\n\n**H2: Method 2: Use Google Drive and Google Docs (free, with OCR)**\n- Prepare the file: the 2 MB size guideline, text at least 10 pixels high, pages right way up, common fonts, sharp images (G1).\n- Convert: right-click the file in Drive > Open with Google Docs (G2).\n- Get a Word file: File > Download > choose a file type (G5). Tell the reader to pick Microsoft Word (.docx). Google's page says \"Choose a file type\" and doesn't name .docx, so the writer should say the menu lists the formats.\n- What survives and what doesn't (G3, G4).\n\n**H2: Method 3: Use Adobe Acrobat (online, desktop or Reader)**\n- H3: Acrobat's free online converter: steps, sign-in, free-use limits, file handling (A1–A3, F1–F4).\n- H3: Acrobat desktop: Export PDF > Microsoft Word > Word Document > Export; OCR runs automatically on scanned text (A4). Say the tool's location in the interface may differ by Acrobat version. This page is Adobe marketing, not a help page.\n- H3: Acrobat Reader: you need a paid Adobe Acrobat Export PDF subscription. Steps are All Tools > Export a PDF. For scans, set Document Language (R1–R3).\n- Formats: .docx and .doc, plus RTF (A6).\n\n**H2: What usually breaks, and how to fix it**\n- The full Microsoft list (M6).\n- Why it happens: PDF is a fixed format that usually doesn't store paragraphs, tables or columns (M8). One short paragraph in plain English.\n- Fixes, each tied to a source:\n  - The whole page is an image or the text won't edit → try an OCR route (Google Drive or Acrobat) (M3, G2, A4).\n  - The footnote ended up in the body → Word didn't recognise it; reinsert it by hand (M4).\n  - Tables, lists or columns are flattened after Google OCR → expected (G4); use Word or Acrobat for table-heavy files.\n  - Google Drive won't convert it well and the file is big → the guideline is 2 MB or smaller (G1). Internal link: compress or split the file first.\n  - The PDF has comments, bookmarks or tracked changes → these don't convert well; keep the PDF for reference (M6).\n\n**H2: Converting client documents? Check where the file goes**\n- Online converters upload the file. Adobe says the file is handled on its servers and deleted unless you sign in to save it (A2, F4). It also says it uses AES-256 and TLS 1.2 (F3).\n- Word desktop converts a copy of the file you opened (M1). Don't add privacy claims about Word beyond that.\n- **Optional product mention** (see section 6).\n\n**H2: FAQ (short)**\n- Is there a free way? Yes: Google Drive (G2, G5), Word if you already have it, or Adobe's online tool within its free limits (F1, F2).\n- Can I convert a scanned PDF? Yes, with OCR (G1–G2, A4, A5).\n- Why do the line or page breaks differ? (M5)\n\n## 4. Facts to rely on (with URLs)\n\n**Microsoft: \"Edit a PDF\"**: https://support.microsoft.com/en-us/word/training/edit-a-pdf (the old /office/edit-a-pdf-b2d1d729… URL redirects here; cite this one)\n- M1: Steps: File > Open; find and open the PDF; Word says it will make a copy and convert it, and the original PDF won't be changed; select OK; save as a Word doc or PDF from the Save as dropdown.\n- M2 (also on page M-b): works best with PDFs that are mostly text.\n- M5: the converted document may not match the original page for page.\n\n**Microsoft: \"Opening PDFs in Word\"**: https://support.microsoft.com/en-us/word/opening-pdfs-in-word\n- M2: works best with mostly-text files (business, legal, scientific).\n- M3: a mostly-chart/graphics PDF may come in as a whole-page image whose text can't be edited.\n- M4: an unrecognised footnote becomes regular text.\n- M6: list of elements that don't convert well.\n- M7: you always keep the original PDF.\n- M8: how conversion works (fixed format, no structure).\n\n**Google Drive Help: \"Convert PDF and photo files to text\"**: https://support.google.com/drive/answer/176692\n- G1: preparation tips (formats, 2 MB, 10 px text, orientation, fonts, image quality).\n- G2: steps (right-click > Open with Google Docs).\n- G3: likely kept: bold, italics, font size, font type, line breaks.\n- G4: not likely detected: lists, tables, columns, footnotes, endnotes.\n\n**Google Docs Editors Help: \"Create, view, or download a file\"**: https://support.google.com/docs/answer/49114?hl=en&co=GENIE.Platform%3DDesktop\n- G5: File > Download > choose a file type.\n\n**Adobe: online PDF to Word converter**: https://www.adobe.com/acrobat/online/pdf-to-word.html\n- A1: steps.\n- A2: file handling.\n- A3: you may be asked to sign in on repeat use.\n- A5: OCR and accuracy claim (vendor's own wording, so attribute it to Adobe).\n- A6: .docx, .doc and RTF.\n\n**Adobe: \"How to convert a PDF to Word\"** (marketing how-to): https://www.adobe.com/acrobat/how-to/pdf-to-word-doc-converter.html\n- A4: desktop Export PDF steps; text recognition runs automatically on scanned text.\n\n**Adobe Help: \"FAQ | Try Adobe Acrobat online services\"**: https://helpx.adobe.com/document-cloud/faq/try-acrobat-online-services.html\n- F1: without sign-in, one free transaction.\n- F2: signed in, one free premium-tool transaction every 30 days, rolling.\n- F3: encryption.\n- F4: deletion if you don't sign in.\n- F5: PDF to Word output = DOCX.\n\n**Adobe Help: \"Export PDF from Acrobat Reader\"**: https://helpx.adobe.com/reader/desktop/export-pdf.html\n- R1: paid subscription needed.\n- R2: steps.\n- R3: set Document Language for scans.\n\n**Don't state these (no source read):** Word for the web or Word for Mac opening PDFs; any prices; Adobe file-size or page limits; Google Docs keeping images; the \"Retain flowing text vs page layout\" settings in Acrobat.\n\n## 5. Internal-link ideas (only those genuinely related)\n\n- **\"How to Compress a PDF for Email (and What to Do When It's Still Too Big)\"**: link in the troubleshooting item about Google Drive's 2 MB guideline.\n- **\"How to Password-Protect a PDF (and What the Password Doesn't Protect)\"**: link where the reader edits the Word file and saves it back to PDF to send to a client. Don't claim that protected PDFs fail to convert; I have no source for that.\n- None of the other published articles match this intent. Don't force links.\n\n## 6. Product link: justified, at most twice, with care\n\n- **Where it fits:** Method 3 or the client-files section, as another browser-based option for PDF-to-Word. It's also justified in the scanned-PDF troubleshooting item through its image-to-text tool. Don't exceed two mentions.\n- **Allowed wording:** Private PDF Editor (https://private-pdf-editor.com/) is a browser-based PDF toolkit with about 30 tools. It converts PDF to Word, PowerPoint, Excel, JPG and PDF/A, and it also offers image to text. Standard PDF editing runs in the browser, but some conversions are handled differently and have separate disclosures, so check its disclosure for PDF-to-Word before uploading client files. It has paid plans (see its pricing page for current prices).\n- **Don't say:** that PDF-to-Word runs locally or privately, anything about its formatting accuracy, or any price. Don't compare it to Adobe, Google or Microsoft.\n\n## 7. Notes for the writer\n\n- No first-hand testing language (\"we tried,\" \"in our test\").\n- Menus change. Add a line that menu names may differ by version and platform, especially for Acrobat. The Acrobat desktop steps come from Adobe's marketing page. I couldn't read Adobe's desktop Help pages: the PDF-to-Word page returned an HTML-conversion page, and the Acrobat-web \"Export PDFs\" and \"Recognize text\" pages returned no readable body text. Don't add Acrobat settings beyond what's quoted here.\n- The Adobe free-limit FAQ says \"Last updated on Jun 2, 2025.\" Present the limits as \"Adobe's FAQ says…\" and tell readers they'll be told online when they hit a limit.\n\n---\n\n# SOURCE NOTES\n\n**1. Microsoft Support: \"Edit a PDF\"**\nURL: https://support.microsoft.com/en-us/word/training/edit-a-pdf (redirected from https://support.microsoft.com/en-us/office/edit-a-pdf-b2d1d729-6b79-499a-bcdb-233379c2f63a)\nDate stated: none. Applies to: Word for Microsoft 365, Word 2024, Word 2021, Word 2019, Word 2016.\n- \"To edit a PDF, open it in Word. This works best with PDFs that are mostly text. PDFs of book chapters or something that looks like a manuscript from a copier won't be formatted well in Word.\"\n- Steps: \"Go to File > Open.\" / \"Find the PDF and open it (you might have to select Browse and find the PDF in a folder).\" / \"Word tells you that it's going to make a copy of the PDF and convert its contents into a format that Word can display. The original PDF won't be changed at all. Select OK.\" / \"After your edits, you save it as a Word doc or a PDF. In the Save menu, choose the document type from the Save as dropdown menu and select OK.\"\n- Note: \"The converted document might not have a perfect page-to-page correspondence with the original. For example, lines and pages may break at different locations.\"\n\n**2. Microsoft Support: \"Opening PDFs in Word\"**\nURL: https://support.microsoft.com/en-us/word/opening-pdfs-in-word\nDate stated: none. Applies to: Word for Microsoft 365, Word 2024, Word 2021, Word 2019, Word 2016.\n- \"To open a PDF file without converting it to a Word document, open the file directly wherever it's stored…\"\n- \"Word makes a copy of the PDF, converting it to a Word document and attempting to match layout of the original PDF. You always have the original PDF file, in case you don't want to keep the version that Word converts.\"\n- \"Converting from PDF to Word works best with files that are mostly text—for example, business, legal, or scientific documents. But when you open a PDF file in Word, it might not look exactly the way it looked as a PDF.\"\n- \"If the PDF contains mostly charts or other graphics, the whole page might show up as an image. When that happens, the text can't be edited.\"\n- \"…if Word doesn't recognize a footnote, it treats the footnote as regular text and might not put it at the bottom of the page.\"\n- \"Document elements that don't convert well\": \"If your PDF includes these, you might want to open it directly rather than converting it to a Word document.\" The list: tables with cell spacing; page colors and page borders; tracked changes; frames; footnotes that span more than one page; endnotes; audio, video, and PDF active elements; PDF bookmarks; PDF tags; PDF comments; font effects, like Glow or Shadow (\"in the Word file, the effects are represented by graphics\").\n- \"PDF is a fixed file format… Most PDFs don't include information about structural content elements, such as paragraphs, tables, or columns. For example, PDF stores a table as a set of lines without any relationship to the content inside the table cells.\"\n- \"Word uses a system of complex rules to figure out what Word objects (like headings, lists, tables, etc.) best represent the original PDF…\"\n\n**3. Google Drive Help: \"Convert PDF and photo files to text\" (Computer)**\nURL: https://support.google.com/drive/answer/176692\nDate stated: none.\n- Step 1, \"For the best results, use these tips\": \"Format: You can convert PDFs (multipage documents) or photo files (.jpeg, .png and .gif)\"; \"File size: The file should be 2 MB or smaller.\"; \"Resolution: Text should be at least 10 pixels high.\"; \"Orientation: Documents must be right-side up…\"; \"Languages: Google Drive detects the language of the document.\"; \"Font and character set: Use common fonts, such as Arial or Times New Roman.\"; \"Image quality: Use sharp images with even lighting and clear contrasts.\"\n- Condition: these are presented as tips \"for the best results,\" not hard limits. Write \"Google recommends 2 MB or smaller.\"\n- Step 2: \"On your computer, go to Google Drive.\" / \"Right click a file.\" / \"Click Open with Google Docs.\"\n- \"The image file is converted, but the format might not transfer: Bold, italics, font size, font type, and line breaks are likely to be retained. Lists, tables, columns, footnotes, and endnotes are not likely to be detected.\"\n\n**4. Google Docs Editors Help: \"Create, view, or download a file\" (Computer)**\nURL: https://support.google.com/docs/answer/49114?hl=en&co=GENIE.Platform%3DDesktop\nDate stated: none.\n- \"Download a copy of a file\": \"Open a document, spreadsheet, presentation or video.\" / \"At the top, click File Download.\" / \"Choose a file type. The file will download onto your computer.\"\n- The page doesn't name .docx explicitly. The writer may say \"choose Microsoft Word (.docx) from the list of file types.\" Keep it general if unsure.\n\n**5. Adobe: \"Convert PDF to Word for free – PDF to DOCX Converter\"** (online tool page)\nURL: https://www.adobe.com/acrobat/online/pdf-to-word.html\nDate stated: none on the page (footer © 2026).\n- \"Your file will be securely handled by Adobe servers and deleted unless you sign in to save it.\"\n- Steps: \"Click the Select a file button above, or drag and drop a file into the drop zone.\" / \"Select the PDF you want to convert to the DOCX file format.\" / \"Watch Acrobat automatically convert the file from PDF to an editable Word document.\" / \"Download your file. If you use the tool again, you may be asked to sign in to download it.\"\n- \"It also works on Mac, Windows, IOS, Android, and Linux operating systems.\"\n- Accuracy (vendor claim, attribute it): \"It identifies and reconstructs multi-column layouts, embedded tables, headers and footers, and footnotes in most cases. Acrobat's built-in OCR (optical character recognition) may be used for complex scanned PDFs to recognize text before converting to Word.\"\n- \"Adobe Acrobat can export PDFs to both .docx and .doc formats. If you're on a modern system, .docx is recommended… You can also export your PDF to RTF (Rich Text Format) in Acrobat…\"\n- Images: \"Image resolution is maintained at the level stored in the original PDF. If images in the converted Word file appear to have low resolution, the original PDF may have contained images with reduced resolution…\"\n- Don't use the \"Over 41M files uploaded\" figure. It's a marketing stat for an undefined period.\n\n**6. Adobe: \"How to convert a PDF to Word | Adobe Acrobat\"** (marketing how-to)\nURL: https://www.adobe.com/acrobat/how-to/pdf-to-word-doc-converter.html\nDate stated: none.\n- Steps: \"Open a PDF file in Acrobat.\" / \"Click on the 'Export PDF' tool in the right pane.\" / \"Choose Microsoft Word as your export format, and then choose 'Word Document.'\" / \"Click 'Export.' If your PDF contains scanned text, the Acrobat Word converter will run text recognition automatically.\" / \"Name your converted file, choose DOC or DOCX file format, and click the 'Save' button.\"\n- Caveat: this is a marketing page, and \"right pane\" may not match newer Acrobat layouts. Add a \"your interface may differ\" note.\n- Don't repeat the page's promotional claim that \"all your fonts and formatting come with it\" as fact.\n\n**7. Adobe Help: \"FAQ | Try Adobe Acrobat online services\"**\nURL: https://helpx.adobe.com/document-cloud/faq/try-acrobat-online-services.html\nDate stated: \"Last updated on Jun 2, 2025.\"\n- \"Without signing in with an Adobe ID, most tools let you complete one free transaction and download the resulting file one time.\"\n- \"When trying premium tools, you can make one free transaction every 30 days on a rolling basis. For example, if you sign in for the first time on any given day and use the Convert PDF to Word tool, you've used one free transaction for the current 30-day period…\" Condition: this applies to signed-in free users trying premium tools. \"Request e-signature transactions may be subject to extra limitations.\" \"When you reach the free limits, you'll be notified online.\"\n- Supported output: \"Convert PDF to Word | DOCX\".\n- \"Adobe uses the AES-256 encryption standard and Transport Layer Security (TLS) 1.2 for Acrobat online services.\"\n- \"All uploaded files stored in Adobe cloud storage are automatically labeled Private…\"\n- \"After using a tool, you must sign in to save or share your file. Otherwise, Adobe will delete the file from the server within a short time period.\"\n\n**8. Adobe Help: \"Export PDF from Acrobat Reader\"**\nURL: https://helpx.adobe.com/reader/desktop/export-pdf.html\nDate stated: \"Last updated on Jun 21, 2026.\"\n- \"Ensure that you have a paid subscription to the Adobe Acrobat Export PDF service to convert PDFs to Microsoft Word, Excel, or RTF documents.\"\n- Steps: \"On the upper-right corner of the Acrobat Reader window, click Sign In.\" / sign in with an Adobe ID / \"Select All Tools > Export a PDF.\" / \"By default, the currently opened file is selected for conversion…\" / \"From the Export PDF To list, select the desired conversion format.\" / \"Select Convert to <selected file format>.\" / \"In the Save as dialog box, choose the location… and then select Save.\"\n- \"If you are exporting a scanned document or image, ensure that the Document Language is set correctly as per the language of the text used in the document. To change the language, click Change and choose an appropriate language from the list.\"\n\n**SERP evidence (intent only, not facts for the article):** the searches for \"how to convert pdf to word\" and \"convert pdf to word without losing formatting\" returned the results listed in section 1.",
+    "candidates": [
+      "How to Convert a PDF to Word Without Losing the Formatting (primary query: how to convert pdf to word)"
+    ],
+    "article": {
+      "title": "How to Convert PDF to Word Without Losing the Formatting: Pick the Right Method for Your File",
+      "seo_title": "How to Convert PDF to Word Without Losing Formatting",
+      "slug": "convert-pdf-to-word",
+      "meta_description": "Convert PDF to Word with Microsoft Word, Google Docs or Adobe Acrobat. See which method suits text, scanned or complex PDFs, and what formatting breaks.",
+      "focus_keyphrase": "convert PDF to Word",
+      "excerpt": "You can convert PDF to Word in Microsoft Word, in Google Drive and Docs, or with Adobe Acrobat. Whether the formatting survives depends mostly on what kind of PDF you have. Here is how to check your file, pick a method, and fix what breaks.",
+      "content_html": "<p>You have a PDF and need an editable Word file. You can convert PDF to Word in the Word app you may already have, through Google Drive and Google Docs, or with Adobe Acrobat. Whether the layout survives depends mostly on what kind of PDF you start with. This guide starts there, then covers each method using the vendors' own documentation.</p><h2>First, check what kind of PDF you have</h2><p>Microsoft's support page on <a href=\"https://support.microsoft.com/en-us/word/opening-pdfs-in-word\">opening PDFs in Word</a> says conversion \"works best with files that are mostly text\" and warns that the result \"might not look exactly the way it looked as a PDF.\" Before you pick a method, decide which of these three groups your file belongs to.</p><h3>Mostly text (contracts, reports, invoices)</h3><p>Microsoft says files that are mostly text, such as business, legal or scientific documents, convert best (<a href=\"https://support.microsoft.com/en-us/word/opening-pdfs-in-word\">Microsoft Support</a>). Its <a href=\"https://support.microsoft.com/en-us/word/training/edit-a-pdf\">Edit a PDF</a> guide adds a warning: PDFs of book chapters, or \"something that looks like a manuscript from a copier,\" won't be formatted well in Word.</p><h3>Mostly charts, graphics or designed layouts</h3><p>If the PDF contains mostly charts or other graphics, Microsoft says the whole page might show up as an image, and the text on it can't be edited (<a href=\"https://support.microsoft.com/en-us/word/opening-pdfs-in-word\">Microsoft Support</a>). If your file is a heavily designed layout, such as slides saved as a PDF, plan for this and keep a text-recognition (OCR) method in reserve.</p><h3>Scanned pages or photos of documents</h3><p>A scan is a picture of text. To make it editable, the text must first be recognised with optical character recognition (OCR). Google Drive can convert PDF and photo files to text when you open them with Google Docs (<a href=\"https://support.google.com/drive/answer/176692\">Google Drive Help</a>). Adobe says Acrobat runs text recognition automatically on scanned text when you export to Word (<a href=\"https://www.adobe.com/acrobat/how-to/pdf-to-word-doc-converter.html\">Adobe</a>). Adobe's Reader help also tells you to set the Document Language when you export a scanned document or image (<a href=\"https://helpx.adobe.com/reader/desktop/export-pdf.html\">Adobe Help</a>).</p><p>Here is a quick check that works in most PDF readers. Try to highlight a single line of text with your cursor. If you can select individual words, the PDF has a text layer. If the whole page selects as one block, or nothing selects at all, the file is probably a scan or an image. In that case, go straight to a method that includes OCR.</p><h2>Quick decision table: which method to use</h2><table><thead><tr><th>Your PDF</th><th>Best first try</th><th>What to expect</th><th>Source</th></tr></thead><tbody><tr><td>Mostly text</td><td>Microsoft Word: File &gt; Open</td><td>A close match, but lines and pages may break in different places</td><td><a href=\"https://support.microsoft.com/en-us/word/training/edit-a-pdf\">Microsoft: Edit a PDF</a></td></tr><tr><td>Scanned or photo, small file</td><td>Google Drive: Open with Google Docs, then download as Word</td><td>Bold, italics, font size, font type and line breaks are likely kept. Lists, tables, columns, footnotes and endnotes are not likely to be detected.</td><td><a href=\"https://support.google.com/drive/answer/176692\">Google Drive Help</a></td></tr><tr><td>Scanned or complex layout</td><td>Adobe Acrobat (online tool or desktop)</td><td>Adobe says it reconstructs multi-column layouts, tables, headers and footers, and footnotes \"in most cases.\" OCR may be used for scanned text.</td><td><a href=\"https://www.adobe.com/acrobat/online/pdf-to-word.html\">Adobe</a></td></tr><tr><td>Contains bookmarks, comments, tracked changes or other elements that don't convert well</td><td>Consider not converting: open the PDF directly</td><td>Microsoft suggests opening such files directly rather than converting them</td><td><a href=\"https://support.microsoft.com/en-us/word/opening-pdfs-in-word\">Microsoft: Opening PDFs in Word</a></td></tr></tbody></table><h2>Method 1: Convert a PDF to Word in Microsoft Word</h2><p>Microsoft's instructions apply to Word for Microsoft 365, Word 2024, Word 2021, Word 2019 and Word 2016 (<a href=\"https://support.microsoft.com/en-us/word/training/edit-a-pdf\">Microsoft Support</a>). Menus may look slightly different between versions.</p><ol><li>In Word, go to <strong>File &gt; Open</strong>.</li><li>Find the PDF and open it. You might have to select <strong>Browse</strong> and look for the PDF in a folder.</li><li>Word tells you it will make a copy of the PDF and convert its contents into a format Word can display. The original PDF won't be changed. Select <strong>OK</strong>.</li><li>Make your edits. Then save the file as a Word document or a PDF: in the Save menu, choose the document type from the <strong>Save as</strong> dropdown and select <strong>OK</strong>.</li></ol><p>These steps come from Microsoft's <a href=\"https://support.microsoft.com/en-us/word/training/edit-a-pdf\">Edit a PDF</a> guide. Two points from Microsoft are worth knowing before you start:</p><ul><li><strong>Your original is safe.</strong> Word converts a copy. Microsoft says \"you always have the original PDF file, in case you don't want to keep the version that Word converts\" (<a href=\"https://support.microsoft.com/en-us/word/opening-pdfs-in-word\">Microsoft Support</a>).</li><li><strong>Pages may not line up exactly.</strong> The converted document \"might not have a perfect page-to-page correspondence with the original.\" Lines and pages may break in different places (<a href=\"https://support.microsoft.com/en-us/word/training/edit-a-pdf\">Microsoft Support</a>).</li></ul><p>If you are editing a client document and saving it back to PDF to send, you may also want to restrict who can open it. See <a href=\"https://newearns.com/password-protect-pdf/\">How to Password-Protect a PDF (and What the Password Doesn't Protect)</a>.</p><h2>Method 2: Use Google Drive and Google Docs (includes OCR)</h2><p>This route suits scanned PDFs and photos of documents, because Google Docs recognises the text as it converts. It takes three steps: prepare the file, convert it, then download it as a Word file.</p><h3>Prepare the file</h3><p>Google lists these tips \"for the best results\" (<a href=\"https://support.google.com/drive/answer/176692\">Google Drive Help</a>):</p><ul><li><strong>Format:</strong> PDFs (multipage documents) or photo files (.jpeg, .png and .gif).</li><li><strong>File size:</strong> Google recommends 2 MB or smaller.</li><li><strong>Resolution:</strong> text should be at least 10 pixels high.</li><li><strong>Orientation:</strong> pages must be right side up.</li><li><strong>Language:</strong> Google Drive detects the language of the document.</li><li><strong>Fonts:</strong> use common fonts, such as Arial or Times New Roman.</li><li><strong>Image quality:</strong> use sharp images with even lighting and clear contrast.</li></ul><p>These are recommendations, not hard limits. A larger or blurrier file may still convert, but the results are likely to be worse.</p><h3>Convert it</h3><ol><li>On your computer, go to Google Drive and upload the PDF if it isn't there already.</li><li>Right-click the file.</li><li>Click <strong>Open with Google Docs</strong>.</li></ol><p>Steps from <a href=\"https://support.google.com/drive/answer/176692\">Google Drive Help</a>.</p><h3>Download it as a Word file</h3><ol><li>With the converted document open in Google Docs, click <strong>File &gt; Download</strong> at the top.</li><li>Choose a file type. The menu lists the available formats; pick Microsoft Word (.docx).</li><li>The file downloads to your computer.</li></ol><p>Steps from <a href=\"https://support.google.com/docs/answer/49114?hl=en&amp;co=GENIE.Platform%3DDesktop\">Google Docs Editors Help</a>.</p><h3>What survives and what doesn't</h3><p>Google says the format \"might not transfer\" in full. Bold, italics, font size, font type and line breaks are likely to be kept. Lists, tables, columns, footnotes and endnotes are not likely to be detected (<a href=\"https://support.google.com/drive/answer/176692\">Google Drive Help</a>). This route works well for getting the words out of a scan. It is a weaker choice for table-heavy or multi-column documents.</p><h2>Method 3: Use Adobe Acrobat (online, desktop or Reader)</h2><p>Adobe offers three ways to do this. Menu names and tool locations may differ between Acrobat versions and platforms, so treat the paths below as a guide.</p><h3>Acrobat's free online converter</h3><ol><li>Go to Adobe's <a href=\"https://www.adobe.com/acrobat/online/pdf-to-word.html\">online PDF to Word converter</a>.</li><li>Click <strong>Select a file</strong>, or drag and drop the file into the drop zone.</li><li>Select the PDF you want to convert. Acrobat converts it to an editable Word document (DOCX).</li><li>Download your file. If you use the tool again, you may be asked to sign in to download it.</li></ol><p>Adobe says the tool works on Mac, Windows, iOS, Android and Linux. It also says Acrobat \"identifies and reconstructs multi-column layouts, embedded tables, headers and footers, and footnotes in most cases,\" and that its built-in OCR may be used on complex scanned PDFs (<a href=\"https://www.adobe.com/acrobat/online/pdf-to-word.html\">Adobe</a>). That is Adobe's own description of its tool, so expect to check the result.</p><p>On free use, Adobe's FAQ (last updated June 2, 2025) says that without signing in, most tools let you complete one free transaction and download the result one time. Signed-in users trying premium tools such as Convert PDF to Word get one free transaction every 30 days on a rolling basis. Adobe says you'll be notified online when you reach the free limits (<a href=\"https://helpx.adobe.com/document-cloud/faq/try-acrobat-online-services.html\">Adobe Help</a>).</p><h3>Acrobat desktop</h3><p>Adobe's how-to page gives these steps (<a href=\"https://www.adobe.com/acrobat/how-to/pdf-to-word-doc-converter.html\">Adobe</a>):</p><ol><li>Open the PDF in Acrobat.</li><li>Click the <strong>Export PDF</strong> tool. Adobe's page places it in the right pane, but newer layouts may put it somewhere else.</li><li>Choose <strong>Microsoft Word</strong> as your export format, then <strong>Word Document</strong>.</li><li>Click <strong>Export</strong>. If the PDF contains scanned text, Adobe says Acrobat runs text recognition automatically.</li><li>Name the file, choose DOC or DOCX, and click <strong>Save</strong>.</li></ol><p>On format choice, Adobe says Acrobat can export to both .docx and .doc and recommends .docx on modern systems. You can also export to RTF (Rich Text Format) (<a href=\"https://www.adobe.com/acrobat/online/pdf-to-word.html\">Adobe</a>).</p><h3>Acrobat Reader</h3><p>The free Reader app can export to Word only if you have a paid subscription to the Adobe Acrobat Export PDF service (<a href=\"https://helpx.adobe.com/reader/desktop/export-pdf.html\">Adobe Help</a>). With that subscription in place:</p><ol><li>Click <strong>Sign In</strong> in the upper-right corner of the Reader window and sign in with your Adobe ID.</li><li>Select <strong>All Tools &gt; Export a PDF</strong>. The open file is selected for conversion by default.</li><li>From the <strong>Export PDF To</strong> list, choose the Word format.</li><li>Select <strong>Convert to</strong> the chosen format.</li><li>In the Save as dialog, choose a location and select <strong>Save</strong>.</li></ol><p>For a scanned document or image, make sure the Document Language matches the text in the file. To change it, click <strong>Change</strong> and choose the language from the list (<a href=\"https://helpx.adobe.com/reader/desktop/export-pdf.html\">Adobe Help</a>).</p><h2>What usually breaks, and how to fix it</h2><p>Microsoft publishes a list of document elements that don't convert well. If your PDF includes these, it suggests you \"might want to open it directly rather than converting it to a Word document\" (<a href=\"https://support.microsoft.com/en-us/word/opening-pdfs-in-word\">Microsoft Support</a>):</p><ul><li>Tables with cell spacing</li><li>Page colors and page borders</li><li>Tracked changes</li><li>Frames</li><li>Footnotes that span more than one page</li><li>Endnotes</li><li>Audio, video and PDF active elements</li><li>PDF bookmarks</li><li>PDF tags</li><li>PDF comments</li><li>Font effects such as Glow or Shadow, which appear as graphics in the Word file</li></ul><p>Why does this happen? Microsoft explains that PDF is a fixed file format. Most PDFs don't store information about paragraphs, tables or columns. A table, for example, is stored as a set of lines with no link to the content in its cells. Word applies a set of rules to guess which headings, lists and tables best match the original (<a href=\"https://support.microsoft.com/en-us/word/opening-pdfs-in-word\">Microsoft Support</a>). When the guess is wrong, the layout shifts.</p><p>Here are fixes for the most common problems:</p><ul><li><strong>The page came in as an image and the text won't edit.</strong> Microsoft says this can happen with PDFs that are mostly charts or graphics (<a href=\"https://support.microsoft.com/en-us/word/opening-pdfs-in-word\">Microsoft Support</a>). Try a route with text recognition instead: Google Drive's Open with Google Docs (<a href=\"https://support.google.com/drive/answer/176692\">Google Drive Help</a>), or Acrobat's Export PDF, which Adobe says runs text recognition on scanned text (<a href=\"https://www.adobe.com/acrobat/how-to/pdf-to-word-doc-converter.html\">Adobe</a>).</li><li><strong>A footnote ended up in the body text.</strong> If Word doesn't recognise a footnote, it treats it as regular text and might not put it at the bottom of the page (<a href=\"https://support.microsoft.com/en-us/word/opening-pdfs-in-word\">Microsoft Support</a>). Cut the text and reinsert it as a footnote by hand.</li><li><strong>Tables, lists or columns are flattened after Google conversion.</strong> This is expected: Google says these are not likely to be detected (<a href=\"https://support.google.com/drive/answer/176692\">Google Drive Help</a>). For table-heavy files, try Word or Acrobat instead.</li><li><strong>The file is large and Google Drive doesn't convert it well.</strong> Google recommends files of 2 MB or smaller (<a href=\"https://support.google.com/drive/answer/176692\">Google Drive Help</a>). Shrink the file first, or split off just the pages you need. Our guide <a href=\"https://newearns.com/compress-pdf-for-email/\">How to Compress a PDF for Email (and What to Do When It's Still Too Big)</a> covers both.</li><li><strong>Images look blurry in the Word file.</strong> Adobe says image resolution is kept at the level stored in the original PDF. If the images look low-resolution, the original PDF may already have contained reduced-resolution images (<a href=\"https://www.adobe.com/acrobat/online/pdf-to-word.html\">Adobe</a>). In that case, ask for the original image files.</li><li><strong>The PDF has comments, bookmarks or tracked changes.</strong> These are on Microsoft's list of elements that don't convert well (<a href=\"https://support.microsoft.com/en-us/word/opening-pdfs-in-word\">Microsoft Support</a>). Keep the PDF open alongside the Word file for reference.</li></ul><h2>Converting client documents? Check where the file goes</h2><p>If you freelance, the PDF may be a client's contract, financial report or unpublished work. Before you convert it, know where the file is sent.</p><ul><li><strong>Online converters upload your file.</strong> Adobe's converter page says your file \"will be securely handled by Adobe servers and deleted unless you sign in to save it\" (<a href=\"https://www.adobe.com/acrobat/online/pdf-to-word.html\">Adobe</a>). Adobe's FAQ says that if you don't sign in to save or share the file, Adobe deletes it from the server \"within a short time period.\" It also says Acrobat online services use AES-256 encryption and TLS 1.2, and that uploaded files stored in Adobe cloud storage are automatically labelled Private (<a href=\"https://helpx.adobe.com/document-cloud/faq/try-acrobat-online-services.html\">Adobe Help</a>).</li><li><strong>Word desktop converts a copy of the file you opened.</strong> Microsoft says Word makes a copy and leaves the original PDF unchanged (<a href=\"https://support.microsoft.com/en-us/word/training/edit-a-pdf\">Microsoft Support</a>).</li><li><strong>Google Drive needs the file in your Drive.</strong> The conversion starts from a file stored in Google Drive (<a href=\"https://support.google.com/drive/answer/176692\">Google Drive Help</a>), so check whether your client agreement allows that.</li></ul><p>If you prefer a browser-based toolkit, <a href=\"https://private-pdf-editor.com/?utm_source=newearns&amp;utm_medium=referral&amp;utm_campaign=convert-pdf-to-word\">Private PDF Editor</a> includes a PDF to Word converter among its roughly 30 tools. Standard PDF editing runs in the browser, but some conversions are handled differently and have separate disclosures. Read its PDF to Word disclosure before you upload a client file. It has paid plans; see its pricing page for current prices.</p><p><em>Disclosure: Private PDF Editor is built by the team behind New Earns. We mention it where it fits the task; the steps in this guide also work with other tools.</em></p><h2>FAQ</h2><h3>Is there a free way to convert PDF to Word?</h3><p>There are options that don't require buying a converter. In Google Drive, you can open the file with Google Docs and then use File &gt; Download to save it as a Word file (<a href=\"https://support.google.com/drive/answer/176692\">Google Drive Help</a>, <a href=\"https://support.google.com/docs/answer/49114?hl=en&amp;co=GENIE.Platform%3DDesktop\">Google Docs Editors Help</a>). If you already have Word, it can open and convert PDFs (<a href=\"https://support.microsoft.com/en-us/word/training/edit-a-pdf\">Microsoft Support</a>). Adobe's online tool also allows limited free transactions; its FAQ describes one free transaction without signing in, and one every 30 days for signed-in users trying premium tools (<a href=\"https://helpx.adobe.com/document-cloud/faq/try-acrobat-online-services.html\">Adobe Help</a>).</p><h3>Can I convert a scanned PDF to Word?</h3><p>Yes, but you need a method that recognises text. Google Drive converts PDF and photo files to text when you open them with Google Docs, and works best with sharp, right-side-up pages and files of 2 MB or smaller (<a href=\"https://support.google.com/drive/answer/176692\">Google Drive Help</a>). Adobe says Acrobat runs text recognition automatically on scanned text during export (<a href=\"https://www.adobe.com/acrobat/how-to/pdf-to-word-doc-converter.html\">Adobe</a>). If you only have photos of document pages, <a href=\"https://private-pdf-editor.com/?utm_source=newearns&amp;utm_medium=referral&amp;utm_campaign=convert-pdf-to-word\">Private PDF Editor</a> also offers an image to text tool.</p><h3>Why do line and page breaks differ from the original?</h3><p>Microsoft says the converted document might not match the original page for page, and lines and pages may break in different places (<a href=\"https://support.microsoft.com/en-us/word/training/edit-a-pdf\">Microsoft Support</a>). This happens because most PDFs don't store structure such as paragraphs, tables or columns, so Word has to rebuild the layout from rules (<a href=\"https://support.microsoft.com/en-us/word/opening-pdfs-in-word\">Microsoft Support</a>). Expect to tidy up breaks by hand, especially before you send the file to a client.</p>",
+      "sources": [
+        {
+          "url": "https://support.microsoft.com/en-us/word/training/edit-a-pdf",
+          "title": "Microsoft Support: Edit a PDF",
+          "supports": "Word steps (File > Open, conversion message, Save as dropdown); works best with mostly-text PDFs; copier-style manuscripts format poorly; no perfect page-to-page correspondence; applies to Word for Microsoft 365, 2024, 2021, 2019, 2016; original PDF not changed"
+        },
+        {
+          "url": "https://support.microsoft.com/en-us/word/opening-pdfs-in-word",
+          "title": "Microsoft Support: Opening PDFs in Word",
+          "supports": "Best with mostly-text business, legal and scientific files; chart-heavy pages may come in as uneditable images; unrecognised footnotes become regular text; list of elements that don't convert well and advice to open directly; original PDF always kept; PDF is fixed format without structural information"
+        },
+        {
+          "url": "https://support.google.com/drive/answer/176692",
+          "title": "Google Drive Help: Convert PDF and photo files to text",
+          "supports": "Preparation tips (formats, 2 MB or smaller, 10-pixel text, orientation, language detection, common fonts, image quality); Open with Google Docs steps; what formatting is likely kept or not detected"
+        },
+        {
+          "url": "https://support.google.com/docs/answer/49114?hl=en&co=GENIE.Platform%3DDesktop",
+          "title": "Google Docs Editors Help: Create, view, or download a file",
+          "supports": "File > Download > choose a file type to download a copy"
+        },
+        {
+          "url": "https://www.adobe.com/acrobat/online/pdf-to-word.html",
+          "title": "Adobe: Convert PDF to Word online converter",
+          "supports": "Online converter steps; sign-in on repeat use; works on Mac, Windows, iOS, Android, Linux; Adobe's claim on reconstructing layouts and OCR; .docx, .doc and RTF export; file handled on Adobe servers and deleted unless saved; image resolution kept from original"
+        },
+        {
+          "url": "https://www.adobe.com/acrobat/how-to/pdf-to-word-doc-converter.html",
+          "title": "Adobe: How to convert a PDF to Word",
+          "supports": "Acrobat desktop Export PDF steps; automatic text recognition on scanned text; DOC or DOCX choice"
+        },
+        {
+          "url": "https://helpx.adobe.com/document-cloud/faq/try-acrobat-online-services.html",
+          "title": "Adobe Help: FAQ | Try Adobe Acrobat online services",
+          "supports": "Free transaction limits (one without sign-in; one every 30 days rolling for signed-in premium tools); notification at limits; AES-256 and TLS 1.2; files labelled Private; deletion if not signed in; last updated Jun 2, 2025"
+        },
+        {
+          "url": "https://helpx.adobe.com/reader/desktop/export-pdf.html",
+          "title": "Adobe Help: Export PDF from Acrobat Reader",
+          "supports": "Paid Adobe Acrobat Export PDF subscription required; Reader export steps (All Tools > Export a PDF); set Document Language for scanned documents"
+        }
+      ],
+      "product_link_reason": "Private PDF Editor converts PDF to Word in the browser, so it is mentioned as an alternative in the client-files section with a note to check its separate conversion disclosure, and its image to text tool is mentioned in the scanned-PDF FAQ answer for readers who only have photos of document pages. Only allowed claims are used, with no claims about local processing, accuracy or price.",
+      "internal_links_note": "",
+      "image_headline": "Convert PDF to Word, Layout Intact",
+      "search_intent": "Task-focused how-to: the reader has a PDF and wants an editable Word file now, with as much of the original layout preserved as possible.",
+      "unique_value": "Instead of 'upload and click convert', the guide helps readers identify their PDF type first (text, graphics-heavy or scanned), then matches it to Word, Google Drive/Docs or Acrobat using each vendor's own documentation. It includes a decision table, Microsoft's official list of elements that don't convert well, Google's list of what OCR won't detect, sourced troubleshooting fixes, and a note for freelancers on where client files go when uploaded.",
+      "image_alt_text": "Illustration of a laptop screen where a PDF file turns into an editable document",
+      "featured_image": {
+        "alt_text": "Illustration of a laptop screen where a PDF file turns into an editable document",
+        "license": "generated-in-house",
+        "creator": "",
+        "license_url": ""
+      },
+      "inline_images": [
+        {
+          "alt_text": "Screenshot of the Private PDF Editor page \"Private PDF Editor | PrivatePDF\" at private-pdf-editor.com",
+          "license": "own-screenshot"
+        }
+      ]
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "Word works best with mostly-text files (business, legal, scientific), and the result 'might not look exactly' like the PDF.",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/word/opening-pdfs-in-word",
+          "evidence": "Supported by Microsoft's Opening PDFs in Word page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Book chapters or a 'manuscript from a copier' won't format well in Word.",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/word/training/edit-a-pdf",
+          "evidence": "Supported by Microsoft's Edit a PDF page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Graphics-heavy pages may show up in Word as an image whose text can't be edited.",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/word/opening-pdfs-in-word",
+          "evidence": "Supported by Microsoft's Opening PDFs in Word page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The Word method applies to Word for Microsoft 365, 2024, 2021, 2019 and 2016.",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/word/training/edit-a-pdf",
+          "evidence": "Supported by Microsoft's Edit a PDF page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The four File > Open steps: Browse, a copy is made, the original is unchanged, OK, then the Save as dropdown.",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/word/training/edit-a-pdf",
+          "evidence": "Supported by Microsoft's Edit a PDF page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "'You always have the original PDF file…'",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/word/opening-pdfs-in-word",
+          "evidence": "Supported by Microsoft's Opening PDFs in Word page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The converted document 'might not have a perfect page-to-page correspondence,' and line and page breaks may differ.",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/word/training/edit-a-pdf",
+          "evidence": "Supported by Microsoft's Edit a PDF page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The 11-item list of elements that don't convert well, plus the advice to open the file directly.",
+          "verdict": "supported",
+          "source_url": "https://support.microsoft.com/en-us/word/opening-pdfs-in-word",
+          "evidence": "Supported by Microsoft's Opening PDFs in Word page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "PDF is a fixed format, tables are stored as lines, and Word uses rules to rebuild them.",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Supported; the notes quote 'a system of complex rules' but do not say which Microsoft page it comes from.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "A footnote that isn't recognised becomes regular text.",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Marked supported in the Microsoft section; the notes do not name the specific page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The decision table describes Word's result as 'a close match.'",
+          "verdict": "unsupported",
+          "source_url": "https://support.microsoft.com/en-us/word/opening-pdfs-in-word",
+          "evidence": "Microsoft only says Word is 'attempting to match layout of the original PDF' and warns the result 'might not look exactly the way it looked as a PDF.'",
+          "suggested_fix": "Change to: 'Word attempts to match the layout; lines and pages may break in different places.'"
+        },
+        {
+          "claim": "'Menus may look slightly different between versions' and 'cut and reinsert as a footnote.'",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "No verdict given in the notes. The notes describe this as the writer's own advice, not sourced, and low risk.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Google Drive converts PDFs and photos to text through Open with Google Docs.",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/drive/answer/176692",
+          "evidence": "Supported by Google Drive Help 176692.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "All seven preparation tips: format, 2 MB, 10 px, orientation, language detection, fonts and image quality.",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/drive/answer/176692",
+          "evidence": "Supported by Google Drive Help 176692.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Right-click > Open with Google Docs.",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/drive/answer/176692",
+          "evidence": "Supported by Google Drive Help 176692.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "'Upload the PDF if it isn't there.'",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "No verdict given in the notes. The notes call it a harmless addition.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "What Google Docs retains, what it doesn't detect, and that some formatting 'might not transfer.'",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/drive/answer/176692",
+          "evidence": "Supported by Google Drive Help 176692.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "File > Download, choose a file type, and the file downloads.",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/docs/answer/49114?hl=en&co=GENIE.Platform%3DDesktop",
+          "evidence": "Supported by Google Docs Editors Help 49114.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "'Pick Microsoft Word (.docx)' when downloading from Google Docs.",
+          "verdict": "unsupported",
+          "source_url": "https://support.google.com/docs/answer/49114?hl=en&co=GENIE.Platform%3DDesktop",
+          "evidence": "Google Docs Editors Help 49114 only says 'Choose a file type.' Google Drive Help's 'Download a file' page (answer 2423534) does list 'Microsoft Word (.docx)' under File > Download, but it is not among the cited sources.",
+          "suggested_fix": "Add Google Drive Help's 'Download a file' page (answer 2423534) as a citation."
+        },
+        {
+          "claim": "'These are recommendations, not hard limits. A larger or blurrier file may still convert.'",
+          "verdict": "unsupported",
+          "source_url": "https://support.google.com/drive/answer/176692",
+          "evidence": "Google calls these tips 'for the best results' but never says larger files will still convert. One tip is worded as a requirement: 'Documents must be right-side up.'",
+          "suggested_fix": "Change to: 'Google presents these as tips for the best results.' Remove 'may still convert.'"
+        },
+        {
+          "claim": "The conversion starts from a file stored in Drive.",
+          "verdict": "supported",
+          "source_url": "https://support.google.com/drive/answer/176692",
+          "evidence": "Supported; the steps begin in Drive.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Adobe online steps: Select a file or drag and drop, choose DOCX, download, and you 'may be asked to sign in' on repeat use.",
+          "verdict": "supported",
+          "source_url": "https://www.adobe.com/acrobat/online/pdf-to-word.html",
+          "evidence": "Supported by Adobe's online PDF-to-Word converter page (read via web_fetch).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Adobe's online converter works on Mac, Windows, iOS, Android and Linux.",
+          "verdict": "supported",
+          "source_url": "https://www.adobe.com/acrobat/online/pdf-to-word.html",
+          "evidence": "Supported by Adobe's online converter page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Adobe reconstructs multi-column layouts, tables, headers/footers and footnotes 'in most cases,' and OCR 'may be used for complex scanned PDFs.'",
+          "verdict": "supported",
+          "source_url": "https://www.adobe.com/acrobat/online/pdf-to-word.html",
+          "evidence": "Supported by Adobe's online converter page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Adobe exports .docx and .doc, recommends .docx on modern systems, and also offers RTF.",
+          "verdict": "supported",
+          "source_url": "https://www.adobe.com/acrobat/online/pdf-to-word.html",
+          "evidence": "Supported by Adobe's online converter page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Image resolution matches what was stored in the original PDF.",
+          "verdict": "supported",
+          "source_url": "https://www.adobe.com/acrobat/online/pdf-to-word.html",
+          "evidence": "Supported by Adobe's online converter page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Files are 'securely handled by Adobe servers and deleted unless you sign in to save it.'",
+          "verdict": "supported",
+          "source_url": "https://www.adobe.com/acrobat/online/pdf-to-word.html",
+          "evidence": "Supported by Adobe's online converter page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The five Acrobat desktop steps: Export PDF 'in the right pane,' automatic text recognition for scanned text, and a DOC/DOCX choice.",
+          "verdict": "supported",
+          "source_url": "https://www.adobe.com/acrobat/how-to/pdf-to-word-doc-converter.html",
+          "evidence": "Supported by Adobe's how-to page (read via web_fetch).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "'Newer layouts may put it somewhere else.'",
+          "verdict": "unsupported",
+          "source_url": "",
+          "evidence": "The notes call this an unsupported hedge but say it is acceptable as a caveat.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Adobe's FAQ was last updated June 2, 2025.",
+          "verdict": "supported",
+          "source_url": "https://helpx.adobe.com/document-cloud/faq/try-acrobat-online-services.html",
+          "evidence": "Supported by the Adobe FAQ.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Adobe's free limits: one free transaction without sign-in, one every 30 days for signed-in users trying premium tools, and an online notice at the limit.",
+          "verdict": "supported",
+          "source_url": "https://helpx.adobe.com/document-cloud/faq/try-acrobat-online-services.html",
+          "evidence": "Supported as quoted. The FAQ says 'most tools let you complete one free transaction' without sign-in, and signed-in users get 'one free transaction every 30 days on a rolling basis.' However, Adobe's live PDF-to-Word page conflicts with this: it says the tool is 'free to use with daily conversion limits — no sign-up, subscription, or credit card required.'",
+          "suggested_fix": "Add something like: 'Adobe's converter page describes daily limits, while its FAQ (June 2025) describes one transaction without sign-in and one every 30 days when signed in. Limits may change.' Make the same change in the FAQ answer."
+        },
+        {
+          "claim": "Files are deleted 'within a short time period,' protected with AES-256 and TLS 1.2, and labelled Private.",
+          "verdict": "supported",
+          "source_url": "https://helpx.adobe.com/document-cloud/faq/try-acrobat-online-services.html",
+          "evidence": "Supported by the Adobe FAQ.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Exporting from Adobe Reader needs a paid Adobe Acrobat Export PDF subscription.",
+          "verdict": "supported",
+          "source_url": "https://helpx.adobe.com/reader/desktop/export-pdf.html",
+          "evidence": "Supported: 'Ensure that you have a paid subscription…' (Adobe Reader help, last updated Jun 21, 2026).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Adobe Reader steps: Sign In, All Tools > Export a PDF, the current file is selected by default, the Export PDF To list, Convert to, Save.",
+          "verdict": "supported",
+          "source_url": "https://helpx.adobe.com/reader/desktop/export-pdf.html",
+          "evidence": "Supported by Adobe Reader help.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Set the Document Language for scans with Change > choose a language.",
+          "verdict": "supported",
+          "source_url": "https://helpx.adobe.com/reader/desktop/export-pdf.html",
+          "evidence": "Supported by Adobe Reader help.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Troubleshooting advice to use OCR when a page came in as an image.",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "No verdict given in the notes. Microsoft's 'page came in as an image' case is about PDFs that are mostly charts or graphics, while every OCR source the article cites is about scanned text. The notes say advising OCR for graphics-heavy pages is the writer's own inference.",
+          "suggested_fix": "Present it as a suggestion to try, not as something the sources back."
+        },
+        {
+          "claim": "The highlight test for checking whether a PDF has a text layer.",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "No verdict given in the notes. They call it a reasonable rule of thumb with no source.",
+          "suggested_fix": "Present it as a rule of thumb."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://support.microsoft.com/en-us/word/training/edit-a-pdf",
+          "relevant": true,
+          "notes": "Readable; supports what it is cited for."
+        },
+        {
+          "url": "https://support.microsoft.com/en-us/word/opening-pdfs-in-word",
+          "relevant": true,
+          "notes": "Readable; supports what it is cited for, except 'close match.'"
+        },
+        {
+          "url": "https://support.google.com/drive/answer/176692",
+          "relevant": true,
+          "notes": "Readable; supports what it is cited for, but the article's 'not hard limits' framing goes too far."
+        },
+        {
+          "url": "https://support.google.com/docs/answer/49114?hl=en&co=GENIE.Platform%3DDesktop",
+          "relevant": false,
+          "notes": "Readable; supports it only in part. It backs the download steps but not the .docx option."
+        },
+        {
+          "url": "https://www.adobe.com/acrobat/online/pdf-to-word.html",
+          "relevant": true,
+          "notes": "Readable via web_fetch; supports what it is cited for. It also contains the 'daily limits' text that conflicts with the FAQ."
+        },
+        {
+          "url": "https://www.adobe.com/acrobat/how-to/pdf-to-word-doc-converter.html",
+          "relevant": true,
+          "notes": "Readable via web_fetch; supports what it is cited for."
+        },
+        {
+          "url": "https://helpx.adobe.com/document-cloud/faq/try-acrobat-online-services.html",
+          "relevant": true,
+          "notes": "Readable via web_fetch; supports what it is cited for, but is older than the converter page. It also contains a 200 MB limit for the online PDF-to-Word tool that the article could add."
+        },
+        {
+          "url": "https://helpx.adobe.com/reader/desktop/export-pdf.html",
+          "relevant": true,
+          "notes": "Readable via web_fetch; supports what it is cited for (last updated Jun 21, 2026)."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "Pass. The reader wants an editable Word file now, with as much layout kept as possible. The article serves that better than a generic 'upload and click' answer: it sorts PDFs by type first, gives specific steps for each tool, is honest about what each tool won't keep (Microsoft's list of problem elements and Google's list of what isn't detected), and adds troubleshooting steps and a privacy note for freelancers. Weakness: the decision table has no row for the graphics-heavy group described earlier. Adding Adobe's 200 MB limit for the online PDF-to-Word tool, which is in the FAQ, would help readers whose file is too big for Google's 2 MB guidance.",
+      "adds_original_value": true,
+      "value_notes": "The claimed original value holds up. Weakness: the value comes from arranging vendor documentation, not from testing, and the article never compares how well each tool actually keeps the layout.",
+      "product_claims_accurate": false,
+      "product_notes": "'Roughly 30 tools,' 'browser-based,' 'standard editing runs in the browser; some conversions handled differently with separate disclosures,' 'PDF to Word converter,' 'image to text,' and 'paid plans; see pricing page' all match the allowed claims. 'Read its PDF to Word disclosure' goes beyond them: the allowed claim only says some conversions are handled differently and have separate disclosures, not that PDF to Word is one of them. Fix: 'Check its disclosures to see how PDF to Word conversion is handled before you upload a client file.' A disclosure is present.",
+      "fetched_urls": [
+        "https://helpx.adobe.com/document-cloud/faq/try-acrobat-online-services.html",
+        "https://helpx.adobe.com/reader/desktop/export-pdf.html",
+        "https://support.google.com/docs/answer/49114?hl=en&co=GENIE.Platform%3DDesktop",
+        "https://support.google.com/drive/answer/176692",
+        "https://support.google.com/drive/answer/2423534?hl=en",
+        "https://support.microsoft.com/en-us/word/opening-pdfs-in-word",
+        "https://support.microsoft.com/en-us/word/training/edit-a-pdf",
+        "https://www.adobe.com/acrobat/how-to/pdf-to-word-doc-converter.html",
+        "https://www.adobe.com/acrobat/online/pdf-to-word.html"
+      ],
+      "content_sha256": "f8e42b0b2e017fbd04541feb4117d18bfd76e9cc2a5439d9c5398072d17c3a31"
+    },
+    "images": {
+      "words": 2470,
+      "target": [
+        3,
+        4
+      ],
+      "stock_api_calls": 8,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "how to convert pdf to word",
+          "result": "0"
+        },
+        {
+          "provider": "openverse",
+          "query": "convert PDF to Word",
+          "result": "0"
+        },
+        {
+          "provider": "openverse",
+          "query": "pdf file on laptop screen",
+          "result": "0"
+        },
+        {
+          "provider": "openverse",
+          "query": "scanning document smartphone",
+          "result": "0"
+        },
+        {
+          "provider": "commons",
+          "query": "how to convert pdf to word",
+          "result": "0"
+        },
+        {
+          "provider": "commons",
+          "query": "convert PDF to Word",
+          "result": "19"
+        },
+        {
+          "provider": "commons",
+          "query": "pdf file on laptop screen",
+          "result": "0"
+        },
+        {
+          "provider": "commons",
+          "query": "scanning document smartphone",
+          "result": "4"
+        }
+      ],
+      "notes": [
+        "FALLBACK: no free, clearly licensed photo matched this article's topic, so the featured image is an in-house illustration (convert). Replace it in WP Admin if you find a better photo.",
+        "2 image(s), below the 3-4 guideline: nothing else in the article would gain from a visual, and decorative images are not added"
+      ],
+      "topic": {
+        "motif": "convert",
+        "match": "\\b(convert|to word|to jpg|to excel|to png|ocr)\\b"
+      },
+      "photo_rejections": [
+        {
+          "description": "Aspose Converter",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Chiang-Mai Thailand Pressure-vessel-converted-to-a-safe-01",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Decision making",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "DoctorSweeteningProcess-Kalinowsky",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "DoctorTreatment-Kalinowsky",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Dulan Taiwan Sugar-Factory-01",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Kalabakan Sabah Haunted-Menggaris-tree-at-Sapulut-Kalabakan-Road-01",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "QIself",
+          "reason": "wrong scene (letter)"
+        },
+        {
+          "description": "Wǔ Zhū - Western Han Dynasty - Scott Semans 01",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Wǔ Zhū - Western Han Dynasty - Scott Semans 04",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Wǔ Zhū - Western Han Dynasty - Scott Semans 05",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Wǔ Zhū - Western Han Dynasty - Scott Semans 06",
+          "reason": "no laptop/computer/screen in its title"
+        }
+      ],
+      "featured": {
+        "provider": "in-house",
+        "kind": "illustration",
+        "motif": "convert",
+        "license": "generated-in-house",
+        "alt_text": "Illustration of a laptop screen where a PDF file turns into an editable document",
+        "caption": "",
+        "filename": "convert-pdf-to-word-featured.webp",
+        "fallback": true,
+        "file": "featured.webp",
+        "bytes": 6500
+      },
+      "inline": [
+        {
+          "provider": "in-house",
+          "license": "own-screenshot",
+          "kind": "screenshot",
+          "anchor": {
+            "href": "https://private-pdf-editor.com/"
+          },
+          "file": "inline-1.webp",
+          "url_shot": "https://private-pdf-editor.com/",
+          "filename": "convert-pdf-to-word-private-pdf-editor-screenshot.webp",
+          "width": 1200,
+          "height": 751,
+          "bytes": 46062,
+          "captured": "2026-11-05",
+          "alt_text": "Screenshot of the Private PDF Editor page \"Private PDF Editor | PrivatePDF\" at private-pdf-editor.com",
+          "caption": "Private PDF Editor (private-pdf-editor.com), screenshot taken 2026-11-05."
+        }
+      ]
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2455 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "8 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "How to Convert PDF to Word Without Losing the Formatting: Pick the Right Method for Your File"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.49% (3x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "0/8 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "152 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "52 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "convert-pdf-to-word"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "convert-pdf-to-word"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.02"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.44: TikTok Creator Rewards Program: Requirements, How Payouts Work, and the Fine Print"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": "4 confirmed by fact-check fetch"
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "2 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "2 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "ownership_disclosed",
+        "passed": true,
+        "detail": "disclosure missing"
+      },
+      {
+        "check": "product_link_justified",
+        "passed": true,
+        "detail": "no reason given"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "4 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "8 of 8 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "80 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "generated-in-house"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "1 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "4 no supporting evidence found (not shown to be false): The decision table describes Word's result as 'a close match.' (fix: Change to: 'Word attempts to match the layout; lines and pages may break in different places.') | 'Pick Microsoft Word (.docx)' when downloading from Google Docs. (fix: Add Google Drive Help's 'Download a file' page (answer 2423534) as a citation.) | 'These are recommendations, not hard limits. A larger or blurrier file may still convert.' (fix: Change to: 'Google presents these as tips for the best results.' Remove 'may still convert.') | 'Newer layouts may put it somewhere else.' || 4 could not be checked (source unreadable or partial): 'Menus may look slightly different between versions' and 'cut and reinsert as a footnote.' | 'Upload the PDF if it isn't there.' | Troubleshooting advice to use OCR when a page came in as an image. (fix: Present it as a suggestion to try, not as something the sources back.) | The highlight test for checking whether a PDF has a text layer. (fix: Present it as a rule of thumb.) || 2 marked supported, but its source_url is missing or was not read by the pipeline: PDF is a fixed format, tables are stored as lines, and Word uses rules to rebuild them. | A footnote that isn't recognised becomes regular text.",
+        "fix": "Contradicted: correct the claim to what the source says. No evidence found: cite an official source that states it, narrow it to what a source does say, or remove it. Could not be checked: verify it against a readable source or remove it. Source page not read: cite a page the pipeline can open that states the claim, or remove the claim. No claims listed: the fact-check did not check anything. Then re-run the fact-check only."
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Pass. The reader wants an editable Word file now, with as much layout kept as possible. The article serves that better than a generic 'upload and click' answer: it sorts PDFs by type first, gives specific steps for each tool, is honest about what each tool won't keep (Microsoft's list of problem elements and Google's list of what isn't detected), and adds troubleshooting steps and a privacy note for freelancers. Weakness: the decision table has no row for the graphics-heavy group described earlier. Adding Adobe's 200 MB limit for the online PDF-to-Word tool, which is in the FAQ, would help readers whose file is too big for Google's 2 MB guidance."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "The claimed original value holds up. Weakness: the value comes from arranging vendor documentation, not from testing, and the article never compares how well each tool actually keeps the layout."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": false,
+        "detail": "'Roughly 30 tools,' 'browser-based,' 'standard editing runs in the browser; some conversions handled differently with separate disclosures,' 'PDF to Word converter,' 'image to text,' and 'paid plans; see pricing page' all match the allowed claims. 'Read its PDF to Word disclosure' goes beyond them: the allowed claim only says some conversions are handled differently and have separate disclosures, not that PDF to Word is one of them. Fix: 'Check its disclosures to see how PDF to Word conversion is handled before you upload a client file.' A disclosure is present.",
+        "fix": "Rewrite product statements to match allowed_claims in config.yaml, or remove them."
+      },
+      {
+        "check": "fact_check_current",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "sources_verified",
+        "passed": false,
+        "detail": "https://support.google.com/docs/answer/49114?hl=en&co=GENIE.Platform%3DDesktop does not support what it is cited for (Readable; supports it only in part. It backs the download steps but not the .docx option.)",
+        "fix": "Replace each unreadable or irrelevant source with a page that states the fact, or remove the claims that relied on it; then re-run the fact-check only."
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 1.009,
+        "write": 0.353,
+        "fact_check": 0.583,
+        "fact_check_json": 0.185
+      },
+      "total_usd": 2.13
+    },
+    "wp_media": {
+      "id": 3803,
+      "url": "https://newearns.com/wp-content/uploads/2026/11/convert-pdf-to-word-featured.webp"
+    },
+    "wp_media_inline": [
+      {
+        "id": 3804,
+        "url": "https://newearns.com/wp-content/uploads/2026/11/convert-pdf-to-word-private-pdf-editor-screenshot.webp"
+      }
+    ],
+    "wp_post": {
+      "id": 3805,
+      "status": "pending",
+      "link": "https://newearns.com/?p=3805"
+    },
+    "image_check": "ok",
+    "final": "held_for_review"
+  },
+  "updated": "2026-11-05T18:52:20+00:00"
+}
