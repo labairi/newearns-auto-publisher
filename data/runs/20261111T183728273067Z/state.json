@@ -1,0 +1,954 @@
+{
+  "run_id": "20261111T183728273067Z",
+  "stages": {
+    "pillar": "money",
+    "topic": "Side Hustles for Stay-at-Home Moms That Fit Around Family Time",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 44,
+        "cache_creation_input_tokens": 48933,
+        "cache_read_input_tokens": 480906,
+        "output_tokens": 22004,
+        "web_search_requests": 8,
+        "web_fetch_requests": 3,
+        "requests": 9,
+        "read_source_calls": 32,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 44,
+            "cache_write_5m_tokens": 48933,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 480906,
+            "output_tokens": 22004
+          }
+        },
+        "fetched_urls": [
+          "https://www.etsy.com/legal/fees/"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.861
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 12290,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 10708,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 12290,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 10708
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.276
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 16,
+        "cache_creation_input_tokens": 38719,
+        "cache_read_input_tokens": 188797,
+        "output_tokens": 7359,
+        "web_search_requests": 0,
+        "web_fetch_requests": 1,
+        "requests": 3,
+        "read_source_calls": 2,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 16,
+            "cache_write_5m_tokens": 38719,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 188797,
+            "output_tokens": 7359
+          }
+        },
+        "fetched_urls": [
+          "https://www.etsy.com/legal/fees/"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.379
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 6049,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 7826,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 6049,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 7826
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.187
+      }
+    ],
+    "brief": "I've finished the brief. The query **side hustles for stay at home moms** is still worth pursuing. The top results are long lists with hourly ranges and no sources, so New Earns can win by sorting hustles by the kind of time a parent actually has and checking every number against the platform's own page.\n\nSome sources couldn't be read: Upwork, Fiverr, Rover, Outschool, Care.com, the FTC pages and BLS were blocked or empty. My search and fetch allowance also ran out partway through. So the brief says nothing about freelance-platform fees or pet-sitting app fees, and the writer must not add any.\n\n---\n\n# CONTENT BRIEF: New Earns, money pillar\n\n## 1. Chosen query and keyphrase\n- **Primary query / focus keyphrase:** side hustles for stay at home moms\n- **Working title:** *Side Hustles for Stay-at-Home Moms, Sorted by the Time You Actually Have (With Each Platform's Real Pay, Fees and Catches)*\n- **Slug idea:** /side-hustles-for-stay-at-home-moms/\n- **Keyphrase use:** put it in the title, the intro and one or two more times in natural sentences. Headings describe what the section covers, not the keyword. Add one line saying everything here works for stay-at-home dads too.\n\n## 2. Search intent (what ranks now)\n- **Intent:** browsing a list of ideas, with a \"which one fits my life?\" decision behind it. People are comparing options, not looking for how-to steps for one hustle.\n- **What ranks:** Shopify (a 30+ item table, updated Nov 19, 2025), Upwork's resource page, RBC, Wix, and many mom blogs with \"30 best\" or \"nap time\" lists. Most of them show hourly ranges with no source (for example \"$18-$30/hour\" for tutoring or \"$15-30/hour\" for transcription). Some say \"nap time\" in the headline but treat every hustle as equally easy to pause. Few explain the waitlists, fees, payout delays or taxes.\n\n## 3. Unique angle and what we add\n1. **Sort by type of time, not by category.** Readers sort ideas into four groups:\n   - unpredictable short gaps you can pause (naps)\n   - quiet blocks you can't interrupt (after bedtime)\n   - fixed live slots\n   - work you can do with kids around\n\n   Most competitors don't separate these. One example: UserTesting's recorded tests ask you to speak aloud on a recording, and its live conversations happen at a set time.\n2. **Only platform-stated numbers:** Rev's per-minute rates, Prolific's $6/£6 cash-out minimum, UserTesting's roughly 14-day payment delay, Etsy's $0.20, 6.5% and 15% fees. No hourly-rate ranges without a source.\n3. **The catches nobody mentions:** Rev and Prolific both have waitlists. Etsy charges the listing fee whether the item sells or not. UserTesting withholds no tax. Paid childcare in your home falls under state licensing.\n4. **A decision table** that puts the options side by side.\n5. **An MLM / \"mom boss\" red-flag check** using the SEC's Investor.gov hallmarks. These pitches are aimed heavily at this audience.\n6. **A short tax section:** the $400 self-employment rule, the 15.3% rate, and the 1099-K threshold vs. \"report all income\".\n7. **A \"start this week\" checklist:** join the waitlists on day 1 because approval takes time.\n8. **No income promises.** Say plainly that pay depends on how many tasks are available, whether you qualify and how fast you work.\n\n## 4. Outline (H2/H3)\n\n**Intro (2–3 short paragraphs):** The hard part isn't finding ideas. It's finding work that fits the time you have: naps that stop without warning, the hour after bedtime, or a Saturday morning when another adult is home. This guide sorts the options that way, using each platform's own pay and fee pages. Include the keyphrase once. No promises about income.\n\n**H2: Start with the kind of time you have**\n- A short table of four time types and what they suit:\n  - *Unpredictable gaps you can pause:* self-paced tasks you can stop mid-way.\n  - *Quiet uninterrupted block:* anything recorded or done live.\n  - *Fixed scheduled slot:* live calls.\n  - *Kids-around time:* local, in-person work.\n- This is editorial framing, so it needs no stats.\n\n**H2: Work you can pause mid-task (good for naps)**\n- **H3: Transcription and captioning (Rev as the example)**\n  - Rev's stated pay is per audio/video minute: transcriptionist $0.40–$1.10, captioner $0.54–$1.10, legal transcriptionist $0.55–$2.00+, subtitle translator $1.70–$4.00+ (rates vary by language).\n  - Rev pays weekly via PayPal, has no minimum commitment, and says you need a computer, reliable internet and strong English.\n  - To apply: a skills assessment, then a sample.\n  - **Catch:** Rev says it \"currently [has] a waitlist due to high application volume\", and reply times may run long. Pay is per audio minute, not per hour worked, so your typing speed sets your real hourly rate. Don't give a minutes-of-work-per-audio-minute ratio; we have no source for one.\n- **H3: Paid research studies (Prolific as the example)**\n  - You join a waitlist, get an invite, then verify your identity, which Prolific says takes about 15 minutes along with a practice task.\n  - Every task is opt-in and you can leave at any time. You can cash out to PayPal once you've earned at least $6/£6. Prolific says payments are instant only *after your first 4 cashouts*.\n  - **Catch:** the waitlist, and you only see tasks you're eligible for. Don't quote an hourly rate; we didn't read one on Prolific's pages.\n- **H3: Selling handmade items or digital printables on Etsy**\n  - Fees from Etsy's own policy (last updated Oct 5, 2026):\n    - a one-time set-up fee may apply, and Etsy shows it during shop set-up\n    - $0.20 listing fee per item; listings expire after four months\n    - 6.5% transaction fee on the item price plus shipping and gift wrapping\n    - payment processing fees that depend on where your bank account is\n    - Offsite Ads fee of 15% on orders it brings in, for shops under $10,000 in sales over the last 365 days, who can opt out while under that threshold\n  - **Catch:** you pay the listing fee whether the item sells or not. Processing fees are charged on the total, including tax and shipping.\n  - Internal link: Print on Demand for Beginners; Pinterest article for promotion.\n\n**H2: Work that needs a quiet, uninterrupted block (after bedtime)**\n- **H3: Website and app testing (UserTesting as the example)**\n  - Three formats:\n    - *Surveys:* no screen, audio or video recording.\n    - *Recorded tests:* you speak your thoughts aloud while the screen and audio (sometimes video) are recorded, on your own time.\n    - *Live conversations:* a video call at a set time.\n  - You need a microphone; a built-in one is fine. Pay varies, and your dashboard shows the amount before each test. Payment usually arrives 14 days later. UserTesting withholds no taxes.\n  - **Catch:** a crying toddler in the background makes recorded and live tests hard. Surveys are the type you can pause more easily, but that's our inference, so word it as advice, not as UserTesting's claim.\n- **H3: Freelance writing, virtual assistance or design**\n  - Keep this general: you can find clients directly or through a marketplace.\n  - **Don't quote any marketplace fee percentage.** We couldn't verify Upwork's or Fiverr's current fees. Tell readers to check the platform's own fee page before they set rates, because fees change.\n  - Internal link: ChatGPT Prompts for Freelancers and Side Hustles (pitch templates).\n\n**H2: Work you can do with kids around**\n- **H3: Caring for other children in your home**\n  - Childcare.gov says licensing is the main way US states and territories regulate child care, and federal law requires them to set and enforce licensing rules.\n  - Before you take paying children, check your state's licensing rules. Don't state any thresholds, such as how many children trigger a license; we have no source for them.\n- **H3: Pet sitting and dog walking (optional, short)**\n  - Treat it as a local option with no fee figures. Tell readers to check the app's fee page before choosing a rate. Don't name a percentage, because Rover's pages couldn't be read.\n\n**H2: Side-by-side: which option fits which week** (decision table)\nColumns: option | can you pause it? | needs quiet? | how pay works (sourced) | the wait before you start or get paid | main catch. Fill it only with the facts above. Where a fact isn't sourced, write \"check the platform's page\".\n\n**H2: Spotting a \"mom boss\" pitch that's really a pyramid scheme**\n- Investor.gov's hallmarks:\n  - focus on recruiting\n  - no genuine product or service being sold\n  - promises of high returns fast\n  - \"easy money or passive income\"\n  - no revenue shown from retail sales\n  - a complex commission structure\n- Also: legitimate MLMs get their revenue mainly from selling products, not from recruiting. And \"All pyramid schemes eventually collapse, and most investors lose their money.\"\n- Internal links: Remote Jobs with No Experience (spot the fakes); Data Entry Jobs from Home (scams).\n\n**H2: Taxes on side income, in plain English**\n- You owe self-employment tax and must file Schedule SE if your net self-employment earnings are $400 or more. The rate is 15.3% (12.4% Social Security plus 2.9% Medicare). You can deduct the employer-equivalent half when working out your AGI. You may need to pay estimated tax each quarter.\n- Payment apps and marketplaces must send a 1099-K when payments for goods or services top $20,000 in more than 200 transactions. They may send one for less. Either way, you must report all income.\n- UserTesting withholds no tax (reuse this as the example).\n- Internal link: Passive Income vs Active Income (what the IRS calls passive). Frame this section as general information, not tax advice.\n\n**H2: What to do this week**\nA checklist:\n1. Write down your real time blocks.\n2. On day 1, apply to anything with a waitlist (Rev, Prolific).\n3. Do UserTesting's practice test during a quiet block.\n4. If you plan to sell on Etsy, list a few items and budget for fees, which you pay whether or not anything sells.\n5. If you're thinking about childcare, look up your state's licensing rules first.\n6. Start a simple income and expense log for taxes.\n\nInternal link for faster cash: How to Make Extra Money This Month. For setting expectations: Can You Really Make $100 a Day Online?\n\n**Optional FAQ (2–4 questions):** \"Which of these can I start with no experience?\" (Prolific, UserTesting surveys); \"Do I have to pay tax on a small side hustle?\"; \"Is a direct-sales company a pyramid scheme?\" Answer only from the facts above.\n\n## 5. Facts the writer may use (each with its URL)\n| # | Fact | URL |\n|---|---|---|\n| F1 | Rev pay per audio/video minute: transcriptionist $0.40–$1.10; captioner $0.54–$1.10; subtitle translator $1.70–$4.00+ (varies by language); legal transcriptionist $0.55–$2.00+ | https://www.rev.com/freelancers |\n| F2 | Rev has a waitlist; applications go through a skills assessment and a sample; no minimum commitment; weekly PayPal pay; needs a computer, reliable internet and strong English; responses may take longer | https://www.rev.com/freelancers |\n| F3 | Prolific: waitlist, then an invite, then roughly 15-minute verification plus a practice task; tasks are opt-in and you can exit any time; cash out at $6/£6; payments instant to PayPal after your first 4 cashouts; cash, not gift cards | https://www.prolific.com/participants |\n| F4 | UserTesting formats: surveys (no recording), recorded tests (think aloud; screen, audio, sometimes video; on your own time), live conversations (video call at a set time) | https://www.usertesting.com/get-paid-to-test |\n| F5 | UserTesting: pay varies by test type, length and demand; dashboard shows the amount; payment usually sent 14 days later; microphone required; no taxes withheld | https://www.usertesting.com/get-paid-to-test |\n| F6 | Etsy: one-time set-up fee may apply; $0.20 listing fee charged whether or not the item sells; listings expire after four months; 6.5% transaction fee on price plus shipping and gift wrap; processing fees vary by bank location and are charged on the total including tax and shipping; Offsite Ads 15% for shops under $10k who can opt out | https://www.etsy.com/legal/fees/ |\n| F7 | Self-employment tax: 15.3% (12.4% + 2.9%); applies if net earnings are $400 or more; deduct the employer-equivalent portion; estimated taxes may be due quarterly; applies at any age | https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes |\n| F8 | 1099-K from apps and marketplaces above $20,000 in more than 200 transactions; may be sent below that; all income must be reported | https://www.irs.gov/businesses/understanding-your-form-1099-k |\n| F9 | Child care licensing is set by states and territories; federal law requires them to set and enforce licensing requirements | https://www.childcare.gov/consumer-education/regulated-child-care |\n| F10 | Pyramid scheme hallmarks; legitimate MLMs get their revenue mainly from product sales | https://www.investor.gov/protect-your-investments/fraud/types-fraud/pyramid-schemes |\n\n**Do not state (couldn't verify):**\n- Upwork, Fiverr, Rover, Outschool or Care.com fees and requirements\n- any hourly earnings ranges\n- Prolific's hourly pay minimum\n- the conditions for Etsy's 12% Offsite Ads rate\n- Etsy's US processing-fee figure\n- state childcare thresholds\n- the survey figure Shopify quotes ($1,215 average / $400 median), whose original source we didn't see\n\n## 6. Internal links (only where they genuinely fit)\n- How to Make Extra Money This Month → \"need cash faster\" in the action-plan section\n- Remote Jobs with No Experience (spot the fakes) → MLM/scam section\n- Data Entry Jobs from Home (scams) → MLM/scam section\n- Print on Demand for Beginners → Etsy section\n- How to Make Money on Pinterest → Etsy/printables promotion\n- ChatGPT Prompts for Freelancers → freelance section\n- Passive Income vs Active Income → tax section and the \"not passive\" point\n- Can You Really Make $100 a Day Online? → expectations line\n\nDon't link the older generic posts (\"10 Proven Passive Income Ideas…\", \"10 Smart Ways to Make Money from Home in 2025\"). They overlap in topic and their quality is unknown.\n\n## 7. Product link\nNo product for this pillar, so no product link. Links to Rev, Prolific, UserTesting and Etsy are informational examples, not endorsements, and shouldn't be described as \"the best\".\n\n---\n\n## SOURCE NOTES\n\n**1. Rev: \"Apply To Be A Transcript, Caption, or Legal Freelancer | Rev\"**\nURL: https://www.rev.com/freelancers. Date: none stated.\n- \"We currently have a waitlist due to high application volume. You can still apply.\"\n- \"Set your own hours and work from anywhere.\" / \"Earn competitive per-minute rates, paid weekly via PayPal.\"\n- Transcriptionist: \"Pay: $0.40 - $1.10 per audio/video minute\"\n- Captioner: \"Pay: $0.54 - $1.10 per audio/video minute\"\n- Subtitle Translator: \"Pay: $1.70 - $4.00+ per audio/video minute. Rates vary by language.\"\n- Legal Transcriptionist: \"Pay: $0.55 - $2.00+ per audio/video minute\"\n- Steps: \"Complete A Short Skills Assessment\" … \"Submit A Sample\" … \"There is no minimum commitment. You choose when and how much you work.\"\n- \"You'll need a computer, reliable internet connection, and strong English skills.\"\n- \"We're currently reviewing a high volume of applications, which may extend response times.\"\n- Condition: \"Your earnings will vary depending on the role you choose, the complexity of projects, and how many minutes you complete.\"\n\n**2. Prolific: \"Prolific | Participants\"**\nURL: https://www.prolific.com/participants. Date: none stated.\n- \"Join our waitlist. Accept your invite. Get verified in 15 minutes.\"\n- \"It takes just 15 minutes to verify your identity and complete a short practice task.\"\n- \"All tasks you receive are tailored to you and completely voluntary—exit any time, for any reason.\"\n- \"After your first 4 cashouts, payments are instantly transferred to your PayPal.\" / \"Once you've earned at least $6/£6, you can cash out directly from your Prolific account.\"\n- \"Eligibility filters also ensure that all tasks you receive are tailored to your profile.\" (This means not every task is open to everyone.)\n\n**3. UserTesting: \"Get Paid to Test\"**\nURL: https://www.usertesting.com/get-paid-to-test. Date: none stated; page reviews are dated November 2026.\n- Surveys: \"Simply answer a set of questions without screen, audio, or video recordings.\"\n- Recorded tests: \"Complete tasks while speaking your thoughts aloud, with screen, audio, and sometimes video recordings. Tests are taken on mobile or desktop devices on your own time.\"\n- Live Conversations: \"Chat with a UserTesting customer via video call. During this designated time, share your thoughts…\"\n- \"The reward amounts for each test vary and depend on factors like test type, duration, and customer demand… Payments for completed tests are usually sent 14 days later.\"\n- \"Yes, you'll need a microphone to take your practice test. The microphone built into your phone or computer is good enough…\"\n- \"UserTesting does not withhold any taxes from payments.\"\n- The page's testimonials must not be reused as testimonials.\n\n**4. Etsy: \"Fees & Payments Policy\"**\nURL: https://www.etsy.com/legal/fees/. \"Last updated on Oct 5, 2026.\"\n- Set-up: \"To open your Etsy shop, you may be required to pay a one-time set-up fee… if applicable, the set-up fee will be displayed and charged as part of the shop set-up process.\" It is \"non-refundable once paid.\"\n- \"You will be charged a listing fee of $0.20 USD for each item that you list for sale on Etsy.com or Etsy's mobile apps.\" / \"You will be charged a listing fee whether or not the listed item sells, unless you create a private listing…\" / \"Etsy.com listings expire after four months. Pattern-only listings do not expire.\"\n- \"…a transaction fee of 6.5% of the price you display for each listing plus the amount you charge for shipping and gift wrapping.\" / \"If you sell from the US, the transaction fee will not apply to sales tax.\"\n- \"Payment processing fees vary based on the location of your bank account.\" / \"The payment processing fee is assessed on the total amount of the sale, including tax and shipping.\" (Figures by country are in the Etsy Payments Policy, which we didn't read.)\n- Offsite Ads: \"If your shop has made less than $10,000 USD in sales over the prior 365 days… you will pay a fee of 15%… on Attributed Orders, unless you opt out of participation in Offsite Ads for the duration your shop is under the $10,000 USD threshold.\" Attribution: the buyer clicks the ad and orders \"within 30 days of that click\".\n- Exception: in-person sales through the Square reader are not subject to the 6.5% transaction fee or Etsy's processing fees; Square's fees apply instead.\n\n**5. IRS: \"Self-employment tax (Social Security and Medicare taxes)\"**\nURL: https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes. Date: none stated; the page cites 2026 figures.\n- \"The self-employment tax rate is 15.3%. The rate consists of two parts: 12.4% for social security… and 2.9% for Medicare…\"\n- \"You must pay self-employment tax and file Schedule SE (Form 1040) if either of the following applies. Your net earnings from self-employment (excluding church employee income) were $400 or more.\"\n- \"You can deduct the employer-equivalent portion of your self-employment tax in figuring your adjusted gross income.\"\n- \"As a self-employed individual, you may have to file Estimated Taxes quarterly.\"\n- \"The self-employment tax rules apply no matter how old you are…\"\n\n**6. IRS: \"Understanding your Form 1099-K\"**\nURL: https://www.irs.gov/businesses/understanding-your-form-1099-k. Date: none stated.\n- \"A payment app or online marketplace is required to send you a Form 1099-K if the payments you received for goods or services total over $20,000 in more than 200 transactions. However, they may send you a Form 1099-K with lower amounts and/or transactions.\"\n- \"If your customers or clients pay you directly by credit, debit or gift card, you'll get a Form 1099-K from your payment card processor no matter how many payments you got…\"\n- \"Whether or not you receive a Form 1099-K, you must still report any income on your tax return.\"\n- Exception: money from friends and family as a gift or repayment \"should not be reported on a Form 1099-K. These payments aren't taxable income.\"\n\n**7. Childcare.gov: \"How Is Child Care Regulated to Ensure Children's Health and Safety?\"**\nURL: https://www.childcare.gov/consumer-education/regulated-child-care. Date: none stated.\n- \"Licensing is the main way the U.S. and its territories regulate child care. Child care licensing is a process where state and territory governments set minimum health and safety requirements that child care programs must meet to legally operate.\"\n- \"Federal law requires states and territories to set and enforce child care licensing requirements…\"\n- Limit: \"child care licensing does not guarantee quality\". The page doesn't give state-specific rules or thresholds.\n\n**8. Investor.gov (SEC): \"Pyramid Schemes\"**\nURL: https://www.investor.gov/protect-your-investments/fraud/types-fraud/pyramid-schemes. Date: none stated.\n- \"All pyramid schemes eventually collapse, and most investors lose their money.\"\n- \"Pyramid scheme promoters may go to great lengths to make the program look like a business, such as a legitimate multi-level marketing (MLM) program.\"\n- Hallmarks:\n  - \"Emphasis on recruiting… Be skeptical if you will receive more compensation for recruiting others than for product sales.\"\n  - \"No genuine product or service is sold.\"\n  - \"Promises of high returns in a short time period.\"\n  - \"Easy money or passive income.\"\n  - \"No demonstrated revenue from retail sales.\"\n  - \"Complex commission structure.\"\n- \"As a general rule, legitimate MLM companies derive revenue primarily from selling products, not from recruiting members.\"\n\n**9. (SERP context only, not a fact source.) Shopify: \"30+ Side Hustles for Stay-At-Home Parents To Make Money (2026)\"**\nURL: https://www.shopify.com/blog/side-hustles-for-stay-at-home-parents. Published Jan 9, 2025; updated Nov 19, 2025. Shows the competing format: a 32-row table of earnings ranges and start-up costs, and a \"pause and resume around school pickups, nap times\" framing. Don't reuse its figures.",
+    "candidates": [
+      "Side Hustles for Stay-at-Home Moms That Fit Around Family Time (primary query: side hustles for stay at home moms)"
+    ],
+    "article": {
+      "title": "Side Hustles for Stay-at-Home Moms, Sorted by the Time You Actually Have",
+      "seo_title": "Side Hustles for Stay-at-Home Moms, Sorted by Your Time",
+      "slug": "side-hustles-for-stay-at-home-moms",
+      "meta_description": "Side hustles for stay-at-home moms sorted by naps, after-bedtime and kids-around time, with each platform's own pay, fees, waitlists and tax catches.",
+      "focus_keyphrase": "side hustles for stay at home moms",
+      "excerpt": "Most lists give you 30 ideas and unsourced hourly rates. This guide sorts side hustles by the time a parent actually has: naps, quiet evenings, fixed slots and kids-around hours. It uses each platform's own pay and fee pages and covers the waitlists, fees and taxes most lists skip.",
+      "content_html": "<p>Finding ideas is not the hard part. Most lists of side hustles for stay-at-home moms give you thirty options and an hourly range for each. They rarely ask whether the work fits the time you have: a nap that can end after ten minutes, the hour after bedtime when the house is finally quiet, or a Saturday morning when another adult is home.</p><p>This guide sorts the options by that kind of time. For each one, it uses the platform's own pay and fee pages and points out the catches: waitlists, fees you pay even when nothing sells, payment delays and taxes. Everything here works the same way for stay-at-home dads.</p><p>One note before you start: none of these come with a set income. What you earn depends on how much work is available, whether you qualify for it and how fast you work. For a realistic sense of what online income looks like, see <a href=\"https://newearns.com/can-you-really-make-100-a-day-online-the-honest-truth/\">Can You Really Make $100 a Day Online?</a></p><h2>Start with the kind of time you have</h2><p>Before you pick a hustle, look at your week and decide which of these four kinds of time you have most of. The right work for a 20-minute nap is different from the right work for a two-hour block after bedtime.</p><table><thead><tr><th>Type of time</th><th>What it looks like</th><th>What it suits</th></tr></thead><tbody><tr><td>Unpredictable gaps you can pause</td><td>Naps, quiet play, a show on TV</td><td>Self-paced tasks you can stop halfway through and pick up later</td></tr><tr><td>Quiet, uninterrupted block</td><td>After bedtime, or while another adult has the kids</td><td>Anything recorded or done live, and focused client work</td></tr><tr><td>Fixed scheduled slot</td><td>A set evening or weekend morning you can protect</td><td>Live video calls and client meetings</td></tr><tr><td>Kids-around time</td><td>Ordinary daytime hours with children present</td><td>Local, in-person work where children being there is part of the setup</td></tr></tbody></table><p>Most people have a mix. Pick one hustle that fits the time you have most of, and add a second only once the first one works.</p><h2>Work you can pause mid-task (good for naps)</h2><h3>Transcription and captioning (Rev as an example)</h3><p>Transcription means typing out what people say in audio or video files. Captioning does the same but syncs the text to the video. You can usually stop between sections, which makes it a reasonable fit for naps. <a href=\"https://www.rev.com/freelancers\">Rev's freelancer page</a> lists pay per audio or video minute, not per hour:</p><ul><li>Transcriptionist: $0.40–$1.10 per audio/video minute</li><li>Captioner: $0.54–$1.10 per audio/video minute</li><li>Legal transcriptionist: $0.55–$2.00+ per audio/video minute</li><li>Subtitle translator: $1.70–$4.00+ per audio/video minute; Rev says rates vary by language</li></ul><p>According to <a href=\"https://www.rev.com/freelancers\">Rev</a>, pay is sent weekly via PayPal, there is no minimum commitment (\"You choose when and how much you work\"), and you'll need a computer, a reliable internet connection and strong English skills. To apply, you complete a short skills assessment and then submit a sample.</p><p><strong>The catch:</strong> Rev's page says it currently has \"a waitlist due to high application volume\" and that the high volume \"may extend response times.\" You can still apply, so do it early. Pay is per audio minute, not per hour you spend working, so your typing speed and the audio quality set your real hourly rate. Rev itself says earnings vary with the role, the complexity of projects and how many minutes you complete.</p><h3>Paid research studies (Prolific as an example)</h3><p>Research platforms pay you to take part in academic and commercial studies, often surveys or short tasks. <a href=\"https://www.prolific.com/participants\">Prolific's participant page</a> describes the process: join the waitlist, accept your invite, then verify your identity and complete a short practice task, which Prolific says takes about 15 minutes.</p><p>Prolific says every task is voluntary and you can \"exit any time, for any reason.\" Once you've earned at least $6/£6, you can cash out from your account. Payments go to PayPal and become instant only after your first 4 cashouts, according to <a href=\"https://www.prolific.com/participants\">Prolific</a>.</p><p><strong>The catch:</strong> there's a waitlist before you can start. Once you're in, eligibility filters decide which tasks you see, so not every study is open to you. That makes it hard to predict how much work you'll get in a given week. Prolific's pages don't tell you what you'll earn per hour, so don't plan around a figure from a third-party list.</p><h3>Selling handmade items or digital printables on Etsy</h3><p>Making listings, writing product descriptions and designing printables can all be done in short bursts. Before you open a shop, read the fees. <a href=\"https://www.etsy.com/legal/fees/\">Etsy's Fees &amp; Payments Policy</a> (last updated Oct 5, 2026) sets out:</p><ul><li><strong>Set-up fee:</strong> you may have to pay a one-time set-up fee. If it applies, Etsy shows and charges it during shop set-up, and it is non-refundable once paid.</li><li><strong>Listing fee:</strong> $0.20 USD for each item you list. Listings on Etsy.com expire after four months (pattern-only listings don't expire).</li><li><strong>Transaction fee:</strong> 6.5% of the price you display plus what you charge for shipping and gift wrapping. If you sell from the US, it doesn't apply to sales tax.</li><li><strong>Payment processing fees:</strong> these vary based on where your bank account is, and are charged on the total sale amount, including tax and shipping.</li><li><strong>Offsite Ads:</strong> if your shop made less than $10,000 USD in sales over the prior 365 days, you pay 15% on orders attributed to Etsy's offsite ads (a buyer clicks the ad and orders within 30 days). Shops under that threshold can opt out.</li></ul><p><strong>The catch:</strong> according to <a href=\"https://www.etsy.com/legal/fees/\">Etsy</a>, you're charged the listing fee \"whether or not the listed item sells\", unless you create a private listing. A shop with many slow-moving items pays for each one, and again when listings expire and you renew them. Look up your country's processing fee in Etsy's payment policy before you set prices.</p><p>If you'd rather not hold stock, our guide to <a href=\"https://newearns.com/print-on-demand-for-beginners/\">print on demand for beginners</a> covers who takes a cut in that model. To promote printables, see <a href=\"https://newearns.com/make-money-on-pinterest/\">how to make money on Pinterest without a big following</a>.</p><h2>Work that needs a quiet, uninterrupted block (after bedtime)</h2><h3>Website and app testing (UserTesting as an example)</h3><p>Testing sites pay you to try websites and apps and say what you think. <a href=\"https://www.usertesting.com/get-paid-to-test\">UserTesting's tester page</a> describes three formats:</p><ul><li><strong>Surveys:</strong> you answer questions with no screen, audio or video recording.</li><li><strong>Recorded tests:</strong> you complete tasks while speaking your thoughts aloud, with screen, audio and sometimes video recorded. You take them on mobile or desktop, on your own time.</li><li><strong>Live conversations:</strong> a video call with a UserTesting customer at a set time.</li></ul><p>UserTesting says you'll need a microphone for the practice test, and the one built into your phone or computer is good enough. Pay varies by test type, length and customer demand. Payments are usually sent 14 days after you finish a test, and UserTesting does not withhold any taxes, according to <a href=\"https://www.usertesting.com/get-paid-to-test\">its tester page</a>.</p><p><strong>The catch:</strong> a crying toddler or a sibling argument in the background makes recorded tests and live calls hard. Save those for after bedtime or for a slot when another adult is home. Because surveys aren't recorded, they're the format most likely to survive an interruption during the day, but plan for that rather than count on it.</p><h3>Freelance writing, virtual assistance or design</h3><p>If you have a professional skill, freelancing can pay better than task platforms, but it needs focused time for the work itself and often a fixed slot for client calls. You can find clients directly (former employers, local businesses, your own network) or through a freelance marketplace.</p><p>Marketplaces charge fees, and those fees change. Check the platform's own fee page before you set your rates so you know what you'll actually take home. For ready-made pitch and proposal templates, see our <a href=\"https://newearns.com/chatgpt-prompts-freelancers-side-hustles/\">ChatGPT prompts for freelancers and side hustles</a>.</p><h2>Work you can do with kids around</h2><h3>Caring for other children in your home</h3><p>Looking after other families' children alongside your own is one of the few options built for kids-around time. It is also regulated. <a href=\"https://www.childcare.gov/consumer-education/regulated-child-care\">Childcare.gov</a> says licensing is the main way the US and its territories regulate child care: state and territory governments set minimum health and safety requirements that programs must meet to operate legally, and federal law requires states and territories to set and enforce those requirements.</p><p>The rules differ from state to state. Before you take a paying child, look up your own state's licensing rules and find out whether and when they apply to you. Childcare.gov also notes that licensing doesn't guarantee quality, so parents may ask about more than your license.</p><h3>Pet sitting and dog walking</h3><p>Pet sitting and dog walking are local, in-person jobs. Some fit around school runs or can be done with children along, depending on the pet and the owner. If you use a pet-sitting app, read its fee page before you set your rate, since the app's cut affects what you keep.</p><h2>Side by side: which option fits which week</h2><p>The \"pause\" and \"quiet\" columns are our editorial judgment. The pay and wait columns come from each platform's own page, linked above.</p><table><thead><tr><th>Option</th><th>Can you pause it?</th><th>Needs quiet?</th><th>How pay works</th><th>Wait before you start or get paid</th><th>Main catch</th></tr></thead><tbody><tr><td>Transcription (Rev)</td><td>Usually, between sections</td><td>Helps, for clear listening</td><td>Per audio/video minute, weekly via PayPal</td><td>Waitlist; skills assessment and sample</td><td>Your speed sets your real hourly rate</td></tr><tr><td>Research studies (Prolific)</td><td>You can exit any task</td><td>Depends on the study</td><td>Cash out to PayPal from $6/£6</td><td>Waitlist; about 15-minute verification</td><td>You only see tasks you're eligible for</td></tr><tr><td>Etsy shop</td><td>Yes, for making and listing</td><td>No</td><td>Sales minus listing, transaction, processing and possible ad fees</td><td>Check Etsy's payment policy</td><td>Listing fee charged whether or not it sells</td></tr><tr><td>UserTesting surveys</td><td>More likely than other formats</td><td>Less than recorded tests</td><td>Varies by test; amount shown before you start</td><td>Payment usually 14 days later</td><td>No tax withheld</td></tr><tr><td>UserTesting recorded or live tests</td><td>Hard; live calls are at a set time</td><td>Yes</td><td>Varies by test type, length and demand</td><td>Payment usually 14 days later</td><td>Background noise ends up on the recording</td></tr><tr><td>Freelance services</td><td>Partly</td><td>Usually</td><td>Your rate, minus any platform fee</td><td>Check the platform's page</td><td>Marketplace fees change; check before pricing</td></tr><tr><td>Childcare at home</td><td>No</td><td>No</td><td>Set by you and the families</td><td>Check your state's licensing rules first</td><td>Must meet state licensing requirements</td></tr><tr><td>Pet sitting and dog walking</td><td>No</td><td>No</td><td>Set by you or the app</td><td>Check the platform's page</td><td>App fees; check before pricing</td></tr></tbody></table><h2>Spotting a \"mom boss\" pitch that's really a pyramid scheme</h2><p>Parents at home are a common target for \"be your own boss\" recruiting pitches. Some are legitimate direct-sales businesses; some are pyramid schemes dressed up to look like one. The SEC's <a href=\"https://www.investor.gov/protect-your-investments/fraud/types-fraud/pyramid-schemes\">Investor.gov</a> warns that promoters \"may go to great lengths to make the program look like a business, such as a legitimate multi-level marketing (MLM) program,\" and lists these hallmarks:</p><ul><li><strong>Emphasis on recruiting.</strong> Be skeptical if you'd earn more for recruiting others than for selling products.</li><li><strong>No genuine product or service is sold.</strong></li><li><strong>Promises of high returns in a short time period.</strong></li><li><strong>Easy money or passive income.</strong></li><li><strong>No demonstrated revenue from retail sales.</strong></li><li><strong>Complex commission structure.</strong></li></ul><p>As a general rule, Investor.gov says, legitimate MLM companies get their revenue mainly from selling products, not from recruiting members. It also warns: \"All pyramid schemes eventually collapse, and most investors lose their money.\" Ask any company that recruits you where its revenue comes from, and walk away if the answer is mostly new members.</p><p>For more on telling real work-from-home offers from fake ones, see <a href=\"https://newearns.com/remote-jobs-no-experience/\">remote jobs with no experience: how to spot the fakes</a> and <a href=\"https://newearns.com/data-entry-jobs-from-home/\">data entry jobs from home and how to spot scams</a>.</p><h2>Taxes on side income, in plain English</h2><p>This is general US information, not tax advice. If your situation is complicated, talk to a tax professional.</p><ul><li><strong>Self-employment tax:</strong> according to the <a href=\"https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes\">IRS</a>, you must pay self-employment tax and file Schedule SE (Form 1040) if your net earnings from self-employment were $400 or more. The rate is 15.3%: 12.4% for Social Security and 2.9% for Medicare. You can deduct the employer-equivalent portion when you work out your adjusted gross income, and you may have to pay estimated taxes quarterly.</li><li><strong>Form 1099-K:</strong> the <a href=\"https://www.irs.gov/businesses/understanding-your-form-1099-k\">IRS</a> says a payment app or online marketplace must send you a 1099-K if payments for goods or services total over $20,000 in more than 200 transactions, but it may send one for lower amounts. If clients pay you directly by card, you'll get one from your card processor no matter how many payments you received. Either way, you must report your income whether or not you receive the form.</li><li><strong>Gifts aren't business income:</strong> the same IRS page says money from friends and family as a gift or repayment shouldn't be reported on a 1099-K and isn't taxable income.</li></ul><p>Platforms may not hold anything back for you. UserTesting, for example, <a href=\"https://www.usertesting.com/get-paid-to-test\">says it does not withhold any taxes</a>. Setting aside part of each payout makes tax time easier. Also note that the work in this guide is hands-on, even when it's sold as \"passive.\" For how the IRS uses that word, see <a href=\"https://newearns.com/passive-income-vs-active-income/\">passive income vs active income</a>.</p><h2>What to do this week</h2><ol><li><strong>Map your real time.</strong> For three days, note when you get gaps, how long they last and whether they're quiet. Match each type of gap to the table at the top.</li><li><strong>Join the waitlists on day 1.</strong> Rev and Prolific both have waitlists, so apply now even if you won't start for weeks.</li><li><strong>Do UserTesting's practice test in a quiet block.</strong> You'll need a working microphone; a built-in one is fine.</li><li><strong>If you plan to sell on Etsy,</strong> list a few items to start, not dozens, and budget for the $0.20 listing fee you pay whether or not each item sells.</li><li><strong>If you're thinking about childcare,</strong> look up your state's licensing rules before you agree to anything with another family.</li><li><strong>Start a simple income and expense log.</strong> A spreadsheet with date, platform, amount and costs is enough to make tax time easier.</li></ol><p>If you need money sooner than waitlists allow, see <a href=\"https://newearns.com/how-to-make-extra-money/\">how to make extra money this month</a>, which compares how fast different options pay.</p><h2>FAQ</h2><h3>Which of these can I start without experience?</h3><p>Research studies and website testing don't ask for a professional skill on the pages reviewed here. <a href=\"https://www.prolific.com/participants\">Prolific</a> asks for identity verification and a short practice task, and <a href=\"https://www.usertesting.com/get-paid-to-test\">UserTesting</a> has a practice test. Transcription with <a href=\"https://www.rev.com/freelancers\">Rev</a> is different: you have to pass a skills assessment and submit a sample.</p><h3>Do I have to pay tax on a small side hustle?</h3><p>You must report all your income, whether or not you get a Form 1099-K, according to the <a href=\"https://www.irs.gov/businesses/understanding-your-form-1099-k\">IRS</a>. Self-employment tax and Schedule SE apply once your net self-employment earnings reach $400, per the <a href=\"https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes\">IRS self-employment tax page</a>.</p><h3>Is a direct-sales company a pyramid scheme?</h3><p>Not necessarily. <a href=\"https://www.investor.gov/protect-your-investments/fraud/types-fraud/pyramid-schemes\">Investor.gov</a> says legitimate MLM companies get their revenue mainly from selling products, not from recruiting. Warning signs include more pay for recruiting than for sales, promises of high returns fast, and no revenue shown from retail sales.</p><h3>Do I need a license to babysit in my home?</h3><p>It depends on your state. <a href=\"https://www.childcare.gov/consumer-education/regulated-child-care\">Childcare.gov</a> explains that states and territories set and enforce child care licensing requirements, so check your own state's rules before you take paying children.</p>",
+      "sources": [
+        {
+          "url": "https://www.rev.com/freelancers",
+          "title": "Apply To Be A Transcript, Caption, or Legal Freelancer | Rev",
+          "supports": "Rev per-minute pay ranges by role, weekly PayPal pay, no minimum commitment, requirements, skills assessment and sample, waitlist and longer response times, earnings vary by role, complexity and minutes completed"
+        },
+        {
+          "url": "https://www.prolific.com/participants",
+          "title": "Prolific | Participants",
+          "supports": "Waitlist, invite, roughly 15-minute verification with a practice task, voluntary tasks you can exit any time, $6/£6 cash-out minimum, instant PayPal payments after first 4 cashouts, eligibility filters"
+        },
+        {
+          "url": "https://www.usertesting.com/get-paid-to-test",
+          "title": "UserTesting: Get Paid to Test",
+          "supports": "Survey, recorded test and live conversation formats; microphone requirement for practice test; pay varies by type, duration and demand; payment usually 14 days later; no taxes withheld"
+        },
+        {
+          "url": "https://www.etsy.com/legal/fees/",
+          "title": "Etsy Fees & Payments Policy",
+          "supports": "Possible one-time non-refundable set-up fee, $0.20 listing fee charged whether or not item sells, four-month listing expiry, 6.5% transaction fee, processing fees by bank location on total incl. tax and shipping, 15% Offsite Ads fee and opt-out under $10,000"
+        },
+        {
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+          "title": "IRS: Self-employment tax (Social Security and Medicare taxes)",
+          "supports": "15.3% rate (12.4% + 2.9%), $400 net earnings threshold for Schedule SE, employer-equivalent deduction, quarterly estimated taxes"
+        },
+        {
+          "url": "https://www.irs.gov/businesses/understanding-your-form-1099-k",
+          "title": "IRS: Understanding your Form 1099-K",
+          "supports": "1099-K threshold over $20,000 in more than 200 transactions, may be sent for less, card processors issue regardless of count, all income must be reported, gifts/repayments from friends and family not taxable"
+        },
+        {
+          "url": "https://www.childcare.gov/consumer-education/regulated-child-care",
+          "title": "Childcare.gov: How Is Child Care Regulated to Ensure Children's Health and Safety?",
+          "supports": "Licensing is the main way child care is regulated; states and territories set and enforce requirements under federal law; licensing does not guarantee quality"
+        },
+        {
+          "url": "https://www.investor.gov/protect-your-investments/fraud/types-fraud/pyramid-schemes",
+          "title": "Investor.gov (SEC): Pyramid Schemes",
+          "supports": "Pyramid scheme hallmarks, schemes made to look like legitimate MLMs, legitimate MLMs earn mainly from product sales, pyramid schemes eventually collapse"
+        }
+      ],
+      "product_link_reason": "",
+      "internal_links_note": "",
+      "image_headline": "Side Hustles That Fit Your Time",
+      "search_intent": "Informational/commercial browsing: stay-at-home parents comparing side hustle ideas and deciding which one fits their schedule, budget and situation.",
+      "unique_value": "Sorts side hustles by the kind of time a parent actually has (pausable gaps, quiet blocks, fixed slots, kids-around time) instead of by category, uses only platform-stated pay, fees and wait times, flags waitlists, fees charged regardless of sales, payment delays and lack of tax withholding, and adds a sourced decision table, an SEC-based pyramid-scheme check and plain-English IRS tax rules.",
+      "image_alt_text": "Laptop Work",
+      "featured_image": {
+        "alt_text": "Laptop Work",
+        "license": "cc0",
+        "creator": "Matt Moloney",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "inline_images": []
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "Rev transcriptionist pay is $0.40–$1.10 per audio/video minute",
+          "verdict": "supported",
+          "source_url": "https://www.rev.com/freelancers",
+          "evidence": "\"Pay: $0.40 - $1.10 per audio/video minute\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Rev captioner pay is $0.54–$1.10",
+          "verdict": "supported",
+          "source_url": "https://www.rev.com/freelancers",
+          "evidence": "\"Pay: $0.54 - $1.10 per audio/video minute\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Rev legal transcriptionist pay is $0.55–$2.00+",
+          "verdict": "supported",
+          "source_url": "https://www.rev.com/freelancers",
+          "evidence": "\"Pay: $0.55 - $2.00+ per audio/video minute\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Rev subtitle translator pay is $1.70–$4.00+, and rates vary by language",
+          "verdict": "supported",
+          "source_url": "https://www.rev.com/freelancers",
+          "evidence": "\"Rates vary by language.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Rev pays weekly via PayPal",
+          "verdict": "supported",
+          "source_url": "https://www.rev.com/freelancers",
+          "evidence": "\"paid weekly via PayPal\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Rev has no minimum commitment; \"You choose when and how much you work\"",
+          "verdict": "supported",
+          "source_url": "https://www.rev.com/freelancers",
+          "evidence": "Exact wording on page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Rev needs a computer, reliable internet and strong English",
+          "verdict": "supported",
+          "source_url": "https://www.rev.com/freelancers",
+          "evidence": "FAQ \"Do I Need Special Equipment?\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "You apply to Rev via a skills assessment, then a sample",
+          "verdict": "supported",
+          "source_url": "https://www.rev.com/freelancers",
+          "evidence": "Steps 02 and 03. Step 01 is choosing a role; leaving it out is fine.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Rev has a waitlist \"due to high application volume\"; volume \"may extend response times\"; you can still apply",
+          "verdict": "supported",
+          "source_url": "https://www.rev.com/freelancers",
+          "evidence": "Exact quotes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Rev earnings vary with role, project complexity and minutes completed",
+          "verdict": "supported",
+          "source_url": "https://www.rev.com/freelancers",
+          "evidence": "FAQ \"How Much Can I Earn?\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"You can usually stop between sections\" (Rev)",
+          "verdict": "unsupported",
+          "source_url": "https://www.rev.com/freelancers",
+          "evidence": "Rev says nothing about pausing.",
+          "suggested_fix": "Label it as the editor's judgment (the comparison table already does this) or remove it."
+        },
+        {
+          "claim": "Prolific: join waitlist → accept invite → verify ID and do a practice task, about 15 minutes",
+          "verdict": "supported",
+          "source_url": "https://www.prolific.com/participants",
+          "evidence": "\"It takes just 15 minutes to verify your identity and complete a short practice task.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Prolific tasks are voluntary; \"exit any time, for any reason\"",
+          "verdict": "supported",
+          "source_url": "https://www.prolific.com/participants",
+          "evidence": "Exact quote.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "You can cash out on Prolific once you've earned $6/£6",
+          "verdict": "supported",
+          "source_url": "https://www.prolific.com/participants",
+          "evidence": "\"Once you've earned at least $6/£6, you can cash out\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Prolific payments to PayPal are instant only after the first 4 cashouts",
+          "verdict": "supported",
+          "source_url": "https://www.prolific.com/participants",
+          "evidence": "Supported (slight inference): \"After your first 4 cashouts, payments are instantly transferred to your PayPal.\" The word \"only\" is the article's reading, but it's a reasonable one.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Eligibility filters decide which Prolific tasks you see",
+          "verdict": "supported",
+          "source_url": "https://www.prolific.com/participants",
+          "evidence": "\"Eligibility filters also ensure that all tasks you receive are tailored to your profile.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Prolific's pages give no hourly pay figure",
+          "verdict": "supported",
+          "source_url": "https://www.prolific.com/participants",
+          "evidence": "Supported for this page: no pay rate on the page.",
+          "suggested_fix": "Change \"pages\" to \"participant page\" to make it exact."
+        },
+        {
+          "claim": "Prolific has academic and commercial studies, surveys or short tasks",
+          "verdict": "supported",
+          "source_url": "https://www.prolific.com/participants",
+          "evidence": "Page mentions academics, brands, questionnaires.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy fee policy last updated Oct 5, 2026",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"Last updated on Oct 5, 2026\" (read_source got HTTP 403; full page read via web_fetch).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy may charge a one-time set-up fee, shown and charged during set-up, non-refundable once paid",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"The one-time set-up fee is non-refundable once paid.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy charges $0.20 USD per listing",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"listing fee of $0.20 USD for each item\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy.com listings expire after four months; Pattern-only listings don't",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"Etsy.com listings expire after four months. Pattern-only listings do not expire.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy transaction fee is 6.5% of displayed price plus shipping and gift wrap",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "Exact wording.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "For US sellers, the Etsy transaction fee doesn't apply to sales tax",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"If you sell from the US, the transaction fee will not apply to sales tax.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy processing fees depend on bank location and apply to the total, including tax and shipping",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"assessed on the total amount of the sale, including tax and shipping\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy Offsite Ads: 15% if under $10,000 in the prior 365 days, 30-day click window, can opt out",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "Policy text matches. The summary omits that shops at or above $10,000 pay 12% and can't opt out; fine, since the article only describes the under-$10,000 case.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy listing fee is charged \"whether or not the listed item sells\", unless the listing is private",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "Exact quote.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "You pay again when you renew an Etsy listing",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"charged a listing fee for creating or renewing a listing\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "UserTesting surveys have no screen, audio or video recording",
+          "verdict": "supported",
+          "source_url": "https://www.usertesting.com/get-paid-to-test",
+          "evidence": "\"answer a set of questions without screen, audio, or video recordings\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "UserTesting recorded tests: think aloud, screen/audio and sometimes video, mobile or desktop, on your own time",
+          "verdict": "supported",
+          "source_url": "https://www.usertesting.com/get-paid-to-test",
+          "evidence": "Exact match.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "UserTesting live conversations are video calls at a set time",
+          "verdict": "supported",
+          "source_url": "https://www.usertesting.com/get-paid-to-test",
+          "evidence": "\"During this designated time\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "A microphone is needed for the UserTesting practice test; a built-in mic is fine",
+          "verdict": "supported",
+          "source_url": "https://www.usertesting.com/get-paid-to-test",
+          "evidence": "FAQ.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "UserTesting pay varies by test type, length and demand; amount shown in advance",
+          "verdict": "supported",
+          "source_url": "https://www.usertesting.com/get-paid-to-test",
+          "evidence": "\"your dashboard will always show you the amount you'll get paid\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "UserTesting pays usually 14 days later",
+          "verdict": "supported",
+          "source_url": "https://www.usertesting.com/get-paid-to-test",
+          "evidence": "\"usually sent 14 days later\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "UserTesting withholds no tax",
+          "verdict": "supported",
+          "source_url": "https://www.usertesting.com/get-paid-to-test",
+          "evidence": "\"UserTesting does not withhold any taxes\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "UserTesting surveys hold up best to interruptions",
+          "verdict": "uncertain",
+          "source_url": "https://www.usertesting.com/get-paid-to-test",
+          "evidence": "The notes give no supported/unsupported verdict; they label this editorial judgment. It follows from the no-recording point and is hedged.",
+          "suggested_fix": "Fine as is."
+        },
+        {
+          "claim": "Schedule SE required at $400+ net earnings",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+          "evidence": "\"$400 or more\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Self-employment tax rate is 15.3% (12.4% Social Security + 2.9% Medicare)",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+          "evidence": "Exact. The article doesn't mention that the 12.4% part stops at the 2026 wage base of $184,500; acceptable at side-hustle income levels.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "You can deduct the employer-equivalent portion when figuring AGI",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+          "evidence": "Exact.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "You may have to pay estimated taxes quarterly",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+          "evidence": "\"you may have to file Estimated Taxes quarterly\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Apps and marketplaces must send a 1099-K over $20,000 in more than 200 transactions, and may send one for less",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/businesses/understanding-your-form-1099-k",
+          "evidence": "Exact.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Direct card payments get a 1099-K from the processor regardless of amount",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/businesses/understanding-your-form-1099-k",
+          "evidence": "\"no matter how many payments you got or how much they were for\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "You must report income whether or not you get a 1099-K",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/businesses/understanding-your-form-1099-k",
+          "evidence": "Exact.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Gifts and repayments from friends and family aren't reported on a 1099-K and aren't taxable",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/businesses/understanding-your-form-1099-k",
+          "evidence": "\"These payments aren't taxable income.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Licensing is the main way child care is regulated; states and territories set minimum health and safety rules",
+          "verdict": "supported",
+          "source_url": "https://www.childcare.gov/consumer-education/regulated-child-care",
+          "evidence": "Exact.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Federal law requires states and territories to set and enforce these rules",
+          "verdict": "supported",
+          "source_url": "https://www.childcare.gov/consumer-education/regulated-child-care",
+          "evidence": "Exact.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Licensing doesn't guarantee quality",
+          "verdict": "supported",
+          "source_url": "https://www.childcare.gov/consumer-education/regulated-child-care",
+          "evidence": "\"does not guarantee quality\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Child care rules differ by state; \"depends on your state\" (FAQ)",
+          "verdict": "supported",
+          "source_url": "https://www.childcare.gov/consumer-education/regulated-child-care",
+          "evidence": "Supported by inference: follows from states setting the rules. The page doesn't cover license-exempt care.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Pyramid schemes \"may go to great lengths to make the program look like a business…\"",
+          "verdict": "supported",
+          "source_url": "https://www.investor.gov/protect-your-investments/fraud/types-fraud/pyramid-schemes",
+          "evidence": "Exact quote.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The six hallmarks of a pyramid scheme",
+          "verdict": "supported",
+          "source_url": "https://www.investor.gov/protect-your-investments/fraud/types-fraud/pyramid-schemes",
+          "evidence": "All six listed.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Legitimate MLMs earn mainly from product sales",
+          "verdict": "supported",
+          "source_url": "https://www.investor.gov/protect-your-investments/fraud/types-fraud/pyramid-schemes",
+          "evidence": "Exact.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"All pyramid schemes eventually collapse, and most investors lose their money.\"",
+          "verdict": "supported",
+          "source_url": "https://www.investor.gov/protect-your-investments/fraud/types-fraud/pyramid-schemes",
+          "evidence": "Exact quote.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Calls it \"The SEC's Investor.gov\"",
+          "verdict": "unsupported",
+          "source_url": "https://www.investor.gov/protect-your-investments/fraud/types-fraud/pyramid-schemes",
+          "evidence": "Unsupported from text read: the page text doesn't name the SEC. It's widely known to be the SEC's investor-education site, so the claim is very likely true.",
+          "suggested_fix": "Link investor.gov's \"About\" page, or just say \"Investor.gov\"."
+        },
+        {
+          "claim": "Parents at home are a common target for \"be your own boss\" pitches",
+          "verdict": "unsupported",
+          "source_url": "",
+          "evidence": "No source given.",
+          "suggested_fix": "Cite the FTC's MLM guidance (Investor.gov links to it), or soften to \"are often targeted\"."
+        },
+        {
+          "claim": "Freelance marketplace fees \"change\"",
+          "verdict": "unsupported",
+          "source_url": "",
+          "evidence": "No source given (generic, low risk).",
+          "suggested_fix": "Soften to \"can change\", or name a platform and link its fee page."
+        },
+        {
+          "claim": "Freelancing \"can pay better than task platforms\"",
+          "verdict": "unsupported",
+          "source_url": "",
+          "evidence": "No source given.",
+          "suggested_fix": "Keep as hedged opinion or remove."
+        },
+        {
+          "claim": "Pet-sitting apps take a cut",
+          "verdict": "unsupported",
+          "source_url": "",
+          "evidence": "No source given (generic).",
+          "suggested_fix": "Name an app and link its fee page, or keep it generic."
+        },
+        {
+          "claim": "\"Everything here works the same way for stay-at-home dads\"",
+          "verdict": "uncertain",
+          "source_url": "",
+          "evidence": "The notes give no supported/unsupported verdict; they label this editorial. No source given.",
+          "suggested_fix": "No fix needed."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.rev.com/freelancers",
+          "relevant": true,
+          "notes": "Readable in full; supports what it's cited for."
+        },
+        {
+          "url": "https://www.prolific.com/participants",
+          "relevant": true,
+          "notes": "Readable in full; supports what it's cited for."
+        },
+        {
+          "url": "https://www.usertesting.com/get-paid-to-test",
+          "relevant": true,
+          "notes": "Excerpt had gaps; readable on a second, narrower read. Supports what it's cited for; the three test formats are confirmed."
+        },
+        {
+          "url": "https://www.etsy.com/legal/fees/",
+          "relevant": true,
+          "notes": "HTTP 403 in read_source; full text read via web_fetch. Every fee claim matches the policy dated Oct 5, 2026."
+        },
+        {
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+          "relevant": true,
+          "notes": "Readable, partial but covers all claims; supports what it's cited for."
+        },
+        {
+          "url": "https://www.irs.gov/businesses/understanding-your-form-1099-k",
+          "relevant": true,
+          "notes": "Readable in full; supports what it's cited for."
+        },
+        {
+          "url": "https://www.childcare.gov/consumer-education/regulated-child-care",
+          "relevant": true,
+          "notes": "Readable in full; supports what it's cited for."
+        },
+        {
+          "url": "https://www.investor.gov/protect-your-investments/fraud/types-fraud/pyramid-schemes",
+          "relevant": true,
+          "notes": "Readable in full; supports what it's cited for, except the SEC attribution (#53), which the page text doesn't state."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "Mostly yes. Better than a generic list: time-based structure, sourced pay/fee/wait figures, explicit catches, and accurate plain-English pyramid-scheme and tax sections. Weaknesses: no earnings figures for Prolific or UserTesting; freelance and pet-sitting sections are generic with no named platform or source; budget/startup costs only covered for Etsy, with equipment (Rev, UserTesting) mentioned but not costed; the Rev prose (#11) states as fact a judgment the table labels as editorial.",
+      "adds_original_value": true,
+      "value_notes": "Sorting by the kind of time a parent has (gaps you can pause, quiet blocks, fixed slots, time with kids around) is new and useful for deciding, not a category list in new words. Each pay, fee and wait figure comes from the platform's own page, and the article flags waitlists, listing fees charged whether or not an item sells, the 14-day payment delay and lack of tax withholding. The \"pause\" and \"quiet\" columns are labelled as editorial judgment.",
+      "product_claims_accurate": true,
+      "product_notes": "The allowed list is \"no product\". The article doesn't promote any product of its own; Rev, Prolific, UserTesting and Etsy appear only as sourced, neutral examples with drawbacks included. Nothing breaks the rule. Required before publishing: none (nothing contradicted). Recommended: label the Rev pausing claim as editor's judgment (#11); source or soften the \"common target\" claim (#54); source the SEC attribution or drop it (#53); optionally add a named fee source to the freelance and pet-sitting sections.",
+      "fetched_urls": [
+        "https://www.childcare.gov/consumer-education/regulated-child-care",
+        "https://www.etsy.com/legal/fees/",
+        "https://www.investor.gov/protect-your-investments/fraud/types-fraud/pyramid-schemes",
+        "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+        "https://www.irs.gov/businesses/understanding-your-form-1099-k",
+        "https://www.prolific.com/participants",
+        "https://www.rev.com/freelancers",
+        "https://www.usertesting.com/get-paid-to-test"
+      ],
+      "content_sha256": "499ad40997267a9cb61d6fd417adfdb5dab4d479dd886da9cb2ac9760ff65750"
+    },
+    "images": {
+      "words": 2530,
+      "target": [
+        4,
+        5
+      ],
+      "stock_api_calls": 1,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "side hustles for stay at home moms",
+          "result": "0"
+        },
+        {
+          "provider": "openverse",
+          "query": "freelancer working laptop",
+          "result": "20 (cached)"
+        },
+        {
+          "provider": "openverse",
+          "query": "person working laptop home",
+          "result": "20 (cached)"
+        },
+        {
+          "provider": "openverse",
+          "query": "laptop home office",
+          "result": "20 (cached)"
+        }
+      ],
+      "notes": [
+        "1 image(s), below the 4-5 guideline: nothing else in the article would gain from a visual, and decorative images are not added"
+      ],
+      "topic": {
+        "motif": "earnings",
+        "match": "pillar money"
+      },
+      "photo_rejections": [
+        {
+          "description": "Business freelance Asian woman working, doing projects and sending email on laptop or comp",
+          "reason": "nothing about actually, have, home, hustle"
+        },
+        {
+          "description": "Laptop Working",
+          "reason": "nothing about actually, have, home, hustle"
+        },
+        {
+          "description": "Woman Working",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Business Work",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Close-up Photography of Woman Sitting Beside Table While Using Macbook",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Desk Office",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Home Office",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Desk Laptop",
+          "reason": "nothing about actually, have, home, hustle"
+        },
+        {
+          "description": "Laptop Work",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Laptop Work",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Working Together",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Keyboard Typing",
+          "reason": "no laptop/computer/screen in its title"
+        }
+      ],
+      "featured": {
+        "provider": "openverse",
+        "id": "8928ee09-45f7-4ebc-b408-770423a9e905",
+        "description": "Laptop Work",
+        "page_url": "https://stocksnap.io/photo/laptop-work-DIHXDJ07WY",
+        "creator": "Matt Moloney",
+        "creator_url": "https://mjmolo.com",
+        "license": "cc0",
+        "license_version": "1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "source": "stocksnap",
+        "query": "person working laptop home",
+        "relevance": "shows home",
+        "alt_text": "Laptop Work",
+        "caption": "",
+        "filename": "side-hustles-for-stay-at-home-moms-featured.webp",
+        "file": "featured.webp",
+        "bytes": 36214
+      },
+      "inline": []
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2604 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "9 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "Side Hustles for Stay-at-Home Moms, Sorted by the Time You Actually Have"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.27% (1x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "0/9 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "149 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "55 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "side-hustles-for-stay-at-home-moms"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "side-hustles-for-stay-at-home-moms"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.01"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.57: ChatGPT Prompts for Freelancers and Side Hustles: Copy-Ready Templates and How to Adapt Them"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": "1 confirmed by fact-check fetch"
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "8 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "0 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "7 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "8 of 8 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": false,
+        "detail": "The catch: there's a waitlist before you can start. Once you're in, eligibility filters de | Transaction fee: 6.5% of the price you display plus what you charge for shipping and gift  | Offsite Ads: if your shop made less than $10,000 USD in sales over the prior 365 days, you",
+        "fix": "Link the source inside the same paragraph or list item as the number or 'according to' statement, or remove the statement."
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "11 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "cc0"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "0 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "6 no supporting evidence found (not shown to be false): \"You can usually stop between sections\" (Rev) (fix: Label it as the editor's judgment (the comparison table already does this) or remove it.) | Calls it \"The SEC's Investor.gov\" (fix: Link investor.gov's \"About\" page, or just say \"Investor.gov\".) | Parents at home are a common target for \"be your own boss\" pitches (fix: Cite the FTC's MLM guidance (Investor.gov links to it), or soften to \"are often targeted\".) | Freelance marketplace fees \"change\" (fix: Soften to \"can change\", or name a platform and link its fee page.) || 2 could not be checked (source unreadable or partial): UserTesting surveys hold up best to interruptions (fix: Fine as is.) | \"Everything here works the same way for stay-at-home dads\" (fix: No fix needed.)",
+        "fix": "Contradicted: correct the claim to what the source says. No evidence found: cite an official source that states it, narrow it to what a source does say, or remove it. Could not be checked: verify it against a readable source or remove it. Source page not read: cite a page the pipeline can open that states the claim, or remove the claim. No claims listed: the fact-check did not check anything. Then re-run the fact-check only."
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Mostly yes. Better than a generic list: time-based structure, sourced pay/fee/wait figures, explicit catches, and accurate plain-English pyramid-scheme and tax sections. Weaknesses: no earnings figures for Prolific or UserTesting; freelance and pet-sitting sections are generic with no named platform or source; budget/startup costs only covered for Etsy, with equipment (Rev, UserTesting) mentioned but not costed; the Rev prose (#11) states as fact a judgment the table labels as editorial."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "Sorting by the kind of time a parent has (gaps you can pause, quiet blocks, fixed slots, time with kids around) is new and useful for deciding, not a category list in new words. Each pay, fee and wait figure comes from the platform's own page, and the article flags waitlists, listing fees charged whether or not an item sells, the 14-day payment delay and lack of tax withholding. The \"pause\" and \"quiet\" columns are labelled as editorial judgment."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "The allowed list is \"no product\". The article doesn't promote any product of its own; Rev, Prolific, UserTesting and Etsy appear only as sourced, neutral examples with drawbacks included. Nothing breaks the rule. Required before publishing: none (nothing contradicted). Recommended: label the Rev pausing claim as editor's judgment (#11); source or soften the \"common target\" claim (#54); source the SEC attribution or drop it (#53); optionally add a named fee source to the freelance and pet-sitting sections."
+      },
+      {
+        "check": "fact_check_current",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "sources_verified",
+        "passed": true,
+        "detail": ""
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 0.861,
+        "write": 0.276,
+        "fact_check": 0.379,
+        "fact_check_json": 0.187
+      },
+      "total_usd": 1.703
+    },
+    "wp_media": {
+      "id": 3823,
+      "url": "https://newearns.com/wp-content/uploads/2026/11/side-hustles-for-stay-at-home-moms-featured.webp"
+    },
+    "wp_post": {
+      "id": 3824,
+      "status": "pending",
+      "link": "https://newearns.com/?p=3824"
+    },
+    "image_check": "ok",
+    "final": "held_for_review"
+  },
+  "updated": "2026-11-11T18:46:31+00:00"
+}
