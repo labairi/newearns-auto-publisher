@@ -1,0 +1,905 @@
+{
+  "run_id": "20261112T162959537054Z",
+  "stages": {
+    "pillar": "money",
+    "topic": "How Much You Can Make Donating Plasma, and How the Pay Works",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 44,
+        "cache_creation_input_tokens": 57255,
+        "cache_read_input_tokens": 537882,
+        "output_tokens": 15646,
+        "web_search_requests": 14,
+        "web_fetch_requests": 5,
+        "requests": 8,
+        "read_source_calls": 18,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 44,
+            "cache_write_5m_tokens": 57255,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 537882,
+            "output_tokens": 15646
+          }
+        },
+        "fetched_urls": [
+          "https://www.govinfo.gov/content/pkg/CFR-2022-title21-vol7/pdf/CFR-2022-title21-vol7-sec630-15.pdf"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.847
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 11409,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 14220,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 11409,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 14220
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.341
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 24,
+        "cache_creation_input_tokens": 68266,
+        "cache_read_input_tokens": 547214,
+        "output_tokens": 13307,
+        "web_search_requests": 2,
+        "web_fetch_requests": 3,
+        "requests": 4,
+        "read_source_calls": 5,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 24,
+            "cache_write_5m_tokens": 68266,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 547214,
+            "output_tokens": 13307
+          }
+        },
+        "fetched_urls": [
+          "https://www.govinfo.gov/content/pkg/CFR-2022-title21-vol7/pdf/CFR-2022-title21-vol7-sec630-15.pdf",
+          "https://www.irs.gov/publications/p525"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.737
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 6710,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 10063,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 6710,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 10063
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.235
+      }
+    ],
+    "brief": "I've finished the brief. It targets **\"how much money can you make donating plasma\"**. The search results are full of pay-chart and promo-code sites with figures that don't trace back to the centers. The article will use only what CSL, BioLife and Octapharma publish, plus the federal limit on how often you can donate. The fact base in the SOURCE NOTES is complete. Before publishing, the writer must check the bonus amounts again, because all three centers say they vary by location and change without notice.\n\n---\n\n# CONTENT BRIEF: New Earns, Money pillar\n\n## 1. Chosen query and focus keyphrase\n- **Primary query:** how much money can you make donating plasma\n- **Focus keyphrase:** how much money can you make donating plasma. Use it in the title, the intro and once or twice more. Use \"plasma donation pay\" as a natural variant.\n- **Suggested title:** How Much Money Can You Make Donating Plasma? What the Big Centers Pay, the Weekly Limit, and the Catches\n- **Slug:** /how-much-money-donating-plasma\n\n## 2. Search intent (from the current results)\nThis is an informational query from people deciding whether to try it. They want a number per visit and per month, then how pay works, how often they can go, and whether the money is taxable. Current top results:\n- GoodRx gives broad per-donation and monthly figures plus each chain's new-donor \"up to\" offer.\n- Octapharma's own earning-potential page ranks.\n- Several affiliate or \"pay calculator\" sites (plasmapaycalculator.com, plasmapromocode.com, others) publish charts with specific per-visit dollar amounts and promo codes but no visible center source.\n- Older side-hustle blogs (Side Hustle Nation, roughly 16 months old).\n\n**Gaps New Earns can fill:**\n1. **Separate the promotional \"up to\" figure from normal pay.** All three chains attach \"varies by location / subject to change\" to their headline number.\n2. **Explain why the per-visit amount differs between people.** Octapharma says it depends on weight, height and hematocrit. BioLife says it depends on donation history, location and market conditions.\n3. **Apply the federal limit** (no more than twice in 7 days, at least 2 days apart) so readers can see their own monthly ceiling.\n4. **Count time, not just dollars:** first visit roughly 2 to 2.5 hours, return visits roughly 1 to 1.5 hours, which gives a \"work out your own hourly rate\" step.\n5. **Cover the catches others skip:** ATM fees on the prepaid card, promotions that need several donations within 30 to 35 days, a second visit within 2 to 14 days, pay \"going down\" when a promotion ends, no tax form from the center, and possible deferral at screening.\n\n**Unique angle:** a decision-ready explainer built on the centers' own wording, with a \"your monthly ceiling\" calculation, a comparison table of the three chains, and a checklist for the first week. No promised income and no unsourced pay charts.\n\n## 3. Outline (H2/H3)\n\n**Intro (2–3 sentences).** Pay comes as a per-visit fee plus temporary new-donor bonuses, and the amount varies by center, by your body measurements and by the week. Say plainly that the article cannot promise a figure and will show how to estimate yours.\n\n**H2: The short answer: what the three biggest chains advertise**\n- Comparison table: Chain | Headline new-donor offer (as stated) | Window | Condition wording | How you're paid | Speed of payment\n  - CSL Plasma: \"up to $800*\" first month; \"*Varies by location and is subject to change\"; prepaid card after your donation.\n  - BioLife: no fixed national figure on the pages read; offers are set weekly per center (see app \"My Promotions\"); BioLife Debit Mastercard; loaded \"shortly after\" donation.\n  - Octapharma: \"up to $750*\" in the first 35 days; \"*May vary by location and change without notice\"; prepaid debit card within 24 hours.\n- Note under the table: these are ceilings for new donors. Your center's page or app shows the real current amount.\n\n**H2: Why your pay per visit differs from someone else's**\n- H3: Your weight, height and hematocrit (Octapharma FAQ)\n- H3: Location, donation history and market conditions (BioLife)\n- H3: Promotions end, and pay returns to the normal schedule (Octapharma \"Why did donor payments go down?\")\n- H3: BioLife's weekly offer cycle (Monday to Sunday, expires 11:59 p.m. Sunday)\n\n**H2: How often you can donate, and the most visits you can fit in a month**\n- Federal rule (21 CFR 640.65(b)(8)): automated collections \"shall not occur less than 2 days apart or more frequently than twice in a 7-day period.\"\n- The centers say the same in plain language (Octapharma, BioLife).\n- Arithmetic box (label it as our calculation, not a source figure): at twice a week, a 30-day month allows about 8–9 visits. Monthly ceiling = visits × your center's per-visit fee + any promotion you actually complete.\n- Mention BioLife's loyalty milestone for \"donating seven times in one calendar month.\"\n\n**H2: The time cost: work out your own hourly rate**\n- First visit: CSL's start page says 2–2.5 hours; Octapharma says \"up to 2 hours\" / \"about two hours\"; BioLife says \"at least two hours.\"\n- Return visits: Octapharma about 1–1.5 hours; BioLife about one hour; CSL \"closer to 90 minutes.\"\n- Flag that a CSL blog FAQ gives shorter times (60–90 min first, 30–45 min after). Use the range and tell readers to budget for the longer figure.\n- Formula: (per-visit pay) ÷ (visit time + round-trip travel time). Give no invented dollar example. If a worked example is wanted, use clearly hypothetical round numbers labelled \"example only.\"\n\n**H2: How the payment actually reaches you**\n- Prepaid card at all three chains. BioLife: no credit check; activate and register the card; transfer to a bank account; balance checks are free online or by text, but checking at an ATM costs a fee.\n- Octapharma: purchases are fee-free; both card providers charge $1.50 per ATM withdrawal. Point readers to their card insert for the full fee list.\n\n**H2: The catches nobody mentions**\n- You must come back: Octapharma (2–14 days) and CSL both say the first donation can't be used until the second is complete.\n- New-donor promos need several visits in a set window. BioLife: \"a specific number of donations within 30 days\"; you keep the bonus rates already paid if you don't finish. Octapharma: first 35 days.\n- Screening can stop you on the day. CSL says you won't be allowed to donate that day if screening shows it may not be safe. Federal rules require a protein check before each donation and weighing at each donation.\n- Paperwork: photo ID, proof of SSN, proof of address dated within 60 days (Octapharma). CSL also requires donating at a center \"within your recruitment area.\"\n- Referral bonuses have conditions (BioLife Buddy Bonus).\n\n**H2: Is plasma money taxable?**\n- Neither BioLife nor Octapharma gives a yes or no; both point you to a tax professional. BioLife says donors \"won't receive any tax documents.\"\n- IRS general rule (Pub. 525): \"In most cases, an amount included in your income is taxable unless it is specifically exempted by law.\" No IRS page read names plasma specifically, so the writer must not claim the IRS addresses plasma directly. Recommend keeping your own records (app payment history) and asking a tax professional.\n- Optional internal link: the Passive vs Active Income article (IRS terminology).\n\n**H2: Who can donate (basic eligibility)**\n- 18+ (Octapharma: 18–70), at least 110 lb (also in the federal rule 21 CFR 630.15(a)(5)), in good health. CSL: no tattoos or piercings within the last four months.\n- Note that every center does its own screening.\n\n**H2: Getting started this week: a checklist**\n1. Find a nearby center and check its page or app for the current new-donor offer and the number of visits it requires.\n2. Gather your documents.\n3. Hydrate, eat, and sleep beforehand (CSL guidance).\n4. Budget 2–2.5 hours for the first visit.\n5. Book the second visit within the window.\n6. Activate and register the card.\n7. Use the purchase or bank transfer method that avoids ATM fees.\n8. Log every payment for tax time.\n\n**H2: FAQ (short)**\n- Can I donate at two different companies to earn more? Don't answer yes. The federal frequency limit applies to you as a donor. Octapharma's FAQ has a \"What if I donated at another plasma center?\" section that wasn't captured in full, so the writer should check it before saying more.\n- Why is my pay lower than the calculator showed? Octapharma's calculator is \"an estimate only,\" covers returning donors only, and excludes new-donor fees.\n- How fast do I get paid? Octapharma within 24 hours; BioLife \"shortly after\"; CSL after your donation.\n\n## 4. Internal links (only where genuinely related)\n- **How to Make Extra Money This Month: Realistic Options, What They Charge and How Fast Each Pays**: link from the intro or the checklist (\"other fast-paying options\").\n- **Passive Income vs Active Income… (and What the IRS Actually Calls \"Passive\")**: link from the tax section.\n- **Can You Really Make $100 a Day Online? The Honest Truth**: optional, near the hourly-rate section.\n- No overlap: none of these covers plasma pay in depth. Avoid repeating the \"extra money this month\" listicle format.\n\n## 5. Product link\nNone. There is no product for this pillar, so no product link is justified. Don't link pay-calculator or promo-code sites; their figures couldn't be traced to the centers.\n\n## 6. Writer guardrails\n- Don't quote the third-party per-visit charts (e.g. \"$50–$120/visit\") or GoodRx's monthly totals unless the writer reads and cites them, and even then present them as a third-party estimate.\n- The only center-published per-visit range found is in CSL's US–Mexico border FAQ (\"typically $50-$100+ per visit,\" and \"up to $750\" there versus \"up to $800\" on CSL's homepage). If used, say it comes from the border-center FAQ. Better to leave it out.\n- Put a \"figures checked [date]; offers change weekly\" line under the table.\n- No health claims beyond what the centers and the rule say. Don't call donation \"safe for everyone.\"\n\n---\n\n## SOURCE NOTES\n\n**S1. Octapharma: Plasma Donation Pay (earning potential)**\nURL: https://www.octapharmaplasma.com/earning-potential/ · Published 2025-10-28, modified 2026-07-23\n- \"Donors can earn up to $750* with bonuses available during the first 35 days.\" / \"*May vary by location and change without notice.\"\n- \"We offer a tiered payment system that rewards donors for their dedication and consistency.\"\n- \"Hematocrit measures the proportion of red blood cells in your blood and affects how much plasma you can donate.\"\n- \"Generally, donors with higher plasma supply can donate more, which could result in higher payouts.\"\n- \"Most plasma centers process payments within 24 hours after your donation, through a prepaid debit card.\"\n- \"Most regular donors earn hundreds a month, depending on donation frequency, available promotions, and referrals.\" This is the company's own claim; attribute it as such.\n- On taxes: \"Please reach out to a local tax expert for further guidance.\"\n\n**S2. Octapharma: New Plasma Donors**\nURL: https://www.octapharmaplasma.com/new-donors/ · Published 2025-10-28, modified 2026-06-18\n- \"After your first donation, you'll receive compensation within 24 hours on a prepaid debit card.\"\n- \"Don't forget to come back within 14 days of your first visit. Your first donation can't be used until you complete the second.\"\n- Eligibility: \"You must be between 18 and 70 years old to donate.\" \"You should weigh at least 110 lbs.\" Bring \"a valid, government-issued photo ID, proof of your Social Security Number, and proof of your current address (dated within the last 60 days).\"\n- \"The entire process typically takes about two hours, but return visits are usually much quicker.\"\n- \"You can donate up to two times per week, provided you remain eligible and healthy, with at least 2 days between donations.\"\n- \"As a new donor, you're eligible for special payments during your first 35 days.\"\n\n**S3. Octapharma: Plasma Donation FAQs**\nURL: https://www.octapharmaplasma.com/plasma-donation-faqs/ · Published 2025-10-28, modified 2026-03-05\n- Card fees: \"Your Octapharma Plasma prepaid card can be used free of fees for both credit and debit purchases.\" \"Both Northlane and Comdata charge $1.50 fee for ATM withdrawals. Please see the card insert provided with your card for a listing of all card fees.\"\n- \"You need to come back and donate 2 to 14 days after your first visit… We cannot use your first plasma donation to produce medicines until after you make your second donation with us.\"\n- \"Why did donor payments go down?\" \"…donor payments are not decreased but rather returning to the normal payment schedule when the promotional period has expired.\"\n- \"Payment for your plasma donation time is based on a combination of weight, height, and hematocrit.\"\n- \"The amount of money you make for each successful plasma donation is based on the time it takes you to donate and other factors… donor fees may vary month-to-month, by location, or even for special promotions.\"\n- Calculator: \"The calculator is an estimate only, and does not include new or unique donor fees. The payment calculator is programmed for returning plasma donors only.\"\n- \"Your first visit can take up to 2 hours… After that, each visit takes less time – about an hour to an hour and a half.\"\n- Screening at return visits checks \"the proportion of red blood cells in your blood, protein, blood pressure, pulse, temperature, and weight.\"\n\n**S4. CSL Plasma: homepage**\nURL: https://www.cslplasma.com/ · No date stated\n- \"Donate Plasma, Earn Up to $800* your first month\" / \"*Varies by location and is subject to change\"\n- Bring \"A photo ID / Proof of Social Security / Proof of residency/current lease\" to \"a center within your recruitment area.\" \"No appointment necessary.\"\n- \"You'll receive your payment on a prepaid card after your first donation.\" \"Earn for every referral.\"\n\n**S5. CSL Plasma: Start Donating**\nURL: https://www.cslplasma.com/start-donating · No date stated\n- Qualify: \"Be in good health / Be at least 18 years old / Weigh at least 110 pounds / Valid ID and permanent address / No tattoos or piercings within the last four months\"\n- \"Your first plasma donation can take between 2 and 2.5 hours. Every donation after will be closer to 90 minutes.\"\n- \"We can't use your first donation until your second one is complete due to our strict safety and quality standards.\"\n\n**S6. CSL Plasma blog: Your First Time Donating Plasma**\nURL: https://www.cslplasma.com/blog/first-time-plasma-donation-guide · Dated 2026-08-06\n- \"If screening shows that donating may not be safe for you, you won't be allowed to donate that day.\"\n- \"FDA guidelines allow people to donate up to twice a week.\"\n- FAQ: \"First-time donations typically take 60-90 minutes including screening; subsequent visits are faster (30-45 min).\" This conflicts with S5; present the range.\n- Prep: \"stay hydrated, eat a well-balanced, low-fat meal, and get a good night's sleep.\"\n\n**S7. CSL Plasma: Donate in US (border centers; scope-limited)**\nURL: https://www.cslplasma.com/donate-in-the-united-states · No date stated\n- Scope: Mexican nationals with B1/B2 visas or Border Crossing Cards at US border centers.\n- FAQ: \"New donors can earn up to $750 in their first month. Payment varies by location and weight class… typically $50-$100+ per visit.\" The same page's body says \"up to $800,\" so treat this as inconsistent. Use only with the scope caveat, or omit.\n\n**S8. BioLife: Common Questions About BioLife Promotions and Payments**\nURL: https://www.biolifeplasma.com/blog/biolife-promotions-payments · Dated Oct 22, 2026 (modified 2026-10-29)\n- \"The amount of compensation per donation may change over time and may vary based on factors including your donation history, location, and market conditions.\"\n- \"The donor payment schedule runs from Monday to Sunday. Each week, you'll see the latest offer, which will expire at 11:59 p.m. on Sunday.\"\n- \"These opportunities may vary by donor and location and are subject to change.\" \"New donors are often eligible for new donor bonuses.\"\n- Card: \"You'll never be asked for a credit check… you can even withdraw cash from ATMs or securely transfer your payments to your personal bank account.\" \"You'll need to activate your BioLife Debit Card before we can transfer money to you.\"\n- Payment \"typically happens shortly after your donation is complete.\"\n- Taxes: \"BioLife follows all reporting requirements for plasma donation fees under the current U.S. healthcare law. As a donor, you won't receive any tax documents from BioLife.\"\n- Buddy Bonus: \"When you refer a buddy and they complete two successful donations, you'll receive extra compensation.\" The older S9 page says \"a successful donation\"; use this newer wording.\n- Loyalty points for milestones including \"donating seven times in one calendar month.\"\n- \"Promotional offers generally require donors to make a specific number of donations within 30 days… If you can't complete the required number of donations before the promotion expires, you'll still get to keep the bonus rates paid for the donations you did successfully complete.\"\n\n**S9. BioLife: Plasma Donor Compensation: What You Need to Know**\nURL: https://www.biolifeplasma.com/blog/plasma-donor-compensation · Dated Feb 24, 2025, modified 2026-04-09\n- \"Your first donation will typically take at least two hours, while future donations will only require about one hour to complete.\"\n- \"You can safely give plasma up to two times within seven days, as long as you wait 48 hours between donations.\"\n- \"As a donor, you will not receive any tax documents from us.\"\n\n**S10. BioLife: Donor Compensation page**\nURL: https://www.biolifeplasma.com/why-donate/compensation · No date stated\n- \"For every donation you make, your compensation is automatically loaded onto a Mastercard.\"\n- \"It's always free to check your card balance via your cardholder dashboard or by texting BAL to 445544… If you decide to check your balance at an ATM, you will be charged a fee!\"\n- The page includes a paid ambassador testimonial (\"Paid partnership with BioLife\"). Don't use it as evidence.\n\n**S11. 21 CFR § 640.65, Plasmapheresis (via Cornell LII; the eCFR page didn't render)**\nURL: https://www.law.cornell.edu/cfr/text/21/640.65 · No date on the excerpt\n- (b)(8): \"The volume of plasma collected during an automated plasmapheresis collection procedure shall be consistent with the volumes specifically approved by the Director, Center for Biologics Evaluation and Research, and collection shall not occur less than 2 days apart or more frequently than twice in a 7-day period.\"\n\n**S12. 21 CFR § 630.15 (govinfo PDF, 2022 CFR edition)**\nURL: https://www.govinfo.gov/content/pkg/CFR-2022-title21-vol7/pdf/CFR-2022-title21-vol7-sec630-15.pdf · Edition dated Nov 23, 2022 print. Writer: cite the current eCFR link https://www.ecfr.gov/current/title-21/chapter-I/subchapter-F/part-630/subpart-B/section-630.15 but note the text was read from the 2022 edition.\n- (a)(5): \"The donor must weigh a minimum of 50 kilograms (110 pounds).\"\n- (b)(3): \"You must weigh a donor at each donation.\"\n- (b)(4): \"You must determine the donor's total plasma protein level before each plasmapheresis procedure. The donor must have a total plasma protein level of no less than 6.0 grams per deciliter and no more than 9.0 grams per deciliter.\"\n- (b)(1)(iii): a new medical history and physical exam is required for \"a donor who does not return for 6 months.\"\n\n**S13. IRS Publication 525 (2025), Taxable and Nontaxable Income**\nURL: https://www.irs.gov/publications/p525 · Tax year 2025 edition\n- \"In most cases, an amount included in your income is taxable unless it is specifically exempted by law. Income that is taxable must be reported on your return and is subject to tax.\"\n- Limit: the excerpt doesn't mention plasma. Use it only as the general rule and send readers to a tax professional, as BioLife and Octapharma do.\n\n**Ranking pages reviewed for intent only (not evidence):** GoodRx (goodrx.com/health-topic/finance/how-much-donating-plasma-pays), Side Hustle Nation, plasmapaycalculator.com, plasmapromocode.com, Knocked-Up Money.",
+    "candidates": [
+      "How Much You Can Make Donating Plasma, and How the Pay Works (primary query: how much money can you make donating plasma)"
+    ],
+    "article": {
+      "title": "How Much Money Can You Make Donating Plasma? What the Big Centers Pay, the Weekly Limit, and the Catches",
+      "seo_title": "How Much Money Can You Make Donating Plasma?",
+      "slug": "how-much-money-donating-plasma",
+      "meta_description": "How much money can you make donating plasma? What CSL, BioLife and Octapharma advertise, the twice-a-week limit, the time cost and the catches.",
+      "focus_keyphrase": "how much money can you make donating plasma",
+      "excerpt": "The big plasma chains advertise new-donor offers of up to $750–$800, but those are location-dependent ceilings. Here is how plasma donation pay actually works, how often you can donate, and how to estimate your own monthly total and hourly rate.",
+      "content_html": "<p>How much money can you make donating plasma? It depends on things the big centers state openly. There is a per-visit fee that varies by center and by your body measurements. There are temporary bonuses for new donors. And there are offers that change from week to week. No honest guide can promise you a number. This one shows what CSL Plasma, BioLife and Octapharma Plasma publish, how often federal rules let you donate, and how to estimate your own monthly ceiling and hourly rate.</p><p>If you need cash quickly and want to compare plasma with other options, see our guide to <a href=\"https://newearns.com/how-to-make-extra-money/\">realistic ways to make extra money this month</a>.</p><h2>The short answer: what the three biggest chains advertise</h2><p>The big dollar figures on plasma center websites are maximums for new donors, not typical pay per visit. Each chain attaches a caveat to its number, and the table below quotes those caveats exactly as published.</p><table><thead><tr><th>Chain</th><th>Headline new-donor offer (as stated)</th><th>Window</th><th>Condition wording</th><th>How you're paid</th><th>Speed of payment</th></tr></thead><tbody><tr><td>CSL Plasma</td><td><a href=\"https://www.cslplasma.com/\">“Earn Up to $800*”</a></td><td>Your first month</td><td>“*Varies by location and is subject to change”</td><td>Prepaid card</td><td>“after your first donation”</td></tr><tr><td>BioLife</td><td>No single national figure on the pages reviewed. <a href=\"https://www.biolifeplasma.com/blog/biolife-promotions-payments\">Each week you see the latest offer</a></td><td>Weekly offers run Monday to Sunday. New-donor promotions generally require a set number of donations within 30 days</td><td>“may vary by donor and location and are subject to change”</td><td>BioLife debit card (a Mastercard)</td><td>“typically happens shortly after your donation is complete”</td></tr><tr><td>Octapharma Plasma</td><td><a href=\"https://www.octapharmaplasma.com/earning-potential/\">“up to $750*”</a></td><td>First 35 days</td><td>“*May vary by location and change without notice”</td><td>Prepaid debit card</td><td>Within 24 hours</td></tr></tbody></table><p><strong>How to read this table:</strong> these are ceilings for new donors who complete the required visits. Your own center's page or app shows the real current amount. The figures above were taken from each chain's own website at the time of writing. Offers change weekly, so check your local center before you go.</p><p>Octapharma's <a href=\"https://www.octapharmaplasma.com/earning-potential/\">earning-potential page</a> says “most regular donors earn hundreds a month, depending on donation frequency, available promotions, and referrals.” That is the company's own claim, not an independent figure, and it does not give an exact amount.</p><h2>Why your pay per visit differs from someone else's</h2><p>Two people at the same center on the same day can be paid different amounts. The centers name several reasons.</p><h3>Your weight, height and hematocrit</h3><p>Octapharma's <a href=\"https://www.octapharmaplasma.com/plasma-donation-faqs/\">FAQ</a> says: “Payment for your plasma donation time is based on a combination of weight, height, and hematocrit.” Its <a href=\"https://www.octapharmaplasma.com/earning-potential/\">earning-potential page</a> explains that hematocrit “measures the proportion of red blood cells in your blood and affects how much plasma you can donate.” It adds that “generally, donors with higher plasma supply can donate more, which could result in higher payouts.” The same page describes “a tiered payment system that rewards donors for their dedication and consistency.”</p><h3>Location, donation history and market conditions</h3><p>BioLife says <a href=\"https://www.biolifeplasma.com/blog/biolife-promotions-payments\">compensation per donation</a> “may change over time and may vary based on factors including your donation history, location, and market conditions.” Octapharma says something similar in its <a href=\"https://www.octapharmaplasma.com/plasma-donation-faqs/\">FAQ</a>: donor fees “may vary month-to-month, by location, or even for special promotions.” That FAQ also says pay is based on “the time it takes you to donate and other factors.”</p><h3>Promotions end, and pay goes back to the normal schedule</h3><p>Many donors notice their pay drop after the first few weeks. Octapharma's <a href=\"https://www.octapharmaplasma.com/plasma-donation-faqs/\">FAQ</a> answers “Why did donor payments go down?” this way: payments “are not decreased but rather returning to the normal payment schedule when the promotional period has expired.” Plan around the regular rate, not the new-donor rate.</p><h3>BioLife's weekly offer cycle</h3><p>At BioLife, “the donor payment schedule runs from Monday to Sunday. Each week, you'll see the latest offer, which will expire at 11:59 p.m. on Sunday,” according to its <a href=\"https://www.biolifeplasma.com/blog/biolife-promotions-payments\">promotions and payments guide</a>. So an amount you saw last week may not be what you are offered this week.</p><h2>How often you can donate, and the most visits you can fit in a month</h2><p>The frequency limit is set by federal regulation. Under <a href=\"https://www.law.cornell.edu/cfr/text/21/640.65\">21 CFR 640.65(b)(8)</a>, automated plasma collection “shall not occur less than 2 days apart or more frequently than twice in a 7-day period.”</p><p>The centers put the same rule in plainer words:</p><ul><li><strong>Octapharma:</strong> “You can donate up to two times per week, provided you remain eligible and healthy, with at least 2 days between donations” (<a href=\"https://www.octapharmaplasma.com/new-donors/\">New Donors page</a>).</li><li><strong>BioLife:</strong> “up to two times within seven days, as long as you wait 48 hours between donations” (<a href=\"https://www.biolifeplasma.com/blog/plasma-donor-compensation\">donor compensation guide</a>).</li><li><strong>CSL Plasma:</strong> “FDA guidelines allow people to donate up to twice a week” (<a href=\"https://www.cslplasma.com/blog/first-time-plasma-donation-guide\">first-time donor guide</a>).</li></ul><p><strong>Our calculation (not a figure published by any center):</strong> if you donate twice a week on a schedule such as days 1, 4, 8, 11, 15, 18, 22, 25 and 29, a 30-day month allows about 8 to 9 visits. That is a maximum. Missed days, travel, illness or being turned away at screening will lower it. To estimate your own monthly ceiling, use this formula:</p><ul><li><strong>Monthly ceiling</strong> = (number of visits you can realistically make) × (your center's regular per-visit fee) + (any promotion you actually complete).</li></ul><p>As a reference point, BioLife's <a href=\"https://www.biolifeplasma.com/blog/biolife-promotions-payments\">loyalty program</a> lists “donating seven times in one calendar month” as one of its milestones.</p><h2>The time cost: work out your own hourly rate</h2><p>Plasma donation pay is per visit, but your time is what you actually spend. Here is how long each chain says a visit takes:</p><table><thead><tr><th>Source</th><th>First visit</th><th>Return visits</th></tr></thead><tbody><tr><td><a href=\"https://www.cslplasma.com/start-donating\">CSL Plasma, Start Donating page</a></td><td>2 to 2.5 hours</td><td>“closer to 90 minutes”</td></tr><tr><td><a href=\"https://www.cslplasma.com/blog/first-time-plasma-donation-guide\">CSL Plasma, first-time donor blog FAQ</a></td><td>60–90 minutes including screening</td><td>30–45 minutes</td></tr><tr><td><a href=\"https://www.octapharmaplasma.com/plasma-donation-faqs/\">Octapharma Plasma FAQ</a></td><td>Up to 2 hours</td><td>About an hour to an hour and a half</td></tr><tr><td><a href=\"https://www.biolifeplasma.com/blog/plasma-donor-compensation\">BioLife</a></td><td>“at least two hours”</td><td>About one hour</td></tr></tbody></table><p>CSL's own pages disagree with each other, so treat its times as a range. Budget for the longer figure, especially on your first visit.</p><p>To work out your hourly rate, use this formula: <strong>per-visit pay ÷ (visit time + round-trip travel time)</strong>. <em>Example only, using made-up numbers to show the math rather than any center's rate:</em> if a visit paid $40 and took 1.5 hours, plus 30 minutes of driving, you would earn $40 ÷ 2 hours = $20 an hour, before any fuel or parking costs. Plug in your own center's current fee and your own travel time.</p><p>If you are weighing plasma against other ways to earn a daily target, our look at <a href=\"https://newearns.com/can-you-really-make-100-a-day-online-the-honest-truth/\">whether you can really make $100 a day online</a> uses the same time-versus-money approach.</p><h2>How the payment actually reaches you</h2><p>All three chains pay onto a card, not in cash.</p><ul><li><strong>BioLife:</strong> compensation “is automatically loaded onto a Mastercard” for every donation (<a href=\"https://www.biolifeplasma.com/why-donate/compensation\">compensation page</a>). BioLife says you'll “never be asked for a credit check.” You must activate the card before it can transfer money to you. You can withdraw cash at ATMs or transfer payments to your bank account (<a href=\"https://www.biolifeplasma.com/blog/biolife-promotions-payments\">promotions and payments guide</a>). Checking your balance is free through the cardholder dashboard or by texting BAL to 445544. Checking it at an ATM costs a fee.</li><li><strong>Octapharma:</strong> the prepaid card “can be used free of fees for both credit and debit purchases.” Both of its card providers, Northlane and Comdata, “charge $1.50 fee for ATM withdrawals” (<a href=\"https://www.octapharmaplasma.com/plasma-donation-faqs/\">FAQ</a>). For the full list of fees, see the card insert that comes with your card.</li><li><strong>CSL Plasma:</strong> “You'll receive your payment on a prepaid card after your first donation” (<a href=\"https://www.cslplasma.com/\">homepage</a>).</li></ul><p>The practical point: ATM withdrawals and ATM balance checks can eat into small payments. Where your card allows it, use fee-free purchases or check balances online. Read your card's fee schedule before moving money to a bank account.</p><h2>The catches most pay charts skip</h2><h3>You have to come back for a second visit</h3><p>Octapharma says you “need to come back and donate 2 to 14 days after your first visit.” Your first donation can't be used to produce medicines until after the second one (<a href=\"https://www.octapharmaplasma.com/plasma-donation-faqs/\">FAQ</a>). CSL says the same: “We can't use your first donation until your second one is complete” (<a href=\"https://www.cslplasma.com/start-donating\">Start Donating</a>).</p><h3>New-donor promotions need several visits in a set window</h3><p>BioLife says promotional offers “generally require donors to make a specific number of donations within 30 days.” If you don't finish, “you'll still get to keep the bonus rates paid for the donations you did successfully complete” (<a href=\"https://www.biolifeplasma.com/blog/biolife-promotions-payments\">BioLife</a>). Octapharma's new-donor payments apply during your <a href=\"https://www.octapharmaplasma.com/new-donors/\">first 35 days</a>. If you can't commit to regular visits in that window, don't count on the headline figure.</p><h3>Screening can stop you on the day</h3><p>CSL says that “if screening shows that donating may not be safe for you, you won't be allowed to donate that day” (<a href=\"https://www.cslplasma.com/blog/first-time-plasma-donation-guide\">CSL</a>). Federal rules require centers to weigh you at each donation. They must also check your total plasma protein before each procedure, which must be between 6.0 and 9.0 grams per deciliter (<a href=\"https://www.ecfr.gov/current/title-21/chapter-I/subchapter-F/part-630/subpart-B/section-630.15\">21 CFR 630.15</a>; text as printed in the <a href=\"https://www.govinfo.gov/content/pkg/CFR-2022-title21-vol7/pdf/CFR-2022-title21-vol7-sec630-15.pdf\">2022 CFR edition</a>). The same rule requires a new medical history and physical exam for a donor who does not return for 6 months. At return visits, Octapharma's <a href=\"https://www.octapharmaplasma.com/plasma-donation-faqs/\">FAQ</a> says it checks red blood cell proportion, protein, blood pressure, pulse, temperature and weight. A wasted trip costs you time and travel, with no pay.</p><h3>Paperwork and where you can donate</h3><p>Octapharma asks for “a valid, government-issued photo ID, proof of your Social Security Number, and proof of your current address (dated within the last 60 days)” (<a href=\"https://www.octapharmaplasma.com/new-donors/\">New Donors</a>). CSL asks for a photo ID, proof of Social Security and proof of residency or a current lease. It also says to donate at “a center within your recruitment area.” CSL notes “No appointment necessary” (<a href=\"https://www.cslplasma.com/\">CSL homepage</a>).</p><h3>Referral bonuses have conditions</h3><p>BioLife's Buddy Bonus pays you extra only when the person you refer completes “two successful donations” (<a href=\"https://www.biolifeplasma.com/blog/biolife-promotions-payments\">BioLife</a>). CSL advertises “Earn for every referral” on its <a href=\"https://www.cslplasma.com/\">homepage</a>. Ask your center for the current terms.</p><h2>Is plasma money taxable?</h2><p>The centers do not give a simple yes or no. BioLife says it “follows all reporting requirements for plasma donation fees under the current U.S. healthcare law. As a donor, you won't receive any tax documents from BioLife” (<a href=\"https://www.biolifeplasma.com/blog/biolife-promotions-payments\">BioLife</a>). Octapharma's answer is: “Please reach out to a local tax expert for further guidance” (<a href=\"https://www.octapharmaplasma.com/earning-potential/\">Octapharma</a>).</p><p>The IRS's general rule, in <a href=\"https://www.irs.gov/publications/p525\">Publication 525</a>, is: “In most cases, an amount included in your income is taxable unless it is specifically exempted by law.” The IRS pages reviewed for this guide do not mention plasma donation specifically. The safe approach is to keep your own record of every payment, for example from your card or app payment history, and ask a tax professional how to treat it. For background on how the IRS classifies different kinds of income, see our explainer on <a href=\"https://newearns.com/passive-income-vs-active-income/\">passive vs active income</a>.</p><h2>Who can donate: basic eligibility</h2><ul><li><strong>Age:</strong> at least 18 at CSL (<a href=\"https://www.cslplasma.com/start-donating\">Start Donating</a>). Octapharma's range is 18 to 70 (<a href=\"https://www.octapharmaplasma.com/new-donors/\">New Donors</a>).</li><li><strong>Weight:</strong> at least 110 pounds at both chains. The federal rule sets a minimum of 50 kilograms (110 pounds) (<a href=\"https://www.ecfr.gov/current/title-21/chapter-I/subchapter-F/part-630/subpart-B/section-630.15\">21 CFR 630.15(a)(5)</a>).</li><li><strong>Health:</strong> CSL asks that you “be in good health.”</li><li><strong>Tattoos and piercings:</strong> CSL requires none “within the last four months.”</li><li><strong>ID and address:</strong> CSL asks for a valid ID and permanent address.</li></ul><p>Every center runs its own screening, so meeting these basics does not mean you will be accepted on a given day.</p><h2>Getting started this week: a checklist</h2><ol><li><strong>Find a nearby center and check its current offer.</strong> Look for the new-donor amount, how many visits it requires, and the deadline (30 days at BioLife for most promotions, 35 days at Octapharma).</li><li><strong>Gather your documents:</strong> photo ID, proof of Social Security number and recent proof of address.</li><li><strong>Prepare your body.</strong> CSL advises you to “stay hydrated, eat a well-balanced, low-fat meal, and get a good night's sleep” (<a href=\"https://www.cslplasma.com/blog/first-time-plasma-donation-guide\">CSL</a>).</li><li><strong>Block out 2 to 2.5 hours</strong> for the first visit, plus travel.</li><li><strong>Book your second visit</strong> inside the return window (2 to 14 days at Octapharma).</li><li><strong>Activate your card</strong> as soon as you receive it.</li><li><strong>Avoid ATM fees</strong> by using card purchases, or another method your card's fee schedule shows as free.</li><li><strong>Log every payment</strong> with the date and amount for tax time.</li><li><strong>Recalculate after the promotion ends.</strong> Use the regular per-visit fee to decide whether it is still worth your time. For other fast-paying options, see our <a href=\"https://newearns.com/how-to-make-extra-money/\">extra money guide</a>.</li></ol><h2>FAQ</h2><h3>Can I donate at two different companies to earn more?</h3><p>Don't plan on it. The federal rule limits automated collection to no more than twice in a 7-day period, at least 2 days apart (<a href=\"https://www.law.cornell.edu/cfr/text/21/640.65\">21 CFR 640.65</a>). The centers describe that limit as applying to you as a donor. Octapharma's <a href=\"https://www.octapharmaplasma.com/plasma-donation-faqs/\">FAQ</a> has a section titled “What if I donated at another plasma center?” Read it, and be upfront with staff about any recent donations.</p><h3>Why is my pay lower than the online calculator showed?</h3><p>Octapharma says its calculator “is an estimate only, and does not include new or unique donor fees,” and that it “is programmed for returning plasma donors only” (<a href=\"https://www.octapharmaplasma.com/plasma-donation-faqs/\">FAQ</a>). Your weight, height, hematocrit, location and current promotions all change the real figure. Third-party pay charts often don't show where their numbers come from.</p><h3>How fast do I get paid?</h3><p>Octapharma pays “within 24 hours on a prepaid debit card” (<a href=\"https://www.octapharmaplasma.com/new-donors/\">New Donors</a>). BioLife says payment “typically happens shortly after your donation is complete” (<a href=\"https://www.biolifeplasma.com/blog/biolife-promotions-payments\">BioLife</a>). CSL pays on a prepaid card “after your first donation” (<a href=\"https://www.cslplasma.com/\">CSL</a>).</p><h3>Why did my plasma donation pay go down?</h3><p>Most often, a new-donor promotion has ended. Octapharma says pay is “returning to the normal payment schedule when the promotional period has expired” (<a href=\"https://www.octapharmaplasma.com/plasma-donation-faqs/\">FAQ</a>). At BioLife, weekly offers also expire at 11:59 p.m. each Sunday.</p><h3>Do I get a tax form from the plasma center?</h3><p>BioLife says donors “won't receive any tax documents” from it (<a href=\"https://www.biolifeplasma.com/blog/plasma-donor-compensation\">BioLife</a>). Keep your own records and ask a tax professional how to report the payments.</p>",
+      "sources": [
+        {
+          "url": "https://www.octapharmaplasma.com/earning-potential/",
+          "title": "Octapharma Plasma: Plasma Donation Pay (earning potential)",
+          "supports": "Up to $750 in first 35 days with location caveat; tiered payment system; hematocrit definition; higher plasma supply may mean higher payouts; company claim that most regular donors earn hundreds a month; advice to contact a local tax expert"
+        },
+        {
+          "url": "https://www.octapharmaplasma.com/new-donors/",
+          "title": "Octapharma Plasma: New Plasma Donors",
+          "supports": "Payment within 24 hours on prepaid debit card; return within 14 days; age 18–70; 110 lb minimum; required documents; up to twice per week with 2 days between; new-donor payments in first 35 days"
+        },
+        {
+          "url": "https://www.octapharmaplasma.com/plasma-donation-faqs/",
+          "title": "Octapharma Plasma: Plasma Donation FAQs",
+          "supports": "Card fees ($1.50 ATM fee from Northlane and Comdata, fee-free purchases); 2–14 day return; why payments go down; pay based on weight, height, hematocrit; fees vary by month, location and promotions; calculator limitations; visit times; return-visit screening checks; section on donating at another center"
+        },
+        {
+          "url": "https://www.cslplasma.com/",
+          "title": "CSL Plasma homepage",
+          "supports": "Up to $800 first month with location caveat; required documents; recruitment area; no appointment necessary; prepaid card after first donation; referral earnings"
+        },
+        {
+          "url": "https://www.cslplasma.com/start-donating",
+          "title": "CSL Plasma: Start Donating",
+          "supports": "Eligibility (good health, 18+, 110 lb, ID and address, no tattoos or piercings within four months); first visit 2–2.5 hours, later visits closer to 90 minutes; first donation unusable until second is complete"
+        },
+        {
+          "url": "https://www.cslplasma.com/blog/first-time-plasma-donation-guide",
+          "title": "CSL Plasma blog: Your First Time Donating Plasma",
+          "supports": "Screening deferral on the day; FDA guidelines allow up to twice a week; alternative visit times (60–90 min first, 30–45 min after); preparation advice"
+        },
+        {
+          "url": "https://www.biolifeplasma.com/blog/biolife-promotions-payments",
+          "title": "BioLife: Common Questions About BioLife Promotions and Payments",
+          "supports": "Pay varies by donation history, location and market conditions; weekly Monday–Sunday offer cycle; offers vary and are subject to change; card details (no credit check, activation, ATM and bank transfer); payment timing; no tax documents; Buddy Bonus conditions; seven-donations loyalty milestone; 30-day promotion requirements"
+        },
+        {
+          "url": "https://www.biolifeplasma.com/blog/plasma-donor-compensation",
+          "title": "BioLife: Plasma Donor Compensation: What You Need to Know",
+          "supports": "First donation at least two hours, later about one hour; up to two times within seven days with 48 hours between; no tax documents from BioLife"
+        },
+        {
+          "url": "https://www.biolifeplasma.com/why-donate/compensation",
+          "title": "BioLife: Donor Compensation",
+          "supports": "Compensation loaded onto a Mastercard; free balance checks online or by text; fee for ATM balance checks"
+        },
+        {
+          "url": "https://www.law.cornell.edu/cfr/text/21/640.65",
+          "title": "21 CFR § 640.65 Plasmapheresis (Cornell LII)",
+          "supports": "Federal rule that collection shall not occur less than 2 days apart or more than twice in a 7-day period"
+        },
+        {
+          "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-F/part-630/subpart-B/section-630.15",
+          "title": "21 CFR § 630.15 (eCFR, current)",
+          "supports": "110 lb (50 kg) minimum weight; weighing at each donation; plasma protein 6.0–9.0 g/dL checked before each procedure; new exam after 6 months without returning (text read from the 2022 edition)"
+        },
+        {
+          "url": "https://www.govinfo.gov/content/pkg/CFR-2022-title21-vol7/pdf/CFR-2022-title21-vol7-sec630-15.pdf",
+          "title": "21 CFR § 630.15 (govinfo, 2022 CFR edition)",
+          "supports": "Edition the 630.15 requirements were read from"
+        },
+        {
+          "url": "https://www.irs.gov/publications/p525",
+          "title": "IRS Publication 525, Taxable and Nontaxable Income",
+          "supports": "General rule that income is taxable unless specifically exempted by law"
+        }
+      ],
+      "product_link_reason": "",
+      "internal_links_note": "",
+      "image_headline": "What Plasma Donation Really Pays",
+      "search_intent": "Informational: people deciding whether to donate plasma for money want a realistic per-visit and monthly figure, how pay is set, how often they can donate, how they get paid, and whether the money is taxable.",
+      "unique_value": "Built only on CSL, BioLife and Octapharma's own published wording plus the federal regulations. It separates promotional 'up to' offers from regular pay, applies the twice-in-7-days rule to give a monthly-ceiling formula, adds a time-cost table and hourly-rate formula, compares card fees and payment speed, and covers catches such as required second visits, promotion windows, screening deferrals and the lack of tax documents. It contains no untraceable pay charts or promised income.",
+      "image_alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+      "featured_image": {
+        "alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+        "license": "generated-in-house",
+        "creator": "",
+        "license_url": ""
+      },
+      "inline_images": []
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "Weight minimum of \"50 kilograms (110 pounds)\" cited to \"21 CFR 630.15(a)(5)\"",
+          "verdict": "contradicted",
+          "source_url": "https://www.govinfo.gov/content/pkg/CFR-2022-title21-vol7/pdf/CFR-2022-title21-vol7-sec630-15.pdf",
+          "evidence": "Wrong citation. The govinfo 2022 CFR PDF (read) shows the weight rule \"The donor must weigh a minimum of 50 kilograms (110 pounds)\" is (f)(5) of § 630.10. It appears just before the § 630.15 heading. § 630.15(a) covers Whole Blood/Red Blood Cells and says donation \"must be no more than once in 8 weeks.\" The weight figure itself is correct.",
+          "suggested_fix": "Change the citation to 21 CFR 630.10(f)(5). The weight figure itself is correct."
+        },
+        {
+          "claim": "H2: \"what the three biggest chains advertise\"",
+          "verdict": "unsupported",
+          "source_url": "https://www.octapharmaplasma.com/plasma-donation-faqs/",
+          "evidence": "No source read ranks these three as the biggest. Octapharma's FAQ says \"more than 180 plasma donation centers.\" BioLife says \"more than 230 centers.\" CSL says \"approximately 300 … in the U.S. and Europe.\" (The notes do not name the BioLife or CSL pages for these figures.) Third-party results say Grifols (Biomat, etc.) runs ~300+ US centers, but this was only seen in search snippets and isn't verified.",
+          "suggested_fix": "Say \"three of the largest chains\" or \"three major chains,\" or add Grifols."
+        },
+        {
+          "claim": "FAQ: \"Octapharma's FAQ has a section titled 'What if I donated at another plasma center?'\"",
+          "verdict": "unsupported",
+          "source_url": "https://www.octapharmaplasma.com/new-donors/",
+          "evidence": "Unsupported on the cited page: two focused reads of /plasma-donation-faqs/ didn't find it. The section is on /new-donors/, where it says: \"there is a 7-day waiting period when switching plasma centers.\" The article currently omits this 7-day wait, which is an important omission.",
+          "suggested_fix": "Link to the New Donors page and state the fact: Octapharma requires a 7-day wait if you recently donated at a different company. That answers the FAQ question directly."
+        },
+        {
+          "claim": "\"The IRS pages reviewed for this guide do not mention plasma donation specifically\"",
+          "verdict": "uncertain",
+          "source_url": "https://www.irs.gov/publications/p525",
+          "evidence": "Pub 525 is about 318k characters and the tools only returned part of it. A focused read on plasma/blood found nothing, and the 64k-character fetch had 0 matches, but the whole page couldn't be read. Probably true.",
+          "suggested_fix": "Reword to \"Publication 525 does not appear to address plasma payments specifically,\" or check the full PDF."
+        },
+        {
+          "claim": "Last FAQ: BioLife says donors \"won't receive any tax documents\" — linked to /blog/plasma-donor-compensation",
+          "verdict": "supported",
+          "source_url": "https://www.biolifeplasma.com/blog/plasma-donor-compensation",
+          "evidence": "Supported in substance, but the quote doesn't match the linked page. That page says \"you will not receive any tax documents from us.\" The exact words \"won't receive any tax documents from BioLife\" come from /blog/biolife-promotions-payments.",
+          "suggested_fix": "Either link to the promotions page or quote \"will not receive any tax documents from us.\""
+        },
+        {
+          "claim": "\"Many donors notice their pay drop after the first few weeks.\"",
+          "verdict": "unsupported",
+          "source_url": "https://www.octapharmaplasma.com/plasma-donation-faqs/",
+          "evidence": "It's a generalization. Octapharma's FAQ has a \"Why did donor payments go down?\" entry, but no page says how common this is.",
+          "suggested_fix": "\"Pay often drops once a new-donor promotion ends.\""
+        },
+        {
+          "claim": "\"Third-party pay charts often don't show where their numbers come from.\"",
+          "verdict": "unsupported",
+          "source_url": "",
+          "evidence": "Opinion. No source given.",
+          "suggested_fix": "Remove it, or present it clearly as editorial advice."
+        },
+        {
+          "claim": "CSL \"Earn Up to $800*\" your first month, \"*Varies by location and is subject to change,\" payment on a prepaid card \"after your first donation\"",
+          "verdict": "supported",
+          "source_url": "https://www.cslplasma.com/",
+          "evidence": "Supported (cslplasma.com).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Octapharma \"up to $750*,\" first 35 days, \"*May vary by location and change without notice,\" paid within 24 hours on a prepaid debit card",
+          "verdict": "supported",
+          "source_url": "https://www.octapharmaplasma.com/earning-potential/",
+          "evidence": "Supported (earning-potential, new-donors).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "BioLife: Monday-to-Sunday schedule, offer expires \"11:59 p.m. on Sunday,\" \"may vary by donor and location and are subject to change,\" Debit Mastercard, \"typically happens shortly after your donation is complete,\" promotions \"generally require … a specific number of donations within 30 days\"",
+          "verdict": "supported",
+          "source_url": "https://www.biolifeplasma.com/blog/biolife-promotions-payments",
+          "evidence": "Supported (promotions-payments). The source says this about promotions in general. Applying it to new-donor promotions is a fair reading, not a stronger claim.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Most regular donors earn hundreds a month…\"",
+          "verdict": "supported",
+          "source_url": "https://www.octapharmaplasma.com/earning-potential/",
+          "evidence": "Supported (earning-potential).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Octapharma pay \"based on a combination of weight, height, and hematocrit,\" the hematocrit quote, \"higher plasma supply… higher payouts,\" \"tiered payment system\"",
+          "verdict": "supported",
+          "source_url": "https://www.octapharmaplasma.com/plasma-donation-faqs/",
+          "evidence": "Supported (FAQ, earning-potential).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "BioLife pay factors: \"donation history, location, and market conditions\"",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Supported. The notes do not name the BioLife page for this quote.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Octapharma fees vary \"month-to-month, by location,\" pay based on \"the time it takes you to donate and other factors\"",
+          "verdict": "supported",
+          "source_url": "https://www.octapharmaplasma.com/plasma-donation-faqs/",
+          "evidence": "Supported (FAQ).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "\"Returning to the normal payment schedule when the promotional period has expired\"",
+          "verdict": "supported",
+          "source_url": "https://www.octapharmaplasma.com/plasma-donation-faqs/",
+          "evidence": "Supported (FAQ).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "21 CFR 640.65(b)(8), \"shall not occur less than 2 days apart or more frequently than twice in a 7-day period\"",
+          "verdict": "supported",
+          "source_url": "https://www.law.cornell.edu/cfr/text/21/640.65",
+          "evidence": "Supported (Cornell LII).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The Octapharma, BioLife and CSL quotes on twice per week / 48 hours",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "All supported word for word. The notes do not name the specific pages for these quotes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "The 8–9 visits per month calculation",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Math checked. The schedule 1, 4, 8, 11…29 meets both limits, and 9 is the real maximum in 30 days. It's clearly labelled as the author's own calculation.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "BioLife loyalty milestone \"donating seven times in one calendar month\"",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Supported. The notes do not name the page for this quote.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "CSL Start page \"between 2 and 2.5 hours\" / \"closer to 90 minutes\"",
+          "verdict": "supported",
+          "source_url": "https://www.cslplasma.com/start-donating",
+          "evidence": "Supported. The article is right that CSL's pages contradict each other.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "CSL blog \"60-90 minutes\" / \"30-45 min\"",
+          "verdict": "supported",
+          "source_url": "https://www.cslplasma.com/blog/first-time-plasma-donation-guide",
+          "evidence": "Supported. The article is right that CSL's pages contradict each other.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Octapharma \"up to 2 hours\" / \"about an hour to an hour and a half\"",
+          "verdict": "supported",
+          "source_url": "https://www.octapharmaplasma.com/plasma-donation-faqs/",
+          "evidence": "Supported (FAQ, \"How long does it take to donate plasma?\").",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "BioLife \"at least two hours\" / \"about one hour\"",
+          "verdict": "supported",
+          "source_url": "https://www.biolifeplasma.com/blog/plasma-donor-compensation",
+          "evidence": "Supported. The source-by-source table says /blog/plasma-donor-compensation supports the times.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Hourly example: $40 ÷ 2 h = $20",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "The math is right, and it's labelled as made-up numbers.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "BioLife: \"automatically loaded onto a Mastercard,\" \"never be asked for a credit check,\" card must be activated, ATM/bank transfer options, balance check free via dashboard or text BAL to 445544, ATM balance check costs a fee",
+          "verdict": "supported",
+          "source_url": "https://www.biolifeplasma.com/why-donate/compensation",
+          "evidence": "Supported. Small issue: the balance-check sentences come from /why-donate/compensation, but the bullet's only nearby citation is the promotions guide.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Octapharma card: \"free of fees for both credit and debit purchases,\" Northlane/Comdata \"$1.50 fee for ATM withdrawals,\" see the card insert for all fees",
+          "verdict": "supported",
+          "source_url": "https://www.octapharmaplasma.com/plasma-donation-faqs/",
+          "evidence": "Supported (FAQ).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Octapharma \"2 to 14 days\" return window, first donation not usable until the second",
+          "verdict": "supported",
+          "source_url": "https://www.octapharmaplasma.com/plasma-donation-faqs/",
+          "evidence": "Supported. The source-by-source table says the FAQ supports the return window.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "CSL \"We can't use your first donation until your second one is complete\"",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Supported. The notes do not name the CSL page for this quote.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "BioLife \"you'll still get to keep the bonus rates…\"",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Supported. The notes do not name the page for this quote.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "CSL \"you won't be allowed to donate that day\"",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Supported. The notes do not name the page for this quote.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "21 CFR 630.15(b)(3) weighed at each donation, (b)(4) protein 6.0–9.0 g/dL before each procedure, (b)(1)(iii) new history and physical exam after 6 months away",
+          "verdict": "supported",
+          "source_url": "https://www.govinfo.gov/content/pkg/CFR-2022-title21-vol7/pdf/CFR-2022-title21-vol7-sec630-15.pdf",
+          "evidence": "Supported, from the 2022 govinfo PDF. The eCFR page returned no regulation text and web_fetch was blocked, so the current wording could not be confirmed. The article does say \"text as printed in the 2022 CFR edition.\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Octapharma return-visit screening list",
+          "verdict": "supported",
+          "source_url": "https://www.octapharmaplasma.com/plasma-donation-faqs/",
+          "evidence": "Supported. The source-by-source table says the FAQ supports the screening content.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Documents (Octapharma quote; CSL photo ID, proof of Social Security, residency/lease, \"recruitment area,\" \"No appointment necessary\")",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Supported. The notes do not name the specific pages for these quotes.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "BioLife Buddy Bonus needs \"two successful donations\"",
+          "verdict": "supported",
+          "source_url": "https://www.biolifeplasma.com/blog/biolife-promotions-payments",
+          "evidence": "Supported on the promotions page. However, BioLife's /plasma-donor-compensation page says the referral needs only \"a successful donation.\" BioLife contradicts itself.",
+          "suggested_fix": "Mention that BioLife's pages give conflicting referral rules."
+        },
+        {
+          "claim": "CSL \"Earn for every referral\"",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Supported. The notes do not name the CSL page for this quote.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "BioLife \"follows all reporting requirements… won't receive any tax documents from BioLife\"",
+          "verdict": "supported",
+          "source_url": "https://www.biolifeplasma.com/blog/biolife-promotions-payments",
+          "evidence": "Supported word for word (promotions page, \"Are Plasma Donation Payments Taxable?\").",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Octapharma \"Please reach out to a local tax expert\"",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Supported. The notes do not name the page for this quote.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "IRS Pub 525, \"In most cases, an amount included in your income is taxable unless it is specifically exempted by law\"",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/publications/p525",
+          "evidence": "Supported.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "CSL 18+, 110 lb, good health, no tattoos or piercings within four months, ID and permanent address; Octapharma 18–70, 110 lb",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Supported. The notes do not name the specific pages for these eligibility claims.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Octapharma calculator \"estimate only… programmed for returning plasma donors only\"",
+          "verdict": "supported",
+          "source_url": "https://www.octapharmaplasma.com/plasma-donation-faqs/",
+          "evidence": "Supported. The source-by-source table says the FAQ supports the calculator content.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "CSL \"stay hydrated, eat a well-balanced, low-fat meal, and get a good night's sleep\"",
+          "verdict": "supported",
+          "source_url": "",
+          "evidence": "Supported. The notes do not name the CSL page for this quote.",
+          "suggested_fix": ""
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.octapharmaplasma.com/earning-potential/",
+          "relevant": true,
+          "notes": "Readable: yes. Supports what it's cited for: yes."
+        },
+        {
+          "url": "https://www.octapharmaplasma.com/new-donors/",
+          "relevant": true,
+          "notes": "Readable: yes (partial, enough). Supports what it's cited for: yes. It should also be the citation for the \"another plasma center\" section and the 7-day switching wait."
+        },
+        {
+          "url": "https://www.octapharmaplasma.com/plasma-donation-faqs/",
+          "relevant": true,
+          "notes": "Readable: yes (partial; several focused reads). Yes for pay factors, fees, times, return window, calculator and screening. No for the \"What if I donated at another plasma center?\" section, which wasn't found there."
+        },
+        {
+          "url": "https://www.cslplasma.com/",
+          "relevant": true,
+          "notes": "Readable: yes. Supports what it's cited for: yes."
+        },
+        {
+          "url": "https://www.cslplasma.com/start-donating",
+          "relevant": true,
+          "notes": "Readable: yes. Supports what it's cited for: yes."
+        },
+        {
+          "url": "https://www.cslplasma.com/blog/first-time-plasma-donation-guide",
+          "relevant": true,
+          "notes": "Readable: yes. Supports what it's cited for: yes."
+        },
+        {
+          "url": "https://www.biolifeplasma.com/blog/biolife-promotions-payments",
+          "relevant": true,
+          "notes": "Readable: yes. Supports what it's cited for: yes, including the tax quote."
+        },
+        {
+          "url": "https://www.biolifeplasma.com/blog/plasma-donor-compensation",
+          "relevant": true,
+          "notes": "Readable: yes. Yes for times, frequency and tax substance. The wording of the final-FAQ quote isn't on this page, and its Buddy Bonus rule (one donation) conflicts with the other BioLife page."
+        },
+        {
+          "url": "https://www.biolifeplasma.com/why-donate/compensation",
+          "relevant": true,
+          "notes": "Readable: yes. Supports what it's cited for: yes (Mastercard, balance-check fees)."
+        },
+        {
+          "url": "https://www.law.cornell.edu/cfr/text/21/640.65",
+          "relevant": true,
+          "notes": "Readable: yes. Supports what it's cited for: yes."
+        },
+        {
+          "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-F/part-630/subpart-B/section-630.15",
+          "relevant": false,
+          "notes": "No regulation text (only the page header; web_fetch not allowed). Can't be used as evidence. Also, \"630.15(a)(5)\" is the wrong pinpoint for weight."
+        },
+        {
+          "url": "https://www.govinfo.gov/content/pkg/CFR-2022-title21-vol7/pdf/CFR-2022-title21-vol7-sec630-15.pdf",
+          "relevant": true,
+          "notes": "Readable: yes (via web_fetch, PDF decoded). Yes for weigh-in, protein range and the 6-month re-exam. It also shows that the weight rule is in § 630.10(f)(5)."
+        },
+        {
+          "url": "https://www.irs.gov/publications/p525",
+          "relevant": true,
+          "notes": "Readable: partial (page is very large). Yes for the general rule. The \"no mention of plasma\" claim couldn't be fully checked."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "Intent: realistic per-visit and monthly figures, how pay is set, how often you can donate, how you're paid, and whether it's taxable. Covered well: how pay is set, frequency (with the federal rule), payment (cards, fees, speed), and taxes (company positions, the IRS general rule, no tax forms from BioLife). Partly covered: realistic per-visit and monthly figures. The article gives formulas and a made-up $40 example but no typical per-visit amount. That's honest, since none of the cited pages publish a regular rate, but readers looking for a number won't get one. It could add Octapharma's FAQ data point (\"Why was I only paid $25?\"), a $25 payment tied to a referral who hasn't donated a second time, and say plainly that none of the three companies publishes its standard per-visit rate. Verdict: it meets the intent better than a generic answer. It's fit to publish after fixing the § 630.10(f)(5) citation, rewording \"three biggest chains,\" moving the \"another plasma center\" citation to the New Donors page and adding the 7-day wait, and matching the BioLife tax quote to the page it links to.",
+      "adds_original_value": true,
+      "value_notes": "Real but moderate. The monthly maximum worked out from the federal rule, the time-cost table (which catches CSL contradicting itself), the hourly-rate formula, and the fee comparison go beyond a generic rewrite. The \"catches\" section is useful. It is not a generic rewrite, and the claim of \"no untraceable pay charts\" holds. Gaps that hurt the claimed value: (a) Octapharma's 7-day wait after donating at a different company, which bears directly on the \"two companies\" FAQ; (b) the conflicting BioLife referral rules; (c) Octapharma's 4-month tattoo/piercing deferral (on its FAQ), which would make the eligibility list consistent across companies.",
+      "product_claims_accurate": true,
+      "product_notes": "No product claims are made, which matches \"no product.\" Fine.",
+      "fetched_urls": [
+        "https://www.biolifeplasma.com/blog/biolife-promotions-payments",
+        "https://www.biolifeplasma.com/blog/plasma-donor-compensation",
+        "https://www.biolifeplasma.com/why-donate/compensation",
+        "https://www.cslplasma.com/",
+        "https://www.cslplasma.com/blog/first-time-plasma-donation-guide",
+        "https://www.cslplasma.com/start-donating",
+        "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-F/part-630/subpart-B/section-630.15",
+        "https://www.govinfo.gov/content/pkg/CFR-2022-title21-vol7/pdf/CFR-2022-title21-vol7-sec630-15.pdf",
+        "https://www.irs.gov/publications/p525",
+        "https://www.law.cornell.edu/cfr/text/21/640.65",
+        "https://www.octapharmaplasma.com/earning-potential/",
+        "https://www.octapharmaplasma.com/new-donors/",
+        "https://www.octapharmaplasma.com/plasma-donation-faqs/"
+      ],
+      "content_sha256": "92412912e7684c300754fac13ff1c663a2eedcfce83c578d8c8c907e5df63b0e"
+    },
+    "images": {
+      "words": 2344,
+      "target": [
+        3,
+        4
+      ],
+      "stock_api_calls": 2,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "how much money can you make donating plasma",
+          "result": "0"
+        },
+        {
+          "provider": "openverse",
+          "query": "freelancer working laptop",
+          "result": "20 (cached)"
+        },
+        {
+          "provider": "openverse",
+          "query": "person working laptop home",
+          "result": "20 (cached)"
+        },
+        {
+          "provider": "openverse",
+          "query": "laptop home office",
+          "result": "20 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "how much money can you make donating plasma",
+          "result": "0"
+        },
+        {
+          "provider": "commons",
+          "query": "freelancer working laptop",
+          "result": "0 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "person working laptop home",
+          "result": "13 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "laptop home office",
+          "result": "19 (cached)"
+        }
+      ],
+      "notes": [
+        "FALLBACK: no free, clearly licensed photo matched this article's topic, so the featured image is an in-house illustration (earnings). Replace it in WP Admin if you find a better photo.",
+        "1 image(s), below the 3-4 guideline: nothing else in the article would gain from a visual, and decorative images are not added"
+      ],
+      "topic": {
+        "motif": "earnings",
+        "match": "pillar money"
+      },
+      "photo_rejections": [
+        {
+          "description": "Business freelance Asian woman working, doing projects and sending email on laptop or comp",
+          "reason": "nothing about big, catche, catches, center"
+        },
+        {
+          "description": "Laptop Working",
+          "reason": "nothing about big, catche, catches, center"
+        },
+        {
+          "description": "Woman Working",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Business Work",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Close-up Photography of Woman Sitting Beside Table While Using Macbook",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Desk Office",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Home Office",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Desk Laptop",
+          "reason": "nothing about big, catche, catches, center"
+        },
+        {
+          "description": "Laptop Work",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Laptop Work",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Working Together",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Keyboard Typing",
+          "reason": "no laptop/computer/screen in its title"
+        }
+      ],
+      "featured": {
+        "provider": "in-house",
+        "kind": "illustration",
+        "motif": "earnings",
+        "license": "generated-in-house",
+        "alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+        "caption": "",
+        "filename": "how-much-money-donating-plasma-featured.webp",
+        "fallback": true,
+        "file": "featured.webp",
+        "bytes": 5796
+      },
+      "inline": []
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2360 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "10 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "How Much Money Can You Make Donating Plasma? What the Big Centers Pay, the Weekly Limit, and the Catches"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.34% (1x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "0/10 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "143 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "44 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "how-much-money-donating-plasma"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "how-much-money-donating-plasma"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.00"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.54: How to Make Money on Pinterest Without a Big Following: What Pays, Who Takes a Cut, and What Isn’t Passive"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "4 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "0 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "7 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "13 of 13 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "69 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "generated-in-house"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "0 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "1 contradicted by a source (likely wrong): Weight minimum of \"50 kilograms (110 pounds)\" cited to \"21 CFR 630.15(a)(5)\" (fix: Change the citation to 21 CFR 630.10(f)(5). The weight figure itself is correct.) || 4 no supporting evidence found (not shown to be false): H2: \"what the three biggest chains advertise\" (fix: Say \"three of the largest chains\" or \"three major chains,\" or add Grifols.) | FAQ: \"Octapharma's FAQ has a section titled 'What if I donated at another plasma center?'\" (fix: Link to the New Donors page and state the fact: Octapharma requires a 7-day wait if you recently donated at a different ) | \"Many donors notice their pay drop after the first few weeks.\" (fix: \"Pay often drops once a new-donor promotion ends.\") | \"Third-party pay charts often don't show where their numbers come from.\" (fix: Remove it, or present it clearly as editorial advice.) || 1 could not be checked (source unreadable or partial): \"The IRS pages reviewed for this guide do not mention plasma donation specifically\" (fix: Reword to \"Publication 525 does not appear to address plasma payments specifically,\" or check the full PDF.) || 13 marked supported, but its source_url is missing or was not read by the pipeline: BioLife pay factors: \"donation history, location, and market conditions\" | The Octapharma, BioLife and CSL quotes on twice per week / 48 hours | The 8–9 visits per month calculation | BioLife loyalty milestone \"donating seven times in one calendar month\"",
+        "fix": "Contradicted: correct the claim to what the source says. No evidence found: cite an official source that states it, narrow it to what a source does say, or remove it. Could not be checked: verify it against a readable source or remove it. Source page not read: cite a page the pipeline can open that states the claim, or remove the claim. No claims listed: the fact-check did not check anything. Then re-run the fact-check only."
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Intent: realistic per-visit and monthly figures, how pay is set, how often you can donate, how you're paid, and whether it's taxable. Covered well: how pay is set, frequency (with the federal rule), payment (cards, fees, speed), and taxes (company positions, the IRS general rule, no tax forms from BioLife). Partly covered: realistic per-visit and monthly figures. The article gives formulas and a made-up $40 example but no typical per-visit amount. That's honest, since none of the cited pages publish a regular rate, but readers looking for a number won't get one. It could add Octapharma's FAQ data point (\"Why was I only paid $25?\"), a $25 payment tied to a referral who hasn't donated a second time, and say plainly that none of the three companies publishes its standard per-visit rate. Verdict: it meets the intent better than a generic answer. It's fit to publish after fixing the § 630.10(f)(5) citation, rewording \"three biggest chains,\" moving the \"another plasma center\" citation to the New Donors page and adding the 7-day wait, and matching the BioLife tax quote to the page it links to."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "Real but moderate. The monthly maximum worked out from the federal rule, the time-cost table (which catches CSL contradicting itself), the hourly-rate formula, and the fee comparison go beyond a generic rewrite. The \"catches\" section is useful. It is not a generic rewrite, and the claim of \"no untraceable pay charts\" holds. Gaps that hurt the claimed value: (a) Octapharma's 7-day wait after donating at a different company, which bears directly on the \"two companies\" FAQ; (b) the conflicting BioLife referral rules; (c) Octapharma's 4-month tattoo/piercing deferral (on its FAQ), which would make the eligibility list consistent across companies."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "No product claims are made, which matches \"no product.\" Fine."
+      },
+      {
+        "check": "fact_check_current",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "sources_verified",
+        "passed": false,
+        "detail": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-F/part-630/subpart-B/section-630.15 does not support what it is cited for (No regulation text (only the page header; web_fetch not allowed). Can't be used as evidence. Also, \")",
+        "fix": "Replace each unreadable or irrelevant source with a page that states the fact, or remove the claims that relied on it; then re-run the fact-check only."
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 0.847,
+        "write": 0.341,
+        "fact_check": 0.737,
+        "fact_check_json": 0.235
+      },
+      "total_usd": 2.16
+    },
+    "wp_media": {
+      "id": 3826,
+      "url": "https://newearns.com/wp-content/uploads/2026/11/how-much-money-donating-plasma-featured.webp"
+    },
+    "wp_post": {
+      "id": 3827,
+      "status": "pending",
+      "link": "https://newearns.com/?p=3827"
+    },
+    "image_check": "ok",
+    "final": "held_for_review"
+  },
+  "updated": "2026-11-12T16:39:40+00:00"
+}
