@@ -1,0 +1,34 @@
+{
+ "provider": "openverse",
+ "query": "how to make money on instagram",
+ "fetched_at": 1794589734,
+ "results": [
+  {
+   "provider": "openverse",
+   "id": "06bfa329-456f-4b8c-ae60-51abc004cdea",
+   "description": "'Fields of Lilac' Jackson Pollock Inspired Painting Tutorial [2750 Subscriber Special]",
+   "text": "",
+   "tags": [
+    "2750",
+    "fieldsoflilac",
+    "inspired",
+    "jackson",
+    "painting",
+    "pollock",
+    "special",
+    "subscriber",
+    "tutorial"
+   ],
+   "image_url": "https://live.staticflickr.com/65535/49960351757_54f27f4cc2.jpg",
+   "page_url": "https://www.flickr.com/photos/26282969@N03/49960351757",
+   "creator": "gurucrusher",
+   "creator_url": "https://www.flickr.com/photos/26282969@N03",
+   "license": "cc-by",
+   "license_version": "2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0/",
+   "source": "flickr",
+   "width": 500,
+   "height": 309
+  }
+ ]
+}
