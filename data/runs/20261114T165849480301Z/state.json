@@ -1,0 +1,943 @@
+{
+  "run_id": "20261114T165849480301Z",
+  "stages": {
+    "pillar": "money",
+    "topic": "Remote Side Hustles You Can Do from Anywhere",
+    "usages": [
+      {
+        "stage": "research",
+        "model": "claude-opus-5-5",
+        "input_tokens": 62,
+        "cache_creation_input_tokens": 61976,
+        "cache_read_input_tokens": 1124228,
+        "output_tokens": 20677,
+        "web_search_requests": 8,
+        "web_fetch_requests": 16,
+        "requests": 10,
+        "read_source_calls": 25,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 62,
+            "cache_write_5m_tokens": 61976,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 1124228,
+            "output_tokens": 20677
+          }
+        },
+        "fetched_urls": [
+          "https://participant-help.prolific.com/en/",
+          "https://participant-help.prolific.com/en/collections/1029230-getting-started",
+          "https://participant-help.prolific.com/en/collections/1029233-rewards",
+          "https://participant-help.prolific.com/en/collections/1029234-account-help",
+          "https://support.upwork.com/hc/en-us/articles/211062538-Freelancer-Service-Fees",
+          "https://www.etsy.com/legal/fees/",
+          "https://www.fiverr.com/legal-portal/legal-terms/terms-of-service"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 1.029
+      },
+      {
+        "stage": "write",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 10760,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 20730,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 10760,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 20730
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.468
+      },
+      {
+        "stage": "fact_check",
+        "model": "claude-opus-5-5",
+        "input_tokens": 18,
+        "cache_creation_input_tokens": 53821,
+        "cache_read_input_tokens": 313658,
+        "output_tokens": 7388,
+        "web_search_requests": 0,
+        "web_fetch_requests": 2,
+        "requests": 4,
+        "read_source_calls": 3,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 18,
+            "cache_write_5m_tokens": 53821,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 313658,
+            "output_tokens": 7388
+          }
+        },
+        "fetched_urls": [
+          "https://www.etsy.com/legal/fees/"
+        ],
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.48
+      },
+      {
+        "stage": "fact_check_json",
+        "model": "claude-opus-5-5",
+        "input_tokens": 4,
+        "cache_creation_input_tokens": 5440,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 7911,
+        "web_search_requests": 0,
+        "web_fetch_requests": 0,
+        "requests": 1,
+        "read_source_calls": 0,
+        "by_model": {
+          "claude-opus-5-5": {
+            "input_tokens": 4,
+            "cache_write_5m_tokens": 5440,
+            "cache_write_1h_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 7911
+          }
+        },
+        "served_by": [
+          "claude-opus-5-5"
+        ],
+        "cost_usd": 0.185
+      }
+    ],
+    "brief": "I've chosen the query and written the brief below. I read 8 sources across 6 sites. Four vendor pages I couldn't access: Upwork's fees page and its pricing page, Fiverr's fees page and its payment terms. They're not used as evidence, and the brief tells the writer to leave out Upwork and Fiverr fee figures.\n\n---\n\n# BRIEF: Remote side hustles you can do from anywhere\n\n**Chosen query:** remote side hustles\n**Focus keyphrase:** remote side hustles. Use it in the title, the intro and once or twice in the body. Don't put it in headings.\n**Working title:** *Remote Side Hustles You Can Do from Anywhere, and the Location Rules Most Lists Skip*\n**Pillar:** money. No product link, because none exists for this pillar.\n\n## 1. Search intent and what currently ranks\n- **Intent:** browsing a list of ideas, with a \"can I really do this from anywhere?\" question underneath. The top results are long listicles: Digistore24 (30), FlexJobs (30), Side Hustle Nation (25), Remitly (23), Whop (83), plus a ZipRecruiter job-listings page. Some show income figures with no platform source, such as Whop's \"$1–5K per month.\"\n- **The gap:** none of the ranking pages check whether \"from anywhere\" is true. In practice it depends on three things the lists ignore:\n  1. the platform's country rules\n  2. how and where the platform pays you\n  3. the immigration and tax rules of the country you're in\n- **What New Earns adds:**\n  - Fewer, checked options. Each gets a row in a decision table: where it works, what the platform takes, how you get paid, and the catch for working \"from anywhere.\" Every row is sourced from the platform's own page.\n  - A \"tied to where you live\" section. Example: Prolific says taking studies while visiting another country is likely to put your account on hold.\n  - A short \"before you work abroad\" section built on official visa and tax pages.\n- **How it differs from published posts:** *Remote Jobs with No Experience* and *Data Entry Jobs* cover employment. *How to Make Money Online: 5 Ways* covers platform fees. This piece is about side hustles you can take with you, so keep it to portability and location. Don't repeat the fee comparisons.\n\n## 2. Outline (H2/H3)\n**Intro (2–3 sentences):** \"Remote\" means you work online. It doesn't mean you can work from any country. Three things decide that: the platform's country rules, how you get paid, and the rules where you're physically working. Never promise income.\n\n**H2: Quick comparison: which remote side hustles really travel**\nTable columns: Side hustle | Platform example | Where it works | What the platform takes | How you're paid | The \"anywhere\" catch\n- Online tutoring (Preply): students from 180+ countries. Takes 100% of each trial lesson's fee, then 33% falling to 18%. Pays via PayPal, Payoneer, Skrill or Transferwise. Catch: you need a laptop or desktop, a webcam, a mic and a stable connection.\n- Digital products (Gumroad): 10% + $0.50 on direct sales, 30% through Discover. Paid by direct deposit or PayPal, depending on country. Catch: Gumroad is the merchant of record, but only \"in regions where we have tax obligations.\"\n- Digital products (Etsy): a set-up fee may apply. $0.20 per listing, listings expire after 4 months, 6.5% transaction fee. Payment processing fees vary by where your bank account is, and listing in a currency other than your payment account currency adds a 2.5% conversion fee.\n- Usability testing (UserTesting): Join via a \"global network\" sign-up. Pay varies by test and is shown on your dashboard; payments are usually sent 14 days later. Catch: you need a microphone and a practice test first, and screeners decide which tests you get.\n- Paid research studies (Prolific): only in listed countries. Cash out from £6/$6 to PayPal. Catch: you can't take studies or cash out while abroad.\n- Freelance services (writing, design, VA): no fee figures. Link internally to the 5-ways article for platform fees.\n\n**H2: Remote side hustles that move with you**\n- H3: Freelance services for direct clients (writing, editing, design, virtual assistance). Keep it general. Point to the internal articles. No Upwork or Fiverr numbers.\n- H3: Online tutoring. Preply's steps: profile, photo, video up to 2 minutes, availability, review within 3 business days. No certification required. Commission model as above. You set your own rate. You may quote that Preply says English tutors charge $15–25 an hour on average, credited to Preply. Don't use the \"$550 a week\" line; it reads as an income promise.\n- H3: Selling digital products: Gumroad vs Etsy. Be fair and factual. Gumroad handles sales tax as merchant of record (since 1 Jan 2025) in regions where it has obligations. Etsy prices exclude VAT, and its processing fees depend on where your bank account is.\n- H3: Usability testing. Practice test first, then screeners. Pay varies and is shown per test; payment usually comes 14 days later. Needs a mic, and the mobile app if you apply on a phone.\n\n**H2: Remote side hustles tied to where you live**\n- H3: Paid research studies (Prolific). The country list (summarise it, e.g. \"most OECD countries plus places like India, Brazil, Egypt and South Africa,\" and link the full list). Eligibility depends on where you live, not your nationality. Your phone number has to match the right region. You can't take part or cash out while visiting another country. A VPN will likely put your account on hold. Moving permanently means updating your account and possibly verifying your ID again.\n- H3: How to check any platform before you sign up. A checklist for the reader to use, with no new claims: find the eligibility or country page, the payout methods and the rules on VPNs or travel.\n\n**H2: Before you work from another country: visas and taxes**\n- H3: Visitor visas aren't work permits. Use the UK as a worked example. GOV.UK's overview says visitors cannot \"do paid or unpaid work for a UK company or as a self-employed person\". Appendix Visitor PA 4(h) allows activities relating to \"employment overseas\" done remotely, providing this is not \"the primary purpose\" of the visit. Present both texts side by side and tell readers to check the official rules for their own case. **The writer must not decide whether a self-employed freelancer is covered.** Then tell readers to check the official immigration site of every country they plan to work from.\n- H3: Taxes follow you. US citizens and resident aliens are taxed on worldwide income. The foreign earned income exclusion and the foreign tax credit only apply if you file a return. Self-employment tax is 15.3% and applies from $400 of net earnings. You may need to pay estimated tax quarterly. If you live abroad you get an automatic 2-month filing extension, but interest still runs on unpaid tax. Non-US readers: check their own tax authority (no claims).\n\n**H2: How to start one this week (checklist)**\nPick the option that fits the skill and equipment you already have. Check the country page, set up the payout account it needs (PayPal, Payoneer, etc.) in your country of residence, and do the onboarding: Preply profile and video, the UserTesting practice test, or the Prolific waitlist and identity check. Track your earnings for tax.\n\n**H2: FAQ**\n- Can I use a VPN to join from an unsupported country? (Prolific: no, likely account hold.)\n- Can I get paid while travelling? (Prolific: cash out only from your country of residence.)\n- Do I pay tax on a small side hustle? (US: SE tax from $400.)\n- Does \"remote\" mean I can work on a tourist visa? (See the UK example. Check each country.)\n\n**UI note:** platform sign-up steps change. Tell readers that screens may differ.\n\n## 3. Internal links (all relevant)\n- *How to Make Money Online: 5 Ways and What Each Platform Takes*: in the freelance H3, for platform fees.\n- *Remote Jobs with No Experience: Where to Find Real Ones (and Spot the Fakes)*: for readers who want employment rather than gigs.\n- *Data Entry Jobs from Home*: next to the usability testing and studies sections, as an alternative.\n- *Print on Demand for Beginners*: in the digital products section, as a related option.\n- *Passive Income vs Active Income (IRS definition)*: in the tax section.\n- *ChatGPT Prompts for Freelancers and Side Hustles*: in the freelance H3.\n- *Side Hustles for Stay-at-Home Moms*: optional, in the intro or the \"pick one\" step.\n\n## 4. Product link\nNone. This pillar has no product.\n\n---\n\n## SOURCE NOTES\n\n**1. Prolific: \"Who can participate in studies on Prolific?\"**\nURL: https://participant-help.prolific.com/en/articles/445007-who-can-participate-in-studies-on-prolific. Dated September 2, 2026.\n- \"Prolific is open to participants from most Organisation for Economic Co-operation and Development (OECD) countries, as long as you're over 18 and have a verified account.\"\n- The listed countries are: Australia, Austria, Bahrain, Belgium, Brazil, Bulgaria, Canada, Chile, Croatia, Cyprus, Czech Republic, Denmark, Egypt, Estonia, Finland, France, Germany, Greece, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Korea, Latvia, Lithuania, Luxembourg, Malta, Mexico, Netherlands, New Zealand, Norway, Poland, Portugal, Qatar, Romania, Saudi Arabia, Singapore, Slovakia, Slovenia, South Africa, Spain, Sweden, Switzerland, Taiwan, UAE, UK and US.\n- \"Eligibility is based on where you currently live, not your nationality.\"\n- Exception: \"If your country isn't supported, you can join our waitlist. We can't guarantee access…\" and \"In some cases, we invite participants from unsupported countries to join… you'll need to submit a valid photo ID, ideally your passport.\"\n\n**2. Prolific: \"Can I cash out while outside of my country of residence?\"**\nURL: https://participant-help.prolific.com/en/articles/445068-can-i-cash-out-while-outside-of-my-country-of-residence. Dated July 29, 2026.\n- \"You must be in your listed country of residence to cash out.\"\n- If you try from abroad, \"you'll likely see a PEC-U-0001 error message… If you're on vacation or abroad temporarily, wait until you're back in your country of residence.\"\n\n**3. Prolific: \"I'm moving countries; can I keep my account?\"**\nURL: https://participant-help.prolific.com/en/articles/445079-i-m-moving-countries-can-i-keep-my-account. Dated September 30, 2026.\n- \"Yes, as long as your new country is supported by Prolific.\"\n- \"make sure your PayPal account matches your new country of residence\"\n- \"you may be asked to reverify your details.\"\n- \"participating in studies while visiting a different country from your registered residence, or using a VPN, will most likely result in your account being placed on hold.\"\n- \"Your country needs to be supported by Prolific, as well as by PayPal and Hyperwallet.\"\n\n**4. Prolific: \"Does my phone number need to correspond to my country of residence?\"**\nURL: https://participant-help.prolific.com/en/articles/445013-does-my-phone-number-need-to-correspond-to-my-country-of-residence. Dated December 11, 2025.\n- \"Your phone number will usually need to correspond to your country of residence.\"\n- US and Canada residents need a US or Canadian number. UK and Ireland residents need a UK or Irish number. Anyone else needs a number from the same continent, from a country on the accepted list.\n\n**5. Prolific: \"When can I cash out?\"**\nURL: https://participant-help.prolific.com/en/articles/445063-when-can-i-cash-out. Dated October 16, 2025.\n- \"You can cash out when your combined approved balances across both currencies (GBP and USD) reach £6/$6 or more.\"\n- \"In general, you can cash out once a day (resetting at midnight UTC).\" Exception: there is a 72-hour cool-off if you recently added or updated your PayPal address, or have made fewer than four cash-outs.\n- A supporting line from the Prolific participants page (https://www.prolific.com/participants, no date): \"Join our waitlist… Get verified in 15 minutes.\"\n\n**6. Prolific: VPN detection article**\nURL: https://participant-help.prolific.com/en/articles/472020-prolific-is-detecting-vpn-usage-but-i-m-not-using-a-vpn-how-do-i-resolve-it. Dated August 10, 2026.\n- \"Prolific uses systems to detect anonymizing tools like VPNs, proxies, and private relays.\" Public, workplace or university Wi-Fi and iCloud Private Relay can trigger it.\n\n**7. Preply: \"Teach online: Become an online tutor at Preply\"**\nURL: https://preply.com/en/teach. No date stated.\n- \"No specific certification or teaching experience is required!\"\n- \"our Tutor Success team will review your profile within 3 business days.\"\n- \"Record a short video introduction (up to 2 mins long)\"\n- \"The commission for a trial lesson with a new student is 100%. The commission for the subsequent lessons starts at 33% and decreases to 18%: the more hours you teach on Preply, the lower the rate of commission.\"\n- \"Choose your hourly rate and change it anytime. On average, English tutors charge $15-25 per hour.\"\n- Payment: \"use safe payment methods (Paypal, Payoneer, Skrill or Transferwise)\"\n- Equipment: \"a laptop or a desktop computer, a stable internet connection, a webcam, and a microphone\"\n- \"Teach students from over 180 countries\"\n\n**8. Gumroad pricing**\nURL: https://gumroad.com/pricing. No date stated.\n- \"10% + $0.50 Per transaction for all sales through your profile or direct links to your customers.\"\n- \"30% Per transaction when new customers find and buy from you through our discover marketplace.\"\n- \"Since January 1, 2025, Gumroad handles ALL your tax obligations.\" Condition: \"We collect taxes in regions where we have tax obligations as a merchant of record. This varies by location.\"\n- \"How we pay creators, whether through direct deposit or PayPal, varies by country.\"\n- No physical goods.\n\n**9. Etsy: Fees & Payments Policy**\nURL: https://www.etsy.com/legal/fees/. Last updated Oct 5, 2026. Read via web_fetch.\n- \"To open your Etsy shop, you may be required to pay a one-time set-up fee.\"\n- \"You will be charged a listing fee of $0.20 USD for each item that you list.\"\n- \"Etsy.com listings expire after four months.\"\n- \"a transaction fee of 6.5% of the price you display for each listing plus the amount you charge for shipping and gift wrapping.\"\n- \"Payment processing fees vary based on the location of your bank account.\"\n- \"you will be charged a 2.5% currency conversion fee\" applies if you list in a currency other than your payment account's.\n- \"all fees are listed exclusive of any value-added tax (VAT).\"\n\n**10. UserTesting: \"Get paid to test\"**\nURL: https://www.usertesting.com/get-paid-to-test. No date stated.\n- \"Submit your email and take a quick practice test to join our global network of trusted contributors\"\n- \"Answer screening questions to match with earning opportunities\"\n- \"The reward amounts for each test vary and depend on factors like test type, duration, and customer demand… Payments for completed tests are usually sent 14 days later.\"\n- \"you'll need a microphone to take your practice test.\" If you apply on mobile, you need the UserTesting app.\n- Don't use the testimonials or reviews on the page.\n\n**11. GOV.UK: \"Visit the UK as a Standard Visitor\"**\nURL: https://www.gov.uk/standard-visitor. Modified 31 Oct 2024.\n- \"You can usually stay in the UK for up to 6 months.\"\n- You cannot \"do paid or unpaid work for a UK company or as a self-employed person, unless you're doing a permitted paid engagement or event.\"\n- From the business page (https://www.gov.uk/standard-visitor/visit-on-business): \"You'll need to apply for a work visa if you want to do any other paid or unpaid work in the UK.\"\n\n**12. GOV.UK: Immigration Rules, Appendix Visitor: Permitted Activities**\nURL: https://www.gov.uk/guidance/immigration-rules/immigration-rules-appendix-visitor-permitted-activities. No date stated.\n- PA 4: \"A Visitor may: … (h) undertake activities relating to their employment overseas remotely from within the UK, providing this is not the primary purpose of their visit.\"\n- Present this next to source 11. Don't interpret it for self-employed people.\n\n**13. IRS: \"U.S. citizens and resident aliens abroad\"**\nURL: https://www.irs.gov/individuals/international-taxpayers/us-citizens-and-resident-aliens-abroad. No date stated.\n- \"You are subject to tax on worldwide income from all sources.\"\n- \"Many Americans living abroad qualify for special tax benefits, such as the foreign earned income exclusion and foreign tax credit, but they can only get these benefits by filing a relevant U.S. return.\"\n- \"you are allowed an automatic 2-month extension… the automatic extended due date would be June 15.\" Condition: \"Even if you are allowed an extension, you will have to pay interest on any tax not paid by the regular due date.\"\n- FBAR: certain foreign accounts above the reporting threshold must be reported.\n\n**14. IRS: \"Self-employment tax (Social Security and Medicare taxes)\"**\nURL: https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes. No date stated, but it gives 2026 figures.\n- \"The self-employment tax rate is 15.3%… 12.4% for social security… and 2.9% for Medicare.\"\n- You must pay self-employment tax and file Schedule SE if \"Your net earnings from self-employment (excluding church employee income) were $400 or more.\"\n- \"For 2026, the first $184,500 of your combined wages, tips, and net earnings is subject to… the social security part.\"\n- \"you may have to file Estimated Taxes quarterly.\"\n\n**Couldn't read, so not used as evidence:** Upwork's freelancer fees page (Upwork's own site returned 403, and a cached copy showed an outdated fee structure), Upwork's pricing page, Fiverr's fees and payment terms pages, and Upwork's fees resource page. Don't state Upwork or Fiverr fees. Link internally instead.",
+    "candidates": [
+      "Remote Side Hustles You Can Do from Anywhere (primary query: remote side hustles)"
+    ],
+    "article": {
+      "title": "Remote Side Hustles You Can Do from Anywhere, and the Location Rules Most Lists Skip",
+      "seo_title": "Remote Side Hustles: What Really Works from Anywhere",
+      "slug": "remote-side-hustles",
+      "meta_description": "Remote side hustles compared: where each platform works, how it pays, and the country, visa and tax rules that decide if you can really work from anywhere.",
+      "focus_keyphrase": "remote side hustles",
+      "excerpt": "Remote means online, not \"from any country.\" Here is which side hustles travel, which are tied to where you live, and the visa and tax rules to check before you work abroad.",
+      "content_html": "<p>Most lists of remote side hustles treat “remote” and “from anywhere” as the same thing. They aren't. Remote means the work happens online. Whether you can do it from another country depends on three things the lists usually skip: the platform's country rules, how and where it pays you, and the immigration and tax rules of the place where you're physically working.</p><p>This guide checks a short list of options against those three tests, using each platform's own pages. It doesn't promise income. What you earn depends on your skills, your hours and demand on each platform. If you'd rather have a remote employer than run gigs, see <a href=\"https://newearns.com/remote-jobs-no-experience/\">Remote Jobs with No Experience: Where to Find Real Ones</a>. If your limit is time at home rather than travel, <a href=\"https://newearns.com/side-hustles-for-stay-at-home-moms/\">Side Hustles for Stay-at-Home Moms</a> sorts ideas by the hours you have.</p><h2>Quick comparison: which options really travel</h2><p>Each row comes from the platform's own page, linked in the platform column. Fees and rules change, so open the linked page before you sign up.</p><table><thead><tr><th>Side hustle</th><th>Platform example</th><th>Where it works</th><th>What the platform takes</th><th>How you're paid</th><th>The “anywhere” catch</th></tr></thead><tbody><tr><td>Online tutoring</td><td><a href=\"https://preply.com/en/teach\">Preply</a></td><td>Preply says you can teach students from over 180 countries</td><td>100% of a trial lesson with a new student, then 33% of later lessons, falling to 18% the more hours you teach</td><td>PayPal, Payoneer, Skrill or Transferwise</td><td>You need a laptop or desktop, a webcam, a microphone and a stable internet connection</td></tr><tr><td>Digital products</td><td><a href=\"https://gumroad.com/pricing\">Gumroad</a></td><td>How creators are paid “varies by country”</td><td>10% + $0.50 per sale through your profile or direct links; 30% when new customers buy through its Discover marketplace</td><td>Direct deposit or PayPal, depending on your country</td><td>Gumroad collects tax as merchant of record only “in regions where we have tax obligations”</td></tr><tr><td>Digital products</td><td><a href=\"https://www.etsy.com/legal/fees/\">Etsy</a></td><td>Payment processing fees vary with the location of your bank account</td><td>A possible one-time set-up fee; $0.20 per listing (listings expire after four months); a 6.5% transaction fee; payment processing fees</td><td>To your payment account. A 2.5% currency conversion fee applies if you list in a different currency from that account</td><td>Etsy lists all fees exclusive of VAT</td></tr><tr><td>Usability testing</td><td><a href=\"https://www.usertesting.com/get-paid-to-test\">UserTesting</a></td><td>You sign up to its “global network” of contributors</td><td>No fee model. Rewards vary by test type, duration and customer demand</td><td>Payments are usually sent 14 days after a completed test</td><td>You need a microphone and must take a practice test. Screening questions decide which tests you're matched with</td></tr><tr><td>Paid research studies</td><td><a href=\"https://participant-help.prolific.com/en/articles/445007-who-can-participate-in-studies-on-prolific\">Prolific</a></td><td>Listed countries only, based on where you live</td><td>Not covered in the help pages used here</td><td>Cash out to PayPal once your combined balance reaches <a href=\"https://participant-help.prolific.com/en/articles/445063-when-can-i-cash-out\">£6/$6</a></td><td>You must be in your country of residence to cash out. Taking studies while visiting another country <a href=\"https://participant-help.prolific.com/en/articles/445079-i-m-moving-countries-can-i-keep-my-account\">will most likely put your account on hold</a></td></tr><tr><td>Freelance services (writing, design, virtual assistance)</td><td>Direct clients or a freelance marketplace</td><td>Depends on the platform or client</td><td>Varies by platform. See <a href=\"https://newearns.com/how-to-make-money-online/\">our platform fee breakdown</a></td><td>Depends on the platform or how you invoice</td><td>A marketplace's country and payout rules apply on top of local visa and tax rules</td></tr></tbody></table><h2>Side hustles that move with you</h2><h3>Freelance services for direct clients</h3><p>Writing, editing, design and virtual assistance are skills, not platforms, so the portability question changes. If you find clients directly and invoice them yourself, there's no platform country list to check. You still need a way to receive payment in your country of residence, and the visa and tax rules later in this guide still apply wherever you sit down to work.</p><p>If you find clients through a freelance marketplace, that marketplace's eligibility rules, fees and payout options sit on top of all that. Fee structures change often, so we cover them in one place: <a href=\"https://newearns.com/how-to-make-money-online/\">How to Make Money Online: 5 Ways and What Each Platform Takes</a>. For pitches, proposals and client emails, <a href=\"https://newearns.com/chatgpt-prompts-freelancers-side-hustles/\">ChatGPT Prompts for Freelancers and Side Hustles</a> has templates you can adapt.</p><p>A few habits make direct-client work easier to take with you:</p><ul><li>Agree in writing which currency you invoice in and who pays any transfer costs.</li><li>Keep one payment account tied to your country of residence rather than opening new ones as you travel.</li><li>State your working hours in your client's time zone, and update them when you move.</li></ul><h3>Online tutoring</h3><p><a href=\"https://preply.com/en/teach\">Preply's teach page</a> says “No specific certification or teaching experience is required!” Sign-up runs roughly like this, though the screens may differ from what's described here:</p><ol><li>Create your tutor profile and add a photo.</li><li>Record a short video introduction, <a href=\"https://preply.com/en/teach\">up to 2 minutes long</a>.</li><li>Set your availability and your hourly rate.</li><li>Wait for review. <a href=\"https://preply.com/en/teach\">Preply says</a> its Tutor Success team reviews profiles within 3 business days.</li></ol><p>You choose your hourly rate and can change it anytime. As a reference point, <a href=\"https://preply.com/en/teach\">Preply says</a> English tutors charge $15–25 per hour on average. That's what tutors charge, not what they keep: Preply takes 100% of a trial lesson with a new student, then 33% of later lessons, falling to 18% as your teaching hours on the platform grow.</p><p>Why it travels: <a href=\"https://preply.com/en/teach\">Preply pays tutors</a> through PayPal, Payoneer, Skrill or Transferwise, and says students come from over 180 countries. The catch is your setup. Preply lists a laptop or desktop, a stable internet connection, a webcam and a microphone, so check the connection wherever you plan to teach. If you change time zones, change your availability too, so students don't book lessons at 3 a.m. your time.</p><h3>Selling digital products: Gumroad and Etsy</h3><p><a href=\"https://gumroad.com/pricing\">Gumroad's pricing page</a> charges per transaction, and the rate depends on how the buyer found you: 10% + $0.50 for sales through your profile or direct links, and 30% when new customers find and buy from you through its Discover marketplace. It says that since January 1, 2025, Gumroad handles your tax obligations as merchant of record, with a condition: “We collect taxes in regions where we have tax obligations as a merchant of record. This varies by location.” Payouts go by direct deposit or PayPal, and which one you get varies by country.</p><p><a href=\"https://www.etsy.com/legal/fees/\">Etsy's Fees &amp; Payments Policy</a> says you may have to pay a one-time set-up fee to open a shop. After that, you pay $0.20 per listing (listings expire after four months) and a 6.5% transaction fee on the displayed price plus whatever you charge for shipping and gift wrapping. Two rules matter if you move around. Payment processing fees vary with the location of your bank account. And if you list in a currency other than your payment account's, Etsy charges a 2.5% currency conversion fee. Etsy lists all its fees exclusive of VAT.</p><p>Neither platform is the right pick for everyone. Gumroad's rate changes depending on whether the sale came from your own link or its marketplace, while Etsy charges per listing as well as per sale. For working from anywhere, ask both the same questions: which payout methods work in your country of residence, and what currency or processing costs apply to your bank account. If you'd like to sell physical products without holding stock, <a href=\"https://newearns.com/print-on-demand-for-beginners/\">Print on Demand for Beginners</a> covers a related model.</p><h3>Usability testing</h3><p>On <a href=\"https://www.usertesting.com/get-paid-to-test\">UserTesting's contributor page</a>, joining works like this (the flow may change):</p><ol><li>Submit your email and take a quick practice test to join its “global network of trusted contributors.” You'll need a microphone for the practice test.</li><li>If you apply on a phone, install the UserTesting app.</li><li>Answer screening questions. These decide which tests you're matched with, so you won't qualify for every test.</li><li>Complete tests. Rewards vary by test type, duration and customer demand, and each amount is shown per test. <a href=\"https://www.usertesting.com/get-paid-to-test\">UserTesting says</a> payments are usually sent 14 days later.</li></ol><p>Because tests involve speaking your thoughts aloud, a quiet room and a working microphone matter more than where you are. If you want other small, task-based online work, <a href=\"https://newearns.com/data-entry-jobs-from-home/\">Data Entry Jobs from Home</a> covers where to find real listings and how to spot scams.</p><h2>Side hustles tied to where you live</h2><h3>Paid research studies on Prolific</h3><p>Prolific shows clearly how a side hustle can be tied to your address. Its <a href=\"https://participant-help.prolific.com/en/articles/445007-who-can-participate-in-studies-on-prolific\">eligibility page</a> says it is open to participants from most OECD countries, as long as you're over 18 and have a verified account. The list includes the US, UK, Canada, Australia, Japan and many European countries, plus countries such as India, Brazil, Egypt, Indonesia and South Africa. Check the full list on that page. Eligibility “is based on where you currently live, not your nationality.”</p><p>If your country isn't supported, the <a href=\"https://participant-help.prolific.com/en/articles/445007-who-can-participate-in-studies-on-prolific\">same page</a> says you can join a waitlist, but Prolific says it can't promise access. In some cases it invites people from unsupported countries, who then need to submit a valid photo ID, ideally a passport. Prolific's <a href=\"https://www.prolific.com/participants\">participants page</a> says you can “Get verified in 15 minutes.”</p><p>Before you rely on it while travelling, know these rules:</p><ul><li><strong>Your phone number:</strong> it will <a href=\"https://participant-help.prolific.com/en/articles/445013-does-my-phone-number-need-to-correspond-to-my-country-of-residence\">usually need to match your country of residence</a>. US and Canada residents need a US or Canadian number, and UK and Ireland residents need a UK or Irish number. Everyone else needs a number from the same continent, from a country on the accepted list.</li><li><strong>Studies abroad:</strong> taking part in studies while visiting a country other than your registered residence, or using a VPN, “<a href=\"https://participant-help.prolific.com/en/articles/445079-i-m-moving-countries-can-i-keep-my-account\">will most likely result in your account being placed on hold</a>.”</li><li><strong>Cashing out abroad:</strong> “<a href=\"https://participant-help.prolific.com/en/articles/445068-can-i-cash-out-while-outside-of-my-country-of-residence\">You must be in your listed country of residence to cash out</a>.” If you try from abroad, you'll likely see a PEC-U-0001 error. Prolific's advice is to wait until you're back home.</li><li><strong>VPN detection:</strong> Prolific <a href=\"https://participant-help.prolific.com/en/articles/472020-prolific-is-detecting-vpn-usage-but-i-m-not-using-a-vpn-how-do-i-resolve-it\">uses systems to detect</a> VPNs, proxies and private relays. Public, workplace or university Wi-Fi and iCloud Private Relay can also trigger it, which matters if you work from cafés or coworking spaces.</li><li><strong>Cash-out timing:</strong> you can <a href=\"https://participant-help.prolific.com/en/articles/445063-when-can-i-cash-out\">cash out</a> once your combined GBP and USD balance reaches £6/$6, generally once a day (resetting at midnight UTC). A 72-hour cool-off applies if you recently added or updated your PayPal address, or have made fewer than four cash-outs.</li><li><strong>Moving permanently:</strong> you can <a href=\"https://participant-help.prolific.com/en/articles/445079-i-m-moving-countries-can-i-keep-my-account\">keep your account</a> if your new country is supported by Prolific, PayPal and Hyperwallet. Your PayPal account must match your new country of residence, and you may be asked to reverify your details.</li></ul><h3>How to check any platform before you sign up</h3><p>Prolific publishes its rules in detail. Many platforms don't put them on their landing pages, so look for them before you spend time on onboarding:</p><ol><li>Find the eligibility or supported-countries page in the help centre. Note whether it's based on residence, nationality or both.</li><li>Find the payout methods page and check that at least one method works in your country of residence.</li><li>Search the help centre for “VPN”, “travel”, “abroad” or “moving countries” to see what happens to your account if you log in from elsewhere.</li><li>Check whether identity or phone verification has to match your country.</li><li>Read the fee page yourself rather than relying on a list article, including this one. Fees change.</li></ol><h2>Before you work from another country: visas and taxes</h2><h3>Visitor visas aren't work permits</h3><p>Being able to log in from another country doesn't mean you're allowed to work there. The UK makes a useful worked example because its rules are published online, and two official texts need to be read side by side:</p><ul><li><strong>The GOV.UK overview</strong> for the <a href=\"https://www.gov.uk/standard-visitor\">Standard Visitor</a> route says you can usually stay for up to 6 months. It also says you cannot “do paid or unpaid work for a UK company or as a self-employed person, unless you're doing a permitted paid engagement or event.” The <a href=\"https://www.gov.uk/standard-visitor/visit-on-business\">business visitor page</a> adds: “You'll need to apply for a work visa if you want to do any other paid or unpaid work in the UK.”</li><li><strong>The Immigration Rules</strong>, in <a href=\"https://www.gov.uk/guidance/immigration-rules/immigration-rules-appendix-visitor-permitted-activities\">Appendix Visitor: Permitted Activities</a>, paragraph PA 4(h), say a visitor may “undertake activities relating to their employment overseas remotely from within the UK, providing this is not the primary purpose of their visit.”</li></ul><p>This guide doesn't decide which text covers your situation. The overview mentions self-employed work, and the rule refers to “employment overseas.” If you plan to freelance or run a side hustle while visiting the UK, read both pages in full. If your case is still unclear, check with official UK government guidance or a qualified immigration adviser.</p><p>Then repeat the check for every country you plan to work from. Use that country's official immigration website, not a travel blog, and don't assume its rules match the UK's.</p><h3>Taxes follow you</h3><p>Moving doesn't switch off your tax obligations at home. For US readers, the IRS spells out the basics:</p><ul><li>US citizens and resident aliens living abroad “<a href=\"https://www.irs.gov/individuals/international-taxpayers/us-citizens-and-resident-aliens-abroad\">are subject to tax on worldwide income from all sources</a>.”</li><li>The foreign earned income exclusion and the foreign tax credit can reduce what you owe, but the <a href=\"https://www.irs.gov/individuals/international-taxpayers/us-citizens-and-resident-aliens-abroad\">IRS says</a> you can only get them by filing a relevant US return.</li><li>If you qualify, you're allowed an <a href=\"https://www.irs.gov/individuals/international-taxpayers/us-citizens-and-resident-aliens-abroad\">automatic 2-month filing extension</a>, to June 15. But you will still pay interest on any tax not paid by the regular due date. The same page covers reporting certain foreign financial accounts (FBAR) above the reporting threshold.</li><li><a href=\"https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes\">Self-employment tax</a> is 15.3%: 12.4% for Social Security and 2.9% for Medicare. You must pay it and file Schedule SE if your net earnings from self-employment were $400 or more. For 2026, the Social Security part applies to the first $184,500 of combined wages, tips and net earnings.</li><li>The <a href=\"https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes\">IRS notes</a> you may have to pay estimated taxes quarterly rather than all at once.</li></ul><p>If you're unsure how a given income stream is classified, <a href=\"https://newearns.com/passive-income-vs-active-income/\">Passive Income vs Active Income</a> explains what the IRS actually calls “passive.” Outside the US, check your own tax authority's guidance on tax residence and on declaring self-employed or online income. Then check whether the country you're working from has rules of its own.</p><h2>How to start one this week</h2><ol><li><strong>Pick by what you already have.</strong> A webcam, a mic and a subject you can teach point to tutoring. Files you can sell point to digital products. A mic and patience point to usability testing. If you live in a supported country, paid studies are an option.</li><li><strong>Read the country rules first.</strong> Open the platform's eligibility page and confirm your country of residence is covered.</li><li><strong>Set up the payout account the platform needs</strong> (PayPal, Payoneer, direct deposit and so on) in your country of residence, with matching details.</li><li><strong>Do the onboarding.</strong> That could mean a Preply profile and intro video, the UserTesting practice test, or the Prolific waitlist and identity check. Expect screens to differ from any guide, this one included.</li><li><strong>Check your travel plans</strong> against both the platform's rules and the immigration rules of where you'll be.</li><li><strong>Track earnings and fees from day one</strong> in a simple spreadsheet, so tax time isn't guesswork.</li></ol><h2>FAQ</h2><h3>Can I use a VPN to join a platform from an unsupported country?</h3><p>On Prolific, no. Using a VPN “<a href=\"https://participant-help.prolific.com/en/articles/445079-i-m-moving-countries-can-i-keep-my-account\">will most likely result in your account being placed on hold</a>,” and Prolific uses systems to detect VPNs, proxies and private relays. If your country isn't supported, the official route is its waitlist. For other platforms, search their help centre for “VPN” before you try.</p><h3>Can I get paid while travelling?</h3><p>It depends on the platform. Prolific says <a href=\"https://participant-help.prolific.com/en/articles/445068-can-i-cash-out-while-outside-of-my-country-of-residence\">you must be in your listed country of residence to cash out</a>. Preply and Gumroad publish payout methods on their pages, but check each platform's rules on logging in from abroad.</p><h3>Do I pay tax on a small side hustle?</h3><p>In the US, you must pay self-employment tax and file Schedule SE if your <a href=\"https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes\">net earnings from self-employment were $400 or more</a>. Elsewhere, check your own tax authority's rules.</p><h3>Does “remote” mean I can work on a tourist visa?</h3><p>Not automatically. In the UK, the <a href=\"https://www.gov.uk/standard-visitor\">Standard Visitor overview</a> and <a href=\"https://www.gov.uk/guidance/immigration-rules/immigration-rules-appendix-visitor-permitted-activities\">paragraph PA 4(h) of the Immigration Rules</a> both cover work during a visit, and you should read them for your own case. For any other country, check its official immigration website before you work there.</p>",
+      "sources": [
+        {
+          "url": "https://preply.com/en/teach",
+          "title": "Preply: Teach online: Become an online tutor at Preply",
+          "supports": "No certification required; video up to 2 minutes; review within 3 business days; commission 100% on trial lessons then 33% falling to 18%; tutors choose their rate; English tutors charge $15-25/hour on average; payout via PayPal, Payoneer, Skrill or Transferwise; equipment needed; students from over 180 countries."
+        },
+        {
+          "url": "https://gumroad.com/pricing",
+          "title": "Gumroad pricing",
+          "supports": "10% + $0.50 on profile/direct-link sales; 30% via Discover; merchant-of-record tax handling since January 1, 2025 in regions where Gumroad has tax obligations; payout by direct deposit or PayPal varies by country."
+        },
+        {
+          "url": "https://www.etsy.com/legal/fees/",
+          "title": "Etsy Fees & Payments Policy",
+          "supports": "Possible one-time set-up fee; $0.20 listing fee; listings expire after four months; 6.5% transaction fee incl. shipping and gift wrap; processing fees vary by bank account location; 2.5% currency conversion fee; fees listed exclusive of VAT."
+        },
+        {
+          "url": "https://www.usertesting.com/get-paid-to-test",
+          "title": "UserTesting: Get paid to test",
+          "supports": "Email sign-up and practice test to join global network; microphone needed; mobile app needed when applying on mobile; screening questions; rewards vary by test type, duration and demand; payments usually sent 14 days later."
+        },
+        {
+          "url": "https://participant-help.prolific.com/en/articles/445007-who-can-participate-in-studies-on-prolific",
+          "title": "Prolific: Who can participate in studies on Prolific?",
+          "supports": "Open to most OECD countries for over-18s with verified accounts; supported country list; eligibility based on residence, not nationality; waitlist with no promised access; photo ID for invited unsupported-country participants."
+        },
+        {
+          "url": "https://www.prolific.com/participants",
+          "title": "Prolific: Participants",
+          "supports": "Waitlist and 'Get verified in 15 minutes.'"
+        },
+        {
+          "url": "https://participant-help.prolific.com/en/articles/445068-can-i-cash-out-while-outside-of-my-country-of-residence",
+          "title": "Prolific: Can I cash out while outside of my country of residence?",
+          "supports": "Must be in listed country of residence to cash out; PEC-U-0001 error when abroad; wait until back home."
+        },
+        {
+          "url": "https://participant-help.prolific.com/en/articles/445079-i-m-moving-countries-can-i-keep-my-account",
+          "title": "Prolific: I'm moving countries; can I keep my account?",
+          "supports": "Studies while visiting another country or using a VPN will most likely put the account on hold; account kept if new country supported by Prolific, PayPal and Hyperwallet; PayPal must match new country; possible reverification."
+        },
+        {
+          "url": "https://participant-help.prolific.com/en/articles/445013-does-my-phone-number-need-to-correspond-to-my-country-of-residence",
+          "title": "Prolific: Does my phone number need to correspond to my country of residence?",
+          "supports": "Phone number usually needs to match country of residence; US/Canada, UK/Ireland and same-continent rules."
+        },
+        {
+          "url": "https://participant-help.prolific.com/en/articles/445063-when-can-i-cash-out",
+          "title": "Prolific: When can I cash out?",
+          "supports": "£6/$6 combined cash-out threshold; once a day resetting at midnight UTC; 72-hour cool-off conditions."
+        },
+        {
+          "url": "https://participant-help.prolific.com/en/articles/472020-prolific-is-detecting-vpn-usage-but-i-m-not-using-a-vpn-how-do-i-resolve-it",
+          "title": "Prolific: Prolific is detecting VPN usage but I'm not using a VPN",
+          "supports": "Prolific detects VPNs, proxies and private relays; public, workplace or university Wi-Fi and iCloud Private Relay can trigger detection."
+        },
+        {
+          "url": "https://www.gov.uk/standard-visitor",
+          "title": "GOV.UK: Visit the UK as a Standard Visitor",
+          "supports": "Usually up to 6 months; visitors cannot do paid or unpaid work for a UK company or as a self-employed person unless doing a permitted paid engagement or event."
+        },
+        {
+          "url": "https://www.gov.uk/standard-visitor/visit-on-business",
+          "title": "GOV.UK: Standard Visitor - visit on business",
+          "supports": "A work visa is needed for any other paid or unpaid work in the UK."
+        },
+        {
+          "url": "https://www.gov.uk/guidance/immigration-rules/immigration-rules-appendix-visitor-permitted-activities",
+          "title": "GOV.UK: Immigration Rules Appendix Visitor: Permitted Activities",
+          "supports": "PA 4(h): visitors may undertake activities relating to their employment overseas remotely from within the UK, providing this is not the primary purpose of the visit."
+        },
+        {
+          "url": "https://www.irs.gov/individuals/international-taxpayers/us-citizens-and-resident-aliens-abroad",
+          "title": "IRS: U.S. citizens and resident aliens abroad",
+          "supports": "Tax on worldwide income; FEIE and foreign tax credit only by filing a return; automatic 2-month extension to June 15 with interest on unpaid tax; FBAR reporting of certain foreign accounts."
+        },
+        {
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+          "title": "IRS: Self-employment tax (Social Security and Medicare taxes)",
+          "supports": "15.3% rate (12.4% Social Security, 2.9% Medicare); $400 net earnings threshold for Schedule SE; 2026 Social Security base of $184,500; possible quarterly estimated taxes."
+        }
+      ],
+      "product_link_reason": "",
+      "internal_links_note": "",
+      "image_headline": "Which Side Hustles Really Travel?",
+      "search_intent": "Informational list browsing: readers want remote side hustle ideas and want to know whether each one can actually be done from any country, including platform eligibility, payouts, visas and tax.",
+      "unique_value": "Instead of a long unsourced listicle, it checks a few options against the three things that decide 'from anywhere' (platform country rules, payout methods, and local visa and tax rules). It includes a sourced decision table, Prolific's residence and travel rules, a UK visitor-rules example quoted side by side from GOV.UK, and IRS rules for US side hustlers abroad.",
+      "image_alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+      "featured_image": {
+        "alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+        "license": "generated-in-house",
+        "creator": "",
+        "license_url": ""
+      },
+      "inline_images": []
+    },
+    "fact_check": {
+      "claims": [
+        {
+          "claim": "Most lists of remote side hustles treat 'remote' and 'from anywhere' as the same thing",
+          "verdict": "unsupported",
+          "source_url": "",
+          "evidence": "This is an opinion and no source is given for it.",
+          "suggested_fix": "Soften it (\"Many lists…\") or leave it as clear editorial framing."
+        },
+        {
+          "claim": "Moving doesn't switch off your tax obligations at home (said of everyone, before the US section)",
+          "verdict": "unsupported",
+          "source_url": "https://www.irs.gov/individuals/international-taxpayers/us-citizens-and-resident-aliens-abroad",
+          "evidence": "Unsupported as worded. The IRS page only supports this for US citizens and resident aliens: \"subject to tax on worldwide income from all sources\".",
+          "suggested_fix": "\"If you're a US citizen or resident alien, moving abroad doesn't switch off your US tax obligations. In many other countries, it depends on whether you stay tax-resident.\""
+        },
+        {
+          "claim": "Preply tutors teach students from 180+ countries",
+          "verdict": "supported",
+          "source_url": "https://preply.com/en/teach",
+          "evidence": "\"Teach students from over 180 countries\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Preply commission: 100% on a trial lesson with a new student, then starting at 33% and decreasing to 18%",
+          "verdict": "supported",
+          "source_url": "https://preply.com/en/teach",
+          "evidence": "\"commission for a trial lesson with a new student is 100%… starts at 33% and decreases to 18%\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Preply payout methods: PayPal, Payoneer, Skrill or Transferwise",
+          "verdict": "supported",
+          "source_url": "https://preply.com/en/teach",
+          "evidence": "\"Paypal, Payoneer, Skrill or Transferwise\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Preply equipment: laptop or desktop, stable internet, webcam and microphone",
+          "verdict": "supported",
+          "source_url": "https://preply.com/en/teach",
+          "evidence": "\"laptop or a desktop computer, a stable internet connection, a webcam, and a microphone\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Preply requires no credentials",
+          "verdict": "supported",
+          "source_url": "https://preply.com/en/teach",
+          "evidence": "\"No specific certification or teaching experience is required!\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Preply profile video up to 2 minutes",
+          "verdict": "supported",
+          "source_url": "https://preply.com/en/teach",
+          "evidence": "\"up to 2 mins long\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Preply reviews profiles within 3 business days",
+          "verdict": "supported",
+          "source_url": "https://preply.com/en/teach",
+          "evidence": "\"review your profile within 3 business days\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Preply English tutors charge $15–25 per hour and can change their rate anytime",
+          "verdict": "supported",
+          "source_url": "https://preply.com/en/teach",
+          "evidence": "\"English tutors charge $15-25 per hour\"; you can \"change it anytime\".",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Preply sign-up steps (photo, video, availability, set your hourly rate)",
+          "verdict": "supported",
+          "source_url": "https://preply.com/en/teach",
+          "evidence": "Photo, video and availability match the page's registration list. The page doesn't list \"set your hourly rate\" as a sign-up step; the article's note that screens may differ covers this.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Gumroad fees: 10% + $0.50 per transaction, 30% through the Discover marketplace",
+          "verdict": "supported",
+          "source_url": "https://gumroad.com/pricing",
+          "evidence": "\"10% + $0.50 Per transaction…\" and \"30%… through our discover marketplace\".",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Gumroad has acted as merchant of record for tax since January 1, 2025",
+          "verdict": "supported",
+          "source_url": "https://gumroad.com/pricing",
+          "evidence": "Supported by the pricing page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Gumroad collects taxes in regions where it has tax obligations",
+          "verdict": "supported",
+          "source_url": "https://gumroad.com/pricing",
+          "evidence": "\"We collect taxes in regions where we have tax obligations\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Gumroad payouts by direct deposit or PayPal, varying by country",
+          "verdict": "supported",
+          "source_url": "https://gumroad.com/pricing",
+          "evidence": "\"direct deposit or PayPal, varies by country\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Gumroad \"handles your tax obligations\"",
+          "verdict": "uncertain",
+          "source_url": "https://gumroad.com/pricing",
+          "evidence": "The notes give no verdict for this wording; they flag it as a framing risk. The page explains this as \"sales tax collection and remittance\", and a reader could take the article's wording to cover income tax.",
+          "suggested_fix": "\"handles sales tax/VAT collection and remittance (not your income tax).\""
+        },
+        {
+          "claim": "Etsy may require a one-time set-up fee",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"you may be required to pay a one-time set-up fee\" (page read with web_fetch after read_source returned HTTP 403).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy listing fee of $0.20 per item; listings expire after four months",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"$0.20 USD for each item\"; \"listings expire after four months\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy transaction fee of 6.5% of the displayed price plus shipping and gift wrapping",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"6.5% of the price you display… plus the amount you charge for shipping and gift wrapping\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy payment processing fees vary by bank account location",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"Payment processing fees vary based on the location of your bank account\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy charges a 2.5% currency conversion fee",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"2.5% currency conversion fee\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy fees are listed exclusive of VAT",
+          "verdict": "supported",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "\"all fees are listed exclusive of any value-added tax\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Etsy fee table (completeness)",
+          "verdict": "uncertain",
+          "source_url": "https://www.etsy.com/legal/fees/",
+          "evidence": "The notes give no verdict here. They say the fee list is incomplete for this topic: the page also lists Offsite Ads fees and Regulatory Operating fees, which \"may vary per country\".",
+          "suggested_fix": "Add Offsite Ads fees and Regulatory Operating fees to the table."
+        },
+        {
+          "claim": "UserTesting has a global network of trusted contributors",
+          "verdict": "supported",
+          "source_url": "https://www.usertesting.com/get-paid-to-test",
+          "evidence": "\"global network of trusted contributors\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "UserTesting practice test needs a microphone; app needed if applying on a phone; screening questions",
+          "verdict": "supported",
+          "source_url": "https://www.usertesting.com/get-paid-to-test",
+          "evidence": "Supported by the page.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "UserTesting rewards depend on test type, duration and customer demand; amount shown per test; payment usually sent 14 days later",
+          "verdict": "supported",
+          "source_url": "https://www.usertesting.com/get-paid-to-test",
+          "evidence": "\"test type, duration, and customer demand\"; payment \"usually sent 14 days later\"; amount shown per test.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "UserTesting: \"No fee model\"",
+          "verdict": "unsupported",
+          "source_url": "https://www.usertesting.com/get-paid-to-test",
+          "evidence": "The FAQ answer reads only \"No\", and the question it answers couldn't be read.",
+          "suggested_fix": "\"Not applicable: UserTesting pays you per test\", or remove."
+        },
+        {
+          "claim": "Prolific is open in most OECD countries to verified users over 18, including India, Brazil, Egypt, Indonesia and South Africa; eligibility is based on where you live, not nationality; there's a waitlist with no guarantee; invited users need photo ID, ideally a passport",
+          "verdict": "supported",
+          "source_url": "https://participant-help.prolific.com/en/articles/445007-who-can-participate-in-studies-on-prolific",
+          "evidence": "\"most OECD countries… over 18… verified account\"; \"based on where you currently live, not your nationality\"; photo ID, \"ideally your passport\".",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Prolific: get verified in 15 minutes",
+          "verdict": "supported",
+          "source_url": "https://www.prolific.com/participants",
+          "evidence": "\"Get verified in 15 minutes\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Prolific phone number rules for US/Canada, UK/Ireland and the same-continent rule for everyone else",
+          "verdict": "supported",
+          "source_url": "https://participant-help.prolific.com/en/articles/445013-does-my-phone-number-need-to-correspond-to-my-country-of-residence",
+          "evidence": "Supported by the help article.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Taking Prolific studies abroad or using a VPN will most likely put your account on hold",
+          "verdict": "supported",
+          "source_url": "https://participant-help.prolific.com/en/articles/445079-i-m-moving-countries-can-i-keep-my-account",
+          "evidence": "\"will most likely result in your account being placed on hold\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "You must be in your listed country of residence to cash out on Prolific (error PEC-U-0001)",
+          "verdict": "supported",
+          "source_url": "https://participant-help.prolific.com/en/articles/445068-can-i-cash-out-while-outside-of-my-country-of-residence",
+          "evidence": "\"You must be in your listed country of residence to cash out\", with error PEC-U-0001.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Prolific VPN detection can be triggered by public, workplace or university Wi-Fi and iCloud Private Relay",
+          "verdict": "supported",
+          "source_url": "https://participant-help.prolific.com/en/articles/472020-prolific-is-detecting-vpn-usage-but-i-m-not-using-a-vpn-how-do-i-resolve-it",
+          "evidence": "Supported by the help article.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Prolific cash-out: £6/$6 combined minimum, once a day resetting at midnight UTC, 72-hour cool-off if under four cash-outs or PayPal recently changed",
+          "verdict": "supported",
+          "source_url": "https://participant-help.prolific.com/en/articles/445063-when-can-i-cash-out",
+          "evidence": "Supported by the help article.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Moving countries on Prolific: new country must be supported by Prolific, PayPal and Hyperwallet; PayPal must match; you may need to reverify",
+          "verdict": "supported",
+          "source_url": "https://participant-help.prolific.com/en/articles/445079-i-m-moving-countries-can-i-keep-my-account",
+          "evidence": "New country must be supported by \"Prolific, as well as by PayPal and Hyperwallet\"; PayPal must match; may need to reverify.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "FAQ: can I use a VPN? \"On Prolific, no\"",
+          "verdict": "supported",
+          "source_url": "https://participant-help.prolific.com/en/articles/445079-i-m-moving-countries-can-i-keep-my-account",
+          "evidence": "A reasonable inference from the account-hold page (445079) and the VPN detection page (472020).",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "UK Standard Visitors usually stay up to 6 months and cannot do paid or unpaid work for a UK company or as a self-employed person",
+          "verdict": "supported",
+          "source_url": "https://www.gov.uk/standard-visitor",
+          "evidence": "\"usually stay… up to 6 months\"; cannot \"do paid or unpaid work for a UK company or as a self-employed person…\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "You'll need to apply for a work visa (UK)",
+          "verdict": "supported",
+          "source_url": "https://www.gov.uk/standard-visitor/visit-on-business",
+          "evidence": "\"You'll need to apply for a work visa…\"",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "UK visitors may undertake activities relating to their overseas employment remotely from within the UK, if not the primary purpose of the visit (PA 4(h))",
+          "verdict": "supported",
+          "source_url": "https://www.gov.uk/guidance/immigration-rules/immigration-rules-appendix-visitor-permitted-activities",
+          "evidence": "\"PA 4. A Visitor may:\" runs from (a) to (h); (h) reads \"undertake activities relating to their employment overseas remotely from within the UK, providing this is not the primary purpose of their visit.\" PA 1 confirms Standard Visitors can do all permitted activities. The article doesn't say which text applies to self-employed visitors, which is appropriate.",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "US citizens abroad are taxed on worldwide income; FEIE and foreign tax credit only by filing a return; automatic 2-month extension to June 15; interest still owed; FBAR above the reporting threshold",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/individuals/international-taxpayers/us-citizens-and-resident-aliens-abroad",
+          "evidence": "Worldwide income; FEIE and foreign tax credit \"only… by filing a relevant U.S. return\"; automatic 2-month extension to June 15; interest still owed; FBAR \"in excess of the reporting threshold\".",
+          "suggested_fix": ""
+        },
+        {
+          "claim": "Self-employment tax is 15.3% (12.4% + 2.9%), $400 threshold, for 2026 the first $184,500, may have to file estimated taxes quarterly rather than all at once",
+          "verdict": "supported",
+          "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+          "evidence": "15.3% (12.4% + 2.9%), $400 threshold, \"For 2026, the first $184,500\"; \"may have to file Estimated Taxes quarterly\". The article's added \"rather than all at once\" is harmless.",
+          "suggested_fix": ""
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://gumroad.com/pricing",
+          "relevant": true,
+          "notes": "Readable and supports the fee, merchant-of-record, tax-collection and payout claims. Caveat: the article's \"handles your tax obligations\" wording overstates it; the page describes sales tax collection and remittance."
+        },
+        {
+          "url": "https://participant-help.prolific.com/en/articles/445007-who-can-participate-in-studies-on-prolific",
+          "relevant": true,
+          "notes": "Supports the eligibility, residence, waitlist and photo ID claims."
+        },
+        {
+          "url": "https://participant-help.prolific.com/en/articles/445013-does-my-phone-number-need-to-correspond-to-my-country-of-residence",
+          "relevant": true,
+          "notes": "Supports the phone number rules."
+        },
+        {
+          "url": "https://participant-help.prolific.com/en/articles/445063-when-can-i-cash-out",
+          "relevant": true,
+          "notes": "Supports the cash-out minimum, daily limit and 72-hour cool-off."
+        },
+        {
+          "url": "https://participant-help.prolific.com/en/articles/445068-can-i-cash-out-while-outside-of-my-country-of-residence",
+          "relevant": true,
+          "notes": "Supports the must-be-in-country-to-cash-out claim and error PEC-U-0001."
+        },
+        {
+          "url": "https://participant-help.prolific.com/en/articles/445079-i-m-moving-countries-can-i-keep-my-account",
+          "relevant": true,
+          "notes": "Supports the account-hold and moving-countries claims."
+        },
+        {
+          "url": "https://participant-help.prolific.com/en/articles/472020-prolific-is-detecting-vpn-usage-but-i-m-not-using-a-vpn-how-do-i-resolve-it",
+          "relevant": true,
+          "notes": "Supports the VPN detection claims (public, workplace or university Wi-Fi; iCloud Private Relay)."
+        },
+        {
+          "url": "https://preply.com/en/teach",
+          "relevant": true,
+          "notes": "Supports all Preply claims. The page doesn't list \"set your hourly rate\" as a sign-up step. Country eligibility for tutors isn't checked."
+        },
+        {
+          "url": "https://www.etsy.com/legal/fees/",
+          "relevant": true,
+          "notes": "read_source returned HTTP 403; read in full with web_fetch. Supports all cited fee claims. Also lists Offsite Ads and Regulatory Operating fees, which the article omits."
+        },
+        {
+          "url": "https://www.gov.uk/guidance/immigration-rules/immigration-rules-appendix-visitor-permitted-activities",
+          "relevant": true,
+          "notes": "Confirms PA 4(h) and PA 1. The page shows no date; readers should recheck it."
+        },
+        {
+          "url": "https://www.gov.uk/standard-visitor",
+          "relevant": true,
+          "notes": "Supports the 6-month stay and no-work rules. Last updated 31 Oct 2024; readers should recheck it."
+        },
+        {
+          "url": "https://www.gov.uk/standard-visitor/visit-on-business",
+          "relevant": true,
+          "notes": "Supports the work visa statement. Last updated 31 Oct 2024; readers should recheck it."
+        },
+        {
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+          "relevant": true,
+          "notes": "Supports the 15.3% rate, $400 threshold, 2026 wage base and quarterly estimated taxes."
+        },
+        {
+          "url": "https://www.irs.gov/individuals/international-taxpayers/us-citizens-and-resident-aliens-abroad",
+          "relevant": true,
+          "notes": "Supports the US worldwide-income, FEIE/FTC, extension and FBAR claims. Applies only to US citizens and resident aliens, so it doesn't support the general \"moving doesn't switch off your tax obligations\" claim as worded."
+        },
+        {
+          "url": "https://www.prolific.com/participants",
+          "relevant": true,
+          "notes": "Supports \"Get verified in 15 minutes\"."
+        },
+        {
+          "url": "https://www.usertesting.com/get-paid-to-test",
+          "relevant": true,
+          "notes": "Supports most UserTesting claims, but not \"No fee model\" (the FAQ answer reads only \"No\" and its question couldn't be read). Also says \"UserTesting does not withhold any taxes from payments\", which the article should add."
+        }
+      ],
+      "satisfies_search_intent": true,
+      "intent_notes": "Passes with caveats. The three-way test (platform country rules, payouts, visa and tax) fits what readers are asking. Gaps against \"can I do it from any country\": country eligibility isn't checked for Preply tutors, UserTesting or Etsy Payments (those rows only say \"global network\" or \"varies\"); tax covers only the US and visas only the UK, which the article says openly; only four named platforms, which is thin if readers came to browse a list. Suggested additions: each platform's supported-countries page, UserTesting's statement that it doesn't withhold tax, and Etsy's Offsite Ads and Regulatory Operating fees.",
+      "adds_original_value": true,
+      "value_notes": "Not a generic rewrite. The Prolific residence and travel rules, the side-by-side UK texts and the IRS section are useful and well sourced.",
+      "product_claims_accurate": true,
+      "product_notes": "The article makes no claims about its own product, which matches \"no product\".",
+      "fetched_urls": [
+        "https://gumroad.com/pricing",
+        "https://participant-help.prolific.com/en/articles/445007-who-can-participate-in-studies-on-prolific",
+        "https://participant-help.prolific.com/en/articles/445013-does-my-phone-number-need-to-correspond-to-my-country-of-residence",
+        "https://participant-help.prolific.com/en/articles/445063-when-can-i-cash-out",
+        "https://participant-help.prolific.com/en/articles/445068-can-i-cash-out-while-outside-of-my-country-of-residence",
+        "https://participant-help.prolific.com/en/articles/445079-i-m-moving-countries-can-i-keep-my-account",
+        "https://participant-help.prolific.com/en/articles/472020-prolific-is-detecting-vpn-usage-but-i-m-not-using-a-vpn-how-do-i-resolve-it",
+        "https://preply.com/en/teach",
+        "https://www.etsy.com/legal/fees/",
+        "https://www.gov.uk/guidance/immigration-rules/immigration-rules-appendix-visitor-permitted-activities",
+        "https://www.gov.uk/standard-visitor",
+        "https://www.gov.uk/standard-visitor/visit-on-business",
+        "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes",
+        "https://www.irs.gov/individuals/international-taxpayers/us-citizens-and-resident-aliens-abroad",
+        "https://www.prolific.com/participants",
+        "https://www.usertesting.com/get-paid-to-test"
+      ],
+      "content_sha256": "eda9e99d4faed8f3a2897a4fab9e4f4c84c4a73867f1e8d44a1584d3af5eb7c6"
+    },
+    "images": {
+      "words": 2668,
+      "target": [
+        4,
+        5
+      ],
+      "stock_api_calls": 3,
+      "photo_searches": [
+        {
+          "provider": "openverse",
+          "query": "remote side hustles",
+          "result": "1"
+        },
+        {
+          "provider": "openverse",
+          "query": "freelancer working laptop",
+          "result": "20 (cached)"
+        },
+        {
+          "provider": "openverse",
+          "query": "person working laptop home",
+          "result": "20 (cached)"
+        },
+        {
+          "provider": "openverse",
+          "query": "laptop home office",
+          "result": "20 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "remote side hustles",
+          "result": "1"
+        },
+        {
+          "provider": "commons",
+          "query": "freelancer working laptop",
+          "result": "0 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "person working laptop home",
+          "result": "13 (cached)"
+        },
+        {
+          "provider": "commons",
+          "query": "laptop home office",
+          "result": "19 (cached)"
+        }
+      ],
+      "notes": [
+        "FALLBACK: no free, clearly licensed photo matched this article's topic, so the featured image is an in-house illustration (earnings). Replace it in WP Admin if you find a better photo.",
+        "1 image(s), below the 4-5 guideline: nothing else in the article would gain from a visual, and decorative images are not added"
+      ],
+      "topic": {
+        "motif": "earnings",
+        "match": "pillar money"
+      },
+      "photo_rejections": [
+        {
+          "description": "Close-up Photography of Woman Sitting Beside Table While Using Macbook",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Business freelance Asian woman working, doing projects and sending email on laptop or comp",
+          "reason": "nothing about anywhere, hustle, hustles, list"
+        },
+        {
+          "description": "Laptop Working",
+          "reason": "nothing about anywhere, hustle, hustles, list"
+        },
+        {
+          "description": "Woman Working",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Business Work",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Close-up Photography of Woman Sitting Beside Table While Using Macbook",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Desk Office",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Home Office",
+          "reason": "no laptop/computer/screen in its title"
+        },
+        {
+          "description": "Desk Laptop",
+          "reason": "nothing about anywhere, hustle, hustles, list"
+        },
+        {
+          "description": "Laptop Work",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Laptop Work",
+          "reason": "wrong scene (meeting)"
+        },
+        {
+          "description": "Working Together",
+          "reason": "wrong scene (meeting)"
+        }
+      ],
+      "featured": {
+        "provider": "in-house",
+        "kind": "illustration",
+        "motif": "earnings",
+        "license": "generated-in-house",
+        "alt_text": "Illustration of a laptop screen showing a rising bar chart and a coin",
+        "caption": "",
+        "filename": "remote-side-hustles-featured.webp",
+        "fallback": true,
+        "file": "featured.webp",
+        "bytes": 5796
+      },
+      "inline": []
+    },
+    "checks": [
+      {
+        "check": "word_count",
+        "passed": true,
+        "detail": "2706 words"
+      },
+      {
+        "check": "structure_h2",
+        "passed": true,
+        "detail": "6 H2 sections"
+      },
+      {
+        "check": "no_h1_in_body",
+        "passed": true,
+        "detail": "theme renders the H1"
+      },
+      {
+        "check": "headings_unique",
+        "passed": true,
+        "detail": "duplicate H2 text"
+      },
+      {
+        "check": "keyphrase_in_title",
+        "passed": true,
+        "detail": "Remote Side Hustles You Can Do from Anywhere, and the Location Rules Most Lists Skip"
+      },
+      {
+        "check": "keyphrase_early",
+        "passed": true,
+        "detail": "first 150 words"
+      },
+      {
+        "check": "keyword_density",
+        "passed": true,
+        "detail": "0.11% (1x)"
+      },
+      {
+        "check": "headings_not_stuffed",
+        "passed": true,
+        "detail": "0/6 H2 repeat keyphrase"
+      },
+      {
+        "check": "meta_description_length",
+        "passed": true,
+        "detail": "155 chars"
+      },
+      {
+        "check": "seo_title_length",
+        "passed": true,
+        "detail": "52 chars"
+      },
+      {
+        "check": "slug_format",
+        "passed": true,
+        "detail": "remote-side-hustles"
+      },
+      {
+        "check": "slug_unused",
+        "passed": true,
+        "detail": "remote-side-hustles"
+      },
+      {
+        "check": "not_near_duplicate",
+        "passed": true,
+        "detail": "max 5-gram overlap 0.01"
+      },
+      {
+        "check": "distinct_search_intent",
+        "passed": true,
+        "detail": "closest existing title 0.49: Instagram Follower Location: How to See Which Countries and Cities Your Followers Are From"
+      },
+      {
+        "check": "keyphrase_not_targeted_before",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_fabricated_experience_or_hype",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "https_only",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "no_broken_links",
+        "passed": true,
+        "detail": "1 confirmed by fact-check fetch"
+      },
+      {
+        "check": "internal_links_valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "internal_links_present",
+        "passed": true,
+        "detail": "8 internal links"
+      },
+      {
+        "check": "product_links_limited",
+        "passed": true,
+        "detail": "0 product links"
+      },
+      {
+        "check": "product_links_tracked",
+        "passed": true,
+        "detail": "missing UTM"
+      },
+      {
+        "check": "enough_independent_sources",
+        "passed": true,
+        "detail": "8 domains"
+      },
+      {
+        "check": "sources_cited_in_body",
+        "passed": true,
+        "detail": "16 of 16 sources linked in text"
+      },
+      {
+        "check": "statistics_have_sources",
+        "passed": false,
+        "detail": "100% of a trial lesson with a new student, then 33% of later lessons, falling to 18% the m | 10% + $0.50 per sale through your profile or direct links; 30% when new customers buy thro | A possible one-time set-up fee; $0.20 per listing (listings expire after four months); a 6",
+        "fix": "Link the source inside the same paragraph or list item as the number or 'according to' statement, or remove the statement."
+      },
+      {
+        "check": "featured_image_alt",
+        "passed": true,
+        "detail": "69 chars"
+      },
+      {
+        "check": "image_rights",
+        "passed": true,
+        "detail": "generated-in-house"
+      },
+      {
+        "check": "inline_images_have_alt",
+        "passed": true,
+        "detail": "0 inline images"
+      },
+      {
+        "check": "fact_check_claims",
+        "passed": false,
+        "detail": "3 no supporting evidence found (not shown to be false): Most lists of remote side hustles treat 'remote' and 'from anywhere' as the same thing (fix: Soften it (\"Many lists…\") or leave it as clear editorial framing.) | Moving doesn't switch off your tax obligations at home (said of everyone, before the US se (fix: \"If you're a US citizen or resident alien, moving abroad doesn't switch off your US tax obligations. In many other count) | UserTesting: \"No fee model\" (fix: \"Not applicable: UserTesting pays you per test\", or remove.) || 2 could not be checked (source unreadable or partial): Gumroad \"handles your tax obligations\" (fix: \"handles sales tax/VAT collection and remittance (not your income tax).\") | Etsy fee table (completeness) (fix: Add Offsite Ads fees and Regulatory Operating fees to the table.)",
+        "fix": "Contradicted: correct the claim to what the source says. No evidence found: cite an official source that states it, narrow it to what a source does say, or remove it. Could not be checked: verify it against a readable source or remove it. Source page not read: cite a page the pipeline can open that states the claim, or remove the claim. No claims listed: the fact-check did not check anything. Then re-run the fact-check only."
+      },
+      {
+        "check": "fact_check_intent",
+        "passed": true,
+        "detail": "Passes with caveats. The three-way test (platform country rules, payouts, visa and tax) fits what readers are asking. Gaps against \"can I do it from any country\": country eligibility isn't checked for Preply tutors, UserTesting or Etsy Payments (those rows only say \"global network\" or \"varies\"); tax covers only the US and visas only the UK, which the article says openly; only four named platforms, which is thin if readers came to browse a list. Suggested additions: each platform's supported-countries page, UserTesting's statement that it doesn't withhold tax, and Etsy's Offsite Ads and Regulatory Operating fees."
+      },
+      {
+        "check": "fact_check_original_value",
+        "passed": true,
+        "detail": "Not a generic rewrite. The Prolific residence and travel rules, the side-by-side UK texts and the IRS section are useful and well sourced."
+      },
+      {
+        "check": "fact_check_product_claims",
+        "passed": true,
+        "detail": "The article makes no claims about its own product, which matches \"no product\"."
+      },
+      {
+        "check": "fact_check_current",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "check": "sources_verified",
+        "passed": true,
+        "detail": ""
+      }
+    ],
+    "cost": {
+      "by_stage": {
+        "research": 1.029,
+        "write": 0.468,
+        "fact_check": 0.48,
+        "fact_check_json": 0.185
+      },
+      "total_usd": 2.162
+    },
+    "wp_media": {
+      "id": 3838,
+      "url": "https://newearns.com/wp-content/uploads/2026/11/remote-side-hustles-featured.webp"
+    },
+    "wp_post": {
+      "id": 3839,
+      "status": "pending",
+      "link": "https://newearns.com/?p=3839"
+    },
+    "image_check": "ok",
+    "final": "held_for_review"
+  },
+  "updated": "2026-11-14T17:09:44+00:00"
+}
