@@ -16,3 +16,5 @@
 {"event": "finished", "attempt": "20261114T165849480301Z@2026-11-14T16:58:49+00:00", "date": "2026-11-14T17:09:44+00:00", "status": "held_for_review"}
 {"event": "started", "attempt": "20261116T205619447411Z@2026-11-16T20:56:19+00:00", "run_id": "20261116T205619447411Z", "date": "2026-11-16T20:56:19+00:00", "pillar": "money", "topic": "Side Hustle Apps That Pay: Fees, Payouts and Who They Suit"}
 {"event": "finished", "attempt": "20261116T205619447411Z@2026-11-16T20:56:19+00:00", "date": "2026-11-16T21:04:40+00:00", "status": "error"}
+{"event": "started", "attempt": "20261116T205619447411Z@2026-11-17T19:45:39+00:00", "run_id": "20261116T205619447411Z", "date": "2026-11-17T19:45:39+00:00", "pillar": "money", "topic": "Side Hustle Apps That Pay: Fees, Payouts and Who They Suit"}
+{"event": "finished", "attempt": "20261116T205619447411Z@2026-11-17T19:45:39+00:00", "date": "2026-11-17T19:45:47+00:00", "status": "error"}
